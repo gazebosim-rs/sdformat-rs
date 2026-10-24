@@ -38,5 +38,75 @@
     "id": "free_imu_orientation_strings",
     "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><orientation_reference_frame><localization>BOGUS</localization><custom_rpy parent_frame='missing'>0 0 0</custom_rpy></orientation_reference_frame></imu></sensor></link></model></sdf>",
     "accepted": true
+  },
+  {
+    "id": "link_world_reference",
+    "xml": "<sdf version='1.12'><world name='w'><model name='m'><link name='l'><pose relative_to='world'/></link></model></world></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "model_local_world_attachment",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/><frame name='f' attached_to='world'/></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "world_model_canonical",
+    "xml": "<sdf version='1.12'><model name='m' canonical_link='world'><link name='l'/></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "world_frame_attachment",
+    "xml": "<sdf version='1.12'><world name='w'><frame name='f' attached_to='world'/></world></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "world_frame_model_reference",
+    "xml": "<sdf version='1.12'><world name='w'><frame name='f'><pose relative_to='__model__'/></frame></world></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "root_model_relative_to",
+    "xml": "<sdf version='1.12'><model name='m'><pose relative_to='world'/><link name='l'/></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "nested_model_world_reference",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/><model name='n'><pose relative_to='world'/><link name='l'/></model></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "static_model_ignores_canonical",
+    "xml": "<sdf version='1.12'><model name='m' canonical_link='missing'><static>true</static><link name='l'/></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "multiple_root_models",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/></model><model name='n'><link name='l'/></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "fully_scoped_local_pose",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><pose relative_to='m::r'/></link><link name='r'/></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "model_name_local_pose",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><pose relative_to='m'/></link></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "local_implicit_model_pose",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><pose relative_to='__model__'/></link></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "local_axis_world_reference",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/><joint name='j' type='revolute'><parent>world</parent><child>l</child><axis><xyz expressed_in='world'>1 0 0</xyz></axis></joint></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "canonical_self_cycle",
+    "xml": "<sdf version='1.12'><model name='m' canonical_link='__model__'><link name='l'/></model></sdf>",
+    "accepted": false
   }
 ]

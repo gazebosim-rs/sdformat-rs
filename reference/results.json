@@ -22,7 +22,7 @@
     }
   ],
   "corpus": {
-    "corpus_sha256": "5d9b447058d11f705305efc12aa0a31390d37d0e1bcb934c38eae0dc0012af03",
+    "corpus_sha256": "03c3a4a790c6ddda5e3f9687f2d664f946a390ce2630efcee4bb91f7920a3a68",
     "results": [
       {
         "id": "canonical_link_alias",
@@ -63,6 +63,76 @@
         "id": "free_imu_orientation_strings",
         "accepted": true,
         "errors": ""
+      },
+      {
+        "id": "link_world_reference",
+        "accepted": false,
+        "errors": "Error Code 26: Msg: relative_to name[world] specified by link with name[l] does not match a nested model, link, joint, or frame name in model with name[m].\nError Code 28: Msg: PoseRelativeToGraph error, MODEL / FRAME vertex with name [m::l] is disconnected; it should have 1 incoming edge in WORLD relative_to graph.\nError Code 28: Msg: PoseRelativeToGraph unable to find path to source vertex when starting from vertex with id [4].\nError Code 9: Msg: Failed to load a world.\n"
+      },
+      {
+        "id": "model_local_world_attachment",
+        "accepted": false,
+        "errors": "Error Code 23: Msg: attached_to name[world] specified by frame with name[f] does not match a nested model, link, joint, or frame name in model with name[m].\nError Code 25: Msg: FrameAttachedToGraph error, Non-LINK vertex with name [m::f] is disconnected; it should have 1 outgoing edge in MODEL attached_to graph.\nError Code 25: Msg: Graph has __model__ scope but sink vertex named [m::f] does not have FrameType LINK or STATIC_MODEL when starting from vertex with name [m::f].\nError Code 23: Msg: attached_to name[world] specified by frame with name[f] does not match a nested model, link, joint, or frame name in model with name[m].\nError Code 28: Msg: PoseRelativeToGraph error, Vertex with name [m::f] is disconnected; it should have 1 incoming edge in MODEL relative_to graph.\nError Code 28: Msg: PoseRelativeToGraph unable to find path to source vertex when starting from vertex with id [4].\n"
+      },
+      {
+        "id": "world_model_canonical",
+        "accepted": false,
+        "errors": "Error Code 16: Msg: canonical_link with name[world] not found in model with name[m].\nError Code 25: Msg: FrameAttachedToGraph error, Non-LINK vertex with name [m::__model__] is disconnected; it should have 1 outgoing edge in MODEL attached_to graph.\nError Code 25: Msg: Graph has __model__ scope but sink vertex named [m::__model__] does not have FrameType LINK or STATIC_MODEL when starting from vertex with name [m].\nError Code 25: Msg: Graph has __model__ scope but sink vertex named [m::__model__] does not have FrameType LINK or STATIC_MODEL when starting from vertex with name [m::__model__].\n"
+      },
+      {
+        "id": "world_frame_attachment",
+        "accepted": true,
+        "errors": ""
+      },
+      {
+        "id": "world_frame_model_reference",
+        "accepted": false,
+        "errors": "Error Code 26: Msg: relative_to name[__model__] specified by frame with name[f] does not match a model or frame name in world with name[w].\nError Code 28: Msg: PoseRelativeToGraph error, MODEL / FRAME vertex with name [f] is disconnected; it should have 1 incoming edge in WORLD relative_to graph.\nError Code 28: Msg: PoseRelativeToGraph unable to find path to source vertex when starting from vertex with id [2].\nError Code 9: Msg: Failed to load a world.\n"
+      },
+      {
+        "id": "root_model_relative_to",
+        "accepted": false,
+        "errors": "Error Code 5: [:<<data-string>>:L1]: Msg: Attribute //pose[@relative_to] of top level model must be left empty, found //pose[@relative_to='world'].\n\nError Code 9: Msg: Errors were found when checking the XML of element<sdf>.\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.12'><model name='m'><pose relative_to='world'/><link name='l'/></model></sdf>\n"
+      },
+      {
+        "id": "nested_model_world_reference",
+        "accepted": false,
+        "errors": "Error Code 26: Msg: relative_to name[world] specified by model with name[n] does not match a nested model, link, joint, or frame name in model with name[m].\nError Code 28: Msg: PoseRelativeToGraph error, Vertex with name [m::n] is disconnected; it should have 1 incoming edge in MODEL relative_to graph.\nError Code 28: Msg: PoseRelativeToGraph unable to find path to source vertex when starting from vertex with id [4].\nError Code 28: Msg: PoseRelativeToGraph unable to find path to source vertex when starting from vertex with id [5].\nError Code 28: Msg: PoseRelativeToGraph unable to find path to source vertex when starting from vertex with id [6].\n"
+      },
+      {
+        "id": "static_model_ignores_canonical",
+        "accepted": true,
+        "errors": ""
+      },
+      {
+        "id": "multiple_root_models",
+        "accepted": false,
+        "errors": "Error Code 11: Msg: Root object can only contain one model. Using the first one found\n"
+      },
+      {
+        "id": "fully_scoped_local_pose",
+        "accepted": false,
+        "errors": "Error Code 26: Msg: relative_to name[m::r] specified by link with name[l] does not match a nested model, link, joint, or frame name in model with name[m].\nError Code 28: Msg: PoseRelativeToGraph error, Vertex with name [m::l] is disconnected; it should have 1 incoming edge in MODEL relative_to graph.\nError Code 28: Msg: PoseRelativeToGraph unable to find path to source vertex when starting from vertex with id [3].\n"
+      },
+      {
+        "id": "model_name_local_pose",
+        "accepted": false,
+        "errors": "Error Code 26: Msg: relative_to name[m] specified by link with name[l] does not match a nested model, link, joint, or frame name in model with name[m].\nError Code 28: Msg: PoseRelativeToGraph error, Vertex with name [m::l] is disconnected; it should have 1 incoming edge in MODEL relative_to graph.\nError Code 28: Msg: PoseRelativeToGraph unable to find path to source vertex when starting from vertex with id [3].\n"
+      },
+      {
+        "id": "local_implicit_model_pose",
+        "accepted": true,
+        "errors": ""
+      },
+      {
+        "id": "local_axis_world_reference",
+        "accepted": false,
+        "errors": "Error Code 38: Msg: axis xyz expressed-in frame with name[world] specified by joint with name[j] not found in model with name[m].\nError Code 26: Msg: PoseRelativeToGraph unable to find unique frame with name [world] in graph.\n"
+      },
+      {
+        "id": "canonical_self_cycle",
+        "accepted": false,
+        "errors": "Error Code 24: Msg: FrameAttachedToGraph cycle detected, already visited vertex [m::__model__].\nError Code 24: Msg: FrameAttachedToGraph cycle detected, already visited vertex [m::__model__].\n"
       }
     ]
   }

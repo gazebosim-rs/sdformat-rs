@@ -65,8 +65,8 @@
         "test/sdf/sensors.sdf": "dc2b61c8b40a7df7f2c7b6e649f3039136ca1a03528371b307e9b9fc27406a00"
       },
       "baseline": "passed; artifacts/reference-sensors.xml",
-      "status": "partial_pending_review",
-      "review": "pending"
+      "status": "partial_reviewed",
+      "review": "/root; 2026-10-24; approved protected digest1120164533aeddd285ed38a26802ef768b4be12a88ff819c5d933f0cc195350b"
     }
   ]
 }

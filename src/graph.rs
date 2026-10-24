@@ -11,11 +11,16 @@ enum Kind {
     Joint,
     Frame,
 }
+#[derive(Debug, Clone)]
+enum Reference {
+    Absolute(String),
+    Scoped(String),
+}
 #[derive(Debug)]
 struct Node {
     scope: String,
-    pose_parent: String,
-    attachment: Option<String>,
+    pose_parent: Reference,
+    attachment: Option<Reference>,
     pose: Transform,
     kind: Kind,
     source: Source,
@@ -37,7 +42,7 @@ impl Graphs {
             "::",
             Node {
                 scope: String::new(),
-                pose_parent: String::new(),
+                pose_parent: Reference::Absolute(String::new()),
                 attachment: None,
                 pose: Transform::default(),
                 kind: Kind::Root,
@@ -49,7 +54,7 @@ impl Graphs {
                 &world.name,
                 Node {
                     scope: String::new(),
-                    pose_parent: "::".into(),
+                    pose_parent: Reference::Absolute("::".into()),
                     attachment: None,
                     pose: Transform::default(),
                     kind: Kind::World,
@@ -81,28 +86,31 @@ impl Graphs {
     fn model(&mut self, model: &Model, parent: &str) -> Result<(), Diagnostic> {
         let name = &model.scoped_name;
         let attachment = if model.is_static {
-            "world".into()
-        } else if model.canonical_link.is_empty() {
-            model
-                .links
-                .first()
-                .map(|link| link.name.clone())
-                .or_else(|| model.models.first().map(|nested| nested.name.clone()))
-                .ok_or_else(|| {
-                    error(
-                        ErrorCode::Missing,
-                        &model.source,
-                        "dynamic model requires a link or nested model",
-                    )
-                })?
+            Reference::Absolute(self.lookup("world", parent, &model.source)?)
         } else {
-            model.canonical_link.clone()
+            let name = if model.canonical_link.is_empty() {
+                model
+                    .links
+                    .first()
+                    .map(|link| link.name.clone())
+                    .or_else(|| model.models.first().map(|nested| nested.name.clone()))
+                    .ok_or_else(|| {
+                        error(
+                            ErrorCode::Missing,
+                            &model.source,
+                            "dynamic model requires a link or nested model",
+                        )
+                    })?
+            } else {
+                model.canonical_link.clone()
+            };
+            Reference::Scoped(name)
         };
         self.insert(
             name,
             Node {
                 scope: parent.into(),
-                pose_parent: reference(&model.pose.relative_to, parent),
+                pose_parent: reference(&model.pose.relative_to, Reference::Absolute(parent.into())),
                 attachment: Some(attachment),
                 pose: model.pose.transform,
                 kind: Kind::Model,
@@ -114,7 +122,10 @@ impl Graphs {
                 &link.scoped_name,
                 Node {
                     scope: name.clone(),
-                    pose_parent: reference(&link.pose.relative_to, name),
+                    pose_parent: reference(
+                        &link.pose.relative_to,
+                        Reference::Absolute(name.clone()),
+                    ),
                     attachment: None,
                     pose: link.pose.transform,
                     kind: Kind::Body,
@@ -128,8 +139,11 @@ impl Graphs {
                 &join(name, &joint.name),
                 Node {
                     scope: name.clone(),
-                    pose_parent: reference(&joint.pose.relative_to, &joint.child),
-                    attachment: Some(joint.child.clone()),
+                    pose_parent: reference(
+                        &joint.pose.relative_to,
+                        Reference::Scoped(joint.child.clone()),
+                    ),
+                    attachment: Some(Reference::Scoped(joint.child.clone())),
                     pose: joint.pose.transform,
                     kind: Kind::Joint,
                     source: joint.source.clone(),
@@ -143,12 +157,12 @@ impl Graphs {
     }
     fn frames(&mut self, frames: &[Frame], scope: &str) -> Result<(), Diagnostic> {
         for frame in frames {
-            let attached = reference(&frame.attached_to, scope);
+            let attached = reference(&frame.attached_to, Reference::Absolute(scope.into()));
             self.insert(
                 &join(scope, &frame.name),
                 Node {
                     scope: scope.into(),
-                    pose_parent: reference(&frame.pose.relative_to, &attached),
+                    pose_parent: reference(&frame.pose.relative_to, attached.clone()),
                     attachment: Some(attached),
                     pose: frame.pose.transform,
                     kind: Kind::Frame,
@@ -190,6 +204,49 @@ impl Graphs {
         }
         Ok(name)
     }
+    fn schema_lookup(
+        &self,
+        value: &str,
+        scope: &str,
+        source: &Source,
+    ) -> Result<String, Diagnostic> {
+        let kind = self.nodes.get(scope).map(|node| node.kind);
+        let name = if (value == "__model__" && kind == Some(Kind::Model))
+            || (value == "world" && kind == Some(Kind::World))
+        {
+            scope.into()
+        } else {
+            join(scope, value)
+        };
+        if !self.nodes.contains_key(&name) {
+            return Err(error(
+                ErrorCode::UnknownReference,
+                source,
+                format!("unknown local frame {value} in {scope}"),
+            ));
+        }
+        Ok(name)
+    }
+    fn resolve_reference(
+        &self,
+        reference: &Reference,
+        scope: &str,
+        source: &Source,
+    ) -> Result<String, Diagnostic> {
+        match reference {
+            Reference::Scoped(value) => self.schema_lookup(value, scope, source),
+            Reference::Absolute(value) => {
+                if !self.nodes.contains_key(value) {
+                    return Err(error(
+                        ErrorCode::UnknownReference,
+                        source,
+                        format!("unknown default frame {value}"),
+                    ));
+                }
+                Ok(value.clone())
+            }
+        }
+    }
     fn validate(&mut self) -> Result<(), Diagnostic> {
         let mut pose_graph = DiGraphMap::<&str, ()>::new();
         let mut attachment_graph = DiGraphMap::<&str, ()>::new();
@@ -199,7 +256,8 @@ impl Graphs {
             pose_graph.add_node(name);
             attachment_graph.add_node(name);
             if node.kind != Kind::Root {
-                let parent = self.lookup(&node.pose_parent, &node.scope, &node.source)?;
+                let parent =
+                    self.resolve_reference(&node.pose_parent, &node.scope, &node.source)?;
                 parents.insert(name.clone(), parent);
                 pose_graph.add_edge(
                     name,
@@ -218,17 +276,7 @@ impl Graphs {
                 } else {
                     &node.scope
                 };
-                let target = self.lookup(attachment, scope, &node.source)?;
-                if node.kind == Kind::Model
-                    && attachment != "world"
-                    && !target.starts_with(&format!("{name}::"))
-                {
-                    return Err(error(
-                        ErrorCode::InvalidValue,
-                        &node.source,
-                        "canonical link must belong to the model",
-                    ));
-                }
+                let target = self.resolve_reference(attachment, scope, &node.source)?;
                 attachments.insert(name.clone(), target);
                 attachment_graph.add_edge(
                     name,
@@ -280,7 +328,22 @@ impl Graphs {
         scope: &str,
         source: &Source,
     ) -> Result<String, Diagnostic> {
-        self.lookup(value, scope, source)
+        self.schema_lookup(value, scope, source)
+    }
+    pub(crate) fn joint_parent(
+        &self,
+        value: &str,
+        scope: &str,
+        source: &Source,
+    ) -> Result<String, Diagnostic> {
+        if value == "world" {
+            self.lookup(value, scope, source)
+        } else {
+            self.schema_lookup(value, scope, source)
+        }
+    }
+    pub(crate) fn axis_frame(&self, scope: &str, value: &str) -> Result<String, Diagnostic> {
+        self.schema_lookup(value, scope, &self.nodes["::"].source)
     }
     pub(crate) fn pose_of(&self, name: &str, target: &str) -> Result<Transform, Diagnostic> {
         let source = &self.nodes["::"].source;
@@ -298,7 +361,9 @@ impl Graphs {
                 format!("unknown frame {target}"),
             )
         })?;
-        Ok(b.inverse().compose(*a))
+        let pose = b.inverse().compose(*a);
+        pose.validate(source)?;
+        Ok(pose)
     }
     pub(crate) fn resolve_pose(
         &self,
@@ -308,12 +373,14 @@ impl Graphs {
         target: &str,
     ) -> Result<Transform, Diagnostic> {
         pose.transform.validate(&self.nodes["::"].source)?;
-        let parent = self.lookup(
-            &reference(&pose.relative_to, default_frame),
+        let parent = self.resolve_reference(
+            &reference(&pose.relative_to, Reference::Absolute(default_frame.into())),
             scope,
             &self.nodes["::"].source,
         )?;
-        Ok(self.pose_of(&parent, target)?.compose(pose.transform))
+        let resolved = self.pose_of(&parent, target)?.compose(pose.transform);
+        resolved.validate(&self.nodes["::"].source)?;
+        Ok(resolved)
     }
     pub(crate) fn attached_body(&self, name: &str) -> Result<&str, Diagnostic> {
         self.bodies.get(name).map(String::as_str).ok_or_else(|| {
@@ -332,11 +399,11 @@ pub(crate) fn join(scope: &str, name: &str) -> String {
         format!("{scope}::{name}")
     }
 }
-fn reference(value: &str, default: &str) -> String {
+fn reference(value: &str, default: Reference) -> Reference {
     if value.is_empty() {
-        default.into()
+        default
     } else {
-        value.into()
+        Reference::Scoped(value.into())
     }
 }
 pub(crate) fn error(code: ErrorCode, source: &Source, message: impl Into<String>) -> Diagnostic {

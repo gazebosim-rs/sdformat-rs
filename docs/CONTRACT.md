@@ -60,3 +60,11 @@ SDF features remain pending. Unknown schema features error; opaque plugin XML is
 The XML library currently requires namespace prefixes to be declared, whereas
 upstream permits undeclared prefixes in extension element names; that compatibility
 gap remains open.
+
+XML references are local to the enclosing world or model. Within a model,
+__model__ names its implicit frame; world is only special for joint parent.
+Within a world, world names the world frame. The parser distinguishes these local
+references from its fully scoped internal default edges. A top-level SDF may
+contain one model or worlds, and root-model pose relative_to must be empty.
+Public resolve_name accepts a fully scoped/default query or a world endpoint;
+it does not expand the allowed namespace of XML pose/axis references.

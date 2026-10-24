@@ -74,7 +74,14 @@ parse benchmarks on tiny and large nested inputs. No comparative performance
 claim, full upstream pass, full source/build provenance, or release qualification
 is supported by this initial slice.
 
-Known inherited frame-scope defect found by a subsequent native probe: model-local
-link pose/attachment and canonical-link references incorrectly accept `world`.
-Native rejects those references; separate local/public lookup validation is the
-next corrective slice before expanding placement frames.
+The third corrective slice separates fully scoped default edges from local XML
+references. Native/Rust corpus cases verify that model-local poses, attachments,
+canonical links and axes cannot reference world or re-prefix their own model;
+world-scoped frames/model poses may reference world, while joint parent retains
+its special world endpoint. Top-level model pose relative_to and multiple root
+models are rejected. Static models preserve upstream's ignored canonical-link
+setting. The canonical __model__ self-reference now reports Cycle, matching the
+native graph error instead of the earlier generic InvalidValue. This change is
+an explicit error-class correction; the malformed document remains rejected.
+Relative query arithmetic overflow is also rejected. The corpus now contains
+22 native/Rust cases; full retained semantic coverage remains pending.

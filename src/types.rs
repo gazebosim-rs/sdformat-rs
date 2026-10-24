@@ -145,7 +145,7 @@ impl Sdf {
             let scope = joint_frame
                 .rsplit_once("::")
                 .map_or("::", |(scope, _)| scope);
-            self.resolve_name(scope, &axis.expressed_in)?
+            self.graphs.axis_frame(scope, &axis.expressed_in)?
         };
         let pose = self.pose_of(&frame, target)?;
         Ok((DQuat::from_array(pose.rotation) * DVec3::from_array(axis.xyz)).to_array())

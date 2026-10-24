@@ -568,7 +568,7 @@ fn attachment_cycles_are_independent_of_pose_cycles() {
     let xml = "<sdf version='1.12'><model name='m' canonical_link='__model__'><link name='l'/></model></sdf>";
     assert_eq!(
         load_str(xml, "test", &NoResources).unwrap_err().code,
-        ErrorCode::InvalidValue
+        ErrorCode::Cycle
     );
 }
 #[test]
@@ -729,6 +729,117 @@ fn nested_scalar_schema_and_model_depth_are_validated() {
     let xml = "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><plane><normal>1e308 0 0</normal></plane></geometry></collision></link></model></sdf>";
     assert_eq!(
         load_str(xml, "large-normal", &NoResources)
+            .unwrap_err()
+            .code,
+        ErrorCode::InvalidValue
+    );
+}
+
+#[test]
+fn local_schema_references_cannot_escape_their_model_scope() {
+    for reference in ["world", "m", "m::r", "::"] {
+        let xml = format!(
+            "<sdf version='1.12'><world name='w'><model name='m'><link name='l'><pose relative_to='{reference}'/></link><link name='r'/></model></world></sdf>"
+        );
+        assert_eq!(
+            load_str(&xml, "local", &NoResources).unwrap_err().code,
+            ErrorCode::UnknownReference,
+            "{reference}"
+        );
+    }
+    for (body, code) in [
+        (
+            "<model name='m'><link name='l'/><frame name='f' attached_to='world'/></model>",
+            ErrorCode::UnknownReference,
+        ),
+        (
+            "<model name='m' canonical_link='world'><link name='l'/></model>",
+            ErrorCode::UnknownReference,
+        ),
+        (
+            "<model name='m'><pose relative_to='world'/><link name='l'/></model>",
+            ErrorCode::InvalidValue,
+        ),
+        (
+            "<model name='m'><link name='l'/><model name='n'><pose relative_to='world'/><link name='l'/></model></model>",
+            ErrorCode::UnknownReference,
+        ),
+        (
+            "<world name='w'><frame name='f'><pose relative_to='__model__'/></frame></world>",
+            ErrorCode::UnknownReference,
+        ),
+        (
+            "<model name='m'><link name='l'/></model><model name='n'><link name='l'/></model>",
+            ErrorCode::InvalidValue,
+        ),
+        (
+            "<model name='m'><link name='l'><collision name='c'><pose relative_to='world'/><geometry><box/></geometry></collision></link></model>",
+            ErrorCode::UnknownReference,
+        ),
+        (
+            "<model name='m'><link name='l'/><joint name='j' type='revolute'><parent>world</parent><child>l</child><axis><xyz expressed_in='world'>1 0 0</xyz></axis></joint></model>",
+            ErrorCode::UnknownReference,
+        ),
+    ] {
+        assert_eq!(
+            load_str(
+                &format!("<sdf version='1.12'>{body}</sdf>"),
+                "scope",
+                &NoResources
+            )
+            .unwrap_err()
+            .code,
+            code,
+            "{body}"
+        );
+    }
+    let sdf = load(
+        "<sdf version='1.12'><world name='w'><frame name='f' attached_to='world'/><model name='m'><pose relative_to='world'/><link name='l'><pose relative_to='__model__'/></link></model></world></sdf>",
+    );
+    assert_eq!(sdf.attached_body("w::f").unwrap(), "w");
+    close(sdf.pose_of("w::m::l", "w").unwrap(), [0.; 6]);
+    let sdf = load(
+        "<sdf version='1.12'><model name='m' canonical_link='missing'><static>true</static><link name='l'/></model></sdf>",
+    );
+    assert_eq!(sdf.attached_body("m").unwrap(), "::");
+    assert_eq!(
+        sdf.resolve_pose(&Pose::default(), "m", "missing", "::")
+            .unwrap_err()
+            .code,
+        ErrorCode::UnknownReference
+    );
+    let axis = Axis {
+        xyz: [1., 0., 0.],
+        expressed_in: "world".into(),
+        lower: 0.,
+        upper: 1.,
+        effort: 0.,
+        velocity: 0.,
+    };
+    assert_eq!(
+        sdf.resolve_axis(&axis, "m::joint", "::").unwrap_err().code,
+        ErrorCode::UnknownReference
+    );
+}
+
+#[test]
+fn relative_query_overflow_reports_an_error() {
+    let sdf = load(
+        "<sdf version='1.12'><world name='w'><model name='a'><pose>1e308 0 0 0 0 0</pose><link name='l'/></model><model name='b'><pose>-1e308 0 0 0 0 0</pose><link name='l'/></model></world></sdf>",
+    );
+    assert_eq!(
+        sdf.pose_of("w::a", "w::b").unwrap_err().code,
+        ErrorCode::InvalidValue
+    );
+    let pose = Pose {
+        transform: Transform {
+            translation: [1e308, 0., 0.],
+            ..Transform::default()
+        },
+        relative_to: String::new(),
+    };
+    assert_eq!(
+        sdf.resolve_pose(&pose, "w::a", "w::a::l", "w")
             .unwrap_err()
             .code,
         ErrorCode::InvalidValue

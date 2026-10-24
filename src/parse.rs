@@ -39,6 +39,13 @@ pub(crate) fn load(
     if worlds.is_empty() && models.is_empty() {
         return Err(parser.err(root, ErrorCode::Missing, "sdf requires a world or model"));
     }
+    if models.len() > 1 {
+        return Err(parser.err(
+            root,
+            ErrorCode::InvalidValue,
+            "root may contain only one model",
+        ));
+    }
     if !worlds.is_empty() && !models.is_empty() {
         return Err(parser.err(
             root,
@@ -358,6 +365,14 @@ impl Parser<'_> {
         )?;
         let name = rename.map_or_else(|| self.name(node), |n| Ok(n.into()))?;
         let scoped_name = join(scope, &name);
+        let pose = self.pose(node)?;
+        if scope == "::" && !pose.relative_to.is_empty() {
+            return Err(self.err(
+                node,
+                ErrorCode::InvalidValue,
+                "top-level model pose relative_to must be empty",
+            ));
+        }
         let links = elements(node)
             .filter(|n| n.has_tag_name("link"))
             .map(|n| self.link(n, &scoped_name))
@@ -369,7 +384,7 @@ impl Parser<'_> {
         Ok(Model {
             name,
             scoped_name: scoped_name.clone(),
-            pose: self.pose(node)?,
+            pose,
             is_static: self.boolean(node, "static", false)?,
             canonical_link: node.attribute("canonical_link").unwrap_or("").into(),
             links,
@@ -664,11 +679,15 @@ impl Parser<'_> {
         if kind != JointKind::Fixed && axis.is_none() {
             return Err(self.err(node, ErrorCode::Missing, "moving joint requires axis"));
         }
+        let child = self.text(node, "child")?;
+        if child == "world" {
+            return Err(self.err(node, ErrorCode::InvalidValue, "joint child cannot be world"));
+        }
         Ok(Joint {
             name: self.name(node)?,
             kind,
             parent: self.text(node, "parent")?,
-            child: self.text(node, "child")?,
+            child,
             pose: self.pose(node)?,
             axis,
             source: self.source(node),
@@ -827,7 +846,7 @@ fn child<'a, 'b>(node: Node<'a, 'b>, tag: &str) -> Option<Node<'a, 'b>> {
 fn validate_model(model: &Model, graphs: &Graphs) -> Result<(), Diagnostic> {
     let scope = &model.scoped_name;
     for joint in &model.joints {
-        let parent = graphs.validate_reference(&joint.parent, scope, &joint.source)?;
+        let parent = graphs.joint_parent(&joint.parent, scope, &joint.source)?;
         let child = graphs.validate_reference(&joint.child, scope, &joint.source)?;
         let parent_body = graphs.attached_body(&parent)?;
         let child_body = graphs.attached_body(&child)?;

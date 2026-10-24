@@ -43,10 +43,22 @@
       "sha256": "7a4562925a6f0ad74c07778429f67553e2486c461272881e28d7f759687ca6c8",
       "args": "--gtest_filter=NestedModel.NestedModelWithFrames:NestedModel.NestedModelWithSiblingFrames",
       "result": "passed; both complete Rust assertion ports independently reviewed by /root/msgs"
+    },
+    {
+      "binary": "INTEGRATION_joint_dom",
+      "sha256": "cc12b5936e5c7e3aa89a2d625c9371e69f0b2d0ce19805b800048a9cb6cddd7b",
+      "args": "--gtest_filter=DOMJoint.LoadLinkJointSameName16Valid",
+      "result": "passed; complete Rust assertion port independently reviewed by /root/msgs"
+    },
+    {
+      "binary": "INTEGRATION_world_dom",
+      "sha256": "86e9196873ea34e0d8514a4fe22194a10226dd913e98088e72e450a5f91d69bd",
+      "args": "--gtest_filter=DOMWorld.LoadModelFrameSameName",
+      "result": "passed; complete Rust assertion port independently reviewed by /root/msgs"
     }
   ],
   "corpus": {
-    "corpus_sha256": "efe6f5a3dc398f7b16076d6478b8c4b22f2f3aebdb0bf064d8af5b404006d050",
+    "corpus_sha256": "1a921b7a5cb84691e01ea9645d3acbcbead444e4f5706ffcfdfba71fd5985cdd",
     "results": [
       {
         "id": "canonical_link_alias",
@@ -1339,6 +1351,202 @@
             ]
           }
         ]
+      },
+      {
+        "id": "legacy_names_link_joint",
+        "accepted": true,
+        "errors": "",
+        "declaration_names": {
+          "model": [],
+          "link": [
+            "a",
+            "b"
+          ],
+          "joint": [
+            "a_joint"
+          ],
+          "frame": []
+        },
+        "joint_bodies": [
+          "a",
+          "b"
+        ]
+      },
+      {
+        "id": "legacy_names_joint_link_reverse",
+        "accepted": true,
+        "errors": "",
+        "declaration_names": {
+          "model": [],
+          "link": [
+            "b",
+            "a_link"
+          ],
+          "joint": [
+            "a"
+          ],
+          "frame": []
+        },
+        "joint_bodies": [
+          "a_link",
+          "b"
+        ]
+      },
+      {
+        "id": "legacy_names_joint_link_raw_reference",
+        "accepted": false,
+        "errors": "Error Code 21: Msg: joint with name[a] in model with name[m] must not specify its own name as the parent frame.\nError Code 22: Msg: joint with name[a] in model with name[m] specified parent frame [a] and child frame [b] that both resolve to [b], but they should resolve to different values.\n"
+      },
+      {
+        "id": "legacy_names_joint_suffixes",
+        "accepted": true,
+        "errors": "",
+        "declaration_names": {
+          "model": [],
+          "link": [
+            "a",
+            "a_joint",
+            "a_joint0",
+            "b"
+          ],
+          "joint": [
+            "a_joint1"
+          ],
+          "frame": []
+        },
+        "joint_bodies": [
+          "a",
+          "b"
+        ]
+      },
+      {
+        "id": "legacy_names_future_link_suffix",
+        "accepted": true,
+        "errors": "",
+        "declaration_names": {
+          "model": [],
+          "link": [
+            "a",
+            "b",
+            "a_joint_link"
+          ],
+          "joint": [
+            "a_joint"
+          ],
+          "frame": []
+        },
+        "joint_bodies": [
+          "a",
+          "b"
+        ]
+      },
+      {
+        "id": "legacy_names_frame_before_link",
+        "accepted": true,
+        "errors": "",
+        "declaration_names": {
+          "model": [],
+          "link": [
+            "a_link"
+          ],
+          "joint": [],
+          "frame": [
+            "a"
+          ]
+        }
+      },
+      {
+        "id": "legacy_names_frame_after_link",
+        "accepted": true,
+        "errors": "",
+        "declaration_names": {
+          "model": [],
+          "link": [
+            "a"
+          ],
+          "joint": [],
+          "frame": [
+            "a_frame"
+          ]
+        }
+      },
+      {
+        "id": "legacy_names_model_before_link",
+        "accepted": true,
+        "errors": "",
+        "declaration_names": {
+          "model": [
+            "a"
+          ],
+          "link": [
+            "a_link"
+          ],
+          "joint": [],
+          "frame": []
+        }
+      },
+      {
+        "id": "legacy_names_model_after_link",
+        "accepted": false,
+        "errors": "Error Code 2: Msg: Model with non-unique name [a] detected in model with name [m].\nError Code 2: Msg: Model with non-unique name [a] detected in model with name [m].\nError Code 28: Msg: PoseRelativeToGraph error, too many incoming edges at a vertex with name [m::a].\nError Code 28: Msg: PoseRelativeToGraph error: multiple incoming edges to current vertex [m::a].\n"
+      },
+      {
+        "id": "legacy_names_duplicate_link",
+        "accepted": false,
+        "errors": "Error Code 2: Msg: link with name[a] already exists.\n"
+      },
+      {
+        "id": "legacy_names_duplicate_frame",
+        "accepted": false,
+        "errors": "Error Code 2: Msg: frame with name[a] already exists.\n"
+      },
+      {
+        "id": "legacy_names_duplicate_joint",
+        "accepted": false,
+        "errors": "Error Code 2: Msg: joint with name[a] already exists.\n"
+      },
+      {
+        "id": "legacy_names_duplicate_model",
+        "accepted": false,
+        "errors": "Error Code 2: Msg: model with name[a] already exists.\n"
+      },
+      {
+        "id": "legacy_world_names_frame_before_model",
+        "accepted": true,
+        "errors": "",
+        "declaration_names": {
+          "model": [
+            "a"
+          ],
+          "frame": [
+            "a_frame"
+          ]
+        }
+      },
+      {
+        "id": "legacy_world_names_frame_suffixes",
+        "accepted": true,
+        "errors": "",
+        "declaration_names": {
+          "model": [
+            "a",
+            "a_frame",
+            "a_frame0"
+          ],
+          "frame": [
+            "a_frame1"
+          ]
+        }
+      },
+      {
+        "id": "legacy_world_names_duplicate_frame",
+        "accepted": false,
+        "errors": "Error Code 2: Msg: frame with name[a] already exists.\nError Code 9: Msg: Failed to load a world.\n"
+      },
+      {
+        "id": "modern_names_still_reject",
+        "accepted": false,
+        "errors": "Error Code 2: Msg: Joint with name [a] in model with name [m] has a name collision. Please rename this joint.\nError Code 2: Msg: Joint with non-unique name [a] detected in model with name [m].\nError Code 25: Msg: FrameAttachedToGraph error, LINK vertex with name [m::a] should have no outgoing edges in MODEL attached_to graph.\nError Code 2: Msg: Joint with non-unique name [a] detected in model with name [m].\nError Code 28: Msg: PoseRelativeToGraph error, too many incoming edges at a vertex with name [m::a].\nError Code 28: Msg: PoseRelativeToGraph error: multiple incoming edges to current vertex [m::a].\nError Code 21: Msg: joint with name[a] in model with name[m] must not specify its own name as the parent frame.\nError Code 22: Msg: joint with name[a] in model with name[m] specified parent frame [a] and child frame [b] that both resolve to [b], but they should resolve to different values.\n"
       }
     ]
   },
@@ -1356,13 +1564,15 @@
     "source": "sdf/1.7/1_6.convert",
     "sha256": "eb367e1cbeefa6dea7864ad5aabb07fd1436b8f821dda87b4942bc727f209fdf",
     "implemented": "Effective typed pose frame->relative_to overwrite and axis/axis2 use_parent_model_frame table mapping for SDF1.6, including missing-xyz conversion failure. Original XML source positions/version are retained; no generic serialized XML conversion claim.",
-    "unsupported_legacy_shared_names": {
-      "xml": "<sdf version='1.6'><model name='m'><link name='a'/><link name='b'/><joint name='a' type='fixed'><parent>a</parent><child>b</child></joint></model></sdf>",
-      "native_accepted": true,
-      "native_joint_name": "a_joint",
-      "rust": "Unsupported; pending legacy graph/name compatibility"
-    },
     "whitespace": "Legacy pose normalization uses exactly space/tab/LF. Ordinary converter flag text and leading literal-segment recognition use native C isspace: space/tab/LF/CR/VT/FF; entity-created text nodes remain present even when collapsed empty. CDATA padding is significant. A leading child element blocks first text while comments are skipped. Literal attribute CR/CRLF normalize with quick-xml before reference expansion; numeric CR and NBSP retain distinct semantics.",
-    "review": "/root/msgs; 2026-10-24; pinned converter XML/hash, effective mappings, separate whitespace rules, Text/CDATA/element/comment first-node semantics, attribute EOL/reference distinction and resource-local provenance reviewed; independently reran47 Rust tests,11 tooling tests and122 native differential cases. No original case retired, exclusions or dependencies added."
+    "review": "/root/msgs; 2026-10-24; pinned converter XML/hash, effective mappings, separate whitespace rules, Text/CDATA/element/comment first-node semantics, attribute EOL/reference distinction and resource-local provenance reviewed; independently reran47 Rust tests,11 tooling tests and122 native differential cases. No original case retired, exclusions or dependencies added.",
+    "legacy_shared_names": {
+      "implemented": "SDF1.6 model members load in declaration order; later link/joint/frame cross-kind collisions append _kind then _kind0,1,...; nested models are not renamed. World models load before frames independent of XML order. Same-kind raw duplicates reject and references are not rewritten. Modern shared names continue to reject.",
+      "source": [
+        "src/Model.cc:374-491",
+        "src/World.cc:243-362"
+      ],
+      "review": "/root/msgs; 2026-10-24; every original assertion in joint_dom.cc863-943 and world_dom.cc157-230 reviewed, both fixtures byte-identical; independently ran both exact original C++ cases, all50 Rust tests,11 tooling tests and139 native observations. Reviewed model/world ordering, suffix search, raw duplicate tracking, non-renamed models and unchanged references. No blocking findings."
+    }
   }
 }

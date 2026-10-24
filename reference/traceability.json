@@ -144,6 +144,38 @@
       "baseline": "passed; artifacts/dom-probe/reference-nested-frames.xml",
       "status": "ported_reviewed",
       "review": "/root/msgs; 2026-10-24; original assertion bodies, lookup/inversion path, both axis comparisons and unchanged upstream fixture reviewed. Native Pose3/Vector3 component-wise <=1e-3 comparisons retained plus tighter supplementary checks; 45 Rust tests and 76 native differential cases independently rerun."
+    },
+    {
+      "target": "INTEGRATION_joint_dom",
+      "case": "DOMJoint.LoadLinkJointSameName16Valid",
+      "source": "test/integration/joint_dom.cc:863",
+      "rust_test": "tests/legacy_names.rs::load_link_joint_same_name16_valid_original_assertions",
+      "assertions": "All original load/existence, names/counts/index bounds, raw pose/reference, renamed-name absence/presence, and six semantic resolve success/pose assertions. Link/joint case retains canonical-link emptiness. Original component-wise <=1e-3 gz-math Pose3 equality plus supplementary tighter1e-6 checks; collection access represents DOM lookup.",
+      "fixtures": {
+        "tests/fixtures/model_link_joint_same_name.sdf": "5f01e09d14c9c4779356ff718732f553d788278a00a42f193f02ffd3587b1064"
+      },
+      "upstream_fixtures": {
+        "test/sdf/model_link_joint_same_name.sdf": "5f01e09d14c9c4779356ff718732f553d788278a00a42f193f02ffd3587b1064"
+      },
+      "baseline": "passed; artifacts/reference-legacy-names.xml",
+      "status": "ported_reviewed",
+      "review": "/root/msgs; 2026-10-24; every original assertion in joint_dom.cc863-943 and world_dom.cc157-230 reviewed, both fixtures byte-identical; independently ran both exact original C++ cases, all50 Rust tests,11 tooling tests and139 native observations. Reviewed model/world ordering, suffix search, raw duplicate tracking, non-renamed models and unchanged references. No blocking findings."
+    },
+    {
+      "target": "INTEGRATION_world_dom",
+      "case": "DOMWorld.LoadModelFrameSameName",
+      "source": "test/integration/world_dom.cc:157",
+      "rust_test": "tests/legacy_names.rs::load_world_model_frame_same_name_original_assertions",
+      "assertions": "All original load/existence, names/counts/index bounds, raw pose/reference, renamed-name absence/presence, and six semantic resolve success/pose assertions. Link/joint case retains canonical-link emptiness. Original component-wise <=1e-3 gz-math Pose3 equality plus supplementary tighter1e-6 checks; collection access represents DOM lookup.",
+      "fixtures": {
+        "tests/fixtures/world_model_frame_same_name_1_6.sdf": "65584375a0d7addbe2f47a41b44d4ae55de8375bc754df00ea38bca6eb535309"
+      },
+      "upstream_fixtures": {
+        "test/sdf/world_model_frame_same_name_1_6.sdf": "65584375a0d7addbe2f47a41b44d4ae55de8375bc754df00ea38bca6eb535309"
+      },
+      "baseline": "passed; artifacts/reference-world-legacy-names.xml",
+      "status": "ported_reviewed",
+      "review": "/root/msgs; 2026-10-24; every original assertion in joint_dom.cc863-943 and world_dom.cc157-230 reviewed, both fixtures byte-identical; independently ran both exact original C++ cases, all50 Rust tests,11 tooling tests and139 native observations. Reviewed model/world ordering, suffix search, raw duplicate tracking, non-renamed models and unchanged references. No blocking findings."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

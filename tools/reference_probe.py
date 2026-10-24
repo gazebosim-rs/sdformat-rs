@@ -46,6 +46,16 @@ for case in json.loads(path.read_text()):
         accepted,errors=False,str(error)
     assert accepted==case['accepted'],case['id']
     observed=dict(id=case['id'],accepted=accepted,errors=errors)
+    if accepted and 'declaration_names' in case:
+        owner=document.world_by_index(0) if case['names_scope']=='world' else document.model()
+        names={kind:[getattr(owner,kind+'_by_index')(i).name() for i in range(getattr(owner,kind+'_count')())] for kind in case['declaration_names']}
+        assert names==case['declaration_names'],case['id']
+        observed['declaration_names']=names
+        if 'joint_bodies' in case:
+            joint=owner.joint_by_index(0)
+            bodies=[joint.resolve_parent_link(),joint.resolve_child_link()]
+            assert bodies==case['joint_bodies'],case['id']
+            observed['joint_bodies']=bodies
     if accepted and 'model_pose' in case:
         model=document.model() if document.model() else document.world_by_index(0).model_by_index(0)
         pose=model.semantic_pose().resolve()

@@ -86,8 +86,13 @@ attribute CR/CRLF normalize before reference expansion. A true flag without xyz
 reproduces the native missing-value rejection caused by its synthesized empty xyz.
 Effective typed references are converted without rewriting source XML/positions.
 Each included resource uses its own version. Original root Sdf.version is retained.
-1.6 shared link/joint names and flattened names still return Unsupported for pending
-graph compatibility; 1.5 and older conversions remain unavailable. Full schema/version-aware
+SDF1.6 model members share a namespace in declaration order: later links, joints
+and frames with cross-kind collisions append _link/_joint/_frame, then a numeric
+suffix starting at0 when needed. Nested models are never renamed. Worlds load
+models before applying the same frame renaming, independent of XML order.
+Same-kind raw duplicates reject, and reference strings are not rewritten.
+Modern shared names reject. Flattened names remain Unsupported; 1.5 and older
+conversions remain unavailable. Full schema/version-aware
 validation, serialization, visual rendering properties/material data, mesh/resources, merge, automatic inertia, URDF, other sensor families and most other
 SDF features remain pending. Unknown schema features error; opaque plugin XML is the stated exception.
 XML names are lexical, matching upstream TinyXML: extension prefixes need not

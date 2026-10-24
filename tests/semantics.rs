@@ -722,6 +722,39 @@ fn pinned_cpp_differential_acceptance_corpus() {
             case["accepted"].as_bool().unwrap(),
             "{case}"
         );
+        if let Some(expected) = case.get("declaration_names") {
+            let sdf = result.as_ref().unwrap();
+            let names = if case["names_scope"] == "world" {
+                let world = &sdf.worlds[0];
+                serde_json::json!({
+                    "model": world.models.iter().map(|m| &m.name).collect::<Vec<_>>(),
+                    "frame": world.frames.iter().map(|f| &f.name).collect::<Vec<_>>(),
+                })
+            } else {
+                let model = &sdf.models[0];
+                serde_json::json!({
+                    "model": model.models.iter().map(|m| &m.name).collect::<Vec<_>>(),
+                    "link": model.links.iter().map(|l| &l.name).collect::<Vec<_>>(),
+                    "joint": model.joints.iter().map(|j| &j.name).collect::<Vec<_>>(),
+                    "frame": model.frames.iter().map(|f| &f.name).collect::<Vec<_>>(),
+                })
+            };
+            assert_eq!(&names, expected, "{case}");
+            if let Some(expected) = case.get("joint_bodies") {
+                let model = &sdf.models[0];
+                let joint = &model.joints[0];
+                let bodies = [&joint.parent, &joint.child].map(|reference| {
+                    let name = sdf.resolve_name(&model.scoped_name, reference).unwrap();
+                    sdf.attached_body(&name)
+                        .unwrap()
+                        .rsplit("::")
+                        .next()
+                        .unwrap()
+                        .to_string()
+                });
+                assert_eq!(serde_json::json!(bodies), *expected, "{case}");
+            }
+        }
         if let Some(owner) = case.get("deferred_pose_error") {
             let sdf = result.as_ref().unwrap();
             let model = &sdf.models[0];

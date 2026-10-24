@@ -253,3 +253,26 @@ even if its decoded whitespace later collapses empty, so later CDATA cannot win;
 literal whitespace creates no such node. A leading child blocks text lookup while
 comments are skipped. Controls cover NBSP/VT/FF, literal/reference forms, CDATA,
 child/comment order and both axes, including the missing-xyz acceptance boundary.
+
+A separate legacy-name candidate now implements native SDF1.6 collision handling:
+model members load in declaration order; later links, joints and frames append
+their type suffix and then numeric suffixes starting at0. Nested models are not
+renamed. World models are collected before frame renaming regardless of XML
+declaration order. Same-kind raw duplicates reject and reference strings remain
+unchanged, including references that consequently fail semantic resolution.
+Modern shared names still reject. This replaces the previous shared-name
+Unsupported boundary; flattened-name conversion remains pending.
+
+Both original cases DOMJoint.LoadLinkJointSameName16Valid and
+DOMWorld.LoadModelFrameSameName pass natively. Complete assertion ports preserve
+names, counts, index bounds, raw references/poses and all six resolved poses per
+case, including original component-wise <=1e-3 comparisons plus tighter
+supplementary checks. Their fixture bytes match upstream. The corpus now has139
+native acceptance/query cases, covering order reversals, future suffix collisions,
+numeric suffixes, nested models, unchanged joint endpoints, same-kind duplicates
+and a modern-version control. All50 Rust tests,11 tooling tests, fmt, clippy and
+doc checks pass. Coverage1823/1842 lines,3120/3227 regions and changed104/104.
+No dependencies, exclusions or thresholds changed. Independent review by
+/root/msgs verified every original assertion and fixture, reran both original
+native tests, all50 Rust tests,11 tooling tests and139 native observations.
+The two mappings are reviewed; strict frozen staged verification remains required.

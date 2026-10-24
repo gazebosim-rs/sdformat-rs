@@ -1275,5 +1275,218 @@
         ]
       }
     ]
+  },
+  {
+    "id": "legacy_names_link_joint",
+    "xml": "<sdf version='1.6'><model name='m'><link name='a'/><link name='b'/><joint name='a' type='fixed'><parent>a</parent><child>b</child></joint></model></sdf>",
+    "names_scope": "model",
+    "accepted": true,
+    "declaration_names": {
+      "model": [],
+      "link": [
+        "a",
+        "b"
+      ],
+      "joint": [
+        "a_joint"
+      ],
+      "frame": []
+    },
+    "joint_bodies": [
+      "a",
+      "b"
+    ]
+  },
+  {
+    "id": "legacy_names_joint_link_reverse",
+    "xml": "<sdf version='1.6'><model name='m'><link name='b'/><joint name='a' type='fixed'><parent>a_link</parent><child>b</child></joint><link name='a'/></model></sdf>",
+    "names_scope": "model",
+    "accepted": true,
+    "declaration_names": {
+      "model": [],
+      "link": [
+        "b",
+        "a_link"
+      ],
+      "joint": [
+        "a"
+      ],
+      "frame": []
+    },
+    "joint_bodies": [
+      "a_link",
+      "b"
+    ]
+  },
+  {
+    "id": "legacy_names_joint_link_raw_reference",
+    "xml": "<sdf version='1.6'><model name='m'><link name='b'/><joint name='a' type='fixed'><parent>a</parent><child>b</child></joint><link name='a'/></model></sdf>",
+    "names_scope": "model",
+    "accepted": false
+  },
+  {
+    "id": "legacy_names_joint_suffixes",
+    "xml": "<sdf version='1.6'><model name='m'><link name='a'/><link name='a_joint'/><link name='a_joint0'/><link name='b'/><joint name='a' type='fixed'><parent>a</parent><child>b</child></joint></model></sdf>",
+    "names_scope": "model",
+    "accepted": true,
+    "declaration_names": {
+      "model": [],
+      "link": [
+        "a",
+        "a_joint",
+        "a_joint0",
+        "b"
+      ],
+      "joint": [
+        "a_joint1"
+      ],
+      "frame": []
+    },
+    "joint_bodies": [
+      "a",
+      "b"
+    ]
+  },
+  {
+    "id": "legacy_names_future_link_suffix",
+    "xml": "<sdf version='1.6'><model name='m'><link name='a'/><link name='b'/><joint name='a' type='fixed'><parent>a</parent><child>b</child></joint><link name='a_joint'/></model></sdf>",
+    "names_scope": "model",
+    "accepted": true,
+    "declaration_names": {
+      "model": [],
+      "link": [
+        "a",
+        "b",
+        "a_joint_link"
+      ],
+      "joint": [
+        "a_joint"
+      ],
+      "frame": []
+    },
+    "joint_bodies": [
+      "a",
+      "b"
+    ]
+  },
+  {
+    "id": "legacy_names_frame_before_link",
+    "xml": "<sdf version='1.6'><model name='m'><frame name='a' attached_to='a_link'/><link name='a'/></model></sdf>",
+    "names_scope": "model",
+    "accepted": true,
+    "declaration_names": {
+      "model": [],
+      "link": [
+        "a_link"
+      ],
+      "joint": [],
+      "frame": [
+        "a"
+      ]
+    }
+  },
+  {
+    "id": "legacy_names_frame_after_link",
+    "xml": "<sdf version='1.6'><model name='m'><link name='a'/><frame name='a' attached_to='a'><pose>0 0 3 0 0 0</pose></frame></model></sdf>",
+    "names_scope": "model",
+    "accepted": true,
+    "declaration_names": {
+      "model": [],
+      "link": [
+        "a"
+      ],
+      "joint": [],
+      "frame": [
+        "a_frame"
+      ]
+    }
+  },
+  {
+    "id": "legacy_names_model_before_link",
+    "xml": "<sdf version='1.6'><model name='m'><model name='a'><link name='inner'/></model><link name='a'/></model></sdf>",
+    "names_scope": "model",
+    "accepted": true,
+    "declaration_names": {
+      "model": [
+        "a"
+      ],
+      "link": [
+        "a_link"
+      ],
+      "joint": [],
+      "frame": []
+    }
+  },
+  {
+    "id": "legacy_names_model_after_link",
+    "xml": "<sdf version='1.6'><model name='m'><link name='a'/><model name='a'><link name='inner'/></model></model></sdf>",
+    "names_scope": "model",
+    "accepted": false
+  },
+  {
+    "id": "legacy_names_duplicate_link",
+    "xml": "<sdf version='1.6'><model name='m'><link name='a'/><link name='a'/></model></sdf>",
+    "names_scope": "model",
+    "accepted": false
+  },
+  {
+    "id": "legacy_names_duplicate_frame",
+    "xml": "<sdf version='1.6'><model name='m'><link name='a'/><frame name='a'/><frame name='a'/></model></sdf>",
+    "names_scope": "model",
+    "accepted": false
+  },
+  {
+    "id": "legacy_names_duplicate_joint",
+    "xml": "<sdf version='1.6'><model name='m'><link name='a'/><link name='b'/><joint name='a' type='fixed'><parent>a</parent><child>b</child></joint><joint name='a' type='fixed'><parent>a</parent><child>b</child></joint></model></sdf>",
+    "names_scope": "model",
+    "accepted": false
+  },
+  {
+    "id": "legacy_names_duplicate_model",
+    "xml": "<sdf version='1.6'><model name='m'><model name='a'><link name='inner'/></model><model name='a'><link name='inner'/></model></model></sdf>",
+    "names_scope": "model",
+    "accepted": false
+  },
+  {
+    "id": "legacy_world_names_frame_before_model",
+    "xml": "<sdf version='1.6'><world name='w'><frame name='a'/><model name='a'><link name='inner'/></model></world></sdf>",
+    "names_scope": "world",
+    "accepted": true,
+    "declaration_names": {
+      "model": [
+        "a"
+      ],
+      "frame": [
+        "a_frame"
+      ]
+    }
+  },
+  {
+    "id": "legacy_world_names_frame_suffixes",
+    "xml": "<sdf version='1.6'><world name='w'><model name='a'><link name='inner'/></model><model name='a_frame'><link name='inner'/></model><model name='a_frame0'><link name='inner'/></model><frame name='a'/></world></sdf>",
+    "names_scope": "world",
+    "accepted": true,
+    "declaration_names": {
+      "model": [
+        "a",
+        "a_frame",
+        "a_frame0"
+      ],
+      "frame": [
+        "a_frame1"
+      ]
+    }
+  },
+  {
+    "id": "legacy_world_names_duplicate_frame",
+    "xml": "<sdf version='1.6'><world name='w'><model name='a'><link name='inner'/></model><frame name='a'/><frame name='a'/></world></sdf>",
+    "names_scope": "world",
+    "accepted": false
+  },
+  {
+    "id": "modern_names_still_reject",
+    "xml": "<sdf version='1.7'><model name='m'><link name='a'/><link name='b'/><joint name='a' type='fixed'><parent>a</parent><child>b</child></joint></model></sdf>",
+    "names_scope": "model",
+    "accepted": false
   }
 ]

@@ -334,11 +334,24 @@ impl Parser<'_> {
         let name = self.name(node)?;
         let gravity = child(node, "gravity").map_or(Ok([0., 0., -9.8]), |n| self.values(n))?;
         let models = self.models(node, &name)?;
+        let mut frames = self.frames(node)?;
+        if is_16(node) {
+            // World loads models before frames, regardless of declaration order.
+            let mut names = models.iter().map(|model| model.name.clone()).collect();
+            let mut typed_names = BTreeSet::new();
+            for (frame, element) in frames
+                .iter_mut()
+                .zip(elements(node).filter(|n| n.has_tag_name("frame")))
+            {
+                frame.name =
+                    self.legacy_name(element, "frame", &frame.name, &mut names, &mut typed_names)?;
+            }
+        }
         Ok(World {
             name,
             gravity,
             models,
-            frames: self.frames(node)?,
+            frames,
             plugins: self.plugins(node)?,
             source: self.source(node),
         })
@@ -346,16 +359,44 @@ impl Parser<'_> {
     fn frames(&self, node: Node<'_, '_>) -> Result<Vec<Frame>, Diagnostic> {
         elements(node)
             .filter(|n| n.has_tag_name("frame"))
-            .map(|n| {
-                self.allowed(n, &["pose"], &["name", "attached_to"])?;
-                Ok(Frame {
-                    name: self.name(n)?,
-                    attached_to: n.attribute("attached_to").unwrap_or("").into(),
-                    pose: self.pose(n)?,
-                    source: self.source(n),
-                })
-            })
+            .map(|n| self.frame(n))
             .collect()
+    }
+    fn frame(&self, node: Node<'_, '_>) -> Result<Frame, Diagnostic> {
+        self.allowed(node, &["pose"], &["name", "attached_to"])?;
+        Ok(Frame {
+            name: self.name(node)?,
+            attached_to: node.attribute("attached_to").unwrap_or("").into(),
+            pose: self.pose(node)?,
+            source: self.source(node),
+        })
+    }
+    fn legacy_name(
+        &self,
+        node: Node<'_, '_>,
+        kind: &'static str,
+        original: &str,
+        names: &mut BTreeSet<String>,
+        typed_names: &mut BTreeSet<(&'static str, String)>,
+    ) -> Result<String, Diagnostic> {
+        if !typed_names.insert((kind, original.into())) {
+            return Err(self.err(
+                node,
+                ErrorCode::DuplicateName,
+                format!("duplicate {kind} name {original}"),
+            ));
+        }
+        let mut name = original.to_string();
+        if kind != "model" && names.contains(&name) {
+            name = format!("{original}_{kind}");
+            let mut index = 0usize;
+            while names.contains(&name) {
+                name = format!("{original}_{kind}{index}");
+                index += 1;
+            }
+        }
+        names.insert(name.clone());
+        Ok(name)
     }
     fn models(&mut self, node: Node<'_, '_>, scope: &str) -> Result<Vec<Model>, Diagnostic> {
         elements(node)
@@ -399,24 +440,75 @@ impl Parser<'_> {
                 "top-level model pose relative_to must be empty",
             ));
         }
-        let links = elements(node)
-            .filter(|n| n.has_tag_name("link"))
-            .map(|n| self.link(n, &scoped_name))
-            .collect::<Result<Vec<_>, _>>()?;
-        let joints = elements(node)
-            .filter(|n| n.has_tag_name("joint"))
-            .map(|n| self.joint(n))
-            .collect::<Result<Vec<_>, _>>()?;
-        if is_16(node)
-            && joints
-                .iter()
-                .any(|joint| links.iter().any(|link| link.name == joint.name))
-        {
-            return Err(self.err(
-                node,
-                ErrorCode::Unsupported,
-                "SDF1.6 shared link/joint names require legacy graph compatibility",
-            ));
+        let mut links = Vec::new();
+        let mut joints = Vec::new();
+        let mut models = Vec::new();
+        let mut frames = Vec::new();
+        let mut names = BTreeSet::new();
+        let mut typed_names = BTreeSet::new();
+        // Legacy collisions rename only the element loaded later. Future names
+        // must not be reserved early; references retain their declared strings.
+        for member in elements(node) {
+            match member.tag_name().name() {
+                "link" => {
+                    let mut link = self.link(member, &scoped_name)?;
+                    if is_16(node) {
+                        link.name = self.legacy_name(
+                            member,
+                            "link",
+                            &link.name,
+                            &mut names,
+                            &mut typed_names,
+                        )?;
+                        link.scoped_name = join(&scoped_name, &link.name);
+                    }
+                    links.push(link);
+                }
+                "joint" => {
+                    let mut joint = self.joint(member)?;
+                    if is_16(node) {
+                        joint.name = self.legacy_name(
+                            member,
+                            "joint",
+                            &joint.name,
+                            &mut names,
+                            &mut typed_names,
+                        )?;
+                    }
+                    joints.push(joint);
+                }
+                "frame" => {
+                    let mut frame = self.frame(member)?;
+                    if is_16(node) {
+                        frame.name = self.legacy_name(
+                            member,
+                            "frame",
+                            &frame.name,
+                            &mut names,
+                            &mut typed_names,
+                        )?;
+                    }
+                    frames.push(frame);
+                }
+                "model" | "include" => {
+                    let nested = if member.has_tag_name("model") {
+                        self.model(member, &scoped_name, None)?
+                    } else {
+                        self.include(member, &scoped_name)?
+                    };
+                    if is_16(node) {
+                        self.legacy_name(
+                            member,
+                            "model",
+                            &nested.name,
+                            &mut names,
+                            &mut typed_names,
+                        )?;
+                    }
+                    models.push(nested);
+                }
+                _ => {}
+            }
         }
         Ok(Model {
             name,
@@ -427,8 +519,8 @@ impl Parser<'_> {
             placement_frame: node.attribute("placement_frame").unwrap_or("").into(),
             links,
             joints,
-            models: self.models(node, &scoped_name)?,
-            frames: self.frames(node)?,
+            models,
+            frames,
             plugins: self.plugins(node)?,
             source: self.source(node),
         })

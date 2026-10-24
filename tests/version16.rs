@@ -33,7 +33,7 @@ fn included_conversion_uses_imported_version_and_preserves_source_positions() {
     sdf.validate_non_frame_poses().unwrap();
 }
 #[test]
-fn older_conversions_and_legacy_graph_compatibility_remain_explicit_boundaries() {
+fn older_conversions_and_flattened_names_remain_explicit_boundaries() {
     for (xml, code) in [
         (
             "<sdf version='1.5'><model name='m'><link name='l'/></model></sdf>",
@@ -41,10 +41,6 @@ fn older_conversions_and_legacy_graph_compatibility_remain_explicit_boundaries()
         ),
         (
             "<sdf version='1.6'><model name='m'><link name='nested::l'/></model></sdf>",
-            ErrorCode::Unsupported,
-        ),
-        (
-            "<sdf version='1.6'><model name='m'><link name='a'/><link name='b'/><joint name='a' type='fixed'><parent>a</parent><child>b</child></joint></model></sdf>",
             ErrorCode::Unsupported,
         ),
         (
@@ -64,4 +60,12 @@ fn older_conversions_and_legacy_graph_compatibility_remain_explicit_boundaries()
             "{xml}"
         );
     }
+}
+
+#[test]
+fn previously_unsupported_shared_names_now_use_native_renaming() {
+    let xml = "<sdf version='1.6'><model name='m'><link name='a'/><link name='b'/><joint name='a' type='fixed'><parent>a</parent><child>b</child></joint></model></sdf>";
+    let sdf = load_str(xml, "legacy-name-boundary", &NoResources).unwrap();
+    assert_eq!(sdf.models[0].joints[0].name, "a_joint");
+    assert_eq!(sdf.models[0].links[0].name, "a");
 }

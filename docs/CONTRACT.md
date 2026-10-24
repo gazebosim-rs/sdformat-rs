@@ -67,12 +67,27 @@ separate attachment graph to a link or static world attachment. Names, unknown
 frame references, duplicate semantic frame names and both kinds of cycles are checked.
 Non-frame reference failures are returned by resolve_pose or the explicit validator.
 
-Versions1.8–1.12 share empty upstream conversion scripts in the supported subset.
-For1.7 an empty inertial pose relative_to acts as the default link frame, matching
-the upstream1.7→1.8 remove_empty action. General XML conversion, serialized
+Versions 1.8–1.12 share empty upstream conversion scripts in the supported subset.
+For 1.7 an empty inertial pose relative_to acts as the default link frame, matching
+the upstream 1.7→1.8 remove_empty action. General XML conversion, serialized
 attribute removal and round-trip conversion remain pending. Flattened names
-that require unflatten conversion return explicit Unsupported. Older pose-frame
-rename and joint-parent-axis conversions remain unsupported. Full schema/version-aware
+that require unflatten conversion return explicit Unsupported.
+
+The 1.6 pose-frame and joint-axis conversions are applied semantically: pose
+frame overwrites relative_to (including an empty frame), and axis/axis2
+use_parent_model_frame values true/True/TRUE/1 set expressed_in to __model__.
+Other values are discarded by the conversion table. Ordinary XML text uses ASCII
+whitespace handling (space/tab/LF/CR/VT/FF), while CDATA padding remains
+significant. Reference-created empty first text nodes still block later CDATA;
+leading literal whitespace is skipped, and child elements block first text.
+Pose references
+trim exactly space/tab/LF; numeric CR and NBSP remain part of the name. Literal
+attribute CR/CRLF normalize before reference expansion. A true flag without xyz
+reproduces the native missing-value rejection caused by its synthesized empty xyz.
+Effective typed references are converted without rewriting source XML/positions.
+Each included resource uses its own version. Original root Sdf.version is retained.
+1.6 shared link/joint names and flattened names still return Unsupported for pending
+graph compatibility; 1.5 and older conversions remain unavailable. Full schema/version-aware
 validation, serialization, visual rendering properties/material data, mesh/resources, merge, automatic inertia, URDF, other sensor families and most other
 SDF features remain pending. Unknown schema features error; opaque plugin XML is the stated exception.
 XML names are lexical, matching upstream TinyXML: extension prefixes need not

@@ -4,9 +4,16 @@
 //! SDF element cursor over the XML tokenizer. Names stay lexical, matching
 //! TinyXML's legacy extension behavior; source ranges always index original XML.
 use crate::ErrorCode;
-use quick_xml::{Reader, events::Event};
+use quick_xml::{
+    Reader,
+    events::{BytesText, Event},
+};
 use std::{fmt, ops::Range};
 use xmlparser::{Reference, Stream, TextPos};
+
+pub(crate) fn legacy_whitespace(c: char) -> bool {
+    matches!(c, ' ' | '\t' | '\n' | '\r' | '\u{b}' | '\u{c}')
+}
 
 struct Element {
     name: String,
@@ -14,6 +21,7 @@ struct Element {
     children: Vec<usize>,
     text: String,
     text_state: TextState,
+    text_is_cdata: bool,
     range: Range<usize>,
 }
 #[derive(Clone, Copy, PartialEq, Eq)]
@@ -25,7 +33,9 @@ enum TextState {
 impl Element {
     // Entity events continue the same text node; markup closes its first segment.
     fn plain_text(&mut self, text: &str, reference: bool) {
-        if self.text_state == TextState::None && (reference || !text.trim().is_empty()) {
+        if self.text_state == TextState::None
+            && (reference || !text.trim_matches(legacy_whitespace).is_empty())
+        {
             self.text_state = TextState::Active;
         }
         if self.text_state == TextState::Active {
@@ -133,13 +143,19 @@ impl<'input> Document<'input> {
                             .map_err(|error| document.error(ErrorCode::Xml, start, error))?;
                         // Namespace declarations are metadata, not SDF attributes.
                         if name != "xmlns" && !name.starts_with("xmlns:") {
-                            attributes
-                                .push((name.into(), references(utf8(attribute.value.as_ref()))));
+                            // Normalize literal EOLs before reference expansion;
+                            // a numeric CR reference must remain distinct.
+                            let value = BytesText::from_escaped(utf8(attribute.value.as_ref()));
+                            let value = value
+                                .xml10_content()
+                                .expect("attribute came from UTF-8 input");
+                            attributes.push((name.into(), references(&value)));
                         }
                     }
                     let index = document.elements.len();
                     if let Some(parent) = stack.last() {
-                        document.elements[*parent].close_text();
+                        // A leading element blocks native GetText; comments do not.
+                        document.elements[*parent].text_state = TextState::Finished;
                         document.elements[*parent].children.push(index);
                     }
                     document.elements.push(Element {
@@ -148,6 +164,7 @@ impl<'input> Document<'input> {
                         children: vec![],
                         text: String::new(),
                         text_state: TextState::None,
+                        text_is_cdata: false,
                         range: start..end,
                     });
                     if !empty {
@@ -177,6 +194,7 @@ impl<'input> Document<'input> {
                         let element = &mut document.elements[*index];
                         if element.text_state == TextState::None {
                             element.text.push_str(&text);
+                            element.text_is_cdata = true;
                         }
                         element.text_state = TextState::Finished;
                     } else {
@@ -340,6 +358,9 @@ impl<'a, 'input> Node<'a, 'input> {
         } else {
             Some(text.split('\0').next().expect("split has a first part"))
         }
+    }
+    pub fn text_is_cdata(self) -> bool {
+        self.document.elements[self.index].text_is_cdata
     }
 }
 pub(crate) struct Name<'a> {

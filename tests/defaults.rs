@@ -104,7 +104,12 @@ fn sdf17_subset_preserves_version_and_reports_unimplemented_unflattening() {
         load_str(flat, "unflatten", &NoResources).unwrap_err().code,
         ErrorCode::Unsupported
     );
-    let older = "<sdf version='1.6'><model name='m'><link name='l'/></model></sdf>";
+    let legacy = "<sdf version='1.6'><model name='m'><link name='l'/></model></sdf>";
+    assert_eq!(
+        load_str(legacy, "legacy", &NoResources).unwrap().version,
+        "1.6"
+    );
+    let older = "<sdf version='1.5'><model name='m'><link name='l'/></model></sdf>";
     assert_eq!(
         load_str(older, "older", &NoResources).unwrap_err().code,
         ErrorCode::Version

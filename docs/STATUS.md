@@ -216,3 +216,40 @@ incorrectly described1e-6 as the default. All affected pose ports now include th
 original component-wise assertions, retain the tighter1e-6 checks as supplementary
 assertions, and remove the quaternion sign relaxation. Fixture bytes, original
 lookup/inversion paths and production arithmetic are unchanged.
+
+The next bounded version slice applies the two rules in the pinned
+sdf/1.7/1_6.convert directly to effective typed references. Pose frame overwrites
+relative_to even when empty; both joint axes map exactly true/True/TRUE/1 to
+__model__. Other strings (including mixed-case tRuE) are removed rather than
+parsed as booleans. Native mapping without xyz creates an empty required element
+and fails loading; Rust retains that failure. Included resources use their own
+version while their URI, line and column remain unchanged. Original root version
+is retained. The former supplementary 1.6 rejection now has a positive assertion;
+its empty-document error is Missing, and the older-version rejection is retained
+at 1.5. No original upstream assertion was changed or newly retired.
+
+The native corpus has 122 acceptance cases, with old pose-reference
+observations and legacy axis references/resolved vectors. Rust has 47 integration
+tests; 11 tooling tests, fmt, clippy and doc checks pass. Production coverage is
+1749/1770 lines and 2984/3094 regions, changed 84/84; no exclusions. Native 1.6
+shared link/joint names rename the joint (a -> a_joint); that legacy graph
+compatibility and flattened-name unflattening remain explicit Unsupported.
+Full versions, serialization and the SDF packets remain incomplete. Independent
+review:/root/msgs, including47 Rust tests,11 tooling tests and122 native cases.
+Strict staged verification remains required for this version slice.
+
+Independent review caught two legacy whitespace mismatches before acceptance:
+CDATA-padded true must not map like ordinary padded text, and native pose-reference
+trim removes only space/tab/LF, preserving NBSP and numeric CR references. The
+cursor now retains first-text/CDATA origin; only legacy mapping uses it. The XML
+library normalizes literal attribute EOLs before reference expansion, keeping
+numeric CR distinct. Native-backed cases cover both axes, missing-xyz behavior,
+CDATA, NBSP, numeric references, literal CR and CRLF. Original plugin XML bytes
+and source positions remain preserved.
+
+Follow-up probes retain native C isspace's VT/FF characters in ordinary whitespace
+collapse and leading-segment recognition. Numeric references create a text node
+even if its decoded whitespace later collapses empty, so later CDATA cannot win;
+literal whitespace creates no such node. A leading child blocks text lookup while
+comments are skipped. Controls cover NBSP/VT/FF, literal/reference forms, CDATA,
+child/comment order and both axes, including the missing-xyz acceptance boundary.

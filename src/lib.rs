@@ -25,7 +25,7 @@ impl ResourceResolver for NoResources {
     }
 }
 
-/// Parse the supported SDF 1.7–1.12 subset and validate its semantic graphs.
+/// Parse the supported SDF 1.6–1.12 subset and validate its semantic graphs.
 pub fn load_str(
     xml: &str,
     source: &str,

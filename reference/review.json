@@ -1,8 +1,8 @@
 {
   "decision": "approved",
   "author": "/root/sdformat",
-  "reviewer": "/root/transport",
-  "protected_digest": "999fb87f90ef8e89002b14f62bea75c8fcd3ff5e312b9b976f0fd40ed4622582",
-  "scope": "Independent read-only review of README/tools/verify.py/tools/test_verify.py frozen staged export correction only, inheriting previously reviewed production/assertion scope. Verified private frozen index, exact raw Git blob identities and SHA1/SHA256 formats, symlink target/type, owner executable bit, complete path set, gitlink rejection and final index/HEAD guards. Independently reran all11 tool tests including export-ignore/partial stage, EOL transform, content/mode/type/link/extra paths and independent index/HEAD races. No production Rust, native assertion, ledger, threshold or exclusion changes; strict full staged gate remains required. Full SDF packets remain incomplete.",
+  "reviewer": "/root/msgs",
+  "protected_digest": "bb615a2afab47e196ce8d272be94f90e4a51f7d8a7dbf352de2611c69761dc01",
+  "scope": "Independent review of bounded SDF1.6 typed pose frame overwrite and both-axis legacy literal mapping against pinned conversion XML/hash. Found and re-reviewed fixes for padded CDATA, exact three-character pose trimming versus six-character ordinary XML whitespace, NBSP/VT/FF, reference-created empty first nodes, child/comment ordering, and literal attribute EOL normalization before reference expansion. Independently reran all47 Rust tests,11 tooling tests and122 native differential cases. Resource-local version and original source positions retained; general XML conversion, older versions/shared names remain explicitly unsupported. Final metadata-only review-note delta checked. Existing reviewed staged-blob/Cargo/coverage policy inherited; no source case retired, dependency, exclusion or threshold change. Strict frozen staged gate remains required.",
   "date": "2026-10-24"
 }

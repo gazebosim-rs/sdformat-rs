@@ -84,6 +84,22 @@ for case in json.loads(path.read_text()):
         missing=document.model().joint_by_index(0).axis(1) is None
         assert missing==case['axis2_missing'],case['id']
         observed['axis2_missing']=missing
+    if accepted and 'link_relative_to' in case:
+        value=document.model().link_by_index(0).pose_relative_to()
+        assert value==case['link_relative_to'],case['id']
+        observed['link_relative_to']=value
+    if accepted and 'joint_axes' in case:
+        joint=document.model().joint_by_index(0)
+        axes=[joint.axis(index) for index in range(2) if joint.axis(index) is not None]
+        assert len(axes)==len(case['joint_axes']),case['id']
+        measured=[]
+        for axis,expected in zip(axes,case['joint_axes']):
+            assert axis.xyz_expressed_in()==expected['expressed_in'],case['id']
+            value=axis.resolve_xyz('__model__')
+            values=[value.x(),value.y(),value.z()]
+            assert all(abs(a-b)<1e-12 for a,b in zip(values,expected['resolved'])),case['id']
+            measured.append(dict(expressed_in=axis.xyz_expressed_in(),resolved=values))
+        observed['joint_axes']=measured
     if accepted and 'axis_missing' in case:
         missing=document.model().joint_by_index(0).axis(0) is None
         assert missing==case['axis_missing'],case['id']

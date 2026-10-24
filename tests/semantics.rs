@@ -369,7 +369,8 @@ fn invalid_documents_fail_atomically() {
         ("<model/>", ErrorCode::Xml),
         ("<sdf/>", ErrorCode::Version),
         ("<sdf version='1.7'/>", ErrorCode::Missing),
-        ("<sdf version='1.6'/>", ErrorCode::Version),
+        ("<sdf version='1.6'/>", ErrorCode::Missing),
+        ("<sdf version='1.5'/>", ErrorCode::Version),
         ("<sdf version='1.12'/>", ErrorCode::Missing),
         (
             "<sdf version='1.12'><world name='w'/><model name='m'/></sdf>",
@@ -757,6 +758,38 @@ fn pinned_cpp_differential_acceptance_corpus() {
                 result.as_ref().unwrap().models[0].joints[0].axis2.is_none(),
                 expected.as_bool().unwrap()
             );
+        }
+        if let Some(expected) = case.get("link_relative_to") {
+            assert_eq!(
+                result.as_ref().unwrap().models[0].links[0].pose.relative_to,
+                expected.as_str().unwrap()
+            );
+        }
+        if let Some(expected) = case.get("joint_axes") {
+            let sdf = result.as_ref().unwrap();
+            let model = &sdf.models[0];
+            let joint = &model.joints[0];
+            let axes = joint.axis.iter().chain(&joint.axis2).collect::<Vec<_>>();
+            assert_eq!(axes.len(), expected.as_array().unwrap().len());
+            for (axis, expected) in axes.into_iter().zip(expected.as_array().unwrap()) {
+                assert_eq!(
+                    axis.expressed_in,
+                    expected["expressed_in"].as_str().unwrap()
+                );
+                let resolved = sdf
+                    .resolve_axis(
+                        axis,
+                        &format!("{}::{}", model.scoped_name, joint.name),
+                        &model.scoped_name,
+                    )
+                    .unwrap();
+                for (a, b) in resolved
+                    .into_iter()
+                    .zip(expected["resolved"].as_array().unwrap())
+                {
+                    assert!((a - b.as_f64().unwrap()).abs() < 1e-12, "{case}");
+                }
+            }
         }
         if let Some(expected) = case.get("axis_missing") {
             assert_eq!(

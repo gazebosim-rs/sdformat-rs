@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 use crate::graph::{Graphs, error, join};
-use crate::xml::{Document, Node};
+use crate::xml::{Document, Node, legacy_whitespace};
 use crate::*;
 use glam::{DQuat, DVec3, EulerRot};
 use std::collections::BTreeSet;
@@ -92,9 +92,9 @@ impl Parser<'_> {
         }
         if !matches!(
             root.attribute("version"),
-            Some("1.7" | "1.8" | "1.9" | "1.10" | "1.11" | "1.12")
+            Some("1.6" | "1.7" | "1.8" | "1.9" | "1.10" | "1.11" | "1.12")
         ) {
-            return Err(self.err(root, ErrorCode::Version, "supported versions are SDF 1.7 through 1.12; earlier conversion is not implemented"));
+            return Err(self.err(root, ErrorCode::Version, "supported versions are SDF 1.6 through 1.12; earlier conversion is not implemented"));
         }
         Ok(())
     }
@@ -168,12 +168,16 @@ impl Parser<'_> {
     }
     fn name(&self, node: Node<'_, '_>) -> Result<String, Diagnostic> {
         let name = self.attr(node, "name")?;
-        if name.contains("::") && node.document().root_element().attribute("version") == Some("1.7")
+        if name.contains("::")
+            && matches!(
+                node.document().root_element().attribute("version"),
+                Some("1.6" | "1.7")
+            )
         {
             return Err(self.err(
                 node,
                 ErrorCode::Unsupported,
-                "SDF1.7 flattened-name conversion is not implemented",
+                "legacy SDF flattened-name conversion is not implemented",
             ));
         }
         if name.contains("::") || name == "world" || name.starts_with("__") || name.trim() != name {
@@ -221,7 +225,7 @@ impl Parser<'_> {
     }
     fn values<const N: usize>(&self, node: Node<'_, '_>) -> Result<[f64; N], Diagnostic> {
         let attrs: &[&str] = match node.tag_name().name() {
-            "pose" => &["relative_to", "degrees", "rotation_format"],
+            "pose" => pose_attributes(node),
             "xyz" => &["expressed_in"],
             "custom_rpy" | "grav_dir_x" => &["parent_frame"],
             _ => &[],
@@ -249,7 +253,17 @@ impl Parser<'_> {
         let Some(pose) = child(node, "pose") else {
             return Ok(Pose::default());
         };
-        self.allowed(pose, &[], &["relative_to", "degrees", "rotation_format"])?;
+        self.allowed(pose, &[], pose_attributes(pose))?;
+        // The 1.6 -> 1.7 move overwrites relative_to even for an empty frame.
+        let relative_to = if is_16(pose) {
+            pose.attribute("frame")
+                .or_else(|| pose.attribute("relative_to"))
+                .unwrap_or("")
+                .trim_matches([' ', '\t', '\n'])
+                .into()
+        } else {
+            pose.attribute("relative_to").unwrap_or("").into()
+        };
         let degrees = match pose.attribute("degrees").unwrap_or("false") {
             "false" | "0" => false,
             "true" | "1" => true,
@@ -257,7 +271,7 @@ impl Parser<'_> {
         };
         if pose.text().unwrap_or("").trim().is_empty() {
             return Ok(Pose {
-                relative_to: pose.attribute("relative_to").unwrap_or("").into(),
+                relative_to,
                 ..Pose::default()
             });
         }
@@ -296,7 +310,7 @@ impl Parser<'_> {
                 translation,
                 rotation: rotation.to_array(),
             },
-            relative_to: pose.attribute("relative_to").unwrap_or("").into(),
+            relative_to,
         })
     }
     fn plugins(&self, node: Node<'_, '_>) -> Result<Vec<Plugin>, Diagnostic> {
@@ -388,11 +402,22 @@ impl Parser<'_> {
         let links = elements(node)
             .filter(|n| n.has_tag_name("link"))
             .map(|n| self.link(n, &scoped_name))
-            .collect::<Result<_, _>>()?;
+            .collect::<Result<Vec<_>, _>>()?;
         let joints = elements(node)
             .filter(|n| n.has_tag_name("joint"))
             .map(|n| self.joint(n))
-            .collect::<Result<_, _>>()?;
+            .collect::<Result<Vec<_>, _>>()?;
+        if is_16(node)
+            && joints
+                .iter()
+                .any(|joint| links.iter().any(|link| link.name == joint.name))
+        {
+            return Err(self.err(
+                node,
+                ErrorCode::Unsupported,
+                "SDF1.6 shared link/joint names require legacy graph compatibility",
+            ));
+        }
         Ok(Model {
             name,
             scoped_name: scoped_name.clone(),
@@ -713,8 +738,37 @@ impl Parser<'_> {
         })
     }
     fn axis(&self, axis: Node<'_, '_>) -> Result<Axis, Diagnostic> {
-        self.allowed(axis, &["xyz", "limit"], &[])?;
-        let (xyz, expressed_in) = match child(axis, "xyz") {
+        self.allowed(
+            axis,
+            if is_16(axis) {
+                &["xyz", "limit", "use_parent_model_frame"]
+            } else {
+                &["xyz", "limit"]
+            },
+            &[],
+        )?;
+        // Upstream's conversion table recognizes exactly these four spellings;
+        // every other value is removed without being interpreted as a boolean.
+        let parent_model = is_16(axis)
+            && child(axis, "use_parent_model_frame").is_some_and(|n| {
+                let text = n.text().unwrap_or("");
+                // TinyXML's ordinary whitespace collapse does not apply to CDATA.
+                let text = if n.text_is_cdata() {
+                    text
+                } else {
+                    text.trim_matches(legacy_whitespace)
+                };
+                matches!(text, "true" | "True" | "TRUE" | "1")
+            });
+        if parent_model && child(axis, "xyz").is_none() {
+            // The native conversion creates an empty required xyz element.
+            return Err(self.err(
+                axis,
+                ErrorCode::Missing,
+                "legacy axis conversion requires a nonempty xyz element",
+            ));
+        }
+        let (xyz, mut expressed_in) = match child(axis, "xyz") {
             Some(xyz) => {
                 self.allowed(xyz, &[], &["expressed_in"])?;
                 (
@@ -724,6 +778,9 @@ impl Parser<'_> {
             }
             None => ([0., 0., 1.], String::new()),
         };
+        if parent_model {
+            expressed_in = "__model__".into();
+        }
         let length = DVec3::from_array(xyz).length();
         if length <= f64::MIN_POSITIVE || !length.is_finite() {
             return Err(self.err(axis, ErrorCode::InvalidValue, "invalid joint axis"));
@@ -907,6 +964,16 @@ fn elements<'a, 'b>(node: Node<'a, 'b>) -> impl Iterator<Item = Node<'a, 'b>> {
 }
 fn child<'a, 'b>(node: Node<'a, 'b>, tag: &str) -> Option<Node<'a, 'b>> {
     elements(node).find(|n| n.has_tag_name(tag))
+}
+fn is_16(node: Node<'_, '_>) -> bool {
+    node.document().root_element().attribute("version") == Some("1.6")
+}
+fn pose_attributes(node: Node<'_, '_>) -> &'static [&'static str] {
+    if is_16(node) {
+        &["frame", "relative_to", "degrees", "rotation_format"]
+    } else {
+        &["relative_to", "degrees", "rotation_format"]
+    }
 }
 fn validate_model(model: &Model, graphs: &Graphs) -> Result<(), Diagnostic> {
     let scope = &model.scoped_name;

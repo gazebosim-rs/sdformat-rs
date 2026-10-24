@@ -152,5 +152,18 @@
       0,
       0
     ]
+  },
+  {
+    "id": "small_local_pose_at_large_origin",
+    "xml": "<sdf version='1.12'><model name='m'><pose>1e16 0 0 0 0 0</pose><link name='l'><pose>0.125 0 0 0 0 0</pose></link></model></sdf>",
+    "accepted": true,
+    "link_pose": [
+      0.125,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
   }
 ]

@@ -700,6 +700,15 @@ fn pinned_cpp_differential_acceptance_corpus() {
             case["accepted"].as_bool().unwrap(),
             "{case}"
         );
+        if let Some(expected) = case.get("link_pose") {
+            let sdf = result.as_ref().unwrap();
+            let model = &sdf.models[0];
+            close(
+                sdf.pose_of(&model.links[0].scoped_name, &model.scoped_name)
+                    .unwrap(),
+                std::array::from_fn(|i| expected[i].as_f64().unwrap()),
+            );
+        }
         if let Some(expected) = case.get("model_pose") {
             let sdf = result.unwrap();
             let model = if sdf.models.is_empty() {

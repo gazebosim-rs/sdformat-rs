@@ -1,6 +1,7 @@
 use crate::{Diagnostic, ErrorCode, Frame, Model, Pose, Source, Transform, World};
 use petgraph::{
     algo::{astar, toposort},
+    graph::{DiGraph, NodeIndex},
     graphmap::DiGraphMap,
 };
 use std::collections::BTreeMap;
@@ -34,6 +35,8 @@ pub(crate) struct Graphs {
     poses: BTreeMap<String, Transform>,
     bodies: BTreeMap<String, String>,
     placements: BTreeMap<String, String>,
+    pose_tree: DiGraph<String, Transform>,
+    pose_indices: BTreeMap<String, NodeIndex>,
 }
 impl Graphs {
     pub(crate) fn build(
@@ -346,6 +349,15 @@ impl Graphs {
             pose.validate(&node.source)?;
             self.poses.insert(name.into(), pose);
         }
+        for name in self.nodes.keys() {
+            let index = self.pose_tree.add_node(name.clone());
+            self.pose_indices.insert(name.clone(), index);
+        }
+        for (child, parent) in &parents {
+            let local = *adjusted.get(child).unwrap_or(&self.nodes[child].pose);
+            self.pose_tree
+                .add_edge(self.pose_indices[child], self.pose_indices[parent], local);
+        }
         for name in attachment_order.into_iter().rev() {
             let body = attachments
                 .get(name)
@@ -389,16 +401,56 @@ impl Graphs {
                 format!("unknown frame {name}"),
             )
         })?;
-        let b = self.poses.get(target).ok_or_else(|| {
+        self.poses.get(target).ok_or_else(|| {
             error(
                 ErrorCode::UnknownReference,
                 source,
                 format!("unknown frame {target}"),
             )
         })?;
-        let pose = b.inverse().compose(*a);
+        if name == target {
+            return Ok(Transform::default());
+        }
+        if target == "::" || self.nodes[target].kind == Kind::World {
+            return Ok(*a);
+        }
+        let from = self.path_to_root(self.pose_indices[name]);
+        let to = self.path_to_root(self.pose_indices[target]);
+        let common = from
+            .iter()
+            .rev()
+            .zip(to.iter().rev())
+            .take_while(|(a, b)| a == b)
+            .count();
+        // Every validated pose tree has the same global root. Compose only up to
+        // the common ancestor, retaining small offsets at large world origins.
+        let from_pose = self.path_pose(&from[..=from.len() - common]);
+        let to_pose = self.path_pose(&to[..=to.len() - common]);
+        let pose = to_pose.inverse().compose(from_pose);
         pose.validate(source)?;
         Ok(pose)
+    }
+    fn path_to_root(&self, frame: NodeIndex) -> Vec<NodeIndex> {
+        astar(
+            &self.pose_tree,
+            frame,
+            |index| index == self.pose_indices["::"],
+            |_| 1,
+            |_| 0,
+        )
+        .expect("validated pose tree connects every frame to the root")
+        .1
+    }
+    fn path_pose(&self, path: &[NodeIndex]) -> Transform {
+        let mut pose = Transform::default();
+        for pair in path.windows(2).rev() {
+            let edge = self
+                .pose_tree
+                .find_edge(pair[0], pair[1])
+                .expect("ancestry follows validated parent edges");
+            pose = pose.compose(self.pose_tree[edge]);
+        }
+        pose
     }
     pub(crate) fn resolve_pose(
         &self,
@@ -413,6 +465,9 @@ impl Graphs {
             scope,
             &self.nodes["::"].source,
         )?;
+        if parent == target {
+            return Ok(pose.transform);
+        }
         let resolved = self.pose_of(&parent, target)?.compose(pose.transform);
         resolved.validate(&self.nodes["::"].source)?;
         Ok(resolved)

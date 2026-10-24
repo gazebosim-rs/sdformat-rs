@@ -62,8 +62,8 @@
         "test/integration/model/model_with_nested_placement_frame_attribute/model.sdf": "1bdfbcaa4dce30b9ed182d1b8ff7f5de9332fdbc0491fcb513a5b428a9a4e0f1"
       },
       "baseline": "passed; artifacts/reference-placement.xml",
-      "status": "ported_pending_review",
-      "review": "pending"
+      "status": "ported_reviewed",
+      "review": "/root; 2026-10-24; approved protected digest5a5914bf2dedb5226d0f48fc48ca4764e2126cdc9157546480116e702e5be4e3"
     },
     {
       "target": "INTEGRATION_nested_model",
@@ -78,6 +78,22 @@
         "test/integration/model/model_with_nested_placement_frame_attribute/model.sdf": "1bdfbcaa4dce30b9ed182d1b8ff7f5de9332fdbc0491fcb513a5b428a9a4e0f1"
       },
       "baseline": "passed; artifacts/reference-placement.xml",
+      "status": "ported_reviewed",
+      "review": "/root; 2026-10-24; approved protected digest5a5914bf2dedb5226d0f48fc48ca4764e2126cdc9157546480116e702e5be4e3"
+    },
+    {
+      "target": "UNIT_FrameSemantics_TEST",
+      "case": "FrameSemantics.resolveAgainstOwnFrameIsExact",
+      "source": "src/FrameSemantics_TEST.cc:314",
+      "rust_test": "tests/precision.rs::resolve_against_own_frame_is_exact",
+      "assertions": "Original load/model/validated graph success, all seven exact scalar identity assertions for four frames and all three exact unchanged default axis scalars for two joints. No approximate equality in the Rust port.",
+      "fixtures": {
+        "tests/fixtures/joint_axis_in_rotated_frame.sdf": "c1140c4d4e44f3c8fa8d5889de064cd43719eaf14271dde40a16f089088c47c2"
+      },
+      "upstream_fixtures": {
+        "test/sdf/joint_axis_in_rotated_frame.sdf": "c1140c4d4e44f3c8fa8d5889de064cd43719eaf14271dde40a16f089088c47c2"
+      },
+      "baseline": "passed; artifacts/reference-exact-self.xml",
       "status": "ported_pending_review",
       "review": "pending"
     }

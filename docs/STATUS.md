@@ -109,3 +109,19 @@ this slice does not change the established dependency selection.
 Placement slice verified production coverage:1300/1314lines and2261/2352regions;
 changed executable lines42/42. Independent review:/root. Both canonical coverage
 metrics and changed lines strictly exceed95%; no exclusions added.
+
+The fifth precision slice ports FrameSemantics.resolveAgainstOwnFrameIsExact
+with its unchanged fixture and every exact scalar pose/axis assertion. The native
+case passes. Same-frame queries now return exact identity after validating both
+names, and same-parent non-frame poses retain their exact declared transform.
+Relative queries use parent edges up to their nearest common ancestor, avoiding
+cancellation through absolute world poses. A native/Rust numeric corpus case
+confirms that a 0.125-m local offset survives a 1e16-m model origin; the earlier
+absolute-product implementation lost that offset. Global/world queries retain
+cached absolute transforms. Native corpus:27 acceptance cases and four numeric
+pose observations. Rust integration suite:29 tests. No comparative performance
+claim is made; ancestry queries allocate two short paths, while global and exact
+self queries retain fast paths. XML tokenizer compatibility evaluation is next.
+
+Precision slice coverage:1347/1361production lines and2353/2444regions;
+changed48/48. Independent review:/root.

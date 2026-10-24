@@ -4613,10 +4613,14 @@
               "symbol": "FrameSemantics.resolveAgainstOwnFrameIsExact"
             }
           ],
-          "baseline": "unrun",
-          "replacement": [],
-          "assertion_contract": "pending",
-          "fixture_contract": "pending manual extraction"
+          "baseline": "passed; artifacts/reference-exact-self.xml",
+          "replacement": [
+            "tests/precision.rs::resolve_against_own_frame_is_exact"
+          ],
+          "assertion_contract": "Original load/model/validated graph success, all seven exact scalar identity assertions for four frames and all three exact unchanged default axis scalars for two joints. No approximate equality in the Rust port.",
+          "fixture_contract": {
+            "test/sdf/joint_axis_in_rotated_frame.sdf": "c1140c4d4e44f3c8fa8d5889de064cd43719eaf14271dde40a16f089088c47c2"
+          }
         },
         {
           "id": "NestedFrameSemantics.buildFrameAttachedToGraph_Model",

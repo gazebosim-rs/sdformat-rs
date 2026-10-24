@@ -75,3 +75,10 @@ Placement names can reference links, frames, joints, models or __model__ within
 that model. Includes retain or override this setting; an include placement_frame
 element requires a pose element, even when clearing the setting. The pose graph
 is cycle-checked before placements and solved globally after local correction.
+
+Same-frame pose queries return exact identity after checking that the frame
+exists. Non-frame poses relative to their exact target return the declared
+transform without a floating-point round trip. Other relative queries compose
+only the paths to their nearest common ancestor, retaining local-coordinate
+precision even when the shared world/model origin is large. Global/world results
+remain f64 absolute coordinates and have the representational limits of f64.

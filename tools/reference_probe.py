@@ -48,6 +48,10 @@ for case in json.loads(path.read_text()):
         pose=model.semantic_pose().resolve()
         assert pose==Pose3d(*case['model_pose']),case['id']
         observed['model_pose']=[pose.pos().x(),pose.pos().y(),pose.pos().z(),pose.rot().x(),pose.rot().y(),pose.rot().z(),pose.rot().w()]
+    if accepted and 'link_pose' in case:
+        pose=document.model().link_by_index(0).semantic_pose().resolve()
+        assert pose==Pose3d(*case['link_pose']),case['id']
+        observed['link_pose']=[pose.pos().x(),pose.pos().y(),pose.pos().z(),pose.rot().x(),pose.rot().y(),pose.rot().z(),pose.rot().w()]
     results.append(observed)
 output=dict(corpus_sha256=hashlib.sha256(path.read_bytes()).hexdigest(),results=results)
 (root/'artifacts').mkdir(exist_ok=True)

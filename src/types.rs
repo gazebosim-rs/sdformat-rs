@@ -115,12 +115,43 @@ pub struct Sdf {
     pub(crate) graphs: Graphs,
 }
 impl Sdf {
+    /// Eagerly resolve non-frame poses against the loaded frame graph. Native
+    /// collision/visual/sensor DOM loading defers these errors until resolve.
+    /// Inertial references are checked as an explicit consumer policy; native
+    /// Link::ResolveInertial instead ignores the retained inertial reference.
+    /// Scene builders can call this before creating any runtime objects. This
+    /// does not rebuild the graph after caller edits to the public DOM fields.
+    pub fn validate_non_frame_poses(&self) -> Result<(), Diagnostic> {
+        fn validate(sdf: &Sdf, model: &Model) -> Result<(), Diagnostic> {
+            for link in &model.links {
+                for pose in std::iter::once(&link.inertial.pose)
+                    .chain(link.collisions.iter().map(|c| &c.pose))
+                    .chain(link.sensors.iter().map(|s| &s.pose))
+                    .chain(link.visuals.iter().map(|v| &v.pose))
+                {
+                    sdf.resolve_pose(pose, &model.scoped_name, &link.scoped_name, "::")?;
+                }
+            }
+            for nested in &model.models {
+                validate(sdf, nested)?;
+            }
+            Ok(())
+        }
+        for model in self
+            .models
+            .iter()
+            .chain(self.worlds.iter().flat_map(|w| &w.models))
+        {
+            validate(self, model)?;
+        }
+        Ok(())
+    }
     /// Resolve a semantic frame into another frame. Names are fully scoped,
     /// e.g. `world::robot::link`; the global root is `::`.
     pub fn pose_of(&self, name: &str, target: &str) -> Result<Transform, Diagnostic> {
         self.graphs.pose_of(name, target)
     }
-    /// Resolve a collision, sensor or inertial pose. `scope` is its owning model,
+    /// Resolve a collision, visual, sensor or inertial pose. `scope` is its owning model,
     /// `default_frame` is its owning link, and `target` is fully scoped.
     pub fn resolve_pose(
         &self,
@@ -196,6 +227,7 @@ pub struct Link {
     pub pose: Pose,
     pub inertial: Inertial,
     pub collisions: Vec<Collision>,
+    pub visuals: Vec<Visual>,
     pub sensors: Vec<Sensor>,
     pub plugins: Vec<Plugin>,
     pub source: Source,
@@ -223,6 +255,14 @@ pub struct Collision {
     pub geometry: Geometry,
     pub source: Source,
 }
+#[derive(Debug)]
+pub struct Visual {
+    pub name: String,
+    pub pose: Pose,
+    pub geometry: Option<Geometry>,
+    pub plugins: Vec<Plugin>,
+    pub source: Source,
+}
 #[derive(Debug, PartialEq)]
 pub enum Geometry {
     Box { size: [f64; 3] },
@@ -236,6 +276,8 @@ pub enum JointKind {
     Revolute,
     Prismatic,
     Continuous,
+    Universal,
+    Revolute2,
 }
 #[derive(Debug)]
 pub struct Joint {
@@ -245,6 +287,7 @@ pub struct Joint {
     pub child: String,
     pub pose: Pose,
     pub axis: Option<Axis>,
+    pub axis2: Option<Axis>,
     pub source: Source,
 }
 #[derive(Debug)]

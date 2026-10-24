@@ -137,6 +137,7 @@ impl Parser<'_> {
             "frame",
             "joint",
             "collision",
+            "visual",
             "sensor",
             "plugin",
         ];
@@ -487,13 +488,24 @@ impl Parser<'_> {
     fn link(&self, node: Node<'_, '_>, scope: &str) -> Result<Link, Diagnostic> {
         self.allowed(
             node,
-            &["pose", "inertial", "collision", "sensor", "plugin"],
+            &[
+                "pose",
+                "inertial",
+                "collision",
+                "visual",
+                "sensor",
+                "plugin",
+            ],
             &["name"],
         )?;
         let name = self.name(node)?;
         let collisions = elements(node)
             .filter(|n| n.has_tag_name("collision"))
             .map(|n| self.collision(n))
+            .collect::<Result<Vec<_>, _>>()?;
+        let visuals = elements(node)
+            .filter(|n| n.has_tag_name("visual"))
+            .map(|n| self.visual(n))
             .collect::<Result<Vec<_>, _>>()?;
         let sensors = elements(node)
             .filter(|n| n.has_tag_name("sensor"))
@@ -502,12 +514,13 @@ impl Parser<'_> {
         for names in [
             collisions.iter().map(|c| &c.name).collect::<Vec<_>>(),
             sensors.iter().map(|s| &s.name).collect(),
+            visuals.iter().map(|v| &v.name).collect(),
         ] {
             if names.iter().copied().collect::<BTreeSet<_>>().len() != names.len() {
                 return Err(self.err(
                     node,
                     ErrorCode::DuplicateName,
-                    "duplicate collision or sensor name",
+                    "duplicate collision, visual or sensor name",
                 ));
             }
         }
@@ -517,6 +530,7 @@ impl Parser<'_> {
             pose: self.pose(node)?,
             inertial: self.inertial(node)?,
             collisions,
+            visuals,
             sensors,
             plugins: self.plugins(node)?,
             source: self.source(node),
@@ -578,6 +592,14 @@ impl Parser<'_> {
         self.allowed(node, &["pose", "geometry"], &["name"])?;
         let geometry = child(node, "geometry")
             .ok_or_else(|| self.err(node, ErrorCode::Missing, "collision requires geometry"))?;
+        Ok(Collision {
+            name: self.name(node)?,
+            pose: self.pose(node)?,
+            geometry: self.geometry(geometry)?,
+            source: self.source(node),
+        })
+    }
+    fn geometry(&self, geometry: Node<'_, '_>) -> Result<Geometry, Diagnostic> {
         self.allowed(geometry, &["box", "sphere", "cylinder", "plane"], &[])?;
         let shapes = elements(geometry).collect::<Vec<_>>();
         if shapes.len() != 1 {
@@ -635,17 +657,33 @@ impl Parser<'_> {
                 "shape dimensions must be positive",
             ));
         }
-        Ok(Collision {
+        Ok(geometry)
+    }
+    fn visual(&self, node: Node<'_, '_>) -> Result<Visual, Diagnostic> {
+        self.allowed(node, &["pose", "geometry", "plugin"], &["name"])?;
+        let geometry = child(node, "geometry")
+            .map(|n| {
+                if elements(n).next().is_none() {
+                    self.allowed(n, &[], &[])?;
+                    Ok(None)
+                } else {
+                    self.geometry(n).map(Some)
+                }
+            })
+            .transpose()?
+            .flatten();
+        Ok(Visual {
             name: self.name(node)?,
             pose: self.pose(node)?,
             geometry,
+            plugins: self.plugins(node)?,
             source: self.source(node),
         })
     }
     fn joint(&self, node: Node<'_, '_>) -> Result<Joint, Diagnostic> {
         self.allowed(
             node,
-            &["parent", "child", "pose", "axis"],
+            &["parent", "child", "pose", "axis", "axis2"],
             &["name", "type"],
         )?;
         let kind = match self.attr(node, "type")?.as_str() {
@@ -653,56 +691,12 @@ impl Parser<'_> {
             "revolute" => JointKind::Revolute,
             "prismatic" => JointKind::Prismatic,
             "continuous" => JointKind::Continuous,
+            "universal" => JointKind::Universal,
+            "revolute2" => JointKind::Revolute2,
             _ => return Err(self.err(node, ErrorCode::Unsupported, "unsupported joint type")),
         };
-        let axis = child(node, "axis")
-            .map(|axis| {
-                self.allowed(axis, &["xyz", "limit"], &[])?;
-                let (xyz, expressed_in) = match child(axis, "xyz") {
-                    Some(xyz) => {
-                        self.allowed(xyz, &[], &["expressed_in"])?;
-                        (
-                            self.values(xyz)?,
-                            xyz.attribute("expressed_in").unwrap_or("").into(),
-                        )
-                    }
-                    None => ([0., 0., 1.], String::new()),
-                };
-                let length = DVec3::from_array(xyz).length();
-                if length <= f64::MIN_POSITIVE || !length.is_finite() {
-                    return Err(self.err(axis, ErrorCode::InvalidValue, "invalid joint axis"));
-                }
-                let mut result = Axis {
-                    xyz: (DVec3::from_array(xyz) / length).to_array(),
-                    expressed_in,
-                    lower: -1e16,
-                    upper: 1e16,
-                    effort: f64::INFINITY,
-                    velocity: f64::INFINITY,
-                };
-                if let Some(limit) = child(axis, "limit") {
-                    self.allowed(limit, &["lower", "upper", "effort", "velocity"], &[])?;
-                    result.lower = self.scalar(limit, "lower", result.lower)?;
-                    result.upper = self.scalar(limit, "upper", result.upper)?;
-                    result.effort = self.scalar(limit, "effort", result.effort)?;
-                    result.velocity = self.scalar(limit, "velocity", result.velocity)?;
-                    if result.effort < 0. {
-                        result.effort = f64::INFINITY;
-                    }
-                    if result.velocity < 0. {
-                        result.velocity = f64::INFINITY;
-                    }
-                }
-                if result.lower > result.upper {
-                    return Err(self.err(
-                        axis,
-                        ErrorCode::InvalidValue,
-                        "joint lower limit exceeds upper limit",
-                    ));
-                }
-                Ok(result)
-            })
-            .transpose()?;
+        let axis = child(node, "axis").map(|n| self.axis(n)).transpose()?;
+        let axis2 = child(node, "axis2").map(|n| self.axis(n)).transpose()?;
         let child = self.text(node, "child")?;
         if child == "world" {
             return Err(self.err(node, ErrorCode::InvalidValue, "joint child cannot be world"));
@@ -714,8 +708,55 @@ impl Parser<'_> {
             child,
             pose: self.pose(node)?,
             axis,
+            axis2,
             source: self.source(node),
         })
+    }
+    fn axis(&self, axis: Node<'_, '_>) -> Result<Axis, Diagnostic> {
+        self.allowed(axis, &["xyz", "limit"], &[])?;
+        let (xyz, expressed_in) = match child(axis, "xyz") {
+            Some(xyz) => {
+                self.allowed(xyz, &[], &["expressed_in"])?;
+                (
+                    self.values(xyz)?,
+                    xyz.attribute("expressed_in").unwrap_or("").into(),
+                )
+            }
+            None => ([0., 0., 1.], String::new()),
+        };
+        let length = DVec3::from_array(xyz).length();
+        if length <= f64::MIN_POSITIVE || !length.is_finite() {
+            return Err(self.err(axis, ErrorCode::InvalidValue, "invalid joint axis"));
+        }
+        let mut result = Axis {
+            xyz: (DVec3::from_array(xyz) / length).to_array(),
+            expressed_in,
+            lower: -1e16,
+            upper: 1e16,
+            effort: f64::INFINITY,
+            velocity: f64::INFINITY,
+        };
+        if let Some(limit) = child(axis, "limit") {
+            self.allowed(limit, &["lower", "upper", "effort", "velocity"], &[])?;
+            result.lower = self.scalar(limit, "lower", result.lower)?;
+            result.upper = self.scalar(limit, "upper", result.upper)?;
+            result.effort = self.scalar(limit, "effort", result.effort)?;
+            result.velocity = self.scalar(limit, "velocity", result.velocity)?;
+            if result.effort < 0. {
+                result.effort = f64::INFINITY;
+            }
+            if result.velocity < 0. {
+                result.velocity = f64::INFINITY;
+            }
+        }
+        if result.lower > result.upper {
+            return Err(self.err(
+                axis,
+                ErrorCode::InvalidValue,
+                "joint lower limit exceeds upper limit",
+            ));
+        }
+        Ok(result)
     }
     fn imu(&self, sensor: Node<'_, '_>) -> Result<Imu, Diagnostic> {
         let Some(node) = child(sensor, "imu") else {
@@ -881,18 +922,10 @@ fn validate_model(model: &Model, graphs: &Graphs) -> Result<(), Diagnostic> {
                 "invalid joint endpoints",
             ));
         }
-        if let Some(axis) = &joint.axis
-            && !axis.expressed_in.is_empty()
-        {
-            graphs.validate_reference(&axis.expressed_in, scope, &joint.source)?;
-        }
-    }
-    for link in &model.links {
-        for pose in std::iter::once(&link.inertial.pose)
-            .chain(link.collisions.iter().map(|c| &c.pose))
-            .chain(link.sensors.iter().map(|s| &s.pose))
-        {
-            graphs.resolve_pose(pose, scope, &link.scoped_name, "::")?;
+        for axis in joint.axis.iter().chain(&joint.axis2) {
+            if !axis.expressed_in.is_empty() {
+                graphs.validate_reference(&axis.expressed_in, scope, &joint.source)?;
+            }
         }
     }
     for nested in &model.models {

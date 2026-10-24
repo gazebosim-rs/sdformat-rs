@@ -65,6 +65,14 @@ fn nested_frame_only_model_original_pose_assertions() {
         for (a, b) in actual.translation.into_iter().zip([10., 0., 0.]) {
             assert!((a - b).abs() < 1e-6);
         }
+        for (a, b) in actual
+            .translation
+            .into_iter()
+            .chain(actual.rotation)
+            .zip([10., 0., 0.].into_iter().chain(expected.to_array()))
+        {
+            assert!((a - b).abs() <= 1e-3, "original Pose3 component equality");
+        }
         assert!(
             glam::DQuat::from_array(actual.rotation).abs_diff_eq(expected, 1e-6),
             "{actual:?}"

@@ -25,8 +25,9 @@ python3 tools/reference_probe.py ../sdformat
 ```
 
 The first two fixture ports retain all six existence, resolve-success and pose
-assertions each, using gz-math's 1e-6 equality tolerance (quaternion sign is
-physically equivalent). The canonical-link port maps C++ pointer/index assertions
+assertions each. The initial helper used1e-6 and allowed quaternion sign
+equivalence; independent follow-up review corrected this to preserve native
+component-wise <=1e-3 Pose3 equality, retaining tighter1e-6 supplementary checks. The canonical-link port maps C++ pointer/index assertions
 to owned collections and verifies resolved scoped body identity. These three complete ports were independently reviewed by /root against their
 original assertion bodies and committed in 7fa1fc2. Additional tests exercise a valid
 nested attachment fixture, typed physics input, graph failures, bounds, includes,
@@ -91,7 +92,8 @@ The fourth bounded slice supports model/include placement frames, including
 nested placement corrections, frame/link/joint/model targets and include overrides.
 Both original NestedReference.PlacementFrameAttribute and PlacementFrameElement
 native cases pass; corresponding Rust ports preserve the unchanged nested fixture,
-all four original include scenarios and original 1e-6 pose assertions. Include
+all four original include scenarios and native component-wise <=1e-3 pose
+assertions, with supplementary tighter1e-6 bounds. Include
 placement without a pose is rejected after checking the native error contract.
 Supplementary tests cover clearing overrides, nested models, source provenance,
 relative_to, unresolved frames, and avoiding false intermediate overflow before
@@ -171,3 +173,46 @@ Unsupported, and1.6 conversion remains unavailable. Both native and Rust pass th
 complete NestedModel.NestedFrameOnlyModel pose assertions on the unchanged1.7
 fixture.39 Rust tests and six tooling tests pass; full versions/conversion parity
 and the overall SDF packets remain in progress.
+
+
+The visual/second-axis candidate supports visual poses and optional primitive
+geometry with raw plugins, plus Universal/Revolute2 kinds and optional axis2 on all
+supported joints. It reuses primitive geometry and axis validators. Two original
+native nested-frame cases pass; Rust ports preserve the unchanged1.7fixture,
+original parent-relative-to-nested-frame lookup then inversion, and both joint
+axis assertions. Both ports were independently reviewed by /root/msgs, including original
+component comparisons, and all45 Rust tests plus76 native differential cases
+were independently rerun. The prior
+supplementary visual-unsupported example is now tested positively; its negative
+assertion checks unsupported material instead. No upstream assertion was weakened.
+
+Native Root load accepts unknown relative_to references on collision/visual/IMU
+poses; SemanticPose.Resolve then returns Error26. Rust now preserves that timing.
+The exact supplementary collision/world input still asserts UnknownReference,
+now at resolution instead of incorrectly asserting Root rejection. Five native
+negative cases establish that link/frame poses, joint endpoints and both joint
+axes remain eager load errors. Explicit validate_non_frame_poses recursively
+resolves supported non-frame poses before scene construction. Native ignores
+inertial relative_to (Link.cc TODO); Rust retains and checks it only under explicit
+resolution/validation policy, without claiming native ResolveInertial parity.
+Native acceptance corpus:76cases, including four deferred error observations.
+45 Rust tests and8tooltests pass; production coverage1677/1698lines and
+2889/3001regions, changed107/107. No exclusions added. Independent assertion
+and policy review:/root/msgs. Strict staged-tree verification remains required.
+
+Native probes also expose a pending numeric lexical gap: Param.cc accepts scalar
+prefixes and true/false coercion through std::stod/stoul, while supported Rust
+scalar parsing currently requires an entire finite decimal token. Visibility
+flags use Linux unsigned-long parsing then u32 wrapping. Visual transparency is
+f32 and native typed-accessor overflow/subnormal errors can log and return0
+without Root errors. Rendering properties remain Unsupported until those
+contracts receive separate bounded implementation and differential coverage.
+No accepted/public candidate revision or whole-packet completion is claimed.
+
+Independent msgs review checked the actual installed gz-math10 headers used by
+the native build: Pose3::operator== delegates to Vector3/Quaternion component
+equality with <=1e-3 tolerance, without q/-q equivalence. Earlier ledger prose
+incorrectly described1e-6 as the default. All affected pose ports now include the
+original component-wise assertions, retain the tighter1e-6 checks as supplementary
+assertions, and remove the quaternion sign relaxation. Fixture bytes, original
+lookup/inversion paths and production arithmetic are unchanged.

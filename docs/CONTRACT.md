@@ -3,7 +3,15 @@
 `load_str(xml, source_uri, &dyn ResourceResolver) -> Result<Sdf, Diagnostic>`
 returns a complete document or the first source-located error. Syntax, typed
 validation, include resolution, and semantic graph construction are distinct
-implementation stages. The document owns all strings and values; no XML buffer,
+implementation stages. Frame graphs, link/frame pose references, joint endpoints
+and joint axes are checked at load time. Collision, visual and sensor non-frame
+pose references preserve native deferred errors: load_str can succeed and a later
+resolve_pose can fail. `Sdf::validate_non_frame_poses()` explicitly resolves all
+collision/visual/sensor/inertial poses into the global frame, recursively over
+standalone and world models, returning the first error. Scene builders should
+call it before creating runtime objects to keep validation atomic. This validates
+poses against the loaded frame graph; it does not rebuild that graph after public
+DOM edits. The document owns all strings and values; no XML buffer,
 resolver or native library lifetime escapes loading. The parser has no mutable
 global state and never installs an executor. Models are not instantiated here.
 
@@ -17,11 +25,17 @@ Directory/model.config selection and URI/cache policy belong to the resolver.
 `World` has name, gravity in m/s², models, frames, plugins and source.
 `Model` has raw pose, static flag, canonical-link and placement-frame references, links, joints,
 nested models, frames, plugins, scoped name and source.
-`Link` has pose, inertial, collisions, sensors, plugins, scoped name and source.
+`Link` has pose, inertial, collisions, visuals, sensors, plugins, scoped name and source.
 `Inertial` has mass in kg, six inertia components (ixx, iyy, izz, ixy, ixz, iyz)
 in kg·m² and inertial-frame pose. Positive physical inertia is required.
 `Collision` has pose and box/sphere/cylinder/plane geometry, with SI dimensions.
-`Joint` has kind, parent/child references, pose, optional axis and source.
+`Visual` has name, pose, optional primitive geometry, plugins and source. Missing
+or empty geometry preserves native EMPTY as None. Visual names are unique within
+a link, independently of collision and sensor names. Rendering properties,
+material and mesh data remain explicit Unsupported.
+`Joint` has kind, parent/child references, pose, optional axis/axis2 and source.
+Universal and revolute2 types retain both axes; native axis2 is also preserved
+when present on another supported joint kind.
 `Axis` has normalized xyz, expressed_in, position limits, effort and velocity.
 Negative effort/velocity sentinels become positive infinity. Axis resolution
 rotates into the requested frame without translation. Joint endpoint frames may
@@ -48,9 +62,10 @@ error. Resolved transforms do not silently reinterpret body or rendering axes.
 root is `::`; a world `default`, model `robot`, link `base` is named
 `default::robot::base`. `resolve_name(scope,reference)` applies SDF's world and
 __model__ references. `resolve_pose` resolves a non-frame collision, sensor or
-inertial pose using its model scope and owning link. `attached_body` follows the
+inertial or visual pose using its model scope and owning link. `attached_body` follows the
 separate attachment graph to a link or static world attachment. Names, unknown
-references, duplicate semantic frame names and both kinds of cycles are checked.
+frame references, duplicate semantic frame names and both kinds of cycles are checked.
+Non-frame reference failures are returned by resolve_pose or the explicit validator.
 
 Versions1.8–1.12 share empty upstream conversion scripts in the supported subset.
 For1.7 an empty inertial pose relative_to acts as the default link frame, matching
@@ -58,7 +73,7 @@ the upstream1.7→1.8 remove_empty action. General XML conversion, serialized
 attribute removal and round-trip conversion remain pending. Flattened names
 that require unflatten conversion return explicit Unsupported. Older pose-frame
 rename and joint-parent-axis conversions remain unsupported. Full schema/version-aware
-validation, serialization, visual/material data, mesh/resources, merge, automatic inertia, URDF, other sensor families and most other
+validation, serialization, visual rendering properties/material data, mesh/resources, merge, automatic inertia, URDF, other sensor families and most other
 SDF features remain pending. Unknown schema features error; opaque plugin XML is the stated exception.
 XML names are lexical, matching upstream TinyXML: extension prefixes need not
 be declared. Plugin XML retains original bytes/ranges, including references,
@@ -100,3 +115,10 @@ Joint.axis=None preserves the native DOM when an axis element is omitted,
 including revolute/prismatic/continuous joints. An explicitly present empty axis
 has the schema default XYZ. Consumers must validate backend requirements before
 constructing a joint; the parser does not invent a missing axis.
+
+Native inertial loading is a distinct compatibility boundary: upstream Link.cc
+loads but ignores inertial relative_to (its inertia-frame handling is marked TODO),
+and Link::ResolveInertial composes the raw inertial pose with the link pose. Rust
+retains the original reference and offers explicit resolve_pose semantics for it;
+validate_non_frame_poses checks it as a consumer policy. This does not claim native
+Link::ResolveInertial parity for nonempty inertial references.

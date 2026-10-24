@@ -11,10 +11,12 @@ let pose = sdf.pose_of("robot::base", "::")?;
 ```
 
 The supported subset has SDF 1.7–1.12 worlds, nested and included models,
-links, primitive collisions, physical mass/inertia, fixed/revolute/prismatic/
-continuous joints, typed IMU sensor configuration, frames, and opaque plugin content.
+links, primitive collisions and visual geometry/poses, physical mass/inertia,
+fixed/revolute/prismatic/continuous/universal/revolute2 joints, typed IMU sensor configuration, frames, and opaque plugin content.
 Model and include placement frames resolve through nested links, frames, joints,
-and models. Pose and attachment graphs are separate. Loading is atomic. Unsupported elements,
+and models. Pose and attachment graphs are separate. Loading is atomic; non-frame
+pose errors remain deferred until resolution, matching the native DOM. Scene
+builders can call `validate_non_frame_poses` before constructing objects. Unsupported elements,
 attributes, versions, merge features, DTD declarations and automatic inertia produce
 explicit diagnostics. IMU noise, orientation settings and original XML are retained together. See
 [the contract](docs/CONTRACT.md).

@@ -37,10 +37,16 @@
       "sha256": "7a4562925a6f0ad74c07778429f67553e2486c461272881e28d7f759687ca6c8",
       "args": "--gtest_filter=NestedModel.NestedFrameOnlyModel",
       "result": "passed"
+    },
+    {
+      "binary": "INTEGRATION_nested_model",
+      "sha256": "7a4562925a6f0ad74c07778429f67553e2486c461272881e28d7f759687ca6c8",
+      "args": "--gtest_filter=NestedModel.NestedModelWithFrames:NestedModel.NestedModelWithSiblingFrames",
+      "result": "passed; both complete Rust assertion ports independently reviewed by /root/msgs"
     }
   ],
   "corpus": {
-    "corpus_sha256": "79ad42879489f0557a7cd3123fdf211347f9e25de5d4dbd9be0ef82594e36ce3",
+    "corpus_sha256": "8e2005ce52e8573b3637f6ef4352bfd7f49aa38c6a970bb8dd6183ca0900354f",
     "results": [
       {
         "id": "canonical_link_alias",
@@ -388,7 +394,116 @@
         "id": "sdf17_unchanged_subset",
         "accepted": true,
         "errors": ""
+      },
+      {
+        "id": "deferred_collision_pose",
+        "accepted": true,
+        "errors": "",
+        "deferred_pose_error": "collision",
+        "resolve_errors": "Error Code 26: Msg: PoseRelativeToGraph unable to find unique frame with name [missing] in graph.\n"
+      },
+      {
+        "id": "deferred_visual_pose",
+        "accepted": true,
+        "errors": "",
+        "deferred_pose_error": "visual",
+        "resolve_errors": "Error Code 26: Msg: PoseRelativeToGraph unable to find unique frame with name [missing] in graph.\n"
+      },
+      {
+        "id": "deferred_sensor_pose",
+        "accepted": true,
+        "errors": "",
+        "deferred_pose_error": "sensor",
+        "resolve_errors": "Error Code 26: Msg: PoseRelativeToGraph unable to find unique frame with name [missing] in graph.\n"
+      },
+      {
+        "id": "deferred_collision_world_scope",
+        "accepted": true,
+        "errors": "",
+        "deferred_pose_error": "collision",
+        "resolve_errors": "Error Code 26: Msg: PoseRelativeToGraph unable to find unique frame with name [world] in graph.\n"
+      },
+      {
+        "id": "inertial_relative_to_retained_by_rust",
+        "accepted": true,
+        "errors": ""
+      },
+      {
+        "id": "eager_link_pose",
+        "accepted": false,
+        "errors": "Error Code 26: Msg: relative_to name[missing] specified by link with name[l] does not match a nested model, link, joint, or frame name in model with name[m].\nError Code 28: Msg: PoseRelativeToGraph error, Vertex with name [m::l] is disconnected; it should have 1 incoming edge in MODEL relative_to graph.\nError Code 28: Msg: PoseRelativeToGraph unable to find path to source vertex when starting from vertex with id [3].\n"
+      },
+      {
+        "id": "eager_frame_pose",
+        "accepted": false,
+        "errors": "Error Code 26: Msg: relative_to name[missing] specified by frame with name[f] does not match a nested model, link, joint, or frame name in model with name[m].\nError Code 28: Msg: PoseRelativeToGraph error, Vertex with name [m::f] is disconnected; it should have 1 incoming edge in MODEL relative_to graph.\nError Code 28: Msg: PoseRelativeToGraph unable to find path to source vertex when starting from vertex with id [4].\n"
+      },
+      {
+        "id": "eager_joint_parent",
+        "accepted": false,
+        "errors": "Error Code 21: Msg: parent frame with name[missing] specified by joint with name[j] not found in model with name[m].\nError Code 23: Msg: FrameAttachedToGraph unable to find unique frame with name [missing] in graph.\n"
+      },
+      {
+        "id": "eager_joint_axis",
+        "accepted": false,
+        "errors": "Error Code 38: Msg: axis xyz expressed-in frame with name[missing] specified by joint with name[j] not found in model with name[m].\nError Code 26: Msg: PoseRelativeToGraph unable to find unique frame with name [missing] in graph.\n"
+      },
+      {
+        "id": "eager_joint_axis2",
+        "accepted": false,
+        "errors": "Error Code 38: Msg: axis xyz expressed-in frame with name[missing] specified by joint with name[j] not found in model with name[m].\nError Code 26: Msg: PoseRelativeToGraph unable to find unique frame with name [missing] in graph.\n"
+      },
+      {
+        "id": "visual_geometry_missing",
+        "accepted": true,
+        "errors": "",
+        "visual_geometry_missing": true
+      },
+      {
+        "id": "visual_geometry_empty",
+        "accepted": true,
+        "errors": "",
+        "visual_geometry_missing": true
+      },
+      {
+        "id": "duplicate_visual_names",
+        "accepted": false,
+        "errors": "Error Code 2: Msg: visual with name[v] already exists.\n"
+      },
+      {
+        "id": "axis2_universal_omitted",
+        "accepted": true,
+        "errors": "",
+        "axis2_missing": true
+      },
+      {
+        "id": "axis2_universal_default",
+        "accepted": true,
+        "errors": "",
+        "axis2_missing": false
+      },
+      {
+        "id": "axis2_revolute2_omitted",
+        "accepted": true,
+        "errors": "",
+        "axis2_missing": true
+      },
+      {
+        "id": "axis2_revolute2_default",
+        "accepted": true,
+        "errors": "",
+        "axis2_missing": false
       }
     ]
+  },
+  "math_assertion_contract": {
+    "native_sdformat_dependency": "gz-math10; dependency files identify installed headers; these four installed files are byte-identical to the available upstream source checkout.",
+    "pose_equality": "Pose3::operator== delegates to Vector3 and Quaternion component-wise abs(a-b)<=1e-3; no quaternion sign equivalence.",
+    "headers_sha256": {
+      "gz/math/Pose3.hh": "6bfc53f0bd22a3e1596bbdb07c24bacdac9e17bd8178b9373d8df1b01e4fc6f6",
+      "gz/math/Quaternion.hh": "9170601444da93735b4d14b369cc4266fafc7655657a6af7613e31206382b873",
+      "gz/math/Vector3.hh": "b4e8d01584139efba180bf530c95e18101aee4fb070aa93b8ddfe7cc38282a38",
+      "gz/math/Helpers.hh": "24aeb75ca8b1ee502c654f045901d39befcbd84dfce4bd7fd93c8e2ca1e439f5"
+    }
   }
 }

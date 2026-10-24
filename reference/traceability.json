@@ -6,13 +6,13 @@
       "case": "NestedReference.PoseRelativeTo",
       "source": "test/integration/nested_model.cc:1228",
       "rust_test": "tests/semantics.rs::nested_reference_pose_relative_to",
-      "assertions": "Six model existence, resolve success, and transformed-pose assertions; 1e-6 gz-math default tolerance.",
+      "assertions": "Six model existence, resolve success, and transformed-pose assertions; original component-wise <=1e-3 gz-math Pose3 equality plus supplementary tighter1e-6 checks.",
       "fixtures": {
         "tests/fixtures/model_relative_to_nested_reference.sdf": "7eead25f0aac3216dad7183a9f2fe8c063667d503a3405d1763f4e98ab0331b0"
       },
       "baseline": "passed; artifacts/reference-*.xml",
       "status": "ported_reviewed",
-      "review": "/root; 2026-10-24; approved protected digest 44d39b70e0544dca34e72241a6578a38df5bdb967fe37f8e18fa16eff1526621",
+      "review": "/root; 2026-10-24; approved protected digest 44d39b70e0544dca34e72241a6578a38df5bdb967fe37f8e18fa16eff1526621 Follow-up /root/msgs; 2026-10-24; native component-wise <=1e-3 assertions restored explicitly, quaternion sign relaxation removed where present, tighter1e-6 bounds retained; all Rust targets pass.",
       "upstream_fixtures": {
         "test/sdf/model_relative_to_nested_reference.sdf": "7eead25f0aac3216dad7183a9f2fe8c063667d503a3405d1763f4e98ab0331b0"
       }
@@ -22,13 +22,13 @@
       "case": "NestedReference.PoseRelativeToInWorld",
       "source": "test/integration/nested_model.cc:1291",
       "rust_test": "tests/semantics.rs::nested_reference_pose_relative_to_in_world",
-      "assertions": "Six frame existence, resolve success, and transformed-pose assertions; 1e-6 gz-math default tolerance.",
+      "assertions": "Six frame existence, resolve success, and transformed-pose assertions; original component-wise <=1e-3 gz-math Pose3 equality plus supplementary tighter1e-6 checks.",
       "fixtures": {
         "tests/fixtures/world_relative_to_nested_reference.sdf": "65fa3e109cec6d8c51119459684a289f8cc4dd7e25e903ace769f114d4145159"
       },
       "baseline": "passed; artifacts/reference-*.xml",
       "status": "ported_reviewed",
-      "review": "/root; 2026-10-24; approved protected digest 44d39b70e0544dca34e72241a6578a38df5bdb967fe37f8e18fa16eff1526621",
+      "review": "/root; 2026-10-24; approved protected digest 44d39b70e0544dca34e72241a6578a38df5bdb967fe37f8e18fa16eff1526621 Follow-up /root/msgs; 2026-10-24; native component-wise <=1e-3 assertions restored explicitly, quaternion sign relaxation removed where present, tighter1e-6 bounds retained; all Rust targets pass.",
       "upstream_fixtures": {
         "test/sdf/world_relative_to_nested_reference.sdf": "65fa3e109cec6d8c51119459684a289f8cc4dd7e25e903ace769f114d4145159"
       }
@@ -54,7 +54,7 @@
       "case": "NestedReference.PlacementFrameAttribute",
       "source": "test/integration/nested_model.cc:1352",
       "rust_test": "tests/placement.rs::nested_reference_placement_frame_attribute",
-      "assertions": "Original load success, root model presence, pose resolve success, and pose(0,-2,10,0,0,0), with1e-6 gz-math equality tolerance.",
+      "assertions": "Original load success, root model presence, pose resolve success, and pose(0,-2,10,0,0,0), with original component-wise <=1e-3 gz-math Pose3 equality plus supplementary tighter1e-6 checks.",
       "fixtures": {
         "tests/fixtures/nested_placement_frame.sdf": "1bdfbcaa4dce30b9ed182d1b8ff7f5de9332fdbc0491fcb513a5b428a9a4e0f1"
       },
@@ -63,14 +63,14 @@
       },
       "baseline": "passed; artifacts/reference-placement.xml",
       "status": "ported_reviewed",
-      "review": "/root; 2026-10-24; approved protected digest5a5914bf2dedb5226d0f48fc48ca4764e2126cdc9157546480116e702e5be4e3"
+      "review": "/root; 2026-10-24; approved protected digest5a5914bf2dedb5226d0f48fc48ca4764e2126cdc9157546480116e702e5be4e3 Follow-up /root/msgs; 2026-10-24; native component-wise <=1e-3 assertions restored explicitly, quaternion sign relaxation removed where present, tighter1e-6 bounds retained; all Rust targets pass."
     },
     {
       "target": "INTEGRATION_nested_model",
       "case": "NestedReference.PlacementFrameElement",
       "source": "test/integration/nested_model.cc:1373",
       "rust_test": "tests/placement.rs::nested_reference_placement_frame_element_all_four_original_cases",
-      "assertions": "All four original world/model include cases; original model/frame/nested link presence assertions, resolve success and placement/model pose assertions; original version1.8 and generated pose text retained,1e-6 tolerance.",
+      "assertions": "All four original world/model include cases; original model/frame/nested link presence assertions, resolve success and placement/model pose assertions; original version1.8 and generated pose text retained, original component-wise <=1e-3 plus supplementary tighter1e-6 checks.",
       "fixtures": {
         "tests/fixtures/nested_placement_frame.sdf": "1bdfbcaa4dce30b9ed182d1b8ff7f5de9332fdbc0491fcb513a5b428a9a4e0f1"
       },
@@ -79,7 +79,7 @@
       },
       "baseline": "passed; artifacts/reference-placement.xml",
       "status": "ported_reviewed",
-      "review": "/root; 2026-10-24; approved protected digest5a5914bf2dedb5226d0f48fc48ca4764e2126cdc9157546480116e702e5be4e3"
+      "review": "/root; 2026-10-24; approved protected digest5a5914bf2dedb5226d0f48fc48ca4764e2126cdc9157546480116e702e5be4e3 Follow-up /root/msgs; 2026-10-24; native component-wise <=1e-3 assertions restored explicitly, quaternion sign relaxation removed where present, tighter1e-6 bounds retained; all Rust targets pass."
     },
     {
       "target": "UNIT_FrameSemantics_TEST",
@@ -102,7 +102,7 @@
       "case": "NestedModel.NestedFrameOnlyModel",
       "source": "test/integration/nested_model.cc:957",
       "rust_test": "tests/defaults.rs::nested_frame_only_model_original_pose_assertions",
-      "assertions": "Original read/load/world/parent-model existence and both nested frame resolve-success+pose assertions preserved, including parent-relative-to-frame lookup followed by rigid transform inversion. Model yaw pi/2, frame roll/pitch pi expected with original1e-6 gz-math pose tolerance; original1.7resource fixture unchanged.",
+      "assertions": "Original read/load/world/parent-model existence and both nested frame resolve-success+pose assertions preserved, including parent-relative-to-frame lookup followed by rigid transform inversion. Model yaw pi/2, frame roll/pitch pi expected with original component-wise <=1e-3 plus supplementary tighter1e-6 checks; original1.7resource fixture unchanged.",
       "fixtures": {
         "tests/fixtures/frame_only_model.sdf": "83f1ecdff67ff5075995cac3221e184ed7540821857b89397604aff74999acd7"
       },
@@ -111,7 +111,39 @@
       },
       "baseline": "passed; artifacts/reference-frame-only.xml",
       "status": "ported_reviewed",
-      "review": "/root; 2026-10-24; original read/load and parent-to-frame resolution followed by inversion, both pose expectations and tolerances preserved; source fixture unchanged."
+      "review": "/root; 2026-10-24; original read/load and parent-to-frame resolution followed by inversion, both pose expectations and tolerances preserved; source fixture unchanged. Follow-up /root/msgs; 2026-10-24; native component-wise <=1e-3 assertions restored explicitly, quaternion sign relaxation removed where present, tighter1e-6 bounds retained; all Rust targets pass."
+    },
+    {
+      "target": "INTEGRATION_nested_model",
+      "case": "NestedModel.NestedModelWithFrames",
+      "source": "test/integration/nested_model.cc:478",
+      "rust_test": "tests/nested_frames.rs::nested_model_with_frames_original_assertions",
+      "assertions": "Original parse/read/load success and world/parent/child existence preserved through atomic load/index access. Both parent-in-nested-frame lookups are inverted before original frame pose comparisons. Link1/link2/joint existence and inverse pose assertions, visual F2/collision __model__ references, both axis existence/ResolveXyz success and model-rotation-transformed unit vectors preserved with original component-wise <=1e-3 gz-math equality plus supplementary tighter1e-6 checks.",
+      "fixtures": {
+        "tests/fixtures/test_model_with_frames.sdf": "d782d14b382e71caa0070cbb3e4f165c5679151274029cb11d1042592cbf4910"
+      },
+      "upstream_fixtures": {
+        "test/integration/model/test_model_with_frames/model.sdf": "d782d14b382e71caa0070cbb3e4f165c5679151274029cb11d1042592cbf4910"
+      },
+      "baseline": "passed; artifacts/dom-probe/reference-nested-frames.xml",
+      "status": "ported_reviewed",
+      "review": "/root/msgs; 2026-10-24; original assertion bodies, lookup/inversion path, both axis comparisons and unchanged upstream fixture reviewed. Native Pose3/Vector3 component-wise <=1e-3 comparisons retained plus tighter supplementary checks; 45 Rust tests and 76 native differential cases independently rerun."
+    },
+    {
+      "target": "INTEGRATION_nested_model",
+      "case": "NestedModel.NestedModelWithSiblingFrames",
+      "source": "test/integration/nested_model.cc:854",
+      "rust_test": "tests/nested_frames.rs::nested_model_with_sibling_frames_original_assertions",
+      "assertions": "Original parse/read/load success, world/parent/parent-frame/nested-model existence, testFrame relative_to and nested default semantic pose retained. Both nested frame/link existence and original parent-relative-to-target then inverse pose comparisons plus joint lookup/inverse pose assertions retained at original component-wise <=1e-3 tolerance plus supplementary tighter1e-6 checks.",
+      "fixtures": {
+        "tests/fixtures/test_model_with_frames.sdf": "d782d14b382e71caa0070cbb3e4f165c5679151274029cb11d1042592cbf4910"
+      },
+      "upstream_fixtures": {
+        "test/integration/model/test_model_with_frames/model.sdf": "d782d14b382e71caa0070cbb3e4f165c5679151274029cb11d1042592cbf4910"
+      },
+      "baseline": "passed; artifacts/dom-probe/reference-nested-frames.xml",
+      "status": "ported_reviewed",
+      "review": "/root/msgs; 2026-10-24; original assertion bodies, lookup/inversion path, both axis comparisons and unchanged upstream fixture reviewed. Native Pose3/Vector3 component-wise <=1e-3 comparisons retained plus tighter supplementary checks; 45 Rust tests and 76 native differential cases independently rerun."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

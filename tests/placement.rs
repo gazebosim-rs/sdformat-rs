@@ -25,6 +25,14 @@ fn close(actual: Transform, xyz: [f64; 3], rpy: [f64; 3]) {
         assert!((a - b).abs() < 1e-6, "{actual:?}");
     }
     let expected = glam::DQuat::from_euler(glam::EulerRot::ZYX, rpy[2], rpy[1], rpy[0]);
+    for (a, b) in actual
+        .translation
+        .into_iter()
+        .chain(actual.rotation)
+        .zip(xyz.into_iter().chain(expected.to_array()))
+    {
+        assert!((a - b).abs() <= 1e-3, "original Pose3 component equality");
+    }
     assert!(glam::DQuat::from_array(actual.rotation).abs_diff_eq(expected, 1e-6));
 }
 #[test]

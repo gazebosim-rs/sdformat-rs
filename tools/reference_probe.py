@@ -66,6 +66,24 @@ for case in json.loads(path.read_text()):
         observed['model_name']=model.name()
         observed['plugin_name']=plugin.name()
         observed['plugin_filename']=plugin.filename()
+    if accepted and 'deferred_pose_error' in case:
+        owner=case['deferred_pose_error']
+        link=document.model().link_by_index(0)
+        object=getattr(link,owner+'_by_index')(0)
+        try:
+            object.semantic_pose().resolve()
+            raise AssertionError(case['id']+' expected deferred failure')
+        except sdformat.SDFErrorsException as error:
+            observed['deferred_pose_error']=owner
+            observed['resolve_errors']=str(error)
+    if accepted and 'visual_geometry_missing' in case:
+        missing=document.model().link_by_index(0).visual_by_index(0).geometry().type()==sdformat.GeometryType.EMPTY
+        assert missing==case['visual_geometry_missing'],case['id']
+        observed['visual_geometry_missing']=missing
+    if accepted and 'axis2_missing' in case:
+        missing=document.model().joint_by_index(0).axis(1) is None
+        assert missing==case['axis2_missing'],case['id']
+        observed['axis2_missing']=missing
     if accepted and 'axis_missing' in case:
         missing=document.model().joint_by_index(0).axis(0) is None
         assert missing==case['axis_missing'],case['id']

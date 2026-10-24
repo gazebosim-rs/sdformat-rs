@@ -31,13 +31,18 @@ fn close(actual: Transform, expected: [f64; 6]) {
         assert!((a - b).abs() < 1e-6, "{actual:?} != {expected:?}");
     }
     let q = glam::DQuat::from_euler(glam::EulerRot::ZYX, h, p, r);
-    assert!(
-        glam::DQuat::from_array(actual.rotation).abs_diff_eq(q, 1e-6)
-            || glam::DQuat::from_array(actual.rotation).abs_diff_eq(-q, 1e-6)
-    );
+    for (a, b) in actual
+        .translation
+        .into_iter()
+        .chain(actual.rotation)
+        .zip([x, y, z].into_iter().chain(q.to_array()))
+    {
+        assert!((a - b).abs() <= 1e-3, "original Pose3 component equality");
+    }
+    assert!(glam::DQuat::from_array(actual.rotation).abs_diff_eq(q, 1e-6));
 }
 
-// All six original pose assertions, preserving gz-math's 1e-6 equality tolerance.
+// Original Pose3 component comparisons plus supplementary tighter1e-6 bounds.
 #[test]
 fn nested_reference_pose_relative_to() {
     let sdf = load(include_str!(
@@ -399,7 +404,7 @@ fn invalid_documents_fail_atomically() {
             ErrorCode::Unsupported,
         ),
         (
-            "<link name='l'><visual name='v'/></link>",
+            "<link name='l'><visual name='v'><material/></visual></link>",
             ErrorCode::Unsupported,
         ),
         (
@@ -716,6 +721,43 @@ fn pinned_cpp_differential_acceptance_corpus() {
             case["accepted"].as_bool().unwrap(),
             "{case}"
         );
+        if let Some(owner) = case.get("deferred_pose_error") {
+            let sdf = result.as_ref().unwrap();
+            let model = &sdf.models[0];
+            let link = &model.links[0];
+            let pose = match owner.as_str().unwrap() {
+                "collision" => &link.collisions[0].pose,
+                "visual" => &link.visuals[0].pose,
+                "sensor" => &link.sensors[0].pose,
+                _ => panic!("unknown differential pose owner"),
+            };
+            assert_eq!(
+                sdf.resolve_pose(pose, &model.scoped_name, &link.scoped_name, "::")
+                    .unwrap_err()
+                    .code,
+                ErrorCode::UnknownReference,
+                "{case}"
+            );
+            assert_eq!(
+                sdf.validate_non_frame_poses().unwrap_err().code,
+                ErrorCode::UnknownReference,
+                "{case}"
+            );
+        }
+        if let Some(expected) = case.get("visual_geometry_missing") {
+            assert_eq!(
+                result.as_ref().unwrap().models[0].links[0].visuals[0]
+                    .geometry
+                    .is_none(),
+                expected.as_bool().unwrap()
+            );
+        }
+        if let Some(expected) = case.get("axis2_missing") {
+            assert_eq!(
+                result.as_ref().unwrap().models[0].joints[0].axis2.is_none(),
+                expected.as_bool().unwrap()
+            );
+        }
         if let Some(expected) = case.get("axis_missing") {
             assert_eq!(
                 result.as_ref().unwrap().models[0].joints[0].axis.is_none(),
@@ -828,10 +870,6 @@ fn local_schema_references_cannot_escape_their_model_scope() {
         (
             "<model name='m'><link name='l'/></model><model name='n'><link name='l'/></model>",
             ErrorCode::InvalidValue,
-        ),
-        (
-            "<model name='m'><link name='l'><collision name='c'><pose relative_to='world'/><geometry><box/></geometry></collision></link></model>",
-            ErrorCode::UnknownReference,
         ),
         (
             "<model name='m'><link name='l'/><joint name='j' type='revolute'><parent>world</parent><child>l</child><axis><xyz expressed_in='world'>1 0 0</xyz></axis></joint></model>",

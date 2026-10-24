@@ -341,5 +341,100 @@
     "id": "sdf17_unchanged_subset",
     "xml": "<sdf version='1.7'><model name='m'><link name='l'><inertial><pose relative_to=''>0 0 0 0 0 0</pose></inertial></link></model></sdf>",
     "accepted": true
+  },
+  {
+    "id": "deferred_collision_pose",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><pose relative_to='missing'/><geometry><box/></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "deferred_pose_error": "collision"
+  },
+  {
+    "id": "deferred_visual_pose",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><pose relative_to='missing'/></visual></link></model></sdf>",
+    "accepted": true,
+    "deferred_pose_error": "visual"
+  },
+  {
+    "id": "deferred_sensor_pose",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><pose relative_to='missing'/></sensor></link></model></sdf>",
+    "accepted": true,
+    "deferred_pose_error": "sensor"
+  },
+  {
+    "id": "deferred_collision_world_scope",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><pose relative_to='world'/><geometry><box/></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "deferred_pose_error": "collision"
+  },
+  {
+    "id": "inertial_relative_to_retained_by_rust",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial><pose relative_to='missing'/></inertial></link></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "eager_link_pose",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><pose relative_to='missing'/></link></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "eager_frame_pose",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/><frame name='f'><pose relative_to='missing'/></frame></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "eager_joint_parent",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/><joint name='j' type='fixed'><parent>missing</parent><child>l</child></joint></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "eager_joint_axis",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/><link name='r'/><joint name='j' type='revolute'><parent>l</parent><child>r</child><axis><xyz expressed_in='missing'>0 0 1</xyz></axis></joint></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "eager_joint_axis2",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/><link name='r'/><joint name='j' type='universal'><parent>l</parent><child>r</child><axis2><xyz expressed_in='missing'>0 0 1</xyz></axis2></joint></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "visual_geometry_missing",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'></visual></link></model></sdf>",
+    "accepted": true,
+    "visual_geometry_missing": true
+  },
+  {
+    "id": "visual_geometry_empty",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><geometry/></visual></link></model></sdf>",
+    "accepted": true,
+    "visual_geometry_missing": true
+  },
+  {
+    "id": "duplicate_visual_names",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'/><visual name='v'/></link></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "axis2_universal_omitted",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/><link name='r'/><joint name='j' type='universal'><parent>l</parent><child>r</child></joint></model></sdf>",
+    "accepted": true,
+    "axis2_missing": true
+  },
+  {
+    "id": "axis2_universal_default",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/><link name='r'/><joint name='j' type='universal'><parent>l</parent><child>r</child><axis2/></joint></model></sdf>",
+    "accepted": true,
+    "axis2_missing": false
+  },
+  {
+    "id": "axis2_revolute2_omitted",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/><link name='r'/><joint name='j' type='revolute2'><parent>l</parent><child>r</child></joint></model></sdf>",
+    "accepted": true,
+    "axis2_missing": true
+  },
+  {
+    "id": "axis2_revolute2_default",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/><link name='r'/><joint name='j' type='revolute2'><parent>l</parent><child>r</child><axis2/></joint></model></sdf>",
+    "accepted": true,
+    "axis2_missing": false
   }
 ]

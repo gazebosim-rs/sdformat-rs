@@ -5,7 +5,6 @@
 """Single local/CI gate; coverage uses the pinned toolchain's LLVM binaries."""
 import argparse
 import hashlib
-import io
 import json
 import os
 from pathlib import Path
@@ -13,7 +12,6 @@ import platform
 import re
 import shutil
 import subprocess
-import tarfile
 import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -226,21 +224,61 @@ def verify(root):
     coverage(root, root / 'artifacts' / 'core', manifest)
 
 
-def export_index(root, destination):
-    tree = run(['git', 'write-tree'], capture=True, cwd=root).stdout.strip()
-    data = subprocess.run(['git', 'archive', tree], cwd=root, capture_output=True, check=True).stdout
-    with tarfile.open(fileobj=io.BytesIO(data)) as archive:
-        archive.extractall(destination, filter='data')
+def validate_snapshot(root, tree, candidate):
+    algorithm = subprocess.check_output(['git', 'rev-parse', '--show-object-format'], cwd=root, text=True).strip()
+    expected = set()
+    for entry in subprocess.check_output(['git', 'ls-tree', '-rz', tree], cwd=root).split(b'\0'):
+        if not entry:
+            continue
+        metadata, name = entry.split(b'\t', 1)
+        mode, kind, oid = metadata.split()
+        relative = os.fsdecode(name)
+        expected.add(relative)
+        path = candidate / relative
+        if kind != b'blob':
+            raise ValueError('Unsupported non-blob staged input')
+        if mode == b'120000' and path.is_symlink():
+            data = os.fsencode(os.readlink(path))
+        elif mode in (b'100644', b'100755') and path.is_file() and not path.is_symlink():
+            if bool(path.stat().st_mode & 0o100) != (mode == b'100755'):
+                raise ValueError('Exported staged executable mode differs from Git tree')
+            data = path.read_bytes()
+        else:
+            raise ValueError('Exported staged file type differs from Git tree')
+        digest = hashlib.new(algorithm, f'blob {len(data)}\0'.encode() + data).hexdigest()
+        if digest != oid.decode():
+            raise ValueError(f'Exported staged blob differs from Git tree: {relative}')
+    actual = {str(path.relative_to(candidate)) for path in candidate.rglob('*') if path.is_file() or path.is_symlink()}
+    if actual != expected:
+        raise ValueError('Exported staged paths differ from Git tree')
+
+
+def export_index(root, destination, tree=None):
+    tree = tree or run(['git', 'write-tree'], capture=True, cwd=root).stdout.strip()
+    (root / 'target').mkdir(exist_ok=True)
+    with tempfile.TemporaryDirectory(prefix='index-', dir=root / 'target') as directory:
+        env = dict(os.environ, GIT_INDEX_FILE=str(Path(directory) / 'index'))
+        run(['git', 'read-tree', tree], env=env, cwd=root)
+        run(['git', 'checkout-index', '--all', f'--prefix={Path(destination).resolve()}/'], env=env, cwd=root)
+    validate_snapshot(root, tree, Path(destination))
     return tree
 
 
+def head_revision(root):
+    result = subprocess.run(['git', 'rev-parse', '--verify', 'HEAD'], cwd=root, text=True, capture_output=True)
+    return result.stdout.strip() if result.returncode == 0 else None
+
+
 def staged():
-    tree = run(['git', 'write-tree'], capture=True).stdout.strip()
+    tree = run(['git', 'write-tree'], capture=True, cwd=ROOT).stdout.strip()
+    head = head_revision(ROOT)
     with tempfile.TemporaryDirectory(prefix='staged-', dir=ROOT / 'target') as temp:
-        assert export_index(ROOT, temp) == tree, 'index changed during export'
+        export_index(ROOT, temp, tree)
+        assert run(['git', 'write-tree'], capture=True, cwd=ROOT).stdout.strip() == tree, 'index changed during export'
         snapshot = Path(temp)
         verify(snapshot)
-        assert run(['git', 'write-tree'], capture=True).stdout.strip() == tree, 'index changed during verification'
+        assert run(['git', 'write-tree'], capture=True, cwd=ROOT).stdout.strip() == tree, 'index changed during verification'
+        assert head_revision(ROOT) == head, 'HEAD changed during verification'
         destination = ROOT / 'artifacts' / 'staged' / tree
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copytree(snapshot / 'artifacts/core', destination, dirs_exist_ok=True, ignore=shutil.ignore_patterns('target', 'raw'))

@@ -40,6 +40,10 @@ package features, and the Linux x86_64 core runner. Additional Cargo targets
 require a reviewed gate extension before they can compile in verification.
 Rust source files are checked against those roots; the runtime coverage report
 also rejects other owned instrumented inputs, regardless of their file extension.
+Staging verification freezes the Git tree and exports it through a private index.
+Every exported blob, file type, owner executable bit and path is checked against
+that tree before compilation. Export-ignore cannot omit files; checkout transforms
+such as EOL conversion are rejected. Index or HEAD changes invalidate the check.
 
 The upstream pin, runtime inventory, fixture hashes and port mapping are in
 [reference/](reference/). Most upstream cases remain pending; passing the small

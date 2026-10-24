@@ -1,8 +1,8 @@
 {
   "decision": "approved",
   "author": "/root/sdformat",
-  "reviewer": "/root/msgs",
-  "protected_digest": "015737cd633751d43bcd18ff2dd0660d284348d7633e4f3f545f198a34a8cf6c",
-  "scope": "Independent source/assertion review of minimal visual DOM, optional geometry/plugins, both joint axes and universal/revolute2; every original assertion in NestedModelWithFrames and NestedModelWithSiblingFrames compared with unchanged upstream fixture. Verified native component-wise <=1e-3 Pose3/Vector3 comparison contract without quaternion sign relaxation; reviewed bounded follow-up assertion corrections in earlier pose helpers, retaining tighter supplementary checks. Independently reran all 45 Rust tests, 8 tooling tests and 76 native differential cases including deferred collision/visual/sensor pose errors. Explicit eager validator and different native inertial policy are documented. Existing root-reviewed frozen staged-tree/Cargo target coverage policy inherited unchanged; no exclusions, thresholds or original assertions weakened. Full SDF packets remain incomplete; strict staged gate required.",
+  "reviewer": "/root/transport",
+  "protected_digest": "999fb87f90ef8e89002b14f62bea75c8fcd3ff5e312b9b976f0fd40ed4622582",
+  "scope": "Independent read-only review of README/tools/verify.py/tools/test_verify.py frozen staged export correction only, inheriting previously reviewed production/assertion scope. Verified private frozen index, exact raw Git blob identities and SHA1/SHA256 formats, symlink target/type, owner executable bit, complete path set, gitlink rejection and final index/HEAD guards. Independently reran all11 tool tests including export-ignore/partial stage, EOL transform, content/mode/type/link/extra paths and independent index/HEAD races. No production Rust, native assertion, ledger, threshold or exclusion changes; strict full staged gate remains required. Full SDF packets remain incomplete.",
   "date": "2026-10-24"
 }

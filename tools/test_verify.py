@@ -109,11 +109,13 @@ class SnapshotAndReviewTests(unittest.TestCase):
             root=Path(temp)/'repo';root.mkdir()
             git(root,'init','-q')
             (root/'file').write_text('staged\n')
-            git(root,'add','file')
+            (root/'.gitattributes').write_text('file export-ignore\n')
+            git(root,'add','file','.gitattributes')
             (root/'file').write_text('unstaged\n')
             destination=Path(temp)/'export';destination.mkdir()
             tree=verify.export_index(root,destination)
             self.assertEqual((destination/'file').read_text(),'staged\n')
+            self.assertEqual((root/'file').read_text(),'unstaged\n')
             git(root,'add','file')
             self.assertNotEqual(tree,git(root,'write-tree'))
 
@@ -134,6 +136,90 @@ class SnapshotAndReviewTests(unittest.TestCase):
         import subprocess
         with self.assertRaises(subprocess.CalledProcessError):
             verify.run(['false'])
+
+
+class FrozenExportTests(unittest.TestCase):
+    @staticmethod
+    def git(root, *args):
+        import subprocess
+        return subprocess.run(['git', *args], cwd=root, check=True, text=True, capture_output=True).stdout.strip()
+
+    def test_checkout_transform_is_rejected_before_verification(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp) / 'repo'; root.mkdir()
+            self.git(root, 'init', '-q')
+            self.git(root, 'config', 'core.autocrlf', 'false')
+            (root / 'file').write_bytes(b'staged\n')
+            (root / '.gitattributes').write_text('file text eol=crlf\n')
+            self.git(root, 'add', 'file', '.gitattributes')
+            destination = Path(temp) / 'export'; destination.mkdir()
+            with self.assertRaisesRegex(ValueError, 'blob differs'):
+                verify.export_index(root, destination)
+
+    def test_snapshot_identity_includes_paths_types_modes_and_symlink_targets(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp) / 'repo'; root.mkdir()
+            self.git(root, 'init', '-q')
+            (root / 'file').write_bytes(b'original')
+            (root / 'executable').write_bytes(b'run')
+            (root / 'link').symlink_to('file')
+            self.git(root, 'add', 'file', 'executable', 'link')
+            self.git(root, 'update-index', '--chmod=+x', 'executable')
+            destination = Path(temp) / 'export'; destination.mkdir()
+            tree = verify.export_index(root, destination)
+            file = destination / 'file'
+            file.write_bytes(b'substituted')
+            with self.assertRaisesRegex(ValueError, 'blob differs'):
+                verify.validate_snapshot(root, tree, destination)
+            file.write_bytes(b'original'); file.chmod(0o755)
+            with self.assertRaisesRegex(ValueError, 'executable mode differs'):
+                verify.validate_snapshot(root, tree, destination)
+            file.chmod(0o644); file.unlink(); file.symlink_to('executable')
+            with self.assertRaisesRegex(ValueError, 'file type differs'):
+                verify.validate_snapshot(root, tree, destination)
+            file.unlink(); file.write_bytes(b'original')
+            link = destination / 'link'; link.unlink(); link.symlink_to('executable')
+            with self.assertRaisesRegex(ValueError, 'blob differs'):
+                verify.validate_snapshot(root, tree, destination)
+            link.unlink(); link.symlink_to('file')
+            executable = destination / 'executable'; executable.chmod(0o645)
+            with self.assertRaisesRegex(ValueError, 'executable mode differs'):
+                verify.validate_snapshot(root, tree, destination)
+            executable.chmod(0o755)
+            (destination / 'extra').write_bytes(b'extra')
+            with self.assertRaisesRegex(ValueError, 'paths differ'):
+                verify.validate_snapshot(root, tree, destination)
+            (destination / 'extra').unlink()
+            self.git(root, 'update-index', '--add', '--cacheinfo', '160000,' + '1' * 40 + ',submodule')
+            with self.assertRaisesRegex(ValueError, 'non-blob staged input'):
+                verify.validate_snapshot(root, self.git(root, 'write-tree'), destination)
+
+    def test_index_and_head_races_cannot_publish_verified_evidence(self):
+        for race in ('during_export', 'index', 'HEAD'):
+            with self.subTest(race=race), tempfile.TemporaryDirectory() as temp:
+                root = Path(temp) / 'repo'; root.mkdir(); (root / 'target').mkdir()
+                self.git(root, 'init', '-q')
+                (root / 'file').write_bytes(b'staged')
+                self.git(root, 'add', 'file')
+                def mutate():
+                    if race == 'HEAD':
+                        self.git(root, '-c', 'user.name=Fixture', '-c', 'user.email=fixture@example.test', 'commit', '-qm', 'concurrent commit')
+                    else:
+                        (root / 'file').write_bytes(b'changed')
+                        self.git(root, 'add', 'file')
+                def fake_verify(snapshot):
+                    self.assertEqual((snapshot / 'file').read_bytes(), b'staged')
+                    proof = snapshot / 'artifacts/core'; proof.mkdir(parents=True)
+                    (proof / 'evidence.json').write_text('{}')
+                    mutate()
+                original_export = verify.export_index
+                def racing_export(*args):
+                    result = original_export(*args)
+                    if race == 'during_export': mutate()
+                    return result
+                with patch.object(verify, 'ROOT', root), patch.object(verify, 'verify', side_effect=fake_verify), patch.object(verify, 'export_index', side_effect=racing_export), self.assertRaisesRegex(AssertionError, 'changed during'):
+                    verify.staged()
+                self.assertFalse((root / 'artifacts/staged').exists())
 
 
 if __name__ == '__main__': unittest.main()

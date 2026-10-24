@@ -1,0 +1,9 @@
+SDFormat in Rust
+Copyright (C) 2026 Open Source Robotics Foundation
+
+Owned implementation, tooling and documentation are licensed under the
+Apache License, Version 2.0. See LICENSE.
+
+Imported SDFormat assertion ports and fixtures retain their original
+Open Source Robotics Foundation copyright notices and years. Unmodified
+third-party dependencies retain their own licenses and notices.

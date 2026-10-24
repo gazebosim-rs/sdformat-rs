@@ -1,3 +1,6 @@
+// Copyright (C) 2026 Open Source Robotics Foundation
+// SPDX-License-Identifier: Apache-2.0
+
 //! Validated SDFormat model and frame semantics, independent of a simulator.
 //!
 //! Loading is atomic: syntax, validation, include expansion and graph errors never

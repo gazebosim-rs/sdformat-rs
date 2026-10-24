@@ -1,3 +1,6 @@
+// Copyright (C) 2026 Open Source Robotics Foundation
+// SPDX-License-Identifier: Apache-2.0
+
 use crate::graph::{Graphs, error, join};
 use crate::xml::{Document, Node};
 use crate::*;

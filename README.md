@@ -42,3 +42,7 @@ and [test policy](https://github.com/gazebosim-rs/gz-sim-rs/blob/main/docs/TESTI
 remain the acceptance requirements.
 
 Apache-2.0. Original fixtures/test assertions retain OSRF provenance; see LICENSE.
+
+Copyright (C) 2026 Open Source Robotics Foundation. Owned code uses Apache-2.0;
+see [LICENSE](LICENSE) and [NOTICE](NOTICE). Original imported notices and years
+remain intact, and third-party dependencies retain their own licenses.

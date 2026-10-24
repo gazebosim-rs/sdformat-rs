@@ -51,3 +51,10 @@ Owned code, tools and documentation use Apache-2.0; keep the root LICENSE and
 Cargo package declaration consistent. Preserve original copyright/license notices
 on imported code and fixtures. Do not relabel third-party dependencies or replace
 their original notices with this repository's license.
+
+The copyright holder for owned new code is Open Source Robotics Foundation,
+matching Gazebo main. New Rust, Python and shell source carries
+`Copyright (C) YEAR Open Source Robotics Foundation` (YEAR is the file creation
+year; current new sources use 2026) and `SPDX-License-Identifier: Apache-2.0`.
+Keep original imported notices and years unchanged; this rule does not relabel
+third-party dependencies. Maintain NOTICE.

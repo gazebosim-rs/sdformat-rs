@@ -32,6 +32,12 @@ changed executable lines. The gate rejects missing instrumentation and files;
 protected assertion/policy changes require a separate review receipt. CI runs the
 same gate and publishes artifacts. Repository administrators must configure the
 `verify / core` status and independent reviews as required branch checks.
+The covered layout is one library in `src`, integration tests in `tests`, no
+package features, and the Linux x86_64 core runner. Additional Cargo targets
+(including automatically discovered build scripts), local packages or features
+require a reviewed gate extension before they can compile in verification.
+Rust source files are checked against those roots; the runtime coverage report
+also rejects other owned instrumented inputs, regardless of their file extension.
 
 The upstream pin, runtime inventory, fixture hashes and port mapping are in
 [reference/](reference/). Most upstream cases remain pending; passing the small

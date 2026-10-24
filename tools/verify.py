@@ -9,6 +9,7 @@ import io
 import json
 import os
 from pathlib import Path
+import platform
 import re
 import shutil
 import subprocess
@@ -55,12 +56,48 @@ def check_counts(summary):
         assert values['covered'] * 100 > values['count'] * 95, f'{metric}: {values["covered"]}/{values["count"]} must exceed 95%'
 
 
+def check_layout(root, metadata, manifest):
+    """Fail closed before Cargo can execute an unaccounted build target."""
+    assert manifest['profiles'] == ['core'], 'profile matrix changed without gate support'
+    assert manifest['crates'] == {'sdformat': ['src']}, 'crate matrix changed without gate support'
+    assert manifest['exclusions'] == [], 'coverage exclusions require review and implementation'
+    assert manifest['runner'] == 'linux-x86_64', 'runner matrix changed without gate support'
+    assert (platform.system(), platform.machine()) == ('Linux', 'x86_64'), 'required linux-x86_64 runner unavailable'
+    owned = [p for p in metadata['packages'] if p['source'] is None]
+    assert len(owned) == 1, 'additional local packages need production coverage support'
+    package = owned[0]
+    assert package['name'] == 'sdformat' and Path(package['manifest_path']).resolve() == root / 'Cargo.toml', 'unexpected production package'
+    assert metadata['workspace_members'] == [package['id']], 'workspace matrix changed without gate support'
+    assert not package['features'], 'feature profiles need explicit coverage support'
+    assert package['license'] == 'Apache-2.0', 'owned package license must remain Apache-2.0'
+    libraries = []
+    for target in package['targets']:
+        path = Path(target['src_path']).resolve()
+        if target['kind'] == ['lib']:
+            libraries.append(target)
+            assert target['crate_types'] == ['lib'] and path == root / 'src/lib.rs', 'unaccounted library source or crate type'
+        else:
+            assert target['kind'] == ['test'] and path.is_relative_to(root / 'tests'), 'unaccounted Cargo target needs coverage support'
+    assert len(libraries) == 1, 'exactly one production library is required'
+    # Cargo metadata inventories entry points, but not module/include sources.
+    # Keep owned Rust inside the two reviewed roots; output trees are not inputs.
+    for directory, children, files in os.walk(root):
+        if Path(directory) == root:
+            children[:] = [c for c in children if c not in ('.git', 'target', 'artifacts')]
+        for name in files:
+            if name.endswith('.rs'):
+                path = (Path(directory) / name).resolve()
+                assert path.is_relative_to(root / 'src') or path.is_relative_to(root / 'tests'), f'unaccounted Rust source {path}'
+
+
 def check_report(report, root, manifest):
     assert report.get('type') == 'llvm.coverage.json.export', 'missing instrumentation'
     files = {}
     for item in report['data']:
         for file in item['files']:
             path = Path(file['filename']).resolve()
+            if path.is_relative_to(root):
+                assert path.is_relative_to(root / 'src') or (path.is_relative_to(root / 'tests') and path.suffix == '.rs'), f'unaccounted instrumented source {path}'
             if path.is_relative_to(root / 'src'):
                 assert path not in files, f'duplicate coverage file {path}'
                 files[path] = file
@@ -178,13 +215,14 @@ def changed_lines(root):
 def verify(root):
     check_review(root)
     manifest = json.loads((root / 'coverage.json').read_text())
+    metadata = json.loads(run(['cargo', 'metadata', '--locked', '--format-version=1'], capture=True, cwd=root).stdout)
+    check_layout(root, metadata, manifest)
+    assert not any(p['name'].startswith(('bevy', 'gz-sim', 'gz-fuel', 'gz-transport')) for p in metadata['packages']), 'forbidden reverse dependency'
     check_ledger(root)
     run(['python3', '-m', 'unittest', 'discover', '-s', 'tools', '-p', 'test_*.py'], cwd=root)
     run(['cargo', 'fmt', '--all', '--check'], cwd=root)
     run(['cargo', 'clippy', '--locked', '--all-targets', '--', '-D', 'warnings'], cwd=root)
     run(['cargo', 'test', '--locked', '--doc'], cwd=root)
-    metadata = json.loads(run(['cargo', 'metadata', '--locked', '--format-version=1'], capture=True, cwd=root).stdout)
-    assert not any(p['name'].startswith(('bevy', 'gz-sim', 'gz-fuel', 'gz-transport')) for p in metadata['packages']), 'forbidden reverse dependency'
     coverage(root, root / 'artifacts' / 'core', manifest)
 
 

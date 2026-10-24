@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
 import verify
 
 
@@ -31,11 +32,13 @@ class CoverageGateTests(unittest.TestCase):
             for key, value in [('profiles', []), ('crates', {}), ('exclusions', ['src/lib.rs'])]:
                 broken = dict(manifest, **{key: value})
                 with self.assertRaises(AssertionError): verify.check_report(report, root, broken)
-            for change in ('instrumentation', 'file', 'duplicate', 'line', 'region'):
+            for change in ('instrumentation', 'file', 'duplicate', 'line', 'region', 'outside', 'include'):
                 broken = copy.deepcopy(report)
                 if change == 'instrumentation': broken['type'] = 'absent'
                 elif change == 'file': broken['data'][0]['files'] = []
                 elif change == 'duplicate': broken['data'][0]['files'] *= 2
+                elif change == 'outside': broken['data'][0]['files'].append(dict(report['data'][0]['files'][0], filename=str(root / 'build.rs')))
+                elif change == 'include': broken['data'][0]['files'].append({'filename': str(root / 'production.inc'), 'summary': {m: {'count': 100, 'covered': 0} for m in ('lines', 'regions')}})
                 else: broken['data'][0]['files'][0]['summary'][change + 's']['covered'] = 9
                 with self.assertRaises(AssertionError): verify.check_report(broken, root, manifest)
 
@@ -48,7 +51,54 @@ class CoverageGateTests(unittest.TestCase):
             self.assertEqual({(file, 1), (file, 2)}, verify.changed_lines(root))
 
 
-if __name__ == '__main__': unittest.main()
+class LayoutGateTests(unittest.TestCase):
+    def test_real_cargo_autodiscovery_and_features_cannot_escape_inventory(self):
+        import subprocess
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            (root / 'src').mkdir()
+            (root / 'src/lib.rs').write_text('pub fn f() {}')
+            cargo = '[package]\nname="sdformat"\nversion="0.1.0"\nedition="2024"\nlicense="Apache-2.0"\n'
+            (root / 'Cargo.toml').write_text(cargo)
+            manifest = {'profiles': ['core'], 'crates': {'sdformat': ['src']}, 'exclusions': [], 'runner': 'linux-x86_64'}
+            def metadata():
+                return json.loads(subprocess.run(['cargo', 'metadata', '--offline', '--no-deps', '--format-version=1'], cwd=root, check=True, text=True, capture_output=True).stdout)
+            verify.check_layout(root, metadata(), manifest)
+            # Cargo discovers these without explicit [[bin]]/[package].build.
+            for relative in ('build.rs', 'src/main.rs', 'src/bin/tool.rs', 'examples/example.rs', 'benches/bench.rs'):
+                path = root / relative
+                path.parent.mkdir(exist_ok=True)
+                path.write_text('compile_error!("must not compile before inventory rejection");')
+                with self.subTest(target=relative), self.assertRaisesRegex(AssertionError, 'unaccounted Cargo target'):
+                    verify.check_layout(root, metadata(), manifest)
+                path.unlink()
+            (root / 'Cargo.toml').write_text(cargo + '\n[features]\nextra=[]\n')
+            with self.assertRaisesRegex(AssertionError, 'feature profiles'):
+                verify.check_layout(root, metadata(), manifest)
+
+    def test_packages_sources_runner_and_policy_changes_require_support(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            (root / 'src').mkdir()
+            (root / 'src/lib.rs').write_text('pub fn f() {}')
+            manifest = {'profiles': ['core'], 'crates': {'sdformat': ['src']}, 'exclusions': [], 'runner': 'linux-x86_64'}
+            package = {'id': 'owned', 'name': 'sdformat', 'manifest_path': str(root / 'Cargo.toml'), 'source': None, 'license': 'Apache-2.0', 'features': {}, 'targets': [{'kind': ['lib'], 'crate_types': ['lib'], 'src_path': str(root / 'src/lib.rs')}]}
+            metadata = {'packages': [package], 'workspace_members': ['owned']}
+            verify.check_layout(root, metadata, manifest)
+            for key, value in [('profiles', []), ('crates', {}), ('exclusions', ['src/lib.rs']), ('runner', 'windows-x86_64')]:
+                with self.subTest(policy=key), self.assertRaises(AssertionError):
+                    verify.check_layout(root, metadata, dict(manifest, **{key: value}))
+            with patch('verify.platform.system', return_value='Windows'), self.assertRaisesRegex(AssertionError, 'runner unavailable'):
+                verify.check_layout(root, metadata, manifest)
+            for key, value in [('workspace_members', ['owned', 'other']), ('packages', [package, dict(package, id='other')])]:
+                with self.subTest(metadata=key), self.assertRaises(AssertionError):
+                    verify.check_layout(root, dict(metadata, **{key: value}), manifest)
+            for key, value in [('license', 'MIT'), ('targets', []), ('targets', [dict(package['targets'][0], src_path=str(root / 'other.rs'))])]:
+                with self.subTest(package=key), self.assertRaises(AssertionError):
+                    verify.check_layout(root, dict(metadata, packages=[dict(package, **{key: value})]), manifest)
+            (root / 'forgotten.rs').write_text('pub fn omitted() {}')
+            with self.assertRaisesRegex(AssertionError, 'unaccounted Rust source'):
+                verify.check_layout(root, metadata, manifest)
 
 class SnapshotAndReviewTests(unittest.TestCase):
     def test_partial_staging_exports_only_index_and_detects_changes(self):
@@ -84,3 +134,6 @@ class SnapshotAndReviewTests(unittest.TestCase):
         import subprocess
         with self.assertRaises(subprocess.CalledProcessError):
             verify.run(['false'])
+
+
+if __name__ == '__main__': unittest.main()

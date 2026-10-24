@@ -2,7 +2,7 @@
   "decision": "approved",
   "author": "/root/sdformat",
   "reviewer": "/root",
-  "protected_digest": "eea0b6fe2861939954c33332b1a40032e27fc63454417c82e48ab1232ab63175",
-  "scope": "OSRF attribution-only headers, NOTICE, README and creation-year contributor guidance; source/test bodies and imported fixture bytes verified unchanged. Review protection now includes production source and licensing/notice files. No coverage exclusions or assertion changes.",
+  "protected_digest": "677303c8e040490e5ba20a8af1b5e1ece48e7506bc788d44455abe38265b0e2d",
+  "scope": "Reviewed pre-compilation Cargo target/package/feature/runner inventory and fail-closed coverage attribution for owned inputs of any suffix. Independent transport review retained; root inspected exact diff and reran all 8 tool tests. No production behavior, assertions, exclusions or coverage thresholds weakened.",
   "date": "2026-10-24"
 }

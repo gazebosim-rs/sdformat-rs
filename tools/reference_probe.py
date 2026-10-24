@@ -32,7 +32,7 @@ def main():
 
 
 NATIVE = '''
-import hashlib,json,sys
+import hashlib,json,sys,struct
 from pathlib import Path
 import sdformat
 from gz.math import Pose3d
@@ -58,6 +58,25 @@ for case in json.loads(path.read_text()):
             bodies=[joint.resolve_parent_link(),joint.resolve_child_link()]
             assert bodies==case['joint_bodies'],case['id']
             observed['joint_bodies']=bodies
+    if accepted and 'surface_coefficient_bits' in case:
+        value=document.model().link_by_index(0).collision_by_index(0).surface().friction().torsional().coefficient()
+        bits=struct.unpack('<Q',struct.pack('<d',value))[0]
+        assert bits==case['surface_coefficient_bits'],case['id']
+        observed['surface_coefficient_bits']=bits
+    if accepted and 'surface' in case:
+        surface=document.model().link_by_index(0).collision_by_index(0).surface()
+        contact=surface.contact()
+        friction=surface.friction()
+        ode=friction.ode()
+        bullet=friction.bullet_friction()
+        torsional=friction.torsional()
+        vector=lambda v:[v.x(),v.y(),v.z()]
+        measured=dict(contact=dict(collide_bitmask=contact.collide_bitmask(),category_bitmask=contact.category_bitmask()),
+            ode=dict(mu=ode.mu(),mu2=ode.mu2(),slip1=ode.slip1(),slip2=ode.slip2(),fdir1=vector(ode.fdir1())),
+            bullet=None if bullet is None else dict(friction=bullet.friction(),friction2=bullet.friction2(),fdir1=vector(bullet.fdir1()),rolling_friction=bullet.rolling_friction()),
+            torsional=None if torsional is None else dict(coefficient=torsional.coefficient(),use_patch_radius=torsional.use_patch_radius(),patch_radius=torsional.patch_radius(),surface_radius=torsional.surface_radius(),ode_slip=torsional.ode_slip()))
+        assert measured==case['surface'],case['id']
+        observed['surface']=measured
     if accepted and 'geometry' in case:
         expected=case['geometry']
         kind=expected['kind']

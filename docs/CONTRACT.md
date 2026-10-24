@@ -176,6 +176,27 @@ therefore fail numeric parsing; XML-normalized CDATA CR becomes LF and trims
 empty. This applies to optional mass, mesh scale and decomposition counts.
 
 
+Collision.surface retains native contact/friction metadata independently of any
+physics backend. Surface, Contact, Friction and each engine-specific friction
+group carry optional Source provenance: absent groups have None; parsed groups
+retain URI/line/column. Surface.source distinguishes an absent surface from an
+explicit empty surface even when numeric defaults agree. Consumers must reject
+unsupported explicit surfaces rather than silently ignoring their parameters.
+
+Contact masks are u16. Missing collide_bitmask uses the native DOM default255;
+an explicitly empty element uses the schema default65535. An absent category mask
+is None, meaning the collision mask is the effective category. Native unsigned
+conversion and final16-bit wrapping are retained.
+
+Friction always has ODE defaults; optional Bullet and torsional groups preserve
+their presence. ODE mu/mu2, Bullet friction/friction2 and torsional coefficient/
+radii follow nonnegative schema constraints. Slip and rolling friction retain
+negative values where the schema permits them. fdir1 values remain unnormalized.
+Unknown bounce/contact/compliance/engine properties remain Unsupported. No
+friction/contact simulation, full surface schema or full Shapes parity is claimed.
+General vector-prefix/nonfinite gaps remain documented separately.
+
+
 Sensor.frame_id is canonical SDF frame metadata. Sensor.gz_frame_id preserves the
 literal legacy element as Option<String>, including Some("") for an explicitly
 empty element. Both values use native string whitespace/text-origin rules and

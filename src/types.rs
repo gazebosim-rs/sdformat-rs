@@ -291,7 +291,100 @@ pub struct Collision {
     pub name: String,
     pub pose: Pose,
     pub geometry: Geometry,
+    pub surface: Surface,
     pub source: Source,
+}
+/// Contact and friction metadata, independent of any physics engine.
+/// Source is None for an absent group and Some for explicitly loaded XML.
+#[derive(Debug, Default, Clone, PartialEq)]
+pub struct Surface {
+    pub contact: Contact,
+    pub friction: Friction,
+    pub source: Option<Source>,
+}
+#[derive(Debug, Clone, PartialEq)]
+pub struct Contact {
+    pub collide_bitmask: u16,
+    /// None means use collide_bitmask as the category.
+    pub category_bitmask: Option<u16>,
+    pub source: Option<Source>,
+}
+impl Default for Contact {
+    fn default() -> Self {
+        Self {
+            collide_bitmask: 0xff,
+            category_bitmask: None,
+            source: None,
+        }
+    }
+}
+#[derive(Debug, Default, Clone, PartialEq)]
+pub struct Friction {
+    pub ode: OdeFriction,
+    pub bullet: Option<BulletFriction>,
+    pub torsional: Option<TorsionalFriction>,
+    pub source: Option<Source>,
+}
+#[derive(Debug, Clone, PartialEq)]
+pub struct OdeFriction {
+    pub mu: f64,
+    pub mu2: f64,
+    pub fdir1: [f64; 3],
+    pub slip1: f64,
+    pub slip2: f64,
+    pub source: Option<Source>,
+}
+impl Default for OdeFriction {
+    fn default() -> Self {
+        Self {
+            mu: 1.,
+            mu2: 1.,
+            fdir1: [0.; 3],
+            slip1: 0.,
+            slip2: 0.,
+            source: None,
+        }
+    }
+}
+#[derive(Debug, Clone, PartialEq)]
+pub struct BulletFriction {
+    pub friction: f64,
+    pub friction2: f64,
+    pub fdir1: [f64; 3],
+    pub rolling_friction: f64,
+    pub source: Option<Source>,
+}
+impl Default for BulletFriction {
+    fn default() -> Self {
+        Self {
+            friction: 1.,
+            friction2: 1.,
+            fdir1: [0.; 3],
+            rolling_friction: 1.,
+            source: None,
+        }
+    }
+}
+#[derive(Debug, Clone, PartialEq)]
+pub struct TorsionalFriction {
+    pub coefficient: f64,
+    pub use_patch_radius: bool,
+    pub patch_radius: f64,
+    pub surface_radius: f64,
+    pub ode_slip: f64,
+    pub source: Option<Source>,
+}
+impl Default for TorsionalFriction {
+    fn default() -> Self {
+        Self {
+            coefficient: 1.,
+            use_patch_radius: true,
+            patch_radius: 0.,
+            surface_radius: 0.,
+            ode_slip: 0.,
+            source: None,
+        }
+    }
 }
 #[derive(Debug)]
 pub struct Visual {

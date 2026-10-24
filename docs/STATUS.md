@@ -109,7 +109,7 @@ lock entry from 0.30.10 to this library's exact 0.30.9. Evaluate compatible semv
 requirements with locked repository validation and explicit integration pins;
 this slice does not change the established dependency selection.
 
-Placement slice verified production coverage:1300/1314lines and2261/2352regions;
+Placement slice verified production coverage:1300/1314 lines and 2261/2352 regions;
 changed executable lines42/42. Independent review:/root. Both canonical coverage
 metrics and changed lines strictly exceed95%; no exclusions added.
 
@@ -126,8 +126,8 @@ pose observations. Rust integration suite:29 tests. No comparative performance
 claim is made; ancestry queries allocate two short paths, while global and exact
 self queries retain fast paths. XML tokenizer compatibility evaluation is next.
 
-Precision slice coverage:1347/1361production lines and2353/2444regions;
-changed48/48. Independent review:/root.
+Precision slice coverage:1347/1361production lines and 2353/2444 regions;
+changed 48/48. Independent review:/root.
 
 The sixth syntax slice replaces roxmltree after demonstrating its incompatible
 rejection of undeclared extension prefixes. The private SDF element cursor uses
@@ -153,11 +153,11 @@ observations in the differential corpus. Additional typed numeric-NUL name/file
 truncation was checked and preserved. The earlier supplementary strict-comment
 negative assumption was replaced with native-backed positive preservation tests;
 no upstream assertion was removed. Boundary probes establish495 nested nonempty
-plugin children pass and496 fail in the original three-element wrapper. Legacy
+plugin children pass and 496 fail in the original three-element wrapper. Legacy
 header declarations remain permissive, as native accepts <?xml?> before the root.
 Corpus:53 acceptance cases, four numeric poses, nine scalar-mass observations and
 three typed-string observations.36 Rust tests and six tooling tests pass;
-coverage1618/1639lines,2772/2883regions,changed261/265. Final independent re-review
+coverage1618/1639 lines,2772/2883 regions,changed 261/265. Final independent re-review
 and staged verification remain required. The dashboard is maintained at
 https://gazebosim-rs.github.io/rewrite-progress/ with separate accepted slices and
 whole-packet status.
@@ -169,7 +169,7 @@ same-body/missing-axis input remains rejected, now for its native invalid-endpoi
 reason; valid distinct-body omitted-axis cases are positively asserted and
 native-probed. SDF1.7's unchanged subset is accepted, including the original
 frame_only_model resource. Required unflattening of flattened names is explicitly
-Unsupported, and1.6 conversion remains unavailable. Both native and Rust pass the
+Unsupported, and 1.6 conversion remains unavailable. Both native and Rust pass the
 complete NestedModel.NestedFrameOnlyModel pose assertions on the unchanged1.7
 fixture.39 Rust tests and six tooling tests pass; full versions/conversion parity
 and the overall SDF packets remain in progress.
@@ -181,7 +181,7 @@ supported joints. It reuses primitive geometry and axis validators. Two original
 native nested-frame cases pass; Rust ports preserve the unchanged1.7fixture,
 original parent-relative-to-nested-frame lookup then inversion, and both joint
 axis assertions. Both ports were independently reviewed by /root/msgs, including original
-component comparisons, and all45 Rust tests plus76 native differential cases
+component comparisons, and all 45 Rust tests plus76 native differential cases
 were independently rerun. The prior
 supplementary visual-unsupported example is now tested positively; its negative
 assertion checks unsupported material instead. No upstream assertion was weakened.
@@ -196,8 +196,8 @@ resolves supported non-frame poses before scene construction. Native ignores
 inertial relative_to (Link.cc TODO); Rust retains and checks it only under explicit
 resolution/validation policy, without claiming native ResolveInertial parity.
 Native acceptance corpus:76cases, including four deferred error observations.
-45 Rust tests and8tooltests pass; production coverage1677/1698lines and
-2889/3001regions, changed107/107. No exclusions added. Independent assertion
+45 Rust tests and 8tooltests pass; production coverage1677/1698 lines and
+2889/3001 regions, changed 107/107. No exclusions added. Independent assertion
 and policy review:/root/msgs. Strict staged-tree verification remains required.
 
 Native probes also expose a pending numeric lexical gap: Param.cc accepts scalar
@@ -235,7 +235,7 @@ tests; 11 tooling tests, fmt, clippy and doc checks pass. Production coverage is
 shared link/joint names rename the joint (a -> a_joint); that legacy graph
 compatibility and flattened-name unflattening remain explicit Unsupported.
 Full versions, serialization and the SDF packets remain incomplete. Independent
-review:/root/msgs, including47 Rust tests,11 tooling tests and122 native cases.
+review:/root/msgs, including47 Rust tests,11 tooling tests and 122 native cases.
 Strict staged verification remains required for this version slice.
 
 Independent review caught two legacy whitespace mismatches before acceptance:
@@ -270,11 +270,11 @@ case, including original component-wise <=1e-3 comparisons plus tighter
 supplementary checks. Their fixture bytes match upstream. The corpus now has139
 native acceptance/query cases, covering order reversals, future suffix collisions,
 numeric suffixes, nested models, unchanged joint endpoints, same-kind duplicates
-and a modern-version control. All50 Rust tests,11 tooling tests, fmt, clippy and
-doc checks pass. Coverage1823/1842 lines,3120/3227 regions and changed104/104.
+and a modern-version control. All 50 Rust tests,11 tooling tests, fmt, clippy and
+doc checks pass. Coverage 1823/1842 lines,3120/3227 regions and changed 104/104.
 No dependencies, exclusions or thresholds changed. Independent review by
 /root/msgs verified every original assertion and fixture, reran both original
-native tests, all50 Rust tests,11 tooling tests and139 native observations.
+native tests, all 50 Rust tests,11 tooling tests and 139 native observations.
 The two mappings are reviewed; strict frozen staged verification remains required.
 
 
@@ -288,13 +288,13 @@ underscores; the former __reserved include rejection remains as a positive
 regression, while __reserved__ retains the negative check. Scalar booleans are
 ASCII case-insensitive and retain optional defaults for empty elements.
 
-The isolated candidate passes59 Rust tests and11 tooling tests;87 geometry and72
+The isolated candidate passes59 Rust tests and 11 tooling tests;87 geometry and 72
 named-entity native cases match. Eight original Geometry typed-shape cases and
 the original15-input ReservedNames table have pending assertion ports. Enum
 matching preserves shape type/presence; XML construction replaces mutable C++
 setters. Full integration Shapes remains pending because its unchanged fixture
 also includes collision surface and rendering properties. Production coverage
-1927/1950 lines,3327/3440 regions, changed176/178. No exclusions or performance
+1927/1950 lines,3327/3440 regions, changed 176/178. No exclusions or performance
 claim. Independent review and frozen staged verification remain required.
 
 
@@ -311,14 +311,14 @@ unchanged. General non-whitespace floating-point prefixes remain explicitly pend
 
 
 Transport independently re-reviewed the corrected isolated implementation and all
-new original mappings. It reran59 Rust tests,87 native geometry cases and72 native
-named-entity cases; original8 Geometry value cases and15 ReservedNames assertions
+new original mappings. It reran59 Rust tests,87 native geometry cases and 72 native
+named-entity cases; original8 Geometry value cases and 15 ReservedNames assertions
 were checked against pinned source. Integration onto the reviewed legacy-name
 slice is separate and requires combined checks and final matching receipt.
 
 Combined integration onto reviewed eb815a1 passes62 Rust tests,11 tooling tests,
-all139 base,87 geometry and72 named-entity native observations. Production
-coverage2001/2022 lines,3463/3573 regions; changed176/178. The production delta
+all 139 base,87 geometry and 72 named-entity native observations. Production
+coverage2001/2022 lines,3463/3573 regions; changed 176/178. The production delta
 and all new test bytes are identical to the isolated reviewed candidate; the
 native probe keeps its existing declaration-name/body observations unchanged.
 Final independent integration receipt and strict frozen staged gate are required.
@@ -333,32 +333,51 @@ booleans, unsigned counts, mesh strings and optional scale checks. Common alread
 normalized values borrow their storage; whitespace collapse allocates only when
 needed. Original assertion mappings are unchanged.
 
-All62 Rust tests,11 tooling tests and139+111+72 native observations pass.
-Coverage1997/2018 lines,3455/3565 regions, changed24/24. No dependency,
+All 62 Rust tests,11 tooling tests and 139+111+72 native observations pass.
+Coverage 1997/2018 lines,3455/3565 regions, changed 24/24. No dependency,
 exclusion or threshold change. Independent /root/msgs follow-up review reran
-all62 Rust/11 tooling tests and322 native observations and approved the exact
+all 62 Rust/11 tooling tests and 322 native observations and approved the exact
 source/text-origin contracts. Strict staged gate remains required; general
 floating-prefix/nonfinite parity stays pending.
 
 
+The current Surface slice adds contact masks and ODE/Bullet/torsional friction
+metadata to collisions, with optional provenance on each group. No physics engine
+or new dependency is introduced. Explicit group presence survives defaults so the
+simulator can reject unsupported surfaces atomically. Native30-case field/default/
+error corpus matches; one native-accepted numeric-prefix observation remains
+explicitly pending with the existing scalar lexical gap. Native empty-mask65535
+versus absent-mask255, 16-bit wrapping, allowed negative slip/rolling friction and
+required/optional whitespace controls are retained.
+
+Ten original Surface default/set cases pass natively. New Rust assertion ports
+preserve every original value and null-Element provenance through optional Source,
+using owned records/public fields instead of a C++ object facade. Original2020
+notices and component tolerances are retained. All 75 Rust tests,11 tooling tests,
+fmt/clippy and 139+111+72+30 native observations pass. Coverage 2146/2170 lines,
+3712/3835 regions, changed 137/139. Independent review and strict staged gate remain
+pending. Full Shapes still requires heightmaps, polylines and rendering properties;
+other Surface/schema/serialization, primitive edge and numeric lexical gaps remain.
+
+
 Sensor frame metadata candidate preserves canonical frame_id and literal optional
 gz_frame_id, including explicit empty legacy values. Thirty observations against
-the pinned native FrameId and Element getters cover both1.6/1.12, absence,
+the pinned native FrameId and Element getters cover both 1.6/1.12, absence,
 canonical precedence inputs, normal/CDATA whitespace, NBSP, first text and NUL.
 Both strings remain metadata; consumer fallback/scoped-name policy stays outside
 the parser. Unknown namespace extensions and nested content remain Unsupported.
-The64-test Rust working tree passes fmt/clippy and2010/2031 line coverage,
-3483/3593 regions with12/12 changed executable lines. No original full DOMSensor
+The 64-test Rust working tree passes fmt/clippy and 2010/2031 line coverage,
+3483/3593 regions with 12/12 changed executable lines. No original full DOMSensor
 case is retired; no dependency, exclusion or gate policy changed. Independent
 review and a matching frozen staged gate are required before publication.
 
 
 Sensor topic follow-up replaces raw Unicode trim with existing native string
 normalization and maps __default__ to empty, as native Sensor::Load does.
-Twenty-four observations across1.6/1.12 cover empty/default/NUL/text boundaries,
+Twenty-four observations across 1.6/1.12 cover empty/default/NUL/text boundaries,
 ordinary C whitespace, CDATA and NBSP. Unknown topic leaf attributes/children
-remain explicitly Unsupported. Working66 Rust tests, fmt/clippy and coverage
-2012/2033 lines,3483/3593 regions with4/4 changed lines pass. No dependency,
+remain explicitly Unsupported. Working 66 Rust tests, fmt/clippy and coverage
+2012/2033 lines,3483/3593 regions with 4/4 changed lines pass. No dependency,
 exclusion or original-case retirement changes. Independent review and strict
 staged verification remain required before publication.
 
@@ -368,8 +387,8 @@ without changing attachment graphs. Seventeen native controls verify direct-link
 precedence, first-nested-only recursion including empty/static models, explicit
 scoped links and frame aliases returning None with unchanged names. The existing
 LoadNestedExplicitCanonicalLink port additionally checks direct selected-link
-pointer identity and local name; its original native case passed again. Integrated68-test working
-coverage is2041/2062 lines,3524/3634 regions and27/27 changed executable lines.
+pointer identity and local name; its original native case passed again. Integrated 68-test working
+coverage is 2041/2062 lines,3524/3634 regions and 27/27 changed executable lines.
 Independent review and the exact frozen staged gate are still required. Interface
 models/links and flattened names remain outside the supported subset.
 
@@ -378,16 +397,16 @@ Scalar conversion candidate is qualified only for Linux GNU/glibc. Native
 Param scalar doubles and Pose tokens use std::stod; the narrow owned C-locale
 boundary preserves finite prefix/hex values, signed zero, exact subnormals,
 inexact underflow/overflow and conversion failures. Vector streams retain their
-distinct path. Scalar boolean coercion is separate from raw Pose tokens. The63
-native observations contain61 matching finite/error controls and2 explicitly
+distinct path. Scalar boolean coercion is separate from raw Pose tokens. The 63
+native observations contain 61 matching finite/error controls and 2 explicitly
 retained nonfinite DOM gaps; no full original case is retired.
 
-Working72 Rust tests and fmt/clippy pass, including an8-thread errno stress,
+Working 72 Rust tests and fmt/clippy pass, including an 8-thread errno stress,
 unchanged-global-locale check and isolated C fault-injection child proving
 allocation failure returns Resource without freeing null and restores errno.
 All three C ABI signatures compile-check against installed glibc headers; source,
-header/runtime/library/probe/corpus hashes remain recorded. Coverage is2067/2089
-lines,3580/3691 regions with36/36 changed executable lines. Dependencies libc and
+header/runtime/library/probe/corpus hashes remain recorded. Coverage is 2067/2089
+lines,3580/3691 regions with 36/36 changed executable lines. Dependencies libc and
 errno retain their licenses. Cargo deny replaces forbid only with one explicit
 production FFI exception, independently reviewed together with the test-only
 locale snapshot; no additional unsafe permission is inferred. Independent code,
@@ -397,7 +416,34 @@ and portable platform qualification remain pending.
 
 
 Independent /root/msgs review approved the scalar code, ABI, lifecycle/unsafe
-scope and assertion bounds, rerunning all72 Rust checks,63 native observations,
+scope and assertion bounds, rerunning all 72 Rust checks,63 native observations,
 installed-header ABI compilation and failure/concurrency/locale tests. The final
 receipt binds the exact metadata snapshot; publication still requires its
 matching strict frozen staged gate. Surface acceptance remains separate.
+
+
+Surface correction candidate now uses the independently reviewed and published
+Linux GNU scalar boundary fbdf7f02. The same formerly unsupported 0.6tail input
+positively asserts native 0.6. Forty-nine actual native Surface observations cover
+all prior 30 cases plus exact/inexact subnormal, rounded-normal, signed-zero and
+scalar boolean controls. Numeric coefficient IEEE bits avoid fixture decimal
+rounding ambiguity. All 10 original value/assertion ports are unchanged; their
+source/default assertions were independently compared by /root/transport, who
+also found the now-corrected scalar underflow gap. Final combined review is
+pending /root; no Surface acceptance or physics implementation is claimed yet.
+
+
+The final Surface working tree passes all 85 Rust tests and fmt/clippy checks.
+Coverage is 2216/2241 production lines and 3837/3961 regions, with 137/139 changed
+executable lines covered. All 49 native observations pass. This is working-tree
+evidence; independent review and the matching frozen staged gate remain required.
+
+
+Independent /root review replayed all 85 Rust checks, 49 native observations and
+all 10 mapped native originals, and checked the source, schema, defaults,
+provenance and overlap with the earlier transport assertion review. The native
+probe exactly matches the recorded corpus. The 10 Surface ports are now reviewed;
+total mappings are 30 complete and one partial out of 1344 runtime cases. The
+receipt must bind this final metadata and the strict staged gate must pass before
+publication. Nonfinite and vector-prefix gaps, unsupported Surface fields and
+explicit simulator rejection remain unchanged.

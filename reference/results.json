@@ -67,6 +67,12 @@
       "sha256": "7f793f65c3cc35168a71d7e6ba0c5fc116e92b8ba400c56d7ce7854f67196fc5",
       "args": "--gtest_filter=DOMUtils.ReservedNames",
       "result": "passed; assertion mapping independently reviewed by /root/transport"
+    },
+    {
+      "binary": "UNIT_Surface_TEST",
+      "sha256": "c2c412afdd306cad4ae18995e5885e6ab956881ff9097e8fe834e7b98639814a",
+      "args": "--gtest_filter=DOMsurface.DefaultConstruction:DOMcontact.DefaultConstruction:DOMcontact.CollideBitmask:DOMode.DefaultValues:DOMode.Set:DOMbullet.DefaultValues:DOMbullet.Set:DOMtorsional.DefaultValues:DOMtorsional.Set:DOMfriction.SetFriction",
+      "result": "passed; ten complete assertion mappings pending independent review"
     }
   ],
   "corpus": {
@@ -3417,6 +3423,734 @@
     "scope": "No full floating-prefix/nonfinite or complete string/attribute schema parity claim. Existing original assertion mappings unchanged.",
     "review": "/root/msgs; 2026-10-24; Param SetFromString/ValueFromString and cursor text-origin rules independently compared; Cow normal/CDATA adapter and required/optional distinctions approved. Independently reran62 Rust tests,11 tooling tests and139 differential+111 geometry+72 names native observations; corpus hash verified. No dependency, gate or assertion weakening; general float-prefix/nonfinite gaps explicitly unchanged."
   },
+  "surface_corpus": {
+    "corpus_sha256": "5398ebd61934f5ba61a5b33563fea2e70d39beddd30d3c19daf3212a48746565",
+    "results": [
+      {
+        "id": "absent",
+        "accepted": true,
+        "errors": "",
+        "surface": {
+          "contact": {
+            "collide_bitmask": 255,
+            "category_bitmask": null
+          },
+          "ode": {
+            "mu": 1.0,
+            "mu2": 1.0,
+            "slip1": 0.0,
+            "slip2": 0.0,
+            "fdir1": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "bullet": null,
+          "torsional": null
+        }
+      },
+      {
+        "id": "empty",
+        "accepted": true,
+        "errors": "",
+        "surface": {
+          "contact": {
+            "collide_bitmask": 255,
+            "category_bitmask": null
+          },
+          "ode": {
+            "mu": 1.0,
+            "mu2": 1.0,
+            "slip1": 0.0,
+            "slip2": 0.0,
+            "fdir1": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "bullet": null,
+          "torsional": null
+        }
+      },
+      {
+        "id": "empty_contact",
+        "accepted": true,
+        "errors": "",
+        "surface": {
+          "contact": {
+            "collide_bitmask": 255,
+            "category_bitmask": null
+          },
+          "ode": {
+            "mu": 1.0,
+            "mu2": 1.0,
+            "slip1": 0.0,
+            "slip2": 0.0,
+            "fdir1": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "bullet": null,
+          "torsional": null
+        }
+      },
+      {
+        "id": "empty_friction",
+        "accepted": true,
+        "errors": "",
+        "surface": {
+          "contact": {
+            "collide_bitmask": 255,
+            "category_bitmask": null
+          },
+          "ode": {
+            "mu": 1.0,
+            "mu2": 1.0,
+            "slip1": 0.0,
+            "slip2": 0.0,
+            "fdir1": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "bullet": null,
+          "torsional": null
+        }
+      },
+      {
+        "id": "empty_ode",
+        "accepted": true,
+        "errors": "",
+        "surface": {
+          "contact": {
+            "collide_bitmask": 255,
+            "category_bitmask": null
+          },
+          "ode": {
+            "mu": 1.0,
+            "mu2": 1.0,
+            "slip1": 0.0,
+            "slip2": 0.0,
+            "fdir1": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "bullet": null,
+          "torsional": null
+        }
+      },
+      {
+        "id": "empty_bullet",
+        "accepted": true,
+        "errors": "",
+        "surface": {
+          "contact": {
+            "collide_bitmask": 255,
+            "category_bitmask": null
+          },
+          "ode": {
+            "mu": 1.0,
+            "mu2": 1.0,
+            "slip1": 0.0,
+            "slip2": 0.0,
+            "fdir1": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "bullet": {
+            "friction": 1.0,
+            "friction2": 1.0,
+            "fdir1": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "rolling_friction": 1.0
+          },
+          "torsional": null
+        }
+      },
+      {
+        "id": "empty_torsional",
+        "accepted": true,
+        "errors": "",
+        "surface": {
+          "contact": {
+            "collide_bitmask": 255,
+            "category_bitmask": null
+          },
+          "ode": {
+            "mu": 1.0,
+            "mu2": 1.0,
+            "slip1": 0.0,
+            "slip2": 0.0,
+            "fdir1": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "bullet": null,
+          "torsional": {
+            "coefficient": 1.0,
+            "use_patch_radius": true,
+            "patch_radius": 0.0,
+            "surface_radius": 0.0,
+            "ode_slip": 0.0
+          }
+        }
+      },
+      {
+        "id": "all",
+        "accepted": true,
+        "errors": "",
+        "surface": {
+          "contact": {
+            "collide_bitmask": 171,
+            "category_bitmask": 186
+          },
+          "ode": {
+            "mu": 0.6,
+            "mu2": 0.7,
+            "slip1": 4.0,
+            "slip2": 5.0,
+            "fdir1": [
+              1.2,
+              3.4,
+              5.6
+            ]
+          },
+          "bullet": {
+            "friction": 1.6,
+            "friction2": 1.7,
+            "fdir1": [
+              6.5,
+              4.3,
+              2.1
+            ],
+            "rolling_friction": 1.5
+          },
+          "torsional": {
+            "coefficient": 5.1,
+            "use_patch_radius": false,
+            "patch_radius": 1.3,
+            "surface_radius": 3.7,
+            "ode_slip": 3.1
+          }
+        }
+      },
+      {
+        "id": "negative_mu",
+        "accepted": false,
+        "errors": "Error Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction/ode/mu:<data-string>:L1]: Msg: Error reading element <mu>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction/ode:<data-string>:L1]: Msg: Error reading element <ode>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction:<data-string>:L1]: Msg: Error reading element <friction>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface:<data-string>:L1]: Msg: Error reading element <surface>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]:<data-string>:L1]: Msg: Error reading element <collision>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]:<data-string>:L1]: Msg: Error reading element <link>\nError Code 9: [/sdf/model[@name=\"m\"]:<data-string>:L1]: Msg: Error reading element <model>\nError Code 9: Msg: Error reading element <sdf>\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><box/></geometry><surface><friction><ode><mu>-1</mu></ode></friction></surface></collision></link></model></sdf>\n"
+      },
+      {
+        "id": "empty_mu",
+        "accepted": true,
+        "errors": "",
+        "surface": {
+          "contact": {
+            "collide_bitmask": 255,
+            "category_bitmask": null
+          },
+          "ode": {
+            "mu": 1.0,
+            "mu2": 1.0,
+            "slip1": 0.0,
+            "slip2": 0.0,
+            "fdir1": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "bullet": null,
+          "torsional": null
+        }
+      },
+      {
+        "id": "bad_mu",
+        "accepted": false,
+        "errors": "Error Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction/ode/mu:<data-string>:L1]: Msg: Error reading element <mu>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction/ode:<data-string>:L1]: Msg: Error reading element <ode>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction:<data-string>:L1]: Msg: Error reading element <friction>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface:<data-string>:L1]: Msg: Error reading element <surface>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]:<data-string>:L1]: Msg: Error reading element <collision>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]:<data-string>:L1]: Msg: Error reading element <link>\nError Code 9: [/sdf/model[@name=\"m\"]:<data-string>:L1]: Msg: Error reading element <model>\nError Code 9: Msg: Error reading element <sdf>\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><box/></geometry><surface><friction><ode><mu>banana</mu></ode></friction></surface></collision></link></model></sdf>\n"
+      },
+      {
+        "id": "negative_slip",
+        "accepted": true,
+        "errors": "",
+        "surface": {
+          "contact": {
+            "collide_bitmask": 255,
+            "category_bitmask": null
+          },
+          "ode": {
+            "mu": 1.0,
+            "mu2": 1.0,
+            "slip1": -1.0,
+            "slip2": 0.0,
+            "fdir1": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "bullet": null,
+          "torsional": null
+        }
+      },
+      {
+        "id": "mask_-1",
+        "accepted": true,
+        "errors": "",
+        "surface": {
+          "contact": {
+            "collide_bitmask": 65535,
+            "category_bitmask": 65535
+          },
+          "ode": {
+            "mu": 1.0,
+            "mu2": 1.0,
+            "slip1": 0.0,
+            "slip2": 0.0,
+            "fdir1": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "bullet": null,
+          "torsional": null
+        }
+      },
+      {
+        "id": "mask_0x12345",
+        "accepted": true,
+        "errors": "",
+        "surface": {
+          "contact": {
+            "collide_bitmask": 9029,
+            "category_bitmask": 9029
+          },
+          "ode": {
+            "mu": 1.0,
+            "mu2": 1.0,
+            "slip1": 0.0,
+            "slip2": 0.0,
+            "fdir1": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "bullet": null,
+          "torsional": null
+        }
+      },
+      {
+        "id": "mask_true",
+        "accepted": true,
+        "errors": "",
+        "surface": {
+          "contact": {
+            "collide_bitmask": 1,
+            "category_bitmask": 1
+          },
+          "ode": {
+            "mu": 1.0,
+            "mu2": 1.0,
+            "slip1": 0.0,
+            "slip2": 0.0,
+            "fdir1": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "bullet": null,
+          "torsional": null
+        }
+      },
+      {
+        "id": "mask_65536",
+        "accepted": true,
+        "errors": "",
+        "surface": {
+          "contact": {
+            "collide_bitmask": 0,
+            "category_bitmask": 0
+          },
+          "ode": {
+            "mu": 1.0,
+            "mu2": 1.0,
+            "slip1": 0.0,
+            "slip2": 0.0,
+            "fdir1": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "bullet": null,
+          "torsional": null
+        }
+      },
+      {
+        "id": "mask_4294967296",
+        "accepted": true,
+        "errors": "",
+        "surface": {
+          "contact": {
+            "collide_bitmask": 0,
+            "category_bitmask": 0
+          },
+          "ode": {
+            "mu": 1.0,
+            "mu2": 1.0,
+            "slip1": 0.0,
+            "slip2": 0.0,
+            "fdir1": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "bullet": null,
+          "torsional": null
+        }
+      },
+      {
+        "id": "empty_collide_mask",
+        "accepted": true,
+        "errors": "",
+        "surface": {
+          "contact": {
+            "collide_bitmask": 65535,
+            "category_bitmask": null
+          },
+          "ode": {
+            "mu": 1.0,
+            "mu2": 1.0,
+            "slip1": 0.0,
+            "slip2": 0.0,
+            "fdir1": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "bullet": null,
+          "torsional": null
+        }
+      },
+      {
+        "id": "empty_category_mask",
+        "accepted": true,
+        "errors": "",
+        "surface": {
+          "contact": {
+            "collide_bitmask": 255,
+            "category_bitmask": 65535
+          },
+          "ode": {
+            "mu": 1.0,
+            "mu2": 1.0,
+            "slip1": 0.0,
+            "slip2": 0.0,
+            "fdir1": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "bullet": null,
+          "torsional": null
+        }
+      },
+      {
+        "id": "negative_bullet_friction",
+        "accepted": false,
+        "errors": "Error Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction/bullet/friction:<data-string>:L1]: Msg: Error reading element <friction>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction/bullet:<data-string>:L1]: Msg: Error reading element <bullet>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction:<data-string>:L1]: Msg: Error reading element <friction>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface:<data-string>:L1]: Msg: Error reading element <surface>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]:<data-string>:L1]: Msg: Error reading element <collision>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]:<data-string>:L1]: Msg: Error reading element <link>\nError Code 9: [/sdf/model[@name=\"m\"]:<data-string>:L1]: Msg: Error reading element <model>\nError Code 9: Msg: Error reading element <sdf>\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><box/></geometry><surface><friction><bullet><friction>-1</friction></bullet></friction></surface></collision></link></model></sdf>\n"
+      },
+      {
+        "id": "negative_bullet_friction2",
+        "accepted": false,
+        "errors": "Error Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction/bullet/friction2:<data-string>:L1]: Msg: Error reading element <friction2>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction/bullet:<data-string>:L1]: Msg: Error reading element <bullet>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction:<data-string>:L1]: Msg: Error reading element <friction>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface:<data-string>:L1]: Msg: Error reading element <surface>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]:<data-string>:L1]: Msg: Error reading element <collision>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]:<data-string>:L1]: Msg: Error reading element <link>\nError Code 9: [/sdf/model[@name=\"m\"]:<data-string>:L1]: Msg: Error reading element <model>\nError Code 9: Msg: Error reading element <sdf>\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><box/></geometry><surface><friction><bullet><friction2>-1</friction2></bullet></friction></surface></collision></link></model></sdf>\n"
+      },
+      {
+        "id": "negative_bullet_rolling",
+        "accepted": true,
+        "errors": "",
+        "surface": {
+          "contact": {
+            "collide_bitmask": 255,
+            "category_bitmask": null
+          },
+          "ode": {
+            "mu": 1.0,
+            "mu2": 1.0,
+            "slip1": 0.0,
+            "slip2": 0.0,
+            "fdir1": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "bullet": {
+            "friction": 1.0,
+            "friction2": 1.0,
+            "fdir1": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "rolling_friction": -1.0
+          },
+          "torsional": null
+        }
+      },
+      {
+        "id": "negative_torsional_coefficient",
+        "accepted": false,
+        "errors": "Error Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction/torsional/coefficient:<data-string>:L1]: Msg: Error reading element <coefficient>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction/torsional:<data-string>:L1]: Msg: Error reading element <torsional>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction:<data-string>:L1]: Msg: Error reading element <friction>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface:<data-string>:L1]: Msg: Error reading element <surface>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]:<data-string>:L1]: Msg: Error reading element <collision>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]:<data-string>:L1]: Msg: Error reading element <link>\nError Code 9: [/sdf/model[@name=\"m\"]:<data-string>:L1]: Msg: Error reading element <model>\nError Code 9: Msg: Error reading element <sdf>\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><box/></geometry><surface><friction><torsional><coefficient>-1</coefficient></torsional></friction></surface></collision></link></model></sdf>\n"
+      },
+      {
+        "id": "negative_torsional_patch",
+        "accepted": false,
+        "errors": "Error Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction/torsional/patch_radius:<data-string>:L1]: Msg: Error reading element <patch_radius>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction/torsional:<data-string>:L1]: Msg: Error reading element <torsional>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction:<data-string>:L1]: Msg: Error reading element <friction>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface:<data-string>:L1]: Msg: Error reading element <surface>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]:<data-string>:L1]: Msg: Error reading element <collision>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]:<data-string>:L1]: Msg: Error reading element <link>\nError Code 9: [/sdf/model[@name=\"m\"]:<data-string>:L1]: Msg: Error reading element <model>\nError Code 9: Msg: Error reading element <sdf>\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><box/></geometry><surface><friction><torsional><patch_radius>-1</patch_radius></torsional></friction></surface></collision></link></model></sdf>\n"
+      },
+      {
+        "id": "negative_torsional_surface",
+        "accepted": false,
+        "errors": "Error Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction/torsional/surface_radius:<data-string>:L1]: Msg: Error reading element <surface_radius>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction/torsional:<data-string>:L1]: Msg: Error reading element <torsional>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction:<data-string>:L1]: Msg: Error reading element <friction>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface:<data-string>:L1]: Msg: Error reading element <surface>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]:<data-string>:L1]: Msg: Error reading element <collision>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]:<data-string>:L1]: Msg: Error reading element <link>\nError Code 9: [/sdf/model[@name=\"m\"]:<data-string>:L1]: Msg: Error reading element <model>\nError Code 9: Msg: Error reading element <sdf>\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><box/></geometry><surface><friction><torsional><surface_radius>-1</surface_radius></torsional></friction></surface></collision></link></model></sdf>\n"
+      },
+      {
+        "id": "empty_direction",
+        "accepted": true,
+        "errors": "",
+        "surface": {
+          "contact": {
+            "collide_bitmask": 255,
+            "category_bitmask": null
+          },
+          "ode": {
+            "mu": 1.0,
+            "mu2": 1.0,
+            "slip1": 0.0,
+            "slip2": 0.0,
+            "fdir1": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "bullet": null,
+          "torsional": null
+        }
+      },
+      {
+        "id": "reference_direction",
+        "accepted": true,
+        "errors": "",
+        "surface": {
+          "contact": {
+            "collide_bitmask": 255,
+            "category_bitmask": null
+          },
+          "ode": {
+            "mu": 1.0,
+            "mu2": 1.0,
+            "slip1": 0.0,
+            "slip2": 0.0,
+            "fdir1": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "bullet": null,
+          "torsional": null
+        }
+      },
+      {
+        "id": "cdata_direction",
+        "accepted": false,
+        "errors": "Error Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction/ode/fdir1:<data-string>:L1]: Msg: Error reading element <fdir1>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction/ode:<data-string>:L1]: Msg: Error reading element <ode>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction:<data-string>:L1]: Msg: Error reading element <friction>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface:<data-string>:L1]: Msg: Error reading element <surface>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]:<data-string>:L1]: Msg: Error reading element <collision>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]:<data-string>:L1]: Msg: Error reading element <link>\nError Code 9: [/sdf/model[@name=\"m\"]:<data-string>:L1]: Msg: Error reading element <model>\nError Code 9: Msg: Error reading element <sdf>\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><box/></geometry><surface><friction><ode><fdir1><![CDATA[\\v]]></fdir1></ode></friction></surface></collision></link></model></sdf>\n"
+      },
+      {
+        "id": "reference_mask",
+        "accepted": true,
+        "errors": "",
+        "surface": {
+          "contact": {
+            "collide_bitmask": 65535,
+            "category_bitmask": null
+          },
+          "ode": {
+            "mu": 1.0,
+            "mu2": 1.0,
+            "slip1": 0.0,
+            "slip2": 0.0,
+            "fdir1": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "bullet": null,
+          "torsional": null
+        }
+      },
+      {
+        "id": "cdata_mask",
+        "accepted": false,
+        "errors": "Error Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/contact/collide_bitmask:<data-string>:L1]: Msg: Error reading element <collide_bitmask>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/contact:<data-string>:L1]: Msg: Error reading element <contact>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface:<data-string>:L1]: Msg: Error reading element <surface>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]:<data-string>:L1]: Msg: Error reading element <collision>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]:<data-string>:L1]: Msg: Error reading element <link>\nError Code 9: [/sdf/model[@name=\"m\"]:<data-string>:L1]: Msg: Error reading element <model>\nError Code 9: Msg: Error reading element <sdf>\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><box/></geometry><surface><contact><collide_bitmask><![CDATA[\\v]]></collide_bitmask></contact></surface></collision></link></model></sdf>\n"
+      },
+      {
+        "id": "native_range_0",
+        "accepted": false,
+        "errors": "Error Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction/torsional/coefficient:<data-string>:L1]: Msg: Error reading element <coefficient>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction/torsional:<data-string>:L1]: Msg: Error reading element <torsional>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction:<data-string>:L1]: Msg: Error reading element <friction>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface:<data-string>:L1]: Msg: Error reading element <surface>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]:<data-string>:L1]: Msg: Error reading element <collision>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]:<data-string>:L1]: Msg: Error reading element <link>\nError Code 9: [/sdf/model[@name=\"m\"]:<data-string>:L1]: Msg: Error reading element <model>\nError Code 9: Msg: Error reading element <sdf>\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><box/></geometry><surface><friction><torsional><coefficient>1e-9999</coefficient></torsional></friction></surface></collision></link></model></sdf>\n"
+      },
+      {
+        "id": "native_range_1",
+        "accepted": false,
+        "errors": "Error Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction/torsional/coefficient:<data-string>:L1]: Msg: Error reading element <coefficient>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction/torsional:<data-string>:L1]: Msg: Error reading element <torsional>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction:<data-string>:L1]: Msg: Error reading element <friction>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface:<data-string>:L1]: Msg: Error reading element <surface>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]:<data-string>:L1]: Msg: Error reading element <collision>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]:<data-string>:L1]: Msg: Error reading element <link>\nError Code 9: [/sdf/model[@name=\"m\"]:<data-string>:L1]: Msg: Error reading element <model>\nError Code 9: Msg: Error reading element <sdf>\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><box/></geometry><surface><friction><torsional><coefficient>1e-324</coefficient></torsional></friction></surface></collision></link></model></sdf>\n"
+      },
+      {
+        "id": "native_range_2",
+        "accepted": false,
+        "errors": "Error Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction/torsional/coefficient:<data-string>:L1]: Msg: Error reading element <coefficient>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction/torsional:<data-string>:L1]: Msg: Error reading element <torsional>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction:<data-string>:L1]: Msg: Error reading element <friction>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface:<data-string>:L1]: Msg: Error reading element <surface>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]:<data-string>:L1]: Msg: Error reading element <collision>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]:<data-string>:L1]: Msg: Error reading element <link>\nError Code 9: [/sdf/model[@name=\"m\"]:<data-string>:L1]: Msg: Error reading element <model>\nError Code 9: Msg: Error reading element <sdf>\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><box/></geometry><surface><friction><torsional><coefficient>1e-323</coefficient></torsional></friction></surface></collision></link></model></sdf>\n"
+      },
+      {
+        "id": "native_range_3",
+        "accepted": false,
+        "errors": "Error Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction/torsional/coefficient:<data-string>:L1]: Msg: Error reading element <coefficient>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction/torsional:<data-string>:L1]: Msg: Error reading element <torsional>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction:<data-string>:L1]: Msg: Error reading element <friction>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface:<data-string>:L1]: Msg: Error reading element <surface>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]:<data-string>:L1]: Msg: Error reading element <collision>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]:<data-string>:L1]: Msg: Error reading element <link>\nError Code 9: [/sdf/model[@name=\"m\"]:<data-string>:L1]: Msg: Error reading element <model>\nError Code 9: Msg: Error reading element <sdf>\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><box/></geometry><surface><friction><torsional><coefficient>1e-310</coefficient></torsional></friction></surface></collision></link></model></sdf>\n"
+      },
+      {
+        "id": "native_range_4",
+        "accepted": false,
+        "errors": "Error Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction/torsional/coefficient:<data-string>:L1]: Msg: Error reading element <coefficient>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction/torsional:<data-string>:L1]: Msg: Error reading element <torsional>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction:<data-string>:L1]: Msg: Error reading element <friction>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface:<data-string>:L1]: Msg: Error reading element <surface>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]:<data-string>:L1]: Msg: Error reading element <collision>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]:<data-string>:L1]: Msg: Error reading element <link>\nError Code 9: [/sdf/model[@name=\"m\"]:<data-string>:L1]: Msg: Error reading element <model>\nError Code 9: Msg: Error reading element <sdf>\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><box/></geometry><surface><friction><torsional><coefficient>-1e-310</coefficient></torsional></friction></surface></collision></link></model></sdf>\n"
+      },
+      {
+        "id": "native_range_5",
+        "accepted": false,
+        "errors": "Error Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction/torsional/coefficient:<data-string>:L1]: Msg: Error reading element <coefficient>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction/torsional:<data-string>:L1]: Msg: Error reading element <torsional>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction:<data-string>:L1]: Msg: Error reading element <friction>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface:<data-string>:L1]: Msg: Error reading element <surface>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]:<data-string>:L1]: Msg: Error reading element <collision>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]:<data-string>:L1]: Msg: Error reading element <link>\nError Code 9: [/sdf/model[@name=\"m\"]:<data-string>:L1]: Msg: Error reading element <model>\nError Code 9: Msg: Error reading element <sdf>\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><box/></geometry><surface><friction><torsional><coefficient>2.225073858507201e-308</coefficient></torsional></friction></surface></collision></link></model></sdf>\n"
+      },
+      {
+        "id": "native_range_6",
+        "accepted": false,
+        "errors": "Error Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction/torsional/coefficient:<data-string>:L1]: Msg: Error reading element <coefficient>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction/torsional:<data-string>:L1]: Msg: Error reading element <torsional>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction:<data-string>:L1]: Msg: Error reading element <friction>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface:<data-string>:L1]: Msg: Error reading element <surface>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]:<data-string>:L1]: Msg: Error reading element <collision>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]:<data-string>:L1]: Msg: Error reading element <link>\nError Code 9: [/sdf/model[@name=\"m\"]:<data-string>:L1]: Msg: Error reading element <model>\nError Code 9: Msg: Error reading element <sdf>\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><box/></geometry><surface><friction><torsional><coefficient>2.2250738585072011e-308</coefficient></torsional></friction></surface></collision></link></model></sdf>\n"
+      },
+      {
+        "id": "native_range_7",
+        "accepted": false,
+        "errors": "Error Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction/torsional/coefficient:<data-string>:L1]: Msg: Error reading element <coefficient>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction/torsional:<data-string>:L1]: Msg: Error reading element <torsional>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface/friction:<data-string>:L1]: Msg: Error reading element <friction>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/surface:<data-string>:L1]: Msg: Error reading element <surface>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]:<data-string>:L1]: Msg: Error reading element <collision>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]:<data-string>:L1]: Msg: Error reading element <link>\nError Code 9: [/sdf/model[@name=\"m\"]:<data-string>:L1]: Msg: Error reading element <model>\nError Code 9: Msg: Error reading element <sdf>\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><box/></geometry><surface><friction><torsional><coefficient>2.2250738585072012e-308</coefficient></torsional></friction></surface></collision></link></model></sdf>\n"
+      },
+      {
+        "id": "native_range_8",
+        "accepted": true,
+        "errors": "",
+        "surface_coefficient_bits": 4503599627370496
+      },
+      {
+        "id": "native_range_9",
+        "accepted": true,
+        "errors": "",
+        "surface_coefficient_bits": 4503599627370496
+      },
+      {
+        "id": "native_range_10",
+        "accepted": true,
+        "errors": "",
+        "surface_coefficient_bits": 4503599627370496
+      },
+      {
+        "id": "native_range_11",
+        "accepted": true,
+        "errors": "",
+        "surface_coefficient_bits": 0
+      },
+      {
+        "id": "native_range_12",
+        "accepted": true,
+        "errors": "",
+        "surface_coefficient_bits": 9223372036854775808
+      },
+      {
+        "id": "native_range_13",
+        "accepted": true,
+        "errors": "",
+        "surface_coefficient_bits": 1
+      },
+      {
+        "id": "native_range_14",
+        "accepted": true,
+        "errors": "",
+        "surface_coefficient_bits": 4503599627370495
+      },
+      {
+        "id": "native_range_15",
+        "accepted": true,
+        "errors": "",
+        "surface_coefficient_bits": 1
+      },
+      {
+        "id": "native_range_16",
+        "accepted": true,
+        "errors": "",
+        "surface_coefficient_bits": 4607182418800017408
+      },
+      {
+        "id": "native_range_17",
+        "accepted": true,
+        "errors": "",
+        "surface_coefficient_bits": 0
+      },
+      {
+        "id": "native_scalar_prefix",
+        "accepted": true,
+        "errors": "",
+        "surface": {
+          "contact": {
+            "collide_bitmask": 255,
+            "category_bitmask": null
+          },
+          "ode": {
+            "mu": 0.6,
+            "mu2": 1.0,
+            "slip1": 0.0,
+            "slip2": 0.0,
+            "fdir1": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "bullet": null,
+          "torsional": null
+        }
+      }
+    ]
+  },
+  "surface_scope": {
+    "sources": {
+      "src/Surface.cc": "6ac45bab77999ad711abb764d600347be6eab606b580a7d4b1a547605cdee2fd",
+      "src/Surface_TEST.cc": "2cc6dbe378ac4dd26ee194818a621a30607a59216ca43296f794e9660482485a",
+      "sdf/1.12/surface.sdf": "3f6b0a92ca0cd455b455b966ef888541ecffb424b81de7171e8cde52f7c2e68d"
+    },
+    "implemented": "Contact collide/category masks; ODE, Bullet and torsional friction values and original source provenance. Default groups have absent Source; parsed groups retain URI, line and column. Missing mask uses the native DOM default 255; an explicitly empty mask uses the schema default 65535. Values are metadata without physics side effects.",
+    "remaining": "Bounce and remaining contact/compliance/engine properties are Unsupported; general vector-prefix and nonfinite DOM parity plus older primitive fallback/required-value behavior remain incomplete. Root simulator must reject explicit Surface until backend implementation. Full Shapes fixture still needs heightmap/polyline and rendering metadata.",
+    "review": "Independent /root review on 2026-10-24 approved the corrected combined source, schema, defaults, provenance and prior transport assertion-review overlap. The reviewer replayed all 85 Rust checks, 49 fresh native observations and all 10 mapped native originals; the fresh probe exactly matches the recorded corpus SHA256 5398ebd61934f5ba61a5b33563fea2e70d39beddd30d3c19daf3212a48746565. The published scalar boundary resolves the original transport underflow finding. Explicit nonfinite, vector-prefix, full-surface and simulator capability limits remain.",
+    "closed_regressions": "Published scalar boundary fbdf7f02 closes std::stod numeric-prefix and exact/inexact-underflow controls. All 49 actual native Surface observations preserve coefficient IEEE bits at signed-zero, subnormal and rounded-normal boundaries. The same previously unsupported 0.6tail input now positively asserts the native value 0.6."
+  },
   "sensor_frame_metadata": {
     "upstream_sha": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
     "corpus_sha256": "e4cc7eeaacb50316269bc06dd7a756f188ff2a0ab8183b3e686642878cc125ae",
@@ -3491,6 +4225,6 @@
     },
     "rust_tests": 72,
     "scope": "Native scalar and Pose token prefix/hex/range semantics with finite-domain restriction; scalar boolean coercion distinct from raw Pose tokens; vector stream path unchanged; no original case retired; no performance improvement claimed.",
-    "review": "Independent /root/msgs code, ABI, safety and assertion review2026-10-24 approved implementation81bc140c233ef3b81620872e5abfbaa1b86726f5205c3772bd6beea76434daa0; reviewer independently reran72Rustchecks,63actualnativeobservations and installed-headerABI compilation, including failure/concurrency/locale tests. Both unsafe scopes and explicit nonfinite/platform/performance limits reviewed; no original case retirement."
+    "review": "Independent /root/msgs code, ABI, safety and assertion review on 2026-10-24 approved implementation 81bc140c233ef3b81620872e5abfbaa1b86726f5205c3772bd6beea76434daa0. The reviewer independently reran 72 Rust checks, 63 actual native observations and installed-header ABI compilation, including failure, concurrency and locale tests. Both unsafe scopes and the explicit nonfinite, platform and performance limits were reviewed; no original case was retired."
   }
 }

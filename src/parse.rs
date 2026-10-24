@@ -722,14 +722,132 @@ impl Parser<'_> {
         Ok(result)
     }
     fn collision(&self, node: Node<'_, '_>) -> Result<Collision, Diagnostic> {
-        self.allowed(node, &["pose", "geometry"], &["name"])?;
+        self.allowed(node, &["pose", "geometry", "surface"], &["name"])?;
         let geometry = child(node, "geometry")
             .ok_or_else(|| self.err(node, ErrorCode::Missing, "collision requires geometry"))?;
         Ok(Collision {
             name: self.name(node)?,
             pose: self.pose(node)?,
             geometry: self.geometry(geometry)?,
+            surface: child(node, "surface").map_or(Ok(Surface::default()), |n| self.surface(n))?,
             source: self.source(node),
+        })
+    }
+    fn nonnegative(&self, node: Node<'_, '_>, name: &str, default: f64) -> Result<f64, Diagnostic> {
+        let value = self.scalar(node, name, default)?;
+        if value < 0. {
+            Err(self.err(
+                child(node, name).unwrap_or(node),
+                ErrorCode::InvalidValue,
+                format!("{name} must be nonnegative"),
+            ))
+        } else {
+            Ok(value)
+        }
+    }
+    fn optional_values<const N: usize>(
+        &self,
+        node: Node<'_, '_>,
+        name: &str,
+        default: [f64; N],
+    ) -> Result<[f64; N], Diagnostic> {
+        child(node, name).map_or(Ok(default), |value| {
+            self.allowed(value, &[], &[])?;
+            if param_text(value).is_empty() {
+                Ok(default)
+            } else {
+                self.values(value)
+            }
+        })
+    }
+    fn surface(&self, node: Node<'_, '_>) -> Result<Surface, Diagnostic> {
+        self.allowed(node, &["contact", "friction"], &[])?;
+        let contact = child(node, "contact").map_or(Ok(Contact::default()), |n| {
+            self.allowed(n, &["collide_bitmask", "category_bitmask"], &[])?;
+            Ok(Contact {
+                // Native absent-group default differs from the schema default
+                // used by an explicitly empty collide_bitmask element.
+                collide_bitmask: if child(n, "collide_bitmask").is_some() {
+                    self.unsigned(n, "collide_bitmask", 65535)? as u16
+                } else {
+                    0xff
+                },
+                category_bitmask: child(n, "category_bitmask")
+                    .map(|_| {
+                        self.unsigned(n, "category_bitmask", 65535)
+                            .map(|v| v as u16)
+                    })
+                    .transpose()?,
+                source: Some(self.source(n)),
+            })
+        })?;
+        let friction = child(node, "friction").map_or(Ok(Friction::default()), |n| {
+            self.allowed(n, &["ode", "bullet", "torsional"], &[])?;
+            let ode = child(n, "ode").map_or(Ok(OdeFriction::default()), |v| {
+                self.allowed(v, &["mu", "mu2", "fdir1", "slip1", "slip2"], &[])?;
+                Ok(OdeFriction {
+                    mu: self.nonnegative(v, "mu", 1.)?,
+                    mu2: self.nonnegative(v, "mu2", 1.)?,
+                    fdir1: self.optional_values(v, "fdir1", [0.; 3])?,
+                    slip1: self.scalar(v, "slip1", 0.)?,
+                    slip2: self.scalar(v, "slip2", 0.)?,
+                    source: Some(self.source(v)),
+                })
+            })?;
+            let bullet = child(n, "bullet")
+                .map(|v| {
+                    self.allowed(
+                        v,
+                        &["friction", "friction2", "fdir1", "rolling_friction"],
+                        &[],
+                    )?;
+                    Ok(BulletFriction {
+                        friction: self.nonnegative(v, "friction", 1.)?,
+                        friction2: self.nonnegative(v, "friction2", 1.)?,
+                        fdir1: self.optional_values(v, "fdir1", [0.; 3])?,
+                        rolling_friction: self.scalar(v, "rolling_friction", 1.)?,
+                        source: Some(self.source(v)),
+                    })
+                })
+                .transpose()?;
+            let torsional = child(n, "torsional")
+                .map(|v| {
+                    self.allowed(
+                        v,
+                        &[
+                            "coefficient",
+                            "use_patch_radius",
+                            "patch_radius",
+                            "surface_radius",
+                            "ode",
+                        ],
+                        &[],
+                    )?;
+                    let ode_slip = child(v, "ode").map_or(Ok(0.), |o| {
+                        self.allowed(o, &["slip"], &[])?;
+                        self.scalar(o, "slip", 0.)
+                    })?;
+                    Ok(TorsionalFriction {
+                        coefficient: self.nonnegative(v, "coefficient", 1.)?,
+                        use_patch_radius: self.boolean(v, "use_patch_radius", true)?,
+                        patch_radius: self.nonnegative(v, "patch_radius", 0.)?,
+                        surface_radius: self.nonnegative(v, "surface_radius", 0.)?,
+                        ode_slip,
+                        source: Some(self.source(v)),
+                    })
+                })
+                .transpose()?;
+            Ok(Friction {
+                ode,
+                bullet,
+                torsional,
+                source: Some(self.source(n)),
+            })
+        })?;
+        Ok(Surface {
+            contact,
+            friction,
+            source: Some(self.source(node)),
         })
     }
     fn geometry(&self, geometry: Node<'_, '_>) -> Result<Geometry, Diagnostic> {

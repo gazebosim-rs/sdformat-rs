@@ -171,6 +171,7 @@ pub struct Model {
     pub pose: Pose,
     pub is_static: bool,
     pub canonical_link: String,
+    pub placement_frame: String,
     pub links: Vec<Link>,
     pub joints: Vec<Joint>,
     pub models: Vec<Model>,

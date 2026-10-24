@@ -48,6 +48,38 @@
       "upstream_fixtures": {
         "test/sdf/nested_explicit_canonical_link.sdf": "6bc3543c6ae91f72264cdf0671f8f5fae1835e73a18d050e7f2ac535f92ec624"
       }
+    },
+    {
+      "target": "INTEGRATION_nested_model",
+      "case": "NestedReference.PlacementFrameAttribute",
+      "source": "test/integration/nested_model.cc:1352",
+      "rust_test": "tests/placement.rs::nested_reference_placement_frame_attribute",
+      "assertions": "Original load success, root model presence, pose resolve success, and pose(0,-2,10,0,0,0), with1e-6 gz-math equality tolerance.",
+      "fixtures": {
+        "tests/fixtures/nested_placement_frame.sdf": "1bdfbcaa4dce30b9ed182d1b8ff7f5de9332fdbc0491fcb513a5b428a9a4e0f1"
+      },
+      "upstream_fixtures": {
+        "test/integration/model/model_with_nested_placement_frame_attribute/model.sdf": "1bdfbcaa4dce30b9ed182d1b8ff7f5de9332fdbc0491fcb513a5b428a9a4e0f1"
+      },
+      "baseline": "passed; artifacts/reference-placement.xml",
+      "status": "ported_pending_review",
+      "review": "pending"
+    },
+    {
+      "target": "INTEGRATION_nested_model",
+      "case": "NestedReference.PlacementFrameElement",
+      "source": "test/integration/nested_model.cc:1373",
+      "rust_test": "tests/placement.rs::nested_reference_placement_frame_element_all_four_original_cases",
+      "assertions": "All four original world/model include cases; original model/frame/nested link presence assertions, resolve success and placement/model pose assertions; original version1.8 and generated pose text retained,1e-6 tolerance.",
+      "fixtures": {
+        "tests/fixtures/nested_placement_frame.sdf": "1bdfbcaa4dce30b9ed182d1b8ff7f5de9332fdbc0491fcb513a5b428a9a4e0f1"
+      },
+      "upstream_fixtures": {
+        "test/integration/model/model_with_nested_placement_frame_attribute/model.sdf": "1bdfbcaa4dce30b9ed182d1b8ff7f5de9332fdbc0491fcb513a5b428a9a4e0f1"
+      },
+      "baseline": "passed; artifacts/reference-placement.xml",
+      "status": "ported_pending_review",
+      "review": "pending"
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

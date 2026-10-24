@@ -19,10 +19,16 @@
       "sha256": "5996c21878cab1dacd0d653c50bfdcf4a02c8064157855ae6136471939582716",
       "args": "--gtest_filter=DOMLink.Sensors",
       "result": "passed; partial Rust assertion mapping only"
+    },
+    {
+      "binary": "INTEGRATION_nested_model",
+      "sha256": "7a4562925a6f0ad74c07778429f67553e2486c461272881e28d7f759687ca6c8",
+      "args": "--gtest_filter=NestedReference.PlacementFrameAttribute:NestedReference.PlacementFrameElement",
+      "result": "passed"
     }
   ],
   "corpus": {
-    "corpus_sha256": "03c3a4a790c6ddda5e3f9687f2d664f946a390ce2630efcee4bb91f7920a3a68",
+    "corpus_sha256": "a53ee7fe623f832aaf1a02bcfba7aaf9462d5e7665860ce429d24eb8b67ee4fa",
     "results": [
       {
         "id": "canonical_link_alias",
@@ -133,6 +139,53 @@
         "id": "canonical_self_cycle",
         "accepted": false,
         "errors": "Error Code 24: Msg: FrameAttachedToGraph cycle detected, already visited vertex [m::__model__].\nError Code 24: Msg: FrameAttachedToGraph cycle detected, already visited vertex [m::__model__].\n"
+      },
+      {
+        "id": "placement_link",
+        "accepted": true,
+        "errors": "",
+        "model_pose": [
+          2.0,
+          2.0,
+          5.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "id": "placement_missing",
+        "accepted": false,
+        "errors": "Error Code 26: Msg: PoseRelativeToGraph unable to find unique frame with name [missing] in graph.\n"
+      },
+      {
+        "id": "placement_implicit_model",
+        "accepted": true,
+        "errors": "",
+        "model_pose": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "id": "placement_nested_corrected",
+        "accepted": true,
+        "errors": "",
+        "model_pose": [
+          3.0,
+          2.0,
+          5.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
       }
     ]
   }

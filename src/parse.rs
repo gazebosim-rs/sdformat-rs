@@ -361,7 +361,7 @@ impl Parser<'_> {
             &[
                 "pose", "static", "link", "model", "include", "frame", "joint", "plugin",
             ],
-            &["name", "canonical_link"],
+            &["name", "canonical_link", "placement_frame"],
         )?;
         let name = rename.map_or_else(|| self.name(node), |n| Ok(n.into()))?;
         let scoped_name = join(scope, &name);
@@ -387,6 +387,7 @@ impl Parser<'_> {
             pose,
             is_static: self.boolean(node, "static", false)?,
             canonical_link: node.attribute("canonical_link").unwrap_or("").into(),
+            placement_frame: node.attribute("placement_frame").unwrap_or("").into(),
             links,
             joints,
             models: self.models(node, &scoped_name)?,
@@ -396,7 +397,11 @@ impl Parser<'_> {
         })
     }
     fn include(&mut self, node: Node<'_, '_>, scope: &str) -> Result<Model, Diagnostic> {
-        self.allowed(node, &["uri", "name", "pose", "static"], &[])?;
+        self.allowed(
+            node,
+            &["uri", "name", "pose", "static", "placement_frame"],
+            &[],
+        )?;
         if self.includes.len() >= 64 {
             return Err(self.err(
                 node,
@@ -449,6 +454,17 @@ impl Parser<'_> {
             return Err(self.err(node, ErrorCode::InvalidValue, "invalid include name"));
         }
         let mut model = imported.model(all[0], scope, rename.as_deref())?;
+        if let Some(placement) = child(node, "placement_frame") {
+            if child(node, "pose").is_none() {
+                return Err(self.err(
+                    placement,
+                    ErrorCode::Missing,
+                    "include placement_frame requires pose",
+                ));
+            }
+            self.allowed(placement, &[], &[])?;
+            model.placement_frame = placement.text().unwrap_or("").trim().into();
+        }
         if child(node, "pose").is_some() {
             model.pose = self.pose(node)?;
         }

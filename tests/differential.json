@@ -108,5 +108,49 @@
     "id": "canonical_self_cycle",
     "xml": "<sdf version='1.12'><model name='m' canonical_link='__model__'><link name='l'/></model></sdf>",
     "accepted": false
+  },
+  {
+    "id": "placement_link",
+    "xml": "<sdf version='1.12'><model name='m' placement_frame='l'><pose>3 4 5 0 0 0</pose><link name='l'><pose>1 2 0 0 0 0</pose></link></model></sdf>",
+    "accepted": true,
+    "model_pose": [
+      2,
+      2,
+      5,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "placement_missing",
+    "xml": "<sdf version='1.12'><model name='m' placement_frame='missing'><link name='l'/></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "placement_implicit_model",
+    "xml": "<sdf version='1.12'><model name='m' placement_frame='__model__'><link name='l'/></model></sdf>",
+    "accepted": true,
+    "model_pose": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "placement_nested_corrected",
+    "xml": "<sdf version='1.12'><model name='m' placement_frame='n::l'><pose>3 4 5 0 0 0</pose><model name='n' placement_frame='l'><pose>0 2 0 0 0 0</pose><link name='l'><pose>0 0 2 0 0 0</pose></link></model></model></sdf>",
+    "accepted": true,
+    "model_pose": [
+      3,
+      2,
+      5,
+      0,
+      0,
+      0
+    ]
   }
 ]

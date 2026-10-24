@@ -85,3 +85,27 @@ native graph error instead of the earlier generic InvalidValue. This change is
 an explicit error-class correction; the malformed document remains rejected.
 Relative query arithmetic overflow is also rejected. The corpus now contains
 22 native/Rust cases; full retained semantic coverage remains pending.
+
+The fourth bounded slice supports model/include placement frames, including
+nested placement corrections, frame/link/joint/model targets and include overrides.
+Both original NestedReference.PlacementFrameAttribute and PlacementFrameElement
+native cases pass; corresponding Rust ports preserve the unchanged nested fixture,
+all four original include scenarios and original 1e-6 pose assertions. Include
+placement without a pose is rejected after checking the native error contract.
+Supplementary tests cover clearing overrides, nested models, source provenance,
+relative_to, unresolved frames, and avoiding false intermediate overflow before
+placement correction. The native/Rust corpus has 26 acceptance cases and three
+shared numeric model-pose observations. There are 26 Rust integration tests.
+Placement resolution uses petgraph A* over validated parent edges, descendant
+model placements first, then one absolute pose solve. Performance measurements
+remain pending; no comparative speed claim follows from this implementation.
+
+Dependency-policy follow-up: exact library dependency requirements can conflict
+with consumer-compatible patch selections. Root integration downgraded its glam
+lock entry from 0.30.10 to this library's exact 0.30.9. Evaluate compatible semver
+requirements with locked repository validation and explicit integration pins;
+this slice does not change the established dependency selection.
+
+Placement slice verified production coverage:1300/1314lines and2261/2352regions;
+changed executable lines42/42. Independent review:/root. Both canonical coverage
+metrics and changed lines strictly exceed95%; no exclusions added.

@@ -1,5 +1,8 @@
 use crate::{Diagnostic, ErrorCode, Frame, Model, Pose, Source, Transform, World};
-use petgraph::{algo::toposort, graphmap::DiGraphMap};
+use petgraph::{
+    algo::{astar, toposort},
+    graphmap::DiGraphMap,
+};
 use std::collections::BTreeMap;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -30,6 +33,7 @@ pub(crate) struct Graphs {
     nodes: BTreeMap<String, Node>,
     poses: BTreeMap<String, Transform>,
     bodies: BTreeMap<String, String>,
+    placements: BTreeMap<String, String>,
 }
 impl Graphs {
     pub(crate) fn build(
@@ -132,6 +136,10 @@ impl Graphs {
                     source: link.source.clone(),
                 },
             )?;
+        }
+        if !model.placement_frame.is_empty() {
+            self.placements
+                .insert(name.clone(), model.placement_frame.clone());
         }
         self.frames(&model.frames, name)?;
         for joint in &model.joints {
@@ -303,11 +311,38 @@ impl Graphs {
                 "attachment graph cycle",
             )
         })?;
+        // A model pose locates its placement frame. Resolve descendant model
+        // placements first, then remove the local model-to-placement offset.
+        let mut placements = self.placements.iter().collect::<Vec<_>>();
+        placements.sort_by_key(|(name, _)| std::cmp::Reverse(name.matches("::").count()));
+        let mut adjusted = BTreeMap::new();
+        for (model, placement) in placements {
+            let source = &self.nodes[model].source;
+            let target = self.schema_lookup(placement, model, source)?;
+            // Scoped references cannot leave this model's subtree; acyclic
+            // parent edges therefore reach its implicit frame.
+            let (_, path) = astar(
+                &pose_graph,
+                target.as_str(),
+                |name| name == model,
+                |_| 1,
+                |_| 0,
+            )
+            .expect("validated local pose graph connects descendants to their model");
+            let mut offset = Transform::default();
+            for name in path.into_iter().rev().skip(1) {
+                offset = offset.compose(*adjusted.get(name).unwrap_or(&self.nodes[name].pose));
+            }
+            let pose = self.nodes[model].pose.compose(offset.inverse());
+            pose.validate(source)?;
+            adjusted.insert(model.clone(), pose);
+        }
         for name in pose_order.into_iter().rev() {
             let node = &self.nodes[name];
+            let local = *adjusted.get(name).unwrap_or(&node.pose);
             let pose = parents
                 .get(name)
-                .map_or(node.pose, |parent| self.poses[parent].compose(node.pose));
+                .map_or(local, |parent| self.poses[parent].compose(local));
             pose.validate(&node.source)?;
             self.poses.insert(name.into(), pose);
         }

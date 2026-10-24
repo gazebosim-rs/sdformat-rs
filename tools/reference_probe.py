@@ -30,17 +30,25 @@ NATIVE = '''
 import hashlib,json,sys
 from pathlib import Path
 import sdformat
+from gz.math import Pose3d
 root=Path(sys.argv[1])
 path=root/'tests/differential.json'
 results=[]
 for case in json.loads(path.read_text()):
     try:
-        sdformat.Root().load_sdf_string(case['xml'])
+        document=sdformat.Root()
+        document.load_sdf_string(case['xml'])
         accepted,errors=True,''
     except sdformat.SDFErrorsException as error:
         accepted,errors=False,str(error)
     assert accepted==case['accepted'],case['id']
-    results.append(dict(id=case['id'],accepted=accepted,errors=errors))
+    observed=dict(id=case['id'],accepted=accepted,errors=errors)
+    if accepted and 'model_pose' in case:
+        model=document.model() if document.model() else document.world_by_index(0).model_by_index(0)
+        pose=model.semantic_pose().resolve()
+        assert pose==Pose3d(*case['model_pose']),case['id']
+        observed['model_pose']=[pose.pos().x(),pose.pos().y(),pose.pos().z(),pose.rot().x(),pose.rot().y(),pose.rot().z(),pose.rot().w()]
+    results.append(observed)
 output=dict(corpus_sha256=hashlib.sha256(path.read_bytes()).hexdigest(),results=results)
 (root/'artifacts').mkdir(exist_ok=True)
 (root/'artifacts/reference-probe.json').write_text(json.dumps(output,indent=2)+'\\n')

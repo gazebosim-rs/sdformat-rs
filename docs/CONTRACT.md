@@ -15,7 +15,7 @@ apply at the include site. Maximum include and model depth is 64; no IO is impli
 Directory/model.config selection and URI/cache policy belong to the resolver.
 
 `World` has name, gravity in m/s², models, frames, plugins and source.
-`Model` has raw pose, static flag, canonical-link reference, links, joints,
+`Model` has raw pose, static flag, canonical-link and placement-frame references, links, joints,
 nested models, frames, plugins, scoped name and source.
 `Link` has pose, inertial, collisions, sensors, plugins, scoped name and source.
 `Inertial` has mass in kg, six inertia components (ixx, iyy, izz, ixy, ixz, iyz)
@@ -54,8 +54,7 @@ references, duplicate semantic frame names and both kinds of cycles are checked.
 
 Versions 1.8–1.12 share empty upstream conversion scripts in the supported subset.
 Older unflatten/rename conversions are unsupported. Full schema/version-aware
-validation, serialization, visual/material data, mesh/resources, merge and
-placement frames, automatic inertia, URDF, other sensor families and most other
+validation, serialization, visual/material data, mesh/resources, merge, automatic inertia, URDF, other sensor families and most other
 SDF features remain pending. Unknown schema features error; opaque plugin XML is the stated exception.
 The XML library currently requires namespace prefixes to be declared, whereas
 upstream permits undeclared prefixes in extension element names; that compatibility
@@ -68,3 +67,11 @@ references from its fully scoped internal default edges. A top-level SDF may
 contain one model or worlds, and root-model pose relative_to must be empty.
 Public resolve_name accepts a fully scoped/default query or a world endpoint;
 it does not expand the allowed namespace of XML pose/axis references.
+
+A nonempty Model.placement_frame changes the meaning of its raw pose: it locates
+that frame, not the implicit model frame. Resolved poses remove the local
+model-to-placement offset, including previously resolved descendant placements.
+Placement names can reference links, frames, joints, models or __model__ within
+that model. Includes retain or override this setting; an include placement_frame
+element requires a pose element, even when clearing the setting. The pose graph
+is cycle-checked before placements and solved globally after local correction.

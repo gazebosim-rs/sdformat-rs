@@ -18635,10 +18635,14 @@
               "symbol": "NestedReference.PlacementFrameAttribute"
             }
           ],
-          "baseline": "unrun",
-          "replacement": [],
-          "assertion_contract": "pending",
-          "fixture_contract": "pending manual extraction"
+          "baseline": "passed; artifacts/reference-placement.xml",
+          "replacement": [
+            "tests/placement.rs::nested_reference_placement_frame_attribute"
+          ],
+          "assertion_contract": "Original load success, root model presence, pose resolve success, and pose(0,-2,10,0,0,0), with1e-6 gz-math equality tolerance.",
+          "fixture_contract": {
+            "test/integration/model/model_with_nested_placement_frame_attribute/model.sdf": "1bdfbcaa4dce30b9ed182d1b8ff7f5de9332fdbc0491fcb513a5b428a9a4e0f1"
+          }
         },
         {
           "id": "NestedReference.PlacementFrameElement",
@@ -18650,10 +18654,14 @@
               "symbol": "NestedReference.PlacementFrameElement"
             }
           ],
-          "baseline": "unrun",
-          "replacement": [],
-          "assertion_contract": "pending",
-          "fixture_contract": "pending manual extraction"
+          "baseline": "passed; artifacts/reference-placement.xml",
+          "replacement": [
+            "tests/placement.rs::nested_reference_placement_frame_element_all_four_original_cases"
+          ],
+          "assertion_contract": "All four original world/model include cases; original model/frame/nested link presence assertions, resolve success and placement/model pose assertions; original version1.8 and generated pose text retained,1e-6 tolerance.",
+          "fixture_contract": {
+            "test/integration/model/model_with_nested_placement_frame_attribute/model.sdf": "1bdfbcaa4dce30b9ed182d1b8ff7f5de9332fdbc0491fcb513a5b428a9a4e0f1"
+          }
         }
       ],
       "migration": "pending",

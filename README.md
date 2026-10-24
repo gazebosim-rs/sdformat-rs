@@ -13,8 +13,9 @@ let pose = sdf.pose_of("robot::base", "::")?;
 The supported subset has SDF 1.8–1.12 worlds, nested and included models,
 links, primitive collisions, physical mass/inertia, fixed/revolute/prismatic/
 continuous joints, typed IMU sensor configuration, frames, and opaque plugin content.
-Pose and attachment graphs are separate. Loading is atomic. Unsupported elements,
-attributes, versions, merge/placement features, and automatic inertia produce
+Model and include placement frames resolve through nested links, frames, joints,
+and models. Pose and attachment graphs are separate. Loading is atomic. Unsupported elements,
+attributes, versions, merge features, and automatic inertia produce
 explicit diagnostics. IMU noise, orientation settings and original XML are retained together. See
 [the contract](docs/CONTRACT.md).
 

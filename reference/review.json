@@ -2,7 +2,7 @@
   "decision": "approved",
   "author": "/root/sdformat",
   "reviewer": "/root",
-  "protected_digest": "64ae636dc6a0e69488cdcc21def707d82344058685dacebde98c12996aebd056",
-  "scope": "Correct XML frame scope, world endpoint rules, root model constraints, graph cycle classification and relative-query overflow; /root read complete graph/parser/types diff and native differential corpus.",
+  "protected_digest": "5a5914bf2dedb5226d0f48fc48ca4764e2126cdc9157546480116e702e5be4e3",
+  "scope": "Model/include placement frames and all original Attribute/four Element assertion blocks; /root reviewed graph adjustment, parser/include diff and justified closed-scope acyclic path invariant.",
   "date": "2026-10-24"
 }

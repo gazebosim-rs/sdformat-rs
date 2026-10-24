@@ -202,14 +202,15 @@ impl Parser<'_> {
         if text.is_empty() {
             return Ok(default);
         }
-        // A numeric prefix followed by whitespace is valid natively. Leading
-        // Unicode whitespace is not C whitespace and must not be discarded.
-        text.trim_start_matches(legacy_whitespace)
-            .trim_end()
-            .parse::<f64>()
-            .ok()
-            .filter(|v| v.is_finite())
-            .ok_or_else(|| self.err(node, ErrorCode::InvalidValue, "expected finite number"))
+        let text = if text.eq_ignore_ascii_case("true") {
+            "1"
+        } else if text.eq_ignore_ascii_case("false") {
+            "0"
+        } else {
+            &text
+        };
+        crate::number::scalar_float(text)
+            .map_err(|code| self.err(node, code, "scalar floating-point conversion failed"))
     }
     fn scalar(&self, node: Node<'_, '_>, name: &str, default: f64) -> Result<f64, Diagnostic> {
         child(node, name).map_or(Ok(default), |n| self.number(n, default))
@@ -242,9 +243,17 @@ impl Parser<'_> {
             .unwrap_or("")
             .split(legacy_whitespace)
             .filter(|part| !part.is_empty())
-            .map(str::parse::<f64>)
+            .map(|part| {
+                if node.has_tag_name("pose") {
+                    // Native ParsePose converts individual tokens with stod;
+                    // vector streams intentionally retain their distinct path.
+                    crate::number::scalar_float(part)
+                } else {
+                    part.parse::<f64>().map_err(|_| ErrorCode::InvalidValue)
+                }
+            })
             .collect::<Result<Vec<_>, _>>()
-            .map_err(|_| self.err(node, ErrorCode::InvalidValue, "expected numeric vector"))?;
+            .map_err(|code| self.err(node, code, "expected numeric vector"))?;
         if values.iter().any(|n| !n.is_finite()) {
             return Err(self.err(node, ErrorCode::InvalidValue, "expected finite vector"));
         }
@@ -276,7 +285,7 @@ impl Parser<'_> {
             "true" | "1" => true,
             _ => return Err(self.err(pose, ErrorCode::InvalidValue, "invalid degrees attribute")),
         };
-        if pose.text().unwrap_or("").trim().is_empty() {
+        if param_text(pose).is_empty() {
             return Ok(Pose {
                 relative_to,
                 ..Pose::default()

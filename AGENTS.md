@@ -2,8 +2,8 @@
 
 Read README.md and the linked canonical plan, this repository's contract, task
 packets, and test policy. Confirmed owner decisions override proposed defaults.
-This is a planning shell; production quality gates must be implemented before
-accepting the first production feature.
+The semantic loader and strict quality gates are implemented. Production changes
+must pass the checked-in staged-tree gate before acceptance.
 
 Keep XML parsing, schema validation/conversion, frame resolution, and resource resolution separate. Accept an injected resource resolver. Do not depend on Bevy, the simulator, or Fuel. Preserve SDF semantics and imported resource provenance, not just XML syntax.
 
@@ -58,3 +58,17 @@ matching Gazebo main. New Rust, Python and shell source carries
 year; current new sources use 2026) and `SPDX-License-Identifier: Apache-2.0`.
 Keep original imported notices and years unchanged; this rule does not relabel
 third-party dependencies. Maintain NOTICE.
+
+
+## Audited scalar conversion
+
+Cargo denies unsafe code. The only production allow-scoped exception is the
+Linux GNU numeric boundary in src/number.rs; its ABI, ownership and platform
+limits are recorded in docs/SCALAR_CONVERSION.md. Preserve the independent
+code/safety review requirement for changes to that boundary. No process or
+thread locale mutation, escaped pointers, approximate range errors or unreviewed
+platform fallback is permitted. The test-only locale snapshot has its own narrow
+allow scope; it does not authorize production exceptions. Linux GNU integration
+tests require a C compiler for isolated allocation-failure injection. Measure
+native/full-parser fidelity and conversion costs before optimizing locale reuse
+or making performance claims.

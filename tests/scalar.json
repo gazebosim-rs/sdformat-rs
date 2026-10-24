@@ -1,0 +1,569 @@
+[
+  {
+    "id": "scalar_0",
+    "value": "0",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><angular_velocity><x><noise type='gaussian'><mean>0</mean></noise></x></angular_velocity></imu></sensor></link></model></sdf>",
+    "native_accepted": true,
+    "bits": 0,
+    "supported": true,
+    "kind": "scalar"
+  },
+  {
+    "id": "scalar_1",
+    "value": "-0",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><angular_velocity><x><noise type='gaussian'><mean>-0</mean></noise></x></angular_velocity></imu></sensor></link></model></sdf>",
+    "native_accepted": true,
+    "bits": 9223372036854775808,
+    "supported": true,
+    "kind": "scalar"
+  },
+  {
+    "id": "scalar_2",
+    "value": "+0",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><angular_velocity><x><noise type='gaussian'><mean>+0</mean></noise></x></angular_velocity></imu></sensor></link></model></sdf>",
+    "native_accepted": true,
+    "bits": 0,
+    "supported": true,
+    "kind": "scalar"
+  },
+  {
+    "id": "scalar_3",
+    "value": "0e-9999",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><angular_velocity><x><noise type='gaussian'><mean>0e-9999</mean></noise></x></angular_velocity></imu></sensor></link></model></sdf>",
+    "native_accepted": true,
+    "bits": 0,
+    "supported": true,
+    "kind": "scalar"
+  },
+  {
+    "id": "scalar_4",
+    "value": "-0e-9999",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><angular_velocity><x><noise type='gaussian'><mean>-0e-9999</mean></noise></x></angular_velocity></imu></sensor></link></model></sdf>",
+    "native_accepted": true,
+    "bits": 9223372036854775808,
+    "supported": true,
+    "kind": "scalar"
+  },
+  {
+    "id": "scalar_5",
+    "value": "1.25",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><angular_velocity><x><noise type='gaussian'><mean>1.25</mean></noise></x></angular_velocity></imu></sensor></link></model></sdf>",
+    "native_accepted": true,
+    "bits": 4608308318706860032,
+    "supported": true,
+    "kind": "scalar"
+  },
+  {
+    "id": "scalar_6",
+    "value": "-12.5junk",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><angular_velocity><x><noise type='gaussian'><mean>-12.5junk</mean></noise></x></angular_velocity></imu></sensor></link></model></sdf>",
+    "native_accepted": true,
+    "bits": 13846598529327300608,
+    "supported": true,
+    "kind": "scalar"
+  },
+  {
+    "id": "scalar_7",
+    "value": "1e",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><angular_velocity><x><noise type='gaussian'><mean>1e</mean></noise></x></angular_velocity></imu></sensor></link></model></sdf>",
+    "native_accepted": true,
+    "bits": 4607182418800017408,
+    "supported": true,
+    "kind": "scalar"
+  },
+  {
+    "id": "scalar_8",
+    "value": "1e+",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><angular_velocity><x><noise type='gaussian'><mean>1e+</mean></noise></x></angular_velocity></imu></sensor></link></model></sdf>",
+    "native_accepted": true,
+    "bits": 4607182418800017408,
+    "supported": true,
+    "kind": "scalar"
+  },
+  {
+    "id": "scalar_9",
+    "value": "1.5garbage",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><angular_velocity><x><noise type='gaussian'><mean>1.5garbage</mean></noise></x></angular_velocity></imu></sensor></link></model></sdf>",
+    "native_accepted": true,
+    "bits": 4609434218613702656,
+    "supported": true,
+    "kind": "scalar"
+  },
+  {
+    "id": "scalar_10",
+    "value": "0x1.8p+2junk",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><angular_velocity><x><noise type='gaussian'><mean>0x1.8p+2junk</mean></noise></x></angular_velocity></imu></sensor></link></model></sdf>",
+    "native_accepted": true,
+    "bits": 4618441417868443648,
+    "supported": true,
+    "kind": "scalar"
+  },
+  {
+    "id": "scalar_11",
+    "value": "0x1p-1022",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><angular_velocity><x><noise type='gaussian'><mean>0x1p-1022</mean></noise></x></angular_velocity></imu></sensor></link></model></sdf>",
+    "native_accepted": true,
+    "bits": 4503599627370496,
+    "supported": true,
+    "kind": "scalar"
+  },
+  {
+    "id": "scalar_12",
+    "value": "0x0.0000000000001p-1022",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><angular_velocity><x><noise type='gaussian'><mean>0x0.0000000000001p-1022</mean></noise></x></angular_velocity></imu></sensor></link></model></sdf>",
+    "native_accepted": true,
+    "bits": 1,
+    "supported": true,
+    "kind": "scalar"
+  },
+  {
+    "id": "scalar_13",
+    "value": "0x1p-1075",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><angular_velocity><x><noise type='gaussian'><mean>0x1p-1075</mean></noise></x></angular_velocity></imu></sensor></link></model></sdf>",
+    "native_accepted": false,
+    "bits": null,
+    "supported": true,
+    "kind": "scalar"
+  },
+  {
+    "id": "scalar_14",
+    "value": "true",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><angular_velocity><x><noise type='gaussian'><mean>true</mean></noise></x></angular_velocity></imu></sensor></link></model></sdf>",
+    "native_accepted": true,
+    "bits": 4607182418800017408,
+    "supported": true,
+    "kind": "scalar"
+  },
+  {
+    "id": "scalar_15",
+    "value": "FALSE",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><angular_velocity><x><noise type='gaussian'><mean>FALSE</mean></noise></x></angular_velocity></imu></sensor></link></model></sdf>",
+    "native_accepted": true,
+    "bits": 0,
+    "supported": true,
+    "kind": "scalar"
+  },
+  {
+    "id": "scalar_16",
+    "value": "True",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><angular_velocity><x><noise type='gaussian'><mean>True</mean></noise></x></angular_velocity></imu></sensor></link></model></sdf>",
+    "native_accepted": true,
+    "bits": 4607182418800017408,
+    "supported": true,
+    "kind": "scalar"
+  },
+  {
+    "id": "scalar_17",
+    "value": "1e-9999",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><angular_velocity><x><noise type='gaussian'><mean>1e-9999</mean></noise></x></angular_velocity></imu></sensor></link></model></sdf>",
+    "native_accepted": false,
+    "bits": null,
+    "supported": true,
+    "kind": "scalar"
+  },
+  {
+    "id": "scalar_18",
+    "value": "1e-324",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><angular_velocity><x><noise type='gaussian'><mean>1e-324</mean></noise></x></angular_velocity></imu></sensor></link></model></sdf>",
+    "native_accepted": false,
+    "bits": null,
+    "supported": true,
+    "kind": "scalar"
+  },
+  {
+    "id": "scalar_19",
+    "value": "1e-323",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><angular_velocity><x><noise type='gaussian'><mean>1e-323</mean></noise></x></angular_velocity></imu></sensor></link></model></sdf>",
+    "native_accepted": false,
+    "bits": null,
+    "supported": true,
+    "kind": "scalar"
+  },
+  {
+    "id": "scalar_20",
+    "value": "1e-310",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><angular_velocity><x><noise type='gaussian'><mean>1e-310</mean></noise></x></angular_velocity></imu></sensor></link></model></sdf>",
+    "native_accepted": false,
+    "bits": null,
+    "supported": true,
+    "kind": "scalar"
+  },
+  {
+    "id": "scalar_21",
+    "value": "-1e-310",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><angular_velocity><x><noise type='gaussian'><mean>-1e-310</mean></noise></x></angular_velocity></imu></sensor></link></model></sdf>",
+    "native_accepted": false,
+    "bits": null,
+    "supported": true,
+    "kind": "scalar"
+  },
+  {
+    "id": "scalar_22",
+    "value": "2.225073858507201e-308",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><angular_velocity><x><noise type='gaussian'><mean>2.225073858507201e-308</mean></noise></x></angular_velocity></imu></sensor></link></model></sdf>",
+    "native_accepted": false,
+    "bits": null,
+    "supported": true,
+    "kind": "scalar"
+  },
+  {
+    "id": "scalar_23",
+    "value": "2.2250738585072011e-308",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><angular_velocity><x><noise type='gaussian'><mean>2.2250738585072011e-308</mean></noise></x></angular_velocity></imu></sensor></link></model></sdf>",
+    "native_accepted": false,
+    "bits": null,
+    "supported": true,
+    "kind": "scalar"
+  },
+  {
+    "id": "scalar_24",
+    "value": "2.2250738585072012e-308",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><angular_velocity><x><noise type='gaussian'><mean>2.2250738585072012e-308</mean></noise></x></angular_velocity></imu></sensor></link></model></sdf>",
+    "native_accepted": false,
+    "bits": null,
+    "supported": true,
+    "kind": "scalar"
+  },
+  {
+    "id": "scalar_25",
+    "value": "2.2250738585072013e-308",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><angular_velocity><x><noise type='gaussian'><mean>2.2250738585072013e-308</mean></noise></x></angular_velocity></imu></sensor></link></model></sdf>",
+    "native_accepted": true,
+    "bits": 4503599627370496,
+    "supported": true,
+    "kind": "scalar"
+  },
+  {
+    "id": "scalar_26",
+    "value": "2.2250738585072014e-308",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><angular_velocity><x><noise type='gaussian'><mean>2.2250738585072014e-308</mean></noise></x></angular_velocity></imu></sensor></link></model></sdf>",
+    "native_accepted": true,
+    "bits": 4503599627370496,
+    "supported": true,
+    "kind": "scalar"
+  },
+  {
+    "id": "scalar_27",
+    "value": "2.2250738585072015e-308",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><angular_velocity><x><noise type='gaussian'><mean>2.2250738585072015e-308</mean></noise></x></angular_velocity></imu></sensor></link></model></sdf>",
+    "native_accepted": true,
+    "bits": 4503599627370496,
+    "supported": true,
+    "kind": "scalar"
+  },
+  {
+    "id": "scalar_28",
+    "value": "4.940656458412465441765687928682213723650598026143247644255856825006755072702087518652998363616359923797965646954457177309266567103559397963987747960107818781263007131903114045278458171678489821036887186360569987307230500063874091535649843873124733972731696151400317153853980741262385655911710266585566867681870395603106249319452715914924553293054565444011274801297099995419319894090804165633245247571478690147267801593552386115501348035264934720193790268107107491703332226844753335720832431936092382893458368060106011506169809753078342277318329247904982524730776375927247874656084778203734469699533647017972677717585125660551199131504891101451037862738167250955837389733598993664809941164205702637090279242767544565229087538682506419718265533447265625E-324",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><angular_velocity><x><noise type='gaussian'><mean>4.940656458412465441765687928682213723650598026143247644255856825006755072702087518652998363616359923797965646954457177309266567103559397963987747960107818781263007131903114045278458171678489821036887186360569987307230500063874091535649843873124733972731696151400317153853980741262385655911710266585566867681870395603106249319452715914924553293054565444011274801297099995419319894090804165633245247571478690147267801593552386115501348035264934720193790268107107491703332226844753335720832431936092382893458368060106011506169809753078342277318329247904982524730776375927247874656084778203734469699533647017972677717585125660551199131504891101451037862738167250955837389733598993664809941164205702637090279242767544565229087538682506419718265533447265625E-324</mean></noise></x></angular_velocity></imu></sensor></link></model></sdf>",
+    "native_accepted": true,
+    "bits": 1,
+    "supported": true,
+    "kind": "scalar"
+  },
+  {
+    "id": "scalar_29",
+    "value": "2.2250738585072008890245868760858598876504231122409594654935248025624400092282356951787758888037591552642309780950434312085877387158357291821993020294379224223559819827501242041788969571311791082261043971979604000454897391938079198936081525613113376149842043271751033627391549782731594143828136275113838604094249464942286316695429105080201815926642134996606517803095075913058719846423906068637102005108723282784678843631944515866135041223479014792369585208321597621066375401613736583044193603714778355306682834535634005074073040135602968046375918583163124224521599262546494300836851861719422417646455137135420132217031370496583210154654068035397417906022589503023501937519773030945763173210852507299305089761582519159720757232455434770912461317493580281734466552734375E-308",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><angular_velocity><x><noise type='gaussian'><mean>2.2250738585072008890245868760858598876504231122409594654935248025624400092282356951787758888037591552642309780950434312085877387158357291821993020294379224223559819827501242041788969571311791082261043971979604000454897391938079198936081525613113376149842043271751033627391549782731594143828136275113838604094249464942286316695429105080201815926642134996606517803095075913058719846423906068637102005108723282784678843631944515866135041223479014792369585208321597621066375401613736583044193603714778355306682834535634005074073040135602968046375918583163124224521599262546494300836851861719422417646455137135420132217031370496583210154654068035397417906022589503023501937519773030945763173210852507299305089761582519159720757232455434770912461317493580281734466552734375E-308</mean></noise></x></angular_velocity></imu></sensor></link></model></sdf>",
+    "native_accepted": true,
+    "bits": 4503599627370495,
+    "supported": true,
+    "kind": "scalar"
+  },
+  {
+    "id": "scalar_30",
+    "value": "1e309",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><angular_velocity><x><noise type='gaussian'><mean>1e309</mean></noise></x></angular_velocity></imu></sensor></link></model></sdf>",
+    "native_accepted": false,
+    "bits": null,
+    "supported": true,
+    "kind": "scalar"
+  },
+  {
+    "id": "scalar_31",
+    "value": "-1e9999",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><angular_velocity><x><noise type='gaussian'><mean>-1e9999</mean></noise></x></angular_velocity></imu></sensor></link></model></sdf>",
+    "native_accepted": false,
+    "bits": null,
+    "supported": true,
+    "kind": "scalar"
+  },
+  {
+    "id": "scalar_32",
+    "value": "x",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><angular_velocity><x><noise type='gaussian'><mean>x</mean></noise></x></angular_velocity></imu></sensor></link></model></sdf>",
+    "native_accepted": false,
+    "bits": null,
+    "supported": true,
+    "kind": "scalar"
+  },
+  {
+    "id": "scalar_33",
+    "value": "+",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><angular_velocity><x><noise type='gaussian'><mean>+</mean></noise></x></angular_velocity></imu></sensor></link></model></sdf>",
+    "native_accepted": false,
+    "bits": null,
+    "supported": true,
+    "kind": "scalar"
+  },
+  {
+    "id": "scalar_34",
+    "value": "",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><angular_velocity><x><noise type='gaussian'><mean></mean></noise></x></angular_velocity></imu></sensor></link></model></sdf>",
+    "native_accepted": true,
+    "bits": 0,
+    "supported": true,
+    "kind": "scalar"
+  },
+  {
+    "id": "scalar_35",
+    "value": "<![CDATA[\u000b\f]]>",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><angular_velocity><x><noise type='gaussian'><mean><![CDATA[\u000b\f]]></mean></noise></x></angular_velocity></imu></sensor></link></model></sdf>",
+    "native_accepted": false,
+    "bits": null,
+    "supported": true,
+    "kind": "scalar"
+  },
+  {
+    "id": "scalar_36",
+    "value": "<![CDATA[\u000b0.6\f]]>",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><angular_velocity><x><noise type='gaussian'><mean><![CDATA[\u000b0.6\f]]></mean></noise></x></angular_velocity></imu></sensor></link></model></sdf>",
+    "native_accepted": true,
+    "bits": 4603579539098121011,
+    "supported": true,
+    "kind": "scalar"
+  },
+  {
+    "id": "scalar_37",
+    "value": "  0.6  tail",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><angular_velocity><x><noise type='gaussian'><mean>  0.6  tail</mean></noise></x></angular_velocity></imu></sensor></link></model></sdf>",
+    "native_accepted": true,
+    "bits": 4603579539098121011,
+    "supported": true,
+    "kind": "scalar"
+  },
+  {
+    "id": "scalar_38",
+    "value": "&#160;0.6",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><angular_velocity><x><noise type='gaussian'><mean>&#160;0.6</mean></noise></x></angular_velocity></imu></sensor></link></model></sdf>",
+    "native_accepted": false,
+    "bits": null,
+    "supported": true,
+    "kind": "scalar"
+  },
+  {
+    "id": "scalar_39",
+    "value": "0.6&#160;",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><angular_velocity><x><noise type='gaussian'><mean>0.6&#160;</mean></noise></x></angular_velocity></imu></sensor></link></model></sdf>",
+    "native_accepted": true,
+    "bits": 4603579539098121011,
+    "supported": true,
+    "kind": "scalar"
+  },
+  {
+    "id": "scalar_40",
+    "value": "nan",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><angular_velocity><x><noise type='gaussian'><mean>nan</mean></noise></x></angular_velocity></imu></sensor></link></model></sdf>",
+    "native_accepted": true,
+    "bits": 9221120237041090560,
+    "supported": false,
+    "kind": "scalar"
+  },
+  {
+    "id": "scalar_41",
+    "value": "-Infinity",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><angular_velocity><x><noise type='gaussian'><mean>-Infinity</mean></noise></x></angular_velocity></imu></sensor></link></model></sdf>",
+    "native_accepted": true,
+    "bits": 18442240474082181120,
+    "supported": false,
+    "kind": "scalar"
+  },
+  {
+    "id": "pose_0",
+    "kind": "pose",
+    "value": "1e-9999 0 0 0 0 0",
+    "xml": "<sdf version='1.12'><model name='m'><pose>1e-9999 0 0 0 0 0</pose><link name='l'/></model></sdf>",
+    "native_accepted": false,
+    "bits": null,
+    "supported": true
+  },
+  {
+    "id": "pose_1",
+    "kind": "pose",
+    "value": "1e-310 0 0 0 0 0",
+    "xml": "<sdf version='1.12'><model name='m'><pose>1e-310 0 0 0 0 0</pose><link name='l'/></model></sdf>",
+    "native_accepted": false,
+    "bits": null,
+    "supported": true
+  },
+  {
+    "id": "pose_2",
+    "kind": "pose",
+    "value": "4.940656458412465441765687928682213723650598026143247644255856825006755072702087518652998363616359923797965646954457177309266567103559397963987747960107818781263007131903114045278458171678489821036887186360569987307230500063874091535649843873124733972731696151400317153853980741262385655911710266585566867681870395603106249319452715914924553293054565444011274801297099995419319894090804165633245247571478690147267801593552386115501348035264934720193790268107107491703332226844753335720832431936092382893458368060106011506169809753078342277318329247904982524730776375927247874656084778203734469699533647017972677717585125660551199131504891101451037862738167250955837389733598993664809941164205702637090279242767544565229087538682506419718265533447265625E-324 0 0 0 0 0",
+    "xml": "<sdf version='1.12'><model name='m'><pose>4.940656458412465441765687928682213723650598026143247644255856825006755072702087518652998363616359923797965646954457177309266567103559397963987747960107818781263007131903114045278458171678489821036887186360569987307230500063874091535649843873124733972731696151400317153853980741262385655911710266585566867681870395603106249319452715914924553293054565444011274801297099995419319894090804165633245247571478690147267801593552386115501348035264934720193790268107107491703332226844753335720832431936092382893458368060106011506169809753078342277318329247904982524730776375927247874656084778203734469699533647017972677717585125660551199131504891101451037862738167250955837389733598993664809941164205702637090279242767544565229087538682506419718265533447265625E-324 0 0 0 0 0</pose><link name='l'/></model></sdf>",
+    "native_accepted": true,
+    "bits": 1,
+    "supported": true
+  },
+  {
+    "id": "pose_3",
+    "kind": "pose",
+    "value": "2.2250738585072012e-308 0 0 0 0 0",
+    "xml": "<sdf version='1.12'><model name='m'><pose>2.2250738585072012e-308 0 0 0 0 0</pose><link name='l'/></model></sdf>",
+    "native_accepted": false,
+    "bits": null,
+    "supported": true
+  },
+  {
+    "id": "pose_4",
+    "kind": "pose",
+    "value": "2.2250738585072013e-308 0 0 0 0 0",
+    "xml": "<sdf version='1.12'><model name='m'><pose>2.2250738585072013e-308 0 0 0 0 0</pose><link name='l'/></model></sdf>",
+    "native_accepted": true,
+    "bits": 4503599627370496,
+    "supported": true
+  },
+  {
+    "id": "pose_5",
+    "kind": "pose",
+    "value": "1junk 0 0 0 0 0",
+    "xml": "<sdf version='1.12'><model name='m'><pose>1junk 0 0 0 0 0</pose><link name='l'/></model></sdf>",
+    "native_accepted": true,
+    "bits": 4607182418800017408,
+    "supported": true
+  },
+  {
+    "id": "pose_6",
+    "kind": "pose",
+    "value": "1e 0 0 0 0 0",
+    "xml": "<sdf version='1.12'><model name='m'><pose>1e 0 0 0 0 0</pose><link name='l'/></model></sdf>",
+    "native_accepted": true,
+    "bits": 4607182418800017408,
+    "supported": true
+  },
+  {
+    "id": "pose_7",
+    "kind": "pose",
+    "value": "0x1.8p1 0 0 0 0 0",
+    "xml": "<sdf version='1.12'><model name='m'><pose>0x1.8p1 0 0 0 0 0</pose><link name='l'/></model></sdf>",
+    "native_accepted": true,
+    "bits": 4613937818241073152,
+    "supported": true
+  },
+  {
+    "id": "pose_8",
+    "kind": "pose",
+    "value": "true 0 0 0 0 0",
+    "xml": "<sdf version='1.12'><model name='m'><pose>true 0 0 0 0 0</pose><link name='l'/></model></sdf>",
+    "native_accepted": false,
+    "bits": null,
+    "supported": true
+  },
+  {
+    "id": "pose_9",
+    "kind": "pose",
+    "value": "false 0 0 0 0 0",
+    "xml": "<sdf version='1.12'><model name='m'><pose>false 0 0 0 0 0</pose><link name='l'/></model></sdf>",
+    "native_accepted": false,
+    "bits": null,
+    "supported": true
+  },
+  {
+    "id": "pose_10",
+    "kind": "pose",
+    "value": "-0 0 0 0 0 0",
+    "xml": "<sdf version='1.12'><model name='m'><pose>-0 0 0 0 0 0</pose><link name='l'/></model></sdf>",
+    "native_accepted": true,
+    "bits": 9223372036854775808,
+    "supported": true
+  },
+  {
+    "id": "pose_11",
+    "kind": "pose",
+    "value": "",
+    "xml": "<sdf version='1.12'><model name='m'><pose></pose><link name='l'/></model></sdf>",
+    "native_accepted": true,
+    "bits": 0,
+    "supported": true
+  },
+  {
+    "id": "pose_12",
+    "kind": "pose",
+    "value": "<![CDATA[\u000b\f]]>",
+    "xml": "<sdf version='1.12'><model name='m'><pose><![CDATA[\u000b\f]]></pose><link name='l'/></model></sdf>",
+    "native_accepted": false,
+    "bits": null,
+    "supported": true
+  },
+  {
+    "id": "pose_13",
+    "kind": "pose",
+    "value": "&#11;&#12;",
+    "xml": "<sdf version='1.12'><model name='m'><pose>&#11;&#12;</pose><link name='l'/></model></sdf>",
+    "native_accepted": true,
+    "bits": 0,
+    "supported": true
+  },
+  {
+    "id": "pose_14",
+    "kind": "pose",
+    "value": "&#160;",
+    "xml": "<sdf version='1.12'><model name='m'><pose>&#160;</pose><link name='l'/></model></sdf>",
+    "native_accepted": false,
+    "bits": null,
+    "supported": true
+  },
+  {
+    "id": "pose_15",
+    "kind": "pose",
+    "value": "<![CDATA[\r]]>",
+    "xml": "<sdf version='1.12'><model name='m'><pose><![CDATA[\r]]></pose><link name='l'/></model></sdf>",
+    "native_accepted": true,
+    "bits": 0,
+    "supported": true
+  },
+  {
+    "id": "vector_0",
+    "kind": "vector",
+    "value": "1e-9999",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><mesh><uri>mesh.dae</uri><scale>1e-9999 1 1</scale></mesh></geometry></collision></link></model></sdf>",
+    "native_accepted": true,
+    "bits": 0,
+    "supported": true
+  },
+  {
+    "id": "vector_1",
+    "kind": "vector",
+    "value": "1e-310",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><mesh><uri>mesh.dae</uri><scale>1e-310 1 1</scale></mesh></geometry></collision></link></model></sdf>",
+    "native_accepted": true,
+    "bits": 20240225330731,
+    "supported": true
+  },
+  {
+    "id": "vector_2",
+    "kind": "vector",
+    "value": "1e-323",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><mesh><uri>mesh.dae</uri><scale>1e-323 1 1</scale></mesh></geometry></collision></link></model></sdf>",
+    "native_accepted": true,
+    "bits": 2,
+    "supported": true
+  },
+  {
+    "id": "vector_3",
+    "kind": "vector",
+    "value": "4.940656458412465441765687928682213723650598026143247644255856825006755072702087518652998363616359923797965646954457177309266567103559397963987747960107818781263007131903114045278458171678489821036887186360569987307230500063874091535649843873124733972731696151400317153853980741262385655911710266585566867681870395603106249319452715914924553293054565444011274801297099995419319894090804165633245247571478690147267801593552386115501348035264934720193790268107107491703332226844753335720832431936092382893458368060106011506169809753078342277318329247904982524730776375927247874656084778203734469699533647017972677717585125660551199131504891101451037862738167250955837389733598993664809941164205702637090279242767544565229087538682506419718265533447265625E-324",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><mesh><uri>mesh.dae</uri><scale>4.940656458412465441765687928682213723650598026143247644255856825006755072702087518652998363616359923797965646954457177309266567103559397963987747960107818781263007131903114045278458171678489821036887186360569987307230500063874091535649843873124733972731696151400317153853980741262385655911710266585566867681870395603106249319452715914924553293054565444011274801297099995419319894090804165633245247571478690147267801593552386115501348035264934720193790268107107491703332226844753335720832431936092382893458368060106011506169809753078342277318329247904982524730776375927247874656084778203734469699533647017972677717585125660551199131504891101451037862738167250955837389733598993664809941164205702637090279242767544565229087538682506419718265533447265625E-324 1 1</scale></mesh></geometry></collision></link></model></sdf>",
+    "native_accepted": true,
+    "bits": 1,
+    "supported": true
+  },
+  {
+    "id": "vector_4",
+    "kind": "vector",
+    "value": "2.2250738585072012e-308",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><mesh><uri>mesh.dae</uri><scale>2.2250738585072012e-308 1 1</scale></mesh></geometry></collision></link></model></sdf>",
+    "native_accepted": true,
+    "bits": 4503599627370496,
+    "supported": true
+  }
+]

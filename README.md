@@ -21,6 +21,12 @@ attributes, versions, merge features, DTD declarations and automatic inertia pro
 explicit diagnostics. IMU noise, orientation settings and original XML are retained together. See
 [the contract](docs/CONTRACT.md).
 
+Scalar and pose-component conversion is qualified for Linux GNU/glibc using an
+owned C locale and native range/prefix semantics. One reviewed FFI module is the
+only production unsafe exception; other platforms return Unsupported for these
+explicit conversions pending qualification. No global locale is changed. See
+[the conversion boundary](docs/SCALAR_CONVERSION.md).
+
 Resources are injected through `ResourceResolver`; the library performs no network
 or filesystem IO. Plain f64 values cross the API; no Bevy, simulator, Fuel, or
 transport dependency is present. See [evidence and remaining work](docs/STATUS.md).

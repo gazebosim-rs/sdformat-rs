@@ -12,8 +12,12 @@ quick-xml = "=0.38.3"
 xmlparser = "=0.13.6"
 glam = { version = "=0.30.9", default-features = false, features = ["std"] }
 
+[target.'cfg(all(target_os = "linux", target_env = "gnu"))'.dependencies]
+libc = "=0.2.191"
+errno = "=0.3.14"
+
 [lints.rust]
-unsafe_code = "forbid"
+unsafe_code = "deny"
 
 [lints.clippy]
 all = "deny"

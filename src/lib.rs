@@ -6,6 +6,9 @@
 //! Loading is atomic: syntax, validation, include expansion and graph errors never
 //! expose a partially validated model. Unsupported schema features are errors.
 mod graph;
+// The only owned production unsafe boundary; see docs/SCALAR_CONVERSION.md.
+#[allow(unsafe_code)]
+mod number;
 mod parse;
 mod types;
 mod xml;

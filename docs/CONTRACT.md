@@ -155,8 +155,8 @@ an explicitly empty required URI or missing/default submesh name rejects.
 
 Decomposition counts match Linux Param.cc stoul followed by u32 casting,
 including numeric prefixes, initial0x base selection, boolean coercion,
-negative wrapping and u64 overflow rejection. General floating-point prefix and
-nonfinite parity remain pending. Scalar booleans use native ASCII case-insensitive
+negative wrapping and u64 overflow rejection. Scalar/pose prefix and range behavior is qualified on Linux GNU as described
+below; general vector prefix and nonfinite parity remain pending. Scalar booleans use native ASCII case-insensitive
 true/false and empty optional defaults. Required new primitive numeric fields
 reject explicit empty values, while absent fields receive schema defaults.
 
@@ -209,3 +209,18 @@ skip an empty first nested model or inspect static status. An empty subtree
 returns (None, ""). Interface model/link branches and flattened names remain
 outside the supported parser subset. This helper is independent of semantic
 attachment resolution, which can attach a static canonical subtree to world.
+
+
+On Linux GNU/glibc, scalar floating-point fields and individual pose tokens use
+an owned C locale and strtod_l to preserve native numeric prefixes, hexadecimal
+forms, exact subnormals, invalid conversion and ERANGE. Scalar Param true/false
+coercion remains separate; pose tokens do not coerce booleans. Vector streams
+retain their distinct Rust path because native vector underflow behavior differs.
+Pose empty/default recognition preserves native ordinary/CDATA text-origin rules.
+Nonfinite semantic values remain rejected, an explicitly retained native DOM gap.
+Other platforms return Unsupported for explicit scalar/pose-token conversion;
+portable parity is not claimed. The boundary is safe to call concurrently, owns
+and frees each locale, restores caller errno, and leaves global locale untouched.
+Locale allocation failure is Resource; numeric errors are InvalidValue. See the
+reviewed ABI/lifecycle notes and failure tests in SCALAR_CONVERSION.md. No parsing
+performance improvement or unmeasured cached-locale optimization is claimed.

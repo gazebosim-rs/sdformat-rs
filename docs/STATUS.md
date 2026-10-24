@@ -372,3 +372,32 @@ pointer identity and local name; its original native case passed again. Integrat
 coverage is2041/2062 lines,3524/3634 regions and27/27 changed executable lines.
 Independent review and the exact frozen staged gate are still required. Interface
 models/links and flattened names remain outside the supported subset.
+
+
+Scalar conversion candidate is qualified only for Linux GNU/glibc. Native
+Param scalar doubles and Pose tokens use std::stod; the narrow owned C-locale
+boundary preserves finite prefix/hex values, signed zero, exact subnormals,
+inexact underflow/overflow and conversion failures. Vector streams retain their
+distinct path. Scalar boolean coercion is separate from raw Pose tokens. The63
+native observations contain61 matching finite/error controls and2 explicitly
+retained nonfinite DOM gaps; no full original case is retired.
+
+Working72 Rust tests and fmt/clippy pass, including an8-thread errno stress,
+unchanged-global-locale check and isolated C fault-injection child proving
+allocation failure returns Resource without freeing null and restores errno.
+All three C ABI signatures compile-check against installed glibc headers; source,
+header/runtime/library/probe/corpus hashes remain recorded. Coverage is2067/2089
+lines,3580/3691 regions with36/36 changed executable lines. Dependencies libc and
+errno retain their licenses. Cargo deny replaces forbid only with one explicit
+production FFI exception, independently reviewed together with the test-only
+locale snapshot; no additional unsafe permission is inferred. Independent code,
+ABI/safety review and matching strict staged gate are required before acceptance.
+Surface remains unaccepted separately; parsing performance claims/optimizations
+and portable platform qualification remain pending.
+
+
+Independent /root/msgs review approved the scalar code, ABI, lifecycle/unsafe
+scope and assertion bounds, rerunning all72 Rust checks,63 native observations,
+installed-header ABI compilation and failure/concurrency/locale tests. The final
+receipt binds the exact metadata snapshot; publication still requires its
+matching strict frozen staged gate. Surface acceptance remains separate.

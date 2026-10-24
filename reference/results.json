@@ -3460,5 +3460,37 @@
     "observations": 17,
     "scope": "DOM canonical-link selection independent of static/attachment resolution; explicit frame aliases preserve names with None links; interface models/flattened names remain unsupported. Existing original port gains direct pointer/name checks, no new full case retired.",
     "review": "Implementation and original pointer/name assertions independently reviewed by /root/msgs against pinned sources and17native controls; integrated frame/topic overlap still requires final exact review."
+  },
+  "scalar_conversion": {
+    "upstream_sha": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "corpus_sha256": "6c237bcf9f74fde25858d27d7e9658a525b2a70828a13fa89a3d2db929bd2a22",
+    "probe_source_sha256": "3e6bf42c074e88cb0a7db3af3cc12b8816d4b6a5bcc244e2cdf90b585c16b77f",
+    "probe_binary_sha256": "3d43320918d159d151674510d541454928d17099f17369b10335999a4e164db6",
+    "native_library_sha256": "bcc864bcee56b49c13081e29722051e26c036260e3dd037e7736aa2b8620358f",
+    "source_sha256": {
+      "src/Param.cc": "487407a4a2301617b262ccb782312fe9c1d3d099e715aa42f3bb3cb713b29dce",
+      "src/Sensor.cc": "5fbab175624338e03264f1655a15863a5a29180573cbc898591429fa8f3856ba",
+      "src/Imu.cc": "08e7bc6d50c9c6db0c010120d6321e4b0d9326e5c71bc84d9596b20f72b3dca8",
+      "include/sdf/Param.hh": "9a9ac972d4bede5b6b7dd8081b799fbecf95b3c720d5e43741cef68e9c288bd1"
+    },
+    "stdlib_header_sha256": "21500d5cb6062df47d6507baef6111cc951ceece4e2df26289a420fcf05ebec4",
+    "abi_check_sha256": "599eb16f05b9e9fd8985c8097bf5116e0fa0c1d679657d2e5659022b52a9ebcd",
+    "fault_shim_sha256": "8b2c4180c1f1575dd5f5798f62f3df27001f2e9095c4cf95b6cb0b00491646c7",
+    "libc_version": "ldd (Ubuntu GLIBC 2.39-0ubuntu8.9) 2.39",
+    "native_observations": 63,
+    "matching_finite_observations": 61,
+    "known_nonfinite_gap_ids": [
+      "scalar_40",
+      "scalar_41"
+    ],
+    "platform": "Linux x86_64 GNU/glibc; other platform conversions select Unsupported and are unqualified",
+    "safety_scope": "Cargo denies unsafe except the reviewed src/number.rs module; separate read-only test locale snapshot, no production global/thread locale mutation; locale allocation failure is Resource; errno restored; no escaped pointers",
+    "dependencies": {
+      "libc": "0.2.191",
+      "errno": "0.3.14"
+    },
+    "rust_tests": 72,
+    "scope": "Native scalar and Pose token prefix/hex/range semantics with finite-domain restriction; scalar boolean coercion distinct from raw Pose tokens; vector stream path unchanged; no original case retired; no performance improvement claimed.",
+    "review": "Independent /root/msgs code, ABI, safety and assertion review2026-10-24 approved implementation81bc140c233ef3b81620872e5abfbaa1b86726f5205c3772bd6beea76434daa0; reviewer independently reran72Rustchecks,63actualnativeobservations and installed-headerABI compilation, including failure/concurrency/locale tests. Both unsafe scopes and explicit nonfinite/platform/performance limits reviewed; no original case retirement."
   }
 }

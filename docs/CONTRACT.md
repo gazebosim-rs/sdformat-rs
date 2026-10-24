@@ -189,3 +189,11 @@ that name with the scoped sensor identity before applying fallback. This parser
 does not choose a runtime name or apply consumer fallback. The sensor remains
 an IMU-only supported envelope; no additional sensor-family completion or full
 DOMSensor original-case retirement is claimed by these metadata assertions.
+
+
+Sensor.topic uses the same native string text-origin handling as frame metadata:
+ordinary C whitespace collapses, CDATA internal whitespace and NBSP survive,
+and typed NUL values truncate. Native Sensor::Load additionally maps the literal
+__default__ sentinel to an empty topic. This is DOM metadata normalization;
+runtime transport topic repair/qualification remains consumer-owned. Topic is a
+supported scalar leaf; nested content and extension attributes are Unsupported.

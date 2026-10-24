@@ -351,3 +351,13 @@ The64-test Rust working tree passes fmt/clippy and2010/2031 line coverage,
 3483/3593 regions with12/12 changed executable lines. No original full DOMSensor
 case is retired; no dependency, exclusion or gate policy changed. Independent
 review and a matching frozen staged gate are required before publication.
+
+
+Sensor topic follow-up replaces raw Unicode trim with existing native string
+normalization and maps __default__ to empty, as native Sensor::Load does.
+Twenty-four observations across1.6/1.12 cover empty/default/NUL/text boundaries,
+ordinary C whitespace, CDATA and NBSP. Unknown topic leaf attributes/children
+remain explicitly Unsupported. Working66 Rust tests, fmt/clippy and coverage
+2012/2033 lines,3483/3593 regions with4/4 changed lines pass. No dependency,
+exclusion or original-case retirement changes. Independent review and strict
+staged verification remain required before publication.

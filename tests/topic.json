@@ -1,0 +1,122 @@
+[
+  {
+    "id": "1.6_absent",
+    "xml": "<sdf version='1.6'><model name='m'><link name='l'><sensor name='s' type='imu'></sensor></link></model></sdf>",
+    "topic": ""
+  },
+  {
+    "id": "1.6_empty",
+    "xml": "<sdf version='1.6'><model name='m'><link name='l'><sensor name='s' type='imu'><topic/></sensor></link></model></sdf>",
+    "topic": ""
+  },
+  {
+    "id": "1.6_sentinel",
+    "xml": "<sdf version='1.6'><model name='m'><link name='l'><sensor name='s' type='imu'><topic>__default__</topic></sensor></link></model></sdf>",
+    "topic": ""
+  },
+  {
+    "id": "1.6_ordinary",
+    "xml": "<sdf version='1.6'><model name='m'><link name='l'><sensor name='s' type='imu'><topic> a  b\t c </topic></sensor></link></model></sdf>",
+    "topic": "a b c"
+  },
+  {
+    "id": "1.6_cdata",
+    "xml": "<sdf version='1.6'><model name='m'><link name='l'><sensor name='s' type='imu'><topic><![CDATA[ a  b\t c ]]></topic></sensor></link></model></sdf>",
+    "topic": "a  b\t c"
+  },
+  {
+    "id": "1.6_nbsp",
+    "xml": "<sdf version='1.6'><model name='m'><link name='l'><sensor name='s' type='imu'><topic>&#160;t&#160;</topic></sensor></link></model></sdf>",
+    "topic": "\u00a0t\u00a0"
+  },
+  {
+    "id": "1.6_nul",
+    "xml": "<sdf version='1.6'><model name='m'><link name='l'><sensor name='s' type='imu'><topic>t&#0;rest</topic></sensor></link></model></sdf>",
+    "topic": "t"
+  },
+  {
+    "id": "1.6_nul_sentinel",
+    "xml": "<sdf version='1.6'><model name='m'><link name='l'><sensor name='s' type='imu'><topic>__default__&#0;rest</topic></sensor></link></model></sdf>",
+    "topic": ""
+  },
+  {
+    "id": "1.6_firsttext",
+    "xml": "<sdf version='1.6'><model name='m'><link name='l'><sensor name='s' type='imu'><topic>a<!--c-->b</topic></sensor></link></model></sdf>",
+    "topic": "a"
+  },
+  {
+    "id": "1.6_literal_vt_ff",
+    "xml": "<sdf version='1.6'><model name='m'><link name='l'><sensor name='s' type='imu'><topic> a\u000b b\f c </topic></sensor></link></model></sdf>",
+    "topic": "a b c"
+  },
+  {
+    "id": "1.6_cdata_vt_ff",
+    "xml": "<sdf version='1.6'><model name='m'><link name='l'><sensor name='s' type='imu'><topic><![CDATA[\u000bt\f]]></topic></sensor></link></model></sdf>",
+    "topic": "\u000bt\f"
+  },
+  {
+    "id": "1.6_literal_eol",
+    "xml": "<sdf version='1.6'><model name='m'><link name='l'><sensor name='s' type='imu'><topic><![CDATA[\rt\r\nend\r]]></topic></sensor></link></model></sdf>",
+    "topic": "t\nend"
+  },
+  {
+    "id": "1.12_absent",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'></sensor></link></model></sdf>",
+    "topic": ""
+  },
+  {
+    "id": "1.12_empty",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><topic/></sensor></link></model></sdf>",
+    "topic": ""
+  },
+  {
+    "id": "1.12_sentinel",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><topic>__default__</topic></sensor></link></model></sdf>",
+    "topic": ""
+  },
+  {
+    "id": "1.12_ordinary",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><topic> a  b\t c </topic></sensor></link></model></sdf>",
+    "topic": "a b c"
+  },
+  {
+    "id": "1.12_cdata",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><topic><![CDATA[ a  b\t c ]]></topic></sensor></link></model></sdf>",
+    "topic": "a  b\t c"
+  },
+  {
+    "id": "1.12_nbsp",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><topic>&#160;t&#160;</topic></sensor></link></model></sdf>",
+    "topic": "\u00a0t\u00a0"
+  },
+  {
+    "id": "1.12_nul",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><topic>t&#0;rest</topic></sensor></link></model></sdf>",
+    "topic": "t"
+  },
+  {
+    "id": "1.12_nul_sentinel",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><topic>__default__&#0;rest</topic></sensor></link></model></sdf>",
+    "topic": ""
+  },
+  {
+    "id": "1.12_firsttext",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><topic>a<!--c-->b</topic></sensor></link></model></sdf>",
+    "topic": "a"
+  },
+  {
+    "id": "1.12_literal_vt_ff",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><topic> a\u000b b\f c </topic></sensor></link></model></sdf>",
+    "topic": "a b c"
+  },
+  {
+    "id": "1.12_cdata_vt_ff",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><topic><![CDATA[\u000bt\f]]></topic></sensor></link></model></sdf>",
+    "topic": "\u000bt\f"
+  },
+  {
+    "id": "1.12_literal_eol",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><topic><![CDATA[\rt\r\nend\r]]></topic></sensor></link></model></sdf>",
+    "topic": "t\nend"
+  }
+]

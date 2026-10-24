@@ -3431,5 +3431,18 @@
     "rust_tests": 2,
     "native_library_sha256": "bcc864bcee56b49c13081e29722051e26c036260e3dd037e7736aa2b8620358f",
     "scope": "Canonical frame_id string and literal optional gz_frame_id; explicit empty preserved; no consumer runtime fallback or additional sensor family. Existing native build not independently reconstructed. No full original DOMSensor case retired."
+  },
+  "sensor_topic_metadata": {
+    "upstream_sha": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "corpus_sha256": "b2e66abe4eb2f46b3a3a1b399b9275987296e4b753cad9390e3cec536b1e068f",
+    "probe_source_sha256": "0e3c5175f7c167bf441c90d3aeb2e3bb087b2bdf265e3c4759ab72409fe396ad",
+    "probe_binary_sha256": "2ea45681655be5cf5a24ac87dbc493e1ebad98bf95ca6770099b6d4b2ec30bf7",
+    "source_sha256": {
+      "src/Sensor.cc": "5fbab175624338e03264f1655a15863a5a29180573cbc898591429fa8f3856ba",
+      "include/sdf/Sensor.hh": "67b9a581845924841512c6b09c64a84196a0b392ba82b5637a6ef7b3db6cf29a",
+      "sdf/1.12/sensor.sdf": "2f2dc839a5121b3b33fe985c978e530565b093d310ebd03fc781a6cbce0b3efc"
+    },
+    "observations": 24,
+    "scope": "Sensor::Load string normalization and __default__ sentinel only; runtime transport repair/qualification caller-owned; supported scalar leaf restrictions explicit. No original full case retired."
   }
 }

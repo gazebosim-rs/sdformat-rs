@@ -1236,8 +1236,10 @@ impl Parser<'_> {
             always_on: self.boolean(node, "always_on", false)?,
             enable_metrics: self.boolean(node, "enable_metrics", false)?,
             imu: self.imu(node)?,
-            topic: child(node, "topic")
-                .map_or(String::new(), |n| n.text().unwrap_or("").trim().into()),
+            topic: self
+                .optional_text(node, "topic")?
+                .filter(|topic| topic != "__default__")
+                .unwrap_or_default(),
             frame_id: self.optional_text(node, "frame_id")?.unwrap_or_default(),
             gz_frame_id: self.optional_text(node, "gz_frame_id")?,
             configuration_xml: child(node, "imu")

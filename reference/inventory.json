@@ -18526,10 +18526,14 @@
               "symbol": "NestedModel.NestedFrameOnlyModel"
             }
           ],
-          "baseline": "unrun",
-          "replacement": [],
-          "assertion_contract": "pending",
-          "fixture_contract": "pending manual extraction"
+          "baseline": "passed; artifacts/reference-frame-only.xml",
+          "replacement": [
+            "tests/defaults.rs::nested_frame_only_model_original_pose_assertions"
+          ],
+          "assertion_contract": "Original read/load/world/parent-model existence and both nested frame resolve-success+pose assertions preserved, including parent-relative-to-frame lookup followed by rigid transform inversion. Model yaw pi/2, frame roll/pitch pi expected with original1e-6 gz-math pose tolerance; original1.7resource fixture unchanged.",
+          "fixture_contract": {
+            "test/integration/model/frame_only_model/model.sdf": "83f1ecdff67ff5075995cac3221e184ed7540821857b89397604aff74999acd7"
+          }
         },
         {
           "id": "NestedModel.IncludeElements",

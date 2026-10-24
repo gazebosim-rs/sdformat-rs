@@ -52,8 +52,12 @@ inertial pose using its model scope and owning link. `attached_body` follows the
 separate attachment graph to a link or static world attachment. Names, unknown
 references, duplicate semantic frame names and both kinds of cycles are checked.
 
-Versions 1.8–1.12 share empty upstream conversion scripts in the supported subset.
-Older unflatten/rename conversions are unsupported. Full schema/version-aware
+Versions1.8–1.12 share empty upstream conversion scripts in the supported subset.
+For1.7 an empty inertial pose relative_to acts as the default link frame, matching
+the upstream1.7→1.8 remove_empty action. General XML conversion, serialized
+attribute removal and round-trip conversion remain pending. Flattened names
+that require unflatten conversion return explicit Unsupported. Older pose-frame
+rename and joint-parent-axis conversions remain unsupported. Full schema/version-aware
 validation, serialization, visual/material data, mesh/resources, merge, automatic inertia, URDF, other sensor families and most other
 SDF features remain pending. Unknown schema features error; opaque plugin XML is the stated exception.
 XML names are lexical, matching upstream TinyXML: extension prefixes need not
@@ -91,3 +95,8 @@ transform without a floating-point round trip. Other relative queries compose
 only the paths to their nearest common ancestor, retaining local-coordinate
 precision even when the shared world/model origin is large. Global/world results
 remain f64 absolute coordinates and have the representational limits of f64.
+
+Joint.axis=None preserves the native DOM when an axis element is omitted,
+including revolute/prismatic/continuous joints. An explicitly present empty axis
+has the schema default XYZ. Consumers must validate backend requirements before
+constructing a joint; the parser does not invent a missing axis.

@@ -2,7 +2,7 @@
   "decision": "approved",
   "author": "/root/sdformat",
   "reviewer": "/root",
-  "protected_digest": "806dba9ea248727e5bb414317665fe00913d883b9bb9cc1dc35aa46073a4d7c1",
-  "scope": "Legacy XML adapter and protected dependency/guidance inputs. Root inspected adapter and preserved test assertions; transport independently reran all 12 review fixtures after first-text, CDATA, comments, declaration/depth and numeric-NUL fixes. All match the native reference. Full SDF parity remains pending.",
+  "protected_digest": "96442b1ccb4f85f378bbf36c4efe73114d3d8bfb398ec469b62946283e252d73",
+  "scope": "Native omitted-axis DOM semantics, bounded SDF1.7 conversion subset, original NestedFrameOnlyModel assertion port, and Apache-2.0 contributor/retained source notices. Root compared original nested_model.cc957-1013 including inverse lookup path and reviewed native differential evidence. Full serialization/unflatten conversion remains pending.",
   "date": "2026-10-24"
 }

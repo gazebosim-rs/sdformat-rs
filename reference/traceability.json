@@ -96,6 +96,22 @@
       "baseline": "passed; artifacts/reference-exact-self.xml",
       "status": "ported_reviewed",
       "review": "/root; 2026-10-24; approved protected digest0da461abb60a42c9a2091b09c358cdfb62d0872a818bc8d941ee50e212463ba4"
+    },
+    {
+      "target": "INTEGRATION_nested_model",
+      "case": "NestedModel.NestedFrameOnlyModel",
+      "source": "test/integration/nested_model.cc:957",
+      "rust_test": "tests/defaults.rs::nested_frame_only_model_original_pose_assertions",
+      "assertions": "Original read/load/world/parent-model existence and both nested frame resolve-success+pose assertions preserved, including parent-relative-to-frame lookup followed by rigid transform inversion. Model yaw pi/2, frame roll/pitch pi expected with original1e-6 gz-math pose tolerance; original1.7resource fixture unchanged.",
+      "fixtures": {
+        "tests/fixtures/frame_only_model.sdf": "83f1ecdff67ff5075995cac3221e184ed7540821857b89397604aff74999acd7"
+      },
+      "upstream_fixtures": {
+        "test/integration/model/frame_only_model/model.sdf": "83f1ecdff67ff5075995cac3221e184ed7540821857b89397604aff74999acd7"
+      },
+      "baseline": "passed; artifacts/reference-frame-only.xml",
+      "status": "ported_reviewed",
+      "review": "/root; 2026-10-24; original read/load and parent-to-frame resolution followed by inversion, both pose expectations and tolerances preserved; source fixture unchanged."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

@@ -159,3 +159,15 @@ coverage1618/1639lines,2772/2883regions,changed261/265. Final independent re-rev
 and staged verification remain required. The dashboard is maintained at
 https://gazebosim-rs.github.io/rewrite-progress/ with separate accepted slices and
 whole-packet status.
+
+The seventh default/version slice corrects the inherited moving-joint axis
+requirement: native accepts omitted axes and returns no Axis object for all four
+supported joint kinds. Rust now preserves None. The original supplementary
+same-body/missing-axis input remains rejected, now for its native invalid-endpoint
+reason; valid distinct-body omitted-axis cases are positively asserted and
+native-probed. SDF1.7's unchanged subset is accepted, including the original
+frame_only_model resource. Required unflattening of flattened names is explicitly
+Unsupported, and1.6 conversion remains unavailable. Both native and Rust pass the
+complete NestedModel.NestedFrameOnlyModel pose assertions on the unchanged1.7
+fixture.39 Rust tests and six tooling tests pass; full versions/conversion parity
+and the overall SDF packets remain in progress.

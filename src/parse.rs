@@ -89,9 +89,9 @@ impl Parser<'_> {
         }
         if !matches!(
             root.attribute("version"),
-            Some("1.8" | "1.9" | "1.10" | "1.11" | "1.12")
+            Some("1.7" | "1.8" | "1.9" | "1.10" | "1.11" | "1.12")
         ) {
-            return Err(self.err(root, ErrorCode::Version, "supported versions are SDF 1.8 through 1.12; earlier conversion is not implemented"));
+            return Err(self.err(root, ErrorCode::Version, "supported versions are SDF 1.7 through 1.12; earlier conversion is not implemented"));
         }
         Ok(())
     }
@@ -164,6 +164,14 @@ impl Parser<'_> {
     }
     fn name(&self, node: Node<'_, '_>) -> Result<String, Diagnostic> {
         let name = self.attr(node, "name")?;
+        if name.contains("::") && node.document().root_element().attribute("version") == Some("1.7")
+        {
+            return Err(self.err(
+                node,
+                ErrorCode::Unsupported,
+                "SDF1.7 flattened-name conversion is not implemented",
+            ));
+        }
         if name.contains("::") || name == "world" || name.starts_with("__") || name.trim() != name {
             return Err(self.err(node, ErrorCode::InvalidValue, "reserved or invalid name"));
         }
@@ -692,9 +700,6 @@ impl Parser<'_> {
                 Ok(result)
             })
             .transpose()?;
-        if kind != JointKind::Fixed && axis.is_none() {
-            return Err(self.err(node, ErrorCode::Missing, "moving joint requires axis"));
-        }
         let child = self.text(node, "child")?;
         if child == "world" {
             return Err(self.err(node, ErrorCode::InvalidValue, "joint child cannot be world"));

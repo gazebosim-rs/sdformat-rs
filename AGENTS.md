@@ -44,3 +44,10 @@ for `sdformat-rs` only. Update UTC timestamps. Report working-tree and pushed-co
 evidence separately; link only verified public revisions. Accepted slices do not
 complete whole plan packets until every acceptance criterion is met. Never publish
 credentials, local private paths, raw environment variables or private user data.
+
+## Licensing
+
+Owned code, tools and documentation use Apache-2.0; keep the root LICENSE and
+Cargo package declaration consistent. Preserve original copyright/license notices
+on imported code and fixtures. Do not relabel third-party dependencies or replace
+their original notices with this repository's license.

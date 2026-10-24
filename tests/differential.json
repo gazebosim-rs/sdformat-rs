@@ -307,5 +307,39 @@
     "model_name": "m",
     "plugin_name": "p",
     "plugin_filename": "a"
+  },
+  {
+    "id": "omitted_axis_fixed",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/><link name='r'/><joint name='j' type='fixed'><parent>l</parent><child>r</child></joint></model></sdf>",
+    "accepted": true,
+    "axis_missing": true
+  },
+  {
+    "id": "omitted_axis_revolute",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/><link name='r'/><joint name='j' type='revolute'><parent>l</parent><child>r</child></joint></model></sdf>",
+    "accepted": true,
+    "axis_missing": true
+  },
+  {
+    "id": "omitted_axis_prismatic",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/><link name='r'/><joint name='j' type='prismatic'><parent>l</parent><child>r</child></joint></model></sdf>",
+    "accepted": true,
+    "axis_missing": true
+  },
+  {
+    "id": "omitted_axis_continuous",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/><link name='r'/><joint name='j' type='continuous'><parent>l</parent><child>r</child></joint></model></sdf>",
+    "accepted": true,
+    "axis_missing": true
+  },
+  {
+    "id": "omitted_axis_same_body_still_invalid",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/><joint name='j' type='revolute'><parent>l</parent><child>l</child></joint></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "sdf17_unchanged_subset",
+    "xml": "<sdf version='1.7'><model name='m'><link name='l'><inertial><pose relative_to=''>0 0 0 0 0 0</pose></inertial></link></model></sdf>",
+    "accepted": true
   }
 ]

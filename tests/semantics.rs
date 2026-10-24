@@ -1,5 +1,20 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2015 Open Source Robotics Foundation
+// Copyright 2018 Open Source Robotics Foundation
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
 // Portions ported from sdformat test/integration/nested_model.cc and model_dom.cc.
-// Copyright Open Source Robotics Foundation. Apache-2.0, see LICENSE.
 use sdformat::*;
 
 fn load(xml: &str) -> Sdf {
@@ -348,7 +363,8 @@ fn invalid_documents_fail_atomically() {
         ("<sdf>", ErrorCode::Xml),
         ("<model/>", ErrorCode::Xml),
         ("<sdf/>", ErrorCode::Version),
-        ("<sdf version='1.7'/>", ErrorCode::Version),
+        ("<sdf version='1.7'/>", ErrorCode::Missing),
+        ("<sdf version='1.6'/>", ErrorCode::Version),
         ("<sdf version='1.12'/>", ErrorCode::Missing),
         (
             "<sdf version='1.12'><world name='w'/><model name='m'/></sdf>",
@@ -502,7 +518,7 @@ fn invalid_documents_fail_atomically() {
         ),
         (
             "<link name='l'/><joint name='j' type='revolute'><parent>l</parent><child>l</child></joint>",
-            ErrorCode::Missing,
+            ErrorCode::InvalidValue,
         ),
         (
             "<link name='l'/><joint name='j' type='fixed'><child>l</child></joint>",
@@ -700,6 +716,12 @@ fn pinned_cpp_differential_acceptance_corpus() {
             case["accepted"].as_bool().unwrap(),
             "{case}"
         );
+        if let Some(expected) = case.get("axis_missing") {
+            assert_eq!(
+                result.as_ref().unwrap().models[0].joints[0].axis.is_none(),
+                expected.as_bool().unwrap()
+            );
+        }
         if let Some(expected) = case.get("link_mass") {
             assert_eq!(
                 result.as_ref().unwrap().models[0].links[0].inertial.mass,

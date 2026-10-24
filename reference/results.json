@@ -31,10 +31,16 @@
       "sha256": "26fa8eae908af45248188c60a95122a1c2a69c733d35ad6873ac6b47c01ed51a",
       "args": "--gtest_filter=FrameSemantics.resolveAgainstOwnFrameIsExact",
       "result": "passed"
+    },
+    {
+      "binary": "INTEGRATION_nested_model",
+      "sha256": "7a4562925a6f0ad74c07778429f67553e2486c461272881e28d7f759687ca6c8",
+      "args": "--gtest_filter=NestedModel.NestedFrameOnlyModel",
+      "result": "passed"
     }
   ],
   "corpus": {
-    "corpus_sha256": "8e69716d7b00af63b6b4ad35b331cb792b9f2099e2334e7180a965a40716c1b2",
+    "corpus_sha256": "79ad42879489f0557a7cd3123fdf211347f9e25de5d4dbd9be0ef82594e36ce3",
     "results": [
       {
         "id": "canonical_link_alias",
@@ -348,6 +354,40 @@
         "model_name": "m",
         "plugin_name": "p",
         "plugin_filename": "a"
+      },
+      {
+        "id": "omitted_axis_fixed",
+        "accepted": true,
+        "errors": "",
+        "axis_missing": true
+      },
+      {
+        "id": "omitted_axis_revolute",
+        "accepted": true,
+        "errors": "",
+        "axis_missing": true
+      },
+      {
+        "id": "omitted_axis_prismatic",
+        "accepted": true,
+        "errors": "",
+        "axis_missing": true
+      },
+      {
+        "id": "omitted_axis_continuous",
+        "accepted": true,
+        "errors": "",
+        "axis_missing": true
+      },
+      {
+        "id": "omitted_axis_same_body_still_invalid",
+        "accepted": false,
+        "errors": "Error Code 22: Msg: Joint with name[j] must specify different frame names for parent and child, while [l] was specified for both.\nError Code 22: Msg: joint with name[j] in model with name[m] specified parent frame [l] and child frame [l] that both resolve to [l], but they should resolve to different values.\n"
+      },
+      {
+        "id": "sdf17_unchanged_subset",
+        "accepted": true,
+        "errors": ""
       }
     ]
   }

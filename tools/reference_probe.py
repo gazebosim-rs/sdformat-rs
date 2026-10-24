@@ -63,6 +63,10 @@ for case in json.loads(path.read_text()):
         observed['model_name']=model.name()
         observed['plugin_name']=plugin.name()
         observed['plugin_filename']=plugin.filename()
+    if accepted and 'axis_missing' in case:
+        missing=document.model().joint_by_index(0).axis(0) is None
+        assert missing==case['axis_missing'],case['id']
+        observed['axis_missing']=missing
     results.append(observed)
 output=dict(corpus_sha256=hashlib.sha256(path.read_bytes()).hexdigest(),results=results)
 (root/'artifacts').mkdir(exist_ok=True)

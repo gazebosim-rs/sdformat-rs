@@ -1,0 +1,21 @@
+[package]
+name = "sdformat"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.94"
+license = "Apache-2.0"
+description = "Independent validated SDFormat semantic model"
+
+[dependencies]
+petgraph = "=0.8.1"
+roxmltree = "=0.20.0"
+glam = { version = "=0.30.9", default-features = false, features = ["std"] }
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+all = "deny"
+
+[dev-dependencies]
+serde_json = "=1.0.150"

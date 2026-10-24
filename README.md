@@ -1,22 +1,43 @@
 # SDFormat in Rust
 
-Independent SDF syntax, schema conversion, semantic frame graphs, and model support.
+Independent SDF syntax, semantic frame graphs, and typed world/model support.
+This is an early implementation of SDF-01, not a complete SDFormat replacement.
 
-This public repository is a planning shell. No Rust implementation, passing
-migration test suite, or coverage result is claimed yet.
+```rust
+use sdformat::{load_str, NoResources};
+let sdf = load_str("<sdf version='1.12'><model name='robot'><link name='base'/></model></sdf>", "robot.sdf", &NoResources)?;
+let pose = sdf.pose_of("robot::base", "::")?;
+# Ok::<(), sdformat::Diagnostic>(())
+```
 
-The architecture and dependency-ordered work packets live in
-[gz-sim-rs](https://github.com/gazebosim-rs/gz-sim-rs/blob/main/docs/PLAN.md). Read this repository's
-[implementation contract](https://github.com/gazebosim-rs/gz-sim-rs/blob/main/docs/EXTERNAL_REPOS.md#sdformat-rs),
-[test and coverage policy](https://github.com/gazebosim-rs/gz-sim-rs/blob/main/docs/TESTING.md), and
-[decision register](https://github.com/gazebosim-rs/gz-sim-rs/blob/main/docs/DECISIONS.md) before implementation.
+The supported subset has SDF 1.8–1.12 worlds, nested and included models,
+links, primitive collisions, physical mass/inertia, fixed/revolute/prismatic/
+continuous joints, IMU sensor envelopes, frames, and opaque plugin content.
+Pose and attachment graphs are separate. Loading is atomic. Unsupported elements,
+attributes, versions, merge/placement features, and automatic inertia produce
+explicit diagnostics. IMU-specific XML is preserved but is not yet schema-validated;
+consumers must not treat it as validated configuration. See [the contract](docs/CONTRACT.md).
 
-The owner selected the upstream Gazebo main branches, behavior/file-format/protocol
-compatibility with new Rust APIs, faithful ports of existing tests verified against
-C++ reference runs, and Linux first. Handwritten production Rust must have coverage
-strictly above 95%, enforced through pre-commit and CI as implementation begins.
+Resources are injected through `ResourceResolver`; the library performs no network
+or filesystem IO. Plain f64 values cross the API; no Bevy, simulator, Fuel, or
+transport dependency is present. See [evidence and remaining work](docs/STATUS.md).
 
-This repository remains independent of the gz-sim-rs Cargo workspace. Publish a
-versioned Rust API and test it with the pinned cross-repository integration set.
+Run `sh tools/bootstrap.sh` to install Rust 1.94.1 and its matching LLVM tools,
+fetch locked dependencies and install the checked-in pre-commit hook. Run
+`python3 tools/verify.py` for the required core profile or
+`python3 tools/verify.py --staged` for an isolated export of the Git index.
+Coverage must strictly exceed 95% of both production lines and regions, including
+changed executable lines. The gate rejects missing instrumentation and files;
+protected assertion/policy changes require a separate review receipt. CI runs the
+same gate and publishes artifacts. Repository administrators must configure the
+`verify / core` status and independent reviews as required branch checks.
 
-License: Apache-2.0. Preserve upstream notices and fixture provenance when porting.
+The upstream pin, runtime inventory, fixture hashes and port mapping are in
+[reference/](reference/). Most upstream cases remain pending; passing the small
+current suite does not establish full parity. The canonical
+[plan](https://github.com/gazebosim-rs/gz-sim-rs/blob/main/docs/PLAN.md),
+[contract](https://github.com/gazebosim-rs/gz-sim-rs/blob/main/docs/EXTERNAL_REPOS.md#sdformat-rs),
+and [test policy](https://github.com/gazebosim-rs/gz-sim-rs/blob/main/docs/TESTING.md)
+remain the acceptance requirements.
+
+Apache-2.0. Original fixtures/test assertions retain OSRF provenance; see LICENSE.

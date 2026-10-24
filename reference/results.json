@@ -1,0 +1,48 @@
+{
+  "upstream_sha": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+  "reference_build_provenance": "Existing build not rebuilt from immutable environment; binaries hashed, source revision clean as recorded in inventory.",
+  "native_commands": [
+    {
+      "binary": "INTEGRATION_nested_model",
+      "sha256": "7a4562925a6f0ad74c07778429f67553e2486c461272881e28d7f759687ca6c8",
+      "args": "--gtest_filter=NestedReference.PoseRelativeTo:NestedReference.PoseRelativeToInWorld",
+      "result": "passed"
+    },
+    {
+      "binary": "INTEGRATION_model_dom",
+      "sha256": "0c0b02584eb3fa678770afb132d9e21cb4fefcd8533a51cf8373f2e69a384680",
+      "args": "--gtest_filter=DOMRoot.LoadNestedExplicitCanonicalLink",
+      "result": "passed"
+    }
+  ],
+  "corpus": {
+    "corpus_sha256": "2f04b28bf8bd6330be691b69fc8d4b7b4e4230640b8327dfb158ee0cc2fbccbc",
+    "results": [
+      {
+        "id": "canonical_link_alias",
+        "accepted": true,
+        "errors": ""
+      },
+      {
+        "id": "joint_alias_parent",
+        "accepted": true,
+        "errors": ""
+      },
+      {
+        "id": "joint_alias_child",
+        "accepted": true,
+        "errors": ""
+      },
+      {
+        "id": "joint_same_body_alias",
+        "accepted": false,
+        "errors": "Error Code 22: Msg: joint with name[j] in model with name[m] specified parent frame [l] and child frame [f] that both resolve to [l], but they should resolve to different values.\n"
+      },
+      {
+        "id": "joint_world_child",
+        "accepted": false,
+        "errors": "Error Code 20: Msg: Joint with name[j] specified invalid child link [world].\nError Code 20: Msg: Child frame with name[world] specified by joint with name[j] not found in model with name[m].\nError Code 25: Msg: FrameAttachedToGraph error, Non-LINK vertex with name [m::j] is disconnected; it should have 1 outgoing edge in MODEL attached_to graph.\nError Code 25: Msg: Graph has __model__ scope but sink vertex named [m::j] does not have FrameType LINK or STATIC_MODEL when starting from vertex with name [m::j].\nError Code 26: Msg: relative_to name[world] specified by joint with name[j] does not match a nested model, link, joint, or frame name in model with name[m].\nError Code 28: Msg: PoseRelativeToGraph error, Vertex with name [m::j] is disconnected; it should have 1 incoming edge in MODEL relative_to graph.\nError Code 28: Msg: PoseRelativeToGraph unable to find path to source vertex when starting from vertex with id [4].\nError Code 20: Msg: invalid child name[world] specified by joint with name[j] in model with name[m].\nError Code 20: Msg: child frame with name[world] specified by joint with name[j] not found in model with name[m].\nError Code 23: Msg: FrameAttachedToGraph unable to find unique frame with name [world] in graph.\n"
+      }
+    ]
+  }
+}

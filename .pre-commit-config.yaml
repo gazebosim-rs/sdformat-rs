@@ -1,0 +1,9 @@
+repos:
+  - repo: local
+    hooks:
+      - id: staged-verification
+        name: Verify exact staged SDFormat tree
+        entry: python3 tools/verify.py --staged
+        language: system
+        pass_filenames: false
+        always_run: true

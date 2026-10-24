@@ -1,0 +1,54 @@
+{
+  "upstream_sha": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+  "ports": [
+    {
+      "target": "INTEGRATION_nested_model",
+      "case": "NestedReference.PoseRelativeTo",
+      "source": "test/integration/nested_model.cc:1228",
+      "rust_test": "tests/semantics.rs::nested_reference_pose_relative_to",
+      "assertions": "Six model existence, resolve success, and transformed-pose assertions; 1e-6 gz-math default tolerance.",
+      "fixtures": {
+        "tests/fixtures/model_relative_to_nested_reference.sdf": "7eead25f0aac3216dad7183a9f2fe8c063667d503a3405d1763f4e98ab0331b0"
+      },
+      "baseline": "passed; artifacts/reference-*.xml",
+      "status": "ported_pending_review",
+      "review": "pending",
+      "upstream_fixtures": {
+        "test/sdf/model_relative_to_nested_reference.sdf": "7eead25f0aac3216dad7183a9f2fe8c063667d503a3405d1763f4e98ab0331b0"
+      }
+    },
+    {
+      "target": "INTEGRATION_nested_model",
+      "case": "NestedReference.PoseRelativeToInWorld",
+      "source": "test/integration/nested_model.cc:1291",
+      "rust_test": "tests/semantics.rs::nested_reference_pose_relative_to_in_world",
+      "assertions": "Six frame existence, resolve success, and transformed-pose assertions; 1e-6 gz-math default tolerance.",
+      "fixtures": {
+        "tests/fixtures/world_relative_to_nested_reference.sdf": "65fa3e109cec6d8c51119459684a289f8cc4dd7e25e903ace769f114d4145159"
+      },
+      "baseline": "passed; artifacts/reference-*.xml",
+      "status": "ported_pending_review",
+      "review": "pending",
+      "upstream_fixtures": {
+        "test/sdf/world_relative_to_nested_reference.sdf": "65fa3e109cec6d8c51119459684a289f8cc4dd7e25e903ace769f114d4145159"
+      }
+    },
+    {
+      "target": "INTEGRATION_model_dom",
+      "case": "DOMRoot.LoadNestedExplicitCanonicalLink",
+      "source": "test/integration/model_dom.cc:513",
+      "rust_test": "tests/semantics.rs::nested_explicit_canonical_link",
+      "assertions": "All original model name, empty links/joints, frame/nested model counts and index bounds, canonical link reference, alias attachment, and nested-link identity assertions mapped to owned collections/scoped body identity.",
+      "fixtures": {
+        "tests/fixtures/nested_explicit_canonical_link.sdf": "6bc3543c6ae91f72264cdf0671f8f5fae1835e73a18d050e7f2ac535f92ec624"
+      },
+      "baseline": "passed; artifacts/reference-*.xml",
+      "status": "ported_pending_review",
+      "review": "pending",
+      "upstream_fixtures": {
+        "test/sdf/nested_explicit_canonical_link.sdf": "6bc3543c6ae91f72264cdf0671f8f5fae1835e73a18d050e7f2ac535f92ec624"
+      }
+    }
+  ],
+  "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim."
+}

@@ -1,0 +1,1 @@
+{"crates":{"sdformat":["src"]},"profiles":["core"],"runner":"linux-x86_64","exclusions":[],"threshold":"strictly greater than 95% lines and regions; changed executable lines greater than 95%"}

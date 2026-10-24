@@ -56,10 +56,6 @@ fn visual_validation_and_explicit_remaining_schema_contract() {
             ErrorCode::Unsupported,
         ),
         (
-            "<visual name='v'><geometry><mesh><uri>mesh.dae</uri></mesh></geometry></visual>",
-            ErrorCode::Unsupported,
-        ),
-        (
             "<visual name='v'><geometry><box/><sphere/></geometry></visual>",
             ErrorCode::InvalidValue,
         ),

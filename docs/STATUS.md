@@ -276,3 +276,49 @@ No dependencies, exclusions or thresholds changed. Independent review by
 /root/msgs verified every original assertion and fixture, reran both original
 native tests, all50 Rust tests,11 tooling tests and139 native observations.
 The two mappings are reviewed; strict frozen staged verification remains required.
+
+
+A separate geometry/schema candidate adds typed capsule, cone, ellipsoid and mesh
+metadata without IO or new dependencies. Native probes retain defaults,
+nonpositive-dimension fallback, negative/zero mesh scale, unknown optimization,
+independent decomposition settings, required/optional empty-value distinctions,
+submesh errors, exact string whitespace and Linux unsigned-long-to-u32 semantics.
+The native reserved-name predicate now requires both surrounding double
+underscores; the former __reserved include rejection remains as a positive
+regression, while __reserved__ retains the negative check. Scalar booleans are
+ASCII case-insensitive and retain optional defaults for empty elements.
+
+The isolated candidate passes59 Rust tests and11 tooling tests;87 geometry and72
+named-entity native cases match. Eight original Geometry typed-shape cases and
+the original15-input ReservedNames table have pending assertion ports. Enum
+matching preserves shape type/presence; XML construction replaces mutable C++
+setters. Full integration Shapes remains pending because its unchanged fixture
+also includes collision surface and rendering properties. Production coverage
+1927/1950 lines,3327/3440 regions, changed176/178. No exclusions or performance
+claim. Independent review and frozen staged verification remain required.
+
+
+Independent transport review found malformed required scalars accepted as defaults
+for NBSP/VT/FF/CR and a mesh vector accepting NBSP as a separator. Required scalar
+blank recognition and vector tokenization now use the native six-character C
+whitespace set. Leading Unicode scalar whitespace rejects; valid numeric-prefix
+values ending in whitespace retain native acceptance. Additional controls show
+that optional whitespace-only mesh scale uses its default, while explicit required
+blank dimensions reject. Ordinary mesh URI/submesh strings collapse whitespace;
+CDATA keeps its native distinct behavior. Boolean controls cover both origins.
+The native geometry corpus now includes87 cases; original assertion ports are
+unchanged. General non-whitespace floating-point prefixes remain explicitly pending.
+
+
+Transport independently re-reviewed the corrected isolated implementation and all
+new original mappings. It reran59 Rust tests,87 native geometry cases and72 native
+named-entity cases; original8 Geometry value cases and15 ReservedNames assertions
+were checked against pinned source. Integration onto the reviewed legacy-name
+slice is separate and requires combined checks and final matching receipt.
+
+Combined integration onto reviewed eb815a1 passes62 Rust tests,11 tooling tests,
+all139 base,87 geometry and72 named-entity native observations. Production
+coverage2001/2022 lines,3463/3573 regions; changed176/178. The production delta
+and all new test bytes are identical to the isolated reviewed candidate; the
+native probe keeps its existing declaration-name/body observations unchanged.
+Final independent integration receipt and strict frozen staged gate are required.

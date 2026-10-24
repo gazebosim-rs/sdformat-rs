@@ -15,6 +15,8 @@ import sys
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('upstream', type=Path)
+    parser.add_argument('--corpus', type=Path, default=Path('tests/differential.json'))
+    parser.add_argument('--output', type=Path, default=Path('artifacts/reference-probe.json'))
     args = parser.parse_args()
     root = Path(__file__).resolve().parents[1]
     upstream = args.upstream.resolve()
@@ -26,7 +28,7 @@ def main():
         env['PYTHONPATH'] = ':'.join([str(upstream / 'build/lib'), str(Path.home() / 'local/lib/python')])
         env['LD_LIBRARY_PATH'] = ':'.join([str(upstream / 'build/lib'), str(Path.home() / 'local/lib')])
         # The built extension matches the distribution Python, not a user venv.
-        subprocess.run(['/usr/bin/python3', '-c', NATIVE, str(root)], check=True, env=env)
+        subprocess.run(['/usr/bin/python3', '-c', NATIVE, str(root), str(args.corpus), str(args.output)], check=True, env=env)
 
 
 NATIVE = '''
@@ -35,7 +37,7 @@ from pathlib import Path
 import sdformat
 from gz.math import Pose3d
 root=Path(sys.argv[1])
-path=root/'tests/differential.json'
+path=root/sys.argv[2]
 results=[]
 for case in json.loads(path.read_text()):
     try:
@@ -56,6 +58,23 @@ for case in json.loads(path.read_text()):
             bodies=[joint.resolve_parent_link(),joint.resolve_child_link()]
             assert bodies==case['joint_bodies'],case['id']
             observed['joint_bodies']=bodies
+    if accepted and 'geometry' in case:
+        expected=case['geometry']
+        kind=expected['kind']
+        geometry=document.model().link_by_index(0).collision_by_index(0).geometry()
+        shape=getattr(geometry,kind+'_shape')()
+        assert shape is not None,case['id']
+        if kind in ('capsule','cone'):
+            measured=dict(kind=kind,radius=shape.radius(),length=shape.length())
+        elif kind=='ellipsoid':
+            radii=shape.radii()
+            measured=dict(kind=kind,radii=[radii.x(),radii.y(),radii.z()])
+        else:
+            scale=shape.scale()
+            convex=shape.convex_decomposition()
+            measured=dict(kind=kind,uri=shape.uri(),scale=[scale.x(),scale.y(),scale.z()],submesh=shape.submesh(),center_submesh=shape.center_submesh(),optimization=shape.optimization_str(),convex_decomposition=None if convex is None else [convex.max_convex_hulls(),convex.voxel_resolution()])
+        assert measured==expected,case['id']
+        observed['geometry']=measured
     if accepted and 'model_pose' in case:
         model=document.model() if document.model() else document.world_by_index(0).model_by_index(0)
         pose=model.semantic_pose().resolve()
@@ -117,7 +136,7 @@ for case in json.loads(path.read_text()):
     results.append(observed)
 output=dict(corpus_sha256=hashlib.sha256(path.read_bytes()).hexdigest(),results=results)
 (root/'artifacts').mkdir(exist_ok=True)
-(root/'artifacts/reference-probe.json').write_text(json.dumps(output,indent=2)+'\\n')
+(root/sys.argv[3]).write_text(json.dumps(output,indent=2)+'\\n')
 print(json.dumps(output,indent=2))
 '''
 

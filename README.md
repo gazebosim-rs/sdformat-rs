@@ -11,7 +11,7 @@ let pose = sdf.pose_of("robot::base", "::")?;
 ```
 
 The supported subset has SDF 1.6–1.12 worlds, nested and included models,
-links, primitive collisions and visual geometry/poses, physical mass/inertia,
+links, primitive and mesh collision/visual metadata and poses, physical mass/inertia,
 fixed/revolute/prismatic/continuous/universal/revolute2 joints, typed IMU sensor configuration, frames, and opaque plugin content.
 Model and include placement frames resolve through nested links, frames, joints,
 and models. Pose and attachment graphs are separate. Loading is atomic; non-frame

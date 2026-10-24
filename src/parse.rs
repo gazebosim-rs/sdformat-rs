@@ -180,7 +180,7 @@ impl Parser<'_> {
                 "legacy SDF flattened-name conversion is not implemented",
             ));
         }
-        if name.contains("::") || name == "world" || name.starts_with("__") || name.trim() != name {
+        if name.contains("::") || reserved_name(&name) || name.trim() != name {
             return Err(self.err(node, ErrorCode::InvalidValue, "reserved or invalid name"));
         }
         Ok(name)
@@ -198,11 +198,14 @@ impl Parser<'_> {
     }
     fn number(&self, node: Node<'_, '_>, default: f64) -> Result<f64, Diagnostic> {
         self.allowed(node, &[], &[])?;
-        let text = node.text().unwrap_or("").trim();
+        let text = node.text().unwrap_or("").trim_matches(legacy_whitespace);
         if text.is_empty() {
             return Ok(default);
         }
-        text.parse::<f64>()
+        // A numeric prefix followed by whitespace is valid natively. Leading
+        // Unicode whitespace is not C whitespace and must not be discarded.
+        text.trim_end()
+            .parse::<f64>()
             .ok()
             .filter(|v| v.is_finite())
             .ok_or_else(|| self.err(node, ErrorCode::InvalidValue, "expected finite number"))
@@ -215,9 +218,20 @@ impl Parser<'_> {
             None => Ok(default),
             Some(n) => {
                 self.allowed(n, &[], &[])?;
-                match n.text().unwrap_or("").trim() {
+                let text = n.text().unwrap_or("");
+                let text = if n.text_is_cdata() {
+                    text
+                } else {
+                    text.trim_matches(legacy_whitespace)
+                };
+                match text
+                    .trim_matches([' ', '\t', '\n'])
+                    .to_ascii_lowercase()
+                    .as_str()
+                {
                     "true" | "1" => Ok(true),
                     "false" | "0" => Ok(false),
+                    "" => Ok(default),
                     _ => Err(self.err(n, ErrorCode::InvalidValue, "expected boolean")),
                 }
             }
@@ -234,7 +248,8 @@ impl Parser<'_> {
         let values = node
             .text()
             .unwrap_or("")
-            .split_whitespace()
+            .split(legacy_whitespace)
+            .filter(|part| !part.is_empty())
             .map(str::parse::<f64>)
             .collect::<Result<Vec<_>, _>>()
             .map_err(|_| self.err(node, ErrorCode::InvalidValue, "expected numeric vector"))?;
@@ -578,7 +593,7 @@ impl Parser<'_> {
             .map(|_| self.text(node, "name"))
             .transpose()?;
         if let Some(name) = &rename
-            && (name.contains("::") || name.starts_with("__") || name == "world")
+            && (name.contains("::") || reserved_name(name))
         {
             return Err(self.err(node, ErrorCode::InvalidValue, "invalid include name"));
         }
@@ -717,7 +732,20 @@ impl Parser<'_> {
         })
     }
     fn geometry(&self, geometry: Node<'_, '_>) -> Result<Geometry, Diagnostic> {
-        self.allowed(geometry, &["box", "sphere", "cylinder", "plane"], &[])?;
+        self.allowed(
+            geometry,
+            &[
+                "box",
+                "sphere",
+                "cylinder",
+                "capsule",
+                "cone",
+                "ellipsoid",
+                "mesh",
+                "plane",
+            ],
+            &[],
+        )?;
         let shapes = elements(geometry).collect::<Vec<_>>();
         if shapes.len() != 1 {
             return Err(self.err(
@@ -747,6 +775,36 @@ impl Parser<'_> {
                     length: self.scalar(shape, "length", 1.)?,
                 }
             }
+            "capsule" | "cone" => {
+                self.allowed(shape, &["radius", "length"], &[])?;
+                let default_radius = if shape.has_tag_name("capsule") {
+                    0.5
+                } else {
+                    1.
+                };
+                let radius = self.required_scalar(shape, "radius", default_radius)?;
+                let length = self.required_scalar(shape, "length", 1.)?;
+                // Native DOM replaces nonpositive dimensions with these defaults.
+                let radius = if radius > 0. { radius } else { 0.5 };
+                let length = if length > 0. { length } else { 1. };
+                if shape.has_tag_name("capsule") {
+                    Geometry::Capsule { radius, length }
+                } else {
+                    Geometry::Cone { radius, length }
+                }
+            }
+            "ellipsoid" => {
+                self.allowed(shape, &["radii"], &[])?;
+                let radii = child(shape, "radii").map_or(Ok([1.; 3]), |n| self.values(n))?;
+                Geometry::Ellipsoid {
+                    radii: if radii.iter().all(|r| *r > 0.) {
+                        radii
+                    } else {
+                        [1.; 3]
+                    },
+                }
+            }
+            "mesh" => Geometry::Mesh(self.mesh(shape)?),
             _ => {
                 self.allowed(shape, &["normal", "size"], &[])?;
                 let normal = child(shape, "normal").map_or(Ok([0., 0., 1.]), |n| self.values(n))?;
@@ -764,7 +822,11 @@ impl Parser<'_> {
         let positive = match &geometry {
             Geometry::Box { size } => size.iter().all(|v| *v > 0.),
             Geometry::Sphere { radius } => *radius > 0.,
-            Geometry::Cylinder { radius, length } => *radius > 0. && *length > 0.,
+            Geometry::Cylinder { radius, length }
+            | Geometry::Capsule { radius, length }
+            | Geometry::Cone { radius, length } => *radius > 0. && *length > 0.,
+            Geometry::Ellipsoid { radii } => radii.iter().all(|r| *r > 0.),
+            Geometry::Mesh(_) => true,
             Geometry::Plane { size, .. } => size.iter().all(|v| *v > 0.),
         };
         if !positive {
@@ -775,6 +837,153 @@ impl Parser<'_> {
             ));
         }
         Ok(geometry)
+    }
+    fn required_scalar(
+        &self,
+        node: Node<'_, '_>,
+        name: &str,
+        default: f64,
+    ) -> Result<f64, Diagnostic> {
+        if let Some(value) = child(node, name)
+            && value
+                .text()
+                .unwrap_or("")
+                .trim_matches(legacy_whitespace)
+                .is_empty()
+        {
+            return Err(self.err(value, ErrorCode::Missing, format!("missing {name}")));
+        }
+        self.scalar(node, name, default)
+    }
+    fn unsigned(&self, node: Node<'_, '_>, name: &str, default: u32) -> Result<u32, Diagnostic> {
+        let Some(value) = child(node, name) else {
+            return Ok(default);
+        };
+        self.allowed(value, &[], &[])?;
+        let text = value.text().unwrap_or("").trim_matches([' ', '\t', '\n']);
+        if text.is_empty() {
+            return Ok(default);
+        }
+        let lower = text.to_ascii_lowercase();
+        let text = match lower.as_str() {
+            "true" => "1",
+            "false" => "0",
+            _ => text,
+        };
+        // Param.cc uses Linux stoul, then casts to unsigned int: a numeric
+        // prefix is enough, negative values and the final u32 cast wrap.
+        let radix = if lower.starts_with("0x") { 16 } else { 10 };
+        let text = text.trim_start_matches(legacy_whitespace);
+        let (negative, digits) = match text.as_bytes().first() {
+            Some(b'-') => (true, &text[1..]),
+            Some(b'+') => (false, &text[1..]),
+            _ => (false, text),
+        };
+        let digits = if radix == 16 && digits.as_bytes().get(2).is_some_and(u8::is_ascii_hexdigit) {
+            &digits[2..]
+        } else {
+            digits
+        };
+        let count = digits
+            .bytes()
+            .take_while(|b| {
+                if radix == 16 {
+                    b.is_ascii_hexdigit()
+                } else {
+                    b.is_ascii_digit()
+                }
+            })
+            .count();
+        let number = u64::from_str_radix(&digits[..count], radix)
+            .map_err(|_| self.err(value, ErrorCode::InvalidValue, "expected unsigned integer"))?;
+        Ok(if negative {
+            number.wrapping_neg()
+        } else {
+            number
+        } as u32)
+    }
+    fn mesh_string(
+        &self,
+        node: Node<'_, '_>,
+        name: &str,
+        default: &str,
+    ) -> Result<String, Diagnostic> {
+        let Some(value) = child(node, name) else {
+            return Ok(default.into());
+        };
+        self.allowed(value, &[], &[])?;
+        let text = value.text().unwrap_or("");
+        // TinyXML collapses ordinary text; CDATA retains whitespace before
+        // Param's distinct space/tab/LF trim.
+        let text = if value.text_is_cdata() {
+            text.trim_matches([' ', '\t', '\n']).to_string()
+        } else {
+            text.split(legacy_whitespace)
+                .filter(|part| !part.is_empty())
+                .collect::<Vec<_>>()
+                .join(" ")
+        };
+        if text.is_empty() {
+            return Err(self.err(value, ErrorCode::Missing, format!("missing {name}")));
+        }
+        Ok(text)
+    }
+    fn mesh(&self, shape: Node<'_, '_>) -> Result<Mesh, Diagnostic> {
+        self.allowed(
+            shape,
+            &["uri", "scale", "submesh", "convex_decomposition"],
+            &["optimization"],
+        )?;
+        let uri = self.mesh_string(shape, "uri", "__default__")?;
+        let scale = child(shape, "scale").map_or(Ok([1.; 3]), |n| {
+            self.allowed(n, &[], &[])?;
+            if n.text()
+                .unwrap_or("")
+                .trim_matches(legacy_whitespace)
+                .is_empty()
+            {
+                Ok([1.; 3])
+            } else {
+                self.values(n)
+            }
+        })?;
+        let (submesh, center_submesh) = if let Some(submesh) = child(shape, "submesh") {
+            self.allowed(submesh, &["name", "center"], &[])?;
+            let name = self.mesh_string(submesh, "name", "__default__")?;
+            if name == "__default__" {
+                return Err(self.err(submesh, ErrorCode::Missing, "submesh requires a name"));
+            }
+            (name, self.boolean(submesh, "center", false)?)
+        } else {
+            (String::new(), false)
+        };
+        let optimization = match shape
+            .attribute("optimization")
+            .unwrap_or("")
+            .trim_matches([' ', '\t', '\n'])
+        {
+            "convex_hull" => MeshOptimization::ConvexHull,
+            "convex_decomposition" => MeshOptimization::ConvexDecomposition,
+            _ => MeshOptimization::None,
+        };
+        let convex_decomposition = child(shape, "convex_decomposition")
+            .map(|node| {
+                self.allowed(node, &["max_convex_hulls", "voxel_resolution"], &[])?;
+                Ok(ConvexDecomposition {
+                    max_convex_hulls: self.unsigned(node, "max_convex_hulls", 16)?,
+                    voxel_resolution: self.unsigned(node, "voxel_resolution", 200000)?,
+                })
+            })
+            .transpose()?;
+        Ok(Mesh {
+            uri,
+            scale,
+            submesh,
+            center_submesh,
+            optimization,
+            convex_decomposition,
+            source: self.source(shape),
+        })
     }
     fn visual(&self, node: Node<'_, '_>) -> Result<Visual, Diagnostic> {
         self.allowed(node, &["pose", "geometry", "plugin"], &["name"])?;
@@ -1091,4 +1300,9 @@ fn validate_model(model: &Model, graphs: &Graphs) -> Result<(), Diagnostic> {
         validate_model(nested, graphs)?;
     }
     Ok(())
+}
+
+// Utils.cc reserves a surrounding pair of double underscores, not every prefix.
+fn reserved_name(name: &str) -> bool {
+    name == "world" || (name.len() >= 4 && name.starts_with("__") && name.ends_with("__"))
 }

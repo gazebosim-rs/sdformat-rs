@@ -29,10 +29,10 @@ nested models, frames, plugins, scoped name and source.
 `Inertial` has mass in kg, six inertia components (ixx, iyy, izz, ixy, ixz, iyz)
 in kg·m² and inertial-frame pose. Positive physical inertia is required.
 `Collision` has pose and box/sphere/cylinder/plane geometry, with SI dimensions.
-`Visual` has name, pose, optional primitive geometry, plugins and source. Missing
+`Visual` has name, pose, optional geometry, plugins and source. Missing
 or empty geometry preserves native EMPTY as None. Visual names are unique within
 a link, independently of collision and sensor names. Rendering properties,
-material and mesh data remain explicit Unsupported.
+and material data remain explicit Unsupported.
 `Joint` has kind, parent/child references, pose, optional axis/axis2 and source.
 Universal and revolute2 types retain both axes; native axis2 is also preserved
 when present on another supported joint kind.
@@ -93,7 +93,7 @@ models before applying the same frame renaming, independent of XML order.
 Same-kind raw duplicates reject, and reference strings are not rewritten.
 Modern shared names reject. Flattened names remain Unsupported; 1.5 and older
 conversions remain unavailable. Full schema/version-aware
-validation, serialization, visual rendering properties/material data, mesh/resources, merge, automatic inertia, URDF, other sensor families and most other
+validation, serialization, visual rendering properties/material data, mesh resource loading, merge, automatic inertia, URDF, other sensor families and most other
 SDF features remain pending. Unknown schema features error; opaque plugin XML is the stated exception.
 XML names are lexical, matching upstream TinyXML: extension prefixes need not
 be declared. Plugin XML retains original bytes/ranges, including references,
@@ -142,3 +142,30 @@ and Link::ResolveInertial composes the raw inertial pose with the link pose. Rus
 retains the original reference and offers explicit resolve_pose semantics for it;
 validate_non_frame_poses checks it as a consumer policy. This does not claim native
 Link::ResolveInertial parity for nonempty inertial references.
+
+
+Geometry metadata includes box, sphere, cylinder, plane, capsule, cone, ellipsoid
+and mesh. New capsule/cone dimensions and ellipsoid radii use native fallback
+values for nonpositive inputs. Mesh scale may be zero or negative. Mesh retains
+URI, scale, submesh/centering, optimization enum, optional convex-decomposition
+counts, and its original source position; loading performs no resource IO.
+Unknown optimization strings retain native NONE. Decomposition metadata exists
+independently of optimization mode. Missing mesh URI defaults to __default__;
+an explicitly empty required URI or missing/default submesh name rejects.
+
+Decomposition counts match Linux Param.cc stoul followed by u32 casting,
+including numeric prefixes, initial0x base selection, boolean coercion,
+negative wrapping and u64 overflow rejection. General floating-point prefix and
+nonfinite parity remain pending. Scalar booleans use native ASCII case-insensitive
+true/false and empty optional defaults. Required new primitive numeric fields
+reject explicit empty values, while absent fields receive schema defaults.
+
+Named entities reserve world and names of at least four bytes surrounded by
+double underscores. Prefix-only names and the two/three-underscore names are
+valid; include name overrides use the same rule. Scoped/flattened-name conversion
+and other name lexical contracts retain their documented limitations.
+
+Required scalar blank recognition and vector splitting use native C whitespace,
+not Unicode whitespace. Mesh URI/submesh text collapses ordinary C whitespace;
+CDATA retains internal whitespace before the native space/tab/LF string trim.
+Boolean parsing likewise keeps ordinary and CDATA whitespace rules distinct.

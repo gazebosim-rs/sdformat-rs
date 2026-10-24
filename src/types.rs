@@ -268,7 +268,35 @@ pub enum Geometry {
     Box { size: [f64; 3] },
     Sphere { radius: f64 },
     Cylinder { radius: f64, length: f64 },
+    Capsule { radius: f64, length: f64 },
+    Cone { radius: f64, length: f64 },
+    Ellipsoid { radii: [f64; 3] },
+    Mesh(Mesh),
     Plane { normal: [f64; 3], size: [f64; 2] },
+}
+/// Mesh metadata; the URI is retained without performing filesystem or network IO.
+#[derive(Debug, PartialEq)]
+pub struct Mesh {
+    pub uri: String,
+    pub scale: [f64; 3],
+    pub submesh: String,
+    pub center_submesh: bool,
+    pub optimization: MeshOptimization,
+    pub convex_decomposition: Option<ConvexDecomposition>,
+    /// Original resource and mesh element position, including imported resources.
+    pub source: Source,
+}
+#[derive(Debug, Default, Clone, Copy, PartialEq, Eq)]
+pub enum MeshOptimization {
+    #[default]
+    None,
+    ConvexHull,
+    ConvexDecomposition,
+}
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct ConvexDecomposition {
+    pub max_convex_hulls: u32,
+    pub voxel_resolution: u32,
 }
 #[derive(Debug, PartialEq, Eq)]
 pub enum JointKind {

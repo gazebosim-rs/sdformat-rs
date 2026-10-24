@@ -1,0 +1,362 @@
+[
+  {
+    "id": "name_world_0",
+    "xml": "<sdf version='1.12'><world name='_'/></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_model_0",
+    "xml": "<sdf version='1.12'><model name='_'><link name='l'/></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_link_0",
+    "xml": "<sdf version='1.12'><model name='m'><link name='_'/></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_frame_0",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/><frame name='_'/></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_joint_0",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='_' type='fixed'><parent>a</parent><child>b</child></joint></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_collision_0",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='_'><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_visual_0",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='_'/></link></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_sensor_0",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='_' type='imu'/></link></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_world_1",
+    "xml": "<sdf version='1.12'><world name='__'/></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_model_1",
+    "xml": "<sdf version='1.12'><model name='__'><link name='l'/></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_link_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='__'/></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_frame_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/><frame name='__'/></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_joint_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='__' type='fixed'><parent>a</parent><child>b</child></joint></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_collision_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='__'><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_visual_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='__'/></link></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_sensor_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='__' type='imu'/></link></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_world_2",
+    "xml": "<sdf version='1.12'><world name='___'/></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_model_2",
+    "xml": "<sdf version='1.12'><model name='___'><link name='l'/></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_link_2",
+    "xml": "<sdf version='1.12'><model name='m'><link name='___'/></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_frame_2",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/><frame name='___'/></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_joint_2",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='___' type='fixed'><parent>a</parent><child>b</child></joint></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_collision_2",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='___'><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_visual_2",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='___'/></link></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_sensor_2",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='___' type='imu'/></link></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_world_3",
+    "xml": "<sdf version='1.12'><world name='____'/></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "name_model_3",
+    "xml": "<sdf version='1.12'><model name='____'><link name='l'/></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "name_link_3",
+    "xml": "<sdf version='1.12'><model name='m'><link name='____'/></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "name_frame_3",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/><frame name='____'/></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "name_joint_3",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='____' type='fixed'><parent>a</parent><child>b</child></joint></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "name_collision_3",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='____'><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "name_visual_3",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='____'/></link></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "name_sensor_3",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='____' type='imu'/></link></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "name_world_4",
+    "xml": "<sdf version='1.12'><world name='__model__'/></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "name_model_4",
+    "xml": "<sdf version='1.12'><model name='__model__'><link name='l'/></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "name_link_4",
+    "xml": "<sdf version='1.12'><model name='m'><link name='__model__'/></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "name_frame_4",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/><frame name='__model__'/></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "name_joint_4",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='__model__' type='fixed'><parent>a</parent><child>b</child></joint></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "name_collision_4",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='__model__'><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "name_visual_4",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='__model__'/></link></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "name_sensor_4",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='__model__' type='imu'/></link></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "name_world_5",
+    "xml": "<sdf version='1.12'><world name='__prefix'/></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_model_5",
+    "xml": "<sdf version='1.12'><model name='__prefix'><link name='l'/></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_link_5",
+    "xml": "<sdf version='1.12'><model name='m'><link name='__prefix'/></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_frame_5",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/><frame name='__prefix'/></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_joint_5",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='__prefix' type='fixed'><parent>a</parent><child>b</child></joint></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_collision_5",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='__prefix'><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_visual_5",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='__prefix'/></link></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_sensor_5",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='__prefix' type='imu'/></link></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_world_6",
+    "xml": "<sdf version='1.12'><world name='suffix__'/></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_model_6",
+    "xml": "<sdf version='1.12'><model name='suffix__'><link name='l'/></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_link_6",
+    "xml": "<sdf version='1.12'><model name='m'><link name='suffix__'/></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_frame_6",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/><frame name='suffix__'/></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_joint_6",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='suffix__' type='fixed'><parent>a</parent><child>b</child></joint></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_collision_6",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='suffix__'><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_visual_6",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='suffix__'/></link></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_sensor_6",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='suffix__' type='imu'/></link></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_world_7",
+    "xml": "<sdf version='1.12'><world name='__prefix_'/></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_model_7",
+    "xml": "<sdf version='1.12'><model name='__prefix_'><link name='l'/></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_link_7",
+    "xml": "<sdf version='1.12'><model name='m'><link name='__prefix_'/></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_frame_7",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/><frame name='__prefix_'/></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_joint_7",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='__prefix_' type='fixed'><parent>a</parent><child>b</child></joint></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_collision_7",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='__prefix_'><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_visual_7",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='__prefix_'/></link></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_sensor_7",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='__prefix_' type='imu'/></link></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "name_world_8",
+    "xml": "<sdf version='1.12'><world name='world'/></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "name_model_8",
+    "xml": "<sdf version='1.12'><model name='world'><link name='l'/></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "name_link_8",
+    "xml": "<sdf version='1.12'><model name='m'><link name='world'/></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "name_frame_8",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/><frame name='world'/></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "name_joint_8",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='world' type='fixed'><parent>a</parent><child>b</child></joint></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "name_collision_8",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='world'><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "name_visual_8",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='world'/></link></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "name_sensor_8",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='world' type='imu'/></link></model></sdf>",
+    "accepted": false
+  }
+]

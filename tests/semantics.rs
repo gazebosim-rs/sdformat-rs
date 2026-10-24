@@ -595,7 +595,12 @@ fn attachment_cycles_are_independent_of_pose_cycles() {
 }
 #[test]
 fn include_failures_and_depth_are_bounded() {
-    for name in ["bad::name", "__reserved", "world"] {
+    // Native reserves surrounding double underscores; the former prefix-only
+    // rejection was incorrect. Retain its exact input as a positive regression.
+    let prefix = "<sdf version='1.12'><model name='m'><include><uri>leaf</uri><name>__reserved</name></include></model></sdf>";
+    let sdf = load_str(prefix, "root", &MemoryResolver).unwrap();
+    assert_eq!(sdf.models[0].models[0].name, "__reserved");
+    for name in ["bad::name", "__reserved__", "world"] {
         let xml = format!(
             "<sdf version='1.12'><model name='m'><include><uri>leaf</uri><name>{name}</name></include></model></sdf>"
         );

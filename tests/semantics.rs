@@ -700,6 +700,22 @@ fn pinned_cpp_differential_acceptance_corpus() {
             case["accepted"].as_bool().unwrap(),
             "{case}"
         );
+        if let Some(expected) = case.get("link_mass") {
+            assert_eq!(
+                result.as_ref().unwrap().models[0].links[0].inertial.mass,
+                expected.as_f64().unwrap(),
+                "{case}"
+            );
+        }
+        if let Some(expected) = case.get("model_name") {
+            let model = &result.as_ref().unwrap().models[0];
+            assert_eq!(model.name, expected.as_str().unwrap());
+            assert_eq!(model.plugins[0].name, case["plugin_name"].as_str().unwrap());
+            assert_eq!(
+                model.plugins[0].filename,
+                case["plugin_filename"].as_str().unwrap()
+            );
+        }
         if let Some(expected) = case.get("link_pose") {
             let sdf = result.as_ref().unwrap();
             let model = &sdf.models[0];

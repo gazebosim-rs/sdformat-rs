@@ -1,7 +1,7 @@
 use crate::graph::{Graphs, error, join};
+use crate::xml::{Document, Node};
 use crate::*;
 use glam::{DQuat, DVec3, EulerRot};
-use roxmltree::{Document, Node};
 use std::collections::BTreeSet;
 
 pub(crate) fn load(
@@ -16,7 +16,7 @@ pub(crate) fn load(
         includes: vec![uri.into()],
     };
     let doc = Document::parse(xml).map_err(|e| Diagnostic {
-        code: ErrorCode::Xml,
+        code: e.code,
         source: Source {
             uri: uri.into(),
             line: e.pos().row,
@@ -426,7 +426,7 @@ impl Parser<'_> {
             includes,
         };
         let doc = Document::parse(&resource.xml).map_err(|e| Diagnostic {
-            code: ErrorCode::Xml,
+            code: e.code,
             source: Source {
                 uri: resource.canonical_uri.clone(),
                 line: e.pos().row,
@@ -854,7 +854,7 @@ impl Parser<'_> {
     }
 }
 fn elements<'a, 'b>(node: Node<'a, 'b>) -> impl Iterator<Item = Node<'a, 'b>> {
-    node.children().filter(Node::is_element)
+    node.children()
 }
 fn child<'a, 'b>(node: Node<'a, 'b>, tag: &str) -> Option<Node<'a, 'b>> {
     elements(node).find(|n| n.has_tag_name(tag))

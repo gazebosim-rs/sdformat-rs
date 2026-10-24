@@ -5,6 +5,7 @@
 mod graph;
 mod parse;
 mod types;
+mod xml;
 pub use types::*;
 
 /// Resolve include URIs without introducing a transport or cache dependency.

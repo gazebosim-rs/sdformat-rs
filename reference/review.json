@@ -2,7 +2,7 @@
   "decision": "approved",
   "author": "/root/sdformat",
   "reviewer": "/root",
-  "protected_digest": "0da461abb60a42c9a2091b09c358cdfb62d0872a818bc8d941ee50e212463ba4",
-  "scope": "Exact self-frame/axis assertion port and common-ancestor relative pose resolution; /root reviewed all original FrameSemantics_TEST.cc314-366 assertions and native large-origin numeric evidence.",
+  "protected_digest": "806dba9ea248727e5bb414317665fe00913d883b9bb9cc1dc35aa46073a4d7c1",
+  "scope": "Legacy XML adapter and protected dependency/guidance inputs. Root inspected adapter and preserved test assertions; transport independently reran all 12 review fixtures after first-text, CDATA, comments, declaration/depth and numeric-NUL fixes. All match the native reference. Full SDF parity remains pending.",
   "date": "2026-10-24"
 }

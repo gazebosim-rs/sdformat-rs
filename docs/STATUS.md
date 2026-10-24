@@ -49,7 +49,8 @@ checks it independently, and verifies that the index did not change during check
 The review receipt pins protected test/mapping/policy content and names a different
 reviewer. Hosting branch protection remains a repository-admin task.
 
-Dependencies: roxmltree 0.20.0 (read-only namespace-aware XML syntax), glam 0.30.9
+Dependencies: quick-xml0.38.3 (tokenization and matched elements),
+xmlparser0.13.6 (XML names/references/source positions), glam0.30.9
 (f64 rigid transformations), petgraph 0.8.1 (cycle detection/topological order).
 Exact versions plus transitives are locked. Custom code is SDF graph scoping and
 schema/domain validation, not generic XML, quaternion or graph algorithms.
@@ -125,3 +126,36 @@ self queries retain fast paths. XML tokenizer compatibility evaluation is next.
 
 Precision slice coverage:1347/1361production lines and2353/2444regions;
 changed48/48. Independent review:/root.
+
+The sixth syntax slice replaces roxmltree after demonstrating its incompatible
+rejection of undeclared extension prefixes. The private SDF element cursor uses
+quick-xml for tokens, literal matching and duplicate attributes; xmlparser supplies
+XML-name validation, reference decoding and source positions. This avoids both
+namespace injection and a custom XML lexer. Name validation is necessary because
+quick-xml intentionally tokenizes invalid names such as <1bad/>, which native
+TinyXML rejects. Raw plugin spans index the unchanged input. Native differential
+cases establish acceptance of undeclared prefixes, unknown references, bare
+ampersands and opaque numeric-reference quirks; literal NUL and invalid element
+names are rejected. Full unchanged sensors.sdf now reaches Unsupported semantic
+validation instead of failing XML parsing. Its other26 sensor families remain
+pending. DTD remains an explicit Unsupported feature. Original fixture bytes and
+all earlier assertions remain intact. Corpus:35 native/Rust acceptance cases,
+four numeric pose observations;33 Rust tests and six gate tests pass. Cargo
+manifest/lock/toolchain files are now included in protected review digests.
+
+Independent XML review by the transport owner caught four mismatches before
+acceptance: aggregation across comment/CDATA text boundaries, rejecting native
+legacy comments, accepting nested declarations/PIs, and missing native depth
+limits. All are corrected with unchanged reviewer inputs and native scalar
+observations in the differential corpus. Additional typed numeric-NUL name/file
+truncation was checked and preserved. The earlier supplementary strict-comment
+negative assumption was replaced with native-backed positive preservation tests;
+no upstream assertion was removed. Boundary probes establish495 nested nonempty
+plugin children pass and496 fail in the original three-element wrapper. Legacy
+header declarations remain permissive, as native accepts <?xml?> before the root.
+Corpus:53 acceptance cases, four numeric poses, nine scalar-mass observations and
+three typed-string observations.36 Rust tests and six tooling tests pass;
+coverage1618/1639lines,2772/2883regions,changed261/265. Final independent re-review
+and staged verification remain required. The dashboard is maintained at
+https://gazebosim-rs.github.io/rewrite-progress/ with separate accepted slices and
+whole-packet status.

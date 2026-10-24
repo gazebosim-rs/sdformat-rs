@@ -32,3 +32,15 @@ Keep XML parsing, schema validation/conversion, frame resolution, and resource r
 
 Do not apply the monorepo's internal crate layout here. Do not edit the active Fuel
 rewrite or another repository without a coordinated assignment.
+
+## Public progress reporting
+
+Keep the [rewrite dashboard](https://gazebosim-rs.github.io/rewrite-progress/)
+current when a slice, test result, review state or real blocker changes. Follow
+its [status contract](https://github.com/gazebosim-rs/rewrite-progress/blob/main/status-contract.md).
+Prepare ignored `artifacts/sdformat-rs-status.json`; when the sibling dashboard
+checkout is available, validate and publish with its `scripts/update-status.py`
+for `sdformat-rs` only. Update UTC timestamps. Report working-tree and pushed-commit
+evidence separately; link only verified public revisions. Accepted slices do not
+complete whole plan packets until every acceptance criterion is met. Never publish
+credentials, local private paths, raw environment variables or private user data.

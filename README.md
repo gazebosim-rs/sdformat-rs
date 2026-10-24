@@ -15,7 +15,7 @@ links, primitive collisions, physical mass/inertia, fixed/revolute/prismatic/
 continuous joints, typed IMU sensor configuration, frames, and opaque plugin content.
 Model and include placement frames resolve through nested links, frames, joints,
 and models. Pose and attachment graphs are separate. Loading is atomic. Unsupported elements,
-attributes, versions, merge features, and automatic inertia produce
+attributes, versions, merge features, DTD declarations and automatic inertia produce
 explicit diagnostics. IMU noise, orientation settings and original XML are retained together. See
 [the contract](docs/CONTRACT.md).
 

@@ -34,7 +34,7 @@
     }
   ],
   "corpus": {
-    "corpus_sha256": "569fa2cce6b706775593830de99a28dd40ba1ae2c518ba2bf15fafd56df1f072",
+    "corpus_sha256": "8e69716d7b00af63b6b4ad35b331cb792b9f2099e2334e7180a965a40716c1b2",
     "results": [
       {
         "id": "canonical_link_alias",
@@ -206,6 +206,148 @@
           0.0,
           1.0
         ]
+      },
+      {
+        "id": "undeclared_plugin_prefix",
+        "accepted": true,
+        "errors": ""
+      },
+      {
+        "id": "unknown_plugin_entity",
+        "accepted": true,
+        "errors": ""
+      },
+      {
+        "id": "opaque_zero_numeric_reference",
+        "accepted": true,
+        "errors": ""
+      },
+      {
+        "id": "legacy_bare_ampersand",
+        "accepted": true,
+        "errors": ""
+      },
+      {
+        "id": "legacy_unterminated_reference",
+        "accepted": true,
+        "errors": ""
+      },
+      {
+        "id": "legacy_invalid_numeric_reference",
+        "accepted": true,
+        "errors": ""
+      },
+      {
+        "id": "invalid_plugin_xml_name",
+        "accepted": false,
+        "errors": "Error Code 30: Msg: Error parsing XML from string: Error=XML_ERROR_PARSING ErrorID=15 (0xf) Line number=1\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.12'><model name='m'><link name='l'/><plugin name='p' filename='p'><1bad/></plugin></model></sdf>\n"
+      },
+      {
+        "id": "literal_xml_nul",
+        "accepted": false,
+        "errors": "Error Code 30: Msg: Error parsing XML from string: Error=XML_ERROR_PARSING_TEXT ErrorID=8 (0x8) Line number=1\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.12'><model name='m'><link name='l'/><plugin name='p' filename='p'>nul"
+      },
+      {
+        "id": "xml_review_mixed_comment_scalar",
+        "accepted": true,
+        "errors": "",
+        "link_mass": 1.0
+      },
+      {
+        "id": "xml_review_mixed_cdata_scalar",
+        "accepted": true,
+        "errors": "",
+        "link_mass": 2.0
+      },
+      {
+        "id": "xml_review_leading_comment_scalar",
+        "accepted": true,
+        "errors": "",
+        "link_mass": 2.0
+      },
+      {
+        "id": "xml_review_legacy_comment_dashes",
+        "accepted": true,
+        "errors": "",
+        "link_mass": 1.0
+      },
+      {
+        "id": "xml_review_nested_xml_declaration",
+        "accepted": false,
+        "errors": "Error Code 30: Msg: Error parsing XML from string: Error=XML_ERROR_PARSING_DECLARATION ErrorID=11 (0xb) Line number=1: XMLDeclaration value=xml version='1.0'\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.12'><model name='m'><link name='l'/><plugin name='p' filename='p'><?xml version='1.0'?></plugin></model></sdf>\n"
+      },
+      {
+        "id": "xml_review_invalid_declaration",
+        "accepted": true,
+        "errors": "",
+        "link_mass": 1.0
+      },
+      {
+        "id": "xml_review_pi_invalid_target",
+        "accepted": false,
+        "errors": "Error Code 30: Msg: Error parsing XML from string: Error=XML_ERROR_PARSING_DECLARATION ErrorID=11 (0xb) Line number=1: XMLDeclaration value=1bad\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.12'><model name='m'><link name='l'/><plugin name='p' filename='p'><?1bad?></plugin></model></sdf>\n"
+      },
+      {
+        "id": "xml_review_plugin_depth_496",
+        "accepted": false,
+        "errors": "Error Code 30: Msg: Error parsing XML from string: Error=XML_ELEMENT_DEPTH_EXCEEDED ErrorID=18 (0x12) Line number=1: Element nesting is too deep.\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.12'><model name='m'><link name='l'/><plugin name='p' filename='p'><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></plugin></model></sdf>\n"
+      },
+      {
+        "id": "xml_review_plugin_depth_497",
+        "accepted": false,
+        "errors": "Error Code 30: Msg: Error parsing XML from string: Error=XML_ELEMENT_DEPTH_EXCEEDED ErrorID=18 (0x12) Line number=1: Element nesting is too deep.\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.12'><model name='m'><link name='l'/><plugin name='p' filename='p'><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></plugin></model></sdf>\n"
+      },
+      {
+        "id": "xml_review_plugin_depth_498",
+        "accepted": false,
+        "errors": "Error Code 30: Msg: Error parsing XML from string: Error=XML_ELEMENT_DEPTH_EXCEEDED ErrorID=18 (0x12) Line number=1: Element nesting is too deep.\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.12'><model name='m'><link name='l'/><plugin name='p' filename='p'><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></plugin></model></sdf>\n"
+      },
+      {
+        "id": "xml_review_plugin_depth_500",
+        "accepted": false,
+        "errors": "Error Code 30: Msg: Error parsing XML from string: Error=XML_ELEMENT_DEPTH_EXCEEDED ErrorID=18 (0x12) Line number=1: Element nesting is too deep.\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.12'><model name='m'><link name='l'/><plugin name='p' filename='p'><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></plugin></model></sdf>\n"
+      },
+      {
+        "id": "xml_review_plugin_depth_600",
+        "accepted": false,
+        "errors": "Error Code 30: Msg: Error parsing XML from string: Error=XML_ELEMENT_DEPTH_EXCEEDED ErrorID=18 (0x12) Line number=1: Element nesting is too deep.\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.12'><model name='m'><link name='l'/><plugin name='p' filename='p'><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></plugin></model></sdf>\n"
+      },
+      {
+        "id": "first_empty_cdata",
+        "accepted": true,
+        "errors": "",
+        "link_mass": 1.0
+      },
+      {
+        "id": "contiguous_reference",
+        "accepted": true,
+        "errors": "",
+        "link_mass": 123.0
+      },
+      {
+        "id": "cdata_text_boundary",
+        "accepted": true,
+        "errors": "",
+        "link_mass": 1.0
+      },
+      {
+        "id": "numeric_nul_scalar",
+        "accepted": true,
+        "errors": "",
+        "link_mass": 2.0
+      },
+      {
+        "id": "plugin_depth_495_accepted_boundary",
+        "accepted": true,
+        "errors": ""
+      },
+      {
+        "id": "typed_numeric_nul",
+        "accepted": true,
+        "errors": "",
+        "model_name": "m",
+        "plugin_name": "p",
+        "plugin_filename": "a"
       }
     ]
   }

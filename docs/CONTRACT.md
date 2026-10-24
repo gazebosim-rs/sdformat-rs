@@ -56,9 +56,18 @@ Versions 1.8–1.12 share empty upstream conversion scripts in the supported sub
 Older unflatten/rename conversions are unsupported. Full schema/version-aware
 validation, serialization, visual/material data, mesh/resources, merge, automatic inertia, URDF, other sensor families and most other
 SDF features remain pending. Unknown schema features error; opaque plugin XML is the stated exception.
-The XML library currently requires namespace prefixes to be declared, whereas
-upstream permits undeclared prefixes in extension element names; that compatibility
-gap remains open.
+XML names are lexical, matching upstream TinyXML: extension prefixes need not
+be declared. Plugin XML retains original bytes/ranges, including references,
+CDATA, whitespace and extension attributes. Standard/numeric references in typed
+values are decoded with the XML library lexer; unknown references and bare
+ampersands retain legacy literal behavior. DTD declarations remain explicitly
+Unsupported, with no implicit external entity loading. Literal NUL is rejected. Numeric-control references follow native decoding; typed
+attribute/text views truncate at decoded NUL, while raw plugin XML stays intact.
+Only the first logical XML text/CDATA node supplies a typed scalar. Comments
+(including legacy double-hyphen content) and leading whitespace are skipped.
+Declarations/PIs are accepted in the initial prolog only. The native recursive
+bound accepts498 simultaneously open nonempty XML elements; an empty child does
+not consume that recursive depth.
 
 XML references are local to the enclosing world or model. Within a model,
 __model__ names its implicit frame; world is only special for joint parent.

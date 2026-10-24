@@ -165,5 +165,147 @@
       0,
       0
     ]
+  },
+  {
+    "id": "undeclared_plugin_prefix",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/><plugin name='p' filename='p'><unbound:config unbound:attr='v'/></plugin></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "unknown_plugin_entity",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/><plugin name='p' filename='p'>&bogus;</plugin></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "opaque_zero_numeric_reference",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/><plugin name='p' filename='p'>&#0;</plugin></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "legacy_bare_ampersand",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/><plugin name='p' filename='p'>a& b</plugin></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "legacy_unterminated_reference",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/><plugin name='p' filename='p'>&bare</plugin></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "legacy_invalid_numeric_reference",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/><plugin name='p' filename='p'>&#bad;</plugin></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "invalid_plugin_xml_name",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/><plugin name='p' filename='p'><1bad/></plugin></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "literal_xml_nul",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/><plugin name='p' filename='p'>nul\u0000text</plugin></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "xml_review_mixed_comment_scalar",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial><mass>1<!-- comment -->2</mass></inertial></link></model></sdf>",
+    "accepted": true,
+    "link_mass": 1.0
+  },
+  {
+    "id": "xml_review_mixed_cdata_scalar",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial><mass><![CDATA[2]]>3</mass></inertial></link></model></sdf>",
+    "accepted": true,
+    "link_mass": 2.0
+  },
+  {
+    "id": "xml_review_leading_comment_scalar",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial><mass><!-- comment -->2</mass></inertial></link></model></sdf>",
+    "accepted": true,
+    "link_mass": 2.0
+  },
+  {
+    "id": "xml_review_legacy_comment_dashes",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/><plugin name='p' filename='p'><!-- invalid -- comment --></plugin></model></sdf>",
+    "accepted": true,
+    "link_mass": 1.0
+  },
+  {
+    "id": "xml_review_nested_xml_declaration",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/><plugin name='p' filename='p'><?xml version='1.0'?></plugin></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "xml_review_invalid_declaration",
+    "xml": "<?xml?><sdf version='1.12'><model name='m'><link name='l'/></model></sdf>",
+    "accepted": true,
+    "link_mass": 1.0
+  },
+  {
+    "id": "xml_review_pi_invalid_target",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/><plugin name='p' filename='p'><?1bad?></plugin></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "xml_review_plugin_depth_496",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/><plugin name='p' filename='p'><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></plugin></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "xml_review_plugin_depth_497",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/><plugin name='p' filename='p'><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></plugin></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "xml_review_plugin_depth_498",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/><plugin name='p' filename='p'><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></plugin></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "xml_review_plugin_depth_500",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/><plugin name='p' filename='p'><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></plugin></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "xml_review_plugin_depth_600",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/><plugin name='p' filename='p'><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></plugin></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "first_empty_cdata",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial><mass><![CDATA[]]>2</mass></inertial></link></model></sdf>",
+    "accepted": true,
+    "link_mass": 1
+  },
+  {
+    "id": "contiguous_reference",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial><mass>1&#50;3</mass></inertial></link></model></sdf>",
+    "accepted": true,
+    "link_mass": 123
+  },
+  {
+    "id": "cdata_text_boundary",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial><mass>1<![CDATA[2]]>3</mass></inertial></link></model></sdf>",
+    "accepted": true,
+    "link_mass": 1
+  },
+  {
+    "id": "numeric_nul_scalar",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial><mass>2&#0;3</mass></inertial></link></model></sdf>",
+    "accepted": true,
+    "link_mass": 2
+  },
+  {
+    "id": "plugin_depth_495_accepted_boundary",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/><plugin name='p' filename='p'><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n><n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></n></plugin></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "typed_numeric_nul",
+    "xml": "<sdf version='1.12'><model name='m&#0;n'><link name='l'/><plugin name='p&#0;q' filename='a&#0;b'/></model></sdf>",
+    "accepted": true,
+    "model_name": "m",
+    "plugin_name": "p",
+    "plugin_filename": "a"
   }
 ]

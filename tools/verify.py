@@ -31,7 +31,7 @@ def digest(root):
 
 
 def review_digest(root):
-    protected = sorted(p for pattern in ('tests/**/*', 'tools/*', '.githooks/*', '.github/workflows/*', '.pre-commit-config.yaml', 'coverage.json', 'reference/*.json') for p in root.glob(pattern) if p.is_file() and p.name != 'review.json')
+    protected = sorted(p for pattern in ('tests/**/*', 'tools/*', '.githooks/*', '.github/workflows/*', '.pre-commit-config.yaml', 'coverage.json', 'AGENTS.md', 'Cargo.toml', 'Cargo.lock', 'rust-toolchain.toml', 'reference/*.json') for p in root.glob(pattern) if p.is_file() and p.name != 'review.json')
     state = hashlib.sha256()
     for path in protected:
         state.update(str(path.relative_to(root)).encode())

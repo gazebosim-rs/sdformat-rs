@@ -259,8 +259,10 @@ pub struct Sensor {
     pub pose: Pose,
     pub update_rate: f64,
     pub always_on: bool,
+    pub enable_metrics: bool,
+    pub imu: Imu,
     pub topic: String,
-    /// Unmodified sensor-specific XML; consumers must validate its own settings.
+    /// Original IMU-specific XML, retained alongside the typed configuration.
     pub configuration_xml: String,
     pub source: Source,
 }
@@ -270,4 +272,49 @@ pub struct Plugin {
     pub filename: String,
     /// Original XML including namespace-qualified extension attributes/content.
     pub xml: String,
+}
+
+/// SDF noise parameters. Sampling and random-generator ownership belong to consumers.
+#[derive(Debug, Clone, Copy, Default, PartialEq)]
+pub struct Noise {
+    pub kind: NoiseKind,
+    pub mean: f64,
+    pub stddev: f64,
+    pub bias_mean: f64,
+    pub bias_stddev: f64,
+    pub dynamic_bias_stddev: f64,
+    pub dynamic_bias_correlation_time: f64,
+    pub precision: f64,
+}
+#[derive(Debug, Clone, Copy, Default, PartialEq, Eq)]
+pub enum NoiseKind {
+    #[default]
+    None,
+    Gaussian,
+    GaussianQuantized,
+}
+#[derive(Debug, Clone, PartialEq)]
+pub struct Imu {
+    pub angular_velocity: [Noise; 3],
+    pub linear_acceleration: [Noise; 3],
+    pub enable_orientation: bool,
+    pub localization: String,
+    pub custom_rpy: [f64; 3],
+    pub custom_rpy_parent_frame: String,
+    pub gravity_dir_x: [f64; 3],
+    pub gravity_dir_x_parent_frame: String,
+}
+impl Default for Imu {
+    fn default() -> Self {
+        Self {
+            angular_velocity: [Noise::default(); 3],
+            linear_acceleration: [Noise::default(); 3],
+            enable_orientation: true,
+            localization: "CUSTOM".into(),
+            custom_rpy: [0.; 3],
+            custom_rpy_parent_frame: String::new(),
+            gravity_dir_x: [1., 0., 0.],
+            gravity_dir_x_parent_frame: String::new(),
+        }
+    }
 }

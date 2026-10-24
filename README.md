@@ -12,11 +12,11 @@ let pose = sdf.pose_of("robot::base", "::")?;
 
 The supported subset has SDF 1.8–1.12 worlds, nested and included models,
 links, primitive collisions, physical mass/inertia, fixed/revolute/prismatic/
-continuous joints, IMU sensor envelopes, frames, and opaque plugin content.
+continuous joints, typed IMU sensor configuration, frames, and opaque plugin content.
 Pose and attachment graphs are separate. Loading is atomic. Unsupported elements,
 attributes, versions, merge/placement features, and automatic inertia produce
-explicit diagnostics. IMU-specific XML is preserved but is not yet schema-validated;
-consumers must not treat it as validated configuration. See [the contract](docs/CONTRACT.md).
+explicit diagnostics. IMU noise, orientation settings and original XML are retained together. See
+[the contract](docs/CONTRACT.md).
 
 Resources are injected through `ResourceResolver`; the library performs no network
 or filesystem IO. Plain f64 values cross the API; no Bevy, simulator, Fuel, or

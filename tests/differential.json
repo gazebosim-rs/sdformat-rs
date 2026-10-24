@@ -1,7 +1,42 @@
 [
-  {"id":"canonical_link_alias", "xml":"<sdf version='1.12'><model name='m' canonical_link='f'><link name='l'/><frame name='f' attached_to='l'/></model></sdf>", "accepted":true},
-  {"id":"joint_alias_parent", "xml":"<sdf version='1.12'><model name='m'><link name='l'/><link name='r'/><frame name='f' attached_to='l'/><joint name='j' type='fixed'><parent>f</parent><child>r</child></joint></model></sdf>", "accepted":true},
-  {"id":"joint_alias_child", "xml":"<sdf version='1.12'><model name='m'><link name='l'/><frame name='f' attached_to='l'/><joint name='j' type='fixed'><parent>world</parent><child>f</child></joint></model></sdf>", "accepted":true},
-  {"id":"joint_same_body_alias", "xml":"<sdf version='1.12'><model name='m'><link name='l'/><frame name='f' attached_to='l'/><joint name='j' type='fixed'><parent>l</parent><child>f</child></joint></model></sdf>", "accepted":false},
-  {"id":"joint_world_child", "xml":"<sdf version='1.12'><model name='m'><link name='l'/><joint name='j' type='fixed'><parent>l</parent><child>world</child></joint></model></sdf>", "accepted":false}
+  {
+    "id": "canonical_link_alias",
+    "xml": "<sdf version='1.12'><model name='m' canonical_link='f'><link name='l'/><frame name='f' attached_to='l'/></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "joint_alias_parent",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/><link name='r'/><frame name='f' attached_to='l'/><joint name='j' type='fixed'><parent>f</parent><child>r</child></joint></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "joint_alias_child",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/><frame name='f' attached_to='l'/><joint name='j' type='fixed'><parent>world</parent><child>f</child></joint></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "joint_same_body_alias",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/><frame name='f' attached_to='l'/><joint name='j' type='fixed'><parent>l</parent><child>f</child></joint></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "joint_world_child",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'/><joint name='j' type='fixed'><parent>l</parent><child>world</child></joint></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "negative_noise_stddev",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><angular_velocity><x><noise type='gaussian'><stddev>-1</stddev></noise></x></angular_velocity></imu></sensor></link></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "case_insensitive_noise",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><angular_velocity><x><noise type='GaUsSiaN_QUANTIZED'/></x></angular_velocity></imu></sensor></link></model></sdf>",
+    "accepted": true
+  },
+  {
+    "id": "free_imu_orientation_strings",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><orientation_reference_frame><localization>BOGUS</localization><custom_rpy parent_frame='missing'>0 0 0</custom_rpy></orientation_reference_frame></imu></sensor></link></model></sdf>",
+    "accepted": true
+  }
 ]

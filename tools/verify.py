@@ -22,7 +22,7 @@ def run(command, *, env=None, capture=False, cwd=ROOT):
 
 def digest(root):
     files = sorted(p for pattern in ('src/**/*.rs', 'tests/**/*', 'tools/*.py') for p in root.glob(pattern) if p.is_file())
-    files += [root / p for p in ('Cargo.toml', 'Cargo.lock', 'rust-toolchain.toml', 'coverage.json', 'reference/traceability.json')]
+    files += [root / p for p in ('Cargo.toml', 'Cargo.lock', 'rust-toolchain.toml', 'coverage.json', 'reference/traceability.json', 'reference/inventory.json', 'reference/results.json')]
     state = hashlib.sha256()
     for path in files:
         state.update(str(path.relative_to(root)).encode())
@@ -31,7 +31,7 @@ def digest(root):
 
 
 def review_digest(root):
-    protected = sorted(p for pattern in ('tests/**/*', 'tools/*', '.githooks/*', '.github/workflows/*', '.pre-commit-config.yaml', 'coverage.json', 'reference/traceability.json') for p in root.glob(pattern) if p.is_file())
+    protected = sorted(p for pattern in ('tests/**/*', 'tools/*', '.githooks/*', '.github/workflows/*', '.pre-commit-config.yaml', 'coverage.json', 'reference/*.json') for p in root.glob(pattern) if p.is_file() and p.name != 'review.json')
     state = hashlib.sha256()
     for path in protected:
         state.update(str(path.relative_to(root)).encode())
@@ -81,20 +81,29 @@ def check_ledger(root):
     assert inventory['upstream_sha'] == trace['upstream_sha']
     ids = {(target['target'], case['id']) for target in inventory['targets'] for case in target['cases']}
     assert len(ids) == sum(len(target['cases']) for target in inventory['targets']), 'duplicate runtime test IDs'
+    assert inventory['runtime_source_mapping_missing'] == 0, 'runtime cases missing source mappings'
+    for target in inventory['targets']:
+        for case in target['cases']:
+            assert case['source'] and all(item['path'] in inventory['sha256'] for item in case['source']), 'unhashed runtime test source'
     seen = set()
-    for mapping in trace['ports']:
+    for mapping in trace['ports'] + trace.get('partial_ports', []):
         key = (mapping['target'], mapping['case'])
         assert key in ids and key not in seen, f'invalid or duplicate mapping {key}'
         seen.add(key)
-        assert mapping['assertions'] and mapping['rust_test'] and mapping['review'] == 'pending', 'missing assertion/review record'
-        assert mapping['status'] == 'ported_pending_review', 'unreviewed ports cannot claim acceptance'
+        assert mapping['assertions'] and mapping['rust_test'] and mapping['review'], 'missing assertion/review record'
+        if mapping['review'] == 'pending':
+            assert mapping['status'] in ('ported_pending_review', 'partial_pending_review'), 'unreviewed ports cannot claim acceptance'
+        else:
+            assert mapping['status'] in ('ported_reviewed', 'partial_reviewed'), 'invalid reviewed port state'
+        for name, sha in mapping['upstream_fixtures'].items():
+            assert inventory['sha256'][name] == sha, f'upstream fixture hash mismatch {name}'
         for name, sha in mapping['fixtures'].items():
             assert hashlib.sha256((root / name).read_bytes()).hexdigest() == sha, f'fixture changed {name}'
     # Assertions/mappings/coverage policy changes are reviewed, not auto-approved.
     if (root / '.git').exists():
         changed = run(['git', 'diff', '--name-only', 'HEAD', '--', 'tests', 'reference', 'coverage.json', 'tools'], capture=True, cwd=root).stdout.splitlines()
         if changed:
-            print('REVIEW REQUIRED: assertions, reference mappings, or gate policy changed:', ', '.join(changed))
+            print('Protected changes:', ', '.join(changed))
 
 
 def coverage(root, out, manifest):

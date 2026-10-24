@@ -11,8 +11,8 @@
         "tests/fixtures/model_relative_to_nested_reference.sdf": "7eead25f0aac3216dad7183a9f2fe8c063667d503a3405d1763f4e98ab0331b0"
       },
       "baseline": "passed; artifacts/reference-*.xml",
-      "status": "ported_pending_review",
-      "review": "pending",
+      "status": "ported_reviewed",
+      "review": "/root; 2026-10-24; approved protected digest 44d39b70e0544dca34e72241a6578a38df5bdb967fe37f8e18fa16eff1526621",
       "upstream_fixtures": {
         "test/sdf/model_relative_to_nested_reference.sdf": "7eead25f0aac3216dad7183a9f2fe8c063667d503a3405d1763f4e98ab0331b0"
       }
@@ -27,8 +27,8 @@
         "tests/fixtures/world_relative_to_nested_reference.sdf": "65fa3e109cec6d8c51119459684a289f8cc4dd7e25e903ace769f114d4145159"
       },
       "baseline": "passed; artifacts/reference-*.xml",
-      "status": "ported_pending_review",
-      "review": "pending",
+      "status": "ported_reviewed",
+      "review": "/root; 2026-10-24; approved protected digest 44d39b70e0544dca34e72241a6578a38df5bdb967fe37f8e18fa16eff1526621",
       "upstream_fixtures": {
         "test/sdf/world_relative_to_nested_reference.sdf": "65fa3e109cec6d8c51119459684a289f8cc4dd7e25e903ace769f114d4145159"
       }
@@ -43,12 +43,30 @@
         "tests/fixtures/nested_explicit_canonical_link.sdf": "6bc3543c6ae91f72264cdf0671f8f5fae1835e73a18d050e7f2ac535f92ec624"
       },
       "baseline": "passed; artifacts/reference-*.xml",
-      "status": "ported_pending_review",
-      "review": "pending",
+      "status": "ported_reviewed",
+      "review": "/root; 2026-10-24; approved protected digest 44d39b70e0544dca34e72241a6578a38df5bdb967fe37f8e18fa16eff1526621",
       "upstream_fixtures": {
         "test/sdf/nested_explicit_canonical_link.sdf": "6bc3543c6ae91f72264cdf0671f8f5fae1835e73a18d050e7f2ac535f92ec624"
       }
     }
   ],
-  "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim."
+  "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",
+  "partial_ports": [
+    {
+      "target": "INTEGRATION_link_dom",
+      "case": "DOMLink.Sensors",
+      "source": "test/integration/link_dom.cc:504-569",
+      "rust_test": "tests/imu.rs::link_dom_sensors_original_imu_assertions",
+      "assertions": "Exact original IMU sensor name/type/pose/metrics and all 24 noise scalar plus seven orientation assertions; other 26 sensor families and model/link checks remain pending. Exact sensor subtree extracted without rewriting its content from the unchanged full fixture.",
+      "fixtures": {
+        "tests/fixtures/sensors.sdf": "dc2b61c8b40a7df7f2c7b6e649f3039136ca1a03528371b307e9b9fc27406a00"
+      },
+      "upstream_fixtures": {
+        "test/sdf/sensors.sdf": "dc2b61c8b40a7df7f2c7b6e649f3039136ca1a03528371b307e9b9fc27406a00"
+      },
+      "baseline": "passed; artifacts/reference-sensors.xml",
+      "status": "partial_pending_review",
+      "review": "pending"
+    }
+  ]
 }

@@ -7,10 +7,12 @@ assertion equivalence or exclusions.
 Upstream main: `1249805d9fceeff94ca1fe63e26ab9c051cea24e`.
 `python3 tools/inventory.py ../sdformat` expanded the actual existing reference
 build: 308 CTest targets, 1344 runtime cases, zero enumeration command failures,
-1068 static C++ test macros, and 1337 source/schema/fixture SHA256 entries.
-Generated test-result wrapper targets have no independent runtime cases. Static
-macros and runtime counts differ because fixtures/parameters and Python cases
-expand differently. Non-enumerable target commands remain explicit in inventory.
+1065 product C++ TEST macros, three example macro mentions in bundled gtest
+implementation code, and 1337 source/schema/fixture SHA256 entries. All 1344
+runtime cases map to an exact source path, line and symbol. One macro-wrapped
+platform-specific test name is normalized for the Linux runtime expansion.
+Generated test-result wrapper targets have no independent runtime cases. The 1065 product C++ source cases exactly reconcile to 1065 runtime C++ cases;
+279 Python cases account for the rest. Non-enumerable target commands remain explicit in inventory.
 All cases are pending unless specifically mapped in traceability.json; the
 reference build has not been rebuilt in a pinned reproducible image here.
 
@@ -25,11 +27,11 @@ python3 tools/reference_probe.py ../sdformat
 The first two fixture ports retain all six existence, resolve-success and pose
 assertions each, using gz-math's 1e-6 equality tolerance (quaternion sign is
 physically equivalent). The canonical-link port maps C++ pointer/index assertions
-to owned collections and verifies resolved scoped body identity. Independent
-assertion review remains recorded separately. Additional tests exercise a valid
+to owned collections and verifies resolved scoped body identity. These three complete ports were independently reviewed by /root against their
+original assertion bodies and committed in 7fa1fc2. Additional tests exercise a valid
 nested attachment fixture, typed physics input, graph failures, bounds, includes,
 provenance, plugins, and malformed input; these are supplementary tests, not a
-claim to port whole upstream families. The five-case native/Rust acceptance corpus
+claim to port whole upstream families. The native/Rust acceptance corpus
 proves canonical-link aliases and joint frame aliases are accepted, while same-body
 joint aliases and a world child are rejected. Diagnostic text/count parity is not
 claimed: Rust currently returns one classified diagnostic.
@@ -53,9 +55,26 @@ Exact versions plus transitives are locked. Custom code is SDF graph scoping and
 schema/domain validation, not generic XML, quaternion or graph algorithms.
 serde_json 1.0.150 is a test-only corpus dependency.
 
-Next bounded work: validate and type IMU-specific configuration; model/include
-placement frames and merge behavior with C++ probes; older conversions and
+The next bounded slice adds complete typed IMU-specific configuration and source
+mapping. The original DOMLink.Sensors IMU assertion subset passes in Rust on the
+exact IMU subtree from the unchanged sensors.sdf. All other sensor families in
+that source case remain pending, so the original case is not marked ported.
+The complete native DOMLink.Sensors case passes. Differential probes establish
+negative noise sigma rejection, case-insensitive gaussian_quantized, and native
+preservation of unknown localization/parent-frame strings. Original sensor XML
+is retained with typed settings. The full upstream fixture has an undeclared XML
+prefix in another sensor, which roxmltree rejects; exact-subtree extraction keeps
+the relevant IMU bytes unchanged and does not hide that open syntax compatibility
+gap. This slice has 18 Rust tests and six gate tests; coverage independently reviewed by /root is 1193/1201 lines, 2077/2164 regions, and 117/118 changed
+executable lines. No coverage exclusion was introduced.
+
+Next bounded work: model/include placement frames and merge behavior with C++ probes; older conversions and
 serialization; complete schema and retained test inventory, fuzzing, and native
 parse benchmarks on tiny and large nested inputs. No comparative performance
 claim, full upstream pass, full source/build provenance, or release qualification
 is supported by this initial slice.
+
+Known inherited frame-scope defect found by a subsequent native probe: model-local
+link pose/attachment and canonical-link references incorrectly accept `world`.
+Native rejects those references; separate local/public lookup validation is the
+next corrective slice before expanding placement frames.

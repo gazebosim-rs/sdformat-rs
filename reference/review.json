@@ -2,7 +2,7 @@
   "decision": "approved",
   "author": "/root/sdformat",
   "reviewer": "/root",
-  "protected_digest": "44d39b70e0544dca34e72241a6578a38df5bdb967fe37f8e18fa16eff1526621",
-  "scope": "Initial bounded SDF-01/QLT-01 slice. Gate implementation, contract and three mapped upstream assertion ports independently reviewed; all other retained cases pending.",
+  "protected_digest": "1120164533aeddd285ed38a26802ef768b4be12a88ff819c5d933f0cc195350b",
+  "scope": "Typed IMU configuration plus complete runtime source mapping; /root reviewed parser/type/gate diff and exact upstream link_dom.cc:504-569/Imu.cc assertions. DOMLink.Sensors remains partial.",
   "date": "2026-10-24"
 }

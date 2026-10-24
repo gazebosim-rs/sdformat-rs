@@ -204,6 +204,7 @@ impl Parser<'_> {
         let attrs: &[&str] = match node.tag_name().name() {
             "pose" => &["relative_to", "degrees", "rotation_format"],
             "xyz" => &["expressed_in"],
+            "custom_rpy" | "grav_dir_x" => &["parent_frame"],
             _ => &[],
         };
         self.allowed(node, &[], attrs)?;
@@ -673,10 +674,120 @@ impl Parser<'_> {
             source: self.source(node),
         })
     }
+    fn imu(&self, sensor: Node<'_, '_>) -> Result<Imu, Diagnostic> {
+        let Some(node) = child(sensor, "imu") else {
+            return Ok(Imu::default());
+        };
+        self.allowed(
+            node,
+            &[
+                "angular_velocity",
+                "linear_acceleration",
+                "orientation_reference_frame",
+                "enable_orientation",
+            ],
+            &[],
+        )?;
+        let mut imu = Imu {
+            enable_orientation: self.boolean(node, "enable_orientation", true)?,
+            ..Imu::default()
+        };
+        for (name, noises) in [
+            ("angular_velocity", &mut imu.angular_velocity),
+            ("linear_acceleration", &mut imu.linear_acceleration),
+        ] {
+            if let Some(vector) = child(node, name) {
+                self.allowed(vector, &["x", "y", "z"], &[])?;
+                for (i, component) in ["x", "y", "z"].iter().enumerate() {
+                    if let Some(axis) = child(vector, component) {
+                        self.allowed(axis, &["noise"], &[])?;
+                        if let Some(noise) = child(axis, "noise") {
+                            noises[i] = self.noise(noise)?;
+                        }
+                    }
+                }
+            }
+        }
+        if let Some(reference) = child(node, "orientation_reference_frame") {
+            self.allowed(
+                reference,
+                &["localization", "custom_rpy", "grav_dir_x"],
+                &[],
+            )?;
+            if child(reference, "localization").is_some() {
+                imu.localization = self.text(reference, "localization")?;
+            }
+            if let Some(rpy) = child(reference, "custom_rpy") {
+                imu.custom_rpy = self.values(rpy)?;
+                imu.custom_rpy_parent_frame = rpy.attribute("parent_frame").unwrap_or("").into();
+            }
+            if let Some(gravity) = child(reference, "grav_dir_x") {
+                imu.gravity_dir_x = self.values(gravity)?;
+                imu.gravity_dir_x_parent_frame =
+                    gravity.attribute("parent_frame").unwrap_or("").into();
+            }
+        }
+        Ok(imu)
+    }
+    fn noise(&self, node: Node<'_, '_>) -> Result<Noise, Diagnostic> {
+        self.allowed(
+            node,
+            &[
+                "mean",
+                "stddev",
+                "bias_mean",
+                "bias_stddev",
+                "dynamic_bias_stddev",
+                "dynamic_bias_correlation_time",
+                "precision",
+            ],
+            &["type"],
+        )?;
+        let kind = match node
+            .attribute("type")
+            .unwrap_or("none")
+            .to_ascii_lowercase()
+            .as_str()
+        {
+            "none" => NoiseKind::None,
+            "gaussian" => NoiseKind::Gaussian,
+            "gaussian_quantized" => NoiseKind::GaussianQuantized,
+            _ => return Err(self.err(node, ErrorCode::InvalidValue, "invalid noise type")),
+        };
+        let noise = Noise {
+            kind,
+            mean: self.scalar(node, "mean", 0.)?,
+            stddev: self.scalar(node, "stddev", 0.)?,
+            bias_mean: self.scalar(node, "bias_mean", 0.)?,
+            bias_stddev: self.scalar(node, "bias_stddev", 0.)?,
+            dynamic_bias_stddev: self.scalar(node, "dynamic_bias_stddev", 0.)?,
+            dynamic_bias_correlation_time: self.scalar(
+                node,
+                "dynamic_bias_correlation_time",
+                0.,
+            )?,
+            precision: self.scalar(node, "precision", 0.)?,
+        };
+        if noise.stddev < 0. || noise.bias_stddev < 0. || noise.dynamic_bias_stddev < 0. {
+            return Err(self.err(
+                node,
+                ErrorCode::InvalidValue,
+                "noise standard deviations must be nonnegative",
+            ));
+        }
+        Ok(noise)
+    }
     fn sensor(&self, node: Node<'_, '_>) -> Result<Sensor, Diagnostic> {
         self.allowed(
             node,
-            &["pose", "update_rate", "always_on", "topic", "imu"],
+            &[
+                "pose",
+                "update_rate",
+                "always_on",
+                "enable_metrics",
+                "topic",
+                "imu",
+            ],
             &["name", "type"],
         )?;
         let kind = self.attr(node, "type")?;
@@ -697,6 +808,8 @@ impl Parser<'_> {
             pose: self.pose(node)?,
             update_rate,
             always_on: self.boolean(node, "always_on", false)?,
+            enable_metrics: self.boolean(node, "enable_metrics", false)?,
+            imu: self.imu(node)?,
             topic: child(node, "topic")
                 .map_or(String::new(), |n| n.text().unwrap_or("").trim().into()),
             configuration_xml: child(node, "imu")

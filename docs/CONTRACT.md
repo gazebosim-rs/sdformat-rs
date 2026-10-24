@@ -26,9 +26,15 @@ in kg·m² and inertial-frame pose. Positive physical inertia is required.
 Negative effort/velocity sentinels become positive infinity. Axis resolution
 rotates into the requested frame without translation. Joint endpoint frames may
 be aliases, but must resolve to different bodies; the child cannot be world.
-`Sensor` currently supports only an IMU envelope: pose, rate in Hz, always_on,
-topic, and original IMU-specific XML. Typed/schema-validated IMU settings remain
-pending; this is not a fully validated sensor contract yet.
+`Sensor` supports IMU pose, rate in Hz, always_on, enable_metrics, topic, typed
+`Imu` settings and original IMU XML. The six per-axis `Noise` records retain type,
+mean, standard deviation, bias mean/deviation, dynamic bias deviation/correlation
+time, and precision. Standard deviations are nonnegative; noise types are case
+insensitive. IMU orientation enable, localization, custom RPY and gravity direction
+with their parent-frame strings preserve native defaults. Localization and parent
+frame strings remain unconstrained at load time, matching the native DOM; their
+runtime interpretation belongs to the sensor implementation. No noise is sampled
+by this parser.
 `Plugin` retains exact original XML including extension attributes/content.
 
 All transforms use f64 metres and unit quaternions [x,y,z,w]. Raw poses retain
@@ -50,5 +56,7 @@ Versions 1.8–1.12 share empty upstream conversion scripts in the supported sub
 Older unflatten/rename conversions are unsupported. Full schema/version-aware
 validation, serialization, visual/material data, mesh/resources, merge and
 placement frames, automatic inertia, URDF, other sensor families and most other
-SDF features remain pending. Unknown schema features error; opaque plugin XML
-and currently opaque IMU-specific XML are the stated exceptions.
+SDF features remain pending. Unknown schema features error; opaque plugin XML is the stated exception.
+The XML library currently requires namespace prefixes to be declared, whereas
+upstream permits undeclared prefixes in extension element names; that compatibility
+gap remains open.

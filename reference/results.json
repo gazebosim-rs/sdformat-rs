@@ -13,10 +13,16 @@
       "sha256": "0c0b02584eb3fa678770afb132d9e21cb4fefcd8533a51cf8373f2e69a384680",
       "args": "--gtest_filter=DOMRoot.LoadNestedExplicitCanonicalLink",
       "result": "passed"
+    },
+    {
+      "binary": "INTEGRATION_link_dom",
+      "sha256": "5996c21878cab1dacd0d653c50bfdcf4a02c8064157855ae6136471939582716",
+      "args": "--gtest_filter=DOMLink.Sensors",
+      "result": "passed; partial Rust assertion mapping only"
     }
   ],
   "corpus": {
-    "corpus_sha256": "2f04b28bf8bd6330be691b69fc8d4b7b4e4230640b8327dfb158ee0cc2fbccbc",
+    "corpus_sha256": "5d9b447058d11f705305efc12aa0a31390d37d0e1bcb934c38eae0dc0012af03",
     "results": [
       {
         "id": "canonical_link_alias",
@@ -42,6 +48,21 @@
         "id": "joint_world_child",
         "accepted": false,
         "errors": "Error Code 20: Msg: Joint with name[j] specified invalid child link [world].\nError Code 20: Msg: Child frame with name[world] specified by joint with name[j] not found in model with name[m].\nError Code 25: Msg: FrameAttachedToGraph error, Non-LINK vertex with name [m::j] is disconnected; it should have 1 outgoing edge in MODEL attached_to graph.\nError Code 25: Msg: Graph has __model__ scope but sink vertex named [m::j] does not have FrameType LINK or STATIC_MODEL when starting from vertex with name [m::j].\nError Code 26: Msg: relative_to name[world] specified by joint with name[j] does not match a nested model, link, joint, or frame name in model with name[m].\nError Code 28: Msg: PoseRelativeToGraph error, Vertex with name [m::j] is disconnected; it should have 1 incoming edge in MODEL relative_to graph.\nError Code 28: Msg: PoseRelativeToGraph unable to find path to source vertex when starting from vertex with id [4].\nError Code 20: Msg: invalid child name[world] specified by joint with name[j] in model with name[m].\nError Code 20: Msg: child frame with name[world] specified by joint with name[j] not found in model with name[m].\nError Code 23: Msg: FrameAttachedToGraph unable to find unique frame with name [world] in graph.\n"
+      },
+      {
+        "id": "negative_noise_stddev",
+        "accepted": false,
+        "errors": "Error Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/sensor[@name=\"s\"]/imu/angular_velocity/x/noise/stddev:<data-string>:L1]: Msg: Error reading element <stddev>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/sensor[@name=\"s\"]/imu/angular_velocity/x/noise:<data-string>:L1]: Msg: Error reading element <noise>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/sensor[@name=\"s\"]/imu/angular_velocity/x:<data-string>:L1]: Msg: Error reading element <x>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/sensor[@name=\"s\"]/imu/angular_velocity:<data-string>:L1]: Msg: Error reading element <angular_velocity>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/sensor[@name=\"s\"]/imu:<data-string>:L1]: Msg: Error reading element <imu>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/sensor[@name=\"s\"]:<data-string>:L1]: Msg: Error reading element <sensor>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]:<data-string>:L1]: Msg: Error reading element <link>\nError Code 9: [/sdf/model[@name=\"m\"]:<data-string>:L1]: Msg: Error reading element <model>\nError Code 9: Msg: Error reading element <sdf>\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><angular_velocity><x><noise type='gaussian'><stddev>-1</stddev></noise></x></angular_velocity></imu></sensor></link></model></sdf>\n"
+      },
+      {
+        "id": "case_insensitive_noise",
+        "accepted": true,
+        "errors": ""
+      },
+      {
+        "id": "free_imu_orientation_strings",
+        "accepted": true,
+        "errors": ""
       }
     ]
   }

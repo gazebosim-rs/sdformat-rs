@@ -5,7 +5,7 @@ use crate::graph::{Graphs, error, join};
 use crate::xml::{Document, Node, legacy_whitespace};
 use crate::*;
 use glam::{DQuat, DVec3, EulerRot};
-use std::collections::BTreeSet;
+use std::{borrow::Cow, collections::BTreeSet};
 
 pub(crate) fn load(
     xml: &str,
@@ -198,13 +198,14 @@ impl Parser<'_> {
     }
     fn number(&self, node: Node<'_, '_>, default: f64) -> Result<f64, Diagnostic> {
         self.allowed(node, &[], &[])?;
-        let text = node.text().unwrap_or("").trim_matches(legacy_whitespace);
+        let text = param_text(node);
         if text.is_empty() {
             return Ok(default);
         }
         // A numeric prefix followed by whitespace is valid natively. Leading
         // Unicode whitespace is not C whitespace and must not be discarded.
-        text.trim_end()
+        text.trim_start_matches(legacy_whitespace)
+            .trim_end()
             .parse::<f64>()
             .ok()
             .filter(|v| v.is_finite())
@@ -218,17 +219,8 @@ impl Parser<'_> {
             None => Ok(default),
             Some(n) => {
                 self.allowed(n, &[], &[])?;
-                let text = n.text().unwrap_or("");
-                let text = if n.text_is_cdata() {
-                    text
-                } else {
-                    text.trim_matches(legacy_whitespace)
-                };
-                match text
-                    .trim_matches([' ', '\t', '\n'])
-                    .to_ascii_lowercase()
-                    .as_str()
-                {
+                let text = param_text(n);
+                match text.to_ascii_lowercase().as_str() {
                     "true" | "1" => Ok(true),
                     "false" | "0" => Ok(false),
                     "" => Ok(default),
@@ -845,11 +837,7 @@ impl Parser<'_> {
         default: f64,
     ) -> Result<f64, Diagnostic> {
         if let Some(value) = child(node, name)
-            && value
-                .text()
-                .unwrap_or("")
-                .trim_matches(legacy_whitespace)
-                .is_empty()
+            && param_text(value).is_empty()
         {
             return Err(self.err(value, ErrorCode::Missing, format!("missing {name}")));
         }
@@ -860,7 +848,7 @@ impl Parser<'_> {
             return Ok(default);
         };
         self.allowed(value, &[], &[])?;
-        let text = value.text().unwrap_or("").trim_matches([' ', '\t', '\n']);
+        let text = param_text(value);
         if text.is_empty() {
             return Ok(default);
         }
@@ -868,7 +856,7 @@ impl Parser<'_> {
         let text = match lower.as_str() {
             "true" => "1",
             "false" => "0",
-            _ => text,
+            _ => text.as_ref(),
         };
         // Param.cc uses Linux stoul, then casts to unsigned int: a numeric
         // prefix is enough, negative values and the final u32 cast wrap.
@@ -912,21 +900,11 @@ impl Parser<'_> {
             return Ok(default.into());
         };
         self.allowed(value, &[], &[])?;
-        let text = value.text().unwrap_or("");
-        // TinyXML collapses ordinary text; CDATA retains whitespace before
-        // Param's distinct space/tab/LF trim.
-        let text = if value.text_is_cdata() {
-            text.trim_matches([' ', '\t', '\n']).to_string()
-        } else {
-            text.split(legacy_whitespace)
-                .filter(|part| !part.is_empty())
-                .collect::<Vec<_>>()
-                .join(" ")
-        };
+        let text = param_text(value);
         if text.is_empty() {
             return Err(self.err(value, ErrorCode::Missing, format!("missing {name}")));
         }
-        Ok(text)
+        Ok(text.into_owned())
     }
     fn mesh(&self, shape: Node<'_, '_>) -> Result<Mesh, Diagnostic> {
         self.allowed(
@@ -937,11 +915,7 @@ impl Parser<'_> {
         let uri = self.mesh_string(shape, "uri", "__default__")?;
         let scale = child(shape, "scale").map_or(Ok([1.; 3]), |n| {
             self.allowed(n, &[], &[])?;
-            if n.text()
-                .unwrap_or("")
-                .trim_matches(legacy_whitespace)
-                .is_empty()
-            {
+            if param_text(n).is_empty() {
                 Ok([1.; 3])
             } else {
                 self.values(n)
@@ -1305,4 +1279,24 @@ fn validate_model(model: &Model, graphs: &Graphs) -> Result<(), Diagnostic> {
 // Utils.cc reserves a surrounding pair of double underscores, not every prefix.
 fn reserved_name(name: &str) -> bool {
     name == "world" || (name.len() >= 4 && name.starts_with("__") && name.ends_with("__"))
+}
+
+// TinyXML collapses ordinary text before Param's space/tab/LF trim. CDATA
+// skips that collapse, so VT/FF alone remain invalid numeric input.
+fn param_text<'a>(node: Node<'a, '_>) -> Cow<'a, str> {
+    let text = node.text().unwrap_or("");
+    if node.text_is_cdata() {
+        return Cow::Borrowed(text.trim_matches([' ', '\t', '\n']));
+    }
+    let text = text.trim_matches(legacy_whitespace);
+    if text.contains("  ") || text.chars().any(|c| c != ' ' && legacy_whitespace(c)) {
+        Cow::Owned(
+            text.split(legacy_whitespace)
+                .filter(|part| !part.is_empty())
+                .collect::<Vec<_>>()
+                .join(" "),
+        )
+    } else {
+        Cow::Borrowed(text)
+    }
 }

@@ -1145,5 +1145,305 @@
     "id": "mesh_center_nbsp",
     "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><mesh><uri>a.dae</uri><submesh><name>p</name><center>&#160;true</center></submesh></mesh></geometry></collision></link></model></sdf>",
     "accepted": false
+  },
+  {
+    "id": "optional_count_reference_vt",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><mesh><uri>a</uri><convex_decomposition><max_convex_hulls>&#11;</max_convex_hulls></convex_decomposition></mesh></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "geometry": {
+      "kind": "mesh",
+      "uri": "a",
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "submesh": "",
+      "center_submesh": false,
+      "optimization": "",
+      "convex_decomposition": [
+        16,
+        200000
+      ]
+    }
+  },
+  {
+    "id": "optional_scale_reference_vt",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><mesh><uri>a</uri><scale>&#11;</scale></mesh></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "geometry": {
+      "kind": "mesh",
+      "uri": "a",
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "submesh": "",
+      "center_submesh": false,
+      "optimization": "",
+      "convex_decomposition": null
+    }
+  },
+  {
+    "id": "optional_mass_reference_vt",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial><mass>&#11;</mass></inertial></link></model></sdf>",
+    "accepted": true,
+    "link_mass": 1.0
+  },
+  {
+    "id": "optional_count_reference_ff",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><mesh><uri>a</uri><convex_decomposition><max_convex_hulls>&#12;</max_convex_hulls></convex_decomposition></mesh></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "geometry": {
+      "kind": "mesh",
+      "uri": "a",
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "submesh": "",
+      "center_submesh": false,
+      "optimization": "",
+      "convex_decomposition": [
+        16,
+        200000
+      ]
+    }
+  },
+  {
+    "id": "optional_scale_reference_ff",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><mesh><uri>a</uri><scale>&#12;</scale></mesh></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "geometry": {
+      "kind": "mesh",
+      "uri": "a",
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "submesh": "",
+      "center_submesh": false,
+      "optimization": "",
+      "convex_decomposition": null
+    }
+  },
+  {
+    "id": "optional_mass_reference_ff",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial><mass>&#12;</mass></inertial></link></model></sdf>",
+    "accepted": true,
+    "link_mass": 1.0
+  },
+  {
+    "id": "optional_count_reference_cr",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><mesh><uri>a</uri><convex_decomposition><max_convex_hulls>&#13;</max_convex_hulls></convex_decomposition></mesh></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "geometry": {
+      "kind": "mesh",
+      "uri": "a",
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "submesh": "",
+      "center_submesh": false,
+      "optimization": "",
+      "convex_decomposition": [
+        16,
+        200000
+      ]
+    }
+  },
+  {
+    "id": "optional_scale_reference_cr",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><mesh><uri>a</uri><scale>&#13;</scale></mesh></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "geometry": {
+      "kind": "mesh",
+      "uri": "a",
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "submesh": "",
+      "center_submesh": false,
+      "optimization": "",
+      "convex_decomposition": null
+    }
+  },
+  {
+    "id": "optional_mass_reference_cr",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial><mass>&#13;</mass></inertial></link></model></sdf>",
+    "accepted": true,
+    "link_mass": 1.0
+  },
+  {
+    "id": "optional_count_cdata_vt",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><mesh><uri>a</uri><convex_decomposition><max_convex_hulls><![CDATA[\u000b]]></max_convex_hulls></convex_decomposition></mesh></geometry></collision></link></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "optional_scale_cdata_vt",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><mesh><uri>a</uri><scale><![CDATA[\u000b]]></scale></mesh></geometry></collision></link></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "optional_mass_cdata_vt",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial><mass><![CDATA[\u000b]]></mass></inertial></link></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "optional_count_cdata_ff",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><mesh><uri>a</uri><convex_decomposition><max_convex_hulls><![CDATA[\f]]></max_convex_hulls></convex_decomposition></mesh></geometry></collision></link></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "optional_scale_cdata_ff",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><mesh><uri>a</uri><scale><![CDATA[\f]]></scale></mesh></geometry></collision></link></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "optional_mass_cdata_ff",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial><mass><![CDATA[\f]]></mass></inertial></link></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "optional_count_cdata_cr",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><mesh><uri>a</uri><convex_decomposition><max_convex_hulls><![CDATA[\r]]></max_convex_hulls></convex_decomposition></mesh></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "geometry": {
+      "kind": "mesh",
+      "uri": "a",
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "submesh": "",
+      "center_submesh": false,
+      "optimization": "",
+      "convex_decomposition": [
+        16,
+        200000
+      ]
+    }
+  },
+  {
+    "id": "optional_scale_cdata_cr",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><mesh><uri>a</uri><scale><![CDATA[\r]]></scale></mesh></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "geometry": {
+      "kind": "mesh",
+      "uri": "a",
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "submesh": "",
+      "center_submesh": false,
+      "optimization": "",
+      "convex_decomposition": null
+    }
+  },
+  {
+    "id": "optional_mass_cdata_cr",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial><mass><![CDATA[\r]]></mass></inertial></link></model></sdf>",
+    "accepted": true,
+    "link_mass": 1.0
+  },
+  {
+    "id": "optional_count_cdata_lf",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><mesh><uri>a</uri><convex_decomposition><max_convex_hulls><![CDATA[\n]]></max_convex_hulls></convex_decomposition></mesh></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "geometry": {
+      "kind": "mesh",
+      "uri": "a",
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "submesh": "",
+      "center_submesh": false,
+      "optimization": "",
+      "convex_decomposition": [
+        16,
+        200000
+      ]
+    }
+  },
+  {
+    "id": "optional_scale_cdata_lf",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><mesh><uri>a</uri><scale><![CDATA[\n]]></scale></mesh></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "geometry": {
+      "kind": "mesh",
+      "uri": "a",
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "submesh": "",
+      "center_submesh": false,
+      "optimization": "",
+      "convex_decomposition": null
+    }
+  },
+  {
+    "id": "optional_mass_cdata_lf",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial><mass><![CDATA[\n]]></mass></inertial></link></model></sdf>",
+    "accepted": true,
+    "link_mass": 1.0
+  },
+  {
+    "id": "optional_count_cdata_tab",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><mesh><uri>a</uri><convex_decomposition><max_convex_hulls><![CDATA[\t]]></max_convex_hulls></convex_decomposition></mesh></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "geometry": {
+      "kind": "mesh",
+      "uri": "a",
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "submesh": "",
+      "center_submesh": false,
+      "optimization": "",
+      "convex_decomposition": [
+        16,
+        200000
+      ]
+    }
+  },
+  {
+    "id": "optional_scale_cdata_tab",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><mesh><uri>a</uri><scale><![CDATA[\t]]></scale></mesh></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "geometry": {
+      "kind": "mesh",
+      "uri": "a",
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "submesh": "",
+      "center_submesh": false,
+      "optimization": "",
+      "convex_decomposition": null
+    }
+  },
+  {
+    "id": "optional_mass_cdata_tab",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial><mass><![CDATA[\t]]></mass></inertial></link></model></sdf>",
+    "accepted": true,
+    "link_mass": 1.0
   }
 ]

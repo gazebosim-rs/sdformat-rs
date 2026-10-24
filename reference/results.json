@@ -1594,7 +1594,7 @@
     "whitespace": "Native C six-character whitespace bounds required scalar emptiness and vector separators; leading Unicode scalar whitespace rejects. Optional empty mesh scale uses schema default. Mesh URI/submesh strings collapse ordinary C whitespace and preserve CDATA before three-character Param trim. Scalar booleans distinguish ordinary text/CDATA likewise. Numeric prefixes with trailing whitespace retain existing native acceptance; general non-whitespace floating prefix parsing stays pending."
   },
   "geometry_corpus": {
-    "corpus_sha256": "503a3d137239dab01feceb73f8d899d96350ae3d8eeeee9a21c4838f4ca68fcb",
+    "corpus_sha256": "8b80f5dccd4f36db41d4774ee3501d0073d4b9e307da6d29291dea737895430a",
     "results": [
       {
         "id": "capsule_default",
@@ -2742,6 +2742,306 @@
         "id": "mesh_center_nbsp",
         "accepted": false,
         "errors": "Error Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/geometry/mesh/submesh/center:<data-string>:L1]: Msg: Error reading element <center>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/geometry/mesh/submesh:<data-string>:L1]: Msg: Error reading element <submesh>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/geometry/mesh:<data-string>:L1]: Msg: Error reading element <mesh>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/geometry:<data-string>:L1]: Msg: Error reading element <geometry>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]:<data-string>:L1]: Msg: Error reading element <collision>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]:<data-string>:L1]: Msg: Error reading element <link>\nError Code 9: [/sdf/model[@name=\"m\"]:<data-string>:L1]: Msg: Error reading element <model>\nError Code 9: Msg: Error reading element <sdf>\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><mesh><uri>a.dae</uri><submesh><name>p</name><center>&#160;true</center></submesh></mesh></geometry></collision></link></model></sdf>\n"
+      },
+      {
+        "id": "optional_count_reference_vt",
+        "accepted": true,
+        "errors": "",
+        "geometry": {
+          "kind": "mesh",
+          "uri": "a",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "submesh": "",
+          "center_submesh": false,
+          "optimization": "",
+          "convex_decomposition": [
+            16,
+            200000
+          ]
+        }
+      },
+      {
+        "id": "optional_scale_reference_vt",
+        "accepted": true,
+        "errors": "",
+        "geometry": {
+          "kind": "mesh",
+          "uri": "a",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "submesh": "",
+          "center_submesh": false,
+          "optimization": "",
+          "convex_decomposition": null
+        }
+      },
+      {
+        "id": "optional_mass_reference_vt",
+        "accepted": true,
+        "errors": "",
+        "link_mass": 1.0
+      },
+      {
+        "id": "optional_count_reference_ff",
+        "accepted": true,
+        "errors": "",
+        "geometry": {
+          "kind": "mesh",
+          "uri": "a",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "submesh": "",
+          "center_submesh": false,
+          "optimization": "",
+          "convex_decomposition": [
+            16,
+            200000
+          ]
+        }
+      },
+      {
+        "id": "optional_scale_reference_ff",
+        "accepted": true,
+        "errors": "",
+        "geometry": {
+          "kind": "mesh",
+          "uri": "a",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "submesh": "",
+          "center_submesh": false,
+          "optimization": "",
+          "convex_decomposition": null
+        }
+      },
+      {
+        "id": "optional_mass_reference_ff",
+        "accepted": true,
+        "errors": "",
+        "link_mass": 1.0
+      },
+      {
+        "id": "optional_count_reference_cr",
+        "accepted": true,
+        "errors": "",
+        "geometry": {
+          "kind": "mesh",
+          "uri": "a",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "submesh": "",
+          "center_submesh": false,
+          "optimization": "",
+          "convex_decomposition": [
+            16,
+            200000
+          ]
+        }
+      },
+      {
+        "id": "optional_scale_reference_cr",
+        "accepted": true,
+        "errors": "",
+        "geometry": {
+          "kind": "mesh",
+          "uri": "a",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "submesh": "",
+          "center_submesh": false,
+          "optimization": "",
+          "convex_decomposition": null
+        }
+      },
+      {
+        "id": "optional_mass_reference_cr",
+        "accepted": true,
+        "errors": "",
+        "link_mass": 1.0
+      },
+      {
+        "id": "optional_count_cdata_vt",
+        "accepted": false,
+        "errors": "Error Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/geometry/mesh/convex_decomposition/max_convex_hulls:<data-string>:L1]: Msg: Error reading element <max_convex_hulls>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/geometry/mesh/convex_decomposition:<data-string>:L1]: Msg: Error reading element <convex_decomposition>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/geometry/mesh:<data-string>:L1]: Msg: Error reading element <mesh>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/geometry:<data-string>:L1]: Msg: Error reading element <geometry>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]:<data-string>:L1]: Msg: Error reading element <collision>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]:<data-string>:L1]: Msg: Error reading element <link>\nError Code 9: [/sdf/model[@name=\"m\"]:<data-string>:L1]: Msg: Error reading element <model>\nError Code 9: Msg: Error reading element <sdf>\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><mesh><uri>a</uri><convex_decomposition><max_convex_hulls><![CDATA[\u000b]]></max_convex_hulls></convex_decomposition></mesh></geometry></collision></link></model></sdf>\n"
+      },
+      {
+        "id": "optional_scale_cdata_vt",
+        "accepted": false,
+        "errors": "Error Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/geometry/mesh/scale:<data-string>:L1]: Msg: Error reading element <scale>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/geometry/mesh:<data-string>:L1]: Msg: Error reading element <mesh>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/geometry:<data-string>:L1]: Msg: Error reading element <geometry>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]:<data-string>:L1]: Msg: Error reading element <collision>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]:<data-string>:L1]: Msg: Error reading element <link>\nError Code 9: [/sdf/model[@name=\"m\"]:<data-string>:L1]: Msg: Error reading element <model>\nError Code 9: Msg: Error reading element <sdf>\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><mesh><uri>a</uri><scale><![CDATA[\u000b]]></scale></mesh></geometry></collision></link></model></sdf>\n"
+      },
+      {
+        "id": "optional_mass_cdata_vt",
+        "accepted": false,
+        "errors": "Error Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/inertial/mass:<data-string>:L1]: Msg: Error reading element <mass>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/inertial:<data-string>:L1]: Msg: Error reading element <inertial>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]:<data-string>:L1]: Msg: Error reading element <link>\nError Code 9: [/sdf/model[@name=\"m\"]:<data-string>:L1]: Msg: Error reading element <model>\nError Code 9: Msg: Error reading element <sdf>\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.12'><model name='m'><link name='l'><inertial><mass><![CDATA[\u000b]]></mass></inertial></link></model></sdf>\n"
+      },
+      {
+        "id": "optional_count_cdata_ff",
+        "accepted": false,
+        "errors": "Error Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/geometry/mesh/convex_decomposition/max_convex_hulls:<data-string>:L1]: Msg: Error reading element <max_convex_hulls>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/geometry/mesh/convex_decomposition:<data-string>:L1]: Msg: Error reading element <convex_decomposition>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/geometry/mesh:<data-string>:L1]: Msg: Error reading element <mesh>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/geometry:<data-string>:L1]: Msg: Error reading element <geometry>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]:<data-string>:L1]: Msg: Error reading element <collision>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]:<data-string>:L1]: Msg: Error reading element <link>\nError Code 9: [/sdf/model[@name=\"m\"]:<data-string>:L1]: Msg: Error reading element <model>\nError Code 9: Msg: Error reading element <sdf>\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><mesh><uri>a</uri><convex_decomposition><max_convex_hulls><![CDATA[\f]]></max_convex_hulls></convex_decomposition></mesh></geometry></collision></link></model></sdf>\n"
+      },
+      {
+        "id": "optional_scale_cdata_ff",
+        "accepted": false,
+        "errors": "Error Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/geometry/mesh/scale:<data-string>:L1]: Msg: Error reading element <scale>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/geometry/mesh:<data-string>:L1]: Msg: Error reading element <mesh>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/geometry:<data-string>:L1]: Msg: Error reading element <geometry>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]:<data-string>:L1]: Msg: Error reading element <collision>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]:<data-string>:L1]: Msg: Error reading element <link>\nError Code 9: [/sdf/model[@name=\"m\"]:<data-string>:L1]: Msg: Error reading element <model>\nError Code 9: Msg: Error reading element <sdf>\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><mesh><uri>a</uri><scale><![CDATA[\f]]></scale></mesh></geometry></collision></link></model></sdf>\n"
+      },
+      {
+        "id": "optional_mass_cdata_ff",
+        "accepted": false,
+        "errors": "Error Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/inertial/mass:<data-string>:L1]: Msg: Error reading element <mass>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/inertial:<data-string>:L1]: Msg: Error reading element <inertial>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]:<data-string>:L1]: Msg: Error reading element <link>\nError Code 9: [/sdf/model[@name=\"m\"]:<data-string>:L1]: Msg: Error reading element <model>\nError Code 9: Msg: Error reading element <sdf>\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.12'><model name='m'><link name='l'><inertial><mass><![CDATA[\f]]></mass></inertial></link></model></sdf>\n"
+      },
+      {
+        "id": "optional_count_cdata_cr",
+        "accepted": true,
+        "errors": "",
+        "geometry": {
+          "kind": "mesh",
+          "uri": "a",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "submesh": "",
+          "center_submesh": false,
+          "optimization": "",
+          "convex_decomposition": [
+            16,
+            200000
+          ]
+        }
+      },
+      {
+        "id": "optional_scale_cdata_cr",
+        "accepted": true,
+        "errors": "",
+        "geometry": {
+          "kind": "mesh",
+          "uri": "a",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "submesh": "",
+          "center_submesh": false,
+          "optimization": "",
+          "convex_decomposition": null
+        }
+      },
+      {
+        "id": "optional_mass_cdata_cr",
+        "accepted": true,
+        "errors": "",
+        "link_mass": 1.0
+      },
+      {
+        "id": "optional_count_cdata_lf",
+        "accepted": true,
+        "errors": "",
+        "geometry": {
+          "kind": "mesh",
+          "uri": "a",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "submesh": "",
+          "center_submesh": false,
+          "optimization": "",
+          "convex_decomposition": [
+            16,
+            200000
+          ]
+        }
+      },
+      {
+        "id": "optional_scale_cdata_lf",
+        "accepted": true,
+        "errors": "",
+        "geometry": {
+          "kind": "mesh",
+          "uri": "a",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "submesh": "",
+          "center_submesh": false,
+          "optimization": "",
+          "convex_decomposition": null
+        }
+      },
+      {
+        "id": "optional_mass_cdata_lf",
+        "accepted": true,
+        "errors": "",
+        "link_mass": 1.0
+      },
+      {
+        "id": "optional_count_cdata_tab",
+        "accepted": true,
+        "errors": "",
+        "geometry": {
+          "kind": "mesh",
+          "uri": "a",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "submesh": "",
+          "center_submesh": false,
+          "optimization": "",
+          "convex_decomposition": [
+            16,
+            200000
+          ]
+        }
+      },
+      {
+        "id": "optional_scale_cdata_tab",
+        "accepted": true,
+        "errors": "",
+        "geometry": {
+          "kind": "mesh",
+          "uri": "a",
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "submesh": "",
+          "center_submesh": false,
+          "optimization": "",
+          "convex_decomposition": null
+        }
+      },
+      {
+        "id": "optional_mass_cdata_tab",
+        "accepted": true,
+        "errors": "",
+        "link_mass": 1.0
       }
     ]
   },
@@ -3109,5 +3409,12 @@
         "errors": "Error Code 3: Msg: The supplied sensor name [world] is reserved.\n"
       }
     ]
+  },
+  "typed_text_followup": {
+    "source": "src/parser.cc readValue / Param.cc ValueFromStringImpl, TinyXML COLLAPSE_WHITESPACE versus CDATA",
+    "implemented": "Shared borrowed typed-text adapter: ordinary XML C whitespace collapses before Param three-character trim; CDATA skips collapse. Optional numeric ordinary references VT/FF/CR use defaults, while CDATA VT/FF remain nonempty invalid numeric input. Literal CDATA CR normalizes to LF through XML library, then defaults. Required fields retain rejection; mesh strings/booleans share adapter.",
+    "native_cases": 24,
+    "scope": "No full floating-prefix/nonfinite or complete string/attribute schema parity claim. Existing original assertion mappings unchanged.",
+    "review": "/root/msgs; 2026-10-24; Param SetFromString/ValueFromString and cursor text-origin rules independently compared; Cow normal/CDATA adapter and required/optional distinctions approved. Independently reran62 Rust tests,11 tooling tests and139 differential+111 geometry+72 names native observations; corpus hash verified. No dependency, gate or assertion weakening; general float-prefix/nonfinite gaps explicitly unchanged."
   }
 }

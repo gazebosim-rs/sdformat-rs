@@ -322,3 +322,20 @@ coverage2001/2022 lines,3463/3573 regions; changed176/178. The production delta
 and all new test bytes are identical to the isolated reviewed candidate; the
 native probe keeps its existing declaration-name/body observations unchanged.
 Final independent integration receipt and strict frozen staged gate are required.
+
+A focused follow-up to the reviewed geometry snapshot fixes24 additional native
+optional-number controls before publication. Ordinary VT/FF/CR references collapse
+to empty and receive field defaults; CDATA VT/FF remain nonempty and must fail
+numeric parsing. Literal CDATA CR normalizes to LF in the XML library and then
+uses defaults. The same distinctions apply to mesh decomposition counts, mesh
+scale and mass. A shared borrowed typed-text adapter now serves scalar numbers,
+booleans, unsigned counts, mesh strings and optional scale checks. Common already
+normalized values borrow their storage; whitespace collapse allocates only when
+needed. Original assertion mappings are unchanged.
+
+All62 Rust tests,11 tooling tests and139+111+72 native observations pass.
+Coverage1997/2018 lines,3455/3565 regions, changed24/24. No dependency,
+exclusion or threshold change. Independent /root/msgs follow-up review reran
+all62 Rust/11 tooling tests and322 native observations and approved the exact
+source/text-origin contracts. Strict staged gate remains required; general
+floating-prefix/nonfinite parity stays pending.

@@ -169,3 +169,8 @@ Required scalar blank recognition and vector splitting use native C whitespace,
 not Unicode whitespace. Mesh URI/submesh text collapses ordinary C whitespace;
 CDATA retains internal whitespace before the native space/tab/LF string trim.
 Boolean parsing likewise keeps ordinary and CDATA whitespace rules distinct.
+
+Optional numeric fields distinguish XML text origin. Ordinary whitespace-only
+references collapse to empty and use defaults. CDATA VT/FF do not collapse and
+therefore fail numeric parsing; XML-normalized CDATA CR becomes LF and trims
+empty. This applies to optional mass, mesh scale and decomposition counts.

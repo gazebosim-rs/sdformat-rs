@@ -50,6 +50,13 @@ fn native_geometry_metadata_and_default_corpus() {
             case["accepted"].as_bool().unwrap(),
             "{case}"
         );
+        if let Some(expected) = case.get("link_mass") {
+            assert_eq!(
+                result.as_ref().unwrap().models[0].links[0].inertial.mass,
+                expected.as_f64().unwrap(),
+                "{case}"
+            );
+        }
         if let Some(expected) = case.get("geometry") {
             let sdf = result.unwrap();
             assert_eq!(

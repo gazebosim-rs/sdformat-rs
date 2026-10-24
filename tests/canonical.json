@@ -1,0 +1,104 @@
+[
+  {
+    "id": "direct",
+    "xml": "<sdf version='1.12'><model name='m'><link name='first'/><link name='second'/></model></sdf>",
+    "name": "first",
+    "link": "first"
+  },
+  {
+    "id": "direct_before_nested",
+    "xml": "<sdf version='1.12'><model name='m'><model name='inner'><link name='nested'/></model><link name='direct'/></model></sdf>",
+    "name": "direct",
+    "link": "direct"
+  },
+  {
+    "id": "nested_static",
+    "xml": "<sdf version='1.12'><model name='m'><model name='inner'><static>true</static><link name='nested'/></model></model></sdf>",
+    "name": "inner::nested",
+    "link": "nested"
+  },
+  {
+    "id": "nested_dynamic",
+    "xml": "<sdf version='1.12'><model name='m'><model name='inner'><link name='nested'/></model></model></sdf>",
+    "name": "inner::nested",
+    "link": "nested"
+  },
+  {
+    "id": "parent_static",
+    "xml": "<sdf version='1.12'><model name='m'><static>true</static><model name='inner'><link name='nested'/></model></model></sdf>",
+    "name": "inner::nested",
+    "link": "nested"
+  },
+  {
+    "id": "empty_static",
+    "xml": "<sdf version='1.12'><model name='m'><static>true</static></model></sdf>",
+    "name": "",
+    "link": null
+  },
+  {
+    "id": "first_empty_nested",
+    "xml": "<sdf version='1.12'><model name='m'><model name='first'><static>true</static></model><model name='second'><link name='l'/></model></model></sdf>",
+    "name": "",
+    "link": null
+  },
+  {
+    "id": "first_nested_over_later",
+    "xml": "<sdf version='1.12'><model name='m'><model name='first'><link name='a'/></model><model name='second'><link name='b'/></model></model></sdf>",
+    "name": "first::a",
+    "link": "a"
+  },
+  {
+    "id": "explicit",
+    "xml": "<sdf version='1.12'><model name='m' canonical_link='chosen'><link name='first'/><link name='chosen'/></model></sdf>",
+    "name": "chosen",
+    "link": "chosen"
+  },
+  {
+    "id": "explicit_nested",
+    "xml": "<sdf version='1.12'><model name='m' canonical_link='inner::chosen'><link name='first'/><model name='inner'><link name='chosen'/></model></model></sdf>",
+    "name": "inner::chosen",
+    "link": "chosen"
+  },
+  {
+    "id": "explicit_deep",
+    "xml": "<sdf version='1.12'><model name='m' canonical_link='inner::deep::chosen'><model name='inner'><model name='deep'><link name='chosen'/></model></model></model></sdf>",
+    "name": "inner::deep::chosen",
+    "link": "chosen"
+  },
+  {
+    "id": "explicit_frame",
+    "xml": "<sdf version='1.12'><model name='m' canonical_link='alias'><link name='l'/><frame name='alias' attached_to='l'/></model></sdf>",
+    "name": "alias",
+    "link": null
+  },
+  {
+    "id": "nested_explicit_frame",
+    "xml": "<sdf version='1.12'><model name='m'><model name='inner' canonical_link='alias'><link name='l'/><frame name='alias' attached_to='l'/></model></model></sdf>",
+    "name": "inner::alias",
+    "link": null
+  },
+  {
+    "id": "static_explicit_invalid",
+    "xml": "<sdf version='1.12'><model name='m' canonical_link='missing'><static>true</static><link name='l'/></model></sdf>",
+    "name": "missing",
+    "link": null
+  },
+  {
+    "id": "static_missing_scope",
+    "xml": "<sdf version='1.12'><model name='m' canonical_link='absent::link'><static>true</static><link name='l'/><model name='inner'><link name='nested'/></model></model></sdf>",
+    "name": "absent::link",
+    "link": null
+  },
+  {
+    "id": "static_self_scope",
+    "xml": "<sdf version='1.12'><model name='m' canonical_link='m::l'><static>true</static><link name='l'/><model name='inner'><link name='nested'/></model></model></sdf>",
+    "name": "m::l",
+    "link": null
+  },
+  {
+    "id": "static_nested_missing_link",
+    "xml": "<sdf version='1.12'><model name='m' canonical_link='inner::absent'><static>true</static><link name='l'/><model name='inner'><link name='nested'/></model></model></sdf>",
+    "name": "inner::absent",
+    "link": null
+  }
+]

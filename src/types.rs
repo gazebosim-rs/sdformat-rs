@@ -213,6 +213,44 @@ pub struct Model {
     pub plugins: Vec<Plugin>,
     pub source: Source,
 }
+impl Model {
+    /// Native DOM canonical-link selection, independently of static attachments.
+    /// The name is relative to this model. An explicit frame alias can produce
+    /// a nonempty name with no link. Only the first nested model is considered.
+    pub fn canonical_link_and_relative_name(&self) -> (Option<&Link>, String) {
+        if !self.canonical_link.is_empty() {
+            return (
+                self.link_by_relative_name(&self.canonical_link),
+                self.canonical_link.clone(),
+            );
+        }
+        if let Some(link) = self.links.first() {
+            return (Some(link), link.name.clone());
+        }
+        if let Some(model) = self.models.first() {
+            let (link, name) = model.canonical_link_and_relative_name();
+            return (
+                link,
+                if name.is_empty() {
+                    name
+                } else {
+                    format!("{}::{name}", model.name)
+                },
+            );
+        }
+        (None, String::new())
+    }
+    fn link_by_relative_name(&self, name: &str) -> Option<&Link> {
+        if let Some((model, remaining)) = name.split_once("::") {
+            self.models
+                .iter()
+                .find(|candidate| candidate.name == model)?
+                .link_by_relative_name(remaining)
+        } else {
+            self.links.iter().find(|link| link.name == name)
+        }
+    }
+}
 #[derive(Debug)]
 pub struct Frame {
     pub name: String,

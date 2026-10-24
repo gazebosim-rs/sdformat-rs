@@ -3444,5 +3444,21 @@
     },
     "observations": 24,
     "scope": "Sensor::Load string normalization and __default__ sentinel only; runtime transport repair/qualification caller-owned; supported scalar leaf restrictions explicit. No original full case retired."
+  },
+  "canonical_dom_selection": {
+    "upstream_sha": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "corpus_sha256": "16d3f6d405a3b3bcbe0eb8ac4ad073449f7968ebbdd6a482b9cd286f80d286ef",
+    "probe_source_sha256": "0a393a59e77da51719130657e5df2d50e3bac89b870598db7eb6da32f2ddb94e",
+    "probe_binary_sha256": "03b3adf9ef733738fe0b860586246a3b327206e67cbf165e2a8495a928269f53",
+    "source_sha256": {
+      "src/Model.cc": "9ce157bcd85ad233af6022192315ffa61ff5374490f8912f6750c98a0448d8d9",
+      "include/sdf/Model.hh": "efc07cccb992ee8a0cd881e644454fb73b82260085e38567e5573573dc105e2d"
+    },
+    "original_native_test": "DOMRoot.LoadNestedExplicitCanonicalLink",
+    "original_native_binary_sha256": "0c0b02584eb3fa678770afb132d9e21cb4fefcd8533a51cf8373f2e69a384680",
+    "original_source_sha256": "44b015ab999638962129dad19296cc98bdfb44716e5bf33ba3a9b0f98166ee40",
+    "observations": 17,
+    "scope": "DOM canonical-link selection independent of static/attachment resolution; explicit frame aliases preserve names with None links; interface models/flattened names remain unsupported. Existing original port gains direct pointer/name checks, no new full case retired.",
+    "review": "Implementation and original pointer/name assertions independently reviewed by /root/msgs against pinned sources and17native controls; integrated frame/topic overlap still requires final exact review."
   }
 }

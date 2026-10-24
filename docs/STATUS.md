@@ -361,3 +361,14 @@ remain explicitly Unsupported. Working66 Rust tests, fmt/clippy and coverage
 2012/2033 lines,3483/3593 regions with4/4 changed lines pass. No dependency,
 exclusion or original-case retirement changes. Independent review and strict
 staged verification remain required before publication.
+
+
+Canonical DOM selection candidate adds Model.canonical_link_and_relative_name
+without changing attachment graphs. Seventeen native controls verify direct-link
+precedence, first-nested-only recursion including empty/static models, explicit
+scoped links and frame aliases returning None with unchanged names. The existing
+LoadNestedExplicitCanonicalLink port additionally checks direct selected-link
+pointer identity and local name; its original native case passed again. Integrated68-test working
+coverage is2041/2062 lines,3524/3634 regions and27/27 changed executable lines.
+Independent review and the exact frozen staged gate are still required. Interface
+models/links and flattened names remain outside the supported subset.

@@ -197,3 +197,15 @@ and typed NUL values truncate. Native Sensor::Load additionally maps the literal
 __default__ sentinel to an empty topic. This is DOM metadata normalization;
 runtime transport topic repair/qualification remains consumer-owned. Topic is a
 supported scalar leaf; nested content and extension attributes are Unsupported.
+
+
+Model.canonical_link_and_relative_name returns the native DOM-selected link and
+its name relative to that model. Explicit canonical_link names are looked up as
+links, without attachment-body alias expansion; a nonempty explicit frame name
+can therefore return None with the original name. Otherwise the first direct
+link wins; if no direct link exists, selection recurses into only the first
+nested model and prefixes its name when the result name is nonempty. It does not
+skip an empty first nested model or inspect static status. An empty subtree
+returns (None, ""). Interface model/link branches and flattened names remain
+outside the supported parser subset. This helper is independent of semantic
+attachment resolution, which can attach a static canonical subtree to world.

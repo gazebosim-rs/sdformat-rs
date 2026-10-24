@@ -110,6 +110,23 @@ fn nested_explicit_canonical_link() {
     assert_eq!("link2", model.models[0].links[1].name);
     assert_eq!("top::nested::link2", sdf.attached_body("top").unwrap());
     assert_eq!("top::nested::link2", sdf.attached_body("top::F").unwrap());
+    let (link, relative_name) = model.canonical_link_and_relative_name();
+    assert_eq!(relative_name, "nested::link2");
+    let link = link.unwrap();
+    assert_eq!(link.name, "link2");
+    assert!(std::ptr::eq(link, &model.models[0].links[1]));
+    assert!(std::ptr::eq(
+        link,
+        model
+            .models
+            .iter()
+            .find(|model| model.name == "nested")
+            .unwrap()
+            .links
+            .iter()
+            .find(|link| link.name == "link2")
+            .unwrap()
+    ));
 }
 #[test]
 fn nested_attachment_frames_and_joint() {

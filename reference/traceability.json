@@ -38,13 +38,13 @@
       "case": "DOMRoot.LoadNestedExplicitCanonicalLink",
       "source": "test/integration/model_dom.cc:513",
       "rust_test": "tests/semantics.rs::nested_explicit_canonical_link",
-      "assertions": "All original model name, empty links/joints, frame/nested model counts and index bounds, canonical link reference, alias attachment, and nested-link identity assertions mapped to owned collections/scoped body identity.",
+      "assertions": "All original model name, empty links/joints, frame/nested model counts and index bounds, canonical link reference, alias attachment, and nested-link identity assertions mapped to owned collections/scoped body identity. Public canonical DOM selection additionally checks returned link local name and pointer identity against indexed and named nested-link borrows; prior assertions retained.",
       "fixtures": {
         "tests/fixtures/nested_explicit_canonical_link.sdf": "6bc3543c6ae91f72264cdf0671f8f5fae1835e73a18d050e7f2ac535f92ec624"
       },
       "baseline": "passed; artifacts/reference-*.xml",
       "status": "ported_reviewed",
-      "review": "/root; 2026-10-24; approved protected digest 44d39b70e0544dca34e72241a6578a38df5bdb967fe37f8e18fa16eff1526621",
+      "review": "/root; 2026-10-24; approved protected digest 44d39b70e0544dca34e72241a6578a38df5bdb967fe37f8e18fa16eff1526621; /root/msgs independently compared new direct pointer/name assertions with original source and reran exact native case on2026-10-24; integrated source requires final receipt.",
       "upstream_fixtures": {
         "test/sdf/nested_explicit_canonical_link.sdf": "6bc3543c6ae91f72264cdf0671f8f5fae1835e73a18d050e7f2ac535f92ec624"
       }

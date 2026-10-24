@@ -339,3 +339,15 @@ exclusion or threshold change. Independent /root/msgs follow-up review reran
 all62 Rust/11 tooling tests and322 native observations and approved the exact
 source/text-origin contracts. Strict staged gate remains required; general
 floating-prefix/nonfinite parity stays pending.
+
+
+Sensor frame metadata candidate preserves canonical frame_id and literal optional
+gz_frame_id, including explicit empty legacy values. Thirty observations against
+the pinned native FrameId and Element getters cover both1.6/1.12, absence,
+canonical precedence inputs, normal/CDATA whitespace, NBSP, first text and NUL.
+Both strings remain metadata; consumer fallback/scoped-name policy stays outside
+the parser. Unknown namespace extensions and nested content remain Unsupported.
+The64-test Rust working tree passes fmt/clippy and2010/2031 line coverage,
+3483/3593 regions with12/12 changed executable lines. No original full DOMSensor
+case is retired; no dependency, exclusion or gate policy changed. Independent
+review and a matching frozen staged gate are required before publication.

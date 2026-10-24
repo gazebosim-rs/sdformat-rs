@@ -3416,5 +3416,20 @@
     "native_cases": 24,
     "scope": "No full floating-prefix/nonfinite or complete string/attribute schema parity claim. Existing original assertion mappings unchanged.",
     "review": "/root/msgs; 2026-10-24; Param SetFromString/ValueFromString and cursor text-origin rules independently compared; Cow normal/CDATA adapter and required/optional distinctions approved. Independently reran62 Rust tests,11 tooling tests and139 differential+111 geometry+72 names native observations; corpus hash verified. No dependency, gate or assertion weakening; general float-prefix/nonfinite gaps explicitly unchanged."
+  },
+  "sensor_frame_metadata": {
+    "upstream_sha": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "corpus_sha256": "e4cc7eeaacb50316269bc06dd7a756f188ff2a0ab8183b3e686642878cc125ae",
+    "probe_source_sha256": "fbe2f5b177670fb7b2e1331ce0f119a972f4f656a2179aa3daef859421edef2f",
+    "probe_binary_sha256": "ef369c9664a46cd230408bb962db99216e979a3d62f59b15513363c5ede688ef",
+    "source_sha256": {
+      "src/Sensor.cc": "5fbab175624338e03264f1655a15863a5a29180573cbc898591429fa8f3856ba",
+      "include/sdf/Sensor.hh": "67b9a581845924841512c6b09c64a84196a0b392ba82b5637a6ef7b3db6cf29a",
+      "sdf/1.12/sensor.sdf": "2f2dc839a5121b3b33fe985c978e530565b093d310ebd03fc781a6cbce0b3efc"
+    },
+    "observations": 30,
+    "rust_tests": 2,
+    "native_library_sha256": "bcc864bcee56b49c13081e29722051e26c036260e3dd037e7736aa2b8620358f",
+    "scope": "Canonical frame_id string and literal optional gz_frame_id; explicit empty preserved; no consumer runtime fallback or additional sensor family. Existing native build not independently reconstructed. No full original DOMSensor case retired."
   }
 }

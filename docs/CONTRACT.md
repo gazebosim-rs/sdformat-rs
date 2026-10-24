@@ -174,3 +174,18 @@ Optional numeric fields distinguish XML text origin. Ordinary whitespace-only
 references collapse to empty and use defaults. CDATA VT/FF do not collapse and
 therefore fail numeric parsing; XML-normalized CDATA CR becomes LF and trims
 empty. This applies to optional mass, mesh scale and decomposition counts.
+
+
+Sensor.frame_id is canonical SDF frame metadata. Sensor.gz_frame_id preserves the
+literal legacy element as Option<String>, including Some("") for an explicitly
+empty element. Both values use native string whitespace/text-origin rules and
+are retained together even when the canonical value is nonempty. These strings
+are metadata, not semantic graph references. Only the exact unprefixed frame_id
+and gz_frame_id leaf names are accepted; other extensions remain Unsupported.
+
+The consumer chooses a nonempty canonical value first, then a present legacy
+value even if empty, then its effective sensor name. The simulator may override
+that name with the scoped sensor identity before applying fallback. This parser
+does not choose a runtime name or apply consumer fallback. The sensor remains
+an IMU-only supported envelope; no additional sensor-family completion or full
+DOMSensor original-case retirement is claimed by these metadata assertions.

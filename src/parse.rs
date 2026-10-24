@@ -1193,6 +1193,14 @@ impl Parser<'_> {
         }
         Ok(noise)
     }
+    fn optional_text(&self, node: Node<'_, '_>, name: &str) -> Result<Option<String>, Diagnostic> {
+        child(node, name)
+            .map(|value| {
+                self.allowed(value, &[], &[])?;
+                Ok(param_text(value).into_owned())
+            })
+            .transpose()
+    }
     fn sensor(&self, node: Node<'_, '_>) -> Result<Sensor, Diagnostic> {
         self.allowed(
             node,
@@ -1202,6 +1210,8 @@ impl Parser<'_> {
                 "always_on",
                 "enable_metrics",
                 "topic",
+                "frame_id",
+                "gz_frame_id",
                 "imu",
             ],
             &["name", "type"],
@@ -1228,6 +1238,8 @@ impl Parser<'_> {
             imu: self.imu(node)?,
             topic: child(node, "topic")
                 .map_or(String::new(), |n| n.text().unwrap_or("").trim().into()),
+            frame_id: self.optional_text(node, "frame_id")?.unwrap_or_default(),
+            gz_frame_id: self.optional_text(node, "gz_frame_id")?,
             configuration_xml: child(node, "imu")
                 .map_or(String::new(), |n| self.xml[n.range()].into()),
             source: self.source(node),

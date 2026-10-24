@@ -337,6 +337,11 @@ pub struct Sensor {
     pub enable_metrics: bool,
     pub imu: Imu,
     pub topic: String,
+    /// Canonical SDF frame metadata; an empty value delegates fallback to the consumer.
+    pub frame_id: String,
+    /// Legacy literal gz_frame_id element, including an explicitly empty value.
+    /// Consumers apply this only when frame_id is empty, before their name fallback.
+    pub gz_frame_id: Option<String>,
     /// Original IMU-specific XML, retained alongside the typed configuration.
     pub configuration_xml: String,
     pub source: Source,

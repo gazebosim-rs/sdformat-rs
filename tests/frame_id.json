@@ -1,0 +1,182 @@
+[
+  {
+    "id": "1.6_absent",
+    "xml": "<sdf version='1.6'><model name='m'><link name='l'><sensor name='s' type='imu'></sensor></link></model></sdf>",
+    "frame_id": "",
+    "gz_frame_id": null
+  },
+  {
+    "id": "1.6_canonical",
+    "xml": "<sdf version='1.6'><model name='m'><link name='l'><sensor name='s' type='imu'><frame_id>canonical</frame_id></sensor></link></model></sdf>",
+    "frame_id": "canonical",
+    "gz_frame_id": null
+  },
+  {
+    "id": "1.6_legacy",
+    "xml": "<sdf version='1.6'><model name='m'><link name='l'><sensor name='s' type='imu'><gz_frame_id>legacy</gz_frame_id></sensor></link></model></sdf>",
+    "frame_id": "",
+    "gz_frame_id": "legacy"
+  },
+  {
+    "id": "1.6_legacy_empty",
+    "xml": "<sdf version='1.6'><model name='m'><link name='l'><sensor name='s' type='imu'><gz_frame_id/></sensor></link></model></sdf>",
+    "frame_id": "",
+    "gz_frame_id": ""
+  },
+  {
+    "id": "1.6_canonical_empty",
+    "xml": "<sdf version='1.6'><model name='m'><link name='l'><sensor name='s' type='imu'><frame_id/></sensor></link></model></sdf>",
+    "frame_id": "",
+    "gz_frame_id": null
+  },
+  {
+    "id": "1.6_canonical_precedence",
+    "xml": "<sdf version='1.6'><model name='m'><link name='l'><sensor name='s' type='imu'><frame_id>canonical</frame_id><gz_frame_id>legacy</gz_frame_id></sensor></link></model></sdf>",
+    "frame_id": "canonical",
+    "gz_frame_id": "legacy"
+  },
+  {
+    "id": "1.6_canonical_empty_legacy",
+    "xml": "<sdf version='1.6'><model name='m'><link name='l'><sensor name='s' type='imu'><frame_id/><gz_frame_id>legacy</gz_frame_id></sensor></link></model></sdf>",
+    "frame_id": "",
+    "gz_frame_id": "legacy"
+  },
+  {
+    "id": "1.6_both_empty",
+    "xml": "<sdf version='1.6'><model name='m'><link name='l'><sensor name='s' type='imu'><frame_id/><gz_frame_id/></sensor></link></model></sdf>",
+    "frame_id": "",
+    "gz_frame_id": ""
+  },
+  {
+    "id": "1.6_normal_whitespace",
+    "xml": "<sdf version='1.6'><model name='m'><link name='l'><sensor name='s' type='imu'><frame_id> a  b\t c </frame_id><gz_frame_id> a  b\t c </gz_frame_id></sensor></link></model></sdf>",
+    "frame_id": "a b c",
+    "gz_frame_id": "a b c"
+  },
+  {
+    "id": "1.6_cdata_whitespace",
+    "xml": "<sdf version='1.6'><model name='m'><link name='l'><sensor name='s' type='imu'><frame_id><![CDATA[ a  b\t c ]]></frame_id><gz_frame_id><![CDATA[ a  b\t c ]]></gz_frame_id></sensor></link></model></sdf>",
+    "frame_id": "a  b\t c",
+    "gz_frame_id": "a  b\t c"
+  },
+  {
+    "id": "1.6_nbsp",
+    "xml": "<sdf version='1.6'><model name='m'><link name='l'><sensor name='s' type='imu'><frame_id>&#160;x&#160;</frame_id><gz_frame_id>&#160;x&#160;</gz_frame_id></sensor></link></model></sdf>",
+    "frame_id": "\u00a0x\u00a0",
+    "gz_frame_id": "\u00a0x\u00a0"
+  },
+  {
+    "id": "1.6_numeric_nul",
+    "xml": "<sdf version='1.6'><model name='m'><link name='l'><sensor name='s' type='imu'><frame_id>a&#0;b</frame_id><gz_frame_id>a&#0;b</gz_frame_id></sensor></link></model></sdf>",
+    "frame_id": "a",
+    "gz_frame_id": "a"
+  },
+  {
+    "id": "1.6_arbitrary_reference",
+    "xml": "<sdf version='1.6'><model name='m'><link name='l'><sensor name='s' type='imu'><frame_id>missing::link</frame_id><gz_frame_id>other</gz_frame_id></sensor></link></model></sdf>",
+    "frame_id": "missing::link",
+    "gz_frame_id": "other"
+  },
+  {
+    "id": "1.6_first_text",
+    "xml": "<sdf version='1.6'><model name='m'><link name='l'><sensor name='s' type='imu'><frame_id>a<!--c-->b</frame_id><gz_frame_id>a<!--c-->b</gz_frame_id></sensor></link></model></sdf>",
+    "frame_id": "a",
+    "gz_frame_id": "a"
+  },
+  {
+    "id": "1.6_empty_sentinel",
+    "xml": "<sdf version='1.6'><model name='m'><link name='l'><sensor name='s' type='imu'><frame_id>__default__</frame_id><gz_frame_id>__default__</gz_frame_id></sensor></link></model></sdf>",
+    "frame_id": "__default__",
+    "gz_frame_id": "__default__"
+  },
+  {
+    "id": "1.12_absent",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'></sensor></link></model></sdf>",
+    "frame_id": "",
+    "gz_frame_id": null
+  },
+  {
+    "id": "1.12_canonical",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><frame_id>canonical</frame_id></sensor></link></model></sdf>",
+    "frame_id": "canonical",
+    "gz_frame_id": null
+  },
+  {
+    "id": "1.12_legacy",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><gz_frame_id>legacy</gz_frame_id></sensor></link></model></sdf>",
+    "frame_id": "",
+    "gz_frame_id": "legacy"
+  },
+  {
+    "id": "1.12_legacy_empty",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><gz_frame_id/></sensor></link></model></sdf>",
+    "frame_id": "",
+    "gz_frame_id": ""
+  },
+  {
+    "id": "1.12_canonical_empty",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><frame_id/></sensor></link></model></sdf>",
+    "frame_id": "",
+    "gz_frame_id": null
+  },
+  {
+    "id": "1.12_canonical_precedence",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><frame_id>canonical</frame_id><gz_frame_id>legacy</gz_frame_id></sensor></link></model></sdf>",
+    "frame_id": "canonical",
+    "gz_frame_id": "legacy"
+  },
+  {
+    "id": "1.12_canonical_empty_legacy",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><frame_id/><gz_frame_id>legacy</gz_frame_id></sensor></link></model></sdf>",
+    "frame_id": "",
+    "gz_frame_id": "legacy"
+  },
+  {
+    "id": "1.12_both_empty",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><frame_id/><gz_frame_id/></sensor></link></model></sdf>",
+    "frame_id": "",
+    "gz_frame_id": ""
+  },
+  {
+    "id": "1.12_normal_whitespace",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><frame_id> a  b\t c </frame_id><gz_frame_id> a  b\t c </gz_frame_id></sensor></link></model></sdf>",
+    "frame_id": "a b c",
+    "gz_frame_id": "a b c"
+  },
+  {
+    "id": "1.12_cdata_whitespace",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><frame_id><![CDATA[ a  b\t c ]]></frame_id><gz_frame_id><![CDATA[ a  b\t c ]]></gz_frame_id></sensor></link></model></sdf>",
+    "frame_id": "a  b\t c",
+    "gz_frame_id": "a  b\t c"
+  },
+  {
+    "id": "1.12_nbsp",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><frame_id>&#160;x&#160;</frame_id><gz_frame_id>&#160;x&#160;</gz_frame_id></sensor></link></model></sdf>",
+    "frame_id": "\u00a0x\u00a0",
+    "gz_frame_id": "\u00a0x\u00a0"
+  },
+  {
+    "id": "1.12_numeric_nul",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><frame_id>a&#0;b</frame_id><gz_frame_id>a&#0;b</gz_frame_id></sensor></link></model></sdf>",
+    "frame_id": "a",
+    "gz_frame_id": "a"
+  },
+  {
+    "id": "1.12_arbitrary_reference",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><frame_id>missing::link</frame_id><gz_frame_id>other</gz_frame_id></sensor></link></model></sdf>",
+    "frame_id": "missing::link",
+    "gz_frame_id": "other"
+  },
+  {
+    "id": "1.12_first_text",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><frame_id>a<!--c-->b</frame_id><gz_frame_id>a<!--c-->b</gz_frame_id></sensor></link></model></sdf>",
+    "frame_id": "a",
+    "gz_frame_id": "a"
+  },
+  {
+    "id": "1.12_empty_sentinel",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><frame_id>__default__</frame_id><gz_frame_id>__default__</gz_frame_id></sensor></link></model></sdf>",
+    "frame_id": "__default__",
+    "gz_frame_id": "__default__"
+  }
+]

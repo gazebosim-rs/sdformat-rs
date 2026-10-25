@@ -1,10 +1,10 @@
 {
   "decision": "approved",
   "author": "/root/sdformat",
-  "reviewer": "/root/transport_recovery",
-  "protected_digest": "b6f5ce2e48f7bb78b3471e8cb7d2fc250265856ce4a38714127470672c0d94aa",
-  "date": "2026-10-25T00:52:30.628842+00:00",
-  "scope": "Independent integrated primitive correction overlap review on published include parent 8db5770268c682ce353e347d64a96c88c730d881. Verified exact added/deleted production and assertion lines match previously reviewed isolated 4baa643c snapshot for parse.rs/semantics.rs/visuals.rs; all four new primitive corpus/test/probe/tool files byte-identical. No primitive/include source overlap drift. Final traceability retains four value-subset partial ports with remaining Element/null/wrong-tag/schema/error-vector/mutation limits; 30 complete and six partial total mappings remain explicit. No dependencies, unsafe, quality threshold or coverage exclusion changes.",
-  "independent_checks": "Independently reran all 95 integrated Rust tests, all pass under default parallel execution. Author fresh integrated 37-case native proof is byte-value-identical to independently regenerated isolated proof including all source/schema/math-header/native-library/probe hashes. Prior independent four exact native Load originals and 37 freshly rebuilt bit observations remain applicable to identical primitive inputs/code. Inspected merged contract/status/results/mappings and preservation of accepted include parent. Author integrated full gate 2272/2289 lines,3941/4040 regions,20/20 changed lines reported, not independently recomputed.",
-  "limits": "Matching strict staged gate and hosted CI remain required; no full primitive/SDF/physics/performance acceptance. Finite/Linux qualification, error/mutation/serialization/inertia gaps and downstream physical-normal validation remain explicit."
+  "reviewer": "/root/msgs",
+  "protected_digest": "69bfac3b9bdc341b1c220ff96361485d88792fe8f447ccc20e6bd9abb9f37777",
+  "date": "2026-10-25T01:09:08.081506+00:00",
+  "scope": "Bounded SDF1.5 common model subset and complete NestedModel.IncludeElements mapping. Compared every original assertion at nested_model.cc1507\u20131589 and exact unchanged raw-string plus box/test_model resources; Option/presence, lookup/index paths, plugin attributes and <=1e-3 component Pose comparisons retained. is_pre17 extends pinned pose/axis/shared-name chain; no full conversion or Element/serializer facade claimed. Final metadata reviewed after implementation454a1fbd; no source/test changes in metadata delta.",
+  "independent_checks": "Fresh tools/version15_reference.py reproduces every recorded proof key, original native XML1run/0fail,201 matching native rows incl62 new controls, two explicit native-supported/Rust-Unsupported obligations, all source/resource/binding/library/binary hashes. Verified prior139 corpus prefix unchanged. cargo test --locked --offline --tests passes97 using existing default target; no independent clean build or full coverage rerun.",
+  "limits": "Strict matching staged gate and hosted CI still required. Legacy IMU noise and physics gravity/magnetic-field conversion remain Unsupported; version1.4 and full conversion/serialization/performance not accepted."
 }

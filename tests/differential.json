@@ -1488,5 +1488,1051 @@
     "xml": "<sdf version='1.7'><model name='m'><link name='a'/><link name='b'/><joint name='a' type='fixed'><parent>a</parent><child>b</child></joint></model></sdf>",
     "names_scope": "model",
     "accepted": false
+  },
+  {
+    "xml": "<sdf version='1.5'><model name='m'><link name='l'><pose frame='f'>1 0 0 0 0 0</pose></link><frame name='f'><pose>0 2 0 0 0 0</pose></frame><frame name='g'><pose>0 5 0 0 0 0</pose></frame></model></sdf>",
+    "accepted": true,
+    "id": "v15_sdf16_pose_frame",
+    "link_relative_to": "f",
+    "link_pose": [
+      1.0,
+      2.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "xml": "<sdf version='1.5'><model name='m'><link name='l'><pose frame='f' relative_to='g'>1 0 0 0 0 0</pose></link><frame name='f'><pose>0 2 0 0 0 0</pose></frame><frame name='g'><pose>0 5 0 0 0 0</pose></frame></model></sdf>",
+    "accepted": true,
+    "id": "v15_sdf16_pose_both",
+    "link_relative_to": "f",
+    "link_pose": [
+      1.0,
+      2.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "xml": "<sdf version='1.5'><model name='m'><link name='l'><pose frame='' relative_to='g'>1 0 0 0 0 0</pose></link><frame name='f'><pose>0 2 0 0 0 0</pose></frame><frame name='g'><pose>0 5 0 0 0 0</pose></frame></model></sdf>",
+    "accepted": true,
+    "id": "v15_sdf16_pose_empty_frame",
+    "link_relative_to": "",
+    "link_pose": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "xml": "<sdf version='1.5'><model name='m'><link name='l'><pose relative_to='f'>1 0 0 0 0 0</pose></link><frame name='f'><pose>0 2 0 0 0 0</pose></frame><frame name='g'><pose>0 5 0 0 0 0</pose></frame></model></sdf>",
+    "accepted": true,
+    "id": "v15_sdf16_pose_relative",
+    "link_relative_to": "f",
+    "link_pose": [
+      1.0,
+      2.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "xml": "<sdf version='1.5'><model name='m'><link name='l'><pose frame='missing'>1 0 0 0 0 0</pose></link><frame name='f'><pose>0 2 0 0 0 0</pose></frame><frame name='g'><pose>0 5 0 0 0 0</pose></frame></model></sdf>",
+    "accepted": false,
+    "id": "v15_sdf16_pose_unknown"
+  },
+  {
+    "xml": "<sdf version='1.5'><model name='m'><link name='l'><pose frame='f'/></link><frame name='f'><pose>0 2 0 0 0 0</pose></frame><frame name='g'><pose>0 5 0 0 0 0</pose></frame></model></sdf>",
+    "accepted": true,
+    "id": "v15_sdf16_pose_empty_text",
+    "link_relative_to": "f",
+    "link_pose": [
+      0.0,
+      2.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "xml": "<sdf version='1.5'><model name='m'><link name='a'/><link name='b'><pose>0 0 0 0 0 1.5707963267948966</pose></link><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><use_parent_model_frame>true</use_parent_model_frame></axis><axis2><xyz>1 0 0</xyz><use_parent_model_frame>true</use_parent_model_frame></axis2></joint></model></sdf>",
+    "accepted": true,
+    "id": "v15_sdf16_axis_true",
+    "joint_axes": [
+      {
+        "expressed_in": "__model__",
+        "resolved": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expressed_in": "__model__",
+        "resolved": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "xml": "<sdf version='1.5'><model name='m'><link name='a'/><link name='b'><pose>0 0 0 0 0 1.5707963267948966</pose></link><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><use_parent_model_frame>True</use_parent_model_frame></axis><axis2><xyz>1 0 0</xyz><use_parent_model_frame>True</use_parent_model_frame></axis2></joint></model></sdf>",
+    "accepted": true,
+    "id": "v15_sdf16_axis_True",
+    "joint_axes": [
+      {
+        "expressed_in": "__model__",
+        "resolved": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expressed_in": "__model__",
+        "resolved": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "xml": "<sdf version='1.5'><model name='m'><link name='a'/><link name='b'><pose>0 0 0 0 0 1.5707963267948966</pose></link><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><use_parent_model_frame>TRUE</use_parent_model_frame></axis><axis2><xyz>1 0 0</xyz><use_parent_model_frame>TRUE</use_parent_model_frame></axis2></joint></model></sdf>",
+    "accepted": true,
+    "id": "v15_sdf16_axis_TRUE",
+    "joint_axes": [
+      {
+        "expressed_in": "__model__",
+        "resolved": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expressed_in": "__model__",
+        "resolved": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "xml": "<sdf version='1.5'><model name='m'><link name='a'/><link name='b'><pose>0 0 0 0 0 1.5707963267948966</pose></link><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><use_parent_model_frame>1</use_parent_model_frame></axis><axis2><xyz>1 0 0</xyz><use_parent_model_frame>1</use_parent_model_frame></axis2></joint></model></sdf>",
+    "accepted": true,
+    "id": "v15_sdf16_axis_1",
+    "joint_axes": [
+      {
+        "expressed_in": "__model__",
+        "resolved": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expressed_in": "__model__",
+        "resolved": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "xml": "<sdf version='1.5'><model name='m'><link name='a'/><link name='b'><pose>0 0 0 0 0 1.5707963267948966</pose></link><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><use_parent_model_frame>tRuE</use_parent_model_frame></axis><axis2><xyz>1 0 0</xyz><use_parent_model_frame>tRuE</use_parent_model_frame></axis2></joint></model></sdf>",
+    "accepted": true,
+    "id": "v15_sdf16_axis_tRuE",
+    "joint_axes": [
+      {
+        "expressed_in": "",
+        "resolved": [
+          2.220446049250313e-16,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "expressed_in": "",
+        "resolved": [
+          2.220446049250313e-16,
+          1.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "xml": "<sdf version='1.5'><model name='m'><link name='a'/><link name='b'><pose>0 0 0 0 0 1.5707963267948966</pose></link><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><use_parent_model_frame>false</use_parent_model_frame></axis><axis2><xyz>1 0 0</xyz><use_parent_model_frame>false</use_parent_model_frame></axis2></joint></model></sdf>",
+    "accepted": true,
+    "id": "v15_sdf16_axis_false",
+    "joint_axes": [
+      {
+        "expressed_in": "",
+        "resolved": [
+          2.220446049250313e-16,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "expressed_in": "",
+        "resolved": [
+          2.220446049250313e-16,
+          1.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "xml": "<sdf version='1.5'><model name='m'><link name='a'/><link name='b'><pose>0 0 0 0 0 1.5707963267948966</pose></link><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><use_parent_model_frame>FALSE</use_parent_model_frame></axis><axis2><xyz>1 0 0</xyz><use_parent_model_frame>FALSE</use_parent_model_frame></axis2></joint></model></sdf>",
+    "accepted": true,
+    "id": "v15_sdf16_axis_FALSE",
+    "joint_axes": [
+      {
+        "expressed_in": "",
+        "resolved": [
+          2.220446049250313e-16,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "expressed_in": "",
+        "resolved": [
+          2.220446049250313e-16,
+          1.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "xml": "<sdf version='1.5'><model name='m'><link name='a'/><link name='b'><pose>0 0 0 0 0 1.5707963267948966</pose></link><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><use_parent_model_frame>0</use_parent_model_frame></axis><axis2><xyz>1 0 0</xyz><use_parent_model_frame>0</use_parent_model_frame></axis2></joint></model></sdf>",
+    "accepted": true,
+    "id": "v15_sdf16_axis_0",
+    "joint_axes": [
+      {
+        "expressed_in": "",
+        "resolved": [
+          2.220446049250313e-16,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "expressed_in": "",
+        "resolved": [
+          2.220446049250313e-16,
+          1.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "xml": "<sdf version='1.5'><model name='m'><link name='a'/><link name='b'><pose>0 0 0 0 0 1.5707963267948966</pose></link><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><use_parent_model_frame>banana</use_parent_model_frame></axis><axis2><xyz>1 0 0</xyz><use_parent_model_frame>banana</use_parent_model_frame></axis2></joint></model></sdf>",
+    "accepted": true,
+    "id": "v15_sdf16_axis_banana",
+    "joint_axes": [
+      {
+        "expressed_in": "",
+        "resolved": [
+          2.220446049250313e-16,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "expressed_in": "",
+        "resolved": [
+          2.220446049250313e-16,
+          1.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "xml": "<sdf version='1.5'><model name='m'><link name='a'/><link name='b'><pose>0 0 0 0 0 1.5707963267948966</pose></link><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><use_parent_model_frame></use_parent_model_frame></axis><axis2><xyz>1 0 0</xyz><use_parent_model_frame></use_parent_model_frame></axis2></joint></model></sdf>",
+    "accepted": true,
+    "id": "v15_sdf16_axis_empty",
+    "joint_axes": [
+      {
+        "expressed_in": "",
+        "resolved": [
+          2.220446049250313e-16,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "expressed_in": "",
+        "resolved": [
+          2.220446049250313e-16,
+          1.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "xml": "<sdf version='1.5'><model name='m'><link name='a'/><link name='b'><pose>0 0 0 0 0 1.5707963267948966</pose></link><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><use_parent_model_frame>true</use_parent_model_frame></axis></joint></model></sdf>",
+    "accepted": false,
+    "id": "v15_sdf16_axis_default_xyz"
+  },
+  {
+    "xml": "<sdf version='1.5'><model name='m'><link name='a'/><link name='b'><pose>0 0 0 0 0 1.5707963267948966</pose></link><frame name='f'><pose>0 0 0 0 0 3.141592653589793</pose></frame><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz expressed_in='f'>1 0 0</xyz><use_parent_model_frame>true</use_parent_model_frame></axis></joint></model></sdf>",
+    "accepted": true,
+    "id": "v15_sdf16_axis_override_true",
+    "joint_axes": [
+      {
+        "expressed_in": "__model__",
+        "resolved": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "xml": "<sdf version='1.5'><model name='m'><link name='a'/><link name='b'><pose>0 0 0 0 0 1.5707963267948966</pose></link><frame name='f'><pose>0 0 0 0 0 3.141592653589793</pose></frame><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz expressed_in='f'>1 0 0</xyz><use_parent_model_frame>false</use_parent_model_frame></axis></joint></model></sdf>",
+    "accepted": true,
+    "id": "v15_sdf16_axis_override_false",
+    "joint_axes": [
+      {
+        "expressed_in": "f",
+        "resolved": [
+          -1.0,
+          1.2246467991473532e-16,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "xml": "<sdf version='1.5'><model name='m'><link name='a'/><link name='b'><pose>0 0 0 0 0 1.5707963267948966</pose></link><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><use_parent_model_frame> true </use_parent_model_frame></axis><axis2><xyz>1 0 0</xyz><use_parent_model_frame> true </use_parent_model_frame></axis2></joint></model></sdf>",
+    "accepted": true,
+    "id": "v15_sdf16_axis_text_spaced",
+    "joint_axes": [
+      {
+        "expressed_in": "__model__",
+        "resolved": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expressed_in": "__model__",
+        "resolved": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "xml": "<sdf version='1.5'><model name='m'><link name='a'/><link name='b'><pose>0 0 0 0 0 1.5707963267948966</pose></link><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><use_parent_model_frame><![CDATA[ true ]]></use_parent_model_frame></axis><axis2><xyz>1 0 0</xyz><use_parent_model_frame><![CDATA[ true ]]></use_parent_model_frame></axis2></joint></model></sdf>",
+    "accepted": true,
+    "id": "v15_sdf16_axis_cdata_spaced",
+    "joint_axes": [
+      {
+        "expressed_in": "",
+        "resolved": [
+          2.220446049250313e-16,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "expressed_in": "",
+        "resolved": [
+          2.220446049250313e-16,
+          1.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "xml": "<sdf version='1.5'><model name='m'><link name='a'/><link name='b'><pose>0 0 0 0 0 1.5707963267948966</pose></link><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><use_parent_model_frame><![CDATA[true]]></use_parent_model_frame></axis><axis2><xyz>1 0 0</xyz><use_parent_model_frame><![CDATA[true]]></use_parent_model_frame></axis2></joint></model></sdf>",
+    "accepted": true,
+    "id": "v15_sdf16_axis_cdata_true",
+    "joint_axes": [
+      {
+        "expressed_in": "__model__",
+        "resolved": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expressed_in": "__model__",
+        "resolved": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "xml": "<sdf version='1.5'><model name='m'><link name='a'/><link name='b'><pose>0 0 0 0 0 1.5707963267948966</pose></link><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><use_parent_model_frame><![CDATA[ true ]]></use_parent_model_frame></axis><axis2><use_parent_model_frame><![CDATA[ true ]]></use_parent_model_frame></axis2></joint></model></sdf>",
+    "accepted": true,
+    "id": "v15_sdf16_axis_cdata_spaced_missing_xyz",
+    "joint_axes": [
+      {
+        "expressed_in": "",
+        "resolved": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "expressed_in": "",
+        "resolved": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  {
+    "xml": "<sdf version='1.5'><model name='m'><link name='a'/><link name='b'><pose>0 0 0 0 0 1.5707963267948966</pose></link><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><use_parent_model_frame> true </use_parent_model_frame></axis><axis2><use_parent_model_frame> true </use_parent_model_frame></axis2></joint></model></sdf>",
+    "accepted": false,
+    "id": "v15_sdf16_axis_text_spaced_missing_xyz"
+  },
+  {
+    "xml": "<sdf version='1.5'><model name='m'><link name='l'><pose frame='\u00a0f\u00a0'>1 0 0 0 0 0</pose></link><frame name='f'><pose>0 2 0 0 0 0</pose></frame><frame name='g'><pose>0 5 0 0 0 0</pose></frame></model></sdf>",
+    "accepted": false,
+    "id": "v15_sdf16_pose_nbsp"
+  },
+  {
+    "xml": "<sdf version='1.5'><model name='m'><link name='l'><pose frame='&#13;f&#13;'>1 0 0 0 0 0</pose></link><frame name='f'><pose>0 2 0 0 0 0</pose></frame><frame name='g'><pose>0 5 0 0 0 0</pose></frame></model></sdf>",
+    "accepted": false,
+    "id": "v15_sdf16_pose_ref_cr"
+  },
+  {
+    "xml": "<sdf version='1.5'><model name='m'><link name='l'><pose frame='\rf\r'>1 0 0 0 0 0</pose></link><frame name='f'><pose>0 2 0 0 0 0</pose></frame><frame name='g'><pose>0 5 0 0 0 0</pose></frame></model></sdf>",
+    "accepted": true,
+    "id": "v15_sdf16_pose_literal_cr",
+    "link_relative_to": "f",
+    "link_pose": [
+      1.0,
+      2.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "xml": "<sdf version='1.5'><model name='m'><link name='l'><pose frame='\r\nf\r\n'>1 0 0 0 0 0</pose></link><frame name='f'><pose>0 2 0 0 0 0</pose></frame><frame name='g'><pose>0 5 0 0 0 0</pose></frame></model></sdf>",
+    "accepted": true,
+    "id": "v15_sdf16_pose_literal_crlf",
+    "link_relative_to": "f",
+    "link_pose": [
+      1.0,
+      2.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "xml": "<sdf version='1.5'><model name='m'><link name='a'/><link name='b'><pose>0 0 0 0 0 1.5707963267948966</pose></link><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><use_parent_model_frame>\u00a0true\u00a0</use_parent_model_frame></axis></joint></model></sdf>",
+    "accepted": true,
+    "id": "v15_sdf16_axis_nbsp",
+    "joint_axes": [
+      {
+        "expressed_in": "",
+        "resolved": [
+          2.220446049250313e-16,
+          1.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "xml": "<sdf version='1.5'><model name='m'><link name='a'/><link name='b'><pose>0 0 0 0 0 1.5707963267948966</pose></link><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><use_parent_model_frame>&#13;true&#13;</use_parent_model_frame></axis></joint></model></sdf>",
+    "accepted": true,
+    "id": "v15_sdf16_axis_ref_cr",
+    "joint_axes": [
+      {
+        "expressed_in": "__model__",
+        "resolved": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "xml": "<sdf version='1.5'><model name='m'><link name='a'/><link name='b'><pose>0 0 0 0 0 1.5707963267948966</pose></link><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><use_parent_model_frame>\rtrue\r</use_parent_model_frame></axis></joint></model></sdf>",
+    "accepted": true,
+    "id": "v15_sdf16_axis_literal_cr",
+    "joint_axes": [
+      {
+        "expressed_in": "__model__",
+        "resolved": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "xml": "<sdf version='1.5'><model name='m'><link name='a'/><link name='b'><pose>0 0 0 0 0 1.5707963267948966</pose></link><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><use_parent_model_frame>&#32;true&#32;</use_parent_model_frame></axis></joint></model></sdf>",
+    "accepted": true,
+    "id": "v15_sdf16_axis_ref_space",
+    "joint_axes": [
+      {
+        "expressed_in": "__model__",
+        "resolved": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "xml": "<sdf version='1.5'><model name='m'><link name='a'/><link name='b'><pose>0 0 0 0 0 1.5707963267948966</pose></link><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><use_parent_model_frame>&#xB;true&#xB;</use_parent_model_frame></axis><axis2><xyz>1 0 0</xyz><use_parent_model_frame>&#xB;true&#xB;</use_parent_model_frame></axis2></joint></model></sdf>",
+    "accepted": true,
+    "id": "v15_sdf16_axis_numeric_vt",
+    "joint_axes": [
+      {
+        "expressed_in": "__model__",
+        "resolved": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expressed_in": "__model__",
+        "resolved": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "xml": "<sdf version='1.5'><model name='m'><link name='a'/><link name='b'><pose>0 0 0 0 0 1.5707963267948966</pose></link><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><use_parent_model_frame>&#xC;true&#xC;</use_parent_model_frame></axis><axis2><xyz>1 0 0</xyz><use_parent_model_frame>&#xC;true&#xC;</use_parent_model_frame></axis2></joint></model></sdf>",
+    "accepted": true,
+    "id": "v15_sdf16_axis_numeric_ff",
+    "joint_axes": [
+      {
+        "expressed_in": "__model__",
+        "resolved": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expressed_in": "__model__",
+        "resolved": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "xml": "<sdf version='1.5'><model name='m'><link name='a'/><link name='b'><pose>0 0 0 0 0 1.5707963267948966</pose></link><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><use_parent_model_frame>\u000btrue\u000b</use_parent_model_frame></axis><axis2><xyz>1 0 0</xyz><use_parent_model_frame>\u000btrue\u000b</use_parent_model_frame></axis2></joint></model></sdf>",
+    "accepted": true,
+    "id": "v15_sdf16_axis_literal_vt",
+    "joint_axes": [
+      {
+        "expressed_in": "__model__",
+        "resolved": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expressed_in": "__model__",
+        "resolved": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "xml": "<sdf version='1.5'><model name='m'><link name='a'/><link name='b'><pose>0 0 0 0 0 1.5707963267948966</pose></link><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><use_parent_model_frame>\ftrue\f</use_parent_model_frame></axis><axis2><xyz>1 0 0</xyz><use_parent_model_frame>\ftrue\f</use_parent_model_frame></axis2></joint></model></sdf>",
+    "accepted": true,
+    "id": "v15_sdf16_axis_literal_ff",
+    "joint_axes": [
+      {
+        "expressed_in": "__model__",
+        "resolved": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expressed_in": "__model__",
+        "resolved": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "xml": "<sdf version='1.5'><model name='m'><link name='a'/><link name='b'><pose>0 0 0 0 0 1.5707963267948966</pose></link><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><use_parent_model_frame>\u00a0<![CDATA[true]]></use_parent_model_frame></axis><axis2><xyz>1 0 0</xyz><use_parent_model_frame>\u00a0<![CDATA[true]]></use_parent_model_frame></axis2></joint></model></sdf>",
+    "accepted": true,
+    "id": "v15_sdf16_axis_nbsp_then_cdata",
+    "joint_axes": [
+      {
+        "expressed_in": "",
+        "resolved": [
+          2.220446049250313e-16,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "expressed_in": "",
+        "resolved": [
+          2.220446049250313e-16,
+          1.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "xml": "<sdf version='1.5'><model name='m'><link name='a'/><link name='b'><pose>0 0 0 0 0 1.5707963267948966</pose></link><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><use_parent_model_frame> <![CDATA[true]]></use_parent_model_frame></axis><axis2><xyz>1 0 0</xyz><use_parent_model_frame> <![CDATA[true]]></use_parent_model_frame></axis2></joint></model></sdf>",
+    "accepted": true,
+    "id": "v15_sdf16_axis_space_then_cdata",
+    "joint_axes": [
+      {
+        "expressed_in": "__model__",
+        "resolved": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expressed_in": "__model__",
+        "resolved": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "xml": "<sdf version='1.5'><model name='m'><link name='a'/><link name='b'><pose>0 0 0 0 0 1.5707963267948966</pose></link><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><use_parent_model_frame>&#xB;<![CDATA[true]]></use_parent_model_frame></axis><axis2><xyz>1 0 0</xyz><use_parent_model_frame>&#xB;<![CDATA[true]]></use_parent_model_frame></axis2></joint></model></sdf>",
+    "accepted": true,
+    "id": "v15_sdf16_axis_numeric_vt_then_cdata",
+    "joint_axes": [
+      {
+        "expressed_in": "",
+        "resolved": [
+          2.220446049250313e-16,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "expressed_in": "",
+        "resolved": [
+          2.220446049250313e-16,
+          1.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "xml": "<sdf version='1.5'><model name='m'><link name='a'/><link name='b'><pose>0 0 0 0 0 1.5707963267948966</pose></link><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><use_parent_model_frame>\u00a0<![CDATA[true]]></use_parent_model_frame></axis><axis2><use_parent_model_frame>\u00a0<![CDATA[true]]></use_parent_model_frame></axis2></joint></model></sdf>",
+    "accepted": true,
+    "id": "v15_sdf16_axis_nbsp_then_cdata_missing_xyz",
+    "joint_axes": [
+      {
+        "expressed_in": "",
+        "resolved": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "expressed_in": "",
+        "resolved": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  {
+    "xml": "<sdf version='1.5'><model name='m'><link name='a'/><link name='b'><pose>0 0 0 0 0 1.5707963267948966</pose></link><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><use_parent_model_frame>&#xB;<![CDATA[true]]></use_parent_model_frame></axis><axis2><use_parent_model_frame>&#xB;<![CDATA[true]]></use_parent_model_frame></axis2></joint></model></sdf>",
+    "accepted": true,
+    "id": "v15_sdf16_axis_numeric_vt_then_cdata_missing_xyz",
+    "joint_axes": [
+      {
+        "expressed_in": "",
+        "resolved": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "expressed_in": "",
+        "resolved": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  {
+    "xml": "<sdf version='1.5'><model name='m'><link name='a'/><link name='b'><pose>0 0 0 0 0 1.5707963267948966</pose></link><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><use_parent_model_frame> <![CDATA[true]]></use_parent_model_frame></axis><axis2><use_parent_model_frame> <![CDATA[true]]></use_parent_model_frame></axis2></joint></model></sdf>",
+    "accepted": false,
+    "id": "v15_sdf16_axis_space_then_cdata_missing_xyz"
+  },
+  {
+    "xml": "<sdf version='1.5'><model name='m'><link name='a'/><link name='b'><pose>0 0 0 0 0 1.5707963267948966</pose></link><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><use_parent_model_frame><x/>true</use_parent_model_frame></axis><axis2><xyz>1 0 0</xyz><use_parent_model_frame><x/>true</use_parent_model_frame></axis2></joint></model></sdf>",
+    "accepted": true,
+    "id": "v15_sdf16_axis_child_before_true",
+    "joint_axes": [
+      {
+        "expressed_in": "",
+        "resolved": [
+          2.220446049250313e-16,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "expressed_in": "",
+        "resolved": [
+          2.220446049250313e-16,
+          1.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "xml": "<sdf version='1.5'><model name='m'><link name='a'/><link name='b'><pose>0 0 0 0 0 1.5707963267948966</pose></link><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><use_parent_model_frame>true<x/></use_parent_model_frame></axis><axis2><xyz>1 0 0</xyz><use_parent_model_frame>true<x/></use_parent_model_frame></axis2></joint></model></sdf>",
+    "accepted": true,
+    "id": "v15_sdf16_axis_child_after_true",
+    "joint_axes": [
+      {
+        "expressed_in": "__model__",
+        "resolved": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expressed_in": "__model__",
+        "resolved": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "xml": "<sdf version='1.5'><model name='m'><link name='a'/><link name='b'><pose>0 0 0 0 0 1.5707963267948966</pose></link><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><use_parent_model_frame><!--c-->true</use_parent_model_frame></axis><axis2><xyz>1 0 0</xyz><use_parent_model_frame><!--c-->true</use_parent_model_frame></axis2></joint></model></sdf>",
+    "accepted": true,
+    "id": "v15_sdf16_axis_comment_before_true",
+    "joint_axes": [
+      {
+        "expressed_in": "__model__",
+        "resolved": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expressed_in": "__model__",
+        "resolved": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "xml": "<sdf version='1.5'><model name='m'><link name='a'/><link name='b'><pose>0 0 0 0 0 1.5707963267948966</pose></link><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><use_parent_model_frame><!--c--><![CDATA[true]]></use_parent_model_frame></axis><axis2><xyz>1 0 0</xyz><use_parent_model_frame><!--c--><![CDATA[true]]></use_parent_model_frame></axis2></joint></model></sdf>",
+    "accepted": true,
+    "id": "v15_sdf16_axis_comment_before_cdata",
+    "joint_axes": [
+      {
+        "expressed_in": "__model__",
+        "resolved": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "expressed_in": "__model__",
+        "resolved": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  {
+    "id": "v15_legacy_names_link_joint",
+    "xml": "<sdf version='1.5'><model name='m'><link name='a'/><link name='b'/><joint name='a' type='fixed'><parent>a</parent><child>b</child></joint></model></sdf>",
+    "names_scope": "model",
+    "accepted": true,
+    "declaration_names": {
+      "model": [],
+      "link": [
+        "a",
+        "b"
+      ],
+      "joint": [
+        "a_joint"
+      ],
+      "frame": []
+    },
+    "joint_bodies": [
+      "a",
+      "b"
+    ]
+  },
+  {
+    "id": "v15_legacy_names_joint_link_reverse",
+    "xml": "<sdf version='1.5'><model name='m'><link name='b'/><joint name='a' type='fixed'><parent>a_link</parent><child>b</child></joint><link name='a'/></model></sdf>",
+    "names_scope": "model",
+    "accepted": true,
+    "declaration_names": {
+      "model": [],
+      "link": [
+        "b",
+        "a_link"
+      ],
+      "joint": [
+        "a"
+      ],
+      "frame": []
+    },
+    "joint_bodies": [
+      "a_link",
+      "b"
+    ]
+  },
+  {
+    "id": "v15_legacy_names_joint_link_raw_reference",
+    "xml": "<sdf version='1.5'><model name='m'><link name='b'/><joint name='a' type='fixed'><parent>a</parent><child>b</child></joint><link name='a'/></model></sdf>",
+    "names_scope": "model",
+    "accepted": false
+  },
+  {
+    "id": "v15_legacy_names_joint_suffixes",
+    "xml": "<sdf version='1.5'><model name='m'><link name='a'/><link name='a_joint'/><link name='a_joint0'/><link name='b'/><joint name='a' type='fixed'><parent>a</parent><child>b</child></joint></model></sdf>",
+    "names_scope": "model",
+    "accepted": true,
+    "declaration_names": {
+      "model": [],
+      "link": [
+        "a",
+        "a_joint",
+        "a_joint0",
+        "b"
+      ],
+      "joint": [
+        "a_joint1"
+      ],
+      "frame": []
+    },
+    "joint_bodies": [
+      "a",
+      "b"
+    ]
+  },
+  {
+    "id": "v15_legacy_names_future_link_suffix",
+    "xml": "<sdf version='1.5'><model name='m'><link name='a'/><link name='b'/><joint name='a' type='fixed'><parent>a</parent><child>b</child></joint><link name='a_joint'/></model></sdf>",
+    "names_scope": "model",
+    "accepted": true,
+    "declaration_names": {
+      "model": [],
+      "link": [
+        "a",
+        "b",
+        "a_joint_link"
+      ],
+      "joint": [
+        "a_joint"
+      ],
+      "frame": []
+    },
+    "joint_bodies": [
+      "a",
+      "b"
+    ]
+  },
+  {
+    "id": "v15_legacy_names_frame_before_link",
+    "xml": "<sdf version='1.5'><model name='m'><frame name='a' attached_to='a_link'/><link name='a'/></model></sdf>",
+    "names_scope": "model",
+    "accepted": true,
+    "declaration_names": {
+      "model": [],
+      "link": [
+        "a_link"
+      ],
+      "joint": [],
+      "frame": [
+        "a"
+      ]
+    }
+  },
+  {
+    "id": "v15_legacy_names_frame_after_link",
+    "xml": "<sdf version='1.5'><model name='m'><link name='a'/><frame name='a' attached_to='a'><pose>0 0 3 0 0 0</pose></frame></model></sdf>",
+    "names_scope": "model",
+    "accepted": true,
+    "declaration_names": {
+      "model": [],
+      "link": [
+        "a"
+      ],
+      "joint": [],
+      "frame": [
+        "a_frame"
+      ]
+    }
+  },
+  {
+    "id": "v15_legacy_names_model_before_link",
+    "xml": "<sdf version='1.5'><model name='m'><model name='a'><link name='inner'/></model><link name='a'/></model></sdf>",
+    "names_scope": "model",
+    "accepted": true,
+    "declaration_names": {
+      "model": [
+        "a"
+      ],
+      "link": [
+        "a_link"
+      ],
+      "joint": [],
+      "frame": []
+    }
+  },
+  {
+    "id": "v15_legacy_names_model_after_link",
+    "xml": "<sdf version='1.5'><model name='m'><link name='a'/><model name='a'><link name='inner'/></model></model></sdf>",
+    "names_scope": "model",
+    "accepted": false
+  },
+  {
+    "id": "v15_legacy_names_duplicate_link",
+    "xml": "<sdf version='1.5'><model name='m'><link name='a'/><link name='a'/></model></sdf>",
+    "names_scope": "model",
+    "accepted": false
+  },
+  {
+    "id": "v15_legacy_names_duplicate_frame",
+    "xml": "<sdf version='1.5'><model name='m'><link name='a'/><frame name='a'/><frame name='a'/></model></sdf>",
+    "names_scope": "model",
+    "accepted": false
+  },
+  {
+    "id": "v15_legacy_names_duplicate_joint",
+    "xml": "<sdf version='1.5'><model name='m'><link name='a'/><link name='b'/><joint name='a' type='fixed'><parent>a</parent><child>b</child></joint><joint name='a' type='fixed'><parent>a</parent><child>b</child></joint></model></sdf>",
+    "names_scope": "model",
+    "accepted": false
+  },
+  {
+    "id": "v15_legacy_names_duplicate_model",
+    "xml": "<sdf version='1.5'><model name='m'><model name='a'><link name='inner'/></model><model name='a'><link name='inner'/></model></model></sdf>",
+    "names_scope": "model",
+    "accepted": false
+  },
+  {
+    "id": "v15_legacy_world_names_frame_before_model",
+    "xml": "<sdf version='1.5'><world name='w'><frame name='a'/><model name='a'><link name='inner'/></model></world></sdf>",
+    "names_scope": "world",
+    "accepted": true,
+    "declaration_names": {
+      "model": [
+        "a"
+      ],
+      "frame": [
+        "a_frame"
+      ]
+    }
+  },
+  {
+    "id": "v15_legacy_world_names_frame_suffixes",
+    "xml": "<sdf version='1.5'><world name='w'><model name='a'><link name='inner'/></model><model name='a_frame'><link name='inner'/></model><model name='a_frame0'><link name='inner'/></model><frame name='a'/></world></sdf>",
+    "names_scope": "world",
+    "accepted": true,
+    "declaration_names": {
+      "model": [
+        "a",
+        "a_frame",
+        "a_frame0"
+      ],
+      "frame": [
+        "a_frame1"
+      ]
+    }
+  },
+  {
+    "id": "v15_legacy_world_names_duplicate_frame",
+    "xml": "<sdf version='1.5'><world name='w'><model name='a'><link name='inner'/></model><frame name='a'/><frame name='a'/></world></sdf>",
+    "names_scope": "world",
+    "accepted": false
   }
 ]

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "physics_gravity_move",
+    "xml": "<sdf version='1.5'><world name='w'><physics type='ode'><gravity>1 2 3</gravity></physics></world></sdf>",
+    "gravity": [
+      1.0,
+      2.0,
+      3.0
+    ]
+  },
+  {
+    "id": "legacy_imu_noise",
+    "xml": "<sdf version='1.5'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><noise><type>gaussian</type><rate><mean>2</mean></rate><accel><mean>6</mean></accel></noise></imu></sensor></link></model></sdf>",
+    "noise_means": [
+      2.0,
+      2.0,
+      2.0,
+      6.0,
+      6.0,
+      6.0
+    ]
+  }
+]

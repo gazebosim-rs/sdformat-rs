@@ -521,3 +521,31 @@ and the fresh native proof equals its independently rebuilt proof. All 95
 integrated Rust tests pass independently. The exact qualified receipt preserves
 that scope; coverage is author-reported and matching staged/hosted gates remain
 required. The four new Load mappings remain partial.
+
+The bounded SDF 1.5 model subset now loads the exact original IncludeElements
+raw-string input and original box/model resources without rewriting their version
+or content. It applies the already supported 1.6-to-current pose, axis and legacy
+name rules. Former version-1.5 negative inputs remain explicit positive checks;
+empty roots remain rejected as Missing and version 1.4 remains Version.
+The two changed 1.5-to-1.6 conversion families remain explicit Unsupported:
+physics-contained gravity/magnetic-field moves and legacy IMU noise conversion.
+Two fresh native-supported controls record these gaps separately from passing
+parity rows, so no complete 1.5 conversion claim is made.
+
+All 97 Rust checks and fmt/clippy pass. Working coverage is 2275/2291 lines,
+3947/4045 regions and 16/16 changed executable lines. The native differential
+corpus has 201 matching observations, retaining the exact previous 139 prefix
+and adding 62 version-1.5 conversion-chain controls. The unchanged native
+IncludeElements original passes once with zero failures. The proposed complete
+mapping preserves its lookup paths, Option/presence observations, both original
+resources and native Pose3 component tolerance. Independent assertion/source
+review and matching strict staged verification remain required; no packet is
+complete and older/full conversion remains pending.
+
+Independent /root/msgs compared the full original IncludeElements assertion body
+and conversion chain and freshly reproduced the native proof, including every
+shared hash, all 201 rows, both explicit conversion obligations and the exact
+original case. All 97 Rust tests pass independently using the existing default
+target; no independent clean build or coverage rerun is claimed. The complete
+IncludeElements mapping is reviewed: 31 complete and six partial mappings total.
+Exact final receipt and normal strict staged/hosted gates remain required.

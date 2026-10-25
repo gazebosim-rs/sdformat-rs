@@ -178,15 +178,16 @@ fn include_values_are_owned_snapshots_and_errors_stay_explicit() {
         xml: "<sdf version='1.5'><model name='legacy'><link name='l'/></model></sdf>",
         requests: RefCell::default(),
     };
+    let old_document = load_str(
+        "<sdf version='1.12'><model name='m'><include><uri>old</uri></include></model></sdf>",
+        "parent.sdf",
+        &old,
+    )
+    .unwrap();
+    assert_eq!(old_document.models[0].models[0].name, "legacy");
     assert_eq!(
-        load_str(
-            "<sdf version='1.12'><model name='m'><include><uri>old</uri></include></model></sdf>",
-            "parent.sdf",
-            &old
-        )
-        .unwrap_err()
-        .code,
-        ErrorCode::Version
+        old_document.models[0].models[0].source.uri,
+        "resolved://resource.sdf"
     );
     for (content, code) in [
         ("<include/>", ErrorCode::Missing),

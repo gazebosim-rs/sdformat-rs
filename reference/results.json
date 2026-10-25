@@ -97,10 +97,16 @@
       "sha256": "7859f39fc25fa474d633dee2f5797b4653230bf666db293fd9df81ca6da61fcd",
       "args": "--gtest_filter=DOMPlane.Load",
       "result": "passed; one exact original native case, zero failures; Rust value subset only"
+    },
+    {
+      "binary": "INTEGRATION_nested_model",
+      "sha256": "7a4562925a6f0ad74c07778429f67553e2486c461272881e28d7f759687ca6c8",
+      "args": "--gtest_filter=NestedModel.IncludeElements",
+      "result": "passed; one exact original native case, zero failures; complete typed include metadata assertion mapping pending independent review"
     }
   ],
   "corpus": {
-    "corpus_sha256": "1a921b7a5cb84691e01ea9645d3acbcbead444e4f5706ffcfdfba71fd5985cdd",
+    "corpus_sha256": "a998aefac4a3894e4c39d5101cb758e8c4b4520c936cc4bd6fced52529386d03",
     "results": [
       {
         "id": "canonical_link_alias",
@@ -1589,6 +1595,1043 @@
         "id": "modern_names_still_reject",
         "accepted": false,
         "errors": "Error Code 2: Msg: Joint with name [a] in model with name [m] has a name collision. Please rename this joint.\nError Code 2: Msg: Joint with non-unique name [a] detected in model with name [m].\nError Code 25: Msg: FrameAttachedToGraph error, LINK vertex with name [m::a] should have no outgoing edges in MODEL attached_to graph.\nError Code 2: Msg: Joint with non-unique name [a] detected in model with name [m].\nError Code 28: Msg: PoseRelativeToGraph error, too many incoming edges at a vertex with name [m::a].\nError Code 28: Msg: PoseRelativeToGraph error: multiple incoming edges to current vertex [m::a].\nError Code 21: Msg: joint with name[a] in model with name[m] must not specify its own name as the parent frame.\nError Code 22: Msg: joint with name[a] in model with name[m] specified parent frame [a] and child frame [b] that both resolve to [b], but they should resolve to different values.\n"
+      },
+      {
+        "id": "v15_sdf16_pose_frame",
+        "accepted": true,
+        "errors": "",
+        "link_pose": [
+          1.0,
+          2.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "link_relative_to": "f"
+      },
+      {
+        "id": "v15_sdf16_pose_both",
+        "accepted": true,
+        "errors": "",
+        "link_pose": [
+          1.0,
+          2.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "link_relative_to": "f"
+      },
+      {
+        "id": "v15_sdf16_pose_empty_frame",
+        "accepted": true,
+        "errors": "",
+        "link_pose": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "link_relative_to": ""
+      },
+      {
+        "id": "v15_sdf16_pose_relative",
+        "accepted": true,
+        "errors": "",
+        "link_pose": [
+          1.0,
+          2.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "link_relative_to": "f"
+      },
+      {
+        "id": "v15_sdf16_pose_unknown",
+        "accepted": false,
+        "errors": "Error Code 26: Msg: relative_to name[missing] specified by link with name[l] does not match a nested model, link, joint, or frame name in model with name[m].\nError Code 28: Msg: PoseRelativeToGraph error, Vertex with name [m::l] is disconnected; it should have 1 incoming edge in MODEL relative_to graph.\nError Code 28: Msg: PoseRelativeToGraph unable to find path to source vertex when starting from vertex with id [3].\n"
+      },
+      {
+        "id": "v15_sdf16_pose_empty_text",
+        "accepted": true,
+        "errors": "",
+        "link_pose": [
+          0.0,
+          2.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "link_relative_to": "f"
+      },
+      {
+        "id": "v15_sdf16_axis_true",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_True",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_TRUE",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_1",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_tRuE",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "",
+            "resolved": [
+              2.220446049250313e-16,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "",
+            "resolved": [
+              2.220446049250313e-16,
+              1.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_false",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "",
+            "resolved": [
+              2.220446049250313e-16,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "",
+            "resolved": [
+              2.220446049250313e-16,
+              1.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_FALSE",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "",
+            "resolved": [
+              2.220446049250313e-16,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "",
+            "resolved": [
+              2.220446049250313e-16,
+              1.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_0",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "",
+            "resolved": [
+              2.220446049250313e-16,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "",
+            "resolved": [
+              2.220446049250313e-16,
+              1.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_banana",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "",
+            "resolved": [
+              2.220446049250313e-16,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "",
+            "resolved": [
+              2.220446049250313e-16,
+              1.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_empty",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "",
+            "resolved": [
+              2.220446049250313e-16,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "",
+            "resolved": [
+              2.220446049250313e-16,
+              1.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_default_xyz",
+        "accepted": false,
+        "errors": "Error Code 9: [/sdf/model[@name=\"m\"]/joint[@name=\"j\"]/axis/xyz:<data-string>:L0]: Msg: Error reading element <xyz>\nError Code 9: [/sdf/model[@name=\"m\"]/joint[@name=\"j\"]/axis:<data-string>:L1]: Msg: Error reading element <axis>\nError Code 9: [/sdf/model[@name=\"m\"]/joint[@name=\"j\"]:<data-string>:L1]: Msg: Error reading element <joint>\nError Code 9: [/sdf/model[@name=\"m\"]:<data-string>:L1]: Msg: Error reading element <model>\nError Code 9: Msg: Error reading element <sdf>\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.5'><model name='m'><link name='a'/><link name='b'><pose>0 0 0 0 0 1.5707963267948966</pose></link><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><use_parent_model_frame>true</use_parent_model_frame></axis></joint></model></sdf>\n"
+      },
+      {
+        "id": "v15_sdf16_axis_override_true",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_override_false",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "f",
+            "resolved": [
+              -1.0,
+              1.2246467991473532e-16,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_text_spaced",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_cdata_spaced",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "",
+            "resolved": [
+              2.220446049250313e-16,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "",
+            "resolved": [
+              2.220446049250313e-16,
+              1.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_cdata_true",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_cdata_spaced_missing_xyz",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "",
+            "resolved": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "expressed_in": "",
+            "resolved": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_text_spaced_missing_xyz",
+        "accepted": false,
+        "errors": "Error Code 9: [/sdf/model[@name=\"m\"]/joint[@name=\"j\"]/axis/xyz:<data-string>:L0]: Msg: Error reading element <xyz>\nError Code 9: [/sdf/model[@name=\"m\"]/joint[@name=\"j\"]/axis:<data-string>:L1]: Msg: Error reading element <axis>\nError Code 9: [/sdf/model[@name=\"m\"]/joint[@name=\"j\"]:<data-string>:L1]: Msg: Error reading element <joint>\nError Code 9: [/sdf/model[@name=\"m\"]:<data-string>:L1]: Msg: Error reading element <model>\nError Code 9: Msg: Error reading element <sdf>\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.5'><model name='m'><link name='a'/><link name='b'><pose>0 0 0 0 0 1.5707963267948966</pose></link><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><use_parent_model_frame> true </use_parent_model_frame></axis><axis2><use_parent_model_frame> true </use_parent_model_frame></axis2></joint></model></sdf>\n"
+      },
+      {
+        "id": "v15_sdf16_pose_nbsp",
+        "accepted": false,
+        "errors": "Error Code 26: Msg: relative_to name[\u00a0f\u00a0] specified by link with name[l] does not match a nested model, link, joint, or frame name in model with name[m].\nError Code 28: Msg: PoseRelativeToGraph error, Vertex with name [m::l] is disconnected; it should have 1 incoming edge in MODEL relative_to graph.\nError Code 28: Msg: PoseRelativeToGraph unable to find path to source vertex when starting from vertex with id [3].\n"
+      },
+      {
+        "id": "v15_sdf16_pose_ref_cr",
+        "accepted": false,
+        "errors": "Error Code 26: Msg: relative_to name[\rf\r] specified by link with name[l] does not match a nested model, link, joint, or frame name in model with name[m].\nError Code 28: Msg: PoseRelativeToGraph error, Vertex with name [m::l] is disconnected; it should have 1 incoming edge in MODEL relative_to graph.\nError Code 28: Msg: PoseRelativeToGraph unable to find path to source vertex when starting from vertex with id [3].\n"
+      },
+      {
+        "id": "v15_sdf16_pose_literal_cr",
+        "accepted": true,
+        "errors": "",
+        "link_pose": [
+          1.0,
+          2.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "link_relative_to": "f"
+      },
+      {
+        "id": "v15_sdf16_pose_literal_crlf",
+        "accepted": true,
+        "errors": "",
+        "link_pose": [
+          1.0,
+          2.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "link_relative_to": "f"
+      },
+      {
+        "id": "v15_sdf16_axis_nbsp",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "",
+            "resolved": [
+              2.220446049250313e-16,
+              1.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_ref_cr",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_literal_cr",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_ref_space",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_numeric_vt",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_numeric_ff",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_literal_vt",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_literal_ff",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_nbsp_then_cdata",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "",
+            "resolved": [
+              2.220446049250313e-16,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "",
+            "resolved": [
+              2.220446049250313e-16,
+              1.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_space_then_cdata",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_numeric_vt_then_cdata",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "",
+            "resolved": [
+              2.220446049250313e-16,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "",
+            "resolved": [
+              2.220446049250313e-16,
+              1.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_nbsp_then_cdata_missing_xyz",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "",
+            "resolved": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "expressed_in": "",
+            "resolved": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_numeric_vt_then_cdata_missing_xyz",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "",
+            "resolved": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "expressed_in": "",
+            "resolved": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_space_then_cdata_missing_xyz",
+        "accepted": false,
+        "errors": "Error Code 9: [/sdf/model[@name=\"m\"]/joint[@name=\"j\"]/axis/xyz:<data-string>:L0]: Msg: Error reading element <xyz>\nError Code 9: [/sdf/model[@name=\"m\"]/joint[@name=\"j\"]/axis:<data-string>:L1]: Msg: Error reading element <axis>\nError Code 9: [/sdf/model[@name=\"m\"]/joint[@name=\"j\"]:<data-string>:L1]: Msg: Error reading element <joint>\nError Code 9: [/sdf/model[@name=\"m\"]:<data-string>:L1]: Msg: Error reading element <model>\nError Code 9: Msg: Error reading element <sdf>\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.5'><model name='m'><link name='a'/><link name='b'><pose>0 0 0 0 0 1.5707963267948966</pose></link><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><use_parent_model_frame> <![CDATA[true]]></use_parent_model_frame></axis><axis2><use_parent_model_frame> <![CDATA[true]]></use_parent_model_frame></axis2></joint></model></sdf>\n"
+      },
+      {
+        "id": "v15_sdf16_axis_child_before_true",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "",
+            "resolved": [
+              2.220446049250313e-16,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "",
+            "resolved": [
+              2.220446049250313e-16,
+              1.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_child_after_true",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_comment_before_true",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_comment_before_cdata",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_legacy_names_link_joint",
+        "accepted": true,
+        "errors": "",
+        "declaration_names": {
+          "model": [],
+          "link": [
+            "a",
+            "b"
+          ],
+          "joint": [
+            "a_joint"
+          ],
+          "frame": []
+        },
+        "joint_bodies": [
+          "a",
+          "b"
+        ]
+      },
+      {
+        "id": "v15_legacy_names_joint_link_reverse",
+        "accepted": true,
+        "errors": "",
+        "declaration_names": {
+          "model": [],
+          "link": [
+            "b",
+            "a_link"
+          ],
+          "joint": [
+            "a"
+          ],
+          "frame": []
+        },
+        "joint_bodies": [
+          "a_link",
+          "b"
+        ]
+      },
+      {
+        "id": "v15_legacy_names_joint_link_raw_reference",
+        "accepted": false,
+        "errors": "Error Code 21: Msg: joint with name[a] in model with name[m] must not specify its own name as the parent frame.\nError Code 22: Msg: joint with name[a] in model with name[m] specified parent frame [a] and child frame [b] that both resolve to [b], but they should resolve to different values.\n"
+      },
+      {
+        "id": "v15_legacy_names_joint_suffixes",
+        "accepted": true,
+        "errors": "",
+        "declaration_names": {
+          "model": [],
+          "link": [
+            "a",
+            "a_joint",
+            "a_joint0",
+            "b"
+          ],
+          "joint": [
+            "a_joint1"
+          ],
+          "frame": []
+        },
+        "joint_bodies": [
+          "a",
+          "b"
+        ]
+      },
+      {
+        "id": "v15_legacy_names_future_link_suffix",
+        "accepted": true,
+        "errors": "",
+        "declaration_names": {
+          "model": [],
+          "link": [
+            "a",
+            "b",
+            "a_joint_link"
+          ],
+          "joint": [
+            "a_joint"
+          ],
+          "frame": []
+        },
+        "joint_bodies": [
+          "a",
+          "b"
+        ]
+      },
+      {
+        "id": "v15_legacy_names_frame_before_link",
+        "accepted": true,
+        "errors": "",
+        "declaration_names": {
+          "model": [],
+          "link": [
+            "a_link"
+          ],
+          "joint": [],
+          "frame": [
+            "a"
+          ]
+        }
+      },
+      {
+        "id": "v15_legacy_names_frame_after_link",
+        "accepted": true,
+        "errors": "",
+        "declaration_names": {
+          "model": [],
+          "link": [
+            "a"
+          ],
+          "joint": [],
+          "frame": [
+            "a_frame"
+          ]
+        }
+      },
+      {
+        "id": "v15_legacy_names_model_before_link",
+        "accepted": true,
+        "errors": "",
+        "declaration_names": {
+          "model": [
+            "a"
+          ],
+          "link": [
+            "a_link"
+          ],
+          "joint": [],
+          "frame": []
+        }
+      },
+      {
+        "id": "v15_legacy_names_model_after_link",
+        "accepted": false,
+        "errors": "Error Code 2: Msg: Model with non-unique name [a] detected in model with name [m].\nError Code 2: Msg: Model with non-unique name [a] detected in model with name [m].\nError Code 28: Msg: PoseRelativeToGraph error, too many incoming edges at a vertex with name [m::a].\nError Code 28: Msg: PoseRelativeToGraph error: multiple incoming edges to current vertex [m::a].\n"
+      },
+      {
+        "id": "v15_legacy_names_duplicate_link",
+        "accepted": false,
+        "errors": "Error Code 2: Msg: link with name[a] already exists.\n"
+      },
+      {
+        "id": "v15_legacy_names_duplicate_frame",
+        "accepted": false,
+        "errors": "Error Code 2: Msg: frame with name[a] already exists.\n"
+      },
+      {
+        "id": "v15_legacy_names_duplicate_joint",
+        "accepted": false,
+        "errors": "Error Code 2: Msg: joint with name[a] already exists.\n"
+      },
+      {
+        "id": "v15_legacy_names_duplicate_model",
+        "accepted": false,
+        "errors": "Error Code 2: Msg: model with name[a] already exists.\n"
+      },
+      {
+        "id": "v15_legacy_world_names_frame_before_model",
+        "accepted": true,
+        "errors": "",
+        "declaration_names": {
+          "model": [
+            "a"
+          ],
+          "frame": [
+            "a_frame"
+          ]
+        }
+      },
+      {
+        "id": "v15_legacy_world_names_frame_suffixes",
+        "accepted": true,
+        "errors": "",
+        "declaration_names": {
+          "model": [
+            "a",
+            "a_frame",
+            "a_frame0"
+          ],
+          "frame": [
+            "a_frame1"
+          ]
+        }
+      },
+      {
+        "id": "v15_legacy_world_names_duplicate_frame",
+        "accepted": false,
+        "errors": "Error Code 2: Msg: frame with name[a] already exists.\nError Code 9: Msg: Failed to load a world.\n"
       }
     ]
   },
@@ -4654,5 +5697,1096 @@
   },
   "basic_primitive_scope": "Native Root basic primitive nonpositive dimensions use shape-specific defaults: Box/Plane whole size fallback, Sphere radius 1, Cylinder radius 0.5 and length 1 independently. Omitted schema children retain XML defaults; explicitly empty required values remain errors. Plane uses gz-math Normalize threshold abs(length)<=1e-6, retains tiny/zero normals and divides overflowed finite lengths to signed zero. Thirty-seven native observations compare exact IEEE bits; full Load Element/null/missing descriptions/error vector/mutation contracts remain unported, as do full shape/inertia/serialization behaviors. No coverage exclusions, deps, unsafe or numeric boundary changes.",
   "basic_primitive_review": "Independent /root/transport_recovery approved isolated implementation 4baa643c061786bccd8b6447ad89aa3d8fa3cb420810e8547b13d09f2b8f1847 after exact source/assertion comparison, 91 Rust checks, freshly rebuilt 37 native bit observations and four unchanged native Load originals. All passed; proof/source/header hashes matched. Full coverage not independently recomputed. Four mappings remain partial, with no original full-case retirement. Integration overlap, exact receipt and matching strict staged gate remain required.",
-  "basic_primitive_integration": "Integrated unchanged primitive production/assertion delta onto independently reviewed include commit 8db5770268c682ce353e347d64a96c88c730d881. All 95 Rust tests, fmt/clippy and working coverage pass: 2272/2289 lines, 3941/4040 regions and 20/20 changed executable lines. Fresh 37 native observations and all proof hashes exactly match the reviewed isolated proof. Include metadata and its reviewed partial mapping remain intact. No new complete-case retirement; integrated overlap review and exact strict staged gate remain required."
+  "basic_primitive_integration": "Integrated unchanged primitive production/assertion delta onto independently reviewed include commit 8db5770268c682ce353e347d64a96c88c730d881. All 95 Rust tests, fmt/clippy and working coverage pass: 2272/2289 lines, 3941/4040 regions and 20/20 changed executable lines. Fresh 37 native observations and all proof hashes exactly match the reviewed isolated proof. Include metadata and its reviewed partial mapping remain intact. No new complete-case retirement; integrated overlap review and exact strict staged gate remain required.",
+  "version15_subset": {
+    "upstream_sha": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "source_sha256": {
+      "sdf/1.6/1_5.convert": "ec55dbf1558b79b1d6cd8eadf069821418c10366b997b804ee563590751fea3e",
+      "sdf/1.7/1_6.convert": "eb367e1cbeefa6dea7864ad5aabb07fd1436b8f821dda87b4942bc727f209fdf",
+      "sdf/1.8/1_7.convert": "100219fc12d0d8d453ba2ccf6847e2d290eb99cd5841be3554cfa4bf2adc996e",
+      "src/Converter.cc": "320a68c10d79c1c761f7eae0e3baf6b87c5d59f01f8fd52718135020039d212b",
+      "src/Model.cc": "9ce157bcd85ad233af6022192315ffa61ff5374490f8912f6750c98a0448d8d9",
+      "src/parser.cc": "2ec95e05647c61121ced7910ca8164161a189d31f4b1d1249c9bf2d1ee93463d",
+      "test/integration/nested_model.cc": "0fc773da84928088cec3edb16638cc207369629795f901bcf4d5e74bab7e1db4",
+      "test/integration/model/box/model.sdf": "a92ba62d0c9d9d8026aebbbfa4a49cc1ff1f00447c3147142509738f8ff40c04",
+      "test/integration/model/test_model/model.sdf": "8fbe0949ca7fc95d194d22fb4c0ec7409b70e457aafdb646f27a3f9e802db155"
+    },
+    "corpus_sha256": "a998aefac4a3894e4c39d5101cb758e8c4b4520c936cc4bd6fced52529386d03",
+    "observations": [
+      {
+        "id": "v15_sdf16_pose_frame",
+        "accepted": true,
+        "errors": "",
+        "link_pose": [
+          1.0,
+          2.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "link_relative_to": "f"
+      },
+      {
+        "id": "v15_sdf16_pose_both",
+        "accepted": true,
+        "errors": "",
+        "link_pose": [
+          1.0,
+          2.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "link_relative_to": "f"
+      },
+      {
+        "id": "v15_sdf16_pose_empty_frame",
+        "accepted": true,
+        "errors": "",
+        "link_pose": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "link_relative_to": ""
+      },
+      {
+        "id": "v15_sdf16_pose_relative",
+        "accepted": true,
+        "errors": "",
+        "link_pose": [
+          1.0,
+          2.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "link_relative_to": "f"
+      },
+      {
+        "id": "v15_sdf16_pose_unknown",
+        "accepted": false,
+        "errors": "Error Code 26: Msg: relative_to name[missing] specified by link with name[l] does not match a nested model, link, joint, or frame name in model with name[m].\nError Code 28: Msg: PoseRelativeToGraph error, Vertex with name [m::l] is disconnected; it should have 1 incoming edge in MODEL relative_to graph.\nError Code 28: Msg: PoseRelativeToGraph unable to find path to source vertex when starting from vertex with id [3].\n"
+      },
+      {
+        "id": "v15_sdf16_pose_empty_text",
+        "accepted": true,
+        "errors": "",
+        "link_pose": [
+          0.0,
+          2.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "link_relative_to": "f"
+      },
+      {
+        "id": "v15_sdf16_axis_true",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_True",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_TRUE",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_1",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_tRuE",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "",
+            "resolved": [
+              2.220446049250313e-16,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "",
+            "resolved": [
+              2.220446049250313e-16,
+              1.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_false",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "",
+            "resolved": [
+              2.220446049250313e-16,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "",
+            "resolved": [
+              2.220446049250313e-16,
+              1.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_FALSE",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "",
+            "resolved": [
+              2.220446049250313e-16,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "",
+            "resolved": [
+              2.220446049250313e-16,
+              1.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_0",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "",
+            "resolved": [
+              2.220446049250313e-16,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "",
+            "resolved": [
+              2.220446049250313e-16,
+              1.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_banana",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "",
+            "resolved": [
+              2.220446049250313e-16,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "",
+            "resolved": [
+              2.220446049250313e-16,
+              1.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_empty",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "",
+            "resolved": [
+              2.220446049250313e-16,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "",
+            "resolved": [
+              2.220446049250313e-16,
+              1.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_default_xyz",
+        "accepted": false,
+        "errors": "Error Code 9: [/sdf/model[@name=\"m\"]/joint[@name=\"j\"]/axis/xyz:<data-string>:L0]: Msg: Error reading element <xyz>\nError Code 9: [/sdf/model[@name=\"m\"]/joint[@name=\"j\"]/axis:<data-string>:L1]: Msg: Error reading element <axis>\nError Code 9: [/sdf/model[@name=\"m\"]/joint[@name=\"j\"]:<data-string>:L1]: Msg: Error reading element <joint>\nError Code 9: [/sdf/model[@name=\"m\"]:<data-string>:L1]: Msg: Error reading element <model>\nError Code 9: Msg: Error reading element <sdf>\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.5'><model name='m'><link name='a'/><link name='b'><pose>0 0 0 0 0 1.5707963267948966</pose></link><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><use_parent_model_frame>true</use_parent_model_frame></axis></joint></model></sdf>\n"
+      },
+      {
+        "id": "v15_sdf16_axis_override_true",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_override_false",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "f",
+            "resolved": [
+              -1.0,
+              1.2246467991473532e-16,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_text_spaced",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_cdata_spaced",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "",
+            "resolved": [
+              2.220446049250313e-16,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "",
+            "resolved": [
+              2.220446049250313e-16,
+              1.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_cdata_true",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_cdata_spaced_missing_xyz",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "",
+            "resolved": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "expressed_in": "",
+            "resolved": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_text_spaced_missing_xyz",
+        "accepted": false,
+        "errors": "Error Code 9: [/sdf/model[@name=\"m\"]/joint[@name=\"j\"]/axis/xyz:<data-string>:L0]: Msg: Error reading element <xyz>\nError Code 9: [/sdf/model[@name=\"m\"]/joint[@name=\"j\"]/axis:<data-string>:L1]: Msg: Error reading element <axis>\nError Code 9: [/sdf/model[@name=\"m\"]/joint[@name=\"j\"]:<data-string>:L1]: Msg: Error reading element <joint>\nError Code 9: [/sdf/model[@name=\"m\"]:<data-string>:L1]: Msg: Error reading element <model>\nError Code 9: Msg: Error reading element <sdf>\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.5'><model name='m'><link name='a'/><link name='b'><pose>0 0 0 0 0 1.5707963267948966</pose></link><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><use_parent_model_frame> true </use_parent_model_frame></axis><axis2><use_parent_model_frame> true </use_parent_model_frame></axis2></joint></model></sdf>\n"
+      },
+      {
+        "id": "v15_sdf16_pose_nbsp",
+        "accepted": false,
+        "errors": "Error Code 26: Msg: relative_to name[\u00a0f\u00a0] specified by link with name[l] does not match a nested model, link, joint, or frame name in model with name[m].\nError Code 28: Msg: PoseRelativeToGraph error, Vertex with name [m::l] is disconnected; it should have 1 incoming edge in MODEL relative_to graph.\nError Code 28: Msg: PoseRelativeToGraph unable to find path to source vertex when starting from vertex with id [3].\n"
+      },
+      {
+        "id": "v15_sdf16_pose_ref_cr",
+        "accepted": false,
+        "errors": "Error Code 26: Msg: relative_to name[\rf\r] specified by link with name[l] does not match a nested model, link, joint, or frame name in model with name[m].\nError Code 28: Msg: PoseRelativeToGraph error, Vertex with name [m::l] is disconnected; it should have 1 incoming edge in MODEL relative_to graph.\nError Code 28: Msg: PoseRelativeToGraph unable to find path to source vertex when starting from vertex with id [3].\n"
+      },
+      {
+        "id": "v15_sdf16_pose_literal_cr",
+        "accepted": true,
+        "errors": "",
+        "link_pose": [
+          1.0,
+          2.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "link_relative_to": "f"
+      },
+      {
+        "id": "v15_sdf16_pose_literal_crlf",
+        "accepted": true,
+        "errors": "",
+        "link_pose": [
+          1.0,
+          2.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "link_relative_to": "f"
+      },
+      {
+        "id": "v15_sdf16_axis_nbsp",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "",
+            "resolved": [
+              2.220446049250313e-16,
+              1.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_ref_cr",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_literal_cr",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_ref_space",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_numeric_vt",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_numeric_ff",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_literal_vt",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_literal_ff",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_nbsp_then_cdata",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "",
+            "resolved": [
+              2.220446049250313e-16,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "",
+            "resolved": [
+              2.220446049250313e-16,
+              1.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_space_then_cdata",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_numeric_vt_then_cdata",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "",
+            "resolved": [
+              2.220446049250313e-16,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "",
+            "resolved": [
+              2.220446049250313e-16,
+              1.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_nbsp_then_cdata_missing_xyz",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "",
+            "resolved": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "expressed_in": "",
+            "resolved": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_numeric_vt_then_cdata_missing_xyz",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "",
+            "resolved": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "expressed_in": "",
+            "resolved": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_space_then_cdata_missing_xyz",
+        "accepted": false,
+        "errors": "Error Code 9: [/sdf/model[@name=\"m\"]/joint[@name=\"j\"]/axis/xyz:<data-string>:L0]: Msg: Error reading element <xyz>\nError Code 9: [/sdf/model[@name=\"m\"]/joint[@name=\"j\"]/axis:<data-string>:L1]: Msg: Error reading element <axis>\nError Code 9: [/sdf/model[@name=\"m\"]/joint[@name=\"j\"]:<data-string>:L1]: Msg: Error reading element <joint>\nError Code 9: [/sdf/model[@name=\"m\"]:<data-string>:L1]: Msg: Error reading element <model>\nError Code 9: Msg: Error reading element <sdf>\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.5'><model name='m'><link name='a'/><link name='b'><pose>0 0 0 0 0 1.5707963267948966</pose></link><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><use_parent_model_frame> <![CDATA[true]]></use_parent_model_frame></axis><axis2><use_parent_model_frame> <![CDATA[true]]></use_parent_model_frame></axis2></joint></model></sdf>\n"
+      },
+      {
+        "id": "v15_sdf16_axis_child_before_true",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "",
+            "resolved": [
+              2.220446049250313e-16,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "",
+            "resolved": [
+              2.220446049250313e-16,
+              1.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_child_after_true",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_comment_before_true",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_sdf16_axis_comment_before_cdata",
+        "accepted": true,
+        "errors": "",
+        "joint_axes": [
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "expressed_in": "__model__",
+            "resolved": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ]
+      },
+      {
+        "id": "v15_legacy_names_link_joint",
+        "accepted": true,
+        "errors": "",
+        "declaration_names": {
+          "model": [],
+          "link": [
+            "a",
+            "b"
+          ],
+          "joint": [
+            "a_joint"
+          ],
+          "frame": []
+        },
+        "joint_bodies": [
+          "a",
+          "b"
+        ]
+      },
+      {
+        "id": "v15_legacy_names_joint_link_reverse",
+        "accepted": true,
+        "errors": "",
+        "declaration_names": {
+          "model": [],
+          "link": [
+            "b",
+            "a_link"
+          ],
+          "joint": [
+            "a"
+          ],
+          "frame": []
+        },
+        "joint_bodies": [
+          "a_link",
+          "b"
+        ]
+      },
+      {
+        "id": "v15_legacy_names_joint_link_raw_reference",
+        "accepted": false,
+        "errors": "Error Code 21: Msg: joint with name[a] in model with name[m] must not specify its own name as the parent frame.\nError Code 22: Msg: joint with name[a] in model with name[m] specified parent frame [a] and child frame [b] that both resolve to [b], but they should resolve to different values.\n"
+      },
+      {
+        "id": "v15_legacy_names_joint_suffixes",
+        "accepted": true,
+        "errors": "",
+        "declaration_names": {
+          "model": [],
+          "link": [
+            "a",
+            "a_joint",
+            "a_joint0",
+            "b"
+          ],
+          "joint": [
+            "a_joint1"
+          ],
+          "frame": []
+        },
+        "joint_bodies": [
+          "a",
+          "b"
+        ]
+      },
+      {
+        "id": "v15_legacy_names_future_link_suffix",
+        "accepted": true,
+        "errors": "",
+        "declaration_names": {
+          "model": [],
+          "link": [
+            "a",
+            "b",
+            "a_joint_link"
+          ],
+          "joint": [
+            "a_joint"
+          ],
+          "frame": []
+        },
+        "joint_bodies": [
+          "a",
+          "b"
+        ]
+      },
+      {
+        "id": "v15_legacy_names_frame_before_link",
+        "accepted": true,
+        "errors": "",
+        "declaration_names": {
+          "model": [],
+          "link": [
+            "a_link"
+          ],
+          "joint": [],
+          "frame": [
+            "a"
+          ]
+        }
+      },
+      {
+        "id": "v15_legacy_names_frame_after_link",
+        "accepted": true,
+        "errors": "",
+        "declaration_names": {
+          "model": [],
+          "link": [
+            "a"
+          ],
+          "joint": [],
+          "frame": [
+            "a_frame"
+          ]
+        }
+      },
+      {
+        "id": "v15_legacy_names_model_before_link",
+        "accepted": true,
+        "errors": "",
+        "declaration_names": {
+          "model": [
+            "a"
+          ],
+          "link": [
+            "a_link"
+          ],
+          "joint": [],
+          "frame": []
+        }
+      },
+      {
+        "id": "v15_legacy_names_model_after_link",
+        "accepted": false,
+        "errors": "Error Code 2: Msg: Model with non-unique name [a] detected in model with name [m].\nError Code 2: Msg: Model with non-unique name [a] detected in model with name [m].\nError Code 28: Msg: PoseRelativeToGraph error, too many incoming edges at a vertex with name [m::a].\nError Code 28: Msg: PoseRelativeToGraph error: multiple incoming edges to current vertex [m::a].\n"
+      },
+      {
+        "id": "v15_legacy_names_duplicate_link",
+        "accepted": false,
+        "errors": "Error Code 2: Msg: link with name[a] already exists.\n"
+      },
+      {
+        "id": "v15_legacy_names_duplicate_frame",
+        "accepted": false,
+        "errors": "Error Code 2: Msg: frame with name[a] already exists.\n"
+      },
+      {
+        "id": "v15_legacy_names_duplicate_joint",
+        "accepted": false,
+        "errors": "Error Code 2: Msg: joint with name[a] already exists.\n"
+      },
+      {
+        "id": "v15_legacy_names_duplicate_model",
+        "accepted": false,
+        "errors": "Error Code 2: Msg: model with name[a] already exists.\n"
+      },
+      {
+        "id": "v15_legacy_world_names_frame_before_model",
+        "accepted": true,
+        "errors": "",
+        "declaration_names": {
+          "model": [
+            "a"
+          ],
+          "frame": [
+            "a_frame"
+          ]
+        }
+      },
+      {
+        "id": "v15_legacy_world_names_frame_suffixes",
+        "accepted": true,
+        "errors": "",
+        "declaration_names": {
+          "model": [
+            "a",
+            "a_frame",
+            "a_frame0"
+          ],
+          "frame": [
+            "a_frame1"
+          ]
+        }
+      },
+      {
+        "id": "v15_legacy_world_names_duplicate_frame",
+        "accepted": false,
+        "errors": "Error Code 2: Msg: frame with name[a] already exists.\nError Code 9: Msg: Failed to load a world.\n"
+      }
+    ],
+    "source_fixture_sha256": "383823850a41b278701d233e05f67a04e654a7b07010a0fd84581fb8daa3f1d4",
+    "resources_sha256": {
+      "tests/fixtures/include_elements_box.sdf": "a92ba62d0c9d9d8026aebbbfa4a49cc1ff1f00447c3147142509738f8ff40c04",
+      "tests/fixtures/include_elements_model.sdf": "8fbe0949ca7fc95d194d22fb4c0ec7409b70e457aafdb646f27a3f9e802db155"
+    },
+    "original_binary_sha256": "7a4562925a6f0ad74c07778429f67553e2486c461272881e28d7f759687ca6c8",
+    "original_tests": 1,
+    "original_failures": 0,
+    "binding_sha256": "5df625f991109d9e6baab7a339e1abef27002a37bdaadbffacb074286d02ab10",
+    "native_library_sha256": "bcc864bcee56b49c13081e29722051e26c036260e3dd037e7736aa2b8620358f",
+    "probe_script_sha256": "6041c2441689aa8617cd46facb5455a16caad93ecc692d25393d03debf627004",
+    "explicit_unsupported_sha256": "c9b89fdb8545a950cba0ede6624438b485bd2de39e15cceb073f1e8652672a09",
+    "native_supported_rust_unsupported": [
+      {
+        "id": "physics_gravity_move",
+        "accepted": true,
+        "gravity": [
+          1.0,
+          2.0,
+          3.0
+        ]
+      },
+      {
+        "id": "legacy_imu_noise",
+        "accepted": true,
+        "noise_means": [
+          2.0,
+          2.0,
+          2.0,
+          6.0,
+          6.0,
+          6.0
+        ]
+      }
+    ],
+    "scope": "Common model schema only: native 1.6-to-current pose frame, axis conversion and legacy shared-name rules also apply to version 1.5 inputs. Exact original IncludeElements raw string and both original resources retained, including box version 1.5. Changed 1.5-to-1.6 physics gravity/magnetic-field moves and old IMU noise redistribution explicitly remain Unsupported; two native-supported controls are recorded separately, not counted as matching outcomes. Original root Sdf.version and resource-local semantic context/source positions preserved. No full conversion, Element facade, serializer, platform or performance claim.",
+    "review": "Independent /root/msgs reviewed implementation 454a1fbd1f2d28f54d223259fd973e43d92a4752c5341773e4e940ead51ea5db, the pinned conversion chain, full original IncludeElements assertions and exact fixture/proof provenance. It freshly reproduced all 201 matching native rows, 62 added controls, two explicit Unsupported obligations and exact original one-run/zero-failure case; all shared proof fields match and prior 139 prefix is unchanged. All 97 Rust tests passed independently using existing default target; no clean-build/full-coverage rerun claimed. No blocking finding. Matching protected receipt and strict staged/hosted gates remain required."
+  }
 }

@@ -1,0 +1,21 @@
+
+    <sdf version='1.8'>
+      <world name='default'>
+        <include>
+          <uri>box</uri>
+          <name>test_box</name>
+          <pose>1 2 3 0 0 0</pose>
+          <placement_frame>link</placement_frame>
+          <plugin name='test_plugin' filename='test_plugin_file'/>
+        </include>
+        <model name='test2'>
+          <include>
+            <uri>test_model</uri>
+            <name>test_model</name>
+            <pose>1 2 3 0 0 0</pose>
+            <placement_frame>link</placement_frame>
+            <plugin name='test_plugin' filename='test_plugin_file'/>
+          </include>
+        </model>
+      </world>
+    </sdf>

@@ -111,7 +111,7 @@ fn sdf17_subset_preserves_version_and_reports_unimplemented_unflattening() {
     );
     let older = "<sdf version='1.5'><model name='m'><link name='l'/></model></sdf>";
     assert_eq!(
-        load_str(older, "older", &NoResources).unwrap_err().code,
-        ErrorCode::Version
+        load_str(older, "older", &NoResources).unwrap().version,
+        "1.5"
     );
 }

@@ -86,12 +86,12 @@ attribute CR/CRLF normalize before reference expansion. A true flag without xyz
 reproduces the native missing-value rejection caused by its synthesized empty xyz.
 Effective typed references are converted without rewriting source XML/positions.
 Each included resource uses its own version. Original root Sdf.version is retained.
-SDF1.6 model members share a namespace in declaration order: later links, joints
+SDF 1.5/1.6 model members share a namespace in declaration order: later links, joints
 and frames with cross-kind collisions append _link/_joint/_frame, then a numeric
 suffix starting at0 when needed. Nested models are never renamed. Worlds load
 models before applying the same frame renaming, independent of XML order.
 Same-kind raw duplicates reject, and reference strings are not rewritten.
-Modern shared names reject. Flattened names remain Unsupported; 1.5 and older
+Modern shared names reject. Flattened names remain Unsupported; 1.4 and older
 conversions remain unavailable. Full schema/version-aware
 validation, serialization, visual rendering properties/material data, mesh resource loading, merge, automatic inertia, URDF, other sensor families and most other
 SDF features remain pending. Unknown schema features error; opaque plugin XML is the stated exception.
@@ -289,3 +289,13 @@ Plane normalization follows native gz-math: lengths at most 1e-6 leave the raw
 normal unchanged, including zero; an overflowed length divides finite components
 to signed zero. This is DOM data, not a physics capability or valid-normal claim.
 Consumers must validate supported physical geometry before instantiation.
+
+The SDF 1.5 common model subset uses the existing 1.6-to-current semantic
+conversion chain, including pose frame, axis expressed-in and legacy shared-name
+rules. It loads original 1.5 box resources through the injected resolver without
+rewriting fixtures and retains the root Sdf.version and original resource source positions.
+The changed 1.5-to-1.6 actions remain explicit boundaries: physics-contained world
+gravity/magnetic-field moves and legacy IMU noise redistribution are Unsupported,
+as are unimplemented schema fields at newer versions. No full 1.5 conversion or
+serialization claim is made. Empty 1.5 roots now report Missing after version
+acceptance; 1.4 roots remain Version errors.

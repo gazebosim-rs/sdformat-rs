@@ -34,11 +34,25 @@ fn included_conversion_uses_imported_version_and_preserves_source_positions() {
 }
 #[test]
 fn older_conversions_and_flattened_names_remain_explicit_boundaries() {
+    let sdf = load_str(
+        "<sdf version='1.5'><model name='m'><link name='l'/></model></sdf>",
+        "version-boundary",
+        &NoResources,
+    )
+    .unwrap();
+    assert_eq!(sdf.version, "1.5");
+    assert_eq!(sdf.models[0].links[0].name, "l");
+    assert_eq!(
+        load_str(
+            "<sdf version='1.4'><model name='m'><link name='l'/></model></sdf>",
+            "version-boundary",
+            &NoResources
+        )
+        .unwrap_err()
+        .code,
+        ErrorCode::Version
+    );
     for (xml, code) in [
-        (
-            "<sdf version='1.5'><model name='m'><link name='l'/></model></sdf>",
-            ErrorCode::Version,
-        ),
         (
             "<sdf version='1.6'><model name='m'><link name='nested::l'/></model></sdf>",
             ErrorCode::Unsupported,

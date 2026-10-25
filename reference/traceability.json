@@ -404,6 +404,26 @@
       "baseline": "passed; artifacts/reference-surface.xml",
       "status": "ported_reviewed",
       "review": "On 2026-10-24, /root/transport independently compared the original assertions, source, schema and defaults and reran all 10 native cases. /root independently reviewed the corrected combined source and mapping overlap and reran all 85 Rust checks, 49 native Surface observations and 10 mapped native originals. Public field mutation and optional Source provenance preserve the declared new-API mapping; no physics or full-surface completion is claimed."
+    },
+    {
+      "target": "INTEGRATION_nested_model",
+      "case": "NestedModel.IncludeElements",
+      "source": "test/integration/nested_model.cc:1507",
+      "rust_test": "tests/version15.rs::nested_model_include_elements_original_assertions",
+      "assertions": "Every original parse success, world/model/nested-model existence and index path, direct-model missing include, and both include uri/name/pose/placement/plugin presence and value assertions retained. Native Element include presence maps to Model.include Option; optional override fields map HasElement, and mandatory URI string is validated by loading. Plugin attribute presence also checked in unchanged raw plugin XML. Original component-wise Pose3 <=1e-3 retained. No generic Element or ToElement facade claimed.",
+      "fixtures": {
+        "tests/fixtures/include_elements.sdf": "383823850a41b278701d233e05f67a04e654a7b07010a0fd84581fb8daa3f1d4",
+        "tests/fixtures/include_elements_box.sdf": "a92ba62d0c9d9d8026aebbbfa4a49cc1ff1f00447c3147142509738f8ff40c04",
+        "tests/fixtures/include_elements_model.sdf": "8fbe0949ca7fc95d194d22fb4c0ec7409b70e457aafdb646f27a3f9e802db155"
+      },
+      "upstream_fixtures": {
+        "test/integration/nested_model.cc": "0fc773da84928088cec3edb16638cc207369629795f901bcf4d5e74bab7e1db4",
+        "test/integration/model/box/model.sdf": "a92ba62d0c9d9d8026aebbbfa4a49cc1ff1f00447c3147142509738f8ff40c04",
+        "test/integration/model/test_model/model.sdf": "8fbe0949ca7fc95d194d22fb4c0ec7409b70e457aafdb646f27a3f9e802db155"
+      },
+      "baseline": "Exact unchanged native case passed; XML one run, zero failures; artifacts/version15/version15-original.xml",
+      "status": "ported_reviewed",
+      "review": "Independent /root/msgs approved implementation 454a1fbd1f2d28f54d223259fd973e43d92a4752c5341773e4e940ead51ea5db on 2026-10-25. Compared every original assertion at nested_model.cc1507-1589: exact model/index/include presence and lookup paths, both URI/name/pose/placement/plugin observations, and component-wise 1e-3 Pose3 comparisons. Fresh native script exactly recreated all shared proof fields, original raw-string/resource hashes, 201 matching observations including unchanged 139 prefix plus 62 version-1.5 controls, two native-supported/Rust-Unsupported gaps and exact original XML one run/zero failures. Independently all 97 Rust tests passed using existing default target, not a clean build or independent full coverage run. No Element/serializer or full version-conversion claim."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

@@ -92,9 +92,9 @@ impl Parser<'_> {
         }
         if !matches!(
             root.attribute("version"),
-            Some("1.6" | "1.7" | "1.8" | "1.9" | "1.10" | "1.11" | "1.12")
+            Some("1.5" | "1.6" | "1.7" | "1.8" | "1.9" | "1.10" | "1.11" | "1.12")
         ) {
-            return Err(self.err(root, ErrorCode::Version, "supported versions are SDF 1.6 through 1.12; earlier conversion is not implemented"));
+            return Err(self.err(root, ErrorCode::Version, "supported versions are SDF 1.5 through 1.12; earlier conversion is not implemented"));
         }
         Ok(())
     }
@@ -171,7 +171,7 @@ impl Parser<'_> {
         if name.contains("::")
             && matches!(
                 node.document().root_element().attribute("version"),
-                Some("1.6" | "1.7")
+                Some("1.5" | "1.6" | "1.7")
             )
         {
             return Err(self.err(
@@ -271,7 +271,7 @@ impl Parser<'_> {
         };
         self.allowed(pose, &[], pose_attributes(pose))?;
         // The 1.6 -> 1.7 move overwrites relative_to even for an empty frame.
-        let relative_to = if is_16(pose) {
+        let relative_to = if is_pre17(pose) {
             pose.attribute("frame")
                 .or_else(|| pose.attribute("relative_to"))
                 .unwrap_or("")
@@ -360,7 +360,7 @@ impl Parser<'_> {
         let gravity = child(node, "gravity").map_or(Ok([0., 0., -9.8]), |n| self.values(n))?;
         let models = self.models(node, &name)?;
         let mut frames = self.frames(node)?;
-        if is_16(node) {
+        if is_pre17(node) {
             // World loads models before frames, regardless of declaration order.
             let mut names = models.iter().map(|model| model.name.clone()).collect();
             let mut typed_names = BTreeSet::new();
@@ -477,7 +477,7 @@ impl Parser<'_> {
             match member.tag_name().name() {
                 "link" => {
                     let mut link = self.link(member, &scoped_name)?;
-                    if is_16(node) {
+                    if is_pre17(node) {
                         link.name = self.legacy_name(
                             member,
                             "link",
@@ -491,7 +491,7 @@ impl Parser<'_> {
                 }
                 "joint" => {
                     let mut joint = self.joint(member)?;
-                    if is_16(node) {
+                    if is_pre17(node) {
                         joint.name = self.legacy_name(
                             member,
                             "joint",
@@ -504,7 +504,7 @@ impl Parser<'_> {
                 }
                 "frame" => {
                     let mut frame = self.frame(member)?;
-                    if is_16(node) {
+                    if is_pre17(node) {
                         frame.name = self.legacy_name(
                             member,
                             "frame",
@@ -521,7 +521,7 @@ impl Parser<'_> {
                     } else {
                         self.include(member, &scoped_name)?
                     };
-                    if is_16(node) {
+                    if is_pre17(node) {
                         self.legacy_name(
                             member,
                             "model",
@@ -1188,7 +1188,7 @@ impl Parser<'_> {
     fn axis(&self, axis: Node<'_, '_>) -> Result<Axis, Diagnostic> {
         self.allowed(
             axis,
-            if is_16(axis) {
+            if is_pre17(axis) {
                 &["xyz", "limit", "use_parent_model_frame"]
             } else {
                 &["xyz", "limit"]
@@ -1197,7 +1197,7 @@ impl Parser<'_> {
         )?;
         // Upstream's conversion table recognizes exactly these four spellings;
         // every other value is removed without being interpreted as a boolean.
-        let parent_model = is_16(axis)
+        let parent_model = is_pre17(axis)
             && child(axis, "use_parent_model_frame").is_some_and(|n| {
                 let text = n.text().unwrap_or("");
                 // TinyXML's ordinary whitespace collapse does not apply to CDATA.
@@ -1427,11 +1427,14 @@ fn elements<'a, 'b>(node: Node<'a, 'b>) -> impl Iterator<Item = Node<'a, 'b>> {
 fn child<'a, 'b>(node: Node<'a, 'b>, tag: &str) -> Option<Node<'a, 'b>> {
     elements(node).find(|n| n.has_tag_name(tag))
 }
-fn is_16(node: Node<'_, '_>) -> bool {
-    node.document().root_element().attribute("version") == Some("1.6")
+fn is_pre17(node: Node<'_, '_>) -> bool {
+    matches!(
+        node.document().root_element().attribute("version"),
+        Some("1.5" | "1.6")
+    )
 }
 fn pose_attributes(node: Node<'_, '_>) -> &'static [&'static str] {
-    if is_16(node) {
+    if is_pre17(node) {
         &["frame", "relative_to", "degrees", "rotation_format"]
     } else {
         &["relative_to", "degrees", "rotation_format"]

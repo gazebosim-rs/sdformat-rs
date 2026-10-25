@@ -387,7 +387,7 @@ fn invalid_documents_fail_atomically() {
         ("<sdf/>", ErrorCode::Version),
         ("<sdf version='1.7'/>", ErrorCode::Missing),
         ("<sdf version='1.6'/>", ErrorCode::Missing),
-        ("<sdf version='1.5'/>", ErrorCode::Version),
+        ("<sdf version='1.5'/>", ErrorCode::Missing),
         ("<sdf version='1.12'/>", ErrorCode::Missing),
         (
             "<sdf version='1.12'><world name='w'/><model name='m'/></sdf>",

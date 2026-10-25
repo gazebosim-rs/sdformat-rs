@@ -1,0 +1,14 @@
+{
+  "parent": "bb9786c3139257115bd9ee816db8dfa3dd44ed97",
+  "path": "tests/imu.rs",
+  "before_sha256": "da86e75b61f7bab17cdad12fdde1ebab50dd2c9ef446b880c0f2314d091da820",
+  "exact_old_payload": "<enable_metrics>1</enable_metrics><imu><angular_velocity><x><noise type='GaUsSiaN_QUANTIZED'><mean>1.2</mean><stddev>2.3</stddev><bias_mean>4.5</bias_mean><bias_stddev>6.7</bias_stddev><precision>8.9</precision><dynamic_bias_stddev>10.11</dynamic_bias_stddev><dynamic_bias_correlation_time>12.13</dynamic_bias_correlation_time></noise></x><y/><z><noise/></z></angular_velocity><orientation_reference_frame><localization>BOGUS</localization><custom_rpy>0 0 1</custom_rpy><grav_dir_x>0 0 0</grav_dir_x></orientation_reference_frame></imu>",
+  "exact_old_xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><enable_metrics>1</enable_metrics><imu><angular_velocity><x><noise type='GaUsSiaN_QUANTIZED'><mean>1.2</mean><stddev>2.3</stddev><bias_mean>4.5</bias_mean><bias_stddev>6.7</bias_stddev><precision>8.9</precision><dynamic_bias_stddev>10.11</dynamic_bias_stddev><dynamic_bias_correlation_time>12.13</dynamic_bias_correlation_time></noise></x><y/><z><noise/></z></angular_velocity><orientation_reference_frame><localization>BOGUS</localization><custom_rpy>0 0 1</custom_rpy><grav_dir_x>0 0 0</grav_dir_x></orientation_reference_frame></imu></sensor></link></model></sdf>",
+  "canonical_payload": "<enable_metrics>1</enable_metrics><imu><angular_velocity><x><noise type='GaUsSiaN_QUANTIZED'><mean>1.2</mean><stddev>2.3</stddev><bias_mean>4.5</bias_mean><bias_stddev>6.7</bias_stddev><precision>8.9</precision><dynamic_bias_stddev>10.11</dynamic_bias_stddev><dynamic_bias_correlation_time>12.13</dynamic_bias_correlation_time></noise></x><y/><z><noise type='none'/></z></angular_velocity><orientation_reference_frame><localization>BOGUS</localization><custom_rpy>0 0 1</custom_rpy><grav_dir_x>0 0 0</grav_dir_x></orientation_reference_frame></imu>",
+  "disposition": "Exact malformed full XML retained as a native-backed required-type negative. Supplementary positive data adds explicit none type; every other byte of tests/imu.rs reconstructs the public parent. Independent disposition review required.",
+  "after_sha256": "d263594da3f638bcf7908ed7d8adcbb8a0e1aab52aa861b0b8c3e9b865d6bf22",
+  "exact_old_xml_sha256": "137343a4511a32d22b6bb5c08e7a2f77922c81bbad567aff0f900a858c770704",
+  "restored_file_equals_public_parent": true,
+  "canonical_replacement": "<z><noise type='none'/></z>",
+  "old_fragment": "<z><noise/></z>"
+}

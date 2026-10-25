@@ -1,48 +1,24 @@
 {
-  "author": "/root/sdformat",
-  "base": "943b171cac881dd1f0eacb398abc8d00e0fc1fef",
-  "coverage": {
-    "author_lines": [
-      3160,
-      3181
-    ],
-    "author_regions": [
-      5519,
-      5631
-    ],
-    "independently_recomputed": false
-  },
   "decision": "approved",
-  "files": {
-    "docs/JOINT_ENDPOINTS.md": "873a0ef99535da7f19f21fa7a0fb432edf3fd0696884f24d3553f6ac6f73252f",
-    "docs/STATUS.md": "677bb1bf7fa0446c922e164e51db8b42c1d59c0ecae012e74bcaa59e35ed2111",
-    "reference/results.json": "c6d3172bece5d8151ca9bb2507d5f4d808346d4f07a18c99d31c8cadb0096595",
-    "reference/traceability.json": "bebb162daa505c803c96feeda8b85a75ebe67c3d73bca84843968a984affab1b",
-    "tests/fixtures/joint_child_model_frame.sdf": "7237e97531a585b6f34bf0adf3d0e9a70ff30fcde3921c4e509b7523bd212d14",
-    "tests/fixtures/joint_parent_model_frame.sdf": "8a97ced712226182b56ab10e401851dc61b994f2bc11e0b612d59048bffee7f1",
-    "tests/fixtures/joint_parent_world.sdf": "67e0136a3cc9928f942804fe45b443ec75bec239b1e96b335f439ed0f9b201af",
-    "tests/joint_endpoints.rs": "b0c25096fdf71bfa382ff2439a154e4bf79813f88df4e40dff7b449ab2170ac9",
-    "tools/joint_endpoints_reference.py": "1f6061366434fd6ab7b7f947d96d53f7b8fa9d8a945ea24314c12abe016fac1b"
-  },
-  "independent_checks": {
-    "assertion_mapping": "Every original assertion in joint_dom.cc:205-254 and 278-341 retained by exact API translation; native Pose3 component-wise tolerance <=1e-3; actual graph-body results, global world sentinel and actual model-scope translation.",
-    "fmt_clippy": "passed",
-    "fresh_private_rust": 153,
-    "native_each": "1 run, 0 failures, 0 skips",
-    "native_proof": "fresh native proof equals recorded result including source, fixture, binary, header, library hashes",
-    "tooling": 13,
-    "unchanged_native_originals": 3
-  },
-  "limits": "No production/API/unsafe/dependency change; no generic mutable ResolveParent/Child error-vector or runtime-joint claim. Native comparison uses existing pinned binary/SDK rather than fresh native full build. Mandatory staged hook and hosted checks pending.",
-  "matching_source_digest": "e2f1127079bb39c86dc3f7f3d189606e92e01aab202b5ebc46acb6dea2c41d0d",
-  "metadata_only_changed_from_source_review": [
-    "docs/JOINT_ENDPOINTS.md",
-    "docs/STATUS.md",
-    "reference/results.json",
-    "reference/traceability.json"
+  "author": "/root/sdformat",
+  "reviewer": "/root/msgs_review_fallback",
+  "reviewed_at": "2026-10-25T12:43:59.182530+00:00",
+  "base": "bb9786c3139257115bd9ee816db8dfa3dd44ed97",
+  "protected_digest": "88360e156f4a683c3fea2caf52b9bcab38fa08c7f25f12d0b4aa973cb1ea40cb",
+  "matching_source_digest": "60fd16f6399a13495bcad18cc183ea1e45be1eb93bfb86270fcda69c6d31d957",
+  "source_reviewed_digest": "4c665be670dd70d6df46272555f30c69cf622434da01d4f1ec9be5f35f5dabf7",
+  "frozen_manifest_sha256": "a3acdf95943bb90ff9b51b59a211e863239afa7be91e21b6c9abb84e3bcb09c0",
+  "semantic_receipt_sha256": "8bacb065947eef66eeb19a6a079b7fbf2c76516f59a0a4904f364c0a2978c1af",
+  "scope": "Final Noise metadata and overlap binding of unchanged eight implementation/assertion/probe inputs from approved isolated candidate.",
+  "independent_checks": [
+    "All 11 main worktree hashes and final protected/source digests match final manifest and public base.",
+    "Eight implementation, test, corpus, disposition and probe files are byte-identical to isolated semantic approval. Only reference/results.json and two review/status docs changed.",
+    "Native integration proof is byte-identical to isolated 126-row/two-original proof. Main reference/results.json only adds scoped noise_type_review; existing prior mappings unchanged.",
+    "Author final 156 Rust/13 tools/3165 of 3186 lines/5533 of 5645 regions/3 of 3 changed executable lines inspected; no independent instrumentation claim."
   ],
-  "protected_digest": "f3dc7e2543d945e4ca5b47bc6d62833d1190046aff65138310603c840cde67e4",
-  "reviewer": "/root/transport_fallback",
-  "scope": "Independent final metadata binding for three complete, exact valid-fixture joint endpoint assertion ports. Source/assertion review previously passed.",
-  "source_reviewed_digest": "17ea30e048c31770b4d2f06e219e03fc8d55108f5baf13c22ad76a8231d93945"
+  "findings": [],
+  "limits": [
+    "Normal strict staged hook and hosted qualification still required.",
+    "Only bounded Noise required-type and trim correction approved; no full SDF parity claim."
+  ]
 }

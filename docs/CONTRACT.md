@@ -49,7 +49,9 @@ child XML and owned source are preserved. Contact collision names and nested top
 remain distinct from envelope topic; see docs/CONTACT_SENSOR.md. The six per-axis `Noise` records retain type,
 mean, standard deviation, bias mean/deviation, dynamic bias deviation/correlation
 time, and precision. Standard deviations are nonnegative; noise types are case
-insensitive. IMU orientation enable, localization, custom RPY and gravity direction
+insensitive, after native space/tab/LF attribute-edge trimming. Explicit noise
+declarations require a nonempty type attribute; omitted noise retains None
+constructor defaults. See docs/NOISE_TYPES.md. IMU orientation enable, localization, custom RPY and gravity direction
 with their parent-frame strings preserve native defaults. Localization and parent
 frame strings remain unconstrained at load time, matching the native DOM; their
 runtime interpretation belongs to the sensor implementation. No noise is sampled

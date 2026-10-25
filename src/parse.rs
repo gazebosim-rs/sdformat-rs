@@ -1964,7 +1964,9 @@ impl Parser<'_> {
         )?;
         let kind = match node
             .attribute("type")
-            .unwrap_or("none")
+            .map(|value| value.trim_matches([' ', '\t', '\n']))
+            .filter(|value| !value.is_empty())
+            .ok_or_else(|| self.err(node, ErrorCode::Missing, "missing noise type attribute"))?
             .to_ascii_lowercase()
             .as_str()
         {

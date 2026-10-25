@@ -1088,3 +1088,33 @@ all source/header/library/fixture/binary hashes match. Every assertion and the
 exact valid-fixture endpoint API translation were approved. Three complete
 mappings are added, for 43 complete and 11 partial cases; no general mutable
 endpoint facade or full joint/schema/runtime completion is claimed.
+
+
+## Noise required-type and trimming candidate
+
+Actual native Root controls expose an existing false acceptance of explicit noise
+without its required type, and false rejection of ASCII-padded valid types. The
+bounded parser correction requires that attribute and applies native three-char
+trimming before the existing case-insensitive match, preserving Unicode/control
+edges. All 126 native cases and both unchanged original baselines pass. Exact old
+malformed supplementary positive XML is retained as a negative; explicit none
+preserves all positive data/operations, and reversing one literal change restores
+the full old test file. Original IMU fixture/assertions and unrelated malformed
+number/error cases remain unchanged. Independent disposition review passed; the normal exact staged/hosted gates
+remain required. No new original case retirement is claimed.
+
+Author checks pass 156 Rust tests, 13 tooling tests, formatting/Clippy and doc
+compilation; coverage is 3165/3186 lines and 5533/5645 regions, with 3/3 changed
+executable lines. The native 126-row probe and both exact original baselines pass,
+including runtime embedded-schema bytes and full supplementary disposition checks.
+Initial new-test column-type compile failures are retained separately from the two
+subsequent actual behavioral red tests. No original case retirement, dependency
+change or production unsafe boundary change is introduced.
+
+Independent /root/msgs_review_fallback approved source and the exact obsolete
+supplementary-positive disposition after 156 fresh private Rust checks and all
+126 native rows/both unchanged originals matched the complete authored proof.
+Every old value/operator and unrelated error assertion remains; exact original
+IMU fixture bytes are unchanged. Native source/schema trim rules and Unicode
+nonwhitespace/control boundaries were reviewed. Author tooling/coverage remain
+separately qualified; final metadata, normal staged and hosted checks are required.

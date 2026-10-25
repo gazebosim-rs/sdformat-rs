@@ -93,7 +93,7 @@ fn typed_defaults_and_all_noise_fields() {
         assert_eq!(noise.kind, NoiseKind::None);
     }
     let all = sensor(
-        "<enable_metrics>1</enable_metrics><imu><angular_velocity><x><noise type='GaUsSiaN_QUANTIZED'><mean>1.2</mean><stddev>2.3</stddev><bias_mean>4.5</bias_mean><bias_stddev>6.7</bias_stddev><precision>8.9</precision><dynamic_bias_stddev>10.11</dynamic_bias_stddev><dynamic_bias_correlation_time>12.13</dynamic_bias_correlation_time></noise></x><y/><z><noise/></z></angular_velocity><orientation_reference_frame><localization>BOGUS</localization><custom_rpy>0 0 1</custom_rpy><grav_dir_x>0 0 0</grav_dir_x></orientation_reference_frame></imu>",
+        "<enable_metrics>1</enable_metrics><imu><angular_velocity><x><noise type='GaUsSiaN_QUANTIZED'><mean>1.2</mean><stddev>2.3</stddev><bias_mean>4.5</bias_mean><bias_stddev>6.7</bias_stddev><precision>8.9</precision><dynamic_bias_stddev>10.11</dynamic_bias_stddev><dynamic_bias_correlation_time>12.13</dynamic_bias_correlation_time></noise></x><y/><z><noise type='none'/></z></angular_velocity><orientation_reference_frame><localization>BOGUS</localization><custom_rpy>0 0 1</custom_rpy><grav_dir_x>0 0 0</grav_dir_x></orientation_reference_frame></imu>",
     );
     assert!(all.enable_metrics);
     assert_eq!(all.imu().unwrap().localization, "BOGUS");

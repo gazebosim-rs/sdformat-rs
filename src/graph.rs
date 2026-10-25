@@ -288,6 +288,28 @@ impl Graphs {
         for (name, node) in &self.nodes {
             pose_graph.add_node(name);
             attachment_graph.add_node(name);
+            if node.kind == Kind::Frame
+                && self.nodes[&node.scope].kind == Kind::World
+                && let Some(Reference::Scoped(attached)) = &node.attachment
+                && self
+                    .schema_lookup(attached, &node.scope, &node.source)
+                    .is_err()
+            {
+                // Native world-frame name validation reports the attachment
+                // before the default pose's identical missing reference.
+                let local_name = name
+                    .strip_prefix(&format!("{}::", node.scope))
+                    .expect("world frame belongs to its scope");
+                return Err(error(
+                    ErrorCode::UnknownReference,
+                    &node.source,
+                    format!(
+                        "attached_to name[{attached}] specified by frame with name[{local_name}] \
+                         does not match a model or frame name in world with name[{}].",
+                        node.scope
+                    ),
+                ));
+            }
             if node.kind != Kind::Root {
                 let parent =
                     self.resolve_reference(&node.pose_parent, &node.scope, &node.source)?;

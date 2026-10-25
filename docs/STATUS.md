@@ -1305,3 +1305,25 @@ behavior. Independent assertion/source review approved the corrected notice,
 all 8+7+2 query mappings and the explicit partial scope after fresh native 1/0
 and private 182 Rust/fmt/Clippy replay. Exact metadata binding and protected
 staged/hosted gates remain pending.
+
+## Invalid world-frame attachment candidate
+
+The unchanged `world_frame_invalid_attached_to_scope.sdf` fixture now checks the
+first diagnostic from `NestedFrameSemantics.InvalidAttachedToScope`. Native Root
+loading reports an invalid attachment before its default pose's same missing
+reference. The typed graph validator now does that scoped world-frame name check
+first and returns the original diagnostic text. The public parent instead
+reported a generic unknown local frame; the red assertion log is retained.
+
+The exact native original passes one run with zero failures. Native controls
+confirm that `M1` and `M2::M1::L2` remain valid world-frame targets, while
+`M9::L1` has the corresponding first attachment error. A pose-only invalid
+reference stays distinct and is a documented unmatched diagnostic context.
+All 184 isolated Rust and 13 tooling checks, fmt, Clippy and docs pass; author
+direct coverage is 3300/3316 production lines, 5746/5857 regions and 19/19
+changed executable lines. The native graph-check query booleans, all seven error
+entries and native error code are not mapped by the eager typed loader; this is
+one partial mapping, not a complete original retirement. Independent review
+approved the exact source, first-message mapping and five native rows after
+private 184 Rust/fmt/Clippy replay and a public-parent red countercontrol.
+Final metadata binding, protected staged gate and hosted CI remain pending.

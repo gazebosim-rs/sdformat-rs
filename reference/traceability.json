@@ -881,6 +881,22 @@
       "baseline": "Exact original one run, zero failures/skips; artifacts/pose-graph/original.xml; pinned upstream 1249805d.",
       "status": "partial_reviewed",
       "review": "Independent /root/transport_fallback approved corrected test/fixture source digest a5e7c7827545cb1ebbda4753df429b4fb14a9b7bcc14b5ee4014621dd2804de4 after exact 8 root, 7 relative and 2 invalid-name assertion comparison, unchanged pinned fixture/source and restored original 2019 Apache notice. Independently replayed exact native original 1/0 plus 182 Rust tests, fmt and Clippy in a private source/target. Graph internals and exact native error code/text remain unported; partial only. Final metadata binding and staged/hosted qualification pending."
+    },
+    {
+      "target": "UNIT_FrameSemantics_TEST",
+      "case": "NestedFrameSemantics.InvalidAttachedToScope",
+      "source": "src/FrameSemantics_TEST.cc:673",
+      "rust_test": "tests/invalid_attachment_original.rs::original_invalid_world_frame_attachment_scope",
+      "assertions": "Unchanged original world fixture; native Root.Load errors nonempty and exact first attached_to diagnostic text are retained through typed eager-load failure. Rust UnknownReference is not native FRAME_ATTACHED_TO_INVALID code 23. Native checkFrameAttachedToGraph/checkFrameAttachedToNames false queries and full seven-error vector remain unported, so this is partial only. Supplementary exact-input native controls accept M1 and M2::M1::L2 and reject M9::L1 with its own exact first message; invalid pose-only input remains a separate documented diagnostic gap.",
+      "fixtures": {
+        "tests/fixtures/world_frame_invalid_attached_to_scope.sdf": "68f28a59ed7b9ee873704e7e8c1bf9620caf1949e0550c814b933c579485db0b"
+      },
+      "upstream_fixtures": {
+        "test/sdf/world_frame_invalid_attached_to_scope.sdf": "68f28a59ed7b9ee873704e7e8c1bf9620caf1949e0550c814b933c579485db0b"
+      },
+      "baseline": "Exact native original one run, zero failures/skips; artifacts/invalid-attachment/original.xml; pinned upstream 1249805d.",
+      "status": "partial_reviewed",
+      "review": "Independent /root/transport_fallback approved frozen source digest ff77802fa3ccf204a2e3520713e779830565f83bd38dc34da60be4e571104691 after exact original first-message/fixture/2019-notice comparison, fresh native original1/0 and five source-hashed controls, private selected2/full184 Rust/fmt/Clippy, and public-parent red countercontrol. Eager load failure and first message map only errors-nonempty and errors[0].Message; native graph-check booleans, seven-error vector and native code23 remain unported. Final metadata binding and staged/hosted gates pending."
     }
   ]
 }

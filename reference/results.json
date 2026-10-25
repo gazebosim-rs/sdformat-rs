@@ -59999,5 +59999,18 @@
     "scope": "Partial original: eight model-root poses, seven source/target relative poses, two invalid-name failures; native graph internals and exact native error code/text remain pending.",
     "source_digest": "a5e7c7827545cb1ebbda4753df429b4fb14a9b7bcc14b5ee4014621dd2804de4",
     "review": "Independent /root/transport_fallback approved source/assertion scope; reviewer source receipt SHA256 2ddf46fac263bee5494d740d29358a8dda0bbb78b4ec9aa4226c3904435eceb2. Final metadata binding and normal staged/hosted gates pending."
+  },
+  "invalid_attachment_original": {
+    "parent": "1d364e9605700f56a426e6e5b5787d9a4e7105b0",
+    "upstream": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "source_digest": "ff77802fa3ccf204a2e3520713e779830565f83bd38dc34da60be4e571104691",
+    "native_proof_sha256": "8dadb4ac3145c09aa5e10b78b9458358a70862d40c0be024e31b6e95fec447ea",
+    "fixture_sha256": "68f28a59ed7b9ee873704e7e8c1bf9620caf1949e0550c814b933c579485db0b",
+    "native_source_sha256": "e073d0e0d33584641d5d830e0140d233092b226f37f6488a304bf858d1cfccb1",
+    "native_binary_sha256": "26fa8eae908af45248188c60a95122a1c2a69c733d35ad6873ac6b47c01ed51a",
+    "original": "NestedFrameSemantics.InvalidAttachedToScope: one run, zero failures/skips; first error text exact; full native vector has seven errors and is not ported.",
+    "rust": "All 184 isolated Rust tests, 13 tooling tests, fmt, Clippy and docs pass. Author direct coverage3300/3316 lines,5746/5857 regions and19/19 changed executable lines.",
+    "scope": "Partial original: exact native first attachment diagnostic, eager load failure, two valid and one invalid native-backed controls; native error code, full vector and graph-check query booleans remain unported. Invalid pose-only context remains a separate gap.",
+    "review": "Independent /root/transport_fallback approved exact source/assertion scope; source receipt SHA256 d1e2eaae21221c7dd8c6120a25c77681a21d91bab8a4bf2063a80cc17b403f55. Final metadata binding and normal staged/hosted gates pending."
   }
 }

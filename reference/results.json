@@ -60145,6 +60145,20 @@
     "original": "DOMAirPressure.Construction and Set native2/0; DOMLink.Sensors native1/0, air-pressure subset only.",
     "rust": "All 201 integrated Rust tests, 13 tooling tests, fmt, Clippy and docs pass; direct coverage3375/3391 production lines,5885/6004 regions and33/33 changed executable lines.",
     "scope": "Two complete DOMAirPressure default/set/copy/move/inequality originals. DOMLink.Sensors adds only unchanged fixture air-pressure name/type/full raw pose/disabled metrics/pressure noise mean+stddev/reference altitude, with prior Altimeter identity rotation corrected. 22 other sensor families plus full count/index/lookup remain; full 27-sensor case partial. Typed SensorConfig::AirPressure parser/accessor only, no measurement or downstream consumer pin update.",
-    "review": "Independent /root/transport_fallback approved complete DOM originals, partial Link subset and prior Altimeter rotation correction; corrected source receipt SHA256 4a87cce0bec1e446a7d416354dd746f76e5ce08535fbaad81949521bd2fb218b. Final metadata binding, normal hook and hosted qualification pending."
+    "review": "Independent /root/transport_fallback approved complete DOM originals, partial Link subset and prior Altimeter rotation correction; corrected source receipt SHA256 4a87cce0bec1e446a7d416354dd746f76e5ce08535fbaad81949521bd2fb218b. Final metadata binding, normal hook and hosted qualification pending. Final main metadata/protected hook and exact hosted verify run 40222847507 passed at public commit e10660cada1d9e8ad1337d4ad0c87fe33db44b8e; SDF-only tracker accepted at cf67578ee5f699ceaa8190f9584a4ced55bdcd4c."
+  },
+  "navsat_original": {
+    "parent": "e10660cada1d9e8ad1337d4ad0c87fe33db44b8e",
+    "upstream": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "source_digest": "f1aabdcc6d30d702d5bd4caf7182bdcf98118f0f1f5099e85e12ef1e11df5465",
+    "native_dom_source_sha256": "ee3c9edebd2d71cb6cc798cd12df9fe9d224865c321f11ca89c04627c14a120c",
+    "native_dom_binary_sha256": "05d65139282e5c1f809d313b2ba6473052a0cc1b33538cc8b17527da82d51658",
+    "native_link_source_sha256": "3f19b57d0cd02be6201a08be4580d5a478d5e3c1549457605754ccff99ccd4f1",
+    "native_link_binary_sha256": "5996c21878cab1dacd0d653c50bfdcf4a02c8064157855ae6136471939582716",
+    "fixture_sha256": "dc2b61c8b40a7df7f2c7b6e649f3039136ca1a03528371b307e9b9fc27406a00",
+    "original": "DOMNavSat.Construction and Set native2/0; DOMLink.Sensors native1/0, legacy gps/NavSat subset only.",
+    "rust": "All 204 integrated Rust tests, 13 tooling tests, fmt, Clippy and docs pass; direct coverage3430/3446 production lines,5985/6112 regions and63/63 changed executable lines.",
+    "scope": "Two complete DOMNavSat default/set/copy/move/inequality originals. DOMLink.Sensors adds only unchanged fixture legacy gps name/native NAVSAT typed presence/full raw pose/disabled metrics/eight noise scalars; literal gps kind/XML preserved. Native navsat-over-gps child selection is source-backed and separately asserted. 21 other sensor families plus full count/index/lookup remain; full 27-sensor case partial. No coordinate measurement, simulator behavior or downstream consumer pin update.",
+    "review": "Independent /root/transport_fallback approved complete DOM originals and partial Link fragment after native DOM2/0, Link1/0 and private full204 Rust/fmt/Clippy; corrected source receipt SHA256 3ae1192926dda8584361f7679bb809829198185fd10df4cca1f81f5fe7246a57. Final metadata binding, normal hook and hosted qualification pending."
   }
 }

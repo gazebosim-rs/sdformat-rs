@@ -2145,6 +2145,38 @@ impl Parser<'_> {
             source: Some(self.source(node)),
         })
     }
+    fn navsat_noise(
+        &self,
+        navsat: Node<'_, '_>,
+        sensing: &str,
+        axis: &str,
+    ) -> Result<Noise, Diagnostic> {
+        let Some(group) = child(navsat, sensing) else {
+            return Ok(Noise::default());
+        };
+        self.allowed(group, &["horizontal", "vertical"], &[])?;
+        let Some(component) = child(group, axis) else {
+            return Ok(Noise::default());
+        };
+        self.allowed(component, &["noise"], &[])?;
+        child(component, "noise")
+            .map(|noise| self.noise(noise))
+            .transpose()
+            .map(|noise| noise.unwrap_or_default())
+    }
+    fn navsat(&self, sensor: Node<'_, '_>, tag: &str) -> Result<NavSat, Diagnostic> {
+        let Some(node) = child(sensor, tag) else {
+            return Ok(NavSat::default());
+        };
+        self.allowed(node, &["position_sensing", "velocity_sensing"], &[])?;
+        Ok(NavSat {
+            horizontal_position: self.navsat_noise(node, "position_sensing", "horizontal")?,
+            vertical_position: self.navsat_noise(node, "position_sensing", "vertical")?,
+            horizontal_velocity: self.navsat_noise(node, "velocity_sensing", "horizontal")?,
+            vertical_velocity: self.navsat_noise(node, "velocity_sensing", "vertical")?,
+            source: Some(self.source(node)),
+        })
+    }
     fn magnetometer(&self, sensor: Node<'_, '_>) -> Result<Magnetometer, Diagnostic> {
         Ok(Magnetometer {
             noise: self.noise_vector(sensor, "magnetometer")?,
@@ -2168,6 +2200,8 @@ impl Parser<'_> {
                 "magnetometer",
                 "altimeter",
                 "air_pressure",
+                "navsat",
+                "gps",
             ],
             &["name", "type"],
         )?;
@@ -2177,14 +2211,31 @@ impl Parser<'_> {
             .to_owned();
         if !matches!(
             kind.as_str(),
-            "imu" | "contact" | "force_torque" | "magnetometer" | "altimeter" | "air_pressure"
+            "imu"
+                | "contact"
+                | "force_torque"
+                | "magnetometer"
+                | "altimeter"
+                | "air_pressure"
+                | "navsat"
+                | "gps"
         ) {
             return Err(self.err(
                 node,
                 ErrorCode::Unsupported,
-                "only IMU, contact, force/torque, magnetometer, altimeter and air pressure sensor configurations are supported",
+                "only IMU, contact, force/torque, magnetometer, altimeter, air pressure and NavSat/GPS sensor configurations are supported",
             ));
         }
+        // Native Sensor::Load selects <navsat> before legacy <gps> for either type.
+        let config_tag = if matches!(kind.as_str(), "navsat" | "gps") {
+            if child(node, "navsat").is_some() {
+                "navsat"
+            } else {
+                "gps"
+            }
+        } else {
+            kind.as_str()
+        };
         if [
             "imu",
             "contact",
@@ -2192,10 +2243,15 @@ impl Parser<'_> {
             "magnetometer",
             "altimeter",
             "air_pressure",
+            "navsat",
+            "gps",
         ]
         .iter()
-        .any(|name| *name != kind && child(node, name).is_some())
-        {
+        .any(|name| {
+            child(node, name).is_some()
+                && *name != config_tag
+                && !(matches!(kind.as_str(), "navsat" | "gps") && matches!(*name, "navsat" | "gps"))
+        }) {
             return Err(self.err(
                 node,
                 ErrorCode::Unsupported,
@@ -2219,10 +2275,11 @@ impl Parser<'_> {
             "magnetometer" => SensorConfig::Magnetometer(Box::new(self.magnetometer(node)?)),
             "altimeter" => SensorConfig::Altimeter(Box::new(self.altimeter(node)?)),
             "air_pressure" => SensorConfig::AirPressure(Box::new(self.air_pressure(node)?)),
+            "navsat" | "gps" => SensorConfig::NavSat(Box::new(self.navsat(node, config_tag)?)),
             _ => unreachable!("sensor type checked above"),
         };
         let configuration_xml =
-            child(node, &kind).map_or(String::new(), |n| self.xml[n.range()].into());
+            child(node, config_tag).map_or(String::new(), |n| self.xml[n.range()].into());
         Ok(Sensor {
             name,
             kind,

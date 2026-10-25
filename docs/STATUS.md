@@ -1490,8 +1490,31 @@ deviation, and reference altitude. The other 22 sensor families and complete
 
 The isolated source candidate passes 201 Rust tests, 13 tooling tests, formatting,
 Clippy and docs. Direct production coverage is 3375/3391 lines, 5885/6004
-regions and 33/33 changed executable lines. Independent source review approved the exact five files after private full201
-Rust/fmt/Clippy and native DOM2/0 plus Link1/0; receipt SHA256 4a87cce0bec1e446a7d416354dd746f76e5ce08535fbaad81949521bd2fb218b.
+regions and 33/33 changed executable lines. Independent source review approved
+the exact five files after private full201 Rust/fmt/Clippy and native DOM2/0
+plus Link1/0; receipt SHA256 4a87cce0bec1e446a7d416354dd746f76e5ce08535fbaad81949521bd2fb218b.
 This successor also adds the native identity rotation assertion to the earlier
 Altimeter fragment, preserving its existing partial Link scope. Final metadata
-binding, normal protected hook and hosted CI are pending.
+binding, the normal protected hook and hosted verify run 40222847507 passed
+at public commit e10660cada1d9e8ad1337d4ad0c87fe33db44b8e.
+
+## Typed NavSat and legacy GPS DOM/parser candidate
+
+`SensorConfig::NavSat(Box<NavSat>)` owns four horizontal/vertical position and
+velocity noise records. The optional accessor, source and exact selected XML
+retain configuration for native `navsat` and legacy `gps` spellings without
+computing coordinates. The pinned `DOMNavSat.Construction` and `Set` originals
+pass natively 2/0, and the Rust candidate retains their default, set, copy,
+move and equality values. The unchanged `sensors.sdf` fixture passes native
+`DOMLink.Sensors` 1/0. Rust parses only its byte-identical `gps` fragment in a
+minimal model/link wrapper and checks the native NAVSAT type through the typed
+configuration, literal legacy type, full raw pose, disabled metrics and eight
+noise scalars. The other 21 sensor families and complete 27-sensor Link
+original remain pending.
+
+The isolated source candidate passes 204 Rust tests, 13 tooling tests,
+formatting, Clippy and docs. Direct production coverage is 3430/3446 lines,
+5985/6112 regions and 63/63 changed executable lines. Independent source
+review approved the exact four files after private full204 Rust/fmt/Clippy and
+native DOM2/0 plus Link1/0; receipt SHA256 3ae1192926dda8584361f7679bb809829198185fd10df4cca1f81f5fe7246a57.
+Final metadata binding, normal protected hook and hosted CI are pending.

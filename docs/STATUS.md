@@ -1529,12 +1529,32 @@ Rust parses only its byte-identical air-speed subtree in a minimal model/link
 wrapper and checks native name, type, full raw pose, disabled metrics and
 pressure noise mean 0 and standard deviation 0.01. The other 20 sensor
 families, full Link count/index/lookup assertions and complete 27-sensor
-original remain pending. There is no pinned dedicated AirSpeed C++ unit
-original in this inventory, so this candidate retires no complete case.
+original remain pending. The pinned `UNIT_Airspeed_TEST` has separate
+`DOMAirSpeed.Construction`, `Set`, `Load` and `ToElement` originals in
+`src/Airspeed_TEST.cc`; this Link fragment itself retires no complete case.
+The earlier absence claim was incorrect because the source filename uses lowercase
+`s`. The Construction and Set value originals have a separate corrective port
+candidate; Load and ToElement remain pending.
 
 The isolated source candidate passes 205 Rust tests, 13 tooling tests,
 formatting, Clippy and docs. Direct production coverage is 3461/3477 lines,
 6038/6167 regions and 36/36 changed executable lines. Independent source
 review approved the exact four source/fixture files after native Link1/0 and
 private raw-parent full205 Rust replay; receipt SHA256 3ea6ab87d6c98004a2aa07c8b179cca11b7ec52c969dfe092410e54fb5cb0316.
-Final metadata binding, normal protected hook and hosted CI are pending.
+Final metadata binding, the normal protected hook and hosted verify run
+40225448184 passed at public commit e6dc9bef6f5f29ee4f03aca81331a5d541d4a49c.
+
+## AirSpeed original inventory correction candidate
+
+`python3 tools/find_native_tests.py AirSpeed_TEST.cc` resolves the pinned
+`src/Airspeed_TEST.cc` case insensitively and lists all four DOM originals.
+The corrective test ports exact default pressure noise, Gaussian noise values,
+copy/move transferred-value equality and default inequality for Construction
+and Set. The pinned native two-case run passes 2/0; Rust full 207 tests, 15
+tooling tests, formatting, Clippy and docs pass. Production coverage is
+3461/3477 lines and 6038/6167 regions; no production line changes.
+Independent source review approved the exact three frozen source files after
+native Construction/Set 2/0 and private raw-parent Rust selected 2/0; source
+receipt SHA256 b15e3e93bc237096cb81c8bded3c96b23bdef48c525f65543563cb2022927acf.
+Final metadata binding, protected hook and hosted qualification are pending.
+Load and ToElement remain unported.

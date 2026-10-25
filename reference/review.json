@@ -1,25 +1,22 @@
 {
   "author": "/root/sdformat_owner_fallback",
-  "binding": "All eight candidate hashes, protected/source digests and 237 unchanged public-parent tracked blobs independently verified. Parser, types and test bytes equal source-approved freeze; only additive README/CONTRACT/STATUS/results/trace metadata differs. Native Link1/0, private selected1/full205 Rust and author 13 tools/strict coverage are bound by source receipt and final evidence.",
   "decision": "approved",
   "files_sha256": {
-    "README.md": "ccedbb994535cc73475b684c94f879adb1efa9d63073aef0c333d35c0a0aea01",
-    "docs/CONTRACT.md": "c165e61be7e46df54f59e0ada31b27afffb39ec05f0874ab8c4b778072e20f3a",
-    "docs/STATUS.md": "da20bfb9211cc5ae78fc48479f458fc17851f43fe7c68620d26a32a6738de449",
-    "reference/results.json": "09ff6a1c79b7aab36c068c1e2dbe0e8114b84bd29c728b9afa071f3208fc89a0",
-    "reference/traceability.json": "5820b60b1a0173e0a856b389dc6c56ecbc1b7c48665b21ffa4bd4f570037f27a",
-    "src/parse.rs": "3253122bca5a58c89aeba0a86b38617e03c8838844192487d984c2d61bd1d1dd",
-    "src/types.rs": "9968a78a54d1633821f8b962177ee625a5837e5da9cfe5ad0ed7de29907d8bb5",
-    "tests/air_speed_link_original.rs": "20d7d25dc423a4cc6f2419ec0dec2792dfd74783cce37d97e1473752913b7626"
+    "docs/STATUS.md": "19212289d5495afa608895a371fe03025e1902ac061927287b245c87fbb47142",
+    "reference/results.json": "1d3628190419da21c582de73d8991b0963b3d2847a249f532eab63013bb8abe8",
+    "reference/traceability.json": "bd389acb1fcf429a99164f60937e64847b48323bad3ff35bcf98af25d2ed1fbb",
+    "tests/air_speed_original.rs": "d1296dab582e59252bd62483384e257b413eefa199965cecefcbd68f30d79c37",
+    "tools/find_native_tests.py": "5c95013a1139999691ea0cd15c766f5bf834095dc85f93c15bfdd0fe7f6124e4",
+    "tools/test_find_native_tests.py": "a2e00d3b920cc9af543b77f1d299edf93dbf9f5d2cb5547e65e7286a100b78e3"
   },
-  "final_freeze": "artifacts/air-speed/frozen-final.json",
-  "parent": "5ba57509327ffe0f82985f6968148250dc8916a4",
-  "preserved_parent_files": 237,
-  "protected_digest": "fd2e41d1fef175f57404a4b7eab4d950654cf26378f261f76cc617ad69d52835",
-  "remaining": "Normal protected staged hook, publication and hosted result remain required.",
-  "reviewed_source_digest": "2c84ab08c597ac6c742f8e7fff8c5b57f32d014493b316bc7e8c503aa04e192a",
+  "final_freeze": "artifacts/air-speed-dom/frozen-final.json",
+  "final_freeze_sha256": "01bff738c5b93297720bdd24fb6d20eb5f04b90c4dc6e7f4cde1c585a23064d2",
+  "parent": "e6dc9bef6f5f29ee4f03aca81331a5d541d4a49c",
+  "preserved_parent_files": 242,
+  "protected_digest": "5bc2d4e7646f295d77688c0b649ad190f1c96adc27207a6c86731e36691265a9",
   "reviewer": "/root/transport_fallback",
-  "reviewer_source_receipt_sha256": "3ea6ab87d6c98004a2aa07c8b179cca11b7ec52c969dfe092410e54fb5cb0316",
-  "scope": "Partial DOMLink.Sensors air_speed fragment and typed AirSpeed API only; no dedicated AirSpeed native unit original, full Link count/index/lookup and 20 other sensor families remain unported.",
-  "source_digest": "2eb5fa4e30e88d563446e2cb5d822447660985cfbf307b62b921635b901f599d"
+  "scope": "Source-reviewed three files byte-identical; metadata only corrects published AirSpeed original absence, adds exact two complete DOM value mappings and preserves PARTIAL Link fragment. DOM Load and ToElement remain pending. No parser, runtime, simulator or consumer claim.",
+  "source_digest": "52fff6ca2e251e2b67291ae5113b56d35ec1f826318e50e0179fdeb29d6634f4",
+  "source_review_sha256": "b15e3e93bc237096cb81c8bded3c96b23bdef48c525f65543563cb2022927acf",
+  "verification": "Independently checked six SHA-256s, tools.verify digest and review_digest, every other parent tracked blob, exact source review SHA and corrected historical Link hosted status. Fresh integrated author gate was running at binding; mandatory normal protected staged hook, publication and hosted qualification remain required."
 }

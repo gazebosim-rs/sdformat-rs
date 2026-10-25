@@ -60168,9 +60168,20 @@
     "native_link_source_sha256": "3f19b57d0cd02be6201a08be4580d5a478d5e3c1549457605754ccff99ccd4f1",
     "native_link_binary_sha256": "5996c21878cab1dacd0d653c50bfdcf4a02c8064157855ae6136471939582716",
     "fixture_sha256": "dc2b61c8b40a7df7f2c7b6e649f3039136ca1a03528371b307e9b9fc27406a00",
-    "original": "DOMLink.Sensors native1/0, exact air-speed fragment only; no dedicated pinned AirSpeed unit original.",
+    "original": "DOMLink.Sensors native1/0, exact air-speed fragment only. Pinned UNIT_Airspeed_TEST has separate DOMAirSpeed originals; earlier absence claim withdrawn.",
     "rust": "All 205 integrated Rust tests, 13 tooling tests, fmt, Clippy and docs pass; direct coverage3461/3477 production lines,6038/6167 regions and36/36 changed executable lines.",
     "scope": "Existing DOMLink.Sensors PARTIAL mapping gains only unchanged fixture air_speed name/type/full raw pose/disabled metrics/typed presence/pressure mean0 and stddev0.01. Twenty other sensor families, full count/index/name lookup and complete 27-sensor original remain; no complete-case credit. Typed SensorConfig::AirSpeed parser/accessor/source/raw XML added without speed/pressure measurement or downstream consumer pin update. Default/mismatch/invalid parser checks are supplementary.",
-    "review": "Independent /root/transport_fallback approved bounded PARTIAL Link fragment after native1/0 and private raw-parent full205 Rust; source receipt SHA256 3ea6ab87d6c98004a2aa07c8b179cca11b7ec52c969dfe092410e54fb5cb0316. Final metadata binding, normal hook and hosted qualification pending."
+    "review": "Independent /root/transport_fallback approved bounded PARTIAL Link fragment after native1/0 and private raw-parent full205 Rust; source receipt SHA256 3ea6ab87d6c98004a2aa07c8b179cca11b7ec52c969dfe092410e54fb5cb0316. Final metadata binding, normal hook and hosted verify run40225448184 passed at public e6dc9bef6f5f29ee4f03aca81331a5d541d4a49c."
+  },
+  "air_speed_dom_original": {
+    "parent": "e6dc9bef6f5f29ee4f03aca81331a5d541d4a49c",
+    "upstream": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "source_digest": "19a4f11fd0942a00e9b4699099a6f06a0336970d6825b8a49d33d0795b7725e8",
+    "native_source_sha256": "c433d09e68d469c08ede831012466cfde792dd23992e12df21a1dd52b361e2a7",
+    "native_binary_sha256": "16c0cda350ee33aaf8578a9cff9367c271d81508c48c9dbc6f2f1a4e10f24071",
+    "original": "DOMAirSpeed.Construction and Set native2/0, no skips; Load and ToElement remain pending.",
+    "rust": "Full 207 Rust tests, 15 tooling tests, fmt, Clippy and docs pass; direct production coverage 3461/3477 lines and 6038/6167 regions, zero changed production executable lines.",
+    "scope": "Construction/Set default and Gaussian pressure-noise values, public-field setter mapping, copy/move transferred-value equality and default inequality. Case-insensitive source lookup guards the lowercase-s filename. Prior Link fragment remains partial; Load/ToElement and measurement remain unported.",
+    "review": "Independent /root/transport_fallback approved exact frozen Construction/Set source and assertions after native2/0 and private raw-parent selected Rust2/0; source receipt SHA256 b15e3e93bc237096cb81c8bded3c96b23bdef48c525f65543563cb2022927acf. Final metadata binding, protected hook and hosted qualification pending."
   }
 }

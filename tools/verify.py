@@ -4,6 +4,7 @@
 
 """Single local/CI gate; coverage uses the pinned toolchain's LLVM binaries."""
 import argparse
+from contextlib import contextmanager
 import hashlib
 import json
 import os
@@ -269,6 +270,20 @@ def head_revision(root):
     return result.stdout.strip() if result.returncode == 0 else None
 
 
+@contextmanager
+def isolated_git_context(root):
+    # Hooks export repository-local Git variables. Verification creates fixture
+    # repositories, so retain that context only for the authoritative parent.
+    keys = run(['git', 'rev-parse', '--local-env-vars'], capture=True, cwd=root).stdout.splitlines()
+    previous = {key: os.environ.pop(key) for key in keys if key in os.environ}
+    try:
+        yield
+    finally:
+        for key in keys:
+            os.environ.pop(key, None)
+        os.environ.update(previous)
+
+
 def staged():
     tree = run(['git', 'write-tree'], capture=True, cwd=ROOT).stdout.strip()
     head = head_revision(ROOT)
@@ -276,7 +291,8 @@ def staged():
         export_index(ROOT, temp, tree)
         assert run(['git', 'write-tree'], capture=True, cwd=ROOT).stdout.strip() == tree, 'index changed during export'
         snapshot = Path(temp)
-        verify(snapshot)
+        with isolated_git_context(ROOT):
+            verify(snapshot)
         assert run(['git', 'write-tree'], capture=True, cwd=ROOT).stdout.strip() == tree, 'index changed during verification'
         assert head_revision(ROOT) == head, 'HEAD changed during verification'
         destination = ROOT / 'artifacts' / 'staged' / tree

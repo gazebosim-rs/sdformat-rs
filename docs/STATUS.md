@@ -766,3 +766,20 @@ remain intact. Author integrated replay passes 119 Rust checks, 2717/2734 lines,
 4772/4876 regions and 24/24 changed executable lines; fresh native proof exactly
 matches the independently verified isolated proof. Final overlap/receipt and
 normal strict staged/hosted gates remain required.
+
+## Staged Git context correction
+
+A linked-worktree hook exports repository-local Git environment variables. The
+staged gate now clears exactly the keys reported by git rev-parse --local-env-vars
+around exported verification and restores the authoritative parent's environment
+on success or failure. Nonlocal settings, including GIT_SSH_COMMAND, are preserved.
+The exact raw-blob export, index/HEAD guards, coverage and assertion policies stay.
+
+A real commit hook regression uses an absolute worktree Git directory and a
+separate intended index whose content differs from the normal index. Its child
+creates and commits an independent fixture repository, checks the intended
+snapshot, and proves the parent config, normal index and main HEAD are untouched.
+The same regression fails with the original verifier because the child inherits
+Git locals. A second test covers restoration after a failed child. All 13 tooling
+checks pass; source/native assertions and thresholds are unchanged. Independent
+review and the normal strict staged/hosted gates remain required.

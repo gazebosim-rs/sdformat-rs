@@ -1,34 +1,31 @@
 {
-  "decision": "approved",
-  "author": "/root/sdformat",
   "reviewer": "/root/transport_recovery",
-  "protected_digest": "d48c9d9dc6fb23d68a1e4b2e3903f82541b4cb28fda9552754432e27ed53f1a2",
-  "date": "2026-10-25T05:29:09.907805+00:00",
-  "base": "80b6c74a5fc69574fdac592eeb10b1111f789871",
-  "scope": "Integrated bounded SDF 1.4 common-loader/default-axis semantics atop accepted public model.config parent; two new original mappings remain reviewed partial. No broad Element/schema/actor/conversion/performance acceptance.",
-  "isolated_review": "gz-transport-rs/artifacts/sdf-version14-review/review.json, SHA256 ce03e9d62aa83eb39fac708850e93492e621fc13a21544e016a5339f2e84889a",
-  "integration_checks": [
-    "Protected digest independently recomputed as d48c9d9dc6fb23d68a1e4b2e3903f82541b4cb28fda9552754432e27ed53f1a2. All 128 integrated source files copied/hash-verified; all live final hashes still match. Nine isolated production/assertion/tool/contract files are byte-identical, and lib.rs retains the exact one-line version-doc change plus unchanged public config reexports.",
-    "Compared all 114 untouched parent files directly to Git blobs of public 80b6c74. Config module/corpus/proof, Cargo/lock/toolchain, inherited number boundary and policies stay identical. model_config_selection reference object exactly matches public parent.",
-    "Fresh integrated transport-owned Cargo target independently passes all 119 Rust checks. No producer target reused. Fresh integrated native observer verifies all 61 observations and two exact missing-flag originals (XML 2/0); its complete proof equals the isolated proof byte-values including every source/header/library/corpus/codec/original-binary hash.",
-    "Reviewed merged traceability partial statuses and honest metadata evidence: isolated independent 115 Rust/61 rows/two originals is distinguished from author integrated gate. Corrected current contract floor to 1.3 and older, with original raw 1.4 negative input retained as positive and explicit 1.3 rejection. No previous assertion weakened."
-  ],
-  "assertion_mapping": "Retains the isolated exact partial disposition: 1.4 typed validated load, axis presence, effective expressed_in=__model__; 1.5 typed validated load only. Converted Element xyz/attribute/presence/removal assertions remain pending, with full original 2014 notice. Neither complete original case is retired.",
-  "author_gate": {
-    "rust_tests": 119,
-    "lines": [
-      2717,
-      2734
-    ],
-    "regions": [
-      4772,
-      4876
-    ],
-    "changed": [
-      24,
-      24
-    ],
-    "qualification": "Author strict fmt/clippy/core coverage, not independently recomputed; independent Rust/native replay above is separate."
+  "decision": "approved",
+  "base": "aae2d61d5131b2d87772a2e48c3ac4dd9a3016bd",
+  "protected_digest": "a58bd7efaaaf26fb8399ced6654333561a03162614f476ebd25ad138666192c3",
+  "file_sha256": {
+    "AGENTS.md": "a932ace17754ddc723d26ae1307217876c8cbde77c4f767db23714475374a801",
+    "docs/STATUS.md": "3f204cccea62736ff724888e1b96c361621d660dcf854d9ac5a71f839ed57e64",
+    "tools/test_git_context.py": "e92ddcdd7ba36cced79871544b7dd5512601a9ca7db402d29b4449ea77dec69f",
+    "tools/verify.py": "bf8d192d94c28dc1cb4737da7ab330f0d274c1448fbde687da7681d69f577378"
   },
-  "limits": "Normal exact protected staged hook and hosted qualification still required before publication. Native installed dependency/build qualification remains; no full immutable reference baseline, unsafe/ABI boundary change, new resource IO, performance result, complete historic schema or full SDF-01/SDF-02 acceptance."
+  "independent_checks": [
+    "Raw-exported the public parent into a new private source directory, overlaid and hash-verified exactly the four frozen owned files; independently recomputed the protected digest.",
+    "All 13 tooling tests pass in the private source with a reviewer-owned Cargo target path.",
+    "Swapping only the private verifier to the public baseline makes the real linked-worktree regression fail because the child sees Git local variables. Restored exact reviewed verifier bytes and reran all 13 checks successfully.",
+    "Inspected the synchronous context-manager boundary: intended index, snapshot export and final index/HEAD guards execute with the authoritative parent context; exported verification removes only the official Git local-variable list and restores it in finally, including child failure. Nonlocal SSH setting remains.",
+    "Actual disposable linked-worktree commit regression uses divergent alternate and normal indices, independent Git fixture, preserved normal index/config/main HEAD; failed-child regression also verifies restoration and cleanup of child-added local values."
+  ],
+  "qualification": [
+    "No live producer repository reproduction or mutation. All negative controls operate in disposable fixtures.",
+    "Independent review covers tooling and policy only; no full Rust/native/coverage gate was rerun or claimed. There are no production, dependency, original-assertion, threshold or exclusion changes.",
+    "Normal exact protected staged gate and hosted qualification remain required. Existing original assertion and broader SDF compatibility dispositions are unchanged."
+  ],
+  "artifacts": {
+    "positive": "restored-tests.log",
+    "negative_control": "baseline.log",
+    "freeze": "freeze.json"
+  },
+  "author": "/root/sdformat",
+  "scope": "Bounded verifier Git-context tooling only; qualifications below remain mandatory."
 }

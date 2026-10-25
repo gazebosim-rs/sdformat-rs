@@ -72,3 +72,10 @@ allow scope; it does not authorize production exceptions. Linux GNU integration
 tests require a C compiler for isolated allocation-failure injection. Measure
 native/full-parser fidelity and conversion costs before optimizing locale reuse
 or making performance claims.
+
+Staged verification clears Git's reported repository-local environment only while
+checking the exported tree, then restores the authoritative parent context even
+on failure. Preserve the real linked-worktree/alternate-index hook regression;
+fixture Git commands must not change the parent repository's index or config.
+Use separate reviewer-owned source and Cargo target directories for independent
+replays; a shared target can retain artifacts from another source snapshot.

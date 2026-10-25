@@ -1148,3 +1148,40 @@ library/binary identities match. Native pose/double bounds, shared IMU defaults
 and all four existing precedence diagnostics were checked. Eight explicit policy
 gaps and consumer runtime guards remain. This adds one complete mapping, for
 44 complete and 11 partial cases, subject to normal staged/hosted qualification.
+
+
+## Nested implicit model-frame candidate
+
+The unchanged nested-joint fixture exposed a missing terminal ::__model__ graph
+alias. A bounded resolver correction accepts only actual Model prefixes and
+preserves strict schema scope boundaries and raw DOM strings. Four complete
+joint frame/relative-pose/nested endpoint originals are ported as candidates with
+all presence/name/count/index/body/pose observations and native component bounds.
+All five focused Rust checks and 150 freshly compiled native observations plus
+four unchanged originals pass. One inherited static attachment identity/child endpoint policy
+remains an explicit difference; no runtime policy or old assertion is removed.
+Full author gates and independent source/assertion review pass; current-parent
+integration and mandatory staged/hosted qualification remain pending.
+
+Fresh isolated author checks pass all 161 Rust tests, 13 tools, formatting/Clippy
+and doc compilation. Coverage is 3182/3198 lines and 5557/5666 regions, with
+11/11 changed executable lines. The complete 150-row proof and four exact native
+originals pass. This source still uses the earlier public Noise parent; the later
+ForceTorque increment must be preserved by a separately checked integration.
+Independent assertion/source review passed; normal staged/hosted gates remain pending.
+
+Independent /root/transport_fallback approved all four complete original mappings,
+source behavior and scoped body API translation after 161 fresh private Rust checks,
+150 native observations/four unchanged originals and complete proof equality.
+A separate pre-fix graph mutant independently reproduces the nested fixture failure.
+Static attachment identity/child validation remains explicitly different; no runtime
+static policy is chosen. Four additional complete mappings bring the integrated
+candidate to 48 complete and 11 partial cases, pending exact staged/hosted gates.
+
+Fresh author integration onto public green ForceTorque 18e6fec0 passes all 168
+Rust checks and 13 tools, formatting/Clippy and doc compilation. Coverage is
+3256/3272 lines and 5689/5801 regions, with 11/11 changed executable lines. The
+entire native 150-row/four-original proof matches isolated evidence. The new graph
+implementation and all new fixtures/assertions/probe bytes are preserved; existing
+ForceTorque/IMU/Contact source, assertions and native evidence remain intact.
+Final independent overlap binding and normal staged/hosted checks are required.

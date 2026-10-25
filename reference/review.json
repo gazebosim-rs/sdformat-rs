@@ -2,25 +2,26 @@
   "decision": "approved",
   "author": "/root/sdformat",
   "reviewer": "/root/transport_fallback",
-  "reviewed_at": "2026-10-25T13:58:28.454779+00:00",
-  "base": "a4eb3a08cff8e237c56bc3333a08eb669d541b69",
-  "protected_digest": "b174c1ff0291151437c0a83c0ddd9e1ef2b301a2f185af0072abe7d4696a2037",
-  "matching_source_digest": "df088e9878ffe954f9474a108ff6d74b920deb8607a61ef91b5f020938847d41",
-  "source_reviewed_digest": "8022fcae9728c3b117746226d8ee0ac3ed96886eea7fa3d6972a4d3bd669c44c",
-  "frozen_manifest_sha256": "c33d6f3386c32bc0474aecafd459bda00e36fb44d0ab7007f1d166a2ebf2aadf",
-  "semantic_receipt_sha256": "383aee2e9856ed82debb43a17c0b07bad5a0cc0d302419438869e238d4990989",
-  "scope": "Final metadata binding of unchanged reviewed ForceTorque/joint-sensor source, tests, corpus, probe and upstream fixture. Complete DOMJoint.Sensors original assertion mapping approved; one traceability row promoted to ported_reviewed.",
+  "reviewed_at": "2026-10-25T14:26:54.027857+00:00",
+  "base": "18e6fec0ef35afdea7cd520a16b126ac4318ce4b",
+  "source_review_base": "a4eb3a08cff8e237c56bc3333a08eb669d541b69",
+  "protected_digest": "9ab7ee64aa6cd43308b50c65402714e105238e55f1a2c84f7c921aca25ca4fcc",
+  "matching_source_digest": "0af92eb60eca65276f48eb045fc896bfa67e5c0e605077734d6696f2da83c82e",
+  "source_reviewed_digest": "8cc40dbd4c2814f49185902333a3edd8cca4cca14501d3ea48187e3308c9c739",
+  "frozen_manifest_sha256": "e57f432ec0facf80c36c02cef97a50d67bd22dcdc12eddda48f0cf4cb2b65548",
+  "semantic_receipt_sha256": "6d4e55f000048fc734d3a22edd833de908cb3f013b5f0b15d5cbbe8d2c8feaf7",
+  "scope": "Independent final overlap and metadata binding of reviewed terminal implicit-model-frame alias correction onto public ForceTorque parent 18e6fec0. Four complete unchanged DOMJoint original assertion mappings remain approved. Graph source, all new Rust/native tests, corpus, four fixtures and native runner are byte-identical to isolated approval; types.rs changes only the same two rustdoc lines over the preserved ForceTorque API.",
   "independent_checks": [
-    "All 13 final file hashes and current protected/source digests reproduce the frozen manifest on the public a4eb3a08 parent.",
-    "Nine source/test/corpus/probe/fixture/README/contract inputs are byte-identical to the independently reviewed isolated candidate; only STATUS/FORCE_TORQUE prose, additive results.force_torque_review and one traceability review status/text differ.",
-    "All preexisting reference/results sections are byte-equivalent after JSON parse; integrated native proof SHA a2f60e363263d72cef19fcc12a0b56973b80d45837a13de2fdec5599ecab8dc1 is identical to reviewed proof.",
-    "Private raw-source replay passed 163 Rust tests, formatting, Clippy, doc checks, 96 native rows and three unchanged originals; author integrated coverage evidence binds current source digest and reports 3239/3260 lines, 5665/5780 regions, 89/89 changed executable lines."
+    "Raw public-parent export plus 15 frozen files reproduced every final file hash, source digest 0af92eb6 and protected digest 9ab7ee64; 193 other tracked public-parent files retain exact hashes.",
+    "All inherited reference/results sections and all inherited traceability ports are unchanged; only four model-frame sections and four reviewed ports are added. Contract/STATUS/MODEL_FRAME_REFERENCES text accurately preserves static gap, source review and pending staged/hosted limits.",
+    "Fresh private integrated source/target passed 168 Rust tests, formatting, Clippy and docs; native 150-row/four-original proof SHA fa1f7af7 is byte-identical to isolated approval and author integration.",
+    "Author integrated strict evidence binds current source digest and reports 3256/3272 lines,5689/5801 regions,11/11 changed executable lines; 13 tools passed. No independent LLVM instrumentation claim.",
+    "Private pre-fix graph-only mutant of isolated candidate failed exact nested original on M1::__model__ at line69; no accepted test/assertion removal."
   ],
   "findings": [],
   "limits": [
-    "No independent LLVM instrumentation claim; author strict evidence inspected.",
-    "Eight named native-accepted strict-schema/finite inputs remain explicit Rust errors.",
-    "Joint/ForceTorque are metadata only; consumers must handle or reject unsupported enum variant and nonempty joint.sensors.",
-    "Normal exact staged hook, public publication and hosted CI remain required."
+    "static_joint_child remains a native-accepted STATIC_MODEL sink with model-frame identity while existing Rust rejects its child endpoint; no policy relaxation.",
+    "No mutable graph/endpoint diagnostic, runtime joint, or complete SDF packet parity claim.",
+    "Normal exact protected staged hook, public publication and hosted CI remain pending."
   ]
 }

@@ -688,6 +688,70 @@
       "baseline": "Exact unchanged DOMJoint.Sensors one run, zero failures/skips; artifacts/force-torque/INTEGRATION_joint_dom.xml.",
       "status": "ported_reviewed",
       "review": "Independent /root/transport_fallback approved source/API and all complete original DOMJoint.Sensors assertions on frozen 8022fcae. Fresh private 163 Rust checks, 96 native rows and three unchanged originals pass; entire proof and all fixture/source/header/binary/library hashes match. Native component-wise <=1e-3 poses and four-ULP doubles retained. Shared IMU default/error order and four exact precedence controls verified. Eight strict-schema/finite gaps and metadata-only consumer rejection requirements remain; no general Element/runtime parity claim."
+    },
+    {
+      "target": "INTEGRATION_joint_dom",
+      "case": "DOMJoint.LoadJointParentFrame",
+      "source": "test/integration/joint_dom.cc:342",
+      "rust_test": "tests/joint_frames.rs::original_joint_parent_frame",
+      "assertions": "Complete original root/model/member presence/count/index/name/raw pose/reference/body and semantic pose observations. Owned collections/borrowed lookups replace native DOM access; actual resolve_name+attached_body resolves fixture bodies with only world sentinel/model-relative string presentation translated. Native component-wise <=1e-3 position/quaternion equality retained without sign relaxation. No general mutable endpoint/error-vector/runtime claim.",
+      "fixtures": {
+        "tests/fixtures/joint_parent_frame.sdf": "24afa415b424a46a1918a446e8bfd636c0c40d97ef4ee78916aa6070493edffd"
+      },
+      "upstream_fixtures": {
+        "test/sdf/joint_parent_frame.sdf": "24afa415b424a46a1918a446e8bfd636c0c40d97ef4ee78916aa6070493edffd"
+      },
+      "baseline": "Exact unchanged native original one run, zero failures/skips; artifacts/joint-frames/LoadJointParentFrame.xml.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback approved exact complete original assertions, known-valid-fixture body API translation and component-wise <=1e-3 position/quaternion bounds. Private 161 Rust checks and fresh 150-row/four-original proof equal author, including every shared source/header/math/fixture/library/binary hash. Separate pre-fix graph mutant reproduces exact nested original M1::__model__ failure. One inherited static body identity/child validation gap remains explicit; no mutable/runtime/full packet parity claim."
+    },
+    {
+      "target": "INTEGRATION_joint_dom",
+      "case": "DOMJoint.LoadJointChildFrame",
+      "source": "test/integration/joint_dom.cc:434",
+      "rust_test": "tests/joint_frames.rs::original_joint_child_frame",
+      "assertions": "Complete original root/model/member presence/count/index/name/raw pose/reference/body and semantic pose observations. Owned collections/borrowed lookups replace native DOM access; actual resolve_name+attached_body resolves fixture bodies with only world sentinel/model-relative string presentation translated. Native component-wise <=1e-3 position/quaternion equality retained without sign relaxation. No general mutable endpoint/error-vector/runtime claim.",
+      "fixtures": {
+        "tests/fixtures/joint_child_frame.sdf": "64e1b66baeeebeb252a67fee50695f8158c641d00f2d9f95c7513d690fbb4455"
+      },
+      "upstream_fixtures": {
+        "test/sdf/joint_child_frame.sdf": "64e1b66baeeebeb252a67fee50695f8158c641d00f2d9f95c7513d690fbb4455"
+      },
+      "baseline": "Exact unchanged native original one run, zero failures/skips; artifacts/joint-frames/LoadJointChildFrame.xml.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback approved exact complete original assertions, known-valid-fixture body API translation and component-wise <=1e-3 position/quaternion bounds. Private 161 Rust checks and fresh 150-row/four-original proof equal author, including every shared source/header/math/fixture/library/binary hash. Separate pre-fix graph mutant reproduces exact nested original M1::__model__ failure. One inherited static body identity/child validation gap remains explicit; no mutable/runtime/full packet parity claim."
+    },
+    {
+      "target": "INTEGRATION_joint_dom",
+      "case": "DOMJoint.LoadJointPoseRelativeTo",
+      "source": "test/integration/joint_dom.cc:678",
+      "rust_test": "tests/joint_frames.rs::original_joint_pose_relative_to",
+      "assertions": "Complete original root/model/member presence/count/index/name/raw pose/reference/body and semantic pose observations. Owned collections/borrowed lookups replace native DOM access; actual resolve_name+attached_body resolves fixture bodies with only world sentinel/model-relative string presentation translated. Native component-wise <=1e-3 position/quaternion equality retained without sign relaxation. No general mutable endpoint/error-vector/runtime claim.",
+      "fixtures": {
+        "tests/fixtures/model_joint_relative_to.sdf": "730fd37d3340aef1e104f40baf0e10f359b6121b115f6a3641e4f831bdb55aa3"
+      },
+      "upstream_fixtures": {
+        "test/sdf/model_joint_relative_to.sdf": "730fd37d3340aef1e104f40baf0e10f359b6121b115f6a3641e4f831bdb55aa3"
+      },
+      "baseline": "Exact unchanged native original one run, zero failures/skips; artifacts/joint-frames/LoadJointPoseRelativeTo.xml.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback approved exact complete original assertions, known-valid-fixture body API translation and component-wise <=1e-3 position/quaternion bounds. Private 161 Rust checks and fresh 150-row/four-original proof equal author, including every shared source/header/math/fixture/library/binary hash. Separate pre-fix graph mutant reproduces exact nested original M1::__model__ failure. One inherited static body identity/child validation gap remains explicit; no mutable/runtime/full packet parity claim."
+    },
+    {
+      "target": "INTEGRATION_joint_dom",
+      "case": "DOMJoint.LoadJointNestedParentChild",
+      "source": "test/integration/joint_dom.cc:1024",
+      "rust_test": "tests/joint_frames.rs::original_joint_nested_parent_child",
+      "assertions": "Complete original root/model/member presence/count/index/name/raw pose/reference/body and semantic pose observations. Owned collections/borrowed lookups replace native DOM access; actual resolve_name+attached_body resolves fixture bodies with only world sentinel/model-relative string presentation translated. Native component-wise <=1e-3 position/quaternion equality retained without sign relaxation. No general mutable endpoint/error-vector/runtime claim.",
+      "fixtures": {
+        "tests/fixtures/joint_nested_parent_child.sdf": "26add9d4e445051236bd6770e967c50c7a90d83e5a8c17dc2743446343e9836f"
+      },
+      "upstream_fixtures": {
+        "test/sdf/joint_nested_parent_child.sdf": "26add9d4e445051236bd6770e967c50c7a90d83e5a8c17dc2743446343e9836f"
+      },
+      "baseline": "Exact unchanged native original one run, zero failures/skips; artifacts/joint-frames/LoadJointNestedParentChild.xml.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback approved exact complete original assertions, known-valid-fixture body API translation and component-wise <=1e-3 position/quaternion bounds. Private 161 Rust checks and fresh 150-row/four-original proof equal author, including every shared source/header/math/fixture/library/binary hash. Separate pre-fix graph mutant reproduces exact nested original M1::__model__ failure. One inherited static body identity/child validation gap remains explicit; no mutable/runtime/full packet parity claim."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

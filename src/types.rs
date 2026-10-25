@@ -158,7 +158,7 @@ impl Sdf {
         self.graphs.pose_of(name, target)
     }
     /// Resolve a collision, visual, sensor or inertial pose. `scope` is its owning model,
-    /// `default_frame` is its owning link, and `target` is fully scoped.
+    /// `default_frame` is its owning semantic frame, and `target` is fully scoped.
     pub fn resolve_pose(
         &self,
         pose: &Pose,
@@ -168,7 +168,7 @@ impl Sdf {
     ) -> Result<Transform, Diagnostic> {
         self.graphs.resolve_pose(pose, scope, default_frame, target)
     }
-    /// Resolve an SDF reference (`world`, `__model__`, or a scoped local name).
+    /// Resolve an SDF reference, including a nested model's terminal `::__model__`.
     pub fn resolve_name(&self, scope: &str, reference: &str) -> Result<String, Diagnostic> {
         self.graphs.resolve_name(scope, reference)
     }

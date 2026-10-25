@@ -1,0 +1,2266 @@
+[
+  {
+    "id": "frame_pose_0",
+    "scene": "frame_pose",
+    "kind": "frame",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><frame name='probe'><pose relative_to='n::__model__'>10 0 0 0 0 0</pose></frame></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "4386506037058863104",
+      "4621819117588971520",
+      "4613937818241073152",
+      "0",
+      "0",
+      "4604544271217802188",
+      "4604544271217802189"
+    ]
+  },
+  {
+    "id": "frame_pose_1",
+    "scene": "frame_pose",
+    "kind": "frame",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><frame name='probe'><pose relative_to='n::d::__model__'>10 0 0 0 0 0</pose></frame></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "4386506037058863104",
+      "4621819117588971520",
+      "4620693217682128896",
+      "0",
+      "0",
+      "4604544271217802188",
+      "4604544271217802189"
+    ]
+  },
+  {
+    "id": "frame_pose_2",
+    "scene": "frame_pose",
+    "kind": "frame",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><frame name='probe'><pose relative_to='missing::__model__'>10 0 0 0 0 0</pose></frame></model></sdf>",
+    "tokens": [
+      "3",
+      "26",
+      "28",
+      "28"
+    ]
+  },
+  {
+    "id": "frame_pose_3",
+    "scene": "frame_pose",
+    "kind": "frame",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><frame name='probe'><pose relative_to='l::__model__'>10 0 0 0 0 0</pose></frame></model></sdf>",
+    "tokens": [
+      "3",
+      "26",
+      "28",
+      "28"
+    ]
+  },
+  {
+    "id": "frame_pose_4",
+    "scene": "frame_pose",
+    "kind": "frame",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><frame name='probe'><pose relative_to='n::__model__::l'>10 0 0 0 0 0</pose></frame></model></sdf>",
+    "tokens": [
+      "3",
+      "26",
+      "28",
+      "28"
+    ]
+  },
+  {
+    "id": "frame_pose_5",
+    "scene": "frame_pose",
+    "kind": "frame",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><frame name='probe'><pose relative_to='m::n::__model__'>10 0 0 0 0 0</pose></frame></model></sdf>",
+    "tokens": [
+      "3",
+      "26",
+      "28",
+      "28"
+    ]
+  },
+  {
+    "id": "frame_pose_6",
+    "scene": "frame_pose",
+    "kind": "frame",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><frame name='probe'><pose relative_to='::m::n::__model__'>10 0 0 0 0 0</pose></frame></model></sdf>",
+    "tokens": [
+      "3",
+      "26",
+      "28",
+      "28"
+    ]
+  },
+  {
+    "id": "frame_pose_7",
+    "scene": "frame_pose",
+    "kind": "frame",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><frame name='probe'><pose relative_to='__model__::__model__'>10 0 0 0 0 0</pose></frame></model></sdf>",
+    "tokens": [
+      "3",
+      "26",
+      "28",
+      "28"
+    ]
+  },
+  {
+    "id": "frame_pose_8",
+    "scene": "frame_pose",
+    "kind": "frame",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><frame name='probe'><pose relative_to='n::__model__::__model__'>10 0 0 0 0 0</pose></frame></model></sdf>",
+    "tokens": [
+      "3",
+      "26",
+      "28",
+      "28"
+    ]
+  },
+  {
+    "id": "frame_attachment_0",
+    "scene": "frame_attachment",
+    "kind": "frame",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><frame name='probe' attached_to='n::__model__'><pose>10 0 0 0 0 0</pose></frame></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "4386506037058863104",
+      "4621819117588971520",
+      "4613937818241073152",
+      "0",
+      "0",
+      "4604544271217802188",
+      "4604544271217802189"
+    ]
+  },
+  {
+    "id": "frame_attachment_1",
+    "scene": "frame_attachment",
+    "kind": "frame",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><frame name='probe' attached_to='n::d::__model__'><pose>10 0 0 0 0 0</pose></frame></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "4386506037058863104",
+      "4621819117588971520",
+      "4620693217682128896",
+      "0",
+      "0",
+      "4604544271217802188",
+      "4604544271217802189"
+    ]
+  },
+  {
+    "id": "frame_attachment_2",
+    "scene": "frame_attachment",
+    "kind": "frame",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><frame name='probe' attached_to='missing::__model__'><pose>10 0 0 0 0 0</pose></frame></model></sdf>",
+    "tokens": [
+      "6",
+      "23",
+      "25",
+      "25",
+      "23",
+      "28",
+      "28"
+    ]
+  },
+  {
+    "id": "frame_attachment_3",
+    "scene": "frame_attachment",
+    "kind": "frame",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><frame name='probe' attached_to='l::__model__'><pose>10 0 0 0 0 0</pose></frame></model></sdf>",
+    "tokens": [
+      "6",
+      "23",
+      "25",
+      "25",
+      "23",
+      "28",
+      "28"
+    ]
+  },
+  {
+    "id": "frame_attachment_4",
+    "scene": "frame_attachment",
+    "kind": "frame",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><frame name='probe' attached_to='n::__model__::l'><pose>10 0 0 0 0 0</pose></frame></model></sdf>",
+    "tokens": [
+      "6",
+      "23",
+      "25",
+      "25",
+      "23",
+      "28",
+      "28"
+    ]
+  },
+  {
+    "id": "frame_attachment_5",
+    "scene": "frame_attachment",
+    "kind": "frame",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><frame name='probe' attached_to='m::n::__model__'><pose>10 0 0 0 0 0</pose></frame></model></sdf>",
+    "tokens": [
+      "6",
+      "23",
+      "25",
+      "25",
+      "23",
+      "28",
+      "28"
+    ]
+  },
+  {
+    "id": "frame_attachment_6",
+    "scene": "frame_attachment",
+    "kind": "frame",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><frame name='probe' attached_to='::m::n::__model__'><pose>10 0 0 0 0 0</pose></frame></model></sdf>",
+    "tokens": [
+      "6",
+      "23",
+      "25",
+      "25",
+      "23",
+      "28",
+      "28"
+    ]
+  },
+  {
+    "id": "frame_attachment_7",
+    "scene": "frame_attachment",
+    "kind": "frame",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><frame name='probe' attached_to='__model__::__model__'><pose>10 0 0 0 0 0</pose></frame></model></sdf>",
+    "tokens": [
+      "6",
+      "23",
+      "25",
+      "25",
+      "23",
+      "28",
+      "28"
+    ]
+  },
+  {
+    "id": "frame_attachment_8",
+    "scene": "frame_attachment",
+    "kind": "frame",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><frame name='probe' attached_to='n::__model__::__model__'><pose>10 0 0 0 0 0</pose></frame></model></sdf>",
+    "tokens": [
+      "6",
+      "23",
+      "25",
+      "25",
+      "23",
+      "28",
+      "28"
+    ]
+  },
+  {
+    "id": "link_pose_0",
+    "scene": "link_pose",
+    "kind": "link",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><link name='probe'><pose relative_to='n::__model__'>10 0 0 0 0 0</pose></link></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "4386506037058863104",
+      "4621819117588971520",
+      "4613937818241073152",
+      "0",
+      "0",
+      "4604544271217802188",
+      "4604544271217802189"
+    ]
+  },
+  {
+    "id": "link_pose_1",
+    "scene": "link_pose",
+    "kind": "link",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><link name='probe'><pose relative_to='n::d::__model__'>10 0 0 0 0 0</pose></link></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "4386506037058863104",
+      "4621819117588971520",
+      "4620693217682128896",
+      "0",
+      "0",
+      "4604544271217802188",
+      "4604544271217802189"
+    ]
+  },
+  {
+    "id": "link_pose_2",
+    "scene": "link_pose",
+    "kind": "link",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><link name='probe'><pose relative_to='missing::__model__'>10 0 0 0 0 0</pose></link></model></sdf>",
+    "tokens": [
+      "3",
+      "26",
+      "28",
+      "28"
+    ]
+  },
+  {
+    "id": "link_pose_3",
+    "scene": "link_pose",
+    "kind": "link",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><link name='probe'><pose relative_to='l::__model__'>10 0 0 0 0 0</pose></link></model></sdf>",
+    "tokens": [
+      "3",
+      "26",
+      "28",
+      "28"
+    ]
+  },
+  {
+    "id": "link_pose_4",
+    "scene": "link_pose",
+    "kind": "link",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><link name='probe'><pose relative_to='n::__model__::l'>10 0 0 0 0 0</pose></link></model></sdf>",
+    "tokens": [
+      "3",
+      "26",
+      "28",
+      "28"
+    ]
+  },
+  {
+    "id": "link_pose_5",
+    "scene": "link_pose",
+    "kind": "link",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><link name='probe'><pose relative_to='m::n::__model__'>10 0 0 0 0 0</pose></link></model></sdf>",
+    "tokens": [
+      "3",
+      "26",
+      "28",
+      "28"
+    ]
+  },
+  {
+    "id": "link_pose_6",
+    "scene": "link_pose",
+    "kind": "link",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><link name='probe'><pose relative_to='::m::n::__model__'>10 0 0 0 0 0</pose></link></model></sdf>",
+    "tokens": [
+      "3",
+      "26",
+      "28",
+      "28"
+    ]
+  },
+  {
+    "id": "link_pose_7",
+    "scene": "link_pose",
+    "kind": "link",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><link name='probe'><pose relative_to='__model__::__model__'>10 0 0 0 0 0</pose></link></model></sdf>",
+    "tokens": [
+      "3",
+      "26",
+      "28",
+      "28"
+    ]
+  },
+  {
+    "id": "link_pose_8",
+    "scene": "link_pose",
+    "kind": "link",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><link name='probe'><pose relative_to='n::__model__::__model__'>10 0 0 0 0 0</pose></link></model></sdf>",
+    "tokens": [
+      "3",
+      "26",
+      "28",
+      "28"
+    ]
+  },
+  {
+    "id": "joint_parent_0",
+    "scene": "joint_parent",
+    "kind": "joint",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>n::__model__</parent><child>l</child></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "joint_parent_1",
+    "scene": "joint_parent",
+    "kind": "joint",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>n::d::__model__</parent><child>l</child></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "joint_parent_2",
+    "scene": "joint_parent",
+    "kind": "joint",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>missing::__model__</parent><child>l</child></joint></model></sdf>",
+    "tokens": [
+      "1",
+      "23"
+    ]
+  },
+  {
+    "id": "joint_parent_3",
+    "scene": "joint_parent",
+    "kind": "joint",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>l::__model__</parent><child>l</child></joint></model></sdf>",
+    "tokens": [
+      "1",
+      "23"
+    ]
+  },
+  {
+    "id": "joint_parent_4",
+    "scene": "joint_parent",
+    "kind": "joint",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>n::__model__::l</parent><child>l</child></joint></model></sdf>",
+    "tokens": [
+      "2",
+      "21",
+      "23"
+    ]
+  },
+  {
+    "id": "joint_parent_5",
+    "scene": "joint_parent",
+    "kind": "joint",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>m::n::__model__</parent><child>l</child></joint></model></sdf>",
+    "tokens": [
+      "1",
+      "23"
+    ]
+  },
+  {
+    "id": "joint_parent_6",
+    "scene": "joint_parent",
+    "kind": "joint",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>::m::n::__model__</parent><child>l</child></joint></model></sdf>",
+    "tokens": [
+      "1",
+      "23"
+    ]
+  },
+  {
+    "id": "joint_parent_7",
+    "scene": "joint_parent",
+    "kind": "joint",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>__model__::__model__</parent><child>l</child></joint></model></sdf>",
+    "tokens": [
+      "1",
+      "23"
+    ]
+  },
+  {
+    "id": "joint_parent_8",
+    "scene": "joint_parent",
+    "kind": "joint",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>n::__model__::__model__</parent><child>l</child></joint></model></sdf>",
+    "tokens": [
+      "1",
+      "23"
+    ]
+  },
+  {
+    "id": "joint_child_0",
+    "scene": "joint_child",
+    "kind": "joint",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>n::__model__</child></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "4613937818241073152",
+      "0",
+      "0",
+      "4604544271217802188",
+      "4604544271217802189",
+      "0"
+    ]
+  },
+  {
+    "id": "joint_child_1",
+    "scene": "joint_child",
+    "kind": "joint",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>n::d::__model__</child></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "4620693217682128896",
+      "0",
+      "0",
+      "4604544271217802188",
+      "4604544271217802189",
+      "0"
+    ]
+  },
+  {
+    "id": "joint_child_2",
+    "scene": "joint_child",
+    "kind": "joint",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>missing::__model__</child></joint></model></sdf>",
+    "tokens": [
+      "7",
+      "20",
+      "25",
+      "25",
+      "26",
+      "28",
+      "28",
+      "23"
+    ]
+  },
+  {
+    "id": "joint_child_3",
+    "scene": "joint_child",
+    "kind": "joint",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>l::__model__</child></joint></model></sdf>",
+    "tokens": [
+      "7",
+      "20",
+      "25",
+      "25",
+      "26",
+      "28",
+      "28",
+      "23"
+    ]
+  },
+  {
+    "id": "joint_child_4",
+    "scene": "joint_child",
+    "kind": "joint",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>n::__model__::l</child></joint></model></sdf>",
+    "tokens": [
+      "8",
+      "20",
+      "25",
+      "25",
+      "26",
+      "28",
+      "28",
+      "20",
+      "23"
+    ]
+  },
+  {
+    "id": "joint_child_5",
+    "scene": "joint_child",
+    "kind": "joint",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>m::n::__model__</child></joint></model></sdf>",
+    "tokens": [
+      "7",
+      "20",
+      "25",
+      "25",
+      "26",
+      "28",
+      "28",
+      "23"
+    ]
+  },
+  {
+    "id": "joint_child_6",
+    "scene": "joint_child",
+    "kind": "joint",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>::m::n::__model__</child></joint></model></sdf>",
+    "tokens": [
+      "7",
+      "20",
+      "25",
+      "25",
+      "26",
+      "28",
+      "28",
+      "23"
+    ]
+  },
+  {
+    "id": "joint_child_7",
+    "scene": "joint_child",
+    "kind": "joint",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>__model__::__model__</child></joint></model></sdf>",
+    "tokens": [
+      "7",
+      "20",
+      "25",
+      "25",
+      "26",
+      "28",
+      "28",
+      "23"
+    ]
+  },
+  {
+    "id": "joint_child_8",
+    "scene": "joint_child",
+    "kind": "joint",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>n::__model__::__model__</child></joint></model></sdf>",
+    "tokens": [
+      "7",
+      "20",
+      "25",
+      "25",
+      "26",
+      "28",
+      "28",
+      "23"
+    ]
+  },
+  {
+    "id": "joint_pose_0",
+    "scene": "joint_pose",
+    "kind": "joint",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>l</child><pose relative_to='n::__model__'>10 0 0 0 0 0</pose></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "4386506037058863104",
+      "4621819117588971520",
+      "4613937818241073152",
+      "0",
+      "0",
+      "4604544271217802188",
+      "4604544271217802189",
+      "0"
+    ]
+  },
+  {
+    "id": "joint_pose_1",
+    "scene": "joint_pose",
+    "kind": "joint",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>l</child><pose relative_to='n::d::__model__'>10 0 0 0 0 0</pose></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "4386506037058863104",
+      "4621819117588971520",
+      "4620693217682128896",
+      "0",
+      "0",
+      "4604544271217802188",
+      "4604544271217802189",
+      "0"
+    ]
+  },
+  {
+    "id": "joint_pose_2",
+    "scene": "joint_pose",
+    "kind": "joint",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>l</child><pose relative_to='missing::__model__'>10 0 0 0 0 0</pose></joint></model></sdf>",
+    "tokens": [
+      "3",
+      "26",
+      "28",
+      "28"
+    ]
+  },
+  {
+    "id": "joint_pose_3",
+    "scene": "joint_pose",
+    "kind": "joint",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>l</child><pose relative_to='l::__model__'>10 0 0 0 0 0</pose></joint></model></sdf>",
+    "tokens": [
+      "3",
+      "26",
+      "28",
+      "28"
+    ]
+  },
+  {
+    "id": "joint_pose_4",
+    "scene": "joint_pose",
+    "kind": "joint",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>l</child><pose relative_to='n::__model__::l'>10 0 0 0 0 0</pose></joint></model></sdf>",
+    "tokens": [
+      "3",
+      "26",
+      "28",
+      "28"
+    ]
+  },
+  {
+    "id": "joint_pose_5",
+    "scene": "joint_pose",
+    "kind": "joint",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>l</child><pose relative_to='m::n::__model__'>10 0 0 0 0 0</pose></joint></model></sdf>",
+    "tokens": [
+      "3",
+      "26",
+      "28",
+      "28"
+    ]
+  },
+  {
+    "id": "joint_pose_6",
+    "scene": "joint_pose",
+    "kind": "joint",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>l</child><pose relative_to='::m::n::__model__'>10 0 0 0 0 0</pose></joint></model></sdf>",
+    "tokens": [
+      "3",
+      "26",
+      "28",
+      "28"
+    ]
+  },
+  {
+    "id": "joint_pose_7",
+    "scene": "joint_pose",
+    "kind": "joint",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>l</child><pose relative_to='__model__::__model__'>10 0 0 0 0 0</pose></joint></model></sdf>",
+    "tokens": [
+      "3",
+      "26",
+      "28",
+      "28"
+    ]
+  },
+  {
+    "id": "joint_pose_8",
+    "scene": "joint_pose",
+    "kind": "joint",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>l</child><pose relative_to='n::__model__::__model__'>10 0 0 0 0 0</pose></joint></model></sdf>",
+    "tokens": [
+      "3",
+      "26",
+      "28",
+      "28"
+    ]
+  },
+  {
+    "id": "axis_0",
+    "scene": "axis",
+    "kind": "joint",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>l</child><axis><xyz expressed_in='n::__model__'>1 0 0</xyz></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408",
+      "1",
+      "0",
+      "4372995238176751616",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "axis_1",
+    "scene": "axis",
+    "kind": "joint",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>l</child><axis><xyz expressed_in='n::d::__model__'>1 0 0</xyz></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408",
+      "1",
+      "0",
+      "4372995238176751616",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "axis_2",
+    "scene": "axis",
+    "kind": "joint",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>l</child><axis><xyz expressed_in='missing::__model__'>1 0 0</xyz></axis></joint></model></sdf>",
+    "tokens": [
+      "2",
+      "38",
+      "26"
+    ]
+  },
+  {
+    "id": "axis_3",
+    "scene": "axis",
+    "kind": "joint",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>l</child><axis><xyz expressed_in='l::__model__'>1 0 0</xyz></axis></joint></model></sdf>",
+    "tokens": [
+      "2",
+      "38",
+      "26"
+    ]
+  },
+  {
+    "id": "axis_4",
+    "scene": "axis",
+    "kind": "joint",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>l</child><axis><xyz expressed_in='n::__model__::l'>1 0 0</xyz></axis></joint></model></sdf>",
+    "tokens": [
+      "2",
+      "38",
+      "26"
+    ]
+  },
+  {
+    "id": "axis_5",
+    "scene": "axis",
+    "kind": "joint",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>l</child><axis><xyz expressed_in='m::n::__model__'>1 0 0</xyz></axis></joint></model></sdf>",
+    "tokens": [
+      "2",
+      "38",
+      "26"
+    ]
+  },
+  {
+    "id": "axis_6",
+    "scene": "axis",
+    "kind": "joint",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>l</child><axis><xyz expressed_in='::m::n::__model__'>1 0 0</xyz></axis></joint></model></sdf>",
+    "tokens": [
+      "2",
+      "38",
+      "26"
+    ]
+  },
+  {
+    "id": "axis_7",
+    "scene": "axis",
+    "kind": "joint",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>l</child><axis><xyz expressed_in='__model__::__model__'>1 0 0</xyz></axis></joint></model></sdf>",
+    "tokens": [
+      "2",
+      "38",
+      "26"
+    ]
+  },
+  {
+    "id": "axis_8",
+    "scene": "axis",
+    "kind": "joint",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>l</child><axis><xyz expressed_in='n::__model__::__model__'>1 0 0</xyz></axis></joint></model></sdf>",
+    "tokens": [
+      "2",
+      "38",
+      "26"
+    ]
+  },
+  {
+    "id": "canonical_0",
+    "scene": "canonical",
+    "kind": "model",
+    "xml": "<sdf version='1.12'><model name='m' canonical_link='n::__model__'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408"
+    ]
+  },
+  {
+    "id": "canonical_1",
+    "scene": "canonical",
+    "kind": "model",
+    "xml": "<sdf version='1.12'><model name='m' canonical_link='n::d::__model__'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408"
+    ]
+  },
+  {
+    "id": "canonical_2",
+    "scene": "canonical",
+    "kind": "model",
+    "xml": "<sdf version='1.12'><model name='m' canonical_link='missing::__model__'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/></model></sdf>",
+    "tokens": [
+      "4",
+      "16",
+      "25",
+      "25",
+      "25"
+    ]
+  },
+  {
+    "id": "canonical_3",
+    "scene": "canonical",
+    "kind": "model",
+    "xml": "<sdf version='1.12'><model name='m' canonical_link='l::__model__'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/></model></sdf>",
+    "tokens": [
+      "4",
+      "16",
+      "25",
+      "25",
+      "25"
+    ]
+  },
+  {
+    "id": "canonical_4",
+    "scene": "canonical",
+    "kind": "model",
+    "xml": "<sdf version='1.12'><model name='m' canonical_link='n::__model__::l'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/></model></sdf>",
+    "tokens": [
+      "4",
+      "16",
+      "25",
+      "25",
+      "25"
+    ]
+  },
+  {
+    "id": "canonical_5",
+    "scene": "canonical",
+    "kind": "model",
+    "xml": "<sdf version='1.12'><model name='m' canonical_link='m::n::__model__'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/></model></sdf>",
+    "tokens": [
+      "4",
+      "16",
+      "25",
+      "25",
+      "25"
+    ]
+  },
+  {
+    "id": "canonical_6",
+    "scene": "canonical",
+    "kind": "model",
+    "xml": "<sdf version='1.12'><model name='m' canonical_link='::m::n::__model__'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/></model></sdf>",
+    "tokens": [
+      "4",
+      "16",
+      "25",
+      "25",
+      "25"
+    ]
+  },
+  {
+    "id": "canonical_7",
+    "scene": "canonical",
+    "kind": "model",
+    "xml": "<sdf version='1.12'><model name='m' canonical_link='__model__::__model__'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/></model></sdf>",
+    "tokens": [
+      "4",
+      "16",
+      "25",
+      "25",
+      "25"
+    ]
+  },
+  {
+    "id": "canonical_8",
+    "scene": "canonical",
+    "kind": "model",
+    "xml": "<sdf version='1.12'><model name='m' canonical_link='n::__model__::__model__'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/></model></sdf>",
+    "tokens": [
+      "4",
+      "16",
+      "25",
+      "25",
+      "25"
+    ]
+  },
+  {
+    "id": "placement_0",
+    "scene": "placement",
+    "kind": "model",
+    "xml": "<sdf version='1.12'><model name='m' placement_frame='n::__model__'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "13837309855095848960",
+      "0",
+      "0",
+      "13827916308072577996",
+      "4604544271217802189"
+    ]
+  },
+  {
+    "id": "placement_1",
+    "scene": "placement",
+    "kind": "model",
+    "xml": "<sdf version='1.12'><model name='m' placement_frame='n::d::__model__'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "13844065254536904704",
+      "0",
+      "0",
+      "13827916308072577996",
+      "4604544271217802189"
+    ]
+  },
+  {
+    "id": "placement_2",
+    "scene": "placement",
+    "kind": "model",
+    "xml": "<sdf version='1.12'><model name='m' placement_frame='missing::__model__'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/></model></sdf>",
+    "tokens": [
+      "1",
+      "26"
+    ]
+  },
+  {
+    "id": "placement_3",
+    "scene": "placement",
+    "kind": "model",
+    "xml": "<sdf version='1.12'><model name='m' placement_frame='l::__model__'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/></model></sdf>",
+    "tokens": [
+      "1",
+      "26"
+    ]
+  },
+  {
+    "id": "placement_4",
+    "scene": "placement",
+    "kind": "model",
+    "xml": "<sdf version='1.12'><model name='m' placement_frame='n::__model__::l'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/></model></sdf>",
+    "tokens": [
+      "1",
+      "26"
+    ]
+  },
+  {
+    "id": "placement_5",
+    "scene": "placement",
+    "kind": "model",
+    "xml": "<sdf version='1.12'><model name='m' placement_frame='m::n::__model__'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/></model></sdf>",
+    "tokens": [
+      "1",
+      "26"
+    ]
+  },
+  {
+    "id": "placement_6",
+    "scene": "placement",
+    "kind": "model",
+    "xml": "<sdf version='1.12'><model name='m' placement_frame='::m::n::__model__'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/></model></sdf>",
+    "tokens": [
+      "1",
+      "26"
+    ]
+  },
+  {
+    "id": "placement_7",
+    "scene": "placement",
+    "kind": "model",
+    "xml": "<sdf version='1.12'><model name='m' placement_frame='__model__::__model__'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/></model></sdf>",
+    "tokens": [
+      "1",
+      "26"
+    ]
+  },
+  {
+    "id": "placement_8",
+    "scene": "placement",
+    "kind": "model",
+    "xml": "<sdf version='1.12'><model name='m' placement_frame='n::__model__::__model__'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/></model></sdf>",
+    "tokens": [
+      "1",
+      "26"
+    ]
+  },
+  {
+    "id": "collision_0",
+    "scene": "collision",
+    "kind": "collision",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><link name='probe'><collision name='c'><pose relative_to='n::__model__'>10 0 0 0 0 0</pose><geometry><box><size>1 1 1</size></box></geometry></collision></link></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "4386506037058863104",
+      "4621819117588971520",
+      "4613937818241073152",
+      "0",
+      "0",
+      "4604544271217802188",
+      "4604544271217802189"
+    ]
+  },
+  {
+    "id": "collision_1",
+    "scene": "collision",
+    "kind": "collision",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><link name='probe'><collision name='c'><pose relative_to='n::d::__model__'>10 0 0 0 0 0</pose><geometry><box><size>1 1 1</size></box></geometry></collision></link></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "4386506037058863104",
+      "4621819117588971520",
+      "4620693217682128896",
+      "0",
+      "0",
+      "4604544271217802188",
+      "4604544271217802189"
+    ]
+  },
+  {
+    "id": "collision_2",
+    "scene": "collision",
+    "kind": "collision",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><link name='probe'><collision name='c'><pose relative_to='missing::__model__'>10 0 0 0 0 0</pose><geometry><box><size>1 1 1</size></box></geometry></collision></link></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "26"
+    ]
+  },
+  {
+    "id": "collision_3",
+    "scene": "collision",
+    "kind": "collision",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><link name='probe'><collision name='c'><pose relative_to='l::__model__'>10 0 0 0 0 0</pose><geometry><box><size>1 1 1</size></box></geometry></collision></link></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "26"
+    ]
+  },
+  {
+    "id": "collision_4",
+    "scene": "collision",
+    "kind": "collision",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><link name='probe'><collision name='c'><pose relative_to='n::__model__::l'>10 0 0 0 0 0</pose><geometry><box><size>1 1 1</size></box></geometry></collision></link></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "26"
+    ]
+  },
+  {
+    "id": "collision_5",
+    "scene": "collision",
+    "kind": "collision",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><link name='probe'><collision name='c'><pose relative_to='m::n::__model__'>10 0 0 0 0 0</pose><geometry><box><size>1 1 1</size></box></geometry></collision></link></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "26"
+    ]
+  },
+  {
+    "id": "collision_6",
+    "scene": "collision",
+    "kind": "collision",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><link name='probe'><collision name='c'><pose relative_to='::m::n::__model__'>10 0 0 0 0 0</pose><geometry><box><size>1 1 1</size></box></geometry></collision></link></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "26"
+    ]
+  },
+  {
+    "id": "collision_7",
+    "scene": "collision",
+    "kind": "collision",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><link name='probe'><collision name='c'><pose relative_to='__model__::__model__'>10 0 0 0 0 0</pose><geometry><box><size>1 1 1</size></box></geometry></collision></link></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "26"
+    ]
+  },
+  {
+    "id": "collision_8",
+    "scene": "collision",
+    "kind": "collision",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><link name='probe'><collision name='c'><pose relative_to='n::__model__::__model__'>10 0 0 0 0 0</pose><geometry><box><size>1 1 1</size></box></geometry></collision></link></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "26"
+    ]
+  },
+  {
+    "id": "1.4_frame_pose",
+    "scene": "frame_pose",
+    "kind": "frame",
+    "xml": "<sdf version='1.4'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><frame name='probe'><pose relative_to='n::__model__'>10 0 0 0 0 0</pose></frame></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "4386506037058863104",
+      "4621819117588971520",
+      "4613937818241073152",
+      "0",
+      "0",
+      "4604544271217802188",
+      "4604544271217802189"
+    ]
+  },
+  {
+    "id": "1.4_joint_parent",
+    "scene": "joint_parent",
+    "kind": "joint",
+    "xml": "<sdf version='1.4'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>n::__model__</parent><child>l</child></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "1.4_joint_child",
+    "scene": "joint_child",
+    "kind": "joint",
+    "xml": "<sdf version='1.4'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>n::__model__</child></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "4613937818241073152",
+      "0",
+      "0",
+      "4604544271217802188",
+      "4604544271217802189",
+      "0"
+    ]
+  },
+  {
+    "id": "1.4_axis",
+    "scene": "axis",
+    "kind": "joint",
+    "xml": "<sdf version='1.4'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>l</child><axis><xyz expressed_in='n::__model__'>1 0 0</xyz></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408",
+      "1",
+      "0",
+      "4607182418800017408",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "1.5_frame_pose",
+    "scene": "frame_pose",
+    "kind": "frame",
+    "xml": "<sdf version='1.5'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><frame name='probe'><pose relative_to='n::__model__'>10 0 0 0 0 0</pose></frame></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "4386506037058863104",
+      "4621819117588971520",
+      "4613937818241073152",
+      "0",
+      "0",
+      "4604544271217802188",
+      "4604544271217802189"
+    ]
+  },
+  {
+    "id": "1.5_joint_parent",
+    "scene": "joint_parent",
+    "kind": "joint",
+    "xml": "<sdf version='1.5'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>n::__model__</parent><child>l</child></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "1.5_joint_child",
+    "scene": "joint_child",
+    "kind": "joint",
+    "xml": "<sdf version='1.5'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>n::__model__</child></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "4613937818241073152",
+      "0",
+      "0",
+      "4604544271217802188",
+      "4604544271217802189",
+      "0"
+    ]
+  },
+  {
+    "id": "1.5_axis",
+    "scene": "axis",
+    "kind": "joint",
+    "xml": "<sdf version='1.5'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>l</child><axis><xyz expressed_in='n::__model__'>1 0 0</xyz></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408",
+      "1",
+      "0",
+      "4372995238176751616",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "1.6_frame_pose",
+    "scene": "frame_pose",
+    "kind": "frame",
+    "xml": "<sdf version='1.6'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><frame name='probe'><pose relative_to='n::__model__'>10 0 0 0 0 0</pose></frame></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "4386506037058863104",
+      "4621819117588971520",
+      "4613937818241073152",
+      "0",
+      "0",
+      "4604544271217802188",
+      "4604544271217802189"
+    ]
+  },
+  {
+    "id": "1.6_joint_parent",
+    "scene": "joint_parent",
+    "kind": "joint",
+    "xml": "<sdf version='1.6'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>n::__model__</parent><child>l</child></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "1.6_joint_child",
+    "scene": "joint_child",
+    "kind": "joint",
+    "xml": "<sdf version='1.6'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>n::__model__</child></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "4613937818241073152",
+      "0",
+      "0",
+      "4604544271217802188",
+      "4604544271217802189",
+      "0"
+    ]
+  },
+  {
+    "id": "1.6_axis",
+    "scene": "axis",
+    "kind": "joint",
+    "xml": "<sdf version='1.6'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>l</child><axis><xyz expressed_in='n::__model__'>1 0 0</xyz></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408",
+      "1",
+      "0",
+      "4372995238176751616",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "1.7_frame_pose",
+    "scene": "frame_pose",
+    "kind": "frame",
+    "xml": "<sdf version='1.7'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><frame name='probe'><pose relative_to='n::__model__'>10 0 0 0 0 0</pose></frame></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "4386506037058863104",
+      "4621819117588971520",
+      "4613937818241073152",
+      "0",
+      "0",
+      "4604544271217802188",
+      "4604544271217802189"
+    ]
+  },
+  {
+    "id": "1.7_joint_parent",
+    "scene": "joint_parent",
+    "kind": "joint",
+    "xml": "<sdf version='1.7'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>n::__model__</parent><child>l</child></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "1.7_joint_child",
+    "scene": "joint_child",
+    "kind": "joint",
+    "xml": "<sdf version='1.7'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>n::__model__</child></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "4613937818241073152",
+      "0",
+      "0",
+      "4604544271217802188",
+      "4604544271217802189",
+      "0"
+    ]
+  },
+  {
+    "id": "1.7_axis",
+    "scene": "axis",
+    "kind": "joint",
+    "xml": "<sdf version='1.7'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>l</child><axis><xyz expressed_in='n::__model__'>1 0 0</xyz></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408",
+      "1",
+      "0",
+      "4372995238176751616",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "1.8_frame_pose",
+    "scene": "frame_pose",
+    "kind": "frame",
+    "xml": "<sdf version='1.8'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><frame name='probe'><pose relative_to='n::__model__'>10 0 0 0 0 0</pose></frame></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "4386506037058863104",
+      "4621819117588971520",
+      "4613937818241073152",
+      "0",
+      "0",
+      "4604544271217802188",
+      "4604544271217802189"
+    ]
+  },
+  {
+    "id": "1.8_joint_parent",
+    "scene": "joint_parent",
+    "kind": "joint",
+    "xml": "<sdf version='1.8'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>n::__model__</parent><child>l</child></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "1.8_joint_child",
+    "scene": "joint_child",
+    "kind": "joint",
+    "xml": "<sdf version='1.8'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>n::__model__</child></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "4613937818241073152",
+      "0",
+      "0",
+      "4604544271217802188",
+      "4604544271217802189",
+      "0"
+    ]
+  },
+  {
+    "id": "1.8_axis",
+    "scene": "axis",
+    "kind": "joint",
+    "xml": "<sdf version='1.8'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>l</child><axis><xyz expressed_in='n::__model__'>1 0 0</xyz></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408",
+      "1",
+      "0",
+      "4372995238176751616",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "1.9_frame_pose",
+    "scene": "frame_pose",
+    "kind": "frame",
+    "xml": "<sdf version='1.9'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><frame name='probe'><pose relative_to='n::__model__'>10 0 0 0 0 0</pose></frame></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "4386506037058863104",
+      "4621819117588971520",
+      "4613937818241073152",
+      "0",
+      "0",
+      "4604544271217802188",
+      "4604544271217802189"
+    ]
+  },
+  {
+    "id": "1.9_joint_parent",
+    "scene": "joint_parent",
+    "kind": "joint",
+    "xml": "<sdf version='1.9'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>n::__model__</parent><child>l</child></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "1.9_joint_child",
+    "scene": "joint_child",
+    "kind": "joint",
+    "xml": "<sdf version='1.9'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>n::__model__</child></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "4613937818241073152",
+      "0",
+      "0",
+      "4604544271217802188",
+      "4604544271217802189",
+      "0"
+    ]
+  },
+  {
+    "id": "1.9_axis",
+    "scene": "axis",
+    "kind": "joint",
+    "xml": "<sdf version='1.9'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>l</child><axis><xyz expressed_in='n::__model__'>1 0 0</xyz></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408",
+      "1",
+      "0",
+      "4372995238176751616",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "1.10_frame_pose",
+    "scene": "frame_pose",
+    "kind": "frame",
+    "xml": "<sdf version='1.10'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><frame name='probe'><pose relative_to='n::__model__'>10 0 0 0 0 0</pose></frame></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "4386506037058863104",
+      "4621819117588971520",
+      "4613937818241073152",
+      "0",
+      "0",
+      "4604544271217802188",
+      "4604544271217802189"
+    ]
+  },
+  {
+    "id": "1.10_joint_parent",
+    "scene": "joint_parent",
+    "kind": "joint",
+    "xml": "<sdf version='1.10'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>n::__model__</parent><child>l</child></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "1.10_joint_child",
+    "scene": "joint_child",
+    "kind": "joint",
+    "xml": "<sdf version='1.10'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>n::__model__</child></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "4613937818241073152",
+      "0",
+      "0",
+      "4604544271217802188",
+      "4604544271217802189",
+      "0"
+    ]
+  },
+  {
+    "id": "1.10_axis",
+    "scene": "axis",
+    "kind": "joint",
+    "xml": "<sdf version='1.10'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>l</child><axis><xyz expressed_in='n::__model__'>1 0 0</xyz></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408",
+      "1",
+      "0",
+      "4372995238176751616",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "1.11_frame_pose",
+    "scene": "frame_pose",
+    "kind": "frame",
+    "xml": "<sdf version='1.11'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><frame name='probe'><pose relative_to='n::__model__'>10 0 0 0 0 0</pose></frame></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "4386506037058863104",
+      "4621819117588971520",
+      "4613937818241073152",
+      "0",
+      "0",
+      "4604544271217802188",
+      "4604544271217802189"
+    ]
+  },
+  {
+    "id": "1.11_joint_parent",
+    "scene": "joint_parent",
+    "kind": "joint",
+    "xml": "<sdf version='1.11'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>n::__model__</parent><child>l</child></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "1.11_joint_child",
+    "scene": "joint_child",
+    "kind": "joint",
+    "xml": "<sdf version='1.11'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>n::__model__</child></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "4613937818241073152",
+      "0",
+      "0",
+      "4604544271217802188",
+      "4604544271217802189",
+      "0"
+    ]
+  },
+  {
+    "id": "1.11_axis",
+    "scene": "axis",
+    "kind": "joint",
+    "xml": "<sdf version='1.11'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>l</child><axis><xyz expressed_in='n::__model__'>1 0 0</xyz></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408",
+      "1",
+      "0",
+      "4372995238176751616",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "world_frame_pose",
+    "scene": "frame_pose",
+    "kind": "frame",
+    "xml": "<sdf version='1.12'><world name='w'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><frame name='probe'><pose relative_to='n::__model__'>10 0 0 0 0 0</pose></frame></model></world></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "4386506037058863104",
+      "4621819117588971520",
+      "4613937818241073152",
+      "0",
+      "0",
+      "4604544271217802188",
+      "4604544271217802189"
+    ]
+  },
+  {
+    "id": "world_frame_attachment",
+    "scene": "frame_attachment",
+    "kind": "frame",
+    "xml": "<sdf version='1.12'><world name='w'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><frame name='probe' attached_to='n::__model__'><pose>10 0 0 0 0 0</pose></frame></model></world></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "4386506037058863104",
+      "4621819117588971520",
+      "4613937818241073152",
+      "0",
+      "0",
+      "4604544271217802188",
+      "4604544271217802189"
+    ]
+  },
+  {
+    "id": "world_link_pose",
+    "scene": "link_pose",
+    "kind": "link",
+    "xml": "<sdf version='1.12'><world name='w'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><link name='probe'><pose relative_to='n::__model__'>10 0 0 0 0 0</pose></link></model></world></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "4386506037058863104",
+      "4621819117588971520",
+      "4613937818241073152",
+      "0",
+      "0",
+      "4604544271217802188",
+      "4604544271217802189"
+    ]
+  },
+  {
+    "id": "world_joint_parent",
+    "scene": "joint_parent",
+    "kind": "joint",
+    "xml": "<sdf version='1.12'><world name='w'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>n::__model__</parent><child>l</child></joint></model></world></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "world_joint_child",
+    "scene": "joint_child",
+    "kind": "joint",
+    "xml": "<sdf version='1.12'><world name='w'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>n::__model__</child></joint></model></world></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "4613937818241073152",
+      "0",
+      "0",
+      "4604544271217802188",
+      "4604544271217802189",
+      "0"
+    ]
+  },
+  {
+    "id": "world_joint_pose",
+    "scene": "joint_pose",
+    "kind": "joint",
+    "xml": "<sdf version='1.12'><world name='w'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>l</child><pose relative_to='n::__model__'>10 0 0 0 0 0</pose></joint></model></world></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "4386506037058863104",
+      "4621819117588971520",
+      "4613937818241073152",
+      "0",
+      "0",
+      "4604544271217802188",
+      "4604544271217802189",
+      "0"
+    ]
+  },
+  {
+    "id": "world_axis",
+    "scene": "axis",
+    "kind": "joint",
+    "xml": "<sdf version='1.12'><world name='w'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>l</child><axis><xyz expressed_in='n::__model__'>1 0 0</xyz></axis></joint></model></world></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408",
+      "1",
+      "0",
+      "4372995238176751616",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "world_canonical",
+    "scene": "canonical",
+    "kind": "model",
+    "xml": "<sdf version='1.12'><world name='w'><model name='m' canonical_link='n::__model__'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/></model></world></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408"
+    ]
+  },
+  {
+    "id": "world_placement",
+    "scene": "placement",
+    "kind": "model",
+    "xml": "<sdf version='1.12'><world name='w'><model name='m' placement_frame='n::__model__'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/></model></world></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "13837309855095848960",
+      "0",
+      "0",
+      "13827916308072577996",
+      "4604544271217802189"
+    ]
+  },
+  {
+    "id": "world_collision",
+    "scene": "collision",
+    "kind": "collision",
+    "xml": "<sdf version='1.12'><world name='w'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><link name='probe'><collision name='c'><pose relative_to='n::__model__'>10 0 0 0 0 0</pose><geometry><box><size>1 1 1</size></box></geometry></collision></link></model></world></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "4386506037058863104",
+      "4621819117588971520",
+      "4613937818241073152",
+      "0",
+      "0",
+      "4604544271217802188",
+      "4604544271217802189"
+    ]
+  },
+  {
+    "id": "static_frame_pose",
+    "scene": "frame_pose",
+    "kind": "frame",
+    "xml": "<sdf version='1.12'><world name='w'><model name='m'><model name='n'><static>true</static><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><frame name='probe'><pose relative_to='n::__model__'>10 0 0 0 0 0</pose></frame></model></world></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "4386506037058863104",
+      "4621819117588971520",
+      "4613937818241073152",
+      "0",
+      "0",
+      "4604544271217802188",
+      "4604544271217802189"
+    ]
+  },
+  {
+    "id": "static_frame_attachment",
+    "scene": "frame_attachment",
+    "kind": "frame",
+    "xml": "<sdf version='1.12'><world name='w'><model name='m'><model name='n'><static>true</static><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><frame name='probe' attached_to='n::__model__'><pose>10 0 0 0 0 0</pose></frame></model></world></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "4386506037058863104",
+      "4621819117588971520",
+      "4613937818241073152",
+      "0",
+      "0",
+      "4604544271217802188",
+      "4604544271217802189"
+    ]
+  },
+  {
+    "id": "static_link_pose",
+    "scene": "link_pose",
+    "kind": "link",
+    "xml": "<sdf version='1.12'><world name='w'><model name='m'><model name='n'><static>true</static><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><link name='probe'><pose relative_to='n::__model__'>10 0 0 0 0 0</pose></link></model></world></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "4386506037058863104",
+      "4621819117588971520",
+      "4613937818241073152",
+      "0",
+      "0",
+      "4604544271217802188",
+      "4604544271217802189"
+    ]
+  },
+  {
+    "id": "static_joint_parent",
+    "scene": "joint_parent",
+    "kind": "joint",
+    "xml": "<sdf version='1.12'><world name='w'><model name='m'><model name='n'><static>true</static><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>n::__model__</parent><child>l</child></joint></model></world></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "static_joint_child",
+    "scene": "joint_child",
+    "kind": "joint",
+    "xml": "<sdf version='1.12'><world name='w'><model name='m'><model name='n'><static>true</static><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>n::__model__</child></joint></model></world></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "4613937818241073152",
+      "0",
+      "0",
+      "4604544271217802188",
+      "4604544271217802189",
+      "0"
+    ],
+    "gap": "Existing Rust static attachment policy maps this child to world and rejects it; native accepts a STATIC_MODEL sink with its model-frame identity. No static runtime policy is altered by this alias correction."
+  },
+  {
+    "id": "static_joint_pose",
+    "scene": "joint_pose",
+    "kind": "joint",
+    "xml": "<sdf version='1.12'><world name='w'><model name='m'><model name='n'><static>true</static><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>l</child><pose relative_to='n::__model__'>10 0 0 0 0 0</pose></joint></model></world></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "4386506037058863104",
+      "4621819117588971520",
+      "4613937818241073152",
+      "0",
+      "0",
+      "4604544271217802188",
+      "4604544271217802189",
+      "0"
+    ]
+  },
+  {
+    "id": "static_axis",
+    "scene": "axis",
+    "kind": "joint",
+    "xml": "<sdf version='1.12'><world name='w'><model name='m'><model name='n'><static>true</static><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>l</child><axis><xyz expressed_in='n::__model__'>1 0 0</xyz></axis></joint></model></world></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408",
+      "1",
+      "0",
+      "4372995238176751616",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "static_canonical",
+    "scene": "canonical",
+    "kind": "model",
+    "xml": "<sdf version='1.12'><world name='w'><model name='m' canonical_link='n::__model__'><model name='n'><static>true</static><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/></model></world></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408"
+    ]
+  },
+  {
+    "id": "static_placement",
+    "scene": "placement",
+    "kind": "model",
+    "xml": "<sdf version='1.12'><world name='w'><model name='m' placement_frame='n::__model__'><model name='n'><static>true</static><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/></model></world></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "13837309855095848960",
+      "0",
+      "0",
+      "13827916308072577996",
+      "4604544271217802189"
+    ]
+  },
+  {
+    "id": "static_collision",
+    "scene": "collision",
+    "kind": "collision",
+    "xml": "<sdf version='1.12'><world name='w'><model name='m'><model name='n'><static>true</static><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><link name='probe'><collision name='c'><pose relative_to='n::__model__'>10 0 0 0 0 0</pose><geometry><box><size>1 1 1</size></box></geometry></collision></link></model></world></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "4386506037058863104",
+      "4621819117588971520",
+      "4613937818241073152",
+      "0",
+      "0",
+      "4604544271217802188",
+      "4604544271217802189"
+    ]
+  },
+  {
+    "id": "nonmodel_frame_frame_pose",
+    "scene": "frame_pose",
+    "kind": "frame",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><frame name='probe'><pose relative_to='named::__model__'>10 0 0 0 0 0</pose></frame><frame name='named'/></model></sdf>",
+    "tokens": [
+      "3",
+      "26",
+      "28",
+      "28"
+    ]
+  },
+  {
+    "id": "nonmodel_frame_axis",
+    "scene": "axis",
+    "kind": "joint",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>l</child><axis><xyz expressed_in='named::__model__'>1 0 0</xyz></axis></joint><frame name='named'/></model></sdf>",
+    "tokens": [
+      "2",
+      "38",
+      "26"
+    ]
+  },
+  {
+    "id": "nonmodel_frame_canonical",
+    "scene": "canonical",
+    "kind": "model",
+    "xml": "<sdf version='1.12'><model name='m' canonical_link='named::__model__'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><frame name='named'/></model></sdf>",
+    "tokens": [
+      "5",
+      "16",
+      "25",
+      "25",
+      "25",
+      "25"
+    ]
+  },
+  {
+    "id": "nonmodel_frame_collision",
+    "scene": "collision",
+    "kind": "collision",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><link name='probe'><collision name='c'><pose relative_to='named::__model__'>10 0 0 0 0 0</pose><geometry><box><size>1 1 1</size></box></geometry></collision></link><frame name='named'/></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "26"
+    ]
+  },
+  {
+    "id": "nonmodel_joint_frame_pose",
+    "scene": "frame_pose",
+    "kind": "frame",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><frame name='probe'><pose relative_to='named::__model__'>10 0 0 0 0 0</pose></frame><joint name='named' type='fixed'><parent>world</parent><child>l</child></joint></model></sdf>",
+    "tokens": [
+      "3",
+      "26",
+      "28",
+      "28"
+    ]
+  },
+  {
+    "id": "nonmodel_joint_axis",
+    "scene": "axis",
+    "kind": "joint",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='probe' type='revolute'><parent>world</parent><child>l</child><axis><xyz expressed_in='named::__model__'>1 0 0</xyz></axis></joint><joint name='named' type='fixed'><parent>world</parent><child>l</child></joint></model></sdf>",
+    "tokens": [
+      "2",
+      "38",
+      "26"
+    ]
+  },
+  {
+    "id": "nonmodel_joint_canonical",
+    "scene": "canonical",
+    "kind": "model",
+    "xml": "<sdf version='1.12'><model name='m' canonical_link='named::__model__'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><joint name='named' type='fixed'><parent>world</parent><child>l</child></joint></model></sdf>",
+    "tokens": [
+      "4",
+      "16",
+      "25",
+      "25",
+      "25"
+    ]
+  },
+  {
+    "id": "nonmodel_joint_collision",
+    "scene": "collision",
+    "kind": "collision",
+    "xml": "<sdf version='1.12'><model name='m'><model name='n'><pose>0 0 3 0 0 1.5707963267948966</pose><link name='l'/><model name='d'><pose>0 0 5 0 0 0</pose><link name='l'/></model></model><link name='l'/><link name='probe'><collision name='c'><pose relative_to='named::__model__'>10 0 0 0 0 0</pose><geometry><box><size>1 1 1</size></box></geometry></collision></link><joint name='named' type='fixed'><parent>world</parent><child>l</child></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "26"
+    ]
+  }
+]

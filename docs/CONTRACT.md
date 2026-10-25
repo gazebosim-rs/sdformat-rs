@@ -430,3 +430,10 @@ non-frame validator includes joint sensors; load-time deferred pose failures sta
 deferred. Consumers must match or reject this enum variant and nonempty joint
 sensors until runtime support. No measurement, noise execution or publication is
 implemented here.
+
+
+Terminal nested ::__model__ references map to an actual Model graph vertex while
+retaining raw DOM strings. Link/Frame/Joint/missing prefixes and intermediate or
+repeated implicit aliases do not qualify. Strict schema scope boundaries remain
+unchanged. See MODEL_FRAME_REFERENCES.md for native observations, original joint
+assertion candidates and the inherited static child endpoint policy difference.

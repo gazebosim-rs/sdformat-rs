@@ -186,6 +186,21 @@ impl Graphs {
         }
         Ok(())
     }
+    fn implicit_model_frame(&self, name: String) -> String {
+        // The graph stores an implicit model vertex under its model name.
+        // Only a terminal alias of an actual model is valid; links, missing
+        // scopes and aliases used as intermediate scope components do not qualify.
+        if let Some(model) = name.strip_suffix("::__model__")
+            && self
+                .nodes
+                .get(model)
+                .is_some_and(|node| node.kind == Kind::Model)
+        {
+            model.into()
+        } else {
+            name
+        }
+    }
     fn lookup(&self, value: &str, scope: &str, source: &Source) -> Result<String, Diagnostic> {
         let name = if value == "__model__" {
             scope.into()
@@ -209,6 +224,7 @@ impl Graphs {
         } else {
             join(scope, value)
         };
+        let name = self.implicit_model_frame(name);
         if !self.nodes.contains_key(&name) {
             return Err(error(
                 ErrorCode::UnknownReference,
@@ -232,6 +248,7 @@ impl Graphs {
         } else {
             join(scope, value)
         };
+        let name = self.implicit_model_frame(name);
         if !self.nodes.contains_key(&name) {
             return Err(error(
                 ErrorCode::UnknownReference,

@@ -943,7 +943,7 @@
       "upstream_fixtures": {},
       "baseline": "Exact pinned DOMLidar.Construction and Set native2/0, no skips; artifacts/lidar/original.xml.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_fallback approved exact rebased five-file source/API/assertion packet after pinned DOM2/0+Link1/0 and private raw-parent Rust DOM2/0+Link2/0; source receipt SHA256 5c3bb835a8c434142cd9ed4f74e629398c2b9a8c7cabb3114c97937d7769cdce. Complete original value observations only; Load/ToElement, final metadata binding, normal hook and hosted qualification pending.",
+      "review": "Independent /root/transport_fallback approved exact rebased five-file source/API/assertion packet after pinned DOM2/0+Link1/0 and private raw-parent Rust DOM2/0+Link2/0; source receipt SHA256 5c3bb835a8c434142cd9ed4f74e629398c2b9a8c7cabb3114c97937d7769cdce. Complete original value observations only; Load/ToElement, final metadata binding, normal protected hook and hosted verify run40227375211 passed at public01fabe7d17773f9969c275a4d45447c6385f94ac.",
       "case": "DOMLidar.Construction",
       "source": "src/Lidar_TEST.cc:23",
       "rust_test": "tests/lidar_original.rs::original_lidar_construction",
@@ -955,11 +955,23 @@
       "upstream_fixtures": {},
       "baseline": "Exact pinned DOMLidar.Construction and Set native2/0, no skips; artifacts/lidar/original.xml.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_fallback approved exact rebased five-file source/API/assertion packet after pinned DOM2/0+Link1/0 and private raw-parent Rust DOM2/0+Link2/0; source receipt SHA256 5c3bb835a8c434142cd9ed4f74e629398c2b9a8c7cabb3114c97937d7769cdce. Complete original value observations only; Load/ToElement, final metadata binding, normal hook and hosted qualification pending.",
+      "review": "Independent /root/transport_fallback approved exact rebased five-file source/API/assertion packet after pinned DOM2/0+Link1/0 and private raw-parent Rust DOM2/0+Link2/0; source receipt SHA256 5c3bb835a8c434142cd9ed4f74e629398c2b9a8c7cabb3114c97937d7769cdce. Complete original value observations only; Load/ToElement, final metadata binding, normal protected hook and hosted verify run40227375211 passed at public01fabe7d17773f9969c275a4d45447c6385f94ac.",
       "case": "DOMLidar.Set",
       "source": "src/Lidar_TEST.cc:31",
       "rust_test": "tests/lidar_original.rs::original_lidar_set_copy_and_move",
       "assertions": "Exact original sequential horizontal/vertical scan samples/resolution/min/max angles, range min/max/resolution, Noise mean6.5/stddev3.79, visibility default UINT32_MAX then123, default inequality and copy/move transferred-value equality with post-move copies. Public field writes map native setters; moved-from internal state, Load/ToElement and ray measurement outside this original."
+    },
+    {
+      "target": "UNIT_Camera_TEST",
+      "case": "DOMCamera.Construction",
+      "source": "src/Camera_TEST.cc:22",
+      "rust_test": "tests/camera_construction_original.rs::original_camera_construction_values_copy_and_move",
+      "assertions": "Exact original default and direct mutation observations for name, trigger/topics, FOV, image size/pixel format, anti aliasing, depth/ordinary clips and optional presence, segmentation/bounding box, save frames, five distortion scalars and center, raw pose/relative frame, lens defaults/setters/intrinsics/projection/visibility, plus copy/move transferred-value equality and default inequality. Nested owned fields map native setters. Parser, ToElement, Link fixtures and rendering are unported.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Exact pinned DOMCamera.Construction native1/0, no skips; artifacts/camera-construction/original.xml.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback approved exact frozen three-file Camera source/API/assertion packet after pinned native DOMCamera.Construction1/0 and private raw-parent selected Rust1/0; source receipt SHA256 30b887a07891ffc757c72fecf125160909fbc0f0392e8e240c16df589aad70f7. Complete value original only; limited PixelFormat variants and direct field writes make no broad validation claim. Parser/Load/ToElement/Link/rendering, final metadata binding, normal hook and hosted qualification pending."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

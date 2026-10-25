@@ -35,7 +35,9 @@ and reference altitude without sampling pressure. NavSat retains four position
 and velocity noise records for both `navsat` and legacy `gps` spellings without
 computing coordinates. AirSpeed retains differential pressure noise without
 measuring speed. Lidar retains scan, range, noise and visibility settings for
-ray/lidar and GPU spellings without simulating rays. See [ForceTorque](docs/FORCE_TORQUE.md) and
+ray/lidar and GPU spellings without simulating rays. An owned Camera value
+object retains construction defaults and setters; sensor parsing and rendering
+for Camera remain pending. See [ForceTorque](docs/FORCE_TORQUE.md) and
 [the contract](docs/CONTRACT.md).
 
 Scalar and pose-component conversion is qualified for Linux GNU/glibc using an

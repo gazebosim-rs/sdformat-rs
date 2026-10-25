@@ -1583,4 +1583,21 @@ production coverage is 3570/3587 lines, 6255/6403 regions and 113/113
 changed executable lines. Independent source review approved the exact five frozen source/fixture hashes
 after pinned native DOM2/0 and Link1/0 plus private raw-parent Rust DOM2/0
 and Link2/0; receipt SHA256 5c3bb835a8c434142cd9ed4f74e629398c2b9a8c7cabb3114c97937d7769cdce.
-Final metadata binding, protected staged hook and hosted qualification are pending.
+Final metadata binding, the normal protected hook and hosted verify run
+40227375211 passed at public commit 01fabe7d17773f9969c275a4d45447c6385f94ac.
+
+## Camera construction value candidate
+
+The owned `Camera` value API represents the pinned `DOMCamera.Construction`
+defaults and direct setter observations for image size/pixel format, clipping
+and presence flags, distortion, raw pose, lens intrinsics/projection and
+visibility. Its copy/move equality observations use owned Rust values. The
+exact pinned native original passes 1/0. This packet adds no camera parser,
+`SensorConfig` variant, `ToElement`, Link camera fixture assertion or rendering.
+
+The isolated source candidate passes 212 Rust tests, 15 tooling tests,
+formatting, Clippy and docs. Direct production coverage is 3645/3662 lines,
+6284/6432 regions and 75/75 changed executable lines. Independent source review approved the exact three-file frozen packet after
+pinned native1/0 and private raw-parent Rust selected1/0; reviewer receipt
+SHA256 30b887a07891ffc757c72fecf125160909fbc0f0392e8e240c16df589aad70f7.
+Final metadata binding, normal protected hook and hosted CI are pending.

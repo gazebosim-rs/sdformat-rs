@@ -60196,6 +60196,17 @@
     "original": "DOMLidar.Construction and Set native2/0 complete value observations; DOMLink.Sensors native1/0 four bounded fragments partial.",
     "rust": "Full211 Rust tests,15 tooling tests,fmt,Clippy and docs pass; direct coverage3570/3587 production lines6255/6403 regions113/113 changed executable lines.",
     "scope": "Owned Lidar scan/range/noise/visibility and typed parser; two exact DOM value originals complete. Four unchanged Link gpu_ray/gpu_lidar/ray/lidar fragments retain literal kind/name/full raw pose/metrics and selected scalar values only. Native effective SensorType::GPU_LIDAR/LIDAR enum classification, full Link count/index/name lookup, 16 other instances, rendering and measurement remain unported. Previous seven supported sensor fragments preserved.",
-    "review": "Independent /root/transport_fallback approved rebased five-file source/API/assertion mapping after native DOM2/0+Link1/0 and private raw-parent Rust DOM2/0+Link2/0; source receipt SHA256 5c3bb835a8c434142cd9ed4f74e629398c2b9a8c7cabb3114c97937d7769cdce. Final binding, normal protected hook and hosted qualification pending."
+    "review": "Independent /root/transport_fallback approved rebased five-file source/API/assertion mapping after native DOM2/0+Link1/0 and private raw-parent Rust DOM2/0+Link2/0; source receipt SHA256 5c3bb835a8c434142cd9ed4f74e629398c2b9a8c7cabb3114c97937d7769cdce. Final binding, normal protected hook and hosted verify run40227375211 passed at public01fabe7d17773f9969c275a4d45447c6385f94ac."
+  },
+  "camera_construction_original": {
+    "parent": "01fabe7d17773f9969c275a4d45447c6385f94ac",
+    "upstream": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "source_digest": "c3815799225ba92a8255954ea4a059c1cd0b991b55d2e4d57fdb78856e739e33",
+    "native_source_sha256": "bd6f377cf8037cf2c243fc90ea64cf4ee3404c44325f60ca94c1c0bf948f3e0d",
+    "native_binary_sha256": "e5d745b912a8fdba85662380c728f132db6783ac80b1ee50683b9e353ca03906",
+    "original": "DOMCamera.Construction native1/0, no skips.",
+    "rust": "Full212 Rust tests,15 tooling tests,fmt,Clippy and docs pass; direct coverage3645/3662 production lines6284/6432 regions75/75 changed executable lines.",
+    "scope": "Owned value API preserves exact default/set/read image, clipping, optional presence, distortion, raw pose, lens/intrinsics/projection, pixel-format and visibility values plus copy/move/equality observations. SensorConfig camera parsing, ToElement, Link fixture, capture/rendering remain unported.",
+    "review": "Independent /root/transport_fallback approved exact frozen Construction values after pinned native1/0 and private raw-parent selected Rust1/0; source receipt SHA256 30b887a07891ffc757c72fecf125160909fbc0f0392e8e240c16df589aad70f7. Complete value original only; parser/Load/ToElement/Link/rendering pending. Final metadata binding, normal hook and hosted qualification pending."
   }
 }

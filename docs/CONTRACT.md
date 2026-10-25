@@ -471,3 +471,12 @@ positions. Preserved plugin/configuration/physics/axis/include XML and imported
 resources retain their exact original bytes. Source coordinates keep existing
 LF-row/Unicode-scalar-column semantics over the original input. Repeated or
 intermediate BOM document text remains a named grammar gap; see UTF8_BOM.md.
+
+## Camera value boundary
+
+The owned `Camera` value object retains native construction defaults and direct
+field mutation for image, clipping, distortion, pose, lens, projection and
+visibility metadata. `CameraPixelFormat` currently covers only the two formats
+exercised by the retained construction original. This value API is not yet
+selected by `SensorConfig`; camera parsing, `ToElement`, Link sensor assertions,
+image capture and rendering remain pending.

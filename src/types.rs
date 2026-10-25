@@ -707,6 +707,7 @@ pub enum SensorConfig {
     Altimeter(Box<Altimeter>),
     AirPressure(Box<AirPressure>),
     NavSat(Box<NavSat>),
+    AirSpeed(Box<AirSpeed>),
 }
 /// Contact-system element metadata; collision references remain unresolved.
 #[derive(Debug, Clone, PartialEq)]
@@ -768,6 +769,13 @@ pub struct AirPressure {
     /// Source of the explicit declaration; omitted groups use effective defaults.
     pub source: Option<Source>,
 }
+/// Air-speed configuration only; differential pressure sampling belongs to consumers.
+#[derive(Debug, Default, Clone, PartialEq)]
+pub struct AirSpeed {
+    pub pressure: Noise,
+    /// Source of the explicit declaration; omitted groups use effective defaults.
+    pub source: Option<Source>,
+}
 /// NavSat configuration only; position and velocity estimates belong to consumers.
 #[derive(Debug, Default, Clone, PartialEq)]
 pub struct NavSat {
@@ -795,7 +803,8 @@ impl Sensor {
             | SensorConfig::Magnetometer(_)
             | SensorConfig::Altimeter(_)
             | SensorConfig::AirPressure(_)
-            | SensorConfig::NavSat(_) => None,
+            | SensorConfig::NavSat(_)
+            | SensorConfig::AirSpeed(_) => None,
         }
     }
     pub fn contact(&self) -> Option<&ContactSensor> {
@@ -806,7 +815,8 @@ impl Sensor {
             | SensorConfig::Magnetometer(_)
             | SensorConfig::Altimeter(_)
             | SensorConfig::AirPressure(_)
-            | SensorConfig::NavSat(_) => None,
+            | SensorConfig::NavSat(_)
+            | SensorConfig::AirSpeed(_) => None,
         }
     }
     pub fn force_torque(&self) -> Option<&ForceTorque> {
@@ -817,7 +827,8 @@ impl Sensor {
             | SensorConfig::Magnetometer(_)
             | SensorConfig::Altimeter(_)
             | SensorConfig::AirPressure(_)
-            | SensorConfig::NavSat(_) => None,
+            | SensorConfig::NavSat(_)
+            | SensorConfig::AirSpeed(_) => None,
         }
     }
     pub fn magnetometer(&self) -> Option<&Magnetometer> {
@@ -828,7 +839,8 @@ impl Sensor {
             | SensorConfig::ForceTorque(_)
             | SensorConfig::Altimeter(_)
             | SensorConfig::AirPressure(_)
-            | SensorConfig::NavSat(_) => None,
+            | SensorConfig::NavSat(_)
+            | SensorConfig::AirSpeed(_) => None,
         }
     }
     pub fn altimeter(&self) -> Option<&Altimeter> {
@@ -839,7 +851,8 @@ impl Sensor {
             | SensorConfig::ForceTorque(_)
             | SensorConfig::Magnetometer(_)
             | SensorConfig::AirPressure(_)
-            | SensorConfig::NavSat(_) => None,
+            | SensorConfig::NavSat(_)
+            | SensorConfig::AirSpeed(_) => None,
         }
     }
     pub fn air_pressure(&self) -> Option<&AirPressure> {
@@ -850,7 +863,8 @@ impl Sensor {
             | SensorConfig::ForceTorque(_)
             | SensorConfig::Magnetometer(_)
             | SensorConfig::Altimeter(_)
-            | SensorConfig::NavSat(_) => None,
+            | SensorConfig::NavSat(_)
+            | SensorConfig::AirSpeed(_) => None,
         }
     }
     pub fn navsat(&self) -> Option<&NavSat> {
@@ -861,7 +875,20 @@ impl Sensor {
             | SensorConfig::ForceTorque(_)
             | SensorConfig::Magnetometer(_)
             | SensorConfig::Altimeter(_)
-            | SensorConfig::AirPressure(_) => None,
+            | SensorConfig::AirPressure(_)
+            | SensorConfig::AirSpeed(_) => None,
+        }
+    }
+    pub fn air_speed(&self) -> Option<&AirSpeed> {
+        match &self.config {
+            SensorConfig::AirSpeed(value) => Some(value),
+            SensorConfig::Imu(_)
+            | SensorConfig::Contact(_)
+            | SensorConfig::ForceTorque(_)
+            | SensorConfig::Magnetometer(_)
+            | SensorConfig::Altimeter(_)
+            | SensorConfig::AirPressure(_)
+            | SensorConfig::NavSat(_) => None,
         }
     }
 }

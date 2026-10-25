@@ -60159,6 +60159,18 @@
     "original": "DOMNavSat.Construction and Set native2/0; DOMLink.Sensors native1/0, legacy gps/NavSat subset only.",
     "rust": "All 204 integrated Rust tests, 13 tooling tests, fmt, Clippy and docs pass; direct coverage3430/3446 production lines,5985/6112 regions and63/63 changed executable lines.",
     "scope": "Two complete DOMNavSat default/set/copy/move/inequality originals. DOMLink.Sensors adds only unchanged fixture legacy gps name/native NAVSAT typed presence/full raw pose/disabled metrics/eight noise scalars; literal gps kind/XML preserved. Native navsat-over-gps child selection is source-backed and separately asserted. 21 other sensor families plus full count/index/lookup remain; full 27-sensor case partial. No coordinate measurement, simulator behavior or downstream consumer pin update.",
-    "review": "Independent /root/transport_fallback approved complete DOM originals and partial Link fragment after native DOM2/0, Link1/0 and private full204 Rust/fmt/Clippy; corrected source receipt SHA256 3ae1192926dda8584361f7679bb809829198185fd10df4cca1f81f5fe7246a57. Final metadata binding, normal hook and hosted qualification pending."
+    "review": "Independent /root/transport_fallback approved complete DOM originals and partial Link fragment after native DOM2/0, Link1/0 and private full204 Rust/fmt/Clippy; corrected source receipt SHA256 3ae1192926dda8584361f7679bb809829198185fd10df4cca1f81f5fe7246a57. Final metadata binding, normal hook and hosted qualification pending. Final main metadata/protected hook and exact hosted verify run 40224120476 passed at public commit 5ba57509327ffe0f82985f6968148250dc8916a4; SDF-only tracker accepted at c9747af37924e59d5b9698bb4337c56453d8f4ee."
+  },
+  "air_speed_link_fragment": {
+    "parent": "5ba57509327ffe0f82985f6968148250dc8916a4",
+    "upstream": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "source_digest": "2c84ab08c597ac6c742f8e7fff8c5b57f32d014493b316bc7e8c503aa04e192a",
+    "native_link_source_sha256": "3f19b57d0cd02be6201a08be4580d5a478d5e3c1549457605754ccff99ccd4f1",
+    "native_link_binary_sha256": "5996c21878cab1dacd0d653c50bfdcf4a02c8064157855ae6136471939582716",
+    "fixture_sha256": "dc2b61c8b40a7df7f2c7b6e649f3039136ca1a03528371b307e9b9fc27406a00",
+    "original": "DOMLink.Sensors native1/0, exact air-speed fragment only; no dedicated pinned AirSpeed unit original.",
+    "rust": "All 205 integrated Rust tests, 13 tooling tests, fmt, Clippy and docs pass; direct coverage3461/3477 production lines,6038/6167 regions and36/36 changed executable lines.",
+    "scope": "Existing DOMLink.Sensors PARTIAL mapping gains only unchanged fixture air_speed name/type/full raw pose/disabled metrics/typed presence/pressure mean0 and stddev0.01. Twenty other sensor families, full count/index/name lookup and complete 27-sensor original remain; no complete-case credit. Typed SensorConfig::AirSpeed parser/accessor/source/raw XML added without speed/pressure measurement or downstream consumer pin update. Default/mismatch/invalid parser checks are supplementary.",
+    "review": "Independent /root/transport_fallback approved bounded PARTIAL Link fragment after native1/0 and private raw-parent full205 Rust; source receipt SHA256 3ea6ab87d6c98004a2aa07c8b179cca11b7ec52c969dfe092410e54fb5cb0316. Final metadata binding, normal hook and hosted qualification pending."
   }
 }

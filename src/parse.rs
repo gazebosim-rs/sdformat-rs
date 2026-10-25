@@ -2145,6 +2145,26 @@ impl Parser<'_> {
             source: Some(self.source(node)),
         })
     }
+    fn air_speed(&self, sensor: Node<'_, '_>) -> Result<AirSpeed, Diagnostic> {
+        let Some(node) = child(sensor, "air_speed") else {
+            return Ok(AirSpeed::default());
+        };
+        self.allowed(node, &["pressure"], &[])?;
+        let pressure = child(node, "pressure")
+            .map(|component| {
+                self.allowed(component, &["noise"], &[])?;
+                child(component, "noise")
+                    .map(|noise| self.noise(noise))
+                    .transpose()
+                    .map(|noise| noise.unwrap_or_default())
+            })
+            .transpose()?
+            .unwrap_or_default();
+        Ok(AirSpeed {
+            pressure,
+            source: Some(self.source(node)),
+        })
+    }
     fn navsat_noise(
         &self,
         navsat: Node<'_, '_>,
@@ -2202,6 +2222,7 @@ impl Parser<'_> {
                 "air_pressure",
                 "navsat",
                 "gps",
+                "air_speed",
             ],
             &["name", "type"],
         )?;
@@ -2219,11 +2240,12 @@ impl Parser<'_> {
                 | "air_pressure"
                 | "navsat"
                 | "gps"
+                | "air_speed"
         ) {
             return Err(self.err(
                 node,
                 ErrorCode::Unsupported,
-                "only IMU, contact, force/torque, magnetometer, altimeter, air pressure and NavSat/GPS sensor configurations are supported",
+                "only IMU, contact, force/torque, magnetometer, altimeter, air pressure, NavSat/GPS and air speed sensor configurations are supported",
             ));
         }
         // Native Sensor::Load selects <navsat> before legacy <gps> for either type.
@@ -2245,6 +2267,7 @@ impl Parser<'_> {
             "air_pressure",
             "navsat",
             "gps",
+            "air_speed",
         ]
         .iter()
         .any(|name| {
@@ -2276,6 +2299,7 @@ impl Parser<'_> {
             "altimeter" => SensorConfig::Altimeter(Box::new(self.altimeter(node)?)),
             "air_pressure" => SensorConfig::AirPressure(Box::new(self.air_pressure(node)?)),
             "navsat" | "gps" => SensorConfig::NavSat(Box::new(self.navsat(node, config_tag)?)),
+            "air_speed" => SensorConfig::AirSpeed(Box::new(self.air_speed(node)?)),
             _ => unreachable!("sensor type checked above"),
         };
         let configuration_xml =

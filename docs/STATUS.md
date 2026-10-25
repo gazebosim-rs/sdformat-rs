@@ -1517,4 +1517,24 @@ formatting, Clippy and docs. Direct production coverage is 3430/3446 lines,
 5985/6112 regions and 63/63 changed executable lines. Independent source
 review approved the exact four files after private full204 Rust/fmt/Clippy and
 native DOM2/0 plus Link1/0; receipt SHA256 3ae1192926dda8584361f7679bb809829198185fd10df4cca1f81f5fe7246a57.
+Final metadata binding, the normal protected hook and hosted verify run
+40224120476 passed at public commit 5ba57509327ffe0f82985f6968148250dc8916a4.
+
+## Typed AirSpeed link fragment candidate
+
+`SensorConfig::AirSpeed(Box<AirSpeed>)` owns differential pressure noise and
+retains explicit source and exact selected XML. The unchanged upstream
+`sensors.sdf` fixture passes the pinned native `DOMLink.Sensors` original 1/0.
+Rust parses only its byte-identical air-speed subtree in a minimal model/link
+wrapper and checks native name, type, full raw pose, disabled metrics and
+pressure noise mean 0 and standard deviation 0.01. The other 20 sensor
+families, full Link count/index/lookup assertions and complete 27-sensor
+original remain pending. There is no pinned dedicated AirSpeed C++ unit
+original in this inventory, so this candidate retires no complete case.
+
+The isolated source candidate passes 205 Rust tests, 13 tooling tests,
+formatting, Clippy and docs. Direct production coverage is 3461/3477 lines,
+6038/6167 regions and 36/36 changed executable lines. Independent source
+review approved the exact four source/fixture files after native Link1/0 and
+private raw-parent full205 Rust replay; receipt SHA256 3ea6ab87d6c98004a2aa07c8b179cca11b7ec52c969dfe092410e54fb5cb0316.
 Final metadata binding, normal protected hook and hosted CI are pending.

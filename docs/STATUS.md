@@ -1947,8 +1947,26 @@ The source test SHA256
 remains unchanged across integration onto the newer public Type parent.
 Isolated author checks pass 230 Rust tests, sixteen tooling tests, formatting,
 Clippy and docs; production coverage is 3990/4009 lines and 6940/7140
-regions with no changed production lines. Main metadata binding, protected
-staged hook and hosted qualification remain pending. This closes one native
+regions with no changed production lines. Final metadata binding SHA256 bc146e33e578ae088a2e95748ec063a65b6287f6fc2b42b9d96d48bea59d6431, normal protected staged hook and exact hosted run 40240295435 succeeded at public cc3b1e2f6828a047106859b079d5558f5d4038cd. This closes one native
 original's observed values; general Sensor mutation, parser and serialization
 behavior are separate work. C++ pointer/setter method identity is not a
 release criterion for the Rust API.
+
+## Five native DOMSensor copy and move originals candidate
+
+Pinned `DOMSensor.MoveConstructor`, `CopyConstructor`, `MoveAssignment`,
+`CopyAssignment` and `CopyAssignmentAfterMove` pass natively 5/0. The new
+retained Rust test maps every observed type, full raw pose, relative frame,
+frame ID, Magnetometer X noise mean and constructor update-rate value through
+owned move, `Clone`, `clone_from` and `mem::replace`. The native copy-assignment
+case repeats the source frame-ID check; the port retains it and adds a
+destination check. The test preserves the imported 2018 OSRF Apache notice.
+
+Independent source review approved complete observable mapping on exact test
+SHA256 `419c009d92c3dab2bac419f6cbb5c228fb138bb7c41b149a1c20f90fb814deb9`
+(receipt SHA256 `bfd94821a06c54171e459e11b9b78f351a95d621bb7ce5a7772cddd428f20596`), with private native and Rust 5/0. Author checks
+pass 235 Rust, sixteen tooling tests, formatting, Clippy and docs; production
+coverage is 3996/4015 lines and 6947/7147 regions with no production edits.
+Final metadata binding, protected staged hook and hosted qualification remain
+pending. Native C++ operator identity, moved-from state, Element identity and
+generic parser/serialization behavior remain outside these originals.

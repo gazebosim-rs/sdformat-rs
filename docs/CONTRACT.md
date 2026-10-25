@@ -541,3 +541,12 @@ names. Generic in-memory Sensor mutation and serialization have separate
 behavioral acceptance requirements. The native original also installs an IMU
 payload while its type tag remains ForceTorque; that observed independence is
 retained in the Rust case.
+
+## Sensor owned copy and move values
+
+The five pinned `DOMSensor` constructor and assignment originals observe final
+owned values. Rust move, `Clone`, `clone_from` and `mem::replace` retain the
+observed type, full raw pose, relative frame, frame ID, Magnetometer noise and
+constructor update rate. The native cases do not inspect moved-from objects.
+C++ operator method identity and Element pointer identity are outside this
+value mapping; parsed Sensor behavior and serialization have separate gates.

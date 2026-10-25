@@ -1,23 +1,23 @@
 {
   "author": "/root/sdformat_owner_fallback",
-  "author_checks": "Fresh integrated 230 Rust tests, 16 tooling tests, fmt, Clippy, docs and ledger passed; production coverage 3996/4015 lines and 6947/7147 regions, zero changed production executable lines; final evidence source digest matches freeze.",
-  "binding_checks": "Exact five changed paths and hashes matched revised freeze; one new test byte-identical to independently approved isolated source, copied source receipt byte-identical, 258 other tracked parent blobs preserved. Only scoped docs/results/trace metadata added a complete observable DOMSensor.MutableSensors row and corrected prior DOMSensor.Type public/hosted status. No production source, fixture, dependency, policy or gate change.",
+  "author_checks": "Fresh integrated235 Rust/16 tools/fmt/Clippy/docs and coverage3996/4015 lines6947/7147 regions, zero changed production lines; final evidence source digest matches freeze.",
+  "binding_checks": "Exact five paths and hashes match revised freeze; new test and copied source receipt are byte-identical to reviewed source. All 259 other tracked parent blobs preserved. Only scoped CONTRACT/STATUS/results/trace metadata add five complete observable DOMSensor copy/move originals and correct preceding MutableSensors public/hosted status. No production, fixture, dependency or policy edit.",
   "decision": "approved",
-  "evidence_source_digest": "dc86746ad5b8778459858892663dc909f1e5c16a8d0a98f79761a55f5cd3d97c",
+  "evidence_source_digest": "8dc7659e72194a5a0ac9162bad8a16d0ee9f24bb5188aeeb68a2e59a099f55ea",
   "files_sha256": {
-    "docs/CONTRACT.md": "906f41081efe4548dd05a0240e2ca7cdd496072216cd38038543f7b5359531fb",
-    "docs/STATUS.md": "38d8e24c5b40ed998219c3b3ede85a0cc4f2d61dbbfe152ee188d72dc4b1cff9",
-    "reference/results.json": "159a891bbb028c12ad7235d123f8f46832a51cd8dee3723967d185733745ba1c",
-    "reference/traceability.json": "ae55330bd809cbbc1201383d9cceb6bbf88f11478f51a37d55e26cb4ef11d6c3",
-    "tests/sensor_mutable_original.rs": "91873352157fedc35aac604e17a34e5b5c1f503a0eb2daa1caf2ed4896f11c77"
+    "docs/CONTRACT.md": "33f518c1a523b807b3e635255d41bb535bb2676d53611379b9235f02186d995f",
+    "docs/STATUS.md": "9e976f2d3aaecbd3d25a11a338eb66a7d01b7f5259a213655e1be1b875002d16",
+    "reference/results.json": "4d0353e97c0726966f248acb95b0aa5540429ba37c7356a10b7b29f8c619a199",
+    "reference/traceability.json": "76727afba7d8d97a4913aa00bd74a318d90ce419fd5a49382e580e01e336592a",
+    "tests/sensor_ownership_original.rs": "419c009d92c3dab2bac419f6cbb5c228fb138bb7c41b149a1c20f90fb814deb9"
   },
-  "final_freeze": "artifacts/sensor-mutable/frozen-final.json",
-  "final_freeze_sha256": "d8fb773e3fd7e8fec1d907118919d3fdcadddce1c649a07badae8129442750f0",
-  "parent": "f44fa295b5fcd135490632a94e821d5fc08ef0d3",
-  "protected_digest": "d5d727dad5503b3bcc96f5b055d1b0374db6277d00ef02b20b8a8156fc2c2fba",
-  "remaining": "Normal protected staged hook, public commit/push and exact hosted CI required.",
+  "final_freeze": "artifacts/sensor-ownership/frozen-final.json",
+  "final_freeze_sha256": "99a003f761e8c7d76012a535fe9057b16f089cb7120c6d2cdfab3b19a3cbb598",
+  "parent": "cc3b1e2f6828a047106859b079d5558f5d4038cd",
+  "protected_digest": "4e653658f75cbbcf123cfe5945987ffb1b8d0e130911d5116efd300947869ee7",
+  "remaining": "Normal protected staged hook, public commit/push and exact hosted CI.",
   "reviewer": "/root/transport_fallback",
-  "scope": "COMPLETE observable eight payload mutation/re-read blocks of this one native original; native mutable pointer/setter facade, generic Sensor mutation, parser and serialization remain outside the claim.",
-  "source_freeze_sha256": "15873d6ddf9956c36821fe0331cf90e775b2300aa6a44fd0528827d13936a1ef",
-  "source_review_sha256": "4db4e76a186072632924a0426788d8e1f50e13e4f854a268f24358cbe1ce30ad"
+  "scope": "Five COMPLETE observable native original value/copy/move assertion mappings; C++ operator identity, moved-from state, Element identity, generic Sensor mutation, parser and serialization remain outside claim.",
+  "source_freeze_sha256": "b19dacd3f1d4b9e91d6b5cf227e55b2b29052573344b3e9590c93890c6742012",
+  "source_review_sha256": "bfd94821a06c54171e459e11b9b78f351a95d621bb7ce5a7772cddd428f20596"
 }

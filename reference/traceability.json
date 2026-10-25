@@ -1011,7 +1011,67 @@
       "upstream_fixtures": {},
       "baseline": "Fresh pinned UNIT_Sensor_TEST --gtest_filter=DOMSensor.MutableSensors 1/0, no skips; exact source/binary hashes and frozen test SHA in artifacts/sensor-mutable/source-freeze.json. Independent private raw-parent selected Rust1/0; author full230 Rust/16 tools/fmt/Clippy/docs, production coverage3990/4009 lines6940/7140 regions, zero changed production lines.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_fallback APPROVED complete mapping of all eight original observable payload blocks on exact source freeze SHA256 15873d6ddf9956c36821fe0331cf90e775b2300aa6a44fd0528827d13936a1ef; source receipt SHA256 4db4e76a186072632924a0426788d8e1f50e13e4f854a268f24358cbe1ce30ad. Reviewer replayed fresh pinned native1/0 and private raw-parent Rust1/0, checked ForceTorque-tagged IMU block, attribution and no production/fixture changes. Final main metadata binding, normal protected hook and hosted qualification pending."
+      "review": "Independent /root/transport_fallback APPROVED complete mapping of all eight original observable payload blocks on exact source freeze SHA256 15873d6ddf9956c36821fe0331cf90e775b2300aa6a44fd0528827d13936a1ef; source receipt SHA256 4db4e76a186072632924a0426788d8e1f50e13e4f854a268f24358cbe1ce30ad. Reviewer replayed fresh pinned native1/0 and private raw-parent Rust1/0, checked ForceTorque-tagged IMU block, attribution and no production/fixture changes. Final binding receipt SHA256 bc146e33e578ae088a2e95748ec063a65b6287f6fc2b42b9d96d48bea59d6431; normal protected hook and exact hosted verify run 40240295435 passed at public cc3b1e2f6828a047106859b079d5558f5d4038cd."
+    },
+    {
+      "target": "UNIT_Sensor_TEST",
+      "case": "DOMSensor.MoveConstructor",
+      "source": "src/Sensor_TEST.cc:81-108",
+      "rust_test": "tests/sensor_ownership_original.rs::original_dom_sensor_move_constructor",
+      "assertions": "Owned Rust move transfers the Magnetometer type, full zero-rotation raw pose at (1,2,3), relative frame a_frame, frame ID new_frame_id, Magnetometer X noise mean 0.1 and update rate 0.123. Complete observable native original; C++ operator identity, moved-from state, Element, generic parser and serialization outside scope.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Fresh exact pinned UNIT_Sensor_TEST five-case filter 5/0, no skips; source/binary hashes and frozen test SHA in artifacts/sensor-ownership/source-freeze.json. Independent private raw-parent selected Rust5/0; author full235 Rust/16 tools/fmt/Clippy/docs, production3996/4015 lines6947/7147 regions, zero changed production lines.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback APPROVED complete observable assertion mapping, exact source receipt SHA256 bfd94821a06c54171e459e11b9b78f351a95d621bb7ce5a7772cddd428f20596 and freeze SHA256 b19dacd3f1d4b9e91d6b5cf227e55b2b29052573344b3e9590c93890c6742012. Private native5/0 and Rust5/0 replayed. Final metadata binding, normal protected hook and hosted qualification pending."
+    },
+    {
+      "target": "UNIT_Sensor_TEST",
+      "case": "DOMSensor.CopyConstructor",
+      "source": "src/Sensor_TEST.cc:109-144",
+      "rust_test": "tests/sensor_ownership_original.rs::original_dom_sensor_copy_constructor",
+      "assertions": "Clone preserves the source and produces a destination with the Magnetometer type, full raw pose, relative frame, frame ID and Magnetometer X noise mean 0.1; destination update rate remains 0.123. Complete observable native original; C++ operator identity, moved-from state, Element, generic parser and serialization outside scope.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Fresh exact pinned UNIT_Sensor_TEST five-case filter 5/0, no skips; source/binary hashes and frozen test SHA in artifacts/sensor-ownership/source-freeze.json. Independent private raw-parent selected Rust5/0; author full235 Rust/16 tools/fmt/Clippy/docs, production3996/4015 lines6947/7147 regions, zero changed production lines.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback APPROVED complete observable assertion mapping, exact source receipt SHA256 bfd94821a06c54171e459e11b9b78f351a95d621bb7ce5a7772cddd428f20596 and freeze SHA256 b19dacd3f1d4b9e91d6b5cf227e55b2b29052573344b3e9590c93890c6742012. Private native5/0 and Rust5/0 replayed. Final metadata binding, normal protected hook and hosted qualification pending."
+    },
+    {
+      "target": "UNIT_Sensor_TEST",
+      "case": "DOMSensor.MoveAssignment",
+      "source": "src/Sensor_TEST.cc:145-171",
+      "rust_test": "tests/sensor_ownership_original.rs::original_dom_sensor_move_assignment",
+      "assertions": "Owned assignment transfers the Magnetometer type, full raw pose, relative frame, frame ID and Magnetometer X noise mean 0.1 to the destination. Complete observable native original; C++ operator identity, moved-from state, Element, generic parser and serialization outside scope.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Fresh exact pinned UNIT_Sensor_TEST five-case filter 5/0, no skips; source/binary hashes and frozen test SHA in artifacts/sensor-ownership/source-freeze.json. Independent private raw-parent selected Rust5/0; author full235 Rust/16 tools/fmt/Clippy/docs, production3996/4015 lines6947/7147 regions, zero changed production lines.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback APPROVED complete observable assertion mapping, exact source receipt SHA256 bfd94821a06c54171e459e11b9b78f351a95d621bb7ce5a7772cddd428f20596 and freeze SHA256 b19dacd3f1d4b9e91d6b5cf227e55b2b29052573344b3e9590c93890c6742012. Private native5/0 and Rust5/0 replayed. Final metadata binding, normal protected hook and hosted qualification pending."
+    },
+    {
+      "target": "UNIT_Sensor_TEST",
+      "case": "DOMSensor.CopyAssignment",
+      "source": "src/Sensor_TEST.cc:172-206",
+      "rust_test": "tests/sensor_ownership_original.rs::original_dom_sensor_copy_assignment",
+      "assertions": "clone_from retains source and destination Magnetometer type, full raw pose, relative frame and X noise mean 0.1. The original repeats the source frame ID after assignment; Rust retains it and additionally checks destination frame ID. Complete observable native original; C++ operator identity, moved-from state, Element, generic parser and serialization outside scope.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Fresh exact pinned UNIT_Sensor_TEST five-case filter 5/0, no skips; source/binary hashes and frozen test SHA in artifacts/sensor-ownership/source-freeze.json. Independent private raw-parent selected Rust5/0; author full235 Rust/16 tools/fmt/Clippy/docs, production3996/4015 lines6947/7147 regions, zero changed production lines.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback APPROVED complete observable assertion mapping, exact source receipt SHA256 bfd94821a06c54171e459e11b9b78f351a95d621bb7ce5a7772cddd428f20596 and freeze SHA256 b19dacd3f1d4b9e91d6b5cf227e55b2b29052573344b3e9590c93890c6742012. Private native5/0 and Rust5/0 replayed. Final metadata binding, normal protected hook and hosted qualification pending."
+    },
+    {
+      "target": "UNIT_Sensor_TEST",
+      "case": "DOMSensor.CopyAssignmentAfterMove",
+      "source": "src/Sensor_TEST.cc:207-238",
+      "rust_test": "tests/sensor_ownership_original.rs::original_dom_sensor_copy_assignment_after_move",
+      "assertions": "Owned replace and copy yield Camera sensor1 at full pose (4,5,6,0,0,0), frame2 and new_frame_id2; Magnetometer sensor2 at full pose (1,2,3,0,0,0), frame1 and new_frame_id. Supplemental Magnetometer mean check does not replace an original assertion. Complete observable native original; C++ operator identity, moved-from state, Element, generic parser and serialization outside scope.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Fresh exact pinned UNIT_Sensor_TEST five-case filter 5/0, no skips; source/binary hashes and frozen test SHA in artifacts/sensor-ownership/source-freeze.json. Independent private raw-parent selected Rust5/0; author full235 Rust/16 tools/fmt/Clippy/docs, production3996/4015 lines6947/7147 regions, zero changed production lines.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback APPROVED complete observable assertion mapping, exact source receipt SHA256 bfd94821a06c54171e459e11b9b78f351a95d621bb7ce5a7772cddd428f20596 and freeze SHA256 b19dacd3f1d4b9e91d6b5cf227e55b2b29052573344b3e9590c93890c6742012. Private native5/0 and Rust5/0 replayed. Final metadata binding, normal protected hook and hosted qualification pending."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

@@ -1245,3 +1245,46 @@ versus 9.778 ms after for 1000 links (5.22 ratio). Opaque tail was about 1% slow
 with overlapping ranges. Author/independent timing differences remain explicit
 shared-host limits. No whole-engine/P2/packet performance acceptance is inferred.
 Normal exact main binding, staged gate and hosted qualification remain required.
+
+## Static-model attachment identity candidate
+
+Native `STATIC_MODEL` sinks now retain their scoped implicit-frame identity;
+static links remain separate link sinks. Dynamic parents use the recursive
+canonical link when present, and follow the first nested model only when the
+canonical name is empty. This fixes both the existing static child endpoint gap
+and the unchanged nested-static upstream fixture without choosing simulator D23.
+
+Fresh author checks pass all 181 Rust tests and 13 tools, formatting/Clippy/doc
+compilation and unchanged dependency/layout gates. Coverage is 3281/3297 lines
+and 5728/5839 regions, with 15/15 changed executable lines. The 61-row native
+corpus and one exact native original pass. Existing 150-row/four-original alias
+proof is byte-identical; 17 canonical rows/one original and 201 general rows also
+replay. Historical corpus metadata and all prior XML/tokens remain unchanged.
+
+Four Rust-only world attachment values and the old static child negative have
+explicit native-backed dispositions; reversing those edits reconstructs all
+three public-parent test files byte-for-byte. The new complete original mapping
+uses mandatory eager graph construction/validation for one known-valid fixture;
+independent assertion/source review explicitly approved it. No runtime/static policy,
+new dependency, unsafe scope, mutable graph facade or full packet acceptance is
+claimed. Independent source review passed; exact main overlap, normal staged
+hook and hosted qualification remain pending. See STATIC_MODEL_ATTACHMENTS.md
+for exact scope and replay commands.
+
+Independent /root/transport_fallback approved the exact 17-file source after 181
+fresh private Rust checks, formatting/Clippy, byte-identical 61-row/exact-original
+native proof, unchanged 150-row/four-original alias proof and all 17 canonical
+observations. A public-parent countercontrol reproduces the original static sink
+failure. The four world identities, static-child positive disposition, recursive
+canonical edge and known-valid eager graph-validation mapping were explicitly
+approved. Only raw ldd ASLR addresses differ in the canonical proof. This adds
+one complete original mapping (49 complete / 11 partial), pending exact main
+binding, mandatory staged verification and hosted qualification.
+
+Fresh main integration preserves the approved executable source/tests/corpus and
+native proof exactly. All 181 Rust tests, 13 tools, formatting/Clippy/doc and
+layout/dependency checks pass on the final protected metadata. Coverage remains
+3281/3297 lines and 5728/5839 regions, with all 15 changed executable lines
+covered. Only additive review metadata, the approved original's mapping status
+and current review prose differ from the source freeze. Exact independent main
+binding, normal protected staged hook and hosted qualification remain required.

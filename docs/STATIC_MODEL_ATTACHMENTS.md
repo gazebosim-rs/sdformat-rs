@@ -1,0 +1,50 @@
+# Static model attachment identities
+
+The attachment graph preserves native `STATIC_MODEL` sinks as
+`<fully scoped model>::__model__`. A static model does not attach to world; its
+links remain independent link sinks. This identity is separate from pose
+resolution, canonical-link DOM selection and simulator static-body behavior.
+
+Dynamic models use the recursive canonical-link name, including a link inside a
+static descendant. If that name is empty, the graph follows the first nested
+model, which can eventually reach an empty static-model sink. The implementation
+reuses the existing native-compatible canonical DOM selector and the existing
+cycle/reference checks. Only static model vertices have no attachment edge;
+that closed construction invariant identifies static sinks without introducing
+another public graph type.
+
+The 61-row native corpus covers all supported versions, root/world models,
+static/dynamic chains, empty models, valid/invalid canonical names, frames on
+links/models/world, canonical selection, relative poses and joint endpoints.
+The native helper compiles the immutable upstream FrameSemantics.cc alongside
+its own source for direct graph queries, and uses the installed native DOM for
+frame/joint queries. Source, private/public headers, math graph headers, linked
+libraries, fixtures and the unchanged original test binary are hash-bound.
+This is not a fresh full native rebuild or a portable-image qualification.
+
+`NestedFrameSemantics.ModelWithoutLinksWithNestedStaticModel` is ported with its
+unchanged fixture and exact resolved body. The typed loader builds and validates
+both graphs before returning success; the port uses that mandatory eager
+validation for this known-valid fixture's graph-build/validate observations.
+Independent /root/transport_fallback explicitly approved that assertion mapping. No generic
+mutable graph facade or error-vector equivalence is claimed.
+
+Four old Rust-only world attachment values are corrected against the exact
+unchanged native-positive inputs. The historical `static_joint_child` row keeps
+its original XML, native tokens and gap metadata, and now runs through all ordinary
+pose/axis assertions after a positive load assertion. The unrelated invalid
+reference, duplicate, cycle, same-body and world-child errors remain asserted.
+`reference/static_model_disposition.json` records exact replacements; reversing
+them reconstructs all three public-parent test files byte-for-byte. Existing
+canonical/model-frame JSON corpora are byte-identical. The full native 150-row /
+four-original alias replay is unchanged, including its historical gap annotation.
+
+The two new tests fail on the public parent: static roots resolve incorrectly to
+world, and the unchanged nested-static original returns `::` instead of the
+static model-frame sink. The retained red log is author evidence. The corrected
+corpus separately checks the dynamic-parent canonical-link path.
+
+Run `python3 tools/static_model_reference.py /path/to/pinned/sdformat` and
+`cargo test --locked --test static_model`. Independent assertion/source review passed; exact main overlap, strict staged
+verification and hosted qualification are still required before publication. This parser/frame correction does not decide simulator D23, execute
+joint limits, change physics static flags or adapt any downstream sensor API.

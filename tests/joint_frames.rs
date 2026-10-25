@@ -356,8 +356,9 @@ fn actual_native_nested_implicit_model_reference_corpus() {
         if row.get("gap").is_some() {
             assert_eq!(id, "static_joint_child");
             assert_eq!(tokens[0], "0");
-            assert_eq!(parsed.unwrap_err().code, sdformat::ErrorCode::InvalidValue);
-            continue;
+            // Historical gap metadata is retained byte-for-byte. This exact
+            // native-positive payload now follows the ordinary assertions below.
+            assert!(parsed.is_ok(), "{:?}", parsed.as_ref().err());
         }
         assert_eq!(
             parsed.is_ok(),

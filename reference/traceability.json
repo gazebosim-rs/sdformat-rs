@@ -752,6 +752,22 @@
       "baseline": "Exact unchanged native original one run, zero failures/skips; artifacts/joint-frames/LoadJointNestedParentChild.xml.",
       "status": "ported_reviewed",
       "review": "Independent /root/transport_fallback approved exact complete original assertions, known-valid-fixture body API translation and component-wise <=1e-3 position/quaternion bounds. Private 161 Rust checks and fresh 150-row/four-original proof equal author, including every shared source/header/math/fixture/library/binary hash. Separate pre-fix graph mutant reproduces exact nested original M1::__model__ failure. One inherited static body identity/child validation gap remains explicit; no mutable/runtime/full packet parity claim."
+    },
+    {
+      "target": "UNIT_FrameSemantics_TEST",
+      "case": "NestedFrameSemantics.ModelWithoutLinksWithNestedStaticModel",
+      "source": "src/FrameSemantics_TEST.cc:644",
+      "rust_test": "tests/static_model.rs::original_model_without_links_with_nested_static_model",
+      "assertions": "Complete original load success, model presence, graph build/validation success and actual resolved-body success/exact identity. For this known-valid unchanged fixture, mandatory eager construction/validation of both graphs before typed load success retains the original zero-error graph observations; no mutable generic graph/error-vector facade claim. Independent mapping judgment required.",
+      "fixtures": {
+        "tests/fixtures/model_nested_static_model.sdf": "ac93cefe77c79aa1ec98080d9b678dfe7ca6f5f6eacfe9219a0556ce7816a252"
+      },
+      "upstream_fixtures": {
+        "test/sdf/model_nested_static_model.sdf": "ac93cefe77c79aa1ec98080d9b678dfe7ca6f5f6eacfe9219a0556ce7816a252"
+      },
+      "baseline": "Unchanged original one run, zero failures/skips; artifacts/static-model/ModelWithoutLinksWithNestedStaticModel.xml.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback approved all original known-valid-fixture load/model/graph validation/body observations, including mandatory eager graph construction/validation before typed success. Private 181 Rust checks, fresh 61-row/exact-original native proof and parent red test verified. No generic mutable graph/error-vector/runtime claim."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

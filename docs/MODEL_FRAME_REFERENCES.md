@@ -23,11 +23,11 @@ assertion is removed or changed.
 
 The native 150-row corpus covers nine supported versions, direct/deeper models,
 world/static models, pose and attachment references, joint parent/child/pose/axis,
-canonical and placement references, and deferred collision pose errors. One
-inherited endpoint validation difference is explicit: native accepts a static-model child sink with its model-frame body identity,
-while existing Rust static attachment normalization maps it to world and its
-endpoint validation rejects it. That policy is not relaxed here; runtime static
-and joint admissibility remain consumer concerns. Native diagnostic text/counts,
+canonical and placement references, and deferred collision pose errors. The historical static_joint_child gap metadata is retained byte-for-byte. The
+later [static-model attachment correction](STATIC_MODEL_ATTACHMENTS.md) closes
+that parser identity gap and runs the exact native-positive row through the
+ordinary pose/axis assertions. Runtime static and joint admissibility remain
+consumer concerns. Native diagnostic text/counts,
 partial DOM on failure and general mutable graph facades are unclaimed.
 
 Four complete original cases are candidate mappings:

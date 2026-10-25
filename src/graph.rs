@@ -96,14 +96,16 @@ impl Graphs {
     fn model(&mut self, model: &Model, parent: &str) -> Result<(), Diagnostic> {
         let name = &model.scoped_name;
         let attachment = if model.is_static {
-            Reference::Absolute(self.lookup("world", parent, &model.source)?)
+            None
         } else {
-            let name = if model.canonical_link.is_empty() {
+            let canonical = model.canonical_link_and_relative_name().1;
+            let target = if canonical.is_empty() {
+                // An empty static descendant has no canonical link. Native graph
+                // construction follows the first nested model to its static sink.
                 model
-                    .links
+                    .models
                     .first()
-                    .map(|link| link.name.clone())
-                    .or_else(|| model.models.first().map(|nested| nested.name.clone()))
+                    .map(|nested| nested.name.clone())
                     .ok_or_else(|| {
                         error(
                             ErrorCode::Missing,
@@ -112,16 +114,16 @@ impl Graphs {
                         )
                     })?
             } else {
-                model.canonical_link.clone()
+                canonical
             };
-            Reference::Scoped(name)
+            Some(Reference::Scoped(target))
         };
         self.insert(
             name,
             Node {
                 scope: parent.into(),
                 pose_parent: reference(&model.pose.relative_to, Reference::Absolute(parent.into())),
-                attachment: Some(attachment),
+                attachment,
                 pose: model.pose.transform,
                 kind: Kind::Model,
                 source: model.source.clone(),
@@ -379,9 +381,18 @@ impl Graphs {
                 .add_edge(self.pose_indices[child], self.pose_indices[parent], local);
         }
         for name in attachment_order.into_iter().rev() {
-            let body = attachments
-                .get(name)
-                .map_or_else(|| name.to_string(), |target| self.bodies[target].clone());
+            let body = attachments.get(name).map_or_else(
+                || {
+                    // Only static model vertices have no attachment edge.
+                    // Their implicit frame is a distinct sink, not the world.
+                    if self.nodes[name].kind == Kind::Model {
+                        format!("{name}::__model__")
+                    } else {
+                        name.to_string()
+                    }
+                },
+                |target| self.bodies[target].clone(),
+            );
             self.bodies.insert(name.into(), body);
         }
         Ok(())

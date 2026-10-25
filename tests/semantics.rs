@@ -262,11 +262,11 @@ fn shapes_defaults_and_pose_formats() {
         sdf.pose_of("m::nested::l", "::").unwrap(),
         [0., 2., 0., 0., 0., std::f64::consts::FRAC_PI_2],
     );
-    assert_eq!(sdf.attached_body("m").unwrap(), "::");
+    assert_eq!(sdf.attached_body("m").unwrap(), "m::__model__");
     let sdf = load(
         "<sdf version='1.12'><world name='w'><model name='m'><static>true</static></model></world></sdf>",
     );
-    assert_eq!(sdf.attached_body("w::m").unwrap(), "w");
+    assert_eq!(sdf.attached_body("w::m").unwrap(), "w::m::__model__");
     let sdf = model(
         "<link name='l'/><link name='r'/><joint name='j' type='prismatic'><parent>world</parent><child>r</child><axis><limit><effort>-1</effort><velocity>-1</velocity></limit></axis></joint>",
     );
@@ -984,7 +984,7 @@ fn local_schema_references_cannot_escape_their_model_scope() {
     let sdf = load(
         "<sdf version='1.12'><model name='m' canonical_link='missing'><static>true</static><link name='l'/></model></sdf>",
     );
-    assert_eq!(sdf.attached_body("m").unwrap(), "::");
+    assert_eq!(sdf.attached_body("m").unwrap(), "m::__model__");
     assert_eq!(
         sdf.resolve_pose(&Pose::default(), "m", "missing", "::")
             .unwrap_err()

@@ -1,0 +1,52 @@
+{
+  "parent": "547522dd3cf525a1d5c75beb7abfd5c418061755",
+  "scope": "Explicit correction of four Rust-only world attachment values and the static_joint_child negative, against unchanged native-positive XML. No runtime static policy or generic mutable graph facade claim.",
+  "files": {
+    "tests/semantics.rs": {
+      "parent_sha256": "9efa001cf76182871cb29eb635182a1bcbf9849872ae31303e032bb88a2b0429",
+      "edits": [
+        {
+          "before": "    assert_eq!(sdf.attached_body(\"m\").unwrap(), \"::\");\n",
+          "after": "    assert_eq!(sdf.attached_body(\"m\").unwrap(), \"m::__model__\");\n"
+        },
+        {
+          "before": "    assert_eq!(sdf.attached_body(\"w::m\").unwrap(), \"w\");\n",
+          "after": "    assert_eq!(sdf.attached_body(\"w::m\").unwrap(), \"w::m::__model__\");\n"
+        },
+        {
+          "before": "    assert_eq!(sdf.attached_body(\"m\").unwrap(), \"::\");\n",
+          "after": "    assert_eq!(sdf.attached_body(\"m\").unwrap(), \"m::__model__\");\n"
+        }
+      ]
+    },
+    "tests/canonical.rs": {
+      "parent_sha256": "638af6904b3687707925985be8165fe92c62d555e55d2ec391b0f6f2d2699086",
+      "edits": [
+        {
+          "before": "            assert_eq!(sdf.attached_body(&model.scoped_name).unwrap(), \"::\");\n",
+          "after": "            assert_eq!(\n                sdf.attached_body(&model.scoped_name).unwrap(),\n                \"m::inner::nested\"\n            );\n"
+        }
+      ]
+    },
+    "tests/joint_frames.rs": {
+      "parent_sha256": "b72a0780fe33ecff35bc91ee34094c6f3a82c92a5a09a34d12c783ecd7263b53",
+      "edits": [
+        {
+          "before": "            assert_eq!(parsed.unwrap_err().code, sdformat::ErrorCode::InvalidValue);\n            continue;\n",
+          "after": "            // Historical gap metadata is retained byte-for-byte. This exact\n            // native-positive payload now follows the ordinary assertions below.\n            assert!(parsed.is_ok(), \"{:?}\", parsed.as_ref().err());\n"
+        }
+      ]
+    }
+  },
+  "retained_xml_sha256": {
+    "old_shapes_static": "f4252dc677d95d7801ee287e6600a8d035ec45e36e2e0c99e9437a46d5802433",
+    "old_empty_world_static": "590adb4cfdcc862363917c5a9063556456f9c843aa7c312278cfc23062f166b9",
+    "old_static_invalid_canonical": "b2f97cceb058072d6c257e1ec80411f7bcbe63ab730626a32b3c992df5735279",
+    "old_canonical_nested_static": "8265f5f53a1830b279aef76212bac92a3364901b5d553f91e5a0eabc4f458637",
+    "old_static_joint_child_gap": "390ac1e63b2b834255e82a4ee642150a7a2c9712707df9c516feeb6cb0a36d0d"
+  },
+  "unchanged_input_sha256": {
+    "tests/canonical.json": "16d3f6d405a3b3bcbe0eb8ac4ad073449f7968ebbdd6a482b9cd286f80d286ef",
+    "tests/model_frame_alias.json": "c68bfb854c19f48e55961a1c6343f91a31acfa2fb00c1f16627c1eb8ddff5586"
+  }
+}

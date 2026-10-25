@@ -17,7 +17,10 @@ fn native_canonical_selection_is_independent_of_attachment() {
             "{case}"
         );
         if case["id"] == "nested_static" {
-            assert_eq!(sdf.attached_body(&model.scoped_name).unwrap(), "::");
+            assert_eq!(
+                sdf.attached_body(&model.scoped_name).unwrap(),
+                "m::inner::nested"
+            );
             assert_eq!(link.unwrap().scoped_name, "m::inner::nested");
         }
     }

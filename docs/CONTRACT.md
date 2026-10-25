@@ -70,7 +70,7 @@ root is `::`; a world `default`, model `robot`, link `base` is named
 `default::robot::base`. `resolve_name(scope,reference)` applies SDF's world and
 __model__ references. `resolve_pose` resolves a non-frame collision, sensor or
 inertial or visual pose using its model scope and owning link. `attached_body` follows the
-separate attachment graph to a link or static world attachment. Names, unknown
+separate attachment graph to a link, world, or static model implicit-frame sink. Names, unknown
 frame references, duplicate semantic frame names and both kinds of cycles are checked.
 Non-frame reference failures are returned by resolve_pose or the explicit validator.
 
@@ -236,7 +236,8 @@ nested model and prefixes its name when the result name is nonempty. It does not
 skip an empty first nested model or inspect static status. An empty subtree
 returns (None, ""). Interface model/link branches and flattened names remain
 outside the supported parser subset. This helper is independent of semantic
-attachment resolution, which can attach a static canonical subtree to world.
+attachment resolution: a static model is its own `<model scope>::__model__` sink, while a dynamic model follows the recursive canonical
+link when its name is nonempty, or the first nested model otherwise.
 
 
 On Linux GNU/glibc, scalar floating-point fields and individual pose tokens use
@@ -436,7 +437,9 @@ Terminal nested ::__model__ references map to an actual Model graph vertex while
 retaining raw DOM strings. Link/Frame/Joint/missing prefixes and intermediate or
 repeated implicit aliases do not qualify. Strict schema scope boundaries remain
 unchanged. See MODEL_FRAME_REFERENCES.md for native observations, original joint
-assertion candidates and the inherited static child endpoint policy difference.
+assertion candidates. The later static-model attachment correction closes the
+previously recorded static child endpoint difference; historical native corpus
+metadata remains unchanged.
 
 
 An initial UTF-8 BOM is accounted for in original XML spans and tokenizer error

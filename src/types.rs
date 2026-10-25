@@ -190,6 +190,9 @@ impl Sdf {
         let pose = self.pose_of(&frame, target)?;
         Ok((DQuat::from_array(pose.rotation) * DVec3::from_array(axis.xyz)).to_array())
     }
+    /// Resolve an attachment to a link, world, or static model's implicit frame.
+    /// Static sinks retain `<model scope>::__model__`; they are not collapsed to
+    /// world. This graph identity does not select simulator static-body behavior.
     pub fn attached_body(&self, name: &str) -> Result<&str, Diagnostic> {
         self.graphs.attached_body(name)
     }

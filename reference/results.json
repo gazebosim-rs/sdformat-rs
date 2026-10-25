@@ -60348,6 +60348,16 @@
     "original": "Pinned DOMSensor.Plugins native1/0; empty, copied add, two ordered names and clear complete.",
     "rust": "Owned Sensor.plugins Vec<Plugin> and parser repeated plugin retention; exact three source hashes in freeze, private raw-parent Rust selected2/0/full237/0, author full237 Rust/16 tools/fmt/Clippy/docs; coverage3998/4017 lines6951/7152 regions, changed2/2.",
     "scope": "Complete observable native original value/order/clear mapping via Rust vector. Supplemental parsed plugin name/filename/XML checks are source-backed and disconnected-parser mutant red. C++ method facade, ToElement and general plugin grammar not claimed.",
-    "review": "Independent /root/transport_fallback source/API/assertion approval SHA256 7af94967bc629832715f9954dca6c9d45d16a0ce59ccedad418f7d42b1369ced. Final parent/metadata binding, protected hook and hosted qualification pending."
+    "review": "Independent /root/transport_fallback source/API/assertion approval SHA256 7af94967bc629832715f9954dca6c9d45d16a0ce59ccedad418f7d42b1369ced. Final binding receipt SHA256 86eaf5abdbcca8d6ca0226fcb7266435eaee45d865dd8c0dc1c7a63ca82d4efe; normal protected hook and exact hosted verify run 40243454034 passed at public 861c9d8c1afdcf1527cf984d6c1a864c37ceddd2."
+  },
+  "dom_plugins_originals": {
+    "parent": "861c9d8c1afdcf1527cf984d6c1a864c37ceddd2",
+    "upstream": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "source_freeze_sha256": "34faf0b3d37f4bb26fbbde2aa0f9e33e9cc608778f6e5b1b07b785075ebed2fd",
+    "source_review_sha256": "d5525307d52bce88aa0d9c4dc98a857bdaee5e5f197240764572283e8816de9f",
+    "original": "Pinned DOMModel.Plugins, DOMWorld.Plugins and DOMVisual.Plugins native3/0; all empty/copy/size/order/clear observations complete.",
+    "rust": "Existing owned Model/World/Visual Vec<Plugin> plus exact reviewed test SHA309b13b4941377c9f91c14ab920ab982a56321db1e01289def90025f0a7dc66c; private raw-parent Rust3/0, author full240 Rust/16 tools/fmt/Clippy/docs, coverage3998/4017 lines6951/7152 regions and no production edit.",
+    "scope": "Complete observable value/order/clear originals via ordinary Rust owned vectors. Original 2017 World and 2018 Model/Visual Apache notices preserved exactly; no C++ method facade, ToElement or general plugin grammar claim.",
+    "review": "Independent /root/transport_fallback source/assertion approval SHA256 d5525307d52bce88aa0d9c4dc98a857bdaee5e5f197240764572283e8816de9f. Final parent/metadata binding, protected hook and hosted qualification pending."
   }
 }

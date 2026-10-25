@@ -1973,7 +1973,7 @@ at public `dbf349b6a52a77680900e6afc53de5c604cd409a`.
 Native C++ operator identity, moved-from state, Element identity and
 generic parser/serialization behavior remain outside these originals.
 
-## Native DOMSensor.Plugins original candidate
+## Native DOMSensor.Plugins original
 
 Pinned `DOMSensor.Plugins` passes natively 1/0. The owned `Sensor` now keeps
 plugins in a `Vec<Plugin>`, and the existing parser reads repeated `<plugin>`
@@ -1990,6 +1990,26 @@ selected 2/0 and full 237/0. A parser-field disconnect mutant left the
 direct-value original passing but failed the parsed count control. Author
 checks pass 237 Rust, sixteen tooling tests, formatting, Clippy and docs;
 production coverage is 3998/4017 lines and 6951/7152 regions, with both
-changed executable lines covered. Final metadata binding, normal protected
-hook and hosted qualification remain pending. C++ method identity,
+changed executable lines covered. Final binding receipt SHA256 `86eaf5abdbcca8d6ca0226fcb7266435eaee45d865dd8c0dc1c7a63ca82d4efe`, normal protected hook and exact hosted run 40243454034
+succeeded at public `861c9d8c1afdcf1527cf984d6c1a864c37ceddd2`.
+C++ method identity,
 `ToElement` and general plugin grammar remain outside this case.
+
+## Three native DOM plugin collection originals candidate
+
+Pinned `DOMModel.Plugins`, `DOMWorld.Plugins` and `DOMVisual.Plugins`
+pass natively 3/0. One retained Rust test checks each object's initially empty
+plugin vector, copied first add, changed source name before the second add,
+size and ordered names after both adds, then clear. The existing owned vectors
+carry these observations. The test preserves both original 2018 Model/Visual
+and 2017 World OSRF Apache notice blocks byte-identically.
+
+Independent /root/transport_fallback approved complete observable mapping
+(source receipt SHA256 `d5525307d52bce88aa0d9c4dc98a857bdaee5e5f197240764572283e8816de9f`), with pinned native 3/0 and private
+raw-parent selected Rust 3/0. The source test SHA256 is
+`309b13b4941377c9f91c14ab920ab982a56321db1e01289def90025f0a7dc66c`.
+Author checks pass 240 Rust, sixteen tooling tests, formatting, Clippy and
+docs; production coverage is 3998/4017 lines and 6951/7152 regions with no
+production change. Final metadata binding, protected hook and hosted CI are
+pending. Native C++ plugin method identity, `ToElement` and general plugin
+grammar remain separate work.

@@ -1083,7 +1083,43 @@
       "upstream_fixtures": {},
       "baseline": "Pinned UNIT_Sensor_TEST DOMSensor.Plugins fresh native1/0, source/binary hashes and exact three source files in artifacts/sensor-plugins/source-freeze.json. Independent private raw-parent selected Rust2/0/full237/0; parser-field disconnect mutant fails supplemental count0 vs2 while direct-value original still passes. Author full237 Rust/16 tools/fmt/Clippy/docs, production3998/4017 lines6951/7152 regions, changed2/2.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_fallback APPROVED complete observable native original mapping, exact source receipt SHA256 7af94967bc629832715f9954dca6c9d45d16a0ce59ccedad418f7d42b1369ced and freeze SHA256 04f1020e3d667fcd53275d474c03807eb1977358735689d18a59465ac0140cba. Private native1/0 and Rust selected2/0/full237/0, plus parser-disconnect mutant. Final metadata binding, protected hook and hosted qualification pending."
+      "review": "Independent /root/transport_fallback APPROVED complete observable native original mapping, exact source receipt SHA256 7af94967bc629832715f9954dca6c9d45d16a0ce59ccedad418f7d42b1369ced and freeze SHA256 04f1020e3d667fcd53275d474c03807eb1977358735689d18a59465ac0140cba. Private native1/0 and Rust selected2/0/full237/0, plus parser-disconnect mutant. Final binding receipt SHA256 86eaf5abdbcca8d6ca0226fcb7266435eaee45d865dd8c0dc1c7a63ca82d4efe; normal protected hook and exact hosted verify run 40243454034 passed at public 861c9d8c1afdcf1527cf984d6c1a864c37ceddd2."
+    },
+    {
+      "target": "UNIT_Model_TEST",
+      "case": "DOMModel.Plugins",
+      "source": "src/Model_TEST.cc:703-724",
+      "rust_test": "tests/dom_plugins_original.rs::original_dom_model_plugins",
+      "assertions": "Complete pinned original observable empty plugins, first copied add size one, source name change then second add size two, ordered original name1/new name2 and clear empties. Rust uses the existing owned Vec<Plugin> on a parsed Model object; Plugin clone captures native AddPlugin value-copy outcome. Imported 2018 OSRF Apache notice preserved. C++ AddPlugin/ClearPlugins method identity, ToElement and general plugin grammar remain outside this original.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Fresh exact pinned native Model, World and Visual plugin originals 3/0, no skips; source/binary hashes and test SHA in artifacts/dom-plugins/source-freeze.json. Independent private raw-parent selected Rust3/0; author full240 Rust/16 tools/fmt/Clippy/docs, production3998/4017 lines6951/7152 regions, no production edit.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback APPROVED complete observable assertion mapping, exact source receipt SHA256 d5525307d52bce88aa0d9c4dc98a857bdaee5e5f197240764572283e8816de9f and freeze SHA256 34faf0b3d37f4bb26fbbde2aa0f9e33e9cc608778f6e5b1b07b785075ebed2fd. Private native3/0 and Rust selected3/0, imported notices checked. Final metadata binding, protected hook and hosted qualification pending."
+    },
+    {
+      "target": "UNIT_World_TEST",
+      "case": "DOMWorld.Plugins",
+      "source": "src/World_TEST.cc:879-901",
+      "rust_test": "tests/dom_plugins_original.rs::original_dom_world_plugins",
+      "assertions": "Complete pinned original observable empty plugins, first copied add size one, source name change then second add size two, ordered original name1/new name2 and clear empties. Rust uses the existing owned Vec<Plugin> on a parsed World object; Plugin clone captures native AddPlugin value-copy outcome. Imported 2017 OSRF Apache notice preserved. C++ AddPlugin/ClearPlugins method identity, ToElement and general plugin grammar remain outside this original.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Fresh exact pinned native Model, World and Visual plugin originals 3/0, no skips; source/binary hashes and test SHA in artifacts/dom-plugins/source-freeze.json. Independent private raw-parent selected Rust3/0; author full240 Rust/16 tools/fmt/Clippy/docs, production3998/4017 lines6951/7152 regions, no production edit.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback APPROVED complete observable assertion mapping, exact source receipt SHA256 d5525307d52bce88aa0d9c4dc98a857bdaee5e5f197240764572283e8816de9f and freeze SHA256 34faf0b3d37f4bb26fbbde2aa0f9e33e9cc608778f6e5b1b07b785075ebed2fd. Private native3/0 and Rust selected3/0, imported notices checked. Final metadata binding, protected hook and hosted qualification pending."
+    },
+    {
+      "target": "UNIT_Visual_TEST",
+      "case": "DOMVisual.Plugins",
+      "source": "src/Visual_TEST.cc:337-358",
+      "rust_test": "tests/dom_plugins_original.rs::original_dom_visual_plugins",
+      "assertions": "Complete pinned original observable empty plugins, first copied add size one, source name change then second add size two, ordered original name1/new name2 and clear empties. Rust uses the existing owned Vec<Plugin> on a parsed Visual object; Plugin clone captures native AddPlugin value-copy outcome. Imported 2018 OSRF Apache notice preserved. C++ AddPlugin/ClearPlugins method identity, ToElement and general plugin grammar remain outside this original.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Fresh exact pinned native Model, World and Visual plugin originals 3/0, no skips; source/binary hashes and test SHA in artifacts/dom-plugins/source-freeze.json. Independent private raw-parent selected Rust3/0; author full240 Rust/16 tools/fmt/Clippy/docs, production3998/4017 lines6951/7152 regions, no production edit.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback APPROVED complete observable assertion mapping, exact source receipt SHA256 d5525307d52bce88aa0d9c4dc98a857bdaee5e5f197240764572283e8816de9f and freeze SHA256 34faf0b3d37f4bb26fbbde2aa0f9e33e9cc608778f6e5b1b07b785075ebed2fd. Private native3/0 and Rust selected3/0, imported notices checked. Final metadata binding, protected hook and hosted qualification pending."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

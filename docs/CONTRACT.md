@@ -559,3 +559,12 @@ Cloning a `Plugin` before adding it captures the value, so changing the source
 value does not alter the earlier entry. Native `DOMSensor.Plugins` observes
 vector order and clear; `Sensor::ToElement` and broader plugin grammar remain
 separate acceptance work.
+
+## Model, World and Visual plugin values
+
+These owned DOM values retain plugins in declaration or insertion order.
+Cloning a `Plugin` before insertion preserves the original entry when the
+source value changes, and clearing the vector removes all entries. The three
+pinned native Model, World and Visual plugin originals observe those values.
+Their C++ method names, `ToElement` serialization and broader plugin grammar
+are separate contracts.

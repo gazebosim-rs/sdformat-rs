@@ -1892,3 +1892,32 @@ hosted qualification remain pending. This closes one original's observable
 assertions; native Link method identity, arbitrary lookup, mutable Element,
 other Link originals, generic sensor grammar, serialization and rendering
 remain outside this case. Broad SDF phase acceptance remains open.
+
+## Native DOMSensor.Type value-state original candidate
+
+The preceding complete fixed-fixture `DOMLink.Sensors` original published at
+`4e14e8b88930dc73254de58e7fea272919fd13c8`; exact hosted verify run
+40238160417 succeeded. Its 318 fixed-fixture assertions are reviewed, with
+native method identity and mutable Element behavior still outside scope.
+
+For pinned `DOMSensor.Type`, native `Sensor::SetType(enum)` updates the value;
+`SetType(canonical string)` returns true and updates it; an invalid string
+returns false and keeps the previous type and type string. The retained Rust
+test now checks the default and every one of the 23 original enum/string
+entries through ordinary `SensorType` assignment and checked
+`SensorType::set_from_type_str` mutation. The four additional native table
+names and parsed XML aliases remain supplemental. No parsed `Sensor.kind`,
+configuration or fixture changed.
+
+Fresh native original passes 1/0. Independent /root approved all observable
+original value transitions on the exact frozen source after a private raw
+parent Rust 2/0 replay and an invalid-string state-clobber mutant failing the
+retained Altimeter assertion (source receipt SHA256
+`acbfd43e12f3ac680bddb9120d108e4ede2c8f2640d7d57df59840bbb15d99c3`).
+Author checks pass 229 Rust, sixteen tooling tests, formatting, Clippy and
+docs; production coverage is 3996/4015 lines and 6947/7147 regions, with
+6/6 changed executable lines. Final main metadata binding, protected staged
+hook and exact hosted qualification remain pending. This completes only the
+observable value-state original; native Sensor object-method identity, parsed
+literal XML kind/config/Element synchronization and broad parser semantics
+remain open.

@@ -22,9 +22,8 @@ use sdformat::SensorType;
 
 #[test]
 fn native_sensor_type_strings_have_the_original_value_mapping() {
-    // DOMSensor.Type tests native SetType(Type), Type and TypeStr for these
-    // values. The Rust enum retains their value/string observations; mutable
-    // Sensor::SetType state, including invalid-string preservation, is pending.
+    // Rust value assignment and checked string mutation preserve the native
+    // Type/TypeStr observations without changing parsed literal XML kinds.
     let original = [
         (SensorType::None, "none"),
         (SensorType::Altimeter, "altimeter"),
@@ -50,10 +49,21 @@ fn native_sensor_type_strings_have_the_original_value_mapping() {
         (SensorType::Custom, "custom"),
         (SensorType::WideAngleCamera, "wide_angle_camera"),
     ];
-    assert_eq!(SensorType::default(), SensorType::None);
-    for (kind, name) in original {
-        assert_eq!(kind.as_str(), name);
-        assert_eq!(SensorType::from_type_str(name), Some(kind));
+    let mut current = SensorType::default();
+    assert_eq!(current, SensorType::None);
+    assert_eq!(current.as_str(), "none");
+    for &(kind, name) in &original {
+        current = kind;
+        assert_eq!(current, kind);
+        assert_eq!(current.as_str(), name);
+    }
+    for &(kind, name) in &original {
+        assert!(current.set_from_type_str(name));
+        assert_eq!(current, kind);
+        assert_eq!(current.as_str(), name);
+        assert!(!current.set_from_type_str("bad_sensor_type"));
+        assert_eq!(current, kind);
+        assert_eq!(current.as_str(), name);
     }
     assert_eq!(SensorType::from_type_str("bad_sensor_type"), None);
 }

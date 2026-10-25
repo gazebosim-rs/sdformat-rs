@@ -800,6 +800,17 @@ impl SensorType {
         })
     }
 
+    /// Replace this native type value only for a canonical type string.
+    /// An unknown string leaves the previous value intact.
+    pub fn set_from_type_str(&mut self, value: &str) -> bool {
+        if let Some(next) = Self::from_type_str(value) {
+            *self = next;
+            true
+        } else {
+            false
+        }
+    }
+
     /// Classify an XML type using native `Sensor::Load` alias rules. Parsing
     /// support remains limited to the configurations accepted by the loader.
     pub fn from_xml_kind(value: &str) -> Option<Self> {

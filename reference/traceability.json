@@ -988,6 +988,18 @@
       "baseline": "Fresh exact pinned DOMLink.Sensors native 1/0, 0 skipped; source/binary and unchanged fixture hashes bound in artifacts/link-sensors-full/source-freeze.json and independent source receipt. Author full229 Rust/16 tooling, fmt/Clippy and production 3990/4009 lines, 6940/7140 regions on source candidate.",
       "status": "ported_reviewed",
       "review": "Independent /root/transport_fallback APPROVED complete mapping of the one original fixed-fixture observable assertions: exact source freeze SHA256 5b2842d6d1e5fe67927c9cdd521f70813b4c1f343ebdb973bc37fa804ca76f8a, source receipt SHA256 1bf75df6f35131441c7d49e4c35fbacd3550f7045de0d4f6607a8e782e475b5a. Reviewer enumerated all318 native macros, private raw-parent Rust1/0 and native1/0. Main metadata binding, normal protected hook and exact hosted qualification pending."
+    },
+    {
+      "target": "UNIT_Sensor_TEST",
+      "case": "DOMSensor.Type",
+      "source": "src/Sensor_TEST.cc:260-338",
+      "rust_test": "tests/sensor_effective_type_original.rs::native_sensor_type_strings_have_the_original_value_mapping; tests/sensor_effective_type_original.rs::native_sensor_type_extensions_and_xml_aliases_are_explicit (supplemental)",
+      "assertions": "Complete pinned DOMSensor.Type observable original: default NONE/\"none\"; all 23 enum assignments retain Type and canonical TypeStr; all 23 canonical string assignments return true and retain the corresponding Type/TypeStr; each invalid \"bad_sensor_type\" returns false and preserves that prior type/string. Ordinary Rust SensorType assignment maps SetType(enum) value transition; SensorType::set_from_type_str maps valid and invalid string transitions. The four additional native table values and parsed XML aliases are supplemental. Native Sensor object method identity, synchronization with parsed literal kind/config/Element and broader parser behavior are not claimed.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Fresh exact pinned UNIT_Sensor_TEST --gtest_filter=DOMSensor.Type 1/0, no skips; source/binary hashes in artifacts/sensor-type-state/source-freeze.json. Independent private raw-parent selected Rust2/0 and invalid-clobber mutant failing retained Altimeter assertion. Author full229 Rust/16 tools, fmt/Clippy/docs, coverage3996/4015 lines6947/7147 regions, changed6/6.",
+      "status": "ported_reviewed",
+      "review": "Independent /root APPROVED complete observable original value-state mapping, source receipt SHA256 acbfd43e12f3ac680bddb9120d108e4ede2c8f2640d7d57df59840bbb15d99c3 and frozen source SHA256 d80baa0ccc4c21bcea5fc909802c7a333c06393b3feae35113825eb746b074c2. Reviewer verified all default/23 enum/23 valid-string/23 invalid-preserve observations on exact source and native1/0, private selected2/0 and failing invalid-clobber mutant. Sensor object setter/API, parsed literal XML kind, config and Element synchronization remain outside this original. Final main metadata binding, normal protected hook and hosted qualification pending."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",
@@ -1165,18 +1177,6 @@
       "baseline": "Exact native original one run, zero failures/skips; artifacts/nested-world-bodies/original.xml; pinned upstream 1249805d.",
       "status": "partial_reviewed",
       "review": "Independent /root/transport_fallback approved corrected frozen source digest 9d6bd23e0575cc3fa8f8f2e18bb2c68f311bacdc84be9e4b815f7ebcb4dec4b5 after native1/0, private selected1/full187 Rust replay, exact fixture and 2019 notice checks. Reviewer source receipt SHA256 e85fa4a7c32de943a752257a298f1d317af675be1036806b0fd4ee3854d56fed. ModelGraph world rejection and graph internals/native error details are explicitly unported; final public-parent binding and staged/hosted gates pending."
-    },
-    {
-      "target": "UNIT_Sensor_TEST",
-      "case": "DOMSensor.Type",
-      "source": "src/Sensor_TEST.cc:260-338",
-      "rust_test": "tests/sensor_effective_type_original.rs::native_sensor_type_strings_have_the_original_value_mapping; tests/sensor_effective_type_original.rs::native_sensor_type_extensions_and_xml_aliases_are_explicit",
-      "assertions": "Exact 23 original SensorType enum/default and TypeStr canonical value pairs map through Rust SensorType and from_type_str; the four newer native table entries and Load XML aliases are supplementary. Native mutable SetType(enum), SetType(string), invalid-string preserves prior Sensor Type/TypeStr and whole original remain unported. Public parsed Sensor.effective_type supplies native enum for the already supported Link fixture fragments; no additional parser family is accepted.",
-      "fixtures": {},
-      "upstream_fixtures": {},
-      "baseline": "Exact pinned UNIT_Sensor_TEST --gtest_filter=DOMSensor.Type 1/0, no skips; artifacts/sensor-effective-type/native-type.log. Exact pinned DOMLink.Sensors1/0; artifacts/sensor-effective-type/native-link.log.",
-      "status": "partial_reviewed",
-      "review": "Independent /root/transport_fallback APPROVED exact frozen SensorType source/API/assertion mapping as PARTIAL only; source receipt SHA256 0ed6fc63d974ff0c2f5b211a8a4137db457c513704866177dc6e83d1e7b6b398. Fresh pinned native DOMSensor.Type1/0 and DOMLink.Sensors1/0, private raw-parent selected Rust9/0 and gpu_ray mapping-removal mutant failure. Native mutable SetType(Type/string), invalid-string preservation, broader XML/loading and full Link remain unported; final metadata binding, protected hook and hosted qualification pending."
     }
   ]
 }

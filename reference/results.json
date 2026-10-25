@@ -60308,5 +60308,15 @@
     "rust": "Consolidated full original tests/link_sensors_full_original.rs selected1/0; full author229 Rust,16 tools, fmt and Clippy pass; production coverage 3990/4009 lines,6940/7140 regions, no changed production line.",
     "scope": "Complete original fixed-fixture observations via owned Rust Vec index/name lookup and read-only CustomSensor child/parameter; no native method identity, arbitrary lookup, mutable Element, other Link cases, generic sensor grammar, rendering or broad SDF phase acceptance.",
     "review": "Independent /root/transport_fallback complete source/assertion approval receipt SHA256 1bf75df6f35131441c7d49e4c35fbacd3550f7045de0d4f6607a8e782e475b5a. Final public-parent metadata binding, normal protected hook and hosted qualification pending."
+  },
+  "sensor_type_state_original": {
+    "parent": "4e14e8b88930dc73254de58e7fea272919fd13c8",
+    "upstream": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "source_freeze_sha256": "d80baa0ccc4c21bcea5fc909802c7a333c06393b3feae35113825eb746b074c2",
+    "source_review_sha256": "acbfd43e12f3ac680bddb9120d108e4ede2c8f2640d7d57df59840bbb15d99c3",
+    "original": "Pinned DOMSensor.Type native1/0, complete observable default/23 enum assignments/23 canonical string assignments and invalid-string-preserves-prior-value assertions.",
+    "rust": "Owned SensorType::set_from_type_str and exact retained original test; private raw-parent2/0 and invalid-clobber-to-None mutant red; author full229Rust/16tools/fmt/Clippy/docs, coverage3996/4015 lines6947/7147 regions changed6/6.",
+    "scope": "Complete value-state original through ordinary Rust enum assignment and checked string mutation. Native Sensor object setter method identity, parsed Sensor.kind/config/Element synchronization and generic parser behavior are not claimed. Earlier effective-type partial result is a historical bounded predecessor.",
+    "review": "Independent /root source/API/assertion approval receipt SHA256 acbfd43e12f3ac680bddb9120d108e4ede2c8f2640d7d57df59840bbb15d99c3. Final metadata binding, normal protected hook and exact hosted verification pending."
   }
 }

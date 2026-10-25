@@ -1,22 +1,23 @@
 {
   "decision": "approved",
+  "reviewer": "/root",
   "author": "/root/sdformat_owner_fallback",
-  "reviewer": "/root/transport_fallback",
-  "final_freeze": "artifacts/link-sensors-full/frozen-final.json",
-  "final_freeze_sha256": "ea61ccba0901645dfcf55dc57ab56d191aa6f13ec5b43553b6bea599c6bfdbe8",
-  "parent": "d4b3238fcd079e2a73422f1b039e4069d7fcc2f3",
-  "source_freeze_sha256": "5b2842d6d1e5fe67927c9cdd521f70813b4c1f343ebdb973bc37fa804ca76f8a",
-  "source_review_sha256": "1bf75df6f35131441c7d49e4c35fbacd3550f7045de0d4f6607a8e782e475b5a",
-  "protected_digest": "1c42123b64cc94fc8a357c1dfd5f91bc47cd1cd91a64b5c22331c1b4d8fd27bc",
-  "evidence_source_digest": "19888beb35a0fd1e51634244574f69357f113eb6961f61e0a216f95d18d7643f",
+  "type": "final public-parent and metadata binding",
+  "parent": "4e14e8b88930dc73254de58e7fea272919fd13c8",
+  "tree": "a0ac3ee08c7fb491bbb6590955e1a7b64c246b56",
+  "diff_sha256": "2cc37a8bb2e210676962deda956340dd0afc25581fb625f34d1d5651dfeba165",
+  "frozen_final_sha256": "bb6da2f7330eef9012645cfbe273bbb8210c7d0648d47e2d614c236d9641ac61",
   "files_sha256": {
-    "docs/CONTRACT.md": "7e1c23a734f42f18f2699936caff6c8c5de4f727abd27f6e78e95ae988235fca",
-    "docs/STATUS.md": "70c4a46d9c98d521004bfe8f908f8f81f49230628f2741d2bc56cdb43037164f",
-    "reference/results.json": "dc8e22030739ea10c37162b7649936bb893b09ecb95b8d887f4c115b151b37c2",
-    "reference/traceability.json": "3740befacb65b3be9199954ac0b931b7848faf362ea4b4a26bb6eca0df75615c",
-    "tests/link_sensors_full_original.rs": "58f25e317c827eb666e381e9ddd56bb73550a1454ca25d3500b4ae9e348e5657"
+    "docs/CONTRACT.md": "2970ba11155bfd079c6eef69a523ca38ac8da349a1cfd33c5a3ffb28c3c1a4ac",
+    "docs/STATUS.md": "355ba98bc20dada88b141221b5fb23ad6828b648caac1845e815139a17e7c9da",
+    "reference/results.json": "aeff6f182fe8bd49e8a5703718b0c877ef6517b6a9248b96eb9d94ba734b27c7",
+    "reference/traceability.json": "2a65029bad33c913c5d586341b1486d8e01f64d1a76d7bf2c83ffd9abf55307b",
+    "src/types.rs": "95ad9e168179f5541705e3ab4d8130dd151c293aaf8cbde0cfb08400f5ef0f94",
+    "tests/sensor_effective_type_original.rs": "eade49b0135adee6c69f0728ab1608f11b9486cbb8bf098aa2667050353dc180"
   },
-  "binding_checks": "Exact five changed paths and hashes matched the frozen manifest. The test file is byte-identical to the independent source-reviewed candidate, the copied source receipt is byte-identical, and all other 257 tracked parent blobs were byte-identical. The DOMLink.Sensors ledger row occurs once in ports as ported_reviewed and no longer occurs in partial_ports; prior fragment results and tests remain retained. Metadata confines COMPLETE to all 318 observable assertions of the unchanged 27-sensor fixture and records the Vec/custom XML API limits.",
-  "author_checks": "Fresh integrated 229 Rust tests, 16 tooling tests, fmt, Clippy and docs passed; production coverage 3990/4009 lines and 6940/7140 regions, with zero changed production executable lines. The final coverage evidence source digest matches this freeze.",
-  "remaining": "Normal protected staged hook, public commit/push and exact hosted CI remain required before published acceptance."
+  "preserved_parent_files": 256,
+  "source_review_sha256": "acbfd43e12f3ac680bddb9120d108e4ede2c8f2640d7d57df59840bbb15d99c3",
+  "protected_digest": "52bea18b9a1fdd55b85a396784e16a1e4346e7e6bb4716507f671c4ec1ce55ff",
+  "source_digest": "c07d7e540beb83bc219289f4142953862c01989b5cd0fa473682a563067994cf",
+  "scope": "Exact two source-reviewed type value implementation/test blobs preserved; four metadata paths only add complete observable DOMSensor.Type mapping, native/API/parsed-kind limits and prior Link hosted checkpoint. One original moves partial to complete, other parent blobs unchanged. Corrected dangling CONTRACT fragment checked. Owner ordinary index untouched. Normal protected hook/publication/exact hosted still required; broad SDF/P2 unclaimed."
 }

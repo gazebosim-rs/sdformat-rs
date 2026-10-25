@@ -62,9 +62,14 @@ remain distinct from envelope topic; see docs/CONTACT_SENSOR.md. The literal
 native `SensorType` classification for a parsed kind (`gps` becomes `NavSat`,
 `gpu_ray` becomes `GpuLidar`, and `ray` becomes `Lidar`). The public enum also
 maps the native canonical type strings, but it does not permit parsing otherwise
-unsupported sensor configurations or replace the literal kind. The native
-`DOMSensor.Type` mutable `SetType` and invalid-string-preserves-state behavior
-remains unported.
+unsupported sensor configurations or replace the literal kind.
+
+The pinned `DOMSensor.Type` value transitions now map through ordinary Rust
+`SensorType` assignment and `set_from_type_str`: invalid strings leave the
+previous value intact. This does not add native `Sensor::SetType` object-method
+identity or synchronize a changed type with parsed literal XML, config or
+Element state.
+
 The parser also accepts `depth`/`depth_camera` and `rgbd`/`rgbd_camera`
 spellings with an owned `Camera` configuration selected from `<camera>`;
 `kind` retains the literal spelling and `effective_type()` gives

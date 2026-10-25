@@ -86,12 +86,12 @@ attribute CR/CRLF normalize before reference expansion. A true flag without xyz
 reproduces the native missing-value rejection caused by its synthesized empty xyz.
 Effective typed references are converted without rewriting source XML/positions.
 Each included resource uses its own version. Original root Sdf.version is retained.
-SDF 1.5/1.6 model members share a namespace in declaration order: later links, joints
+SDF 1.4–1.6 model members share a namespace in declaration order: later links, joints
 and frames with cross-kind collisions append _link/_joint/_frame, then a numeric
-suffix starting at0 when needed. Nested models are never renamed. Worlds load
+suffix starting at 0 when needed. Nested models are never renamed. Worlds load
 models before applying the same frame renaming, independent of XML order.
 Same-kind raw duplicates reject, and reference strings are not rewritten.
-Modern shared names reject. Flattened names remain Unsupported; 1.4 and older
+Modern shared names reject. Flattened names remain Unsupported; 1.3 and older
 conversions remain unavailable. Full schema/version-aware
 validation, serialization, visual material data/rendering effects, mesh resource loading, world merge and legacy merge collisions, automatic inertia, URDF, other sensor families and most other
 SDF features remain pending. Unknown schema features error; opaque plugin XML is the stated exception.
@@ -298,7 +298,7 @@ The changed 1.5-to-1.6 actions remain explicit boundaries: physics-contained wor
 gravity/magnetic-field moves and legacy IMU noise redistribution are Unsupported,
 as are unimplemented schema fields at newer versions. No full 1.5 conversion or
 serialization claim is made. Empty 1.5 roots now report Missing after version
-acceptance; 1.4 roots remain Version errors.
+acceptance; 1.3 roots remain Version errors.
 
 Inertial.fluid_added_mass is optional boxed symmetric 6x6 data in native
 [x,y,z,p,q,r] order about the link origin, independently of the inertial pose.
@@ -357,3 +357,8 @@ retains native first-tag fallback when no supported version improves on 0.0; it
 does not guarantee that the chosen file can be parsed. Filesystem lookup, path
 policy, deprecated manifest fallback and actual resource loading remain caller
 responsibilities. See MODEL_CONFIG.md for numeric/XML and safe-error boundaries.
+
+The common loader subset accepts SDF 1.4 with the native direct-root/world joint
+axis default insertion scope. Nested models retain their existing default, and
+included documents use their own source version/scope. Actors, earlier versions
+and Element/serializer/conversion facades remain unsupported; see VERSION_14.md.

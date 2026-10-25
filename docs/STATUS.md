@@ -742,3 +742,27 @@ merge fd6d597, preserving all prior merge code/proof. Author integrated replay p
 4737/4842 regions and 117/117 changed executable lines. Mapping totals are 33
 complete and eight partial; no new full case is retired. Final integration receipt
 and strict staged/hosted gates remain required.
+
+An isolated SDF 1.4 common-subset candidate applies the native direct-root/world
+axis default insertion, preserving nested and per-resource version scope. Actor
+renaming, earlier source versions and Element/serializer/conversion interfaces
+remain unsupported. The former simple 1.4 negative input is retained as an exact
+positive regression; a 1.3 floor check remains.
+
+All 115 isolated Rust checks, 61 native observations and both exact native
+missing-flag originals pass. Two filename-independent typed/axis portions are
+recorded as partial mappings; converted Element assertions remain pending.
+Original 2014 notices are retained. Working coverage passes 2589/2606 lines,
+4569/4673 regions and 24/24 changed executable lines; fmt, Clippy and 11 tooling
+checks pass. No dependency or unsafe changes. This candidate is on merge commit
+fd6d597 and must integrate with published config commit 80b6c74 without losing
+that API/proof. Independent review and strict staged/hosted checks remain required.
+
+Independent /root/transport_recovery approved the isolated 1.4 source/assertion
+scope, all 115 Rust checks and fresh 61 native observations/two exact originals,
+with complete proof equality. Both mappings remain partial. The unchanged delta
+is now integrated onto public config 80b6c74; config source/API/Cargo and proof
+remain intact. Author integrated replay passes 119 Rust checks, 2717/2734 lines,
+4772/4876 regions and 24/24 changed executable lines; fresh native proof exactly
+matches the independently verified isolated proof. Final overlap/receipt and
+normal strict staged/hosted gates remain required.

@@ -35,7 +35,7 @@ impl ResourceResolver for NoResources {
     }
 }
 
-/// Parse the supported SDF 1.5–1.12 subset and validate its frame graphs.
+/// Parse the supported SDF 1.4–1.12 subset and validate its frame graphs.
 /// Call [`Sdf::validate_non_frame_poses`] before constructing runtime objects.
 pub fn load_str(
     xml: &str,

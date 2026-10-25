@@ -92,9 +92,9 @@ impl Parser<'_> {
         }
         if !matches!(
             root.attribute("version"),
-            Some("1.5" | "1.6" | "1.7" | "1.8" | "1.9" | "1.10" | "1.11" | "1.12")
+            Some("1.4" | "1.5" | "1.6" | "1.7" | "1.8" | "1.9" | "1.10" | "1.11" | "1.12")
         ) {
-            return Err(self.err(root, ErrorCode::Version, "supported versions are SDF 1.5 through 1.12; earlier conversion is not implemented"));
+            return Err(self.err(root, ErrorCode::Version, "supported versions are SDF 1.4 through 1.12; earlier conversion is not implemented"));
         }
         Ok(())
     }
@@ -175,7 +175,7 @@ impl Parser<'_> {
         if name.contains("::")
             && matches!(
                 node.document().root_element().attribute("version"),
-                Some("1.5" | "1.6" | "1.7")
+                Some("1.4" | "1.5" | "1.6" | "1.7")
             )
         {
             return Err(self.err(
@@ -506,7 +506,7 @@ impl Parser<'_> {
                     links.push(link);
                 }
                 "joint" => {
-                    let mut joint = self.joint(member)?;
+                    let mut joint = self.joint(member, converted_14_model(node))?;
                     if is_pre17(node) {
                         joint.name = self.legacy_name(
                             member,
@@ -1432,7 +1432,7 @@ impl Parser<'_> {
             source: self.source(node),
         })
     }
-    fn joint(&self, node: Node<'_, '_>) -> Result<Joint, Diagnostic> {
+    fn joint(&self, node: Node<'_, '_>, model_frame_default: bool) -> Result<Joint, Diagnostic> {
         self.allowed(
             node,
             &["parent", "child", "pose", "axis", "axis2"],
@@ -1447,8 +1447,12 @@ impl Parser<'_> {
             "revolute2" => JointKind::Revolute2,
             _ => return Err(self.err(node, ErrorCode::Unsupported, "unsupported joint type")),
         };
-        let axis = child(node, "axis").map(|n| self.axis(n)).transpose()?;
-        let axis2 = child(node, "axis2").map(|n| self.axis(n)).transpose()?;
+        let axis = child(node, "axis")
+            .map(|n| self.axis(n, model_frame_default))
+            .transpose()?;
+        let axis2 = child(node, "axis2")
+            .map(|n| self.axis(n, model_frame_default))
+            .transpose()?;
         let child = self.text(node, "child")?;
         if child == "world" {
             return Err(self.err(node, ErrorCode::InvalidValue, "joint child cannot be world"));
@@ -1464,7 +1468,7 @@ impl Parser<'_> {
             source: self.source(node),
         })
     }
-    fn axis(&self, axis: Node<'_, '_>) -> Result<Axis, Diagnostic> {
+    fn axis(&self, axis: Node<'_, '_>, model_frame_default: bool) -> Result<Axis, Diagnostic> {
         self.allowed(
             axis,
             if is_pre17(axis) {
@@ -1477,7 +1481,7 @@ impl Parser<'_> {
         // Upstream's conversion table recognizes exactly these four spellings;
         // every other value is removed without being interpreted as a boolean.
         let parent_model = is_pre17(axis)
-            && child(axis, "use_parent_model_frame").is_some_and(|n| {
+            && child(axis, "use_parent_model_frame").map_or(model_frame_default, |n| {
                 let text = n.text().unwrap_or("");
                 // TinyXML's ordinary whitespace collapse does not apply to CDATA.
                 let text = if n.text_is_cdata() {
@@ -1706,10 +1710,24 @@ fn elements<'a, 'b>(node: Node<'a, 'b>) -> impl Iterator<Item = Node<'a, 'b>> {
 fn child<'a, 'b>(node: Node<'a, 'b>, tag: &str) -> Option<Node<'a, 'b>> {
     elements(node).find(|n| n.has_tag_name(tag))
 }
+// The 1.4 -> 1.5 table adds this default only to direct root/world model
+// joints, not nested models. Imported documents use their own XML root scope.
+fn converted_14_model(model: Node<'_, '_>) -> bool {
+    let root = model.document().root_element();
+    root.attribute("version") == Some("1.4")
+        && elements(root).any(|node| {
+            if node.has_tag_name("world") {
+                elements(node)
+                    .any(|child| child.has_tag_name("model") && child.range() == model.range())
+            } else {
+                node.has_tag_name("model") && node.range() == model.range()
+            }
+        })
+}
 fn is_pre17(node: Node<'_, '_>) -> bool {
     matches!(
         node.document().root_element().attribute("version"),
-        Some("1.5" | "1.6")
+        Some("1.4" | "1.5" | "1.6")
     )
 }
 fn pose_attributes(node: Node<'_, '_>) -> &'static [&'static str] {

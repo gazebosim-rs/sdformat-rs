@@ -489,6 +489,30 @@
       "baseline": "Two exact native model-version originals passed; artifacts/config/original.xml.",
       "status": "partial_reviewed",
       "review": "Independent /root/msgs; 2026-10-25; compared both original filename-selection portions and immutable fixtures. Approved partial mapping only: filesystem directory lookup, manifest fallback and final path equality remain pending. Fresh native two-case run passed; corrected config replay passed. No complete retirement."
+    },
+    {
+      "target": "INTEGRATION_joint_axis_frame",
+      "case": "JointAxisFrame.Version_1_4_missing",
+      "source": "test/integration/joint_axis_frame.cc:49",
+      "rust_test": "tests/version14_originals.rs::version_1_4_missing_typed_load_and_effective_axis",
+      "assertions": "Partial only: Typed parse/validated DOM load success, axis presence and effective expressed_in=__model__ string. Intermediate Element xyz/attribute presence and removal of use_parent_model_frame are not provided by this API and remain pending. No complete retirement.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Both exact native missing-flag cases passed; artifacts/version14/original.xml.",
+      "status": "partial_reviewed",
+      "review": "Independent /root/transport_recovery; 2026-10-25; compared exact native originals and direct/root/world/resource scope. Approved partial mappings only: 1.4 typed load/axis presence/effective __model__ and 1.5 typed load; converted Element assertions remain pending. Fresh 115 Rust checks, 61 native observations and both original cases passed with complete proof equality. No full retirement."
+    },
+    {
+      "target": "INTEGRATION_joint_axis_frame",
+      "case": "JointAxisFrame.Version_1_5_missing",
+      "source": "test/integration/joint_axis_frame.cc:143",
+      "rust_test": "tests/version14_originals.rs::version_1_5_missing_typed_load",
+      "assertions": "Partial only: Typed parse/validated DOM load success. Intermediate Element use_parent_model_frame absence remains pending. No complete retirement.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Both exact native missing-flag cases passed; artifacts/version14/original.xml.",
+      "status": "partial_reviewed",
+      "review": "Independent /root/transport_recovery; 2026-10-25; compared exact native originals and direct/root/world/resource scope. Approved partial mappings only: 1.4 typed load/axis presence/effective __model__ and 1.5 typed load; converted Element assertions remain pending. Fresh 115 Rust checks, 61 native observations and both original cases passed with complete proof equality. No full retirement."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

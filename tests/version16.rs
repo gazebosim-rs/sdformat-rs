@@ -42,9 +42,18 @@ fn older_conversions_and_flattened_names_remain_explicit_boundaries() {
     .unwrap();
     assert_eq!(sdf.version, "1.5");
     assert_eq!(sdf.models[0].links[0].name, "l");
+    // Retain the former unsupported input as a native-positive regression.
+    let former = load_str(
+        "<sdf version='1.4'><model name='m'><link name='l'/></model></sdf>",
+        "version-boundary",
+        &NoResources,
+    )
+    .unwrap();
+    assert_eq!(former.version, "1.4");
+    assert_eq!(former.models[0].links[0].name, "l");
     assert_eq!(
         load_str(
-            "<sdf version='1.4'><model name='m'><link name='l'/></model></sdf>",
+            "<sdf version='1.3'><model name='m'><link name='l'/></model></sdf>",
             "version-boundary",
             &NoResources
         )

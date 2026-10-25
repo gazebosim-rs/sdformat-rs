@@ -56831,5 +56831,86 @@
     "red_controls": "Separate private pre-fix xml.rs countercontrol independently reproduces both corrupt-plugin and UTF-8 boundary panic failures; reviewed implementation passes.",
     "semantics": "Reviewed initial BOM origin adjustment to start/end/error offsets, all five raw-span owners/imported resources and existing full-source Unicode/LF coordinate oracle. Input/document grammar unchanged.",
     "qualification": "Three repeated/intermediate BOM document grammar gaps and native diagnostic-column/normalized serialization limits retained. No old assertions/mappings, dependency, unsafe, runtime or performance cache changes. Author tools/coverage inspected, not independently instrumented. Mandatory final staged/hosted gates remain required."
+  },
+  "source_position_cache": {
+    "baseline": "0fb9a1402639c5bbddf3610a3423b13d9e83a8ff",
+    "algorithm": "Private lazy lexical-prefix TextPos cache reuses existing xmlparser on disjoint source fragments; full-source XML error fallback retained. No callbacks or recursive position lookup while RefCell borrowed; returned owned Sdf remains Send+Sync.",
+    "quality": {
+      "rust_checks": 179,
+      "tools": 13,
+      "coverage": {
+        "lines": {
+          "count": 3297,
+          "covered": 3281
+        },
+        "regions": {
+          "count": 5844,
+          "covered": 5732
+        }
+      },
+      "changed_lines": {
+        "count": 24,
+        "covered": 24
+      }
+    },
+    "native_replays": {
+      "utf8_bom_corpus": {
+        "rows": 87,
+        "proof_sha256": "d4dfed6b3e08d48a0bb2257b44f133177fc471869887f5770e839fc72c9eae97",
+        "state": "Fresh full proof equals unchanged published section, including original executions and shared provenance hashes."
+      },
+      "force_torque_corpus": {
+        "rows": 96,
+        "proof_sha256": "a2f60e363263d72cef19fcc12a0b56973b80d45837a13de2fdec5599ecab8dc1",
+        "state": "Fresh full proof equals unchanged published section, including original executions and shared provenance hashes."
+      },
+      "model_frame_alias_corpus": {
+        "rows": 150,
+        "proof_sha256": "fa1f7af7a30d4baafcf0c062a96282a1da747302be4fe09ce44bb8f469aaf689",
+        "state": "Fresh full proof equals unchanged published section, including original executions and shared provenance hashes."
+      },
+      "noise_type_corpus": {
+        "rows": 126,
+        "proof_sha256": "ae6a48a285b9a0b90348ae0b14ee07c2aca5e9c5222a9aff3816c2ca9242248d",
+        "state": "Fresh full proof equals unchanged published section, including original executions and shared provenance hashes."
+      },
+      "corpus": {
+        "rows": 201,
+        "proof_sha256": "bbd8d4ee50ef131508ef07eeb76637cea47649a36684fc2ae93cc1e17df2e3f3",
+        "state": "Fresh native Python proof equals unchanged 201-row published corpus."
+      }
+    },
+    "native_observations": 660,
+    "original_executions": 12,
+    "unique_original_cases": 9,
+    "generated_regressions": "Existing 96 raw Unicode/EOL/opaque layouts plus 64 generated nested layouts and 128 config-warning positions compare to full-source oracle. No full fuzzing acceptance.",
+    "benchmark": {
+      "report": "reference/source_position_benchmark.json",
+      "report_sha256": "c0f9d8b87dfdb4feba3cf7d65baec4253a3c037fc62e1aaa24013e87fe65d2fe",
+      "earlier_eager_report": "reference/source_position_eager_benchmark.json",
+      "earlier_eager_report_sha256": "cd5e3d9811b6bd295051a081363e2af5708e4cf687ec005779473389ca3fa6a9",
+      "scope": "Author fresh isolated targets on CPU 0; identical release harness/compiler/registry versions. Complete Sdf debug bytes equal outside timing; per-load semantic assertions timed. Seven alternating pairs after discarded warmup. Baseline production hashes equal public 0fb; candidate hashes equal measured code.",
+      "large_workload": "1000 links/chained frames: baseline median 68.815 ms, candidate 9.835 ms, ratio 6.997 on the retained shared-host samples.",
+      "opaque_countercase": "Opaque-tail median is 0.9% slower, with overlapping observed ranges; the earlier eager prototype regression is retained. No universal or P2/native-full-loader performance conclusion."
+    },
+    "profiling": {
+      "sampled_revision": "18e6fec0ef35afdea7cd520a16b126ac4318ce4b",
+      "interrupt_samples": 5,
+      "full_prefix_position_stacks": 4,
+      "qualification": "Exploratory task-owned GDB sampling; no statistical CPU-fraction or kernel-setting claim."
+    },
+    "limits": "Existing schema/numeric/static/grammar gaps, raw/source/error assertions and all original mappings unchanged. No dependency, unsafe, runtime or full-packet acceptance. Independent source/benchmark review and normal staged/hosted qualification pending."
+  },
+  "source_position_cache_review": {
+    "reviewer": "/root/transport_fallback",
+    "source_protected_digest": "3faf5ffd007c57eb9e481e294fe640f21dcb6b1c33e36b91fd2892dfced7c428",
+    "independent_rust_checks": 179,
+    "independent_focused_checks": 5,
+    "native_observations": 660,
+    "original_executions": 12,
+    "proof": "All five freshly replayed native JSON proofs equal author byte-for-byte; zero original failures/skips. Private raw source/target reproduces all frozen hashes/digests; formatting/Clippy pass.",
+    "source": "Reviewed lexical prefix/byte-boundary invariant, exact maintained coordinate routine, full-source error fallback, private per-document cache ownership/borrowing and public Sdf Send+Sync/source fidelity. No source finding.",
+    "benchmark": "Independent fresh targets and seven alternating CPU-0 pairs preserve all input/full semantic-state/harness/source hashes. 1000 links: baseline median 51.053 ms, candidate 9.778 ms (5.22 ratio); opaque tail 4.118 ms versus 4.161 ms (about 1% slower, overlapping ranges). Different author absolute times/ratio remain explicit shared-host variation.",
+    "qualification": "Qualified retained Rust loader inputs only; no native full-loader, P2, SDF-02 or whole-engine performance acceptance. Author tooling/coverage inspected, not independently instrumented. Final main metadata binding and mandatory staged/hosted gates remain required."
   }
 }

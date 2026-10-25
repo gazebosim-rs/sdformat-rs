@@ -125,7 +125,7 @@ pub fn select_model_config(xml: &str, source: &str) -> Result<ModelConfigSelecti
 }
 
 fn location(node: Node<'_, '_>, uri: &str) -> Source {
-    let pos = node.document().text_pos_at(node.range().start);
+    let pos = node.position();
     Source {
         uri: uri.into(),
         line: pos.row,

@@ -120,3 +120,69 @@ fn imported_sources_keep_resource_local_positions_and_raw_configuration() {
     check(&sensor.source, &xml, "<sensor name='ft'");
     assert_eq!(sensor.configuration_xml, raw);
 }
+
+#[test]
+fn generated_nested_source_layouts_match_full_source_oracle_and_owned_thread_contract() {
+    fn require_send_sync<T: Send + Sync>() {}
+    require_send_sync::<sdformat::Sdf>();
+    fn model(seed: usize, depth: usize, separator: &str) -> String {
+        let name = format!("m{seed}_{depth}😀");
+        let link = format!("l{seed}_{depth}α");
+        let frame = format!("f{seed}_{depth}λ");
+        let nested = if depth == 0 {
+            String::new()
+        } else {
+            model(seed, depth - 1, separator)
+        };
+        format!(
+            "<model name='{name}'>{separator}<link name='{link}'/>{separator}{nested}{separator}<frame name='{frame}' attached_to='{link}'/>{separator}<plugin name='p' filename='f'><v:opaque><x>😀\r\nα</x></v:opaque></plugin></model>"
+        )
+    }
+    fn sources(document: &sdformat::Sdf, model: &sdformat::Model, xml: &str) {
+        check(&model.source, xml, &format!("<model name='{}'", model.name));
+        for link in &model.links {
+            check(&link.source, xml, &format!("<link name='{}'", link.name));
+        }
+        for frame in &model.frames {
+            check(&frame.source, xml, &format!("<frame name='{}'", frame.name));
+        }
+        for child in &model.models {
+            sources(document, child, xml);
+        }
+        assert!(document.pose_of(&model.scoped_name, "::").is_ok());
+    }
+    for seed in 0..64 {
+        let separator = ["", "\n", "\r\n", "\n\r", "\r", "<!--😀α-->"][seed % 6];
+        let prefix = if seed % 2 == 0 {
+            "\u{feff}"
+        } else {
+            "<?xml version='1.0'?>\n"
+        };
+        let xml = format!(
+            "{prefix}<sdf version='1.12'>{}</sdf>",
+            model(seed, seed % 8, separator)
+        );
+        let loaded = load_str(&xml, "positions://α😀", &NoResources).unwrap();
+        sources(&loaded, &loaded.models[0], &xml);
+    }
+}
+#[test]
+fn configuration_warning_positions_match_full_source_oracle_for_many_entries() {
+    let mut xml = String::from("\u{feff}<model><name>α😀</name>");
+    let mut offsets = Vec::new();
+    for i in 0..128 {
+        xml.push_str(if i % 2 == 0 { "\r\n<!--α-->" } else { " " });
+        offsets.push(xml.len());
+        xml.push_str(&format!("<sdf version='99.{i}'>m{i}.sdf</sdf>"));
+    }
+    xml.push_str("</model>");
+    let selected = sdformat::select_model_config(&xml, "config").unwrap();
+    assert_eq!(selected.warnings.len(), 128);
+    for (warning, offset) in selected.warnings.iter().zip(offsets) {
+        let expected = Stream::from(xml.as_str()).gen_text_pos_from(offset);
+        assert_eq!(
+            (warning.source.line, warning.source.column),
+            (expected.row, expected.col)
+        );
+    }
+}

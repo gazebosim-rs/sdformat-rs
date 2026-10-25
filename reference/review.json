@@ -2,25 +2,42 @@
   "decision": "approved",
   "author": "/root/sdformat",
   "reviewer": "/root/transport_fallback",
-  "reviewed_at": "2026-10-25T15:05:21.345003+00:00",
-  "base": "d1a4dc4e1d22a521487a02e9c2c20cca9d78a623",
-  "protected_digest": "31dc4c2d78b3d7d348771ce23279652e5f78251c66a46f8bb8bb0eb9139bcee9",
-  "source_digest": "337f64eb045866bd688d76cc38c10f6e6f8997149b799e465cb943e1063db932",
-  "frozen_manifest": "artifacts/utf8-bom-integration/frozen-final.json",
-  "frozen_manifest_sha256": "30223e494961edd828bc3c4e61195fdbe8137c850047539b5b38e2267e4419b8",
-  "source_review_receipt_sha256": "50f3168f564fcce663bdeccabad5962aea633c287ac2a73317d404cc40d28645",
-  "scope": "Final main-tree metadata and parent-overlap binding for the independently approved ten-file UTF-8 BOM correction. All executable XML, test, fixture, native-probe, tool and contract bytes exactly match the approved isolated source. Only scoped review prose and additive results.utf8_bom_review changed; no unrelated parent file changed.",
-  "evidence": {
-    "frozen_ten_hashes": "10/10 independently verified",
-    "preserved_parent_hashes": "204/204 independently verified",
-    "source_and_protected_digests": "Both independently recomputed from the exact main tree and equal the final manifest.",
-    "native_reference_sha256": "d4dfed6b3e08d48a0bb2257b44f133177fc471869887f5770e839fc72c9eae97",
-    "quality": "Fresh main author gate: 177 Rust,13 tooling,fmt/Clippy/doc;3259/3275 lines,5694/5806 regions,6/6 changed executable; exact source digest matches final manifest."
+  "base": "0fb9a1402639c5bbddf3610a3423b13d9e83a8ff",
+  "protected_digest": "e1138ed21103c96acd019bf140486690f6badb91bcbf89b37d4906ba46e5a57a",
+  "source_digest": "e27b54b5b402fcc769e0543aeac1d52fe02d60da1d02193c5be4556a17eb63bc",
+  "files": {
+    "src/xml.rs": "2136fb30ec4faaae02379156d63393c3b8b9a70c1f9088002acaba5f5d5c6819",
+    "src/parse.rs": "2d82b3b48afeb8e14e2da8f37a4dbba02f8d7e4e55939882de4224ae942383b4",
+    "src/model_config.rs": "c6de6ae7682164594f5cad47c82f8901e5350c431787be4cf76664b14ea70cc5",
+    "tests/source_positions.rs": "8e1bb05bfa580d6541159bd472e0d7f152ef0db06c57b5bfc91f92e39c505ded",
+    "tests/support/loader_benchmark.rs": "6cf634523b03180f1e00d8def8656512da6fb7ac25f38a97e8cf0cd6cf914696",
+    "tools/benchmark_source_positions.py": "c1842bb445ad5aac4b397b405a3835c0040e53b4053d8bab728a9fa32dac4472",
+    "docs/SOURCE_POSITIONS.md": "9b4d82279834f6fa06df7d670663214eee6efd9d487fd5a89d095f889fe74a77",
+    "docs/STATUS.md": "7e01dd64df10ac4ccd306cd88f0b9e41e2df245ebf6cfa6f4ab41dae9f8fe8f3",
+    "reference/results.json": "9bfc42db22c8ddf60b1bfaf8237c9cec97d9b6923f411d3cf0df106bd46f413a",
+    "reference/source_position_benchmark.json": "c0f9d8b87dfdb4feba3cf7d65baec4253a3c037fc62e1aaa24013e87fe65d2fe",
+    "reference/source_position_eager_benchmark.json": "cd5e3d9811b6bd295051a081363e2af5708e4cf687ec005779473389ca3fa6a9"
   },
-  "findings": [],
-  "limits": [
-    "Three native-accepted repeated/intermediate BOM grammar gaps remain explicit.",
-    "Native diagnostic column/normalized-serialization parity and performance cache are outside this correction.",
-    "Normal exact protected staged hook, publication and hosted CI remain pending."
-  ]
+  "frozen_manifest_sha256": "5cc22bcfa34034fa41cc89ced5b2e7c7b625cb736a60e1b678d1dc444c4c89a5",
+  "reviewed_source_protected_digest": "3faf5ffd007c57eb9e481e294fe640f21dcb6b1c33e36b91fd2892dfced7c428",
+  "reviewed_source_receipt_sha256": "d7326d54ed5b8fdad4dda62c37d8353332dcff8bd2cd7ddf6eedc7145eaba2a0",
+  "unchanged_reviewed_inputs": [
+    "src/xml.rs",
+    "src/parse.rs",
+    "src/model_config.rs",
+    "tests/source_positions.rs",
+    "tests/support/loader_benchmark.rs",
+    "tools/benchmark_source_positions.py",
+    "reference/source_position_benchmark.json",
+    "reference/source_position_eager_benchmark.json"
+  ],
+  "metadata_delta": [
+    "docs/SOURCE_POSITIONS.md",
+    "docs/STATUS.md",
+    "reference/results.json"
+  ],
+  "preserved_parent_files": 208,
+  "results_review_additive_only": true,
+  "qualification": "Source-position cache independent code, fidelity and bounded Rust loader benchmark approved. Author main full strict 179 Rust/13 tools,3281/3297 lines,5732/5844 regions,24/24 changed retains exact source digest. Final protected metadata matches and source/test/probe/harness/benchmark inputs are byte-identical to source-approved packet. Normal exact staged hook, public push and exact hosted CI remain mandatory; no P2, SDF-02, native full-loader or whole-engine speedup claim.",
+  "findings": []
 }

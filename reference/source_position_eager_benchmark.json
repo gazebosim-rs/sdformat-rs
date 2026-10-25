@@ -1,0 +1,686 @@
+{
+  "cpu": 31,
+  "compiler": "rustc 1.94.1 (e408947bf 2026-03-25)\nbinary: rustc\ncommit-hash: e408947bfd200af42db322daf0fadfe7e26d3bd1\ncommit-date: 2026-03-25\nhost: x86_64-unknown-linux-gnu\nrelease: 1.94.1\nLLVM version: 21.1.8\n",
+  "projects": {
+    "baseline": {
+      "binary_sha256": "ed033ffce4cdfa08edb1e31d1b35b1f6c5dc599a7fa06abb17683ad3ae3fd0d7",
+      "harness_sha256": "b09ce0051eabbfab39d864f07c9751c41c171e08db83298cb286cd5066ca8835",
+      "manifest_sha256": "72dc768cc04d2bb33ba514f69e7ccc795a95fb4dceb63e2e26245f2f1aaa900a",
+      "lock_sha256": "f659577e3c0b4798e4b38a518798622b158eb54909d42d986bdcc3280f931a2e",
+      "production_sha256": {
+        "src/graph.rs": "6aaeaa1c0e07a337f1cb1f3c20ffd3f89b70cc3292467b33e9aad40436fae91b",
+        "src/lib.rs": "b728ed455816667ddcd95c8655700fcfc9989550fca901f50c86ff76a487f0a3",
+        "src/model_config.rs": "a701b0a7881caca75c5f272edfc6b91b519719f831861578a7fcf0b473489a8c",
+        "src/number.rs": "dd277f2034cc43ce7a4cd6085ce5357244392c26c2a459d3adbc0cc58f1216a5",
+        "src/parse.rs": "0e1e18d5af9f405e1fe27adae6e17a13396ba9cb2559f78d59d3190ae4df451b",
+        "src/types.rs": "036b4120f61cb9c1555e085046f95efa90d878bea0c9f9893a5de5a1f2d9c9f9",
+        "src/xml.rs": "dd1ab4fcdc519dd1d2b852b22e29f09b59c5e2c0e896168c905ec604300a66f1"
+      }
+    },
+    "cache": {
+      "binary_sha256": "6905444c283cce4ec33d2bf58ae59974dbeebd74f2b3971eb263e6ee6b40b8ca",
+      "harness_sha256": "b09ce0051eabbfab39d864f07c9751c41c171e08db83298cb286cd5066ca8835",
+      "manifest_sha256": "b2812a6b4b96ff98f6521683a7275ab236f4b463983b149a0c229725f8a39620",
+      "lock_sha256": "f659577e3c0b4798e4b38a518798622b158eb54909d42d986bdcc3280f931a2e",
+      "production_sha256": {
+        "src/graph.rs": "6aaeaa1c0e07a337f1cb1f3c20ffd3f89b70cc3292467b33e9aad40436fae91b",
+        "src/lib.rs": "b728ed455816667ddcd95c8655700fcfc9989550fca901f50c86ff76a487f0a3",
+        "src/model_config.rs": "c6de6ae7682164594f5cad47c82f8901e5350c431787be4cf76664b14ea70cc5",
+        "src/number.rs": "dd277f2034cc43ce7a4cd6085ce5357244392c26c2a459d3adbc0cc58f1216a5",
+        "src/parse.rs": "2d82b3b48afeb8e14e2da8f37a4dbba02f8d7e4e55939882de4224ae942383b4",
+        "src/types.rs": "036b4120f61cb9c1555e085046f95efa90d878bea0c9f9893a5de5a1f2d9c9f9",
+        "src/xml.rs": "aa600684b1551f05528513172d74c115517223987077a5b3977db517f0ae0ee3"
+      }
+    }
+  },
+  "inputs_sha256": {
+    "model-10.sdf": "f91b538646cb71e064f5e317d787e64f632e24ba252b57cf406ad700ec0e5867",
+    "model-100.sdf": "aec616a3a31d7d593ca218ddd2a9a75bcb00264595258c66df3edd65b2cfa74e",
+    "model-1000.sdf": "077ac742ebaec63b6f848a343ad923b2cb3bd2be36d4719630afac3add73fd73",
+    "model-10-opaque-tail.sdf": "4eb4b277c1ed4aa3b3d1ce18a83dddaf66db4e3d425a2b3bee8b2746d1b373e1"
+  },
+  "runner_sha256": "40453dadcf0c8a1c79e20cd303d800ba19c4669a91f915f34a86c55620e803b8",
+  "samples": [
+    {
+      "case": "model-10.sdf",
+      "index": 0,
+      "warmup_pair": true,
+      "measurements": {
+        "baseline": {
+          "nanoseconds": 8637760,
+          "iterations": 100,
+          "checksum": 9.99999999999998,
+          "fingerprint": 4444297370063749434
+        },
+        "cache": {
+          "nanoseconds": 8138555,
+          "iterations": 100,
+          "checksum": 9.99999999999998,
+          "fingerprint": 4444297370063749434
+        }
+      }
+    },
+    {
+      "case": "model-10.sdf",
+      "index": 1,
+      "warmup_pair": false,
+      "measurements": {
+        "cache": {
+          "nanoseconds": 8177378,
+          "iterations": 100,
+          "checksum": 9.99999999999998,
+          "fingerprint": 4444297370063749434
+        },
+        "baseline": {
+          "nanoseconds": 8683585,
+          "iterations": 100,
+          "checksum": 9.99999999999998,
+          "fingerprint": 4444297370063749434
+        }
+      }
+    },
+    {
+      "case": "model-10.sdf",
+      "index": 2,
+      "warmup_pair": false,
+      "measurements": {
+        "baseline": {
+          "nanoseconds": 8612623,
+          "iterations": 100,
+          "checksum": 9.99999999999998,
+          "fingerprint": 4444297370063749434
+        },
+        "cache": {
+          "nanoseconds": 8120320,
+          "iterations": 100,
+          "checksum": 9.99999999999998,
+          "fingerprint": 4444297370063749434
+        }
+      }
+    },
+    {
+      "case": "model-10.sdf",
+      "index": 3,
+      "warmup_pair": false,
+      "measurements": {
+        "cache": {
+          "nanoseconds": 8328130,
+          "iterations": 100,
+          "checksum": 9.99999999999998,
+          "fingerprint": 4444297370063749434
+        },
+        "baseline": {
+          "nanoseconds": 8588457,
+          "iterations": 100,
+          "checksum": 9.99999999999998,
+          "fingerprint": 4444297370063749434
+        }
+      }
+    },
+    {
+      "case": "model-10.sdf",
+      "index": 4,
+      "warmup_pair": false,
+      "measurements": {
+        "baseline": {
+          "nanoseconds": 8626088,
+          "iterations": 100,
+          "checksum": 9.99999999999998,
+          "fingerprint": 4444297370063749434
+        },
+        "cache": {
+          "nanoseconds": 8155938,
+          "iterations": 100,
+          "checksum": 9.99999999999998,
+          "fingerprint": 4444297370063749434
+        }
+      }
+    },
+    {
+      "case": "model-10.sdf",
+      "index": 5,
+      "warmup_pair": false,
+      "measurements": {
+        "cache": {
+          "nanoseconds": 8169252,
+          "iterations": 100,
+          "checksum": 9.99999999999998,
+          "fingerprint": 4444297370063749434
+        },
+        "baseline": {
+          "nanoseconds": 8614146,
+          "iterations": 100,
+          "checksum": 9.99999999999998,
+          "fingerprint": 4444297370063749434
+        }
+      }
+    },
+    {
+      "case": "model-10.sdf",
+      "index": 6,
+      "warmup_pair": false,
+      "measurements": {
+        "baseline": {
+          "nanoseconds": 8618283,
+          "iterations": 100,
+          "checksum": 9.99999999999998,
+          "fingerprint": 4444297370063749434
+        },
+        "cache": {
+          "nanoseconds": 8136911,
+          "iterations": 100,
+          "checksum": 9.99999999999998,
+          "fingerprint": 4444297370063749434
+        }
+      }
+    },
+    {
+      "case": "model-10.sdf",
+      "index": 7,
+      "warmup_pair": false,
+      "measurements": {
+        "cache": {
+          "nanoseconds": 8173500,
+          "iterations": 100,
+          "checksum": 9.99999999999998,
+          "fingerprint": 4444297370063749434
+        },
+        "baseline": {
+          "nanoseconds": 10551023,
+          "iterations": 100,
+          "checksum": 9.99999999999998,
+          "fingerprint": 4444297370063749434
+        }
+      }
+    },
+    {
+      "case": "model-100.sdf",
+      "index": 0,
+      "warmup_pair": true,
+      "measurements": {
+        "baseline": {
+          "nanoseconds": 14099209,
+          "iterations": 10,
+          "checksum": 10.000000000000005,
+          "fingerprint": 12510422527114962663
+        },
+        "cache": {
+          "nanoseconds": 8402750,
+          "iterations": 10,
+          "checksum": 10.000000000000005,
+          "fingerprint": 12510422527114962663
+        }
+      }
+    },
+    {
+      "case": "model-100.sdf",
+      "index": 1,
+      "warmup_pair": false,
+      "measurements": {
+        "cache": {
+          "nanoseconds": 8305608,
+          "iterations": 10,
+          "checksum": 10.000000000000005,
+          "fingerprint": 12510422527114962663
+        },
+        "baseline": {
+          "nanoseconds": 14086005,
+          "iterations": 10,
+          "checksum": 10.000000000000005,
+          "fingerprint": 12510422527114962663
+        }
+      }
+    },
+    {
+      "case": "model-100.sdf",
+      "index": 2,
+      "warmup_pair": false,
+      "measurements": {
+        "baseline": {
+          "nanoseconds": 14137611,
+          "iterations": 10,
+          "checksum": 10.000000000000005,
+          "fingerprint": 12510422527114962663
+        },
+        "cache": {
+          "nanoseconds": 8309755,
+          "iterations": 10,
+          "checksum": 10.000000000000005,
+          "fingerprint": 12510422527114962663
+        }
+      }
+    },
+    {
+      "case": "model-100.sdf",
+      "index": 3,
+      "warmup_pair": false,
+      "measurements": {
+        "cache": {
+          "nanoseconds": 8346204,
+          "iterations": 10,
+          "checksum": 10.000000000000005,
+          "fingerprint": 12510422527114962663
+        },
+        "baseline": {
+          "nanoseconds": 14179871,
+          "iterations": 10,
+          "checksum": 10.000000000000005,
+          "fingerprint": 12510422527114962663
+        }
+      }
+    },
+    {
+      "case": "model-100.sdf",
+      "index": 4,
+      "warmup_pair": false,
+      "measurements": {
+        "baseline": {
+          "nanoseconds": 14109048,
+          "iterations": 10,
+          "checksum": 10.000000000000005,
+          "fingerprint": 12510422527114962663
+        },
+        "cache": {
+          "nanoseconds": 8362274,
+          "iterations": 10,
+          "checksum": 10.000000000000005,
+          "fingerprint": 12510422527114962663
+        }
+      }
+    },
+    {
+      "case": "model-100.sdf",
+      "index": 5,
+      "warmup_pair": false,
+      "measurements": {
+        "cache": {
+          "nanoseconds": 8357374,
+          "iterations": 10,
+          "checksum": 10.000000000000005,
+          "fingerprint": 12510422527114962663
+        },
+        "baseline": {
+          "nanoseconds": 14149553,
+          "iterations": 10,
+          "checksum": 10.000000000000005,
+          "fingerprint": 12510422527114962663
+        }
+      }
+    },
+    {
+      "case": "model-100.sdf",
+      "index": 6,
+      "warmup_pair": false,
+      "measurements": {
+        "baseline": {
+          "nanoseconds": 14151878,
+          "iterations": 10,
+          "checksum": 10.000000000000005,
+          "fingerprint": 12510422527114962663
+        },
+        "cache": {
+          "nanoseconds": 8336004,
+          "iterations": 10,
+          "checksum": 10.000000000000005,
+          "fingerprint": 12510422527114962663
+        }
+      }
+    },
+    {
+      "case": "model-100.sdf",
+      "index": 7,
+      "warmup_pair": false,
+      "measurements": {
+        "cache": {
+          "nanoseconds": 8371722,
+          "iterations": 10,
+          "checksum": 10.000000000000005,
+          "fingerprint": 12510422527114962663
+        },
+        "baseline": {
+          "nanoseconds": 14136449,
+          "iterations": 10,
+          "checksum": 10.000000000000005,
+          "fingerprint": 12510422527114962663
+        }
+      }
+    },
+    {
+      "case": "model-1000.sdf",
+      "index": 0,
+      "warmup_pair": true,
+      "measurements": {
+        "baseline": {
+          "nanoseconds": 68694723,
+          "iterations": 1,
+          "checksum": 9.999999999999831,
+          "fingerprint": 16529000719488724387
+        },
+        "cache": {
+          "nanoseconds": 9439482,
+          "iterations": 1,
+          "checksum": 9.999999999999831,
+          "fingerprint": 16529000719488724387
+        }
+      }
+    },
+    {
+      "case": "model-1000.sdf",
+      "index": 1,
+      "warmup_pair": false,
+      "measurements": {
+        "cache": {
+          "nanoseconds": 9445733,
+          "iterations": 1,
+          "checksum": 9.999999999999831,
+          "fingerprint": 16529000719488724387
+        },
+        "baseline": {
+          "nanoseconds": 68716765,
+          "iterations": 1,
+          "checksum": 9.999999999999831,
+          "fingerprint": 16529000719488724387
+        }
+      }
+    },
+    {
+      "case": "model-1000.sdf",
+      "index": 2,
+      "warmup_pair": false,
+      "measurements": {
+        "baseline": {
+          "nanoseconds": 68646022,
+          "iterations": 1,
+          "checksum": 9.999999999999831,
+          "fingerprint": 16529000719488724387
+        },
+        "cache": {
+          "nanoseconds": 9446885,
+          "iterations": 1,
+          "checksum": 9.999999999999831,
+          "fingerprint": 16529000719488724387
+        }
+      }
+    },
+    {
+      "case": "model-1000.sdf",
+      "index": 3,
+      "warmup_pair": false,
+      "measurements": {
+        "cache": {
+          "nanoseconds": 9486009,
+          "iterations": 1,
+          "checksum": 9.999999999999831,
+          "fingerprint": 16529000719488724387
+        },
+        "baseline": {
+          "nanoseconds": 68789001,
+          "iterations": 1,
+          "checksum": 9.999999999999831,
+          "fingerprint": 16529000719488724387
+        }
+      }
+    },
+    {
+      "case": "model-1000.sdf",
+      "index": 4,
+      "warmup_pair": false,
+      "measurements": {
+        "baseline": {
+          "nanoseconds": 68699122,
+          "iterations": 1,
+          "checksum": 9.999999999999831,
+          "fingerprint": 16529000719488724387
+        },
+        "cache": {
+          "nanoseconds": 9445623,
+          "iterations": 1,
+          "checksum": 9.999999999999831,
+          "fingerprint": 16529000719488724387
+        }
+      }
+    },
+    {
+      "case": "model-1000.sdf",
+      "index": 5,
+      "warmup_pair": false,
+      "measurements": {
+        "cache": {
+          "nanoseconds": 9440784,
+          "iterations": 1,
+          "checksum": 9.999999999999831,
+          "fingerprint": 16529000719488724387
+        },
+        "baseline": {
+          "nanoseconds": 68689765,
+          "iterations": 1,
+          "checksum": 9.999999999999831,
+          "fingerprint": 16529000719488724387
+        }
+      }
+    },
+    {
+      "case": "model-1000.sdf",
+      "index": 6,
+      "warmup_pair": false,
+      "measurements": {
+        "baseline": {
+          "nanoseconds": 68674706,
+          "iterations": 1,
+          "checksum": 9.999999999999831,
+          "fingerprint": 16529000719488724387
+        },
+        "cache": {
+          "nanoseconds": 9446594,
+          "iterations": 1,
+          "checksum": 9.999999999999831,
+          "fingerprint": 16529000719488724387
+        }
+      }
+    },
+    {
+      "case": "model-1000.sdf",
+      "index": 7,
+      "warmup_pair": false,
+      "measurements": {
+        "cache": {
+          "nanoseconds": 9417681,
+          "iterations": 1,
+          "checksum": 9.999999999999831,
+          "fingerprint": 16529000719488724387
+        },
+        "baseline": {
+          "nanoseconds": 68655811,
+          "iterations": 1,
+          "checksum": 9.999999999999831,
+          "fingerprint": 16529000719488724387
+        }
+      }
+    },
+    {
+      "case": "model-10-opaque-tail.sdf",
+      "index": 0,
+      "warmup_pair": true,
+      "measurements": {
+        "baseline": {
+          "nanoseconds": 8220267,
+          "iterations": 2,
+          "checksum": 0.19999999999999998,
+          "fingerprint": 17552284071367164106
+        },
+        "cache": {
+          "nanoseconds": 9350143,
+          "iterations": 2,
+          "checksum": 0.19999999999999998,
+          "fingerprint": 17552284071367164106
+        }
+      }
+    },
+    {
+      "case": "model-10-opaque-tail.sdf",
+      "index": 1,
+      "warmup_pair": false,
+      "measurements": {
+        "cache": {
+          "nanoseconds": 9232353,
+          "iterations": 2,
+          "checksum": 0.19999999999999998,
+          "fingerprint": 17552284071367164106
+        },
+        "baseline": {
+          "nanoseconds": 8275741,
+          "iterations": 2,
+          "checksum": 0.19999999999999998,
+          "fingerprint": 17552284071367164106
+        }
+      }
+    },
+    {
+      "case": "model-10-opaque-tail.sdf",
+      "index": 2,
+      "warmup_pair": false,
+      "measurements": {
+        "baseline": {
+          "nanoseconds": 8234505,
+          "iterations": 2,
+          "checksum": 0.19999999999999998,
+          "fingerprint": 17552284071367164106
+        },
+        "cache": {
+          "nanoseconds": 9318485,
+          "iterations": 2,
+          "checksum": 0.19999999999999998,
+          "fingerprint": 17552284071367164106
+        }
+      }
+    },
+    {
+      "case": "model-10-opaque-tail.sdf",
+      "index": 3,
+      "warmup_pair": false,
+      "measurements": {
+        "cache": {
+          "nanoseconds": 9274853,
+          "iterations": 2,
+          "checksum": 0.19999999999999998,
+          "fingerprint": 17552284071367164106
+        },
+        "baseline": {
+          "nanoseconds": 8230457,
+          "iterations": 2,
+          "checksum": 0.19999999999999998,
+          "fingerprint": 17552284071367164106
+        }
+      }
+    },
+    {
+      "case": "model-10-opaque-tail.sdf",
+      "index": 4,
+      "warmup_pair": false,
+      "measurements": {
+        "baseline": {
+          "nanoseconds": 8247829,
+          "iterations": 2,
+          "checksum": 0.19999999999999998,
+          "fingerprint": 17552284071367164106
+        },
+        "cache": {
+          "nanoseconds": 9316090,
+          "iterations": 2,
+          "checksum": 0.19999999999999998,
+          "fingerprint": 17552284071367164106
+        }
+      }
+    },
+    {
+      "case": "model-10-opaque-tail.sdf",
+      "index": 5,
+      "warmup_pair": false,
+      "measurements": {
+        "cache": {
+          "nanoseconds": 9313806,
+          "iterations": 2,
+          "checksum": 0.19999999999999998,
+          "fingerprint": 17552284071367164106
+        },
+        "baseline": {
+          "nanoseconds": 8284057,
+          "iterations": 2,
+          "checksum": 0.19999999999999998,
+          "fingerprint": 17552284071367164106
+        }
+      }
+    },
+    {
+      "case": "model-10-opaque-tail.sdf",
+      "index": 6,
+      "warmup_pair": false,
+      "measurements": {
+        "baseline": {
+          "nanoseconds": 8237991,
+          "iterations": 2,
+          "checksum": 0.19999999999999998,
+          "fingerprint": 17552284071367164106
+        },
+        "cache": {
+          "nanoseconds": 9252331,
+          "iterations": 2,
+          "checksum": 0.19999999999999998,
+          "fingerprint": 17552284071367164106
+        }
+      }
+    },
+    {
+      "case": "model-10-opaque-tail.sdf",
+      "index": 7,
+      "warmup_pair": false,
+      "measurements": {
+        "cache": {
+          "nanoseconds": 9331659,
+          "iterations": 2,
+          "checksum": 0.19999999999999998,
+          "fingerprint": 17552284071367164106
+        },
+        "baseline": {
+          "nanoseconds": 8493910,
+          "iterations": 2,
+          "checksum": 0.19999999999999998,
+          "fingerprint": 17552284071367164106
+        }
+      }
+    }
+  ],
+  "medians": [
+    {
+      "case": "model-10.sdf",
+      "baseline_ns_per_load": 86182.83,
+      "cache_ns_per_load": 81692.52,
+      "baseline_over_cache_ratio": 1.0549659870940449
+    },
+    {
+      "case": "model-100.sdf",
+      "baseline_ns_per_load": 1413761.1,
+      "cache_ns_per_load": 834620.4,
+      "baseline_over_cache_ratio": 1.6938971297610268
+    },
+    {
+      "case": "model-1000.sdf",
+      "baseline_ns_per_load": 68689765.0,
+      "cache_ns_per_load": 9445733.0,
+      "baseline_over_cache_ratio": 7.272041778017651
+    },
+    {
+      "case": "model-10-opaque-tail.sdf",
+      "baseline_ns_per_load": 4123914.5,
+      "cache_ns_per_load": 4656903.0,
+      "baseline_over_cache_ratio": 0.8855487219725212
+    }
+  ],
+  "scope": "Identical release harness/compiler/dependencies and supported inputs; baseline reviewed BOM source versus position-cache prototype. Full Sdf debug fingerprints match outside timing on each warmup; every timed iteration verifies count/semantic pose/attachment and checksum. One validated warmup load per batch, first alternating pair discarded, seven measured pairs on one shared-host CPU.",
+  "qualifications": [
+    "Author-only prototype measurements; independent source/fidelity/benchmark review pending.",
+    "Not a P2, SDF-02, native full-loader or whole-engine acceptance/performance result.",
+    "BOM prerequisite is independently source-reviewed but publication pending at measurement time.",
+    "Private prototypes/temporary harnesses are not public reproducible benchmark artifacts yet."
+  ]
+}

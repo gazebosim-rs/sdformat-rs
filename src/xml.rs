@@ -5,7 +5,7 @@
 //! TinyXML's legacy extension behavior; source ranges always index original XML.
 use crate::ErrorCode;
 use quick_xml::{Reader, events::Event};
-use std::{borrow::Cow, fmt, ops::Range};
+use std::{borrow::Cow, cell::RefCell, fmt, ops::Range};
 use xmlparser::{Reference, Stream, TextPos};
 
 pub(crate) fn legacy_whitespace(c: char) -> bool {
@@ -48,6 +48,7 @@ impl Element {
 pub(crate) struct Document<'input> {
     xml: &'input str,
     elements: Vec<Element>,
+    positions: RefCell<Vec<TextPos>>,
 }
 #[derive(Debug)]
 pub(crate) struct XmlError {
@@ -76,6 +77,33 @@ impl Document<'_> {
     pub fn text_pos_at(&self, offset: usize) -> TextPos {
         Stream::from(self.xml).gen_text_pos_from(offset)
     }
+    fn element_position(&self, index: usize) -> TextPos {
+        let mut positions = self.positions.borrow_mut();
+        // Only the prefix requested by semantic loading is needed. Opaque
+        // trailing plugin children need no position table. No callbacks or
+        // nested position lookups occur while this private cache is borrowed.
+        while positions.len() <= index {
+            let next = positions.len();
+            let offset = self.elements[next].range.start;
+            let position = if let Some(previous) = positions.last() {
+                let start = self.elements[next - 1].range.start;
+                let fragment = &self.xml[start..offset];
+                let delta = Stream::from(fragment).gen_text_pos_from(fragment.len());
+                TextPos::new(
+                    previous.row + (delta.row - 1),
+                    if delta.row == 1 {
+                        previous.col + (delta.col - 1)
+                    } else {
+                        delta.col
+                    },
+                )
+            } else {
+                self.text_pos_at(offset)
+            };
+            positions.push(position);
+        }
+        positions[index]
+    }
     pub fn root_element(&self) -> Node<'_, '_> {
         Node {
             document: self,
@@ -88,6 +116,7 @@ impl<'input> Document<'input> {
         let mut document = Self {
             xml,
             elements: vec![],
+            positions: RefCell::default(),
         };
         let mut reader = Reader::from_str(xml);
         // The pinned slice tokenizer consumes an initial UTF-8 BOM without
@@ -335,6 +364,9 @@ pub(crate) struct Node<'a, 'input> {
     index: usize,
 }
 impl<'a, 'input> Node<'a, 'input> {
+    pub fn position(self) -> TextPos {
+        self.document.element_position(self.index)
+    }
     pub fn document(self) -> &'a Document<'input> {
         self.document
     }

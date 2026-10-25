@@ -1213,3 +1213,35 @@ native proof. A separate pre-fix cursor countercontrol reproduced both real fail
 all reviewed bytes pass. Raw/source contracts and the three existing grammar gaps
 were checked. No case retirement or cache code is introduced. Exact main metadata
 binding and normal staged/hosted gates remain required.
+
+
+## Source-position cache candidate
+
+The measured full-prefix source scan is replaced by a private lazy lexical-prefix
+cache that reuses the same xmlparser routine and keeps the XML error fallback.
+No schema/raw-source/API or runtime behavior changes. Existing source assertions
+plus 64 generated nested layouts, 128 config warning positions and the public
+Send+Sync contract pass. All 179 Rust tests, 13 tools, formatting/Clippy/doc checks
+pass; coverage is 3281/3297 lines and 5732/5844 regions, with 24/24 changed lines.
+Fresh general/BOM/ForceTorque/model-frame/noise native replays exactly match all
+660 published observations and twelve original executions (nine unique cases),
+including existing explicitly qualified gaps. No original mapping is retired.
+
+A fresh isolated-build benchmark checks exact full semantic debug bytes outside
+timing, then counts/pose/attachment/checksums on every timed load. Seven alternating
+CPU-0 pairs show a retained 1000-link/frame median of 68.815 ms before and 9.835 ms
+after (6.997 ratio). The opaque-tail median is 0.9% slower with overlapping ranges;
+its counterworkload and earlier eager regression remain in raw reports. Shared
+host/frequency/packaging and bounded-input limits are explicit. These measurements
+do not accept P2, SDF-02 or native full-loader performance. Independent source and
+benchmark review passed; exact staged/hosted qualification remains pending.
+
+Independent /root/transport_fallback approved source/fidelity/benchmark scope after
+179 fresh private Rust checks, formatting/Clippy and byte-identical five native
+proofs (660 observations/twelve original executions). Cache byte-order/coordinate/
+borrow/ownership invariants were inspected; no source finding. Its independent
+fresh seven-pair CPU-0 run retained all full-state/input hashes: 51.053 ms before
+versus 9.778 ms after for 1000 links (5.22 ratio). Opaque tail was about 1% slower
+with overlapping ranges. Author/independent timing differences remain explicit
+shared-host limits. No whole-engine/P2/packet performance acceptance is inferred.
+Normal exact main binding, staged gate and hosted qualification remain required.

@@ -76,7 +76,7 @@ struct Parser<'a> {
 }
 impl Parser<'_> {
     fn source(&self, node: Node<'_, '_>) -> Source {
-        let pos = node.document().text_pos_at(node.range().start);
+        let pos = node.position();
         Source {
             uri: self.uri.into(),
             line: pos.row,

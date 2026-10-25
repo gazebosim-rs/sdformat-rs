@@ -1,0 +1,789 @@
+{
+  "compiler": "rustc 1.94.1 (e408947bf 2026-03-25)\nbinary: rustc\ncommit-hash: e408947bfd200af42db322daf0fadfe7e26d3bd1\ncommit-date: 2026-03-25\nhost: x86_64-unknown-linux-gnu\nrelease: 1.94.1\nLLVM version: 21.1.8\n",
+  "cpu": 0,
+  "fresh_build_targets": true,
+  "projects": {
+    "baseline": {
+      "project": "build-ql84w938/baseline",
+      "binary_sha256": "24d9b2d234f6d4d6637f3fd07e2373552c2e6ce83d3304c2dce93f1fa748a1b7",
+      "manifest_sha256": "fd6f71a67ccf0a3a373ad89f394c60f8815ef0d333ccb41389bf5a71581baa95",
+      "lock_sha256": "792226b44c629e1cf7b2706abeab6177aaddced08beff8545e8a87136b80b71c",
+      "production_sha256": {
+        "src/graph.rs": "6aaeaa1c0e07a337f1cb1f3c20ffd3f89b70cc3292467b33e9aad40436fae91b",
+        "src/lib.rs": "b728ed455816667ddcd95c8655700fcfc9989550fca901f50c86ff76a487f0a3",
+        "src/model_config.rs": "a701b0a7881caca75c5f272edfc6b91b519719f831861578a7fcf0b473489a8c",
+        "src/number.rs": "dd277f2034cc43ce7a4cd6085ce5357244392c26c2a459d3adbc0cc58f1216a5",
+        "src/parse.rs": "0e1e18d5af9f405e1fe27adae6e17a13396ba9cb2559f78d59d3190ae4df451b",
+        "src/types.rs": "036b4120f61cb9c1555e085046f95efa90d878bea0c9f9893a5de5a1f2d9c9f9",
+        "src/xml.rs": "dd1ab4fcdc519dd1d2b852b22e29f09b59c5e2c0e896168c905ec604300a66f1"
+      }
+    },
+    "candidate": {
+      "project": "build-ql84w938/candidate",
+      "binary_sha256": "46f7d706fefdb9c3df26d11569e9eb96f7e3e9d9889d8ad95dec430d7974f9bd",
+      "manifest_sha256": "e5ae056a30c80792e45cec81aadf2debd33589ac14c6b4f91954c62363013b89",
+      "lock_sha256": "792226b44c629e1cf7b2706abeab6177aaddced08beff8545e8a87136b80b71c",
+      "production_sha256": {
+        "src/graph.rs": "6aaeaa1c0e07a337f1cb1f3c20ffd3f89b70cc3292467b33e9aad40436fae91b",
+        "src/lib.rs": "b728ed455816667ddcd95c8655700fcfc9989550fca901f50c86ff76a487f0a3",
+        "src/model_config.rs": "c6de6ae7682164594f5cad47c82f8901e5350c431787be4cf76664b14ea70cc5",
+        "src/number.rs": "dd277f2034cc43ce7a4cd6085ce5357244392c26c2a459d3adbc0cc58f1216a5",
+        "src/parse.rs": "2d82b3b48afeb8e14e2da8f37a4dbba02f8d7e4e55939882de4224ae942383b4",
+        "src/types.rs": "036b4120f61cb9c1555e085046f95efa90d878bea0c9f9893a5de5a1f2d9c9f9",
+        "src/xml.rs": "2136fb30ec4faaae02379156d63393c3b8b9a70c1f9088002acaba5f5d5c6819"
+      }
+    }
+  },
+  "harness_sha256": "6cf634523b03180f1e00d8def8656512da6fb7ac25f38a97e8cf0cd6cf914696",
+  "runner_sha256": "c1842bb445ad5aac4b397b405a3835c0040e53b4053d8bab728a9fa32dac4472",
+  "inputs_sha256": {
+    "model-10.sdf": "f91b538646cb71e064f5e317d787e64f632e24ba252b57cf406ad700ec0e5867",
+    "model-10-opaque-tail.sdf": "4eb4b277c1ed4aa3b3d1ce18a83dddaf66db4e3d425a2b3bee8b2746d1b373e1",
+    "model-100.sdf": "aec616a3a31d7d593ca218ddd2a9a75bcb00264595258c66df3edd65b2cfa74e",
+    "model-1000.sdf": "077ac742ebaec63b6f848a343ad923b2cb3bd2be36d4719630afac3add73fd73"
+  },
+  "exact_semantic_state_sha256": {
+    "model-10.sdf": "c91cc5f068ea5d2ad003d36ca2c7ba27a9159709f5dd989a77c786c9cb5aecc8",
+    "model-10-opaque-tail.sdf": "dc19769a7645347e67218c33dd0e7bf0ddf0267af7de9fec3b5fdd007e681ce2",
+    "model-100.sdf": "db5696371fb40f3ff850ab2b16d825abdffd03b59d5010e1fa9b80a4a2210b7c",
+    "model-1000.sdf": "0a479217f33c406badeb980df8562f4af0e9e07e2b6efdf6505599c9599b2bef"
+  },
+  "samples": [
+    {
+      "case": "model-10.sdf",
+      "pair": 0,
+      "discarded_warmup": true,
+      "order": [
+        "baseline",
+        "candidate"
+      ],
+      "measurements": {
+        "baseline": {
+          "nanoseconds": 8826603,
+          "iterations": 100,
+          "checksum": 9.99999999999998
+        },
+        "candidate": {
+          "nanoseconds": 8202374,
+          "iterations": 100,
+          "checksum": 9.99999999999998
+        }
+      }
+    },
+    {
+      "case": "model-10.sdf",
+      "pair": 1,
+      "discarded_warmup": false,
+      "order": [
+        "candidate",
+        "baseline"
+      ],
+      "measurements": {
+        "candidate": {
+          "nanoseconds": 8293495,
+          "iterations": 100,
+          "checksum": 9.99999999999998
+        },
+        "baseline": {
+          "nanoseconds": 8764727,
+          "iterations": 100,
+          "checksum": 9.99999999999998
+        }
+      }
+    },
+    {
+      "case": "model-10.sdf",
+      "pair": 2,
+      "discarded_warmup": false,
+      "order": [
+        "baseline",
+        "candidate"
+      ],
+      "measurements": {
+        "baseline": {
+          "nanoseconds": 8718571,
+          "iterations": 100,
+          "checksum": 9.99999999999998
+        },
+        "candidate": {
+          "nanoseconds": 8268027,
+          "iterations": 100,
+          "checksum": 9.99999999999998
+        }
+      }
+    },
+    {
+      "case": "model-10.sdf",
+      "pair": 3,
+      "discarded_warmup": false,
+      "order": [
+        "candidate",
+        "baseline"
+      ],
+      "measurements": {
+        "candidate": {
+          "nanoseconds": 8266945,
+          "iterations": 100,
+          "checksum": 9.99999999999998
+        },
+        "baseline": {
+          "nanoseconds": 8763285,
+          "iterations": 100,
+          "checksum": 9.99999999999998
+        }
+      }
+    },
+    {
+      "case": "model-10.sdf",
+      "pair": 4,
+      "discarded_warmup": false,
+      "order": [
+        "baseline",
+        "candidate"
+      ],
+      "measurements": {
+        "baseline": {
+          "nanoseconds": 8803069,
+          "iterations": 100,
+          "checksum": 9.99999999999998
+        },
+        "candidate": {
+          "nanoseconds": 8230407,
+          "iterations": 100,
+          "checksum": 9.99999999999998
+        }
+      }
+    },
+    {
+      "case": "model-10.sdf",
+      "pair": 5,
+      "discarded_warmup": false,
+      "order": [
+        "candidate",
+        "baseline"
+      ],
+      "measurements": {
+        "candidate": {
+          "nanoseconds": 8188318,
+          "iterations": 100,
+          "checksum": 9.99999999999998
+        },
+        "baseline": {
+          "nanoseconds": 8760620,
+          "iterations": 100,
+          "checksum": 9.99999999999998
+        }
+      }
+    },
+    {
+      "case": "model-10.sdf",
+      "pair": 6,
+      "discarded_warmup": false,
+      "order": [
+        "baseline",
+        "candidate"
+      ],
+      "measurements": {
+        "baseline": {
+          "nanoseconds": 8780647,
+          "iterations": 100,
+          "checksum": 9.99999999999998
+        },
+        "candidate": {
+          "nanoseconds": 8262266,
+          "iterations": 100,
+          "checksum": 9.99999999999998
+        }
+      }
+    },
+    {
+      "case": "model-10.sdf",
+      "pair": 7,
+      "discarded_warmup": false,
+      "order": [
+        "candidate",
+        "baseline"
+      ],
+      "measurements": {
+        "candidate": {
+          "nanoseconds": 8281413,
+          "iterations": 100,
+          "checksum": 9.99999999999998
+        },
+        "baseline": {
+          "nanoseconds": 8786889,
+          "iterations": 100,
+          "checksum": 9.99999999999998
+        }
+      }
+    },
+    {
+      "case": "model-10-opaque-tail.sdf",
+      "pair": 0,
+      "discarded_warmup": true,
+      "order": [
+        "baseline",
+        "candidate"
+      ],
+      "measurements": {
+        "baseline": {
+          "nanoseconds": 8282484,
+          "iterations": 2,
+          "checksum": 0.19999999999999998
+        },
+        "candidate": {
+          "nanoseconds": 8432045,
+          "iterations": 2,
+          "checksum": 0.19999999999999998
+        }
+      }
+    },
+    {
+      "case": "model-10-opaque-tail.sdf",
+      "pair": 1,
+      "discarded_warmup": false,
+      "order": [
+        "candidate",
+        "baseline"
+      ],
+      "measurements": {
+        "candidate": {
+          "nanoseconds": 8713462,
+          "iterations": 2,
+          "checksum": 0.19999999999999998
+        },
+        "baseline": {
+          "nanoseconds": 8362604,
+          "iterations": 2,
+          "checksum": 0.19999999999999998
+        }
+      }
+    },
+    {
+      "case": "model-10-opaque-tail.sdf",
+      "pair": 2,
+      "discarded_warmup": false,
+      "order": [
+        "baseline",
+        "candidate"
+      ],
+      "measurements": {
+        "baseline": {
+          "nanoseconds": 8328210,
+          "iterations": 2,
+          "checksum": 0.19999999999999998
+        },
+        "candidate": {
+          "nanoseconds": 8327608,
+          "iterations": 2,
+          "checksum": 0.19999999999999998
+        }
+      }
+    },
+    {
+      "case": "model-10-opaque-tail.sdf",
+      "pair": 3,
+      "discarded_warmup": false,
+      "order": [
+        "candidate",
+        "baseline"
+      ],
+      "measurements": {
+        "candidate": {
+          "nanoseconds": 8348979,
+          "iterations": 2,
+          "checksum": 0.19999999999999998
+        },
+        "baseline": {
+          "nanoseconds": 9130131,
+          "iterations": 2,
+          "checksum": 0.19999999999999998
+        }
+      }
+    },
+    {
+      "case": "model-10-opaque-tail.sdf",
+      "pair": 4,
+      "discarded_warmup": false,
+      "order": [
+        "baseline",
+        "candidate"
+      ],
+      "measurements": {
+        "baseline": {
+          "nanoseconds": 8322149,
+          "iterations": 2,
+          "checksum": 0.19999999999999998
+        },
+        "candidate": {
+          "nanoseconds": 8424070,
+          "iterations": 2,
+          "checksum": 0.19999999999999998
+        }
+      }
+    },
+    {
+      "case": "model-10-opaque-tail.sdf",
+      "pair": 5,
+      "discarded_warmup": false,
+      "order": [
+        "candidate",
+        "baseline"
+      ],
+      "measurements": {
+        "candidate": {
+          "nanoseconds": 8422667,
+          "iterations": 2,
+          "checksum": 0.19999999999999998
+        },
+        "baseline": {
+          "nanoseconds": 8375138,
+          "iterations": 2,
+          "checksum": 0.19999999999999998
+        }
+      }
+    },
+    {
+      "case": "model-10-opaque-tail.sdf",
+      "pair": 6,
+      "discarded_warmup": false,
+      "order": [
+        "baseline",
+        "candidate"
+      ],
+      "measurements": {
+        "baseline": {
+          "nanoseconds": 8312380,
+          "iterations": 2,
+          "checksum": 0.19999999999999998
+        },
+        "candidate": {
+          "nanoseconds": 8544675,
+          "iterations": 2,
+          "checksum": 0.19999999999999998
+        }
+      }
+    },
+    {
+      "case": "model-10-opaque-tail.sdf",
+      "pair": 7,
+      "discarded_warmup": false,
+      "order": [
+        "candidate",
+        "baseline"
+      ],
+      "measurements": {
+        "candidate": {
+          "nanoseconds": 8439017,
+          "iterations": 2,
+          "checksum": 0.19999999999999998
+        },
+        "baseline": {
+          "nanoseconds": 8348899,
+          "iterations": 2,
+          "checksum": 0.19999999999999998
+        }
+      }
+    },
+    {
+      "case": "model-100.sdf",
+      "pair": 0,
+      "discarded_warmup": true,
+      "order": [
+        "baseline",
+        "candidate"
+      ],
+      "measurements": {
+        "baseline": {
+          "nanoseconds": 14072809,
+          "iterations": 10,
+          "checksum": 10.000000000000005
+        },
+        "candidate": {
+          "nanoseconds": 8502366,
+          "iterations": 10,
+          "checksum": 10.000000000000005
+        }
+      }
+    },
+    {
+      "case": "model-100.sdf",
+      "pair": 1,
+      "discarded_warmup": false,
+      "order": [
+        "candidate",
+        "baseline"
+      ],
+      "measurements": {
+        "candidate": {
+          "nanoseconds": 8528976,
+          "iterations": 10,
+          "checksum": 10.000000000000005
+        },
+        "baseline": {
+          "nanoseconds": 14124958,
+          "iterations": 10,
+          "checksum": 10.000000000000005
+        }
+      }
+    },
+    {
+      "case": "model-100.sdf",
+      "pair": 2,
+      "discarded_warmup": false,
+      "order": [
+        "baseline",
+        "candidate"
+      ],
+      "measurements": {
+        "baseline": {
+          "nanoseconds": 14110010,
+          "iterations": 10,
+          "checksum": 10.000000000000005
+        },
+        "candidate": {
+          "nanoseconds": 8518767,
+          "iterations": 10,
+          "checksum": 10.000000000000005
+        }
+      }
+    },
+    {
+      "case": "model-100.sdf",
+      "pair": 3,
+      "discarded_warmup": false,
+      "order": [
+        "candidate",
+        "baseline"
+      ],
+      "measurements": {
+        "candidate": {
+          "nanoseconds": 8490263,
+          "iterations": 10,
+          "checksum": 10.000000000000005
+        },
+        "baseline": {
+          "nanoseconds": 14092998,
+          "iterations": 10,
+          "checksum": 10.000000000000005
+        }
+      }
+    },
+    {
+      "case": "model-100.sdf",
+      "pair": 4,
+      "discarded_warmup": false,
+      "order": [
+        "baseline",
+        "candidate"
+      ],
+      "measurements": {
+        "baseline": {
+          "nanoseconds": 14168149,
+          "iterations": 10,
+          "checksum": 10.000000000000005
+        },
+        "candidate": {
+          "nanoseconds": 8542892,
+          "iterations": 10,
+          "checksum": 10.000000000000005
+        }
+      }
+    },
+    {
+      "case": "model-100.sdf",
+      "pair": 5,
+      "discarded_warmup": false,
+      "order": [
+        "candidate",
+        "baseline"
+      ],
+      "measurements": {
+        "candidate": {
+          "nanoseconds": 8520439,
+          "iterations": 10,
+          "checksum": 10.000000000000005
+        },
+        "baseline": {
+          "nanoseconds": 14071317,
+          "iterations": 10,
+          "checksum": 10.000000000000005
+        }
+      }
+    },
+    {
+      "case": "model-100.sdf",
+      "pair": 6,
+      "discarded_warmup": false,
+      "order": [
+        "baseline",
+        "candidate"
+      ],
+      "measurements": {
+        "baseline": {
+          "nanoseconds": 14139705,
+          "iterations": 10,
+          "checksum": 10.000000000000005
+        },
+        "candidate": {
+          "nanoseconds": 8460368,
+          "iterations": 10,
+          "checksum": 10.000000000000005
+        }
+      }
+    },
+    {
+      "case": "model-100.sdf",
+      "pair": 7,
+      "discarded_warmup": false,
+      "order": [
+        "candidate",
+        "baseline"
+      ],
+      "measurements": {
+        "candidate": {
+          "nanoseconds": 8525870,
+          "iterations": 10,
+          "checksum": 10.000000000000005
+        },
+        "baseline": {
+          "nanoseconds": 14149574,
+          "iterations": 10,
+          "checksum": 10.000000000000005
+        }
+      }
+    },
+    {
+      "case": "model-1000.sdf",
+      "pair": 0,
+      "discarded_warmup": true,
+      "order": [
+        "baseline",
+        "candidate"
+      ],
+      "measurements": {
+        "baseline": {
+          "nanoseconds": 68805342,
+          "iterations": 1,
+          "checksum": 9.999999999999831
+        },
+        "candidate": {
+          "nanoseconds": 9821898,
+          "iterations": 1,
+          "checksum": 9.999999999999831
+        }
+      }
+    },
+    {
+      "case": "model-1000.sdf",
+      "pair": 1,
+      "discarded_warmup": false,
+      "order": [
+        "candidate",
+        "baseline"
+      ],
+      "measurements": {
+        "candidate": {
+          "nanoseconds": 9844820,
+          "iterations": 1,
+          "checksum": 9.999999999999831
+        },
+        "baseline": {
+          "nanoseconds": 69088692,
+          "iterations": 1,
+          "checksum": 9.999999999999831
+        }
+      }
+    },
+    {
+      "case": "model-1000.sdf",
+      "pair": 2,
+      "discarded_warmup": false,
+      "order": [
+        "baseline",
+        "candidate"
+      ],
+      "measurements": {
+        "baseline": {
+          "nanoseconds": 68896722,
+          "iterations": 1,
+          "checksum": 9.999999999999831
+        },
+        "candidate": {
+          "nanoseconds": 9786221,
+          "iterations": 1,
+          "checksum": 9.999999999999831
+        }
+      }
+    },
+    {
+      "case": "model-1000.sdf",
+      "pair": 3,
+      "discarded_warmup": false,
+      "order": [
+        "candidate",
+        "baseline"
+      ],
+      "measurements": {
+        "candidate": {
+          "nanoseconds": 9857725,
+          "iterations": 1,
+          "checksum": 9.999999999999831
+        },
+        "baseline": {
+          "nanoseconds": 68806934,
+          "iterations": 1,
+          "checksum": 9.999999999999831
+        }
+      }
+    },
+    {
+      "case": "model-1000.sdf",
+      "pair": 4,
+      "discarded_warmup": false,
+      "order": [
+        "baseline",
+        "candidate"
+      ],
+      "measurements": {
+        "baseline": {
+          "nanoseconds": 68814998,
+          "iterations": 1,
+          "checksum": 9.999999999999831
+        },
+        "candidate": {
+          "nanoseconds": 9917747,
+          "iterations": 1,
+          "checksum": 9.999999999999831
+        }
+      }
+    },
+    {
+      "case": "model-1000.sdf",
+      "pair": 5,
+      "discarded_warmup": false,
+      "order": [
+        "candidate",
+        "baseline"
+      ],
+      "measurements": {
+        "candidate": {
+          "nanoseconds": 9818461,
+          "iterations": 1,
+          "checksum": 9.999999999999831
+        },
+        "baseline": {
+          "nanoseconds": 68746972,
+          "iterations": 1,
+          "checksum": 9.999999999999831
+        }
+      }
+    },
+    {
+      "case": "model-1000.sdf",
+      "pair": 6,
+      "discarded_warmup": false,
+      "order": [
+        "baseline",
+        "candidate"
+      ],
+      "measurements": {
+        "baseline": {
+          "nanoseconds": 68718769,
+          "iterations": 1,
+          "checksum": 9.999999999999831
+        },
+        "candidate": {
+          "nanoseconds": 9794556,
+          "iterations": 1,
+          "checksum": 9.999999999999831
+        }
+      }
+    },
+    {
+      "case": "model-1000.sdf",
+      "pair": 7,
+      "discarded_warmup": false,
+      "order": [
+        "candidate",
+        "baseline"
+      ],
+      "measurements": {
+        "candidate": {
+          "nanoseconds": 9835082,
+          "iterations": 1,
+          "checksum": 9.999999999999831
+        },
+        "baseline": {
+          "nanoseconds": 69103109,
+          "iterations": 1,
+          "checksum": 9.999999999999831
+        }
+      }
+    }
+  ],
+  "medians": [
+    {
+      "case": "model-10.sdf",
+      "baseline": {
+        "median_ns_per_load": 87647.27,
+        "min_ns_per_load": 87185.71,
+        "max_ns_per_load": 88030.69
+      },
+      "candidate": {
+        "median_ns_per_load": 82669.45,
+        "min_ns_per_load": 81883.18,
+        "max_ns_per_load": 82934.95
+      },
+      "baseline_over_candidate_ratio": 1.0602135371651802
+    },
+    {
+      "case": "model-10-opaque-tail.sdf",
+      "baseline": {
+        "median_ns_per_load": 4174449.5,
+        "min_ns_per_load": 4156190.0,
+        "max_ns_per_load": 4565065.5
+      },
+      "candidate": {
+        "median_ns_per_load": 4212035.0,
+        "min_ns_per_load": 4163804.0,
+        "max_ns_per_load": 4356731.0
+      },
+      "baseline_over_candidate_ratio": 0.9910766411010354
+    },
+    {
+      "case": "model-100.sdf",
+      "baseline": {
+        "median_ns_per_load": 1412495.8,
+        "min_ns_per_load": 1407131.7,
+        "max_ns_per_load": 1416814.9
+      },
+      "candidate": {
+        "median_ns_per_load": 852043.9,
+        "min_ns_per_load": 846036.8,
+        "max_ns_per_load": 854289.2
+      },
+      "baseline_over_candidate_ratio": 1.65777350204608
+    },
+    {
+      "case": "model-1000.sdf",
+      "baseline": {
+        "median_ns_per_load": 68814998.0,
+        "min_ns_per_load": 68718769.0,
+        "max_ns_per_load": 69103109.0
+      },
+      "candidate": {
+        "median_ns_per_load": 9835082.0,
+        "min_ns_per_load": 9786221.0,
+        "max_ns_per_load": 9917747.0
+      },
+      "baseline_over_candidate_ratio": 6.996891129123275
+    }
+  ],
+  "scope": "Identical release harness/toolchain/locked registry versions; exact entire Sdf debug bytes checked outside timing, then count/last-frame pose/attachment/checksum asserted on every measured load. Input read before timing; one warm validated load/state dump per batch and an extra discarded alternating pair.",
+  "qualifications": [
+    "Author-only unless independently replayed; fixed CPU on shared host, no exclusive CPU/frequency control.",
+    "Opaque plugin-tail counterworkload retained to detect eager-cache overhead.",
+    "No native full-loader, P2, SDF-02, whole-engine or portable performance acceptance; debug-state equality is a bounded regression check, not a public format contract."
+  ]
+}

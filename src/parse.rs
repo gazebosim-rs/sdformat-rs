@@ -104,6 +104,15 @@ impl Parser<'_> {
         children: &[&str],
         attrs: &[&str],
     ) -> Result<(), Diagnostic> {
+        self.allowed_repeated(node, children, attrs, &[])
+    }
+    fn allowed_repeated(
+        &self,
+        node: Node<'_, '_>,
+        children: &[&str],
+        attrs: &[&str],
+        extra_repeated: &[&str],
+    ) -> Result<(), Diagnostic> {
         for attr in node.attributes() {
             if attr.namespace().is_some() || !attrs.contains(&attr.name()) {
                 return Err(self.err(
@@ -149,7 +158,7 @@ impl Parser<'_> {
         let mut seen = BTreeSet::new();
         for child in elements(node) {
             let name = child.tag_name().name();
-            if !repeated.contains(&name) && !seen.insert(name) {
+            if !repeated.contains(&name) && !extra_repeated.contains(&name) && !seen.insert(name) {
                 return Err(self.err(
                     child,
                     ErrorCode::InvalidValue,
@@ -1524,6 +1533,7 @@ impl Parser<'_> {
             &[
                 "pose",
                 "geometry",
+                "material",
                 "plugin",
                 "cast_shadows",
                 "transparency",
@@ -1547,6 +1557,9 @@ impl Parser<'_> {
             name: self.name(node)?,
             pose: self.pose(node)?,
             geometry,
+            material: child(node, "material")
+                .map(|n| self.material(n).map(Box::new))
+                .transpose()?,
             properties: VisualProperties {
                 cast_shadows: self.boolean(node, "cast_shadows", true)?,
                 transparency: if let Some(value) = child(node, "transparency") {
@@ -1563,6 +1576,167 @@ impl Parser<'_> {
             plugins: self.plugins(node)?,
             source: self.source(node),
         })
+    }
+    fn material(&self, node: Node<'_, '_>) -> Result<Material, Diagnostic> {
+        self.allowed(
+            node,
+            &[
+                "ambient",
+                "diffuse",
+                "specular",
+                "emissive",
+                "shininess",
+                "render_order",
+                "lighting",
+                "double_sided",
+                "script",
+                "shader",
+            ],
+            &[],
+        )?;
+        let script = child(node, "script")
+            .map(|script| {
+                self.allowed_repeated(script, &["uri", "name"], &[], &["uri"])?;
+                let mut uris = Vec::new();
+                for uri in elements(script).filter(|n| n.has_tag_name("uri")) {
+                    self.allowed(uri, &[], &[])?;
+                    let mut text = param_text(uri).into_owned();
+                    if text.is_empty() {
+                        text = "__default__".into();
+                    }
+                    uris.push(text);
+                }
+                if uris.first().is_none_or(|uri| uri == "__default__") {
+                    return Err(self.err(
+                        script,
+                        ErrorCode::Missing,
+                        "material script requires uri",
+                    ));
+                }
+                let name = self
+                    .optional_text(script, "name")?
+                    .filter(|name| !name.is_empty() && name != "__default__")
+                    .ok_or_else(|| {
+                        self.err(script, ErrorCode::Missing, "material script requires name")
+                    })?;
+                Ok(MaterialScript {
+                    uris,
+                    name,
+                    source: self.source(script),
+                })
+            })
+            .transpose()?;
+        let (shader, normal_map) = if let Some(shader) = child(node, "shader") {
+            self.allowed(shader, &["normal_map"], &["type"])?;
+            let value = shader
+                .attribute("type")
+                .ok_or_else(|| self.err(shader, ErrorCode::Missing, "shader requires type"))?;
+            let kind = match value.trim_matches([' ', '\t', '\n']) {
+                "pixel" => ShaderType::Pixel,
+                "vertex" => ShaderType::Vertex,
+                "normal_map_objectspace" | "normal_map_object_space" => {
+                    ShaderType::NormalMapObjectSpace
+                }
+                "normal_map_tangentspace" | "normal_map_tangent_space" => {
+                    ShaderType::NormalMapTangentSpace
+                }
+                _ => {
+                    return Err(self.err(
+                        shader,
+                        ErrorCode::InvalidValue,
+                        "unsupported shader type",
+                    ));
+                }
+            };
+            let mut map = self
+                .optional_text(shader, "normal_map")?
+                .unwrap_or_default();
+            if map == "__default__" {
+                map.clear();
+            }
+            if matches!(
+                kind,
+                ShaderType::NormalMapObjectSpace | ShaderType::NormalMapTangentSpace
+            ) && map.is_empty()
+            {
+                return Err(self.err(
+                    shader,
+                    ErrorCode::Missing,
+                    "normal map shader requires normal_map",
+                ));
+            }
+            (kind, map)
+        } else {
+            (ShaderType::Pixel, String::new())
+        };
+        Ok(Material {
+            ambient: self.color(node, "ambient")?,
+            diffuse: self.color(node, "diffuse")?,
+            specular: self.color(node, "specular")?,
+            emissive: self.color(node, "emissive")?,
+            shininess: self.scalar(node, "shininess", 0.)?,
+            render_order: self.float(node, "render_order", 0.)?,
+            lighting: self.boolean(node, "lighting", true)?,
+            double_sided: self.boolean(node, "double_sided", false)?,
+            shader,
+            normal_map,
+            script,
+            source: self.source(node),
+        })
+    }
+    fn float(&self, node: Node<'_, '_>, name: &str, default: f32) -> Result<f32, Diagnostic> {
+        let Some(value) = child(node, name) else {
+            return Ok(default);
+        };
+        self.allowed(value, &[], &[])?;
+        let text = param_text(value);
+        if text.is_empty() {
+            return Ok(default);
+        }
+        let text = if text.eq_ignore_ascii_case("true") {
+            "1"
+        } else if text.eq_ignore_ascii_case("false") {
+            "0"
+        } else {
+            &text
+        };
+        crate::number::float(text).map_err(|code| self.err(value, code, "float conversion failed"))
+    }
+    fn color(&self, node: Node<'_, '_>, name: &str) -> Result<[f32; 4], Diagnostic> {
+        let Some(value) = child(node, name) else {
+            return Ok([0., 0., 0., 1.]);
+        };
+        self.allowed(value, &[], &[])?;
+        let text = param_text(value);
+        if text.is_empty() {
+            return Ok([0., 0., 0., 1.]);
+        }
+        let mut result = [0., 0., 0., 1.];
+        let tokens: Vec<_> = text
+            .split(legacy_whitespace)
+            .filter(|s| !s.is_empty())
+            .collect();
+        if !matches!(tokens.len(), 3 | 4) {
+            return Err(self.err(
+                value,
+                ErrorCode::InvalidValue,
+                "color requires three or four values",
+            ));
+        }
+        for (slot, token) in result.iter_mut().zip(tokens) {
+            let number = crate::number::float(token)
+                .map_err(|code| self.err(value, code, "color conversion failed"))?;
+            if !number.is_nan() && !(0.0..=1.0).contains(&number) {
+                return Err(self.err(
+                    value,
+                    ErrorCode::InvalidValue,
+                    "color component must be between zero and one",
+                ));
+            }
+            // Native Color construction clamps NaN to zero after the range check.
+            *slot = if number.is_nan() { 0. } else { number };
+        }
+        Ok(result)
     }
     fn joint(&self, node: Node<'_, '_>, model_frame_default: bool) -> Result<Joint, Diagnostic> {
         self.allowed(

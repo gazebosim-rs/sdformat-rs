@@ -37,16 +37,23 @@ fn visual_geometry_is_optional_and_plugins_keep_original_content() {
 }
 #[test]
 fn visual_validation_and_explicit_remaining_schema_contract() {
+    // The former material boundary input now loads native default metadata.
+    let material = document("<link name='l'><visual name='v'><material/></visual></link>").unwrap();
+    assert_eq!(
+        material.models[0].links[0].visuals[0]
+            .material
+            .as_deref()
+            .unwrap()
+            .shader,
+        ShaderType::Pixel
+    );
+
     for (visual, code) in [
         (
             "<visual name='v'/><visual name='v'/>",
             ErrorCode::DuplicateName,
         ),
         ("<visual/>", ErrorCode::Missing),
-        (
-            "<visual name='v'><material/></visual>",
-            ErrorCode::Unsupported,
-        ),
         (
             "<visual name='v'><geometry foo='x'/></visual>",
             ErrorCode::Unsupported,

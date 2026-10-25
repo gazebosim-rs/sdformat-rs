@@ -441,10 +441,44 @@ pub struct Visual {
     pub pose: Pose,
     pub geometry: Option<Geometry>,
     pub properties: VisualProperties,
+    pub material: Option<Box<Material>>,
     pub plugins: Vec<Plugin>,
     pub source: Source,
 }
 /// Owned rendering/lidar metadata; parsing does not implement those effects.
+/// Owned rendering metadata; no image/script loading or renderer effects.
+#[derive(Debug, Clone, PartialEq)]
+pub struct Material {
+    pub ambient: [f32; 4],
+    pub diffuse: [f32; 4],
+    pub specular: [f32; 4],
+    pub emissive: [f32; 4],
+    pub shininess: f64,
+    /// Native raw float metadata may be nonfinite; consumers choose validation.
+    pub render_order: f32,
+    pub lighting: bool,
+    pub double_sided: bool,
+    pub shader: ShaderType,
+    pub normal_map: String,
+    pub script: Option<MaterialScript>,
+    pub source: Source,
+}
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+pub enum ShaderType {
+    #[default]
+    Pixel,
+    Vertex,
+    NormalMapObjectSpace,
+    NormalMapTangentSpace,
+}
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct MaterialScript {
+    /// Declaration order; the native DOM ScriptUri getter uses the first URI.
+    pub uris: Vec<String>,
+    pub name: String,
+    pub source: Source,
+}
+
 #[derive(Debug, Clone, PartialEq)]
 pub struct VisualProperties {
     pub cast_shadows: bool,

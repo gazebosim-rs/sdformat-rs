@@ -31,8 +31,8 @@ in kg·m² and inertial-frame pose. Positive physical inertia is required.
 `Collision` has pose and box/sphere/cylinder/plane geometry, with SI dimensions.
 `Visual` has name, pose, optional geometry, plugins and source. Missing
 or empty geometry preserves native EMPTY as None. Visual names are unique within
-a link, independently of collision and sensor names. Rendering properties,
-and material data remain explicit Unsupported.
+a link, independently of collision and sensor names. Owned visual properties and optional material data preserve the metadata described
+in docs/MATERIALS.md. PBR and renderer effects remain outside this loader.
 `Joint` has kind, parent/child references, pose, optional axis/axis2 and source.
 Universal and revolute2 types retain both axes; native axis2 is also preserved
 when present on another supported joint kind.
@@ -368,3 +368,10 @@ first-default/first-profile selection; see docs/PHYSICS.md. Parsing does not cho
 a runtime engine or timestep. Explicit engine-specific parameter blocks remain
 Unsupported. Consumers must validate configuration they use rather than assume
 that native DOM acceptance makes zero/negative values a valid runtime timestep.
+
+Visual.material now retains optional owned basic material/script/shader metadata;
+see MATERIALS.md. Colors follow native float-token range/default rules, render
+order follows direct std::stof, and render/lidar/texture effects remain consumer
+work. PBR and unknown extensions remain Unsupported. No resource resolver call or
+asset IO occurs while loading this metadata. Scalar/vector numeric policies remain
+distinct; the existing finite-double shininess boundary remains explicit.

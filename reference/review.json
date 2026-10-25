@@ -1,42 +1,56 @@
 {
+  "reviewer": "/root/msgs",
+  "date": "2026-10-25T07:27:14.293180+00:00",
   "decision": "approved",
-  "author": "/root/sdformat",
-  "reviewer": "/root",
-  "protected_digest": "08f423b05791ea6b0ac2b728a6f45ed9086915f7e78d6096f91a91fc682f796c",
-  "base": "119e4f28801d2e95187eb32a838af466c1be9965",
-  "scope": "Final integrated World physics13 on public hook119e4f; exact parser/types/tests/native tool unchanged from independently replayed50d5. Three metadata overlaps reviewed: STATUS preserves hook record, traceability adds complete original DefaultConstruction mapping, results adds exact independent review narrative. Parent hook/policy remain public reviewed bytes. Normal staged/hosted gates required.",
-  "files": {
-    "README.md": "2c9245226533fc6c0bc7f2cf6c1aa2536cf3b6de42555c468eae4f90628d6126",
-    "docs/CONTRACT.md": "b2fd5eb7b20dff3546ed8849ae552b6c1d258d5ef2eec7719b19fe32b79df63b",
-    "docs/PHYSICS.md": "d283ae35a6ab242fc97bed22d0ebce1394f2089be8cac52c287bf257f3d6377f",
-    "docs/STATUS.md": "080d5097573c4571f46a1f665fd54102d143255b8e7bfe1e65642911ac6005c5",
-    "reference/results.json": "89aed8c23da49ab95c8777fb62b221d76ffeacb8656f1cdeb6b27ac71faa3930",
-    "reference/traceability.json": "315aecca45f8697a8d4cfb2d168c7f9a106e5bb2fdfeac248f985676c237f92b",
-    "src/parse.rs": "d6892aa804f9d465a7d9c5a59c353690fa139452b6f215212ed4691ba56e78b2",
-    "src/types.rs": "bb568a78ce95acdfa305ddccca6326a429e37051d5bb70426f4d6e16e4e567d0",
-    "tests/physics.json": "833ea6724658ad2fc1ff92293516373793a62666b40a9a2e5eb76e309b6b8b03",
-    "tests/physics.rs": "c443eda109c0275b72d741361332bc001e965fc3842d9b82dad4264badac002b",
-    "tests/physics_original.rs": "72885125a65877533ff96fe0604677f7981e14bd0a9751b1efff061428685e0c",
-    "tests/physics_reference.cc": "26ee44ad6e9cedfadf39521d0c0ff81a16e4ce1c2fdd1d6e12d1012054f80f6a",
-    "tools/physics_reference.py": "8e2b62f6546638e86953813261ec75e6f17c0e97124bf2914f3af725beac0963"
+  "base": "7ed5ad02ac12185e071d0ab358de1adad61418e8",
+  "protected_digest": "432e7611cc1a5b53d99e26f2b25416e043ed139a64fdff84e4d2eb7ca7741d2e",
+  "source_sha256": {
+    "README.md": "ec6d88a3827fcea652e2ddec051a9b5175c932baf2e9a0c52abfb05a5dff9c66",
+    "docs/CONTRACT.md": "c716ce303fbdf99a2c6a0a55b1b5a041760d8cc5ac26ea7972e4445db5459bfb",
+    "docs/MATERIALS.md": "445494264cd94b49b6e6f3bfd36505123d3a7338a5b02e7cb1945a34bbbfb23d",
+    "docs/SCALAR_CONVERSION.md": "ab6bbb48acdaae447d225bd3c3d2d88d941829c35bed9ac43f7f004f73d7d3a6",
+    "docs/STATUS.md": "508f6dede5e8d1e714468c000cc06a179bfb79415c0f21b7f715446987b0f25e",
+    "reference/results.json": "0ba770d06b92820f2137e4bb7044e7420dfb73279247d6d4f73193b7af3182bb",
+    "reference/traceability.json": "2af6052bfa4b09a49db1a9fdd2fdc2c999795140bf0a4032f4828cba0903f14f",
+    "src/number.rs": "dd277f2034cc43ce7a4cd6085ce5357244392c26c2a459d3adbc0cc58f1216a5",
+    "src/parse.rs": "11396cdd7e381ccff5c568b5b34a60b92be2c2834b899b30d0550347210f973a",
+    "src/types.rs": "ca05fd6435fe174663fe72da036c4bca89d61a2add37a016866598363498aeca",
+    "tests/fixtures/material.sdf": "a9cbcfbaf4a26f700058238b4790f7c6581cfc2b6fd028b866ae31dd1ccc635d",
+    "tests/material.json": "b651cada072ea1f7a6dc254ae1212b995f1a04956a98f44aa3ee1ba766650953",
+    "tests/material.rs": "5fa81b4c824d2934c939705e2fbc0cf882f3854bafbb3420f9206e7881f3f5d9",
+    "tests/material_numeric.rs": "164a85e40880ecbaf5bea3922dc75bcefbca7babde488613f9707b580189dfe0",
+    "tests/material_original.rs": "2de26196c5dcadfba87bf4aff781895ccebd2476022f6713beeb3893c3ee1011",
+    "tests/material_reference.cc": "8ede82af3e883b74ea98046894b354e1b846ba5e4e6949129e81e019d7b508c8",
+    "tests/semantics.rs": "7bbf5e1cac39e71aec958de934cf533b5f795b9ff0ca48da580d1c85fc5cf22e",
+    "tests/visuals.rs": "fa7d1147698155350c5809272d2b7d959d4e64b54bb477c0226090e992c08545",
+    "tools/material_reference.py": "9033faeea19e3b06e5feb746a6307fd71764b7d4ca9e76c57f04cd45f8003213"
   },
-  "evidence": {
-    "rust_tests": 122,
-    "fresh_native_observations": 89,
-    "original": "DOMPhysics.DefaultConstruction:1 run/0failures",
-    "additional_native_rust_controls": 15,
-    "native_proof": "all author and independently regenerated proof fields, source/binary/library hashes and observations match exactly",
-    "logs": [
-      "tests-outside-workspace.log",
-      "native.log",
-      "extra-controls.json"
+  "independent_checks": [
+    "Raw-exported and Git-blob/type/mode/path-set verified the isolated and integrated public parents, applied only their frozen material files and reverified all source bindings. Every Cargo build used reviewer-owned source and private targets.",
+    "Independently compared full DOMVisual.Material original source and unchanged material.sdf bytes: load/model/link/three visual/material presence, all four color arrays with <=1e-6 native tolerance, lighting/double-sided, positive render-order four-ULP bound, shader selections and script/normal-map strings are retained. Original 2018 attribution remains.",
+    "Initial frozen snapshot passes all 124 owned Rust checks, and freshly compiled native helper reproduces all 102 rows/original 1 run / 0 failures/header ABI checks. Added independent eight script-name cases and reproduced six real ASCII-collapse/NBSP/CDATA-VT mismatches; original failed test/log retained.",
+    "Corrected frozen 6b128c18 preserves all original 102 rows and numeric/ABI source. Private replay passes all 124 owned tests plus independent edge test (125 total). Fresh 110 native observations, exact original 1 run / 0 failures and installed-header strtof_l type/storage checks produce an entire proof dictionary identical to the author.",
+    "Audited raw strtof_l helper C locale ownership, live NUL-terminated buffer and writable end pointer, immediate errno capture, no pointer escape/end dereference, exactly-once nonnull cleanup and errno restoration after buffer destruction. Stored-double wrapper retains 17-significant-digit conversion/default-zero behavior and restores errno around formatting/drop. New helper uses no locale mutation; existing deny/allow scope and dependencies do not broaden. Fresh fault-child and eight-thread tests pass.",
+    "For final integration, independently three-way merged corrected material parse.rs/types.rs changes onto public Physics 7ed5ad02 and obtained byte-identical integrated files, retaining the parent physics/repeated-tag additions. Number/tests/fixture/corpus/probe/tool inputs remain unchanged. Fresh integrated private target passes all 127 owned Rust checks; unchanged native proof matches the corrected independent proof entirely."
+  ],
+  "author_gate": {
+    "rust_tests": 127,
+    "tool_tests": 13,
+    "lines": [
+      3032,
+      3052
     ],
-    "setup_failure": "Initial private snapshot nested under simulator Cargo workspace failed Cargo membership; unchanged snapshot moved to /tmp, then122tests passed. No manifests or candidate source edited."
+    "regions": [
+      5275,
+      5393
+    ],
+    "changed_lines": [
+      168,
+      169
+    ],
+    "qualification": "Reported author integrated fmt/clippy/strict coverage gate; independent full coverage/tooling rerun not claimed."
   },
-  "semantics": "Owned profiles/default selection, absent/explicit XML and source lifetime, native scalar/default/name/signed-prefix behavior reviewed. No FFI or solver selection added; Type bullet in original test is preserved metadata only. Original2018 assertion/attribution mapping inspected and retained. Eight existing nonfinite metadata gaps and solver/foreign Unsupported are explicit, not passing parity cases.",
-  "coverage": "Author strict2857/2875lines4974/5080regions135/135delta inspected; reviewer did not rerun coverage. Required normal staged/hosted checks remain.",
-  "remaining": [
-    "No runtime solver/step configuration or broad physics acceptance.",
-    "Required exact normal staged/hosted checks remain; no source/policy/assertion relaxation."
-  ]
+  "limits": "Plain owned metadata only; no renderer/IO/PBR/URI-resolution-mode or console diagnostic/effect equivalence. Four explicit PBR/schema/double-nonfinite gaps and new API render_order nonfinite policy remain. No full SDF packet acceptance. Final copied receipt/metadata binding and normal exact staged/hosted gates remain required.",
+  "scope": "approved for bounded owned material metadata and raw-f32 helper scope",
+  "author": "/root/sdformat"
 }

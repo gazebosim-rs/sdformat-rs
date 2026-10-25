@@ -92,3 +92,13 @@ Native float-getter conversion failures also write console diagnostics. This
 new-value Rust API retains the returned zero and successful DOM load, but does
 not emit those console warnings; diagnostic bytes and side effects are not
 qualified. No mutable Visual setter or serializer facade is introduced.
+
+The material increment reuses the existing strtof_l boundary for direct float text.
+`number::float` owns the same locale/buffer lifecycle and reports no-conversion or
+ERANGE as InvalidValue. It deliberately returns nonfinite float values so each
+metadata field can apply the native rule: color clamps NaN to zero and rejects
+infinity/out-of-range components; render_order retains inf/nan metadata. The
+stored-double wrapper retains its prior zero default on conversion errors and
+preserves caller errno across formatting/deallocation. No ABI declaration changes.
+This refactor requires its own independent code/safety review; the previous
+stored-double review alone does not approve these new bytes or callers.

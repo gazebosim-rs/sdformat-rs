@@ -408,6 +408,16 @@ fn invalid_documents_fail_atomically() {
             "{xml}"
         );
     }
+    // Retain the former unsupported material input as a native-positive case.
+    let material = load_str("<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><material/></visual></link></model></sdf>", "test.sdf", &NoResources).unwrap();
+    assert_eq!(
+        material.models[0].links[0].visuals[0]
+            .material
+            .as_deref()
+            .unwrap()
+            .ambient,
+        [0., 0., 0., 1.]
+    );
     for (content, code) in [
         ("", ErrorCode::Missing),
         ("<link/>", ErrorCode::Missing),
@@ -419,10 +429,6 @@ fn invalid_documents_fail_atomically() {
         ("<link name='l' foo='1'/>", ErrorCode::Unsupported),
         (
             "<link name='l' xmlns:x='urn:x' x:foo='1'/>",
-            ErrorCode::Unsupported,
-        ),
-        (
-            "<link name='l'><visual name='v'><material/></visual></link>",
             ErrorCode::Unsupported,
         ),
         (

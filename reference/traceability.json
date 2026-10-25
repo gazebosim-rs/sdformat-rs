@@ -524,6 +524,22 @@
       "status": "ported_reviewed",
       "review": "Independent /root reviewed all original default/setter assertions and approved the owned value/no-Element API mapping; fresh 122 Rust tests, 89 native observations and exact original one run/zero failures passed, complete native proof equality. Additional 15 native/Rust controls passed. No full SDF packet acceptance.",
       "upstream_fixtures": {}
+    },
+    {
+      "target": "INTEGRATION_visual_dom",
+      "case": "DOMVisual.Material",
+      "source": "test/integration/visual_dom.cc:97",
+      "rust_test": "tests/material_original.rs::original_visual_material",
+      "assertions": "Full original typed-load/model/link/visual/material presence, four RGBA colors using native <=1e-6 Color equality, lighting/double-sided flags, render-order EXPECT_FLOAT_EQ four-ULP bound, shader enum, script URI/name and normal-map assertions. Original fixture unchanged; no Element/setter/renderer claim.",
+      "fixtures": {
+        "tests/fixtures/material.sdf": "a9cbcfbaf4a26f700058238b4790f7c6581cfc2b6fd028b866ae31dd1ccc635d"
+      },
+      "upstream_fixtures": {
+        "test/sdf/material.sdf": "a9cbcfbaf4a26f700058238b4790f7c6581cfc2b6fd028b866ae31dd1ccc635d"
+      },
+      "baseline": "Exact original DOMVisual.Material XML one run/zero failures, artifacts/material/original.xml.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/msgs compared the complete original assertion body/fixture and approved all presence, Color <=1e-6, EXPECT_FLOAT_EQ four-ULP, flags, shader/script/normal-map assertions. Fresh 124 owned Rust tests plus independent string-edge check, 110 native rows, exact original one run/zero failures and ABI proof pass; scope excludes URI resolution/PBR/renderer/Element/setter behavior."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

@@ -805,3 +805,52 @@ Working isolated coverage is
 Existing nonfinite-double limits and engine-specific/custom Unsupported gaps are
 recorded, with no dependencies, thresholds or coverage exclusions changed. Strict
 staged/hosted verification and independent assertion review remain required.
+
+## Material metadata candidate
+
+The isolated candidate adds owned optional Material/MaterialScript metadata to
+Visual: RGBA colors, shininess, render order, lighting/double-sided flags, shader,
+normal-map string and ordered script URI/name data. No resource IO, renderer or
+PBR implementation is added. Native missing/present defaults and first-script-URI
+validation are retained. The existing strtof_l boundary is refactored into a raw
+float helper for direct native color/render-order conversion; stored-double visual
+transparency still uses the prior 17-significant-digit conversion and zero fallback.
+This change requires a fresh independent numeric safety review.
+
+All 124 Rust checks, 11 tooling checks, fmt and clippy pass. Fresh native evidence
+contains 110 exact-bit/error rows and the unchanged DOMVisual.Material original
+(one run, zero failures), with installed-header ABI/source/library hashes. Four
+explicit gaps cover PBR, a custom scalar child and existing nonfinite shininess.
+Allocation-failure cleanup, errno preservation and concurrent parsing are tested;
+existing scalar/visual boundary tests remain. The complete original material.sdf
+and its presence/color/float/shader/script assertions are ported, retaining the
+original 2018 notice, color 1e-6 bounds and four-ULP EXPECT_FLOAT_EQ relation.
+Independent /root/msgs approved the complete original mapping and numeric safety
+review, replaying all 124 owned Rust tests plus an independent string-edge test,
+110 fresh native rows, the exact original (one run, zero failures) and ABI proof.
+
+Working-tree coverage is 2892/2911 production lines and 5073/5189 regions, with
+168/169 changed executable lines. No exclusions, dependencies or gate thresholds
+changed. Former empty-material rejection inputs remain as explicit native-positive
+default-material regressions. Full native schema, setter/Element/error-vector
+contracts, StoreResolvedURIs, renderer/lidar effects, non-GNU platforms, other
+rounding modes and performance claims remain pending. Exact frozen staged and
+hosted verification are still required; no SDF-01/02 packet is self-accepted.
+
+
+Independent material review found six real script-name mismatches from the generic
+Unicode-trim helper. That field now uses the existing Param text adapter with
+explicit missing/default rejection. All eight exact reviewer inputs (six failures
+and two matching controls) are appended to the native corpus without changing the
+original 102 rows. The numeric ABI/refactor bytes and original fixture assertions
+are unchanged. Independent correction review passes; all six mismatches are resolved. The
+unchanged material source/assertion delta is integrated separately onto the
+reviewed world physics and hook parent; exact overlap/staged/hosted review remains.
+
+The integrated candidate on public world-physics/hook parent 7ed5ad02 passes all
+127 owned Rust checks, 13 tooling tests, fmt/clippy and fresh 110 native rows plus
+the exact original and ABI check. The entire native proof equals the reviewed
+isolated proof. Integrated coverage is 3032/3052 lines, 5275/5393 regions and
+168/169 changed executable lines. Existing physics source/mapping/proof and hook
+policy remain untouched. Final overlap receipt and mandatory staged/hosted gates
+remain required; accepted original mappings now total 35 complete and ten partial.

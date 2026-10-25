@@ -65,7 +65,21 @@ pub(crate) fn scalar_float(_: &str) -> Result<f64, ErrorCode> {
 #[cfg(all(target_os = "linux", target_env = "gnu"))]
 pub(crate) fn stored_double_to_float(value: f64) -> Result<f32, ErrorCode> {
     let previous_errno = errno::errno();
-    let mut input = format!("{value:.16e}").into_bytes();
+    let input = format!("{value:.16e}");
+    let result = match float(&input) {
+        Err(ErrorCode::InvalidValue) => Ok(0.),
+        result => result,
+    };
+    drop(input);
+    errno::set_errno(previous_errno);
+    result
+}
+
+/// std::stof semantics: prefix conversion and ERANGE, including nonfinite metadata.
+#[cfg(all(target_os = "linux", target_env = "gnu"))]
+pub(crate) fn float(text: &str) -> Result<f32, ErrorCode> {
+    let previous_errno = errno::errno();
+    let mut input = text.as_bytes().to_vec();
     input.push(0);
     // SAFETY: NUL-terminated static C name and null base request a fresh owned
     // locale. It never becomes a process or thread locale.
@@ -85,9 +99,7 @@ pub(crate) fn stored_double_to_float(value: f64) -> Result<f32, ErrorCode> {
         if end.cast_const() == input.as_ptr().cast()
             || conversion_errno == errno::Errno(libc::ERANGE)
         {
-            // Element::Get<float> keeps its default when native stof fails;
-            // its diagnostic does not become a Root load error.
-            Ok(0.)
+            Err(ErrorCode::InvalidValue)
         } else {
             Ok(converted)
         }
@@ -99,5 +111,10 @@ pub(crate) fn stored_double_to_float(value: f64) -> Result<f32, ErrorCode> {
 
 #[cfg(not(all(target_os = "linux", target_env = "gnu")))]
 pub(crate) fn stored_double_to_float(_: f64) -> Result<f32, ErrorCode> {
+    Err(ErrorCode::Unsupported)
+}
+
+#[cfg(not(all(target_os = "linux", target_env = "gnu")))]
+pub(crate) fn float(_: &str) -> Result<f32, ErrorCode> {
     Err(ErrorCode::Unsupported)
 }

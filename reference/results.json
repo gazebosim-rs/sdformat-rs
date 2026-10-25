@@ -41213,5 +41213,73 @@
     "evidence_binding": "Reviewer identified only post-coverage quality metadata drift; all author components reran on exact frozen source and metadata, digest verified equal. Final review metadata and actual staged gate are bound separately.",
     "coverage": "Author-only 3160/3181 lines, 5519/5631 regions, 77/78 changed; unreachable branch remains counted.",
     "consumer": "Root deliberately uses public Clone parent first. New Sensor.imu accessor/enum migration and explicit Contact rejection remain required on consumer adoption."
+  },
+  "joint_endpoint_originals": {
+    "upstream_sha": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "source_sha256": {
+      "src/Joint.cc": "4ebe9449ca64f4011a618c01292ba6673db069c7b5ec7dd6eae70018ad4d5271",
+      "src/Model.cc": "9ce157bcd85ad233af6022192315ffa61ff5374490f8912f6750c98a0448d8d9",
+      "src/FrameSemantics.cc": "9fa1184da2130efdd3d4932ca5616de7bba347b8348ad2fcd972f4ec789992bc",
+      "include/sdf/Joint.hh": "4fd4a37dc51dce993fbd375e2c4e4e29895879d171be4cc31f494f20ef2398fc",
+      "include/sdf/Model.hh": "efc07cccb992ee8a0cd881e644454fb73b82260085e38567e5573573dc105e2d",
+      "include/sdf/SemanticPose.hh": "690f3b787a0e433195e7603181e4655b680512055e05c128163573fea220073b",
+      "test/integration/joint_dom.cc": "84de4d0263c47fab2e7a23298d4683cb0e927ca3ac9cbae98730483f816b4fef",
+      "test/sdf/joint_parent_world.sdf": "67e0136a3cc9928f942804fe45b443ec75bec239b1e96b335f439ed0f9b201af",
+      "test/sdf/joint_parent_model_frame.sdf": "8a97ced712226182b56ab10e401851dc61b994f2bc11e0b612d59048bffee7f1",
+      "test/sdf/joint_child_model_frame.sdf": "7237e97531a585b6f34bf0adf3d0e9a70ff30fcde3921c4e509b7523bd212d14"
+    },
+    "fixture_sha256": {
+      "joint_parent_world.sdf": "67e0136a3cc9928f942804fe45b443ec75bec239b1e96b335f439ed0f9b201af",
+      "joint_parent_model_frame.sdf": "8a97ced712226182b56ab10e401851dc61b994f2bc11e0b612d59048bffee7f1",
+      "joint_child_model_frame.sdf": "7237e97531a585b6f34bf0adf3d0e9a70ff30fcde3921c4e509b7523bd212d14"
+    },
+    "original_binary_sha256": "cc12b5936e5c7e3aa89a2d625c9371e69f0b2d0ce19805b800048a9cb6cddd7b",
+    "linked_libraries_sha256": {
+      "libsdformat.so.17": "bcc864bcee56b49c13081e29722051e26c036260e3dd037e7736aa2b8620358f",
+      "libstdc++.so.6": "1fd75fe70354a416d75aef22bcae68c47bd25d20e2d0568c30b1a9838cf62f11",
+      "libc.so.6": "3a15d66867d83762c7f2f1e37359cb8f6c5743edb369c65285cb0b1c4f7498bf",
+      "libgz-math.so.10": "288c6f52fac45359f5de67d97e0069b7f37420f5f78888e61406b8f565656c4f"
+    },
+    "math_upstream_sha": "1316ed334f4d5bda7be59aae07cd6e8ff31cfe13",
+    "math_header_sha256": {
+      "include/gz/math/Pose3.hh": "6bfc53f0bd22a3e1596bbdb07c24bacdac9e17bd8178b9373d8df1b01e4fc6f6",
+      "include/gz/math/Quaternion.hh": "9170601444da93735b4d14b369cc4266fafc7655657a6af7613e31206382b873",
+      "include/gz/math/Vector3.hh": "b4e8d01584139efba180bf530c95e18101aee4fb070aa93b8ddfe7cc38282a38"
+    },
+    "originals": [
+      {
+        "case": "DOMJoint.LoadJointParentWorld",
+        "tests": 1,
+        "failures": 0,
+        "skipped": 0
+      },
+      {
+        "case": "DOMJoint.LoadJointParentModelFrame",
+        "tests": 1,
+        "failures": 0,
+        "skipped": 0
+      },
+      {
+        "case": "DOMJoint.LoadJointChildModelFrame",
+        "tests": 1,
+        "failures": 0,
+        "skipped": 0
+      }
+    ],
+    "qualification": "Existing pinned native test binary and installed SDK/library/header identity; no fresh full native rebuild or reproducible image claim."
+  },
+  "joint_endpoint_review": {
+    "reviewer": "/root/transport_fallback",
+    "source_protected_digest": "17ea30e048c31770b4d2f06e219e03fc8d55108f5baf13c22ad76a8231d93945",
+    "independent_rust_checks": 153,
+    "independent_tools": 13,
+    "fmt_clippy": "passed",
+    "native_originals": 3,
+    "native_tests_per_case": 1,
+    "native_failures_or_skips": 0,
+    "proof": "Complete fresh native original replay proof equals recorded result, including fixture/source/header/binary/library hashes. Existing native binary/SDK qualification retained.",
+    "mapping": "All original Root load, model/member counts/index/presence/name, raw pose/reference, endpoint names/resolution, semantic poses and frame-count assertions retained. Graph-body resolution uses actual graph results with only global world-sentinel and current model-scope translation for exact valid fixtures. Complete mappings approved for three originals.",
+    "tolerance": "Native Pose3 component-wise <=1e-3, no quaternion sign relaxation.",
+    "limits": "No production/API/dependency/unsafe change, mutable ResolveParent/Child facade, generic error-vector parity or runtime joint claim. Author coverage not independently recomputed."
   }
 }

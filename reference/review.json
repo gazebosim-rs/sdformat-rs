@@ -1,41 +1,48 @@
 {
-  "decision": "approved",
-  "repository": "sdformat-rs",
   "author": "/root/sdformat",
-  "reviewer": "/root/transport_fallback",
-  "reviewed_at": "2026-10-25T11:45:29Z",
-  "base": "4ed690b3a872e395df0f3544b278c7f1d3c45a7e",
-  "protected_digest": "5d555f42135dfce7f18ba3e0041e7083788dce2442259e51f7f072412c0c63e5",
-  "source_digest": "6abac39647c76babb085254913e63c498ea12ceb77cea98827ada32d4a77d1d6",
+  "base": "943b171cac881dd1f0eacb398abc8d00e0fc1fef",
+  "coverage": {
+    "author_lines": [
+      3160,
+      3181
+    ],
+    "author_regions": [
+      5519,
+      5631
+    ],
+    "independently_recomputed": false
+  },
+  "decision": "approved",
   "files": {
-    "README.md": "21269ed3139a9261162f163b818b78d70fc9a5987c88d3714c06b28659e7749b",
-    "docs/CONTACT_SENSOR.md": "e280e925d1fc809cb48348b633b51d67fe0705aaaedca0bca8b60b87f99404fa",
-    "docs/CONTRACT.md": "50c6a725a9caab13e4f159929218634b62bd55f1dba9006414c3d0e8592a2295",
-    "docs/STATUS.md": "ed1bcd9303ad87eddb5ec135aaa428357f9799aa281314b85257a383e9edb9d8",
-    "reference/results.json": "c81c20e7daf6dfba68579774ab0cc65f0645a59cce60f5a19bb13d3e67f1fc73",
-    "reference/traceability.json": "15043c185509ce97885cf69801cb906dfb5c8c2e4a2e2a93eebd8e088732d6f4",
-    "src/parse.rs": "5fc6f4c5c53ee7b7f8b4d094e853574b83f8ac5264143f2d14cd7c6c5eaa2acb",
-    "src/types.rs": "6465684941721bf97075460fcb93c37da9f686996f4c337f71f4dd00c29ae681",
-    "tests/contact_sensor.json": "20e570710f926fb9cac5a608bda7606da9c9a76cb44c8da74ffc82cde13e2d2b",
-    "tests/contact_sensor.rs": "e1f1714c5201d2e9e4d6fb6dd6dd20589376a13dcab4ab0f11ae9284372e891c",
-    "tests/contact_sensor_reference.cc": "14d875d182b0aea7c382d290b2ccca852abe01ab71833592edfe70202d6861b1",
-    "tests/imu.rs": "da86e75b61f7bab17cdad12fdde1ebab50dd2c9ef446b880c0f2314d091da820",
-    "tests/scalar.rs": "40ad376f7122f02bc802d92b2562f80fe883342356f3eb7c6ec1d040394abdf0",
-    "tools/contact_sensor_reference.py": "246518dca15f9ba62d51a9f7c9558f4cf04f2ec49c31e86d72f8d8450c2231f8"
+    "docs/JOINT_ENDPOINTS.md": "873a0ef99535da7f19f21fa7a0fb432edf3fd0696884f24d3553f6ac6f73252f",
+    "docs/STATUS.md": "677bb1bf7fa0446c922e164e51db8b42c1d59c0ecae012e74bcaa59e35ed2111",
+    "reference/results.json": "c6d3172bece5d8151ca9bb2507d5f4d808346d4f07a18c99d31c8cadb0096595",
+    "reference/traceability.json": "bebb162daa505c803c96feeda8b85a75ebe67c3d73bca84843968a984affab1b",
+    "tests/fixtures/joint_child_model_frame.sdf": "7237e97531a585b6f34bf0adf3d0e9a70ff30fcde3921c4e509b7523bd212d14",
+    "tests/fixtures/joint_parent_model_frame.sdf": "8a97ced712226182b56ab10e401851dc61b994f2bc11e0b612d59048bffee7f1",
+    "tests/fixtures/joint_parent_world.sdf": "67e0136a3cc9928f942804fe45b443ec75bec239b1e96b335f439ed0f9b201af",
+    "tests/joint_endpoints.rs": "b0c25096fdf71bfa382ff2439a154e4bf79813f88df4e40dff7b449ab2170ac9",
+    "tools/joint_endpoints_reference.py": "1f6061366434fd6ab7b7f947d96d53f7b8fa9d8a945ea24314c12abe016fac1b"
   },
-  "scope": "Owned Contact sensor configuration and exact contact subtree of DOMLink.Sensors as a partial reviewed mapping; no complete case retirement, runtime Contact behavior, dependency, unsafe or performance claim.",
   "independent_checks": {
-    "source": "Separate clean public Clone base export plus exact 14 frozen overlays; all source SHA256 and final protected digest verified, with only traceability/results/STATUS final metadata changed after source review.",
-    "rust": "Fresh separate reviewer source and Cargo target: all 150 Rust checks passed; 13 tooling tests, rustfmt and Clippy with warnings denied passed.",
-    "native": "Freshly compiled pinned C++ contact helper passed all 85 raw Root observations; complete proof equals reference/results contact_sensor_corpus; unchanged DOMLink.Sensors original passed 1/0.",
-    "precedence": "Separate public Clone baseline consumer reproduced all four exact old IMU diagnostic strings; frozen Contact test preserved each code, source position and message. Earlier premature-IMU negative test and correction evidence inspected.",
-    "original_assertions": "Exact unchanged contact subtree assertions at link_dom.cc:362-372 map presence/name/type, raw pose, both semantic resolution targets and metrics. Pinned gz-math Pose3 equality delegates to component-wise Vector3/Quaternion <=1e-3, matching Rust port; original XML subtree and OSRF notice retained.",
-    "coverage": "Author full strict gate on final bytes matched source_digest; 3160/3181 production lines, 5519/5631 regions, 77/78 changed executable lines. Uncovered changed parse.rs:2085 unreachable branch remains in denominator. Independent full LLVM coverage rerun not claimed."
+    "assertion_mapping": "Every original assertion in joint_dom.cc:205-254 and 278-341 retained by exact API translation; native Pose3 component-wise tolerance <=1e-3; actual graph-body results, global world sentinel and actual model-scope translation.",
+    "fmt_clippy": "passed",
+    "fresh_private_rust": 153,
+    "native_each": "1 run, 0 failures, 0 skips",
+    "native_proof": "fresh native proof equals recorded result including source, fixture, binary, header, library hashes",
+    "tooling": 13,
+    "unchanged_native_originals": 3
   },
-  "limits": [
-    "74 native parity rows; 11 named native-accepted Rust policy/schema gaps.",
-    "Other 25 sensor families and whole Sensors/model/link assertions remain pending.",
-    "Public Sensor.imu field migration requires downstream adaptation; consumer must reject Contact until runtime exists.",
-    "Final normal exact staged hook and hosted CI remain required before publication."
-  ]
+  "limits": "No production/API/unsafe/dependency change; no generic mutable ResolveParent/Child error-vector or runtime-joint claim. Native comparison uses existing pinned binary/SDK rather than fresh native full build. Mandatory staged hook and hosted checks pending.",
+  "matching_source_digest": "e2f1127079bb39c86dc3f7f3d189606e92e01aab202b5ebc46acb6dea2c41d0d",
+  "metadata_only_changed_from_source_review": [
+    "docs/JOINT_ENDPOINTS.md",
+    "docs/STATUS.md",
+    "reference/results.json",
+    "reference/traceability.json"
+  ],
+  "protected_digest": "f3dc7e2543d945e4ca5b47bc6d62833d1190046aff65138310603c840cde67e4",
+  "reviewer": "/root/transport_fallback",
+  "scope": "Independent final metadata binding for three complete, exact valid-fixture joint endpoint assertion ports. Source/assertion review previously passed.",
+  "source_reviewed_digest": "17ea30e048c31770b4d2f06e219e03fc8d55108f5baf13c22ad76a8231d93945"
 }

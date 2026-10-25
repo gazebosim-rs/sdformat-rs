@@ -624,6 +624,54 @@
       "baseline": "Exact unchanged original DOMRoot.MultiNestedModel XML one run/zero failures, artifacts/member-dom/DOMRoot.MultiNestedModel-original.xml.",
       "status": "ported_reviewed",
       "review": "Independent /root/msgs compared all original counts/presence/bounds/names/scoped pointers and explicitly approved seven known-valid-fixture graph membership observations through successful attachment lookup at exact scoped names and UnknownReference for missing direct mid_link. No mutable/general graph-membership parity. Fresh private replay passed all 140 Rust checks and entire 104-row/exact-original native proof equals author including hashes; prior 36 rows retained unchanged. Native resolved-prefix precedence and unresolved-prefix literal-name fallback reviewed against pinned source."
+    },
+    {
+      "target": "INTEGRATION_joint_dom",
+      "case": "DOMJoint.LoadJointParentWorld",
+      "source": "test/integration/joint_dom.cc:205",
+      "rust_test": "tests/joint_endpoints.rs::original_joint_parent_world",
+      "assertions": "Complete original Root-load success, model/member presence/count/name/raw-pose/reference and joint endpoint/semantic pose assertions retained. Root collections/get map DOM index presence, borrowed name lookups map existence. Endpoint body names compose existing resolve_name/attached_body, translating global :: to native world and stripping only the actual model scope; this is the declared API translation for these exact fixtures. Pose comparisons retain component-wise <=1e-3 without quaternion sign relaxation.",
+      "fixtures": {
+        "tests/fixtures/joint_parent_world.sdf": "67e0136a3cc9928f942804fe45b443ec75bec239b1e96b335f439ed0f9b201af"
+      },
+      "upstream_fixtures": {
+        "test/sdf/joint_parent_world.sdf": "67e0136a3cc9928f942804fe45b443ec75bec239b1e96b335f439ed0f9b201af"
+      },
+      "baseline": "Existing pinned native original freshly rerun: exactly one actual test, zero failures/errors/skips; source/fixture/header/library/binary hashes recorded.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback compared every original assertion in joint_dom.cc:205\u2013254/278\u2013341, approved the exact valid-fixture Root collection/index/name and graph-body relative-name translation, and component-wise native Pose3 tolerance <=1e-3. Fresh private 153 Rust/13 tools/fmt/Clippy and all three unchanged native originals 1/0/no skips pass; entire proof equals author. No production delta or generic mutable ResolveParent/Child error-vector API claim."
+    },
+    {
+      "target": "INTEGRATION_joint_dom",
+      "case": "DOMJoint.LoadJointParentModelFrame",
+      "source": "test/integration/joint_dom.cc:278",
+      "rust_test": "tests/joint_endpoints.rs::original_joint_parent_model_frame",
+      "assertions": "Complete original Root-load success, model/member presence/count/name/raw-pose/reference and joint endpoint/semantic pose assertions retained. Root collections/get map DOM index presence, borrowed name lookups map existence. Endpoint body names compose existing resolve_name/attached_body, translating global :: to native world and stripping only the actual model scope; this is the declared API translation for these exact fixtures. Pose comparisons retain component-wise <=1e-3 without quaternion sign relaxation.",
+      "fixtures": {
+        "tests/fixtures/joint_parent_model_frame.sdf": "8a97ced712226182b56ab10e401851dc61b994f2bc11e0b612d59048bffee7f1"
+      },
+      "upstream_fixtures": {
+        "test/sdf/joint_parent_model_frame.sdf": "8a97ced712226182b56ab10e401851dc61b994f2bc11e0b612d59048bffee7f1"
+      },
+      "baseline": "Existing pinned native original freshly rerun: exactly one actual test, zero failures/errors/skips; source/fixture/header/library/binary hashes recorded.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback compared every original assertion in joint_dom.cc:205\u2013254/278\u2013341, approved the exact valid-fixture Root collection/index/name and graph-body relative-name translation, and component-wise native Pose3 tolerance <=1e-3. Fresh private 153 Rust/13 tools/fmt/Clippy and all three unchanged native originals 1/0/no skips pass; entire proof equals author. No production delta or generic mutable ResolveParent/Child error-vector API claim."
+    },
+    {
+      "target": "INTEGRATION_joint_dom",
+      "case": "DOMJoint.LoadJointChildModelFrame",
+      "source": "test/integration/joint_dom.cc:310",
+      "rust_test": "tests/joint_endpoints.rs::original_joint_child_model_frame",
+      "assertions": "Complete original Root-load success, model/member presence/count/name/raw-pose/reference and joint endpoint/semantic pose assertions retained. Root collections/get map DOM index presence, borrowed name lookups map existence. Endpoint body names compose existing resolve_name/attached_body, translating global :: to native world and stripping only the actual model scope; this is the declared API translation for these exact fixtures. Pose comparisons retain component-wise <=1e-3 without quaternion sign relaxation.",
+      "fixtures": {
+        "tests/fixtures/joint_child_model_frame.sdf": "7237e97531a585b6f34bf0adf3d0e9a70ff30fcde3921c4e509b7523bd212d14"
+      },
+      "upstream_fixtures": {
+        "test/sdf/joint_child_model_frame.sdf": "7237e97531a585b6f34bf0adf3d0e9a70ff30fcde3921c4e509b7523bd212d14"
+      },
+      "baseline": "Existing pinned native original freshly rerun: exactly one actual test, zero failures/errors/skips; source/fixture/header/library/binary hashes recorded.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback compared every original assertion in joint_dom.cc:205\u2013254/278\u2013341, approved the exact valid-fixture Root collection/index/name and graph-body relative-name translation, and component-wise native Pose3 tolerance <=1e-3. Fresh private 153 Rust/13 tools/fmt/Clippy and all three unchanged native originals 1/0/no skips pass; entire proof equals author. No production delta or generic mutable ResolveParent/Child error-vector API claim."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

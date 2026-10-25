@@ -1061,3 +1061,30 @@ pose tolerance were reviewed; no full case retirement or runtime effect is
 claimed. The reviewer also detected only a post-coverage quality-metadata digest
 drift; fresh final-byte author checks corrected that binding. Final metadata,
 normal exact staged hook and hosted qualification remain required.
+
+
+## Joint endpoint original assertion candidate
+
+Three exact original world/model-frame endpoint cases are retained through the
+existing Root collections, borrowed DOM and semantic attachment/pose queries.
+Original fixture bytes and component-wise native pose tolerances are unchanged.
+All three focused Rust tests and all three exact native originals pass, with no
+skips and pinned source/header/fixture/library/binary evidence. All author checks
+and independent assertion/API-translation review passed.
+Normal staged/hosted qualification remains pending; no runtime joint support or
+whole packet acceptance is claimed.
+
+Fresh integrated author checks pass 153 Rust tests, 13 tooling tests, formatting
+and strict Clippy. All three exact native originals pass with zero skips and
+unchanged proof. Production coverage remains 3160/3181 lines and 5519/5631
+regions; no executable production line changed. The prior three native cases
+and inherited Contact/Clone source and evidence remain intact. Independent
+assertion/API-translation review passed; normal staged/hosted gates are pending.
+
+Independent /root/transport_fallback passed all 153 Rust checks, 13 tools and
+formatting/Clippy in a fresh private source/target, then reran each unchanged
+native original with one actual test and zero failures/skips. Complete proof and
+all source/header/library/fixture/binary hashes match. Every assertion and the
+exact valid-fixture endpoint API translation were approved. Three complete
+mappings are added, for 43 complete and 11 partial cases; no general mutable
+endpoint facade or full joint/schema/runtime completion is claimed.

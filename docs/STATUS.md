@@ -1000,3 +1000,18 @@ Exact old XML/helper wrappers and restored unrelated assertion bytes match the
 public parent. Runtime embedded schema framing is verified; implicit unlimited
 metadata and explicit nonfinite gaps stay separate. Source/assertions/native inputs
 are unchanged by this metadata update. Normal staged/hosted gates remain required.
+
+
+## Owned joint configuration cloning candidate
+
+Three derived Clone implementations on JointKind, Joint and Axis allow consumers
+to retain typed configuration without duplicating the producer DOM. A consumer
+regression drops the parsed document, retains both axes/dynamics/source/XML and
+mutates a second clone without changing the retained configuration. No loading,
+normalization, native assertion, dependency or runtime behavior changes. Author
+checks pass 143 Rust and 13 tooling tests with unchanged 3092/3112 production lines
+and 5395/5510 regions; there are no changed executable production lines. Independent review passed the authored consumer regression and two additional
+controls for fixed joints without axes and retained revolute unbounded values with
+independent UTF-8 source cloning. Runtime graph resolution remains Sdf-owned;
+Clone retains configuration only. The normal exact staged and hosted gates remain
+required before publication.

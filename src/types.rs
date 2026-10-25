@@ -612,7 +612,7 @@ pub struct ConvexDecomposition {
     pub max_convex_hulls: u32,
     pub voxel_resolution: u32,
 }
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub enum JointKind {
     Fixed,
     Revolute,
@@ -621,7 +621,7 @@ pub enum JointKind {
     Universal,
     Revolute2,
 }
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Joint {
     pub name: String,
     pub kind: JointKind,
@@ -643,7 +643,7 @@ impl Joint {
         }
     }
 }
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Axis {
     pub xyz: [f64; 3],
     pub expressed_in: String,

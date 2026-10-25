@@ -34,6 +34,8 @@ or empty geometry preserves native EMPTY as None. Visual names are unique within
 a link, independently of collision and sensor names. Owned visual properties and optional material data preserve the metadata described
 in docs/MATERIALS.md. PBR and renderer effects remain outside this loader.
 `Joint` has kind, parent/child references, pose, optional axis/axis2 and source.
+Joint, JointKind and Axis implement Clone so consumers can retain owned typed
+configuration after dropping the document; clones share no mutable strings.
 Universal and revolute2 types retain both axes; native axis2 is also preserved
 when present on another supported joint kind.
 `Axis` has normalized xyz, expressed_in, position limits, effort and velocity.

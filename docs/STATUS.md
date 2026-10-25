@@ -1472,4 +1472,26 @@ The isolated source candidate passes 198 Rust tests, 13 tooling tests, formattin
 Clippy and docs. Direct production coverage is 3346/3362 lines, 5828/5944
 regions and 39/39 changed executable lines. Independent source review approved the exact four files after private full198
 Rust/fmt/Clippy and native DOM2/0 plus Link1/0; receipt SHA256 ecd82a075d3e7e801ae7e433e25e4af6a23029440854b971d46aa77bad5f735d.
-Final metadata binding, normal protected hook and hosted CI are pending.
+Final metadata binding, the normal protected hook and hosted verify run
+40221825746 passed at public commit 18cbdbacad9c96f3af78cbbe6c18ade4daf56e26.
+
+## Typed AirPressure DOM and parser candidate
+
+`SensorConfig::AirPressure(Box<AirPressure>)` now owns pressure noise and reference
+altitude. The optional accessor, explicit source and exact selected XML retain
+that configuration without measuring pressure. The pinned
+`DOMAirPressure.Construction` and `Set` originals pass natively 2/0; the Rust
+candidate maps default, set, copy, move and inequality values. The unchanged
+upstream `sensors.sdf` fixture passes native `DOMLink.Sensors` 1/0. Rust parses
+only its byte-identical air-pressure fragment in a minimal model/link wrapper,
+checking name, type, raw pose, disabled metrics, noise mean and standard
+deviation, and reference altitude. The other 22 sensor families and complete
+27-sensor Link original remain pending.
+
+The isolated source candidate passes 201 Rust tests, 13 tooling tests, formatting,
+Clippy and docs. Direct production coverage is 3375/3391 lines, 5885/6004
+regions and 33/33 changed executable lines. Independent source review approved the exact five files after private full201
+Rust/fmt/Clippy and native DOM2/0 plus Link1/0; receipt SHA256 4a87cce0bec1e446a7d416354dd746f76e5ce08535fbaad81949521bd2fb218b.
+This successor also adds the native identity rotation assertion to the earlier
+Altimeter fragment, preserving its existing partial Link scope. Final metadata
+binding, normal protected hook and hosted CI are pending.

@@ -60131,6 +60131,20 @@
     "original": "DOMAltimeter.Construction and Set native2/0; DOMLink.Sensors native1/0, altimeter subset only.",
     "rust": "All 198 integrated Rust tests, 13 tooling tests, fmt, Clippy and docs pass; direct coverage3346/3362 production lines,5828/5944 regions and39/39 changed executable lines.",
     "scope": "Two complete DOMAltimeter value/copy/move originals. DOMLink.Sensors maps only unchanged fixture altimeter name/type/zero pose/disabled metrics/four noise scalars; 23 other sensor families and whole Link count/index remain; full 27-sensor case stays partial. Adds typed SensorConfig::Altimeter parser/accessor; no measurement, simulator behavior or downstream consumer pin update.",
-    "review": "Independent /root/transport_fallback approved two complete DOM mappings and partial Link fixture subset; source receipt SHA256 ecd82a075d3e7e801ae7e433e25e4af6a23029440854b971d46aa77bad5f735d. Final metadata/contract binding, normal hook and hosted qualification pending."
+    "review": "Independent /root/transport_fallback approved two complete DOM mappings and partial Link fixture subset; source receipt SHA256 ecd82a075d3e7e801ae7e433e25e4af6a23029440854b971d46aa77bad5f735d. Final metadata/contract binding, normal hook and hosted qualification pending. Successor AirPressure packet adds the previously omitted native Altimeter identity rotation assertion; independently approved corrected five-file source receipt SHA256 4a87cce0bec1e446a7d416354dd746f76e5ce08535fbaad81949521bd2fb218b; complete DOM and partial Link scopes unchanged. Final main metadata/protected hook and exact hosted verify run 40221825746 passed at public commit 18cbdbacad9c96f3af78cbbe6c18ade4daf56e26; SDF-only tracker accepted at 089aa80afa43194a40165788ce0e149b13b006c4."
+  },
+  "air_pressure_original": {
+    "parent": "18cbdbacad9c96f3af78cbbe6c18ade4daf56e26",
+    "upstream": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "source_digest": "766c8e2c3b0d48c96e590e790ebc56be29d411569b489847e8eff383d910b79d",
+    "native_dom_source_sha256": "e1d87af0e63b1a81ace7d8eef9239db495ea78020d72e5fddb27710b385cce1b",
+    "native_dom_binary_sha256": "5625d5cb6c6891bcf6f5e11f02b5f80bb08a5fdae1d75bc5a47effd1f2949be6",
+    "native_link_source_sha256": "3f19b57d0cd02be6201a08be4580d5a478d5e3c1549457605754ccff99ccd4f1",
+    "native_link_binary_sha256": "5996c21878cab1dacd0d653c50bfdcf4a02c8064157855ae6136471939582716",
+    "fixture_sha256": "dc2b61c8b40a7df7f2c7b6e649f3039136ca1a03528371b307e9b9fc27406a00",
+    "original": "DOMAirPressure.Construction and Set native2/0; DOMLink.Sensors native1/0, air-pressure subset only.",
+    "rust": "All 201 integrated Rust tests, 13 tooling tests, fmt, Clippy and docs pass; direct coverage3375/3391 production lines,5885/6004 regions and33/33 changed executable lines.",
+    "scope": "Two complete DOMAirPressure default/set/copy/move/inequality originals. DOMLink.Sensors adds only unchanged fixture air-pressure name/type/full raw pose/disabled metrics/pressure noise mean+stddev/reference altitude, with prior Altimeter identity rotation corrected. 22 other sensor families plus full count/index/lookup remain; full 27-sensor case partial. Typed SensorConfig::AirPressure parser/accessor only, no measurement or downstream consumer pin update.",
+    "review": "Independent /root/transport_fallback approved complete DOM originals, partial Link subset and prior Altimeter rotation correction; corrected source receipt SHA256 4a87cce0bec1e446a7d416354dd746f76e5ce08535fbaad81949521bd2fb218b. Final metadata binding, normal hook and hosted qualification pending."
   }
 }

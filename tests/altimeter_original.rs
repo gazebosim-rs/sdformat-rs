@@ -95,6 +95,7 @@ fn native_altimeter_sensor_fragment_is_typed() {
     assert_eq!(sensor.kind, "altimeter");
     assert!(matches!(sensor.config, SensorConfig::Altimeter(_)));
     assert_eq!(sensor.pose.transform.translation, [0.; 3]);
+    assert_eq!(sensor.pose.transform.rotation, [0., 0., 0., 1.]);
     assert!(!sensor.enable_metrics);
     assert!(sensor.imu().is_none());
     assert!(sensor.contact().is_none());

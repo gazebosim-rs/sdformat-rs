@@ -2124,6 +2124,27 @@ impl Parser<'_> {
             source: Some(self.source(node)),
         })
     }
+    fn air_pressure(&self, sensor: Node<'_, '_>) -> Result<AirPressure, Diagnostic> {
+        let Some(node) = child(sensor, "air_pressure") else {
+            return Ok(AirPressure::default());
+        };
+        self.allowed(node, &["pressure", "reference_altitude"], &[])?;
+        let pressure = child(node, "pressure")
+            .map(|component| {
+                self.allowed(component, &["noise"], &[])?;
+                child(component, "noise")
+                    .map(|noise| self.noise(noise))
+                    .transpose()
+                    .map(|noise| noise.unwrap_or_default())
+            })
+            .transpose()?
+            .unwrap_or_default();
+        Ok(AirPressure {
+            pressure,
+            reference_altitude: self.scalar(node, "reference_altitude", 0.)?,
+            source: Some(self.source(node)),
+        })
+    }
     fn magnetometer(&self, sensor: Node<'_, '_>) -> Result<Magnetometer, Diagnostic> {
         Ok(Magnetometer {
             noise: self.noise_vector(sensor, "magnetometer")?,
@@ -2146,6 +2167,7 @@ impl Parser<'_> {
                 "force_torque",
                 "magnetometer",
                 "altimeter",
+                "air_pressure",
             ],
             &["name", "type"],
         )?;
@@ -2155,12 +2177,12 @@ impl Parser<'_> {
             .to_owned();
         if !matches!(
             kind.as_str(),
-            "imu" | "contact" | "force_torque" | "magnetometer" | "altimeter"
+            "imu" | "contact" | "force_torque" | "magnetometer" | "altimeter" | "air_pressure"
         ) {
             return Err(self.err(
                 node,
                 ErrorCode::Unsupported,
-                "only IMU, contact, force/torque, magnetometer and altimeter sensor configurations are supported",
+                "only IMU, contact, force/torque, magnetometer, altimeter and air pressure sensor configurations are supported",
             ));
         }
         if [
@@ -2169,6 +2191,7 @@ impl Parser<'_> {
             "force_torque",
             "magnetometer",
             "altimeter",
+            "air_pressure",
         ]
         .iter()
         .any(|name| *name != kind && child(node, name).is_some())
@@ -2195,6 +2218,7 @@ impl Parser<'_> {
             "force_torque" => SensorConfig::ForceTorque(Box::new(self.force_torque(node)?)),
             "magnetometer" => SensorConfig::Magnetometer(Box::new(self.magnetometer(node)?)),
             "altimeter" => SensorConfig::Altimeter(Box::new(self.altimeter(node)?)),
+            "air_pressure" => SensorConfig::AirPressure(Box::new(self.air_pressure(node)?)),
             _ => unreachable!("sensor type checked above"),
         };
         let configuration_xml =

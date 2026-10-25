@@ -46,8 +46,9 @@ be aliases, but must resolve to different bodies; the child cannot be world.
 `SensorConfig::Imu(Box<Imu>)`, `SensorConfig::Contact(ContactSensor)`,
 `SensorConfig::ForceTorque(Box<ForceTorque>)` or
 `SensorConfig::Magnetometer(Box<Magnetometer>)` or
-`SensorConfig::Altimeter(Box<Altimeter>)` settings. Optional `imu()`,
-`contact()`, `force_torque()`, `magnetometer()` and `altimeter()` accessors expose the selected type; exact selected
+`SensorConfig::Altimeter(Box<Altimeter>)` or
+`SensorConfig::AirPressure(Box<AirPressure>)` settings. Optional `imu()`,
+`contact()`, `force_torque()`, `magnetometer()`, `altimeter()` and `air_pressure()` accessors expose the selected type; exact selected
 child XML and owned source are preserved. Contact collision names and nested topic
 remain distinct from envelope topic; see docs/CONTACT_SENSOR.md. The six per-axis `Noise` records retain type,
 mean, standard deviation, bias mean/deviation, dynamic bias deviation/correlation
@@ -57,7 +58,8 @@ declarations require a nonempty type attribute; omitted noise retains None
 constructor defaults. See docs/NOISE_TYPES.md. Magnetometer owns three noise
 axes and exact explicit configuration/source XML; omitted configuration has
 all-None noise defaults. Altimeter owns vertical position and velocity noise
-with the same source and omission behavior. IMU orientation enable, localization, custom RPY and gravity direction
+with the same source and omission behavior. AirPressure owns pressure noise and
+reference altitude; omitted configuration defaults both. IMU orientation enable, localization, custom RPY and gravity direction
 with their parent-frame strings preserve native defaults. Localization and parent
 frame strings remain unconstrained at load time, matching the native DOM; their
 runtime interpretation belongs to the sensor implementation. No noise is sampled
@@ -221,7 +223,7 @@ The consumer chooses a nonempty canonical value first, then a present legacy
 value even if empty, then its effective sensor name. The simulator may override
 that name with the scoped sensor identity before applying fallback. This parser
 does not choose a runtime name or apply consumer fallback. These common fields
-apply to supported IMU, Contact, ForceTorque, Magnetometer and Altimeter variants. No
+apply to supported IMU, Contact, ForceTorque, Magnetometer, Altimeter and AirPressure variants. No
 other sensor-family completion or full DOMSensor original-case retirement is
 claimed.
 

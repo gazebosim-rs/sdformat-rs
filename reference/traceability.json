@@ -957,6 +957,22 @@
       "baseline": "Both exact native originals together two runs, zero failures/skips; artifacts/basic-frame-bodies/original.xml; pinned upstream 1249805d.",
       "status": "partial_reviewed",
       "review": "Independent /root/transport_fallback approved frozen source digest 99f17c2d8d28ee90247785deb37c4ef3d732cfd46a0f6d25ee3f29f0fc578917 after exact original body-value/invalid failure comparison, unchanged fixture and 2019 notice checks, native2/0 and private selected2/full188 Rust replays. Reviewer source receipt SHA256 2a31b9f36526d347fa1f90a858478edc229a430211a4b13ee471386a609ab0b. Graph internals/check booleans and native error code/text remain unported; final metadata binding and staged/hosted qualification pending."
+    },
+    {
+      "target": "UNIT_FrameSemantics_TEST",
+      "case": "NestedFrameSemantics.buildFrameAttachedToGraph_World",
+      "source": "src/FrameSemantics_TEST.cc:458",
+      "rust_test": "tests/nested_world_bodies_original.rs::original_nested_world_frame_attachment_bodies",
+      "assertions": "Unchanged SDF 1.8 fixture; root world load and all sixteen world-scope plus six embedded-model resolveFrameAttachedToBody success/body-value observations, the world invalid-name failure and seven embedded-model out-of-scope failure observations map to public resolve_name+attached_body. The native modelGraph rejection of world remains unported: public resolve_name treats world as enclosing-world alias. Explicit graph construction/validation, Count checks, graph-check booleans and native error code/text remain unported; partial only.",
+      "fixtures": {
+        "tests/fixtures/world_nested_frame_attached_to.sdf": "1c554daf51657eeeef2aa673e011d228b4d830239441d4054c6183b958bfe9c1"
+      },
+      "upstream_fixtures": {
+        "test/sdf/world_nested_frame_attached_to.sdf": "1c554daf51657eeeef2aa673e011d228b4d830239441d4054c6183b958bfe9c1"
+      },
+      "baseline": "Exact native original one run, zero failures/skips; artifacts/nested-world-bodies/original.xml; pinned upstream 1249805d.",
+      "status": "partial_reviewed",
+      "review": "Independent /root/transport_fallback approved corrected frozen source digest 9d6bd23e0575cc3fa8f8f2e18bb2c68f311bacdc84be9e4b815f7ebcb4dec4b5 after native1/0, private selected1/full187 Rust replay, exact fixture and 2019 notice checks. Reviewer source receipt SHA256 e85fa4a7c32de943a752257a298f1d317af675be1036806b0fd4ee3854d56fed. ModelGraph world rejection and graph internals/native error details are explicitly unported; final public-parent binding and staged/hosted gates pending."
     }
   ]
 }

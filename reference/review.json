@@ -2,26 +2,26 @@
   "decision": "approved",
   "author": "/root/sdformat_owner_fallback",
   "reviewer": "/root/transport_fallback",
-  "scope": "Final metadata and parent-overlap binding for two partial basic model/world frame attachment-body original ports.",
-  "parent": "1826af6e51c68d1a631aae7ff0cf587ab99debb1",
-  "final_freeze": "artifacts/basic-frame-bodies/frozen-final.json",
-  "final_freeze_sha256": "264341eb2d6a209e5806d4e2668ae688b4d374b58bad5075dac2a9bc6a0355f1",
-  "protected_digest": "e2b0251584b38ee2f7ec2949e2d22b6569f81036fc2d230cc838478026adc2c0",
-  "source_digest": "db305c539aab05e893ae4c02181200552c3588ad27f95899718f41df625714d2",
-  "reviewed_source_digest": "99f17c2d8d28ee90247785deb37c4ef3d732cfd46a0f6d25ee3f29f0fc578917",
-  "source_review_receipt_sha256": "2a31b9f36526d347fa1f90a858478edc229a430211a4b13ee471386a609ab0b",
+  "scope": "Final metadata and public-parent overlap for the partial NestedFrameSemantics.buildFrameAttachedToGraph_World assertion port.",
+  "parent": "844cf12652ac7b306ca6814f721636b0cf2a01bc",
+  "final_freeze": "artifacts/nested-world-bodies/frozen-final.json",
+  "final_freeze_sha256": "e9022e16da200515b1589b34fae2cb3f562113e54fe5a1b7af50eea37bd92a92",
+  "protected_digest": "bed044dfabd2499d3a86b88e0a848f98eee74da2e87c3964308b56657162eb26",
+  "source_digest": "d89f27ede893da2e8c13813511ab2773145ab7474fe45f83e7f21e6c3081ea70",
+  "reviewed_source_digest": "9d6bd23e0575cc3fa8f8f2e18bb2c68f311bacdc84be9e4b815f7ebcb4dec4b5",
+  "source_review_receipt_sha256": "e85fa4a7c32de943a752257a298f1d317af675be1036806b0fd4ee3854d56fed",
   "files": {
-    "docs/STATUS.md": "1a648c3e980ef1aab808fa8e8301fb0394d1430d904622d009a20768db6d00b0",
-    "reference/results.json": "8c09af0dbd596cad0a95f0f48512b22be07344ac61805c5baae65247dc42b5c3",
-    "reference/traceability.json": "bc9a7998ce2fa2b6cd5e7412d2ae38912b3844627925bca98a8a988a47fa3113",
-    "tests/basic_frame_bodies_original.rs": "f1126b30c6120fb2e80488eabbaf7beedc8f98d7140cacfe2a81db2f1018db44",
-    "tests/fixtures/model_frame_attached_to.sdf": "410b6074c8ff683cb7fe6db72a9e0c6a3d41042035c79f662b31de3611b6a4cf",
-    "tests/fixtures/world_frame_attached_to.sdf": "ea542d419381f2f219a9c9dad628ba47ca89844809a8fba0cde1e7c2d56384ce"
+    "docs/STATUS.md": "d44b9eaa7ae69d19af0efc50e73a68f1e7450e4b3a69032d8f23bc54202b2d69",
+    "reference/results.json": "bf860c58a8b2bcba07e4e9c7a050ce4a437f2c3497abee454e235e382ba76bbb",
+    "reference/traceability.json": "92cf67c4965eb2b559baa559e0c4622bc7c22616d6e540699b54c40708820bf5",
+    "tests/nested_world_bodies_original.rs": "77f069e23b993438da561f1d2f6748b1cf35b22c2b16979d2c0f10449e8adcbf",
+    "tests/fixtures/world_nested_frame_attached_to.sdf": "1c554daf51657eeeef2aa673e011d228b4d830239441d4054c6183b958bfe9c1"
   },
   "checks": [
-    "The six final file hashes and manifest SHA-256 match the uncommitted main checkout; Git shows only these six changed or added paths and no staged drift. The 229 other public-parent tracked files remain unchanged.",
-    "The Rust test and both copied upstream fixture bytes are identical to the independently reviewed isolated source. The three metadata files add only accurate status, result and two partial traceability rows, each retaining explicit unported graph and error observations.",
-    "The author reports fresh integrated 188 Rust tests, 13 tooling tests, formatting, Clippy, docs and direct coverage of 3300/3316 lines and 5746/5857 regions on this exact metadata snapshot."
+    "The five final file hashes and manifest SHA-256 match the uncommitted main checkout on parent 844cf126; Git shows only these five changed or added paths and no staged drift. The other 232 tracked parent files remain unchanged.",
+    "The corrected Rust test and unchanged upstream fixture retain the exact independently reviewed bytes. The metadata adds only the reviewed partial result, status and one traceability row.",
+    "The metadata explicitly leaves the native modelGraph world rejection unported because the public resolver uses world as an enclosing-world alias. Graph construction/validation, Count/check booleans and native error code/text remain unported.",
+    "The author reports fresh combined-main 189 Rust tests, 13 tooling tests, formatting, Clippy, docs and direct coverage of 3300/3316 lines and 5746/5857 regions on this exact metadata snapshot."
   ],
-  "limits": "Both original mappings remain PARTIAL: graph construction and validation, map/vertex/edge/count observations, graph-check booleans and native invalid-name code/text are unported. Normal protected staged hook, publication and hosted CI remain pending. Author direct coverage and tools were inspected, not independently rerun on final metadata."
+  "limits": "PARTIAL original mapping only. Normal protected staged hook, publication and hosted CI remain pending. Author direct coverage and tools were inspected, not independently rerun on the final metadata."
 }

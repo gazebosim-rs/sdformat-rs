@@ -1374,3 +1374,19 @@ assertions only after a private selected2/full188 Rust replay. All 188 author Ru
 tests, 13 tooling checks, fmt, Clippy and docs pass; direct coverage is 3300/3316
 production lines and 5746/5857 regions with no production delta. Final metadata
 binding, normal protected hook and hosted CI remain pending.
+
+## Nested world attachment-body original candidate
+
+The unchanged `world_nested_frame_attached_to.sdf` fixture drives a partial
+port of `NestedFrameSemantics.buildFrameAttachedToGraph_World`. The exact pinned
+native original passes 1/0. Public queries retain all sixteen world-scope and
+six embedded-model body values, one invalid world name and seven genuine
+model-scope out-of-scope failures. The native model graph also rejects `world`
+as out of scope; the public resolver intentionally uses `world` as an enclosing
+world alias, so that graph-only assertion remains unported. Native explicit
+graph construction/validation, Count observations, graph-check booleans and
+exact native error code/text also remain unported. Independent review approved
+this corrected partial mapping after private selected1/full187 Rust replay.
+All 189 integrated Rust tests, 13 tooling checks, fmt, Clippy and docs pass;
+author direct coverage is 3300/3316 production lines and 5746/5857 regions.
+Final public-parent binding, normal protected hook and hosted CI remain pending.

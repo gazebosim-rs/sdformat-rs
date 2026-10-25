@@ -60055,5 +60055,18 @@
     "rust": "All 188 isolated Rust tests, 13 tooling tests, fmt, Clippy and docs pass; direct coverage3300/3316 production lines and5746/5857 regions; no production delta.",
     "scope": "Two partial original mappings independently approved: six root model, six world and three embedded-model attached-body values plus two invalid-name failures. Native graph build/validate/map/vertex/edge/count/check booleans and native error code/text remain unported.",
     "review": "Independent /root/transport_fallback source/assertion approval receipt SHA256 2a31b9f36526d347fa1f90a858478edc229a430211a4b13ee471386a609ab0b; final metadata binding, normal hook and hosted qualification pending."
+  },
+  "nested_world_bodies_original": {
+    "parent": "1826af6e51c68d1a631aae7ff0cf587ab99debb1",
+    "integration_parent": "844cf12652ac7b306ca6814f721636b0cf2a01bc",
+    "upstream": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "source_digest": "9d6bd23e0575cc3fa8f8f2e18bb2c68f311bacdc84be9e4b815f7ebcb4dec4b5",
+    "fixture_sha256": "1c554daf51657eeeef2aa673e011d228b4d830239441d4054c6183b958bfe9c1",
+    "native_source_sha256": "e073d0e0d33584641d5d830e0140d233092b226f37f6488a304bf858d1cfccb1",
+    "native_binary_sha256": "26fa8eae908af45248188c60a95122a1c2a69c733d35ad6873ac6b47c01ed51a",
+    "original": "NestedFrameSemantics.buildFrameAttachedToGraph_World: one run, zero failures/skips.",
+    "rust": "All 189 integrated Rust tests, 13 tooling tests, fmt, Clippy and docs pass; direct coverage3300/3316 production lines,5746/5857 regions and no production delta.",
+    "scope": "Partial original: sixteen world and six embedded model body values, world invalid-name failure and seven model-scope out-of-scope failures. Native modelGraph world rejection differs from public world alias and is unported, as are graph/Count checks and native error code/text.",
+    "review": "Independent /root/transport_fallback approved corrected partial source/assertion mapping, receipt SHA256 e85fa4a7c32de943a752257a298f1d317af675be1036806b0fd4ee3854d56fed. Final metadata binding, normal hook and hosted qualification pending."
   }
 }

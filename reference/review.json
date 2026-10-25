@@ -1,21 +1,26 @@
 {
   "author": "/root/sdformat_owner_fallback",
-  "author_checks": "Fresh integrated 192 Rust, 13 tooling, fmt, Clippy, docs, 3300/3316 production lines and 5746/5857 regions; zero production delta. Independent source review native1/0 and private full192/0 on the same parent plus frozen test.",
-  "binding": "Exact source-reviewed test plus additive STATUS/results/traceability metadata only; all 236 other tracked parent files byte-preserved. Metadata marks DOMImu.Construction COMPLETE only for original assertions, with moved-from internal state/parser/serialization/sampling outside scope.",
+  "author_checks": "Fresh integrated 195 Rust, 13 tooling, fmt, Clippy, docs, 3314/3330 production lines, 5771/5884 regions, 19/19 changed executable lines; independent native DOM2/0 plus Link1/0 and private full195/0 source review.",
+  "binding": "Exact reviewed parser/types/test bytes and unchanged upstream sensors.sdf fixture; only README/CONTRACT/STATUS and additive results/traceability metadata differ from source review. All 233 other tracked parent files byte-preserved. Two DOMMagnetometer originals COMPLETE; existing DOMLink.Sensors PARTIAL row retains prior IMU/contact mapping and adds only magnetometer name/type/pose/metrics/six scalars. Historical 25 other families after IMU/contact and current 24 after magnetometer are explicitly distinguished. Consumer enum adoption remains separate.",
   "decision": "approved",
   "files_sha256": {
-    "docs/STATUS.md": "f616345bbdbdddfeb549cdc1f483370c45a2077b71610be7f24c54566bd6c5d1",
-    "reference/results.json": "6a8f5c867fe5686f36ff90101b4e3857d9df3a4ae7a0af26804122c601a7d2af",
-    "reference/traceability.json": "acacd5cae64c2640af2c140d11720e0e885efbe93654f8ed53b2d35c5f9062ca",
-    "tests/imu_construction_original.rs": "20956d7d678107e00f1658fd1cb36e9b07fdf5476b7089a4291a7fbfc7e05642"
+    "README.md": "d4f4b0159af4e3b4839baa63a27df01a447bb9720f68c758f3a684659e61f301",
+    "docs/CONTRACT.md": "4ca498913ce1cfd89acf21b0aa54afa60f625ad687dde1d3eb5fc1dfc2e805ac",
+    "docs/STATUS.md": "93f1d2f9f3a7b597cae44e515a3cbe094448cf7805b51bfb3cffc24e3fdafbbb",
+    "reference/results.json": "3a3d4e9054d47cda22cfbd828956161a380abdaaba8f99d4a1da6fb61cc571c2",
+    "reference/traceability.json": "c871b03c84700d016f40832289f922099782415277334190694bea7c9da303ac",
+    "src/parse.rs": "5555ca09e37d54dad1679e3a11fa334e90545a7466c959258503a0f5e3b41801",
+    "src/types.rs": "1fb4b46305de2ecee7f15aab15538a6eced4997081ac1ee974801ad1a5443b6f",
+    "tests/magnetometer_original.rs": "42961ecfc9753fc725ee938512925c3b5fcff6bc1d1fa7ba5ecd40a3836fe1d3"
   },
-  "final_freeze": "artifacts/imu-construction/frozen-final.json",
-  "final_freeze_sha256": "1af3e9212de66be71cbb2d6925d2bd1142d06b036d388efb60154f183e5e83a5",
-  "parent": "09aa7831ca5d22cf6d44130929837c921c984b2a",
-  "pending": "normal exact protected staged hook, commit/push, exact hosted qualification; no hosted success claim",
-  "protected_digest": "532c40e78f5710af74f99565cb62845c6836746af084487ddfdc42ff4b85ed33",
-  "reviewed_source_parent": "09aa7831ca5d22cf6d44130929837c921c984b2a",
+  "final_freeze": "artifacts/magnetometer/frozen-final.json",
+  "final_freeze_sha256": "4e47f60177d611b817d83566752fd2fd6e2e71544c393644995af3f61b85fe70",
+  "parent": "f2d6e4ad183f5e9cc3f0c35fc9ff4e3077d29b25",
+  "pending": "normal exact protected staged hook, commit/push and exact hosted qualification; no hosted success claim",
+  "protected_digest": "7c20395a9705993a0df31384c14751e95ba032310881df9ce6a89d0e53f7f021",
+  "reviewed_source_parent": "f2d6e4ad183f5e9cc3f0c35fc9ff4e3077d29b25",
   "reviewer": "/root/transport_fallback",
-  "source_digest": "01c1cb12d2c170c49de238b1f90defa0afdb15ea9edd5b7c8c190a0dd8028779",
-  "source_review_receipt_sha256": "dd1d30c60d13705a21d591d9f1090e7e52f76be3e96e39b471d308d9f5b174cb"
+  "source_digest": "227bd0665cd9cf58b074742690f865d6b6c20d29c8c4d99086116efe9bfd25aa",
+  "source_review_receipt_sha256": "8419e3e8785579d36bb924945c53bcc2ca3627c388ecadbf8079e445af92311b",
+  "unchanged_fixture_sha256": "dc2b61c8b40a7df7f2c7b6e649f3039136ca1a03528371b307e9b9fc27406a00"
 }

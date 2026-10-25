@@ -816,6 +816,30 @@
       "baseline": "Exact pinned native DOMImu.Construction original one run, zero failures/skips; artifacts/imu-construction/original.xml.",
       "status": "ported_reviewed",
       "review": "Independent /root/transport_fallback approved exact frozen source digest b855654173ceb3ca8d0b3515e8fae72e28ad51579b751ed6cbb80499cf207be0 after native1/0, private raw-parent selected1/full192 Rust replay and original 2019 OSRF notice check. Reviewer source receipt SHA256 dd1d30c60d13705a21d591d9f1090e7e52f76be3e96e39b471d308d9f5b174cb. Complete exact original observations only; final metadata binding and protected staged/hosted gates pending."
+    },
+    {
+      "target": "UNIT_Magnetometer_TEST",
+      "case": "DOMMagnetometer.Construction",
+      "source": "src/Magnetometer_TEST.cc:22",
+      "rust_test": "tests/magnetometer_original.rs::original_magnetometer_construction",
+      "assertions": "Complete original: default constructed Magnetometer returns default Noise independently for X, Y and Z. Owned public noise array indexes map native axis getters; no sampling or parser claim in this original.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Exact pinned DOMMagnetometer.Construction native original one run, zero failures/skips; artifacts/magnetometer/original.xml.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback approved exact source digest f7f312932a47bc3ac29da1348223bbe7174269034415af1eb5699a5747550f69 after pinned native DOM2/0 and Link1/0, private raw-parent full195 Rust/fmt/Clippy, unchanged fixture and 2019 notice checks. Reviewer source receipt SHA256 8419e3e8785579d36bb924945c53bcc2ca3627c388ecadbf8079e445af92311b. Final metadata binding and protected staged/hosted gates pending."
+    },
+    {
+      "target": "UNIT_Magnetometer_TEST",
+      "case": "DOMMagnetometer.Set",
+      "source": "src/Magnetometer_TEST.cc:32",
+      "rust_test": "tests/magnetometer_original.rs::original_magnetometer_set_copy_and_move",
+      "assertions": "Complete original: all three initial default axis values; after each X/Y/Z assignment the changed and still-default axes match the exact Gaussian Noise record; copy/move construction and assignment value equality, default inequality and final post-move X-noise swap values. Public array writes map native setters; no moved-from internal state, parser/serialization or sampler claim.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Exact pinned DOMMagnetometer.Set native original one run, zero failures/skips; artifacts/magnetometer/original.xml.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback approved exact source digest f7f312932a47bc3ac29da1348223bbe7174269034415af1eb5699a5747550f69 after pinned native DOM2/0 and Link1/0, private raw-parent full195 Rust/fmt/Clippy, unchanged fixture and 2019 notice checks. Reviewer source receipt SHA256 8419e3e8785579d36bb924945c53bcc2ca3627c388ecadbf8079e445af92311b. Final metadata binding and protected staged/hosted gates pending."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",
@@ -823,18 +847,18 @@
     {
       "target": "INTEGRATION_link_dom",
       "case": "DOMLink.Sensors",
-      "source": "test/integration/link_dom.cc:362-372,504-569",
-      "rust_test": "tests/imu.rs::link_dom_sensors_original_imu_assertions; tests/contact_sensor.rs::original_link_dom_sensors_contact_observations",
-      "assertions": "Exact original IMU sensor name/type/pose/metrics and all 24 noise scalar plus seven orientation assertions retained; contact presence/name/type/raw pose/two semantic resolutions/metrics added from the exact unchanged contact subtree. Other 25 sensor families and whole model/link checks remain pending. No fixture content is rewritten.",
+      "source": "test/integration/link_dom.cc:362-372,504-590",
+      "rust_test": "tests/imu.rs::link_dom_sensors_original_imu_assertions; tests/contact_sensor.rs::original_link_dom_sensors_contact_observations; tests/magnetometer_original.rs::native_magnetometer_sensor_fragment_is_typed",
+      "assertions": "Exact original IMU sensor name/type/pose/metrics and all 24 noise scalar plus seven orientation assertions retained; contact presence/name/type/raw pose/two semantic resolutions/metrics added from the exact unchanged contact subtree. After the earlier IMU/contact mapping, 25 other sensor families and whole model/link checks remained pending; with the newly mapped magnetometer subset, 24 other sensor families and whole model/link checks remain pending. No fixture content is rewritten. Magnetometer name/type/raw translation (10,11,12)/disabled metrics and all six X/Y/Z noise mean/stddev scalars are added from the byte-identical magnetometer subtree, wrapped in a minimal model/link because other sensor families remain unsupported. The rest of the 27-sensor integration original remains unported.",
       "fixtures": {
         "tests/fixtures/sensors.sdf": "dc2b61c8b40a7df7f2c7b6e649f3039136ca1a03528371b307e9b9fc27406a00"
       },
       "upstream_fixtures": {
         "test/sdf/sensors.sdf": "dc2b61c8b40a7df7f2c7b6e649f3039136ca1a03528371b307e9b9fc27406a00"
       },
-      "baseline": "passed; artifacts/reference-sensors.xml",
+      "baseline": "passed; artifacts/reference-sensors.xml Fresh exact pinned DOMLink.Sensors native 1/0; artifacts/magnetometer/link-sensors-native.xml.",
       "status": "partial_reviewed",
-      "review": "/root; 2026-10-24; approved protected digest1120164533aeddd285ed38a26802ef768b4be12a88ff819c5d933f0cc195350b; /root/transport_fallback independently compared the added exact contact subtree assertions 362\u2013372, native component-wise Pose3 tolerance 1e-3, owned enum/default/source/XML and accessor-only IMU/scalar migration. Fresh private 150 Rust/13 tools/fmt/Clippy and native 85/full Sensors 1/0 proof match. Separate public Clone baseline reproduces all four exact old IMU diagnostics. Partial only: other 25 families/whole fixture assertions remain pending; downstream Sensor.imu migration and Contact runtime rejection are separate consumer work."
+      "review": "/root; 2026-10-24; approved protected digest1120164533aeddd285ed38a26802ef768b4be12a88ff819c5d933f0cc195350b; /root/transport_fallback independently compared the added exact contact subtree assertions 362\u2013372, native component-wise Pose3 tolerance 1e-3, owned enum/default/source/XML and accessor-only IMU/scalar migration. Fresh private 150 Rust/13 tools/fmt/Clippy and native 85/full Sensors 1/0 proof match. Separate public Clone baseline reproduces all four exact old IMU diagnostics. Partial only: other 25 families/whole fixture assertions remain pending; downstream Sensor.imu migration and Contact runtime rejection are separate consumer work. /root/transport_fallback independently approved frozen Magnetometer source digest f7f312932a47bc3ac29da1348223bbe7174269034415af1eb5699a5747550f69 and exact native magnetometer subset after private full195 Rust/fmt/Clippy; source receipt SHA256 8419e3e8785579d36bb924945c53bcc2ca3627c388ecadbf8079e445af92311b. Prior IMU/contact assertions and fixture byte hash preserved; final metadata/staged/hosted binding pending. Partial only. Current pending count is 24 other sensor families after the Magnetometer subset; the historical 25-family note describes the earlier IMU/contact-only review."
     },
     {
       "target": "INTEGRATION_model_dom",

@@ -1434,3 +1434,24 @@ Moved-from internal state, parser, serialization and sampling are outside this
 original. All 192 integrated Rust tests, 13 tooling checks, fmt, Clippy and docs
 pass; direct coverage is 3300/3316 production lines and 5746/5857 regions.
 Final main metadata binding, normal protected hook and hosted CI remain pending.
+
+## Typed Magnetometer DOM and parser candidate
+
+`SensorConfig::Magnetometer(Box<Magnetometer>)` now owns three noise axes.
+The public optional accessor, explicit provenance and exact selected XML allow
+link and joint sensors to retain this supported configuration without sampling
+or simulator behavior. The pinned `DOMMagnetometer.Construction` and `Set`
+native originals pass 2/0; their default/set/copy/move/equality assertions are
+ported completely. The unchanged upstream `sensors.sdf` fixture also passes the
+native `DOMLink.Sensors` original 1/0. Rust wraps only its byte-identical
+magnetometer sensor fragment to check the original name, type, pose, disabled
+metrics and six noise scalars. The other 24 sensor families, whole-model Link assertions and serialization
+remain unported, so that integration mapping is partial only.
+
+Independent review approved the exact four source/fixture files, two complete
+DOM originals and bounded Link subset after private full195 Rust/fmt/Clippy.
+All 195 integrated Rust tests and 13 tooling tests, formatting, Clippy and docs
+pass; direct production coverage is 3314/3330 lines, 5771/5884 regions and
+19/19 changed executable lines. Consumer enum adoption and root pin remain
+coordinator-owned. Final metadata/contract binding, normal protected hook and
+hosted CI are pending.

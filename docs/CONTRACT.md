@@ -43,15 +43,19 @@ Negative effort/velocity sentinels become positive infinity. Axis resolution
 rotates into the requested frame without translation. Joint endpoint frames may
 be aliases, but must resolve to different bodies; the child cannot be world.
 `Sensor` has pose, rate in Hz, always_on, enable_metrics, topic and selected
-`SensorConfig::Imu(Box<Imu>)` or `SensorConfig::Contact(ContactSensor)` settings.
-Optional `imu()` / `contact()` accessors expose the selected type; exact selected
+`SensorConfig::Imu(Box<Imu>)`, `SensorConfig::Contact(ContactSensor)`,
+`SensorConfig::ForceTorque(Box<ForceTorque>)` or
+`SensorConfig::Magnetometer(Box<Magnetometer>)` settings. Optional `imu()`,
+`contact()`, `force_torque()` and `magnetometer()` accessors expose the selected type; exact selected
 child XML and owned source are preserved. Contact collision names and nested topic
 remain distinct from envelope topic; see docs/CONTACT_SENSOR.md. The six per-axis `Noise` records retain type,
 mean, standard deviation, bias mean/deviation, dynamic bias deviation/correlation
 time, and precision. Standard deviations are nonnegative; noise types are case
 insensitive, after native space/tab/LF attribute-edge trimming. Explicit noise
 declarations require a nonempty type attribute; omitted noise retains None
-constructor defaults. See docs/NOISE_TYPES.md. IMU orientation enable, localization, custom RPY and gravity direction
+constructor defaults. See docs/NOISE_TYPES.md. Magnetometer owns three noise
+axes and exact explicit configuration/source XML; omitted configuration has
+all-None noise defaults. IMU orientation enable, localization, custom RPY and gravity direction
 with their parent-frame strings preserve native defaults. Localization and parent
 frame strings remain unconstrained at load time, matching the native DOM; their
 runtime interpretation belongs to the sensor implementation. No noise is sampled
@@ -215,8 +219,9 @@ The consumer chooses a nonempty canonical value first, then a present legacy
 value even if empty, then its effective sensor name. The simulator may override
 that name with the scoped sensor identity before applying fallback. This parser
 does not choose a runtime name or apply consumer fallback. These common fields
-apply to both supported IMU and Contact variants. No other sensor-family
-completion or full DOMSensor original-case retirement is claimed.
+apply to supported IMU, Contact, ForceTorque and Magnetometer variants. No
+other sensor-family completion or full DOMSensor original-case retirement is
+claimed.
 
 
 Sensor.topic uses the same native string text-origin handling as frame metadata:

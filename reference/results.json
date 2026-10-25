@@ -60104,5 +60104,19 @@
     "rust": "All 192 integrated Rust tests, 13 tooling tests, fmt, Clippy and docs pass; direct coverage3300/3316 production lines,5746/5857 regions; no production delta.",
     "scope": "Complete original observable assertion mapping approved independently: six noise axes, gravity/custom orientation and parent-frame metadata, localization/orientation, copy/move/equality/inequality. Public field writes map setters. No moved-from internal state, parser/serialization or sampler claim.",
     "review": "Independent /root/transport_fallback complete original source/assertion approval receipt SHA256 dd1d30c60d13705a21d591d9f1090e7e52f76be3e96e39b471d308d9f5b174cb. Final metadata binding, normal hook and hosted qualification pending."
+  },
+  "magnetometer_original": {
+    "parent": "f2d6e4ad183f5e9cc3f0c35fc9ff4e3077d29b25",
+    "upstream": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "source_digest": "f7f312932a47bc3ac29da1348223bbe7174269034415af1eb5699a5747550f69",
+    "native_dom_source_sha256": "21e464b940b3a5582e23d4330621ea8c94c56013ba3d0440ffe04ca79e4792ff",
+    "native_dom_binary_sha256": "7e84c14f5b1cb678435ebeaa2043d30ee0e064e7bf9c447b9fa3b12d80a01afc",
+    "native_link_source_sha256": "3f19b57d0cd02be6201a08be4580d5a478d5e3c1549457605754ccff99ccd4f1",
+    "native_link_binary_sha256": "5996c21878cab1dacd0d653c50bfdcf4a02c8064157855ae6136471939582716",
+    "fixture_sha256": "dc2b61c8b40a7df7f2c7b6e649f3039136ca1a03528371b307e9b9fc27406a00",
+    "original": "DOMMagnetometer.Construction and Set native2/0; DOMLink.Sensors native1/0, magnetometer subset only.",
+    "rust": "All 195 integrated Rust tests, 13 tooling tests, fmt, Clippy and docs pass; direct coverage3314/3330 production lines,5771/5884 regions and19/19 changed executable lines.",
+    "scope": "Two complete DOMMagnetometer value/copy/move originals. DOMLink.Sensors maps only the native fixture magnetometer fragment name/type/pose/metrics/six noise scalars; 24 other sensor families and whole-model assertions remain; full 27-sensor case remains partial. Adds typed SensorConfig::Magnetometer, parser and accessor; no simulator sampling or downstream consumer pin update.",
+    "review": "Independent /root/transport_fallback approved two complete DOM source mappings and partial Link fixture subset; source receipt SHA256 8419e3e8785579d36bb924945c53bcc2ca3627c388ecadbf8079e445af92311b. Final metadata/contract binding, normal hook and hosted qualification pending."
   }
 }

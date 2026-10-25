@@ -2103,6 +2103,12 @@ impl Parser<'_> {
             source: Some(self.source(node)),
         })
     }
+    fn magnetometer(&self, sensor: Node<'_, '_>) -> Result<Magnetometer, Diagnostic> {
+        Ok(Magnetometer {
+            noise: self.noise_vector(sensor, "magnetometer")?,
+            source: child(sensor, "magnetometer").map(|node| self.source(node)),
+        })
+    }
     fn sensor(&self, node: Node<'_, '_>) -> Result<Sensor, Diagnostic> {
         self.allowed(
             node,
@@ -2117,6 +2123,7 @@ impl Parser<'_> {
                 "imu",
                 "contact",
                 "force_torque",
+                "magnetometer",
             ],
             &["name", "type"],
         )?;
@@ -2124,14 +2131,17 @@ impl Parser<'_> {
             .attr(node, "type")?
             .trim_matches([' ', '\t', '\n'])
             .to_owned();
-        if !matches!(kind.as_str(), "imu" | "contact" | "force_torque") {
+        if !matches!(
+            kind.as_str(),
+            "imu" | "contact" | "force_torque" | "magnetometer"
+        ) {
             return Err(self.err(
                 node,
                 ErrorCode::Unsupported,
-                "only IMU, contact and force/torque sensor configurations are supported",
+                "only IMU, contact, force/torque and magnetometer sensor configurations are supported",
             ));
         }
-        if ["imu", "contact", "force_torque"]
+        if ["imu", "contact", "force_torque", "magnetometer"]
             .iter()
             .any(|name| *name != kind && child(node, name).is_some())
         {
@@ -2155,6 +2165,7 @@ impl Parser<'_> {
             "imu" => SensorConfig::Imu(Box::new(self.imu(node)?)),
             "contact" => SensorConfig::Contact(self.contact(node)?),
             "force_torque" => SensorConfig::ForceTorque(Box::new(self.force_torque(node)?)),
+            "magnetometer" => SensorConfig::Magnetometer(Box::new(self.magnetometer(node)?)),
             _ => unreachable!("sensor type checked above"),
         };
         let configuration_xml =

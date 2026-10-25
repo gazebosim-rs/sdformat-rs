@@ -703,6 +703,7 @@ pub enum SensorConfig {
     Imu(Box<Imu>),
     Contact(ContactSensor),
     ForceTorque(Box<ForceTorque>),
+    Magnetometer(Box<Magnetometer>),
 }
 /// Contact-system element metadata; collision references remain unresolved.
 #[derive(Debug, Clone, PartialEq)]
@@ -748,23 +749,41 @@ pub struct ForceTorque {
     /// Source of the explicit declaration; omitted groups use effective defaults.
     pub source: Option<Source>,
 }
+/// Magnetometer configuration only; field sampling belongs to consumers.
+#[derive(Debug, Default, Clone, PartialEq)]
+pub struct Magnetometer {
+    /// X, Y and Z noise records in declaration order.
+    pub noise: [Noise; 3],
+    /// Source of the explicit declaration; omitted groups use effective defaults.
+    pub source: Option<Source>,
+}
 impl Sensor {
     pub fn imu(&self) -> Option<&Imu> {
         match &self.config {
             SensorConfig::Imu(value) => Some(value),
-            SensorConfig::Contact(_) | SensorConfig::ForceTorque(_) => None,
+            SensorConfig::Contact(_)
+            | SensorConfig::ForceTorque(_)
+            | SensorConfig::Magnetometer(_) => None,
         }
     }
     pub fn contact(&self) -> Option<&ContactSensor> {
         match &self.config {
             SensorConfig::Contact(value) => Some(value),
-            SensorConfig::Imu(_) | SensorConfig::ForceTorque(_) => None,
+            SensorConfig::Imu(_) | SensorConfig::ForceTorque(_) | SensorConfig::Magnetometer(_) => {
+                None
+            }
         }
     }
     pub fn force_torque(&self) -> Option<&ForceTorque> {
         match &self.config {
             SensorConfig::ForceTorque(value) => Some(value),
-            SensorConfig::Imu(_) | SensorConfig::Contact(_) => None,
+            SensorConfig::Imu(_) | SensorConfig::Contact(_) | SensorConfig::Magnetometer(_) => None,
+        }
+    }
+    pub fn magnetometer(&self) -> Option<&Magnetometer> {
+        match &self.config {
+            SensorConfig::Magnetometer(value) => Some(value),
+            SensorConfig::Imu(_) | SensorConfig::Contact(_) | SensorConfig::ForceTorque(_) => None,
         }
     }
 }

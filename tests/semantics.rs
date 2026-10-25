@@ -566,10 +566,6 @@ fn invalid_documents_fail_atomically() {
             ErrorCode::UnknownReference,
         ),
         (
-            "<link name='l'/><joint name='j' type='revolute'><parent>world</parent><child>l</child><axis><limit><lower>2</lower><upper>1</upper></limit></axis></joint>",
-            ErrorCode::InvalidValue,
-        ),
-        (
             "<include><uri>file://missing</uri></include>",
             ErrorCode::Resource,
         ),

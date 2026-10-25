@@ -404,3 +404,12 @@ literal-colon names assigned in memory. If the prefix resolves, only that nested
 model is searched even if the direct parent contains a matching literal name.
 Parsed declaration names still reserve double colons; edited DOM names do not
 refresh the separately stored semantic graphs. See MEMBER_DOM.md.
+
+Axis lower/upper limits preserve finite native values without requiring lower<=upper.
+Native Root-loaded omitted bounds are negative/positive infinity after conversion
+to the current schema, including supported older source versions. An omitted or
+empty limit group uses these defaults; an explicitly empty bound child rejects.
+Explicit nonfinite input remains a documented scalar parity gap, distinct from
+implicit unlimited metadata. Parser acceptance does not execute, normalize or
+approve limits for any backend; consumers must handle their own admissibility.
+See AXIS_LIMITS.md for native controls and obsolete Rust-only rejection disposition.

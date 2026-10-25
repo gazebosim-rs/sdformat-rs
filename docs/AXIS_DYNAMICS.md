@@ -22,9 +22,13 @@ The partial DOMJointAxis.Construction port retains twelve exact observations:
 six dynamics/stop defaults and six per-field setter readbacks, using the Rust
 parsed-default value and public field API. It does not claim a native constructor
 facade. Element/null state, XYZ setter/error validation, missing-graph resolution,
-bounds/effort/velocity defaults and mimic observations remain pending. In particular,
-the native constructed-axis bounds are infinite while parsed schema bounds are
-+/-1e16; no assertion substitutes one for the other. Original 2018 notices remain.
+bounds/effort/velocity defaults and mimic observations remain pending. The earlier
+claim that native Root-loaded bounds were +/-1e16 was incorrect: that was the Rust
+implementation and historical schema text, not an observed current Root load.
+The native Root converts to the current schema and uses infinite omitted bounds
+across source versions 1.4–1.12; see AXIS_LIMITS.md. The constructor and Root paths
+are observed separately; this twelve-value partial mapping excludes both bounds.
+Original 2018 notices remain.
 The unchanged complete native case is run as baseline evidence, not retired as a
 complete port. Mimic, initial position, engine-specific joint parameters, mutable
 Element/serialization and complete joint schema remain unsupported or pending.

@@ -1835,8 +1835,9 @@ impl Parser<'_> {
         let mut result = Axis {
             xyz: (DVec3::from_array(xyz) / length).to_array(),
             expressed_in,
-            lower: -1e16,
-            upper: 1e16,
+            // Native Root loads the converted current schema's unbounded defaults.
+            lower: f64::NEG_INFINITY,
+            upper: f64::INFINITY,
             effort: f64::INFINITY,
             velocity: f64::INFINITY,
             dynamics: if let Some(node) = child(axis, "dynamics") {
@@ -1877,8 +1878,8 @@ impl Parser<'_> {
                 ],
                 &[],
             )?;
-            result.lower = self.scalar(limit, "lower", result.lower)?;
-            result.upper = self.scalar(limit, "upper", result.upper)?;
+            result.lower = self.required_scalar(limit, "lower", result.lower)?;
+            result.upper = self.required_scalar(limit, "upper", result.upper)?;
             result.effort = self.scalar(limit, "effort", result.effort)?;
             result.velocity = self.scalar(limit, "velocity", result.velocity)?;
             result.stiffness = self.scalar(limit, "stiffness", result.stiffness)?;
@@ -1889,13 +1890,6 @@ impl Parser<'_> {
             if result.velocity < 0. {
                 result.velocity = f64::INFINITY;
             }
-        }
-        if result.lower > result.upper {
-            return Err(self.err(
-                axis,
-                ErrorCode::InvalidValue,
-                "joint lower limit exceeds upper limit",
-            ));
         }
         Ok(result)
     }

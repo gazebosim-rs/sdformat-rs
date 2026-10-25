@@ -1,54 +1,47 @@
 {
-  "author": "/root/sdformat",
-  "reviewer": "/root/msgs",
   "decision": "approved",
-  "date": "2026-10-25T09:19:04.637573+00:00",
-  "base": "d6c96c31cbaf794a1e90c9054afffe57e353cbba",
-  "protected_digest": "bcd7523359a992451cdcf7bd13c6fbda54520ba8b7da624a7d306cdfc7ec4572",
-  "source_sha256": {
-    "README.md": "b5c4ad395e7f078f7baf97ee97833ef914799862d4145f0e06c19a03f826891a",
-    "docs/CONTRACT.md": "7161ce9033e45d7f6725f6805342890fc1506eb747ff60f78829d25d66871705",
-    "docs/MODEL_DOM.md": "fd11cead582ce04d6d6510934e58d2a7cb3ca1e0096bb44356ec4e5d45dbbb1f",
-    "docs/MEMBER_DOM.md": "2f5e58f4a51801c8d1c9d09bb80d2c49de36479f19f6d46ccdb2c82d0d5e2e58",
-    "docs/STATUS.md": "0f1bccb8ceff3635bff3e339a18fb1db4dc696c6414dcc52c7eb303b4aa3b634",
-    "reference/results.json": "738f816d548ff466238a7b721c1fd082c4b7d83a294f91417691a671bff6dee0",
-    "reference/traceability.json": "ecd27b702b872a43182c5ecee6caff3353c6cc8e40d3b63bd74c69aca169eb75",
-    "src/types.rs": "de8c4023261ceeadba0311c80bf940daaa0f918e390ff529533745a3567e35ee",
-    "tests/fixtures/model_multi_nested_model.sdf": "95c95bd97bba9d29a01c9d6438b2e4d5a760f99882f38840fe00f79245aaafb5",
-    "tests/member_dom.json": "f36f902886c9daff1da5ee68b487e990fef4f2c260c35023528c31273300271b",
-    "tests/member_dom.rs": "d2166da953962e8cc144498a0c9ff33895646cc8345b1f95b3fedaed68afd9d1",
-    "tests/member_dom_original.rs": "8085c370a8520d959dc23678b2ae39ed4581965d8b059c3fa6bfcc9ac0897c96",
-    "tests/member_dom_reference.cc": "af9565aae6308f18b2b075b12416177ae5e4a23c4bec402f84e6b2067df48175",
-    "tools/member_dom_reference.py": "dccf5d5c3714831dce1673d3289f5b5c9c3688db747d3d1ac59ea15ec55cd174"
+  "author": "/root/sdformat",
+  "reviewer": "/root/transport_recovery",
+  "base": "a25db13687c7f8ec60e9e2cbf968d7ba07a801b7",
+  "protected_digest": "488d263c4686e61bd6aac815483039408b674451c95e8f01cbc94099a60a6a81",
+  "scope": "Final main binding on unchanged public a25db13 parent: Root-loaded axis-limit metadata parity and explicitly approved obsolete-negative disposition; no original retirement/runtime normalization.",
+  "file_sha256": {
+    "docs/CONTRACT.md": "953c01a322c4412f5b0840cdb188709f8f626c65ad9562ac8219d67520ff9e6a",
+    "docs/AXIS_DYNAMICS.md": "961825ec9af96f9ca85e1da025947d9fa63498f0b66946e6cb5f93f60013ca71",
+    "docs/AXIS_LIMITS.md": "721f28e6b6e8793d2247973f744c085fc9b99b5c4cc9df0dc9f7e13f3319674b",
+    "docs/STATUS.md": "5441f3d475f2455c18a1bdc1a1ab580d9874f6525fe726be8fcf9f65d10dd417",
+    "reference/results.json": "65e089a524fd85b5124e1ef63f16ac996ad8de8fd9cb3fcae458c5517d8e5f7a",
+    "src/parse.rs": "aee63f9aff9c92ebbd4ae7128a42d4ebbcb495443ec0b43757f53fdac7ca9c53",
+    "tests/semantics.rs": "9efa001cf76182871cb29eb635182a1bcbf9849872ae31303e032bb88a2b0429",
+    "tests/visuals.rs": "3b3d98f77598e176bf2b46b3154aa4e4bab12e37a26c543b6d885d19adf982e8",
+    "tests/axis_limits.json": "276c3978ea6afc7fdf09c0f8eded63de8cbcbd644810c4052a5235db69013d2c",
+    "tests/axis_limits.rs": "7c570b96daf2edccd9f298ca7d3216b8a7cb127489f95e0bdbd31143d8f7b13d",
+    "tests/axis_limits_reference.cc": "3a94899b4aa0d7bcc5578987578f969cae8444a45b31178649a79208dbb8caae",
+    "tools/axis_limits_reference.py": "624c8f99595cfecc5fad4ae4802cd6c5691c0cff58304d54f3d98b7ffb7a9f79"
   },
-  "scope": "Bounded stored member lookup and one complete DOMRoot.MultiNestedModel assertion mapping; no generic mutable graph-membership or physical behavior claim.",
   "independent_checks": [
-    "Reconstructed the raw immutable public parent and applied only the 14 hash-bound candidate files. All builds used a new reviewer-owned source and private target. Independently passed all 140 Rust checks.",
-    "Compared every original MultiNestedModel assertion against the Rust port: all model/link/joint/frame counts, indexed presence and bounds, names, explicit nested lookup, repeated NameExists/pointer observations and stored object identity remain. Original 2018 notice and unchanged fixture bytes retained.",
-    "Inspected pinned Model::LinkByName, JointByName and FrameByName: last-scope lookup, exact direct literal-name fallback only when model prefix fails, and no fallback once a prefix resolves match the shared Rust helper. Native SetName and Rust field-mutation controls retain actual stored identity. Implicit semantic graph frames do not become declared DOM Frame objects.",
-    "Explicitly approve only the seven known-valid-fixture frame-graph membership observations: successful attachment lookup at the exact scoped names preserves the six positive membership observations; the missing direct mid_link yields UnknownReference. The typed loader validates this unchanged graph before return. This is not a generic mutable membership/revalidation facade or error-vector parity.",
-    "Fresh native compilation/replay reproduces all 104 observations and exact unchanged DOMRoot.MultiNestedModel original, 1 run / 0 failures. The entire native proof equals author evidence, including source/schema/headers/math headers/fixtures/libraries/probe and original binary hashes. Verified the original 36-row model/link corpus prefix is unchanged.",
-    "Final main remains on the same public parent; all implementation/test/corpus/native input bytes match reviewed 3eab3855. Only an accurate review-result object, the one approved mapping record and appended STATUS differ. Actual protected digest equals bcd7523359a992451cdcf7bd13c6fbda54520ba8b7da624a7d306cdfc7ec4572."
+    "Raw Git-parent export plus all 12 SHA256-verified overlays recomputes the frozen protected digest. Separate reviewer-owned Cargo target independently passes all 142 Rust checks.",
+    "Freshly rebuilt native observer reproduces all 160 Root-load rows and complete unchanged DOMJointAxis.Construction baseline, XML one run/zero failures. Entire proof equals author evidence including source/schema/header/library/corpus/probe/original-binary hashes.",
+    "Inspected embedded-spec capture and pinned embedSdf.py framing; runtime joint specification equals newline + exact pinned 1.12 joint.sdf bytes + newline. All nine versioned joint schemas and conversion/parser/Root/Axis/Param sources are bound; SDF_PATH is removed for native probes.",
+    "Verified exact two obsolete-negative XML strings AND full original helper wrappers match the new positive corpus rows. Semantics world-parent revolute and visuals fixed axis2 inputs still omit explicit xyz; positive regressions assert 2/1 limits, default Z and effort/velocity observations.",
+    "Reinserted only the recorded four-line tuple at each exact original offset: both existing test files reconstruct public parent bytes and hashes exactly. Every unrelated invalid-input, normalization and error assertion remains unchanged.",
+    "Inspected production delta: remove the nonnative lower>upper rejection, use implicit negative/positive infinity for missing bounds and existing required_scalar for present-but-empty children. No new parser, FFI, math approximation, execution or bounds normalization is introduced.",
+    "Final actual main protected digest recomputes correctly. All tested source/assertion/corpus/probe/disposition bytes are identical to isolated 42115d4d on the same public parent; only additive axis_limit_load_review and appended STATUS metadata differ. All inherited results objects remain unchanged. Independent 142 Rust/native160 evidence belongs to the exact same tested bytes, not a claim of a second full rerun."
   ],
-  "author_gate": {
-    "rust_tests": 140,
-    "tooling_tests": 13,
-    "lines": [
-      3099,
-      3119
-    ],
-    "regions": [
-      5398,
-      5515
-    ],
-    "changed_lines": [
-      16,
-      16
-    ]
-  },
+  "disposition": "Explicitly approve replacing only the two Rust-only ordering negatives with these exact native-backed positive value regressions. Removal corrects observed native acceptance and is not a coverage workaround. Inverted/equal values, signed zero, extreme finite values, missing/empty/one-sided bounds and supported source versions are retained in the corpus.",
   "limits": [
-    "Full author tooling/coverage gate not independently repeated; normal exact staged and hosted gates remain mandatory.",
-    "The graph-membership mapping is limited to the unchanged valid fixture. Mutation does not rebuild semantic graphs; interface models, generic mutable graph APIs and full SDF packets remain open.",
-    "Only MultiNestedModel may be classified as a complete faithful port under this reviewed Rust representation; no other mapping or packet retirement."
-  ]
+    "158 rows match supported outcomes; explicit lower-inf and upper-nan inputs remain the two stated finite-input rejection gaps. Implicit unbounded defaults are separate supported metadata.",
+    "Native status/bit values are covered; no full native error-vector/Element/serialization/schema facade or physical joint-policy claim. Backends must validate their execution contract separately.",
+    "Existing twelve-value Construction mapping stays partial; no additional original case is retired. Corrected AXIS_DYNAMICS prose no longer implies native parsed defaults are +/-1e16.",
+    "Author strict tooling/fmt/clippy/coverage (142 Rust, 13 tools, 3092/3112 lines, 5395/5510 regions, 2/2 changed) remains distinct from independent Rust/native replay; coverage not independently recomputed.",
+    "Normal exact final protected staged hook and hosted qualification remain required. Current receipt binds the verified final same-parent metadata integration."
+  ],
+  "artifacts": {
+    "rust": "rust.log",
+    "native": "native.log",
+    "native_proof": "reference.json",
+    "obsolete_assertion_check": "disposition-check.json",
+    "disposition": "disposition.json",
+    "freeze": "freeze.json"
+  }
 }

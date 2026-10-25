@@ -974,3 +974,29 @@ membership observations are explicitly approved through exact attachment lookup;
 general mutable membership APIs remain unclaimed. This metadata update changes
 no production, assertion, fixture or native input. Normal staged/hosted gates
 remain required.
+
+
+The isolated axis-limit load successor removes the extra ordering rejection and
+retains exact finite values. Native controls also exposed incorrect Rust omitted
+bounds (+/-1e16 instead of native Root's converted-schema infinities) and silent
+explicit-empty acceptance. Both are corrected with existing scalar helpers. Two
+obsolete Rust-only negative XMLs remain exact native-positive value regressions;
+unrelated assertion bytes are proven unchanged. No limit execution, normalization
+or backend joint admissibility is added. The earlier AXIS_DYNAMICS parsed-default
+prose is corrected; its twelve-value partial mapping remains unchanged.
+
+All 142 Rust checks, 13 tools, fmt/clippy, 160 native rows and the unchanged full
+Construction baseline pass. Two explicit nonfinite-input gaps remain; implicit
+unbounded defaults are separately accepted native metadata. Coverage is 3092/3112
+lines, 5395/5510 regions and 2/2 changed executable lines. Runtime embedded-schema
+bytes and pinned generator framing are verified. Initial old-guard/default and
+provenance-setup failures are retained. Independent source/disposition review and
+normal staged/hosted gates remain required; no new original retirement.
+
+Independent /root/transport_recovery approved the bounded correction and explicit
+obsolete-test disposition after fresh 142 Rust checks, 160 native rows and the
+complete unchanged Construction baseline passed with entire proof equality.
+Exact old XML/helper wrappers and restored unrelated assertion bytes match the
+public parent. Runtime embedded schema framing is verified; implicit unlimited
+metadata and explicit nonfinite gaps stay separate. Source/assertions/native inputs
+are unchanged by this metadata update. Normal staged/hosted gates remain required.

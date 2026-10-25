@@ -117,10 +117,6 @@ fn both_joint_axes_keep_omission_defaults_limits_and_scope_validation() {
             ErrorCode::UnknownReference,
         ),
         (
-            "<limit><lower>2</lower><upper>1</upper></limit>",
-            ErrorCode::InvalidValue,
-        ),
-        (
             "<xyz expressed_in='world'>0 1 0</xyz>",
             ErrorCode::UnknownReference,
         ),

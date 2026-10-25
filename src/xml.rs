@@ -4,11 +4,8 @@
 //! SDF element cursor over the XML tokenizer. Names stay lexical, matching
 //! TinyXML's legacy extension behavior; source ranges always index original XML.
 use crate::ErrorCode;
-use quick_xml::{
-    Reader,
-    events::{BytesText, Event},
-};
-use std::{fmt, ops::Range};
+use quick_xml::{Reader, events::Event};
+use std::{borrow::Cow, fmt, ops::Range};
 use xmlparser::{Reference, Stream, TextPos};
 
 pub(crate) fn legacy_whitespace(c: char) -> bool {
@@ -145,10 +142,7 @@ impl<'input> Document<'input> {
                         if name != "xmlns" && !name.starts_with("xmlns:") {
                             // Normalize literal EOLs before reference expansion;
                             // a numeric CR reference must remain distinct.
-                            let value = BytesText::from_escaped(utf8(attribute.value.as_ref()));
-                            let value = value
-                                .xml10_content()
-                                .expect("attribute came from UTF-8 input");
+                            let value = normalized(utf8(attribute.value.as_ref()));
                             attributes.push((name.into(), references(&value)));
                         }
                     }
@@ -177,9 +171,7 @@ impl<'input> Document<'input> {
                     document.elements[index].range.end = end;
                 }
                 Event::Text(text) => {
-                    let text = text.xml10_content().map_err(|error| {
-                        document.error(ErrorCode::Xml, start, error.to_string())
-                    })?;
+                    let text = normalized(utf8(text.as_ref()));
                     if let Some(index) = stack.last() {
                         document.elements[*index].plain_text(&text, false);
                     } else if !text.trim().is_empty() {
@@ -187,9 +179,7 @@ impl<'input> Document<'input> {
                     }
                 }
                 Event::CData(text) => {
-                    let text = text.xml10_content().map_err(|error| {
-                        document.error(ErrorCode::Xml, start, error.to_string())
-                    })?;
+                    let text = normalized(utf8(text.as_ref()));
                     if let Some(index) = stack.last() {
                         let element = &mut document.elements[*index];
                         if element.text_state == TextState::None {
@@ -247,6 +237,29 @@ impl<'input> Document<'input> {
         }
         Ok(document)
     }
+}
+// TinyXML folds CR/LF and LF/CR pairs in one left-to-right pass. XML1.0's
+// CR-only normalization loses that native rule; references are expanded later.
+fn normalized(raw: &str) -> Cow<'_, str> {
+    if !raw.contains('\r') {
+        return Cow::Borrowed(raw);
+    }
+    let mut input = raw.chars().peekable();
+    let mut output = String::with_capacity(raw.len());
+    while let Some(ch) = input.next() {
+        if matches!(ch, '\r' | '\n') {
+            if input
+                .peek()
+                .is_some_and(|&next| matches!((ch, next), ('\r', '\n') | ('\n', '\r')))
+            {
+                input.next();
+            }
+            output.push('\n');
+        } else {
+            output.push(ch);
+        }
+    }
+    Cow::Owned(output)
 }
 fn utf8(bytes: &[u8]) -> &str {
     // Reader::from_str yields spans of the UTF-8 input, never transcoded bytes.

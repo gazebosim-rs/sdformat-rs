@@ -1,0 +1,1 @@
+<sdf version='1.12'><model name='base'><link name='l'/><plugin name='base_plugin' filename='base.so'/></model></sdf>

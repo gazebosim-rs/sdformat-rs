@@ -423,6 +423,24 @@
       "baseline": "passed; artifacts/reference-sensors.xml",
       "status": "partial_reviewed",
       "review": "/root; 2026-10-24; approved protected digest1120164533aeddd285ed38a26802ef768b4be12a88ff819c5d933f0cc195350b"
+    },
+    {
+      "target": "INTEGRATION_model_dom",
+      "case": "DOMModel.IncludeModelWithPlugin",
+      "source": "test/integration/model_dom.cc:681",
+      "rust_test": "tests/includes.rs::original_include_model_plugins_parsing_subset",
+      "assertions": "Parsing/model existence, include URI and single include-plugin name/filename, combined resource/include plugin order, two names/filenames and count retained through typed metadata. Serialization, useInclude policy, native Element/path facade and formatted ToElement output remain unported; this is explicitly partial.",
+      "fixtures": {
+        "tests/fixtures/include_model_with_plugin.sdf": "265887ee9c7e2fc47b065d85c1a30de1a9ee6ad95586d82d1a4e946214ce7e27",
+        "tests/fixtures/test_model_with_plugin.sdf": "29e102fc3c6813d8004cc603245871fbc3e8b2fb3bf179a770f49e2a2b15c420"
+      },
+      "upstream_fixtures": {
+        "test/sdf/include_model_with_plugin.sdf": "265887ee9c7e2fc47b065d85c1a30de1a9ee6ad95586d82d1a4e946214ce7e27",
+        "test/integration/model/test_model_with_plugin/model.sdf": "29e102fc3c6813d8004cc603245871fbc3e8b2fb3bf179a770f49e2a2b15c420"
+      },
+      "baseline": "Exact original native case passed, one run and zero failures; artifacts/include/INTEGRATION_model_dom.xml",
+      "status": "partial_reviewed",
+      "review": "Independent /root/msgs approved implementation 2dbbb3fcb33c66993d32a85efb88b2e28a5bb435895e77cd6bef8beb653598a8 and qualified metadata adafd3e95a46653e17dc1cf5dc893441112b428836821cfeb9b44455f8697f42 on 2026-10-25. Compared original parsing/plugin assertions and exact fixture bytes, reran all 89 Rust checks, 61 freshly rebuilt native observations and both exact originals (one run, zero failures each); all shared native proof hashes match. Only declared parsing/metadata/plugin observations mapped; serialization, Element/path facade and version 1.5 IncludeElements remain pending. Accepted-row callback equivalence only; invalid-input callback ordering and two native exception extensions are explicitly separate."
     }
   ]
 }

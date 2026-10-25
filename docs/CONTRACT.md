@@ -245,3 +245,37 @@ and frees each locale, restores caller errno, and leaves global locale untouched
 Locale allocation failure is Resource; numeric errors are InvalidValue. See the
 reviewed ABI/lifecycle notes and failure tests in SCALAR_CONVERSION.md. No parsing
 performance improvement or unmeasured cached-locale optimization is claimed.
+
+
+Model.include is optional owned provenance for models loaded through an include.
+It stores the URI, optional name/pose/static/placement overrides, include-only
+plugins, parent Source and exact original XML span. A direct model has None.
+Model.source remains the resolved resource URI; nested resolver calls receive
+that canonical parent identity. The boxed optional record keeps direct-model
+storage small. Its values are snapshots; mutating expanded model plugins does
+not rewrite the original include metadata.
+
+Included plugins append after resource plugins, preserving duplicate names and
+opaque XML. Plugin names are optional and default empty, as native plugin.sdf
+specifies; names and required filenames use native attribute string trimming.
+Resolver requests use native XML text: ordinary whitespace collapses, while
+CDATA edges remain significant. Include.uri matches the parsed native string
+value, which trims CDATA edges; the raw span remains available independently.
+CR/LF and LF/CR pairs normalize in one left-to-right pass before reference
+expansion, matching TinyXML rather than XML1.0-only EOL normalization.
+
+An explicit empty include placement clears imported placement when pose is
+present; empty static defaults false. These prior Rust contracts are retained
+safe extensions: the pinned native include path throws on null XML text for
+these two inputs. Empty CDATA forms are valid natively and produce the same
+values. No exception byte/outcome parity is claimed for those extension rows.
+Merge, old-version and unknown include/schema limits remain explicit errors.
+The exact include span is source preservation, not a converted/expanded XML
+serializer or ToElement implementation. No resource IO or consumer dependency
+is added by this metadata API.
+
+Resolver callback text/order equivalence is qualified for accepted include rows.
+Rejected inputs can fail before lookup in this Result API; for example a
+whitespace-only CDATA URI is rejected before calling the resolver, while the
+pinned native loader can call its callback before rejecting it. Invalid-input
+lookup side effects and diagnostic ordering are not claimed as native parity.

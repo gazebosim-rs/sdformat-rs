@@ -333,9 +333,18 @@ impl Parser<'_> {
         elements(node)
             .filter(|n| n.has_tag_name("plugin"))
             .map(|p| {
+                let filename = p
+                    .attribute("filename")
+                    .map(|value| value.trim_matches([' ', '\t', '\n']))
+                    .filter(|value| !value.is_empty())
+                    .ok_or_else(|| self.err(p, ErrorCode::Missing, "missing filename attribute"))?;
                 Ok(Plugin {
-                    name: self.attr(p, "name")?,
-                    filename: self.attr(p, "filename")?,
+                    name: p
+                        .attribute("name")
+                        .unwrap_or("")
+                        .trim_matches([' ', '\t', '\n'])
+                        .into(),
+                    filename: filename.into(),
                     xml: self.xml[p.range()].into(),
                 })
             })
@@ -533,6 +542,7 @@ impl Parser<'_> {
             is_static: self.boolean(node, "static", false)?,
             canonical_link: node.attribute("canonical_link").unwrap_or("").into(),
             placement_frame: node.attribute("placement_frame").unwrap_or("").into(),
+            include: None,
             links,
             joints,
             models,
@@ -544,7 +554,7 @@ impl Parser<'_> {
     fn include(&mut self, node: Node<'_, '_>, scope: &str) -> Result<Model, Diagnostic> {
         self.allowed(
             node,
-            &["uri", "name", "pose", "static", "placement_frame"],
+            &["uri", "name", "pose", "static", "placement_frame", "plugin"],
             &[],
         )?;
         if self.includes.len() >= 64 {
@@ -554,10 +564,23 @@ impl Parser<'_> {
                 "include depth limit (64) exceeded",
             ));
         }
-        let uri = self.text(node, "uri")?;
+        let uri_node =
+            child(node, "uri").ok_or_else(|| self.err(node, ErrorCode::Missing, "missing uri"))?;
+        self.allowed(uri_node, &[], &[])?;
+        let uri = param_text(uri_node).into_owned();
+        if uri.is_empty() {
+            return Err(self.err(uri_node, ErrorCode::Missing, "missing uri"));
+        }
+        // Native file lookup uses the XML text, while Model::Uri is a parsed
+        // string parameter. CDATA leading/trailing whitespace differs here.
+        let request_uri = if uri_node.text_is_cdata() {
+            uri_node.text().unwrap_or("")
+        } else {
+            &uri
+        };
         let resource = self
             .resolver
-            .resolve(&uri, self.uri)
+            .resolve(request_uri, self.uri)
             .map_err(|e| self.err(node, ErrorCode::Resource, e))?;
         if self.includes.contains(&resource.canonical_uri) {
             return Err(self.err(node, ErrorCode::Cycle, "cyclic include"));
@@ -590,17 +613,19 @@ impl Parser<'_> {
                 "include requires exactly one model",
             ));
         }
-        let rename = child(node, "name")
-            .map(|_| self.text(node, "name"))
-            .transpose()?;
+        let rename = self.optional_text(node, "name")?;
+        if rename.as_deref() == Some("") {
+            return Err(self.err(node, ErrorCode::Missing, "missing include name"));
+        }
         if let Some(name) = &rename
             && (name.contains("::") || reserved_name(name))
         {
             return Err(self.err(node, ErrorCode::InvalidValue, "invalid include name"));
         }
         let mut model = imported.model(all[0], scope, rename.as_deref())?;
-        if let Some(placement) = child(node, "placement_frame") {
-            if child(node, "pose").is_none() {
+        let pose = child(node, "pose").map(|_| self.pose(node)).transpose()?;
+        let placement_frame = if let Some(placement) = child(node, "placement_frame") {
+            if pose.is_none() {
                 return Err(self.err(
                     placement,
                     ErrorCode::Missing,
@@ -608,14 +633,33 @@ impl Parser<'_> {
                 ));
             }
             self.allowed(placement, &[], &[])?;
-            model.placement_frame = placement.text().unwrap_or("").trim().into();
+            let value = param_text(placement).into_owned();
+            model.placement_frame = value.clone();
+            Some(value)
+        } else {
+            None
+        };
+        if let Some(pose) = &pose {
+            model.pose = pose.clone();
         }
-        if child(node, "pose").is_some() {
-            model.pose = self.pose(node)?;
+        let is_static = child(node, "static")
+            .map(|_| self.boolean(node, "static", false))
+            .transpose()?;
+        if let Some(is_static) = is_static {
+            model.is_static = is_static;
         }
-        if child(node, "static").is_some() {
-            model.is_static = self.boolean(node, "static", false)?;
-        }
+        let plugins = self.plugins(node)?;
+        model.plugins.extend(plugins.iter().cloned());
+        model.include = Some(Box::new(Include {
+            uri,
+            name: rename,
+            pose,
+            is_static,
+            placement_frame,
+            plugins,
+            source: self.source(node),
+            xml: self.xml[node.range()].into(),
+        }));
         Ok(model)
     }
     fn link(&self, node: Node<'_, '_>, scope: &str) -> Result<Link, Diagnostic> {

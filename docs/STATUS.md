@@ -447,3 +447,39 @@ total mappings are 30 complete and one partial out of 1344 runtime cases. The
 receipt must bind this final metadata and the strict staged gate must pass before
 publication. Nonfinite and vector-prefix gaps, unsupported Surface fields and
 explicit simulator rejection remain unchanged.
+
+
+Include loading candidate retains include-level plugins and original provenance.
+Model.include records optional overrides, URI, source and exact span; expanded
+plugins retain resource-before-include ordering and duplicate names. Optional
+plugin names and native attribute trimming are supported. Nested resolver parent
+identities and metadata ownership are tested without library IO.
+
+The 61 fresh native observations contain 59 matching parse/metadata cases and
+two explicit native-exception extensions preserving the previously tested empty
+placement/default-static contracts. Thirty CR/LF pattern controls bind native
+left-to-right normalization for URI CDATA and plugin attributes. All 89 Rust
+tests, fmt/clippy and working coverage pass: 2279/2296 lines, 3942/4046 regions,
+77/77 changed executable lines. No dependency, unsafe or gate exclusions changed.
+
+Both exact native IncludeModelWithPlugin and IncludeElements originals pass.
+Only the former parsing/metadata/plugin observations receive a new partial
+mapping; ToElement/formatting/path assertions remain pending. IncludeElements
+uses an original version 1.5 box resource, so its full Rust mapping remains
+pending rather than rewriting that fixture or claiming old-version support.
+Independent review and matching strict staged verification remain required.
+
+Independent include review replayed all 89 Rust tests, 61 freshly rebuilt native
+observations and both exact native originals successfully. A supplementary
+whitespace-only CDATA URI probe identified different invalid-input callback
+ordering: native calls its resolver before rejection; this Result loader rejects
+before lookup. Accepted-row callback text/provenance equivalence is qualified;
+invalid-input resolver side effects are an explicit remaining boundary. Source,
+header, resource, original binary and all shared proof hashes were independently
+verified by /root/msgs. The exact final metadata receipt and matching strict
+staged gate remain required.
+
+The include parsing/plugin mapping is now independently reviewed as partial.
+Total mappings remain 30 complete and two partial out of 1344 runtime cases;
+no complete case or SDF packet is retired by this increment. Final publication
+requires the matching protected receipt, strict staged gate and hosted checks.

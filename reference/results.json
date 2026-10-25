@@ -4226,5 +4226,50 @@
     "rust_tests": 72,
     "scope": "Native scalar and Pose token prefix/hex/range semantics with finite-domain restriction; scalar boolean coercion distinct from raw Pose tokens; vector stream path unchanged; no original case retired; no performance improvement claimed.",
     "review": "Independent /root/msgs code, ABI, safety and assertion review on 2026-10-24 approved implementation 81bc140c233ef3b81620872e5abfbaa1b86726f5205c3772bd6beea76434daa0. The reviewer independently reran 72 Rust checks, 63 actual native observations and installed-header ABI compilation, including failure, concurrency and locale tests. Both unsafe scopes and the explicit nonfinite, platform and performance limits were reviewed; no original case was retired."
+  },
+  "include_metadata": {
+    "upstream_sha": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "corpus_sha256": "ffd19235b5827c10db5b83cd9d550ab870430b843968a9a7220e9aec1bc1b5b6",
+    "probe_source_sha256": "543e8667affa26070807189dbc2e30420f52cd754a188312ec37c579bb98f793",
+    "probe_binary_sha256": "3ec2fdf6b6b26fc3f18caf3524aefdffd4c5a3a570e34dcb168fe79eb594669d",
+    "native_library_sha256": "bcc864bcee56b49c13081e29722051e26c036260e3dd037e7736aa2b8620358f",
+    "source_sha256": {
+      "src/parser.cc": "2ec95e05647c61121ced7910ca8164161a189d31f4b1d1249c9bf2d1ee93463d",
+      "src/Model.cc": "9ce157bcd85ad233af6022192315ffa61ff5374490f8912f6750c98a0448d8d9",
+      "src/Element.cc": "252cd5d441eb5de53a6cd46c45733f2202abf6aa8bb6ba5d023b1a55fa57e063",
+      "sdf/1.12/model.sdf": "49d5cec8a671d02d5f17e91e6c7beb4052af4eb7818da2c373890d38b71621cb",
+      "sdf/1.12/world.sdf": "05b210d0278f4633514436fae83a4d0b2a063feba6157c978d04752690fa425a",
+      "sdf/1.12/plugin.sdf": "03836445fc40d5ac01f8ddcd2e340dcae1c7e945898dcc4835da028a4f62e596",
+      "test/integration/model_dom.cc": "44b015ab999638962129dad19296cc98bdfb44716e5bf33ba3a9b0f98166ee40",
+      "test/integration/nested_model.cc": "0fc773da84928088cec3edb16638cc207369629795f901bcf4d5e74bab7e1db4"
+    },
+    "resources_sha256": {
+      "include_resource.sdf": "758f588b8cf23698cd0eaa371aa9fec65e2ac948cf3d9342d2c795c8cd6aa0b1",
+      "test_model_with_plugin.sdf": "29e102fc3c6813d8004cc603245871fbc3e8b2fb3bf179a770f49e2a2b15c420"
+    },
+    "native_observations": 61,
+    "matching_metadata_or_parse_outcomes": 59,
+    "native_exception_extension_ids": [
+      "static_empty",
+      "placement_empty"
+    ],
+    "original_native_cases": [
+      {
+        "binary": "INTEGRATION_model_dom",
+        "sha256": "0c0b02584eb3fa678770afb132d9e21cb4fefcd8533a51cf8373f2e69a384680",
+        "case": "DOMModel.IncludeModelWithPlugin",
+        "result": "one run, zero failures"
+      },
+      {
+        "binary": "INTEGRATION_nested_model",
+        "sha256": "7a4562925a6f0ad74c07778429f67553e2486c461272881e28d7f759687ca6c8",
+        "case": "NestedModel.IncludeElements",
+        "result": "one run, zero failures"
+      }
+    ],
+    "scope": "Include-only plugins and original typed/raw provenance; model plugins append include plugins after resource plugins, duplicate names retained. Optional plugin name/string trimming follows native schema. Resolver XML-text URI and parsed Model URI remain distinct for CDATA edges. Native CR/LF and LF/CR normalization applies before reference decoding. Empty include static/placement values preserve prior Rust defaults where native throws; no exception-outcome parity or serialization claim.",
+    "remaining": "Full ToElement/useInclude serialization, native element/path facade, merge includes, versions before 1.6, full schema/platform/performance qualification remain pending. General scalar nonfinite/vector-prefix and Surface restrictions are unchanged.",
+    "callback_scope": "Accepted-row XML-text URI, typed URI and nested-parent identity equivalence only. Invalid-input callback side effects/order are not qualified: whitespace-only CDATA URI may trigger native callback before rejection while Rust rejects before lookup. Corpus rejection rows compare parse outcomes, not callback requests.",
+    "review": "Independent /root/msgs source/assertion/provenance review approved qualified implementation adafd3e95a46653e17dc1cf5dc893441112b428836821cfeb9b44455f8697f42 on 2026-10-25. All 89 Rust checks, 61 freshly rebuilt native observations and both exact native originals passed. Source/header/resource/original binary identities and every shared proof hash matched. Only the partial IncludeModelWithPlugin mapping is reviewed; no complete case or packet retirement. Accepted-row callback qualification and native exception extensions remain explicit. Matching strict staged gate and hosted checks remain required."
   }
 }

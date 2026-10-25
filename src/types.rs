@@ -206,6 +206,8 @@ pub struct Model {
     pub is_static: bool,
     pub canonical_link: String,
     pub placement_frame: String,
+    /// Original include metadata; absent for a model declared directly in XML.
+    pub include: Option<Box<Include>>,
     pub links: Vec<Link>,
     pub joints: Vec<Joint>,
     pub models: Vec<Model>,
@@ -477,7 +479,22 @@ pub struct Sensor {
     pub configuration_xml: String,
     pub source: Source,
 }
+/// Original include values, independently of the resolved model/resource state.
 #[derive(Debug)]
+pub struct Include {
+    /// Native string value; resolver requests preserve CDATA whitespace separately.
+    pub uri: String,
+    pub name: Option<String>,
+    pub pose: Option<Pose>,
+    pub is_static: Option<bool>,
+    pub placement_frame: Option<String>,
+    /// Only the plugins supplied by this include; model.plugins also contains them.
+    pub plugins: Vec<Plugin>,
+    pub source: Source,
+    /// Exact source span, not a converted/expanded serialization.
+    pub xml: String,
+}
+#[derive(Debug, Clone)]
 pub struct Plugin {
     pub name: String,
     pub filename: String,

@@ -1,0 +1,2008 @@
+[
+  {
+    "id": "simple",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri>r</uri></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ]
+      ],
+      "include": {
+        "uri": "r",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": []
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r",
+      "is_static": false
+    }
+  },
+  {
+    "id": "all",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri>r</uri><name>renamed</name><pose>1 2 3 0 0 0</pose><static>true</static><placement_frame>l</placement_frame><plugin name='p' filename='p.so'><x:config k='&legacy;'>value</x:config></plugin></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ],
+        [
+          "p",
+          "p.so"
+        ]
+      ],
+      "include": {
+        "uri": "r",
+        "name": "renamed",
+        "is_static": true,
+        "placement_frame": "l",
+        "pose_bits": [
+          4607182418800017408,
+          4611686018427387904,
+          4613937818241073152,
+          0,
+          0,
+          0,
+          4607182418800017408
+        ],
+        "pose_relative_to": "",
+        "plugins": [
+          [
+            "p",
+            "p.so"
+          ]
+        ]
+      },
+      "accepted": true,
+      "name": "renamed",
+      "uri": "r",
+      "is_static": true
+    }
+  },
+  {
+    "id": "duplicates",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri>r</uri><plugin name='p' filename='a.so'/><plugin name='p' filename='b.so'/></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ],
+        [
+          "p",
+          "a.so"
+        ],
+        [
+          "p",
+          "b.so"
+        ]
+      ],
+      "include": {
+        "uri": "r",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": [
+          [
+            "p",
+            "a.so"
+          ],
+          [
+            "p",
+            "b.so"
+          ]
+        ]
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r",
+      "is_static": false
+    }
+  },
+  {
+    "id": "uri_cdata",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri><![CDATA[ r ]]></uri></include></model></sdf>",
+    "expected": {
+      "requests": [
+        " r "
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ]
+      ],
+      "include": {
+        "uri": "r",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": []
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r",
+      "is_static": false
+    }
+  },
+  {
+    "id": "uri_nbsp",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri>&#160;r&#160;</uri></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "\u00a0r\u00a0"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ]
+      ],
+      "include": {
+        "uri": "\u00a0r\u00a0",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": []
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "\u00a0r\u00a0",
+      "is_static": false
+    }
+  },
+  {
+    "id": "uri_normal",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri> r </uri></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ]
+      ],
+      "include": {
+        "uri": "r",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": []
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r",
+      "is_static": false
+    }
+  },
+  {
+    "id": "direct",
+    "xml": "<sdf version='1.12'><model name='direct'><link name='l'/></model></sdf>",
+    "expected": {
+      "requests": [],
+      "plugins": [],
+      "include": null,
+      "accepted": true,
+      "name": "direct",
+      "uri": "",
+      "is_static": false
+    }
+  },
+  {
+    "id": "name_normal",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri>r</uri><name> renamed </name></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ]
+      ],
+      "include": {
+        "uri": "r",
+        "name": "renamed",
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": []
+      },
+      "accepted": true,
+      "name": "renamed",
+      "uri": "r",
+      "is_static": false
+    }
+  },
+  {
+    "id": "name_cdata",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri>r</uri><name><![CDATA[ renamed ]]></name></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ]
+      ],
+      "include": {
+        "uri": "r",
+        "name": "renamed",
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": []
+      },
+      "accepted": true,
+      "name": "renamed",
+      "uri": "r",
+      "is_static": false
+    }
+  },
+  {
+    "id": "name_nbsp",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri>r</uri><name>&#160;renamed&#160;</name></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ]
+      ],
+      "include": {
+        "uri": "r",
+        "name": "\u00a0renamed\u00a0",
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": []
+      },
+      "accepted": true,
+      "name": "\u00a0renamed\u00a0",
+      "uri": "r",
+      "is_static": false
+    }
+  },
+  {
+    "id": "static_false",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri>r</uri><static>false</static></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ]
+      ],
+      "include": {
+        "uri": "r",
+        "name": null,
+        "is_static": false,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": []
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r",
+      "is_static": false
+    }
+  },
+  {
+    "id": "static_true_case",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri>r</uri><static>TrUe</static></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ]
+      ],
+      "include": {
+        "uri": "r",
+        "name": null,
+        "is_static": true,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": []
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r",
+      "is_static": true
+    }
+  },
+  {
+    "id": "pose_empty",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri>r</uri><pose/></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ]
+      ],
+      "include": {
+        "uri": "r",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          4607182418800017408
+        ],
+        "pose_relative_to": "",
+        "plugins": []
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r",
+      "is_static": false
+    }
+  },
+  {
+    "id": "placement_missing_pose",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri>r</uri><placement_frame>l</placement_frame></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r"
+      ],
+      "plugins": [],
+      "include": null,
+      "accepted": false
+    }
+  },
+  {
+    "id": "plugin_missing_name",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri>r</uri><plugin filename='p.so'/></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ],
+        [
+          "",
+          "p.so"
+        ]
+      ],
+      "include": {
+        "uri": "r",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": [
+          [
+            "",
+            "p.so"
+          ]
+        ]
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r",
+      "is_static": false
+    }
+  },
+  {
+    "id": "plugin_missing_filename",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri>r</uri><plugin name='p'/></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r"
+      ],
+      "plugins": [],
+      "include": null,
+      "accepted": false
+    }
+  },
+  {
+    "id": "uri_reference",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri>&#114;</uri></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ]
+      ],
+      "include": {
+        "uri": "r",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": []
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r",
+      "is_static": false
+    }
+  },
+  {
+    "id": "uri_unknown",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri>r&unknown;</uri></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r&unknown;"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ]
+      ],
+      "include": {
+        "uri": "r&unknown;",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": []
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r&unknown;",
+      "is_static": false
+    }
+  },
+  {
+    "id": "uri_nul",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri>r&#0;tail</uri></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ]
+      ],
+      "include": {
+        "uri": "r",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": []
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r",
+      "is_static": false
+    }
+  },
+  {
+    "id": "original_include_model",
+    "resource": "test_model_with_plugin.sdf",
+    "xml": "<sdf version='1.9'>\n  <world name=\"default\">\n    <include>\n       <uri>test_model_with_plugin</uri>\n       <plugin name=\"test_model_include_plugin\" filename=\"include/test/model/plugin\"/>\n    </include>\n  </world>\n</sdf>\n",
+    "expected": {
+      "requests": [
+        "test_model_with_plugin"
+      ],
+      "plugins": [
+        [
+          "test_model_plugin",
+          "test/model/plugin"
+        ],
+        [
+          "test_model_include_plugin",
+          "include/test/model/plugin"
+        ]
+      ],
+      "include": {
+        "uri": "test_model_with_plugin",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": [
+          [
+            "test_model_include_plugin",
+            "include/test/model/plugin"
+          ]
+        ]
+      },
+      "accepted": true,
+      "name": "test_model_with_plugin",
+      "uri": "test_model_with_plugin",
+      "is_static": false
+    }
+  },
+  {
+    "id": "plugin_name_empty",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri>r</uri><plugin name='' filename='p.so'/></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ],
+        [
+          "",
+          "p.so"
+        ]
+      ],
+      "include": {
+        "uri": "r",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": [
+          [
+            "",
+            "p.so"
+          ]
+        ]
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r",
+      "is_static": false
+    }
+  },
+  {
+    "id": "plugin_name_spaces",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri>r</uri><plugin name='  a  b  ' filename=' p.so '/></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ],
+        [
+          "a  b",
+          "p.so"
+        ]
+      ],
+      "include": {
+        "uri": "r",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": [
+          [
+            "a  b",
+            "p.so"
+          ]
+        ]
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r",
+      "is_static": false
+    }
+  },
+  {
+    "id": "plugin_name_nbsp",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri>r</uri><plugin name='&#160;p&#160;' filename='&#160;p.so&#160;'/></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ],
+        [
+          "\u00a0p\u00a0",
+          "\u00a0p.so\u00a0"
+        ]
+      ],
+      "include": {
+        "uri": "r",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": [
+          [
+            "\u00a0p\u00a0",
+            "\u00a0p.so\u00a0"
+          ]
+        ]
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r",
+      "is_static": false
+    }
+  },
+  {
+    "id": "plugin_filename_empty",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri>r</uri><plugin name='p' filename=''/></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r"
+      ],
+      "plugins": [],
+      "include": null,
+      "accepted": false
+    }
+  },
+  {
+    "id": "plugin_filename_default",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri>r</uri><plugin name='p' filename='__default__'/></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ],
+        [
+          "p",
+          "__default__"
+        ]
+      ],
+      "include": {
+        "uri": "r",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": [
+          [
+            "p",
+            "__default__"
+          ]
+        ]
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r",
+      "is_static": false
+    }
+  },
+  {
+    "id": "plugin_filename_cr",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri>r</uri><plugin filename='&#13;'/></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ],
+        [
+          "",
+          "\r"
+        ]
+      ],
+      "include": {
+        "uri": "r",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": [
+          [
+            "",
+            "\r"
+          ]
+        ]
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r",
+      "is_static": false
+    }
+  },
+  {
+    "id": "plugin_name_nul",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri>r</uri><plugin name='p&#0;x' filename='p.so'/></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ],
+        [
+          "p",
+          "p.so"
+        ]
+      ],
+      "include": {
+        "uri": "r",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": [
+          [
+            "p",
+            "p.so"
+          ]
+        ]
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r",
+      "is_static": false
+    }
+  },
+  {
+    "id": "static_empty",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri>r</uri><static/></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r"
+      ],
+      "plugins": [],
+      "include": null,
+      "exception": "basic_string::_M_construct null not valid"
+    }
+  },
+  {
+    "id": "placement_empty",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri>r</uri><pose>1 2 3 0 0 0</pose><placement_frame/></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r"
+      ],
+      "plugins": [],
+      "include": null,
+      "exception": "basic_string::_M_construct null not valid"
+    }
+  },
+  {
+    "id": "static_cdata_empty",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri>r</uri><static><![CDATA[]]></static></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ]
+      ],
+      "include": {
+        "uri": "r",
+        "name": null,
+        "is_static": false,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": []
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r",
+      "is_static": false
+    }
+  },
+  {
+    "id": "placement_cdata_empty",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri>r</uri><pose>1 2 3 0 0 0</pose><placement_frame><![CDATA[]]></placement_frame></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ]
+      ],
+      "include": {
+        "uri": "r",
+        "name": null,
+        "is_static": null,
+        "placement_frame": "",
+        "pose_bits": [
+          4607182418800017408,
+          4611686018427387904,
+          4613937818241073152,
+          0,
+          0,
+          0,
+          4607182418800017408
+        ],
+        "pose_relative_to": "",
+        "plugins": []
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r",
+      "is_static": false
+    }
+  },
+  {
+    "id": "eol_1_0",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri><![CDATA[r\rx]]></uri><plugin filename='a\rb'/></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r\nx"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ],
+        [
+          "",
+          "a\nb"
+        ]
+      ],
+      "include": {
+        "uri": "r\nx",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": [
+          [
+            "",
+            "a\nb"
+          ]
+        ]
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r\nx",
+      "is_static": false
+    }
+  },
+  {
+    "id": "eol_1_1",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri><![CDATA[r\nx]]></uri><plugin filename='a\nb'/></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r\nx"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ],
+        [
+          "",
+          "a\nb"
+        ]
+      ],
+      "include": {
+        "uri": "r\nx",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": [
+          [
+            "",
+            "a\nb"
+          ]
+        ]
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r\nx",
+      "is_static": false
+    }
+  },
+  {
+    "id": "eol_2_0",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri><![CDATA[r\r\rx]]></uri><plugin filename='a\r\rb'/></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r\n\nx"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ],
+        [
+          "",
+          "a\n\nb"
+        ]
+      ],
+      "include": {
+        "uri": "r\n\nx",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": [
+          [
+            "",
+            "a\n\nb"
+          ]
+        ]
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r\n\nx",
+      "is_static": false
+    }
+  },
+  {
+    "id": "eol_2_1",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri><![CDATA[r\r\nx]]></uri><plugin filename='a\r\nb'/></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r\nx"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ],
+        [
+          "",
+          "a\nb"
+        ]
+      ],
+      "include": {
+        "uri": "r\nx",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": [
+          [
+            "",
+            "a\nb"
+          ]
+        ]
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r\nx",
+      "is_static": false
+    }
+  },
+  {
+    "id": "eol_2_2",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri><![CDATA[r\n\rx]]></uri><plugin filename='a\n\rb'/></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r\nx"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ],
+        [
+          "",
+          "a\nb"
+        ]
+      ],
+      "include": {
+        "uri": "r\nx",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": [
+          [
+            "",
+            "a\nb"
+          ]
+        ]
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r\nx",
+      "is_static": false
+    }
+  },
+  {
+    "id": "eol_2_3",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri><![CDATA[r\n\nx]]></uri><plugin filename='a\n\nb'/></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r\n\nx"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ],
+        [
+          "",
+          "a\n\nb"
+        ]
+      ],
+      "include": {
+        "uri": "r\n\nx",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": [
+          [
+            "",
+            "a\n\nb"
+          ]
+        ]
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r\n\nx",
+      "is_static": false
+    }
+  },
+  {
+    "id": "eol_3_0",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri><![CDATA[r\r\r\rx]]></uri><plugin filename='a\r\r\rb'/></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r\n\n\nx"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ],
+        [
+          "",
+          "a\n\n\nb"
+        ]
+      ],
+      "include": {
+        "uri": "r\n\n\nx",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": [
+          [
+            "",
+            "a\n\n\nb"
+          ]
+        ]
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r\n\n\nx",
+      "is_static": false
+    }
+  },
+  {
+    "id": "eol_3_1",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri><![CDATA[r\r\r\nx]]></uri><plugin filename='a\r\r\nb'/></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r\n\nx"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ],
+        [
+          "",
+          "a\n\nb"
+        ]
+      ],
+      "include": {
+        "uri": "r\n\nx",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": [
+          [
+            "",
+            "a\n\nb"
+          ]
+        ]
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r\n\nx",
+      "is_static": false
+    }
+  },
+  {
+    "id": "eol_3_2",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri><![CDATA[r\r\n\rx]]></uri><plugin filename='a\r\n\rb'/></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r\n\nx"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ],
+        [
+          "",
+          "a\n\nb"
+        ]
+      ],
+      "include": {
+        "uri": "r\n\nx",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": [
+          [
+            "",
+            "a\n\nb"
+          ]
+        ]
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r\n\nx",
+      "is_static": false
+    }
+  },
+  {
+    "id": "eol_3_3",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri><![CDATA[r\r\n\nx]]></uri><plugin filename='a\r\n\nb'/></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r\n\nx"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ],
+        [
+          "",
+          "a\n\nb"
+        ]
+      ],
+      "include": {
+        "uri": "r\n\nx",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": [
+          [
+            "",
+            "a\n\nb"
+          ]
+        ]
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r\n\nx",
+      "is_static": false
+    }
+  },
+  {
+    "id": "eol_3_4",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri><![CDATA[r\n\r\rx]]></uri><plugin filename='a\n\r\rb'/></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r\n\nx"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ],
+        [
+          "",
+          "a\n\nb"
+        ]
+      ],
+      "include": {
+        "uri": "r\n\nx",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": [
+          [
+            "",
+            "a\n\nb"
+          ]
+        ]
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r\n\nx",
+      "is_static": false
+    }
+  },
+  {
+    "id": "eol_3_5",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri><![CDATA[r\n\r\nx]]></uri><plugin filename='a\n\r\nb'/></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r\n\nx"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ],
+        [
+          "",
+          "a\n\nb"
+        ]
+      ],
+      "include": {
+        "uri": "r\n\nx",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": [
+          [
+            "",
+            "a\n\nb"
+          ]
+        ]
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r\n\nx",
+      "is_static": false
+    }
+  },
+  {
+    "id": "eol_3_6",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri><![CDATA[r\n\n\rx]]></uri><plugin filename='a\n\n\rb'/></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r\n\nx"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ],
+        [
+          "",
+          "a\n\nb"
+        ]
+      ],
+      "include": {
+        "uri": "r\n\nx",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": [
+          [
+            "",
+            "a\n\nb"
+          ]
+        ]
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r\n\nx",
+      "is_static": false
+    }
+  },
+  {
+    "id": "eol_3_7",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri><![CDATA[r\n\n\nx]]></uri><plugin filename='a\n\n\nb'/></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r\n\n\nx"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ],
+        [
+          "",
+          "a\n\n\nb"
+        ]
+      ],
+      "include": {
+        "uri": "r\n\n\nx",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": [
+          [
+            "",
+            "a\n\n\nb"
+          ]
+        ]
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r\n\n\nx",
+      "is_static": false
+    }
+  },
+  {
+    "id": "eol_4_0",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri><![CDATA[r\r\r\r\rx]]></uri><plugin filename='a\r\r\r\rb'/></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r\n\n\n\nx"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ],
+        [
+          "",
+          "a\n\n\n\nb"
+        ]
+      ],
+      "include": {
+        "uri": "r\n\n\n\nx",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": [
+          [
+            "",
+            "a\n\n\n\nb"
+          ]
+        ]
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r\n\n\n\nx",
+      "is_static": false
+    }
+  },
+  {
+    "id": "eol_4_1",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri><![CDATA[r\r\r\r\nx]]></uri><plugin filename='a\r\r\r\nb'/></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r\n\n\nx"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ],
+        [
+          "",
+          "a\n\n\nb"
+        ]
+      ],
+      "include": {
+        "uri": "r\n\n\nx",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": [
+          [
+            "",
+            "a\n\n\nb"
+          ]
+        ]
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r\n\n\nx",
+      "is_static": false
+    }
+  },
+  {
+    "id": "eol_4_2",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri><![CDATA[r\r\r\n\rx]]></uri><plugin filename='a\r\r\n\rb'/></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r\n\n\nx"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ],
+        [
+          "",
+          "a\n\n\nb"
+        ]
+      ],
+      "include": {
+        "uri": "r\n\n\nx",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": [
+          [
+            "",
+            "a\n\n\nb"
+          ]
+        ]
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r\n\n\nx",
+      "is_static": false
+    }
+  },
+  {
+    "id": "eol_4_3",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri><![CDATA[r\r\r\n\nx]]></uri><plugin filename='a\r\r\n\nb'/></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r\n\n\nx"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ],
+        [
+          "",
+          "a\n\n\nb"
+        ]
+      ],
+      "include": {
+        "uri": "r\n\n\nx",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": [
+          [
+            "",
+            "a\n\n\nb"
+          ]
+        ]
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r\n\n\nx",
+      "is_static": false
+    }
+  },
+  {
+    "id": "eol_4_4",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri><![CDATA[r\r\n\r\rx]]></uri><plugin filename='a\r\n\r\rb'/></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r\n\n\nx"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ],
+        [
+          "",
+          "a\n\n\nb"
+        ]
+      ],
+      "include": {
+        "uri": "r\n\n\nx",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": [
+          [
+            "",
+            "a\n\n\nb"
+          ]
+        ]
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r\n\n\nx",
+      "is_static": false
+    }
+  },
+  {
+    "id": "eol_4_5",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri><![CDATA[r\r\n\r\nx]]></uri><plugin filename='a\r\n\r\nb'/></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r\n\nx"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ],
+        [
+          "",
+          "a\n\nb"
+        ]
+      ],
+      "include": {
+        "uri": "r\n\nx",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": [
+          [
+            "",
+            "a\n\nb"
+          ]
+        ]
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r\n\nx",
+      "is_static": false
+    }
+  },
+  {
+    "id": "eol_4_6",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri><![CDATA[r\r\n\n\rx]]></uri><plugin filename='a\r\n\n\rb'/></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r\n\nx"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ],
+        [
+          "",
+          "a\n\nb"
+        ]
+      ],
+      "include": {
+        "uri": "r\n\nx",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": [
+          [
+            "",
+            "a\n\nb"
+          ]
+        ]
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r\n\nx",
+      "is_static": false
+    }
+  },
+  {
+    "id": "eol_4_7",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri><![CDATA[r\r\n\n\nx]]></uri><plugin filename='a\r\n\n\nb'/></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r\n\n\nx"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ],
+        [
+          "",
+          "a\n\n\nb"
+        ]
+      ],
+      "include": {
+        "uri": "r\n\n\nx",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": [
+          [
+            "",
+            "a\n\n\nb"
+          ]
+        ]
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r\n\n\nx",
+      "is_static": false
+    }
+  },
+  {
+    "id": "eol_4_8",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri><![CDATA[r\n\r\r\rx]]></uri><plugin filename='a\n\r\r\rb'/></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r\n\n\nx"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ],
+        [
+          "",
+          "a\n\n\nb"
+        ]
+      ],
+      "include": {
+        "uri": "r\n\n\nx",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": [
+          [
+            "",
+            "a\n\n\nb"
+          ]
+        ]
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r\n\n\nx",
+      "is_static": false
+    }
+  },
+  {
+    "id": "eol_4_9",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri><![CDATA[r\n\r\r\nx]]></uri><plugin filename='a\n\r\r\nb'/></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r\n\nx"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ],
+        [
+          "",
+          "a\n\nb"
+        ]
+      ],
+      "include": {
+        "uri": "r\n\nx",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": [
+          [
+            "",
+            "a\n\nb"
+          ]
+        ]
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r\n\nx",
+      "is_static": false
+    }
+  },
+  {
+    "id": "eol_4_10",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri><![CDATA[r\n\r\n\rx]]></uri><plugin filename='a\n\r\n\rb'/></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r\n\nx"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ],
+        [
+          "",
+          "a\n\nb"
+        ]
+      ],
+      "include": {
+        "uri": "r\n\nx",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": [
+          [
+            "",
+            "a\n\nb"
+          ]
+        ]
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r\n\nx",
+      "is_static": false
+    }
+  },
+  {
+    "id": "eol_4_11",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri><![CDATA[r\n\r\n\nx]]></uri><plugin filename='a\n\r\n\nb'/></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r\n\n\nx"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ],
+        [
+          "",
+          "a\n\n\nb"
+        ]
+      ],
+      "include": {
+        "uri": "r\n\n\nx",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": [
+          [
+            "",
+            "a\n\n\nb"
+          ]
+        ]
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r\n\n\nx",
+      "is_static": false
+    }
+  },
+  {
+    "id": "eol_4_12",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri><![CDATA[r\n\n\r\rx]]></uri><plugin filename='a\n\n\r\rb'/></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r\n\n\nx"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ],
+        [
+          "",
+          "a\n\n\nb"
+        ]
+      ],
+      "include": {
+        "uri": "r\n\n\nx",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": [
+          [
+            "",
+            "a\n\n\nb"
+          ]
+        ]
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r\n\n\nx",
+      "is_static": false
+    }
+  },
+  {
+    "id": "eol_4_13",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri><![CDATA[r\n\n\r\nx]]></uri><plugin filename='a\n\n\r\nb'/></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r\n\n\nx"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ],
+        [
+          "",
+          "a\n\n\nb"
+        ]
+      ],
+      "include": {
+        "uri": "r\n\n\nx",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": [
+          [
+            "",
+            "a\n\n\nb"
+          ]
+        ]
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r\n\n\nx",
+      "is_static": false
+    }
+  },
+  {
+    "id": "eol_4_14",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri><![CDATA[r\n\n\n\rx]]></uri><plugin filename='a\n\n\n\rb'/></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r\n\n\nx"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ],
+        [
+          "",
+          "a\n\n\nb"
+        ]
+      ],
+      "include": {
+        "uri": "r\n\n\nx",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": [
+          [
+            "",
+            "a\n\n\nb"
+          ]
+        ]
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r\n\n\nx",
+      "is_static": false
+    }
+  },
+  {
+    "id": "eol_4_15",
+    "xml": "<sdf version='1.12'><model name='outer'><include><uri><![CDATA[r\n\n\n\nx]]></uri><plugin filename='a\n\n\n\nb'/></include></model></sdf>",
+    "expected": {
+      "requests": [
+        "r\n\n\n\nx"
+      ],
+      "plugins": [
+        [
+          "base_plugin",
+          "base.so"
+        ],
+        [
+          "",
+          "a\n\n\n\nb"
+        ]
+      ],
+      "include": {
+        "uri": "r\n\n\n\nx",
+        "name": null,
+        "is_static": null,
+        "placement_frame": null,
+        "pose_bits": null,
+        "pose_relative_to": null,
+        "plugins": [
+          [
+            "",
+            "a\n\n\n\nb"
+          ]
+        ]
+      },
+      "accepted": true,
+      "name": "base",
+      "uri": "r\n\n\n\nx",
+      "is_static": false
+    }
+  }
+]

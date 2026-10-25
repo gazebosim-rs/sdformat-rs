@@ -1,23 +1,26 @@
 {
-  "author": "/root/sdformat_owner_fallback",
-  "author_checks": "Fresh integrated235 Rust/16 tools/fmt/Clippy/docs and coverage3996/4015 lines6947/7147 regions, zero changed production lines; final evidence source digest matches freeze.",
-  "binding_checks": "Exact five paths and hashes match revised freeze; new test and copied source receipt are byte-identical to reviewed source. All 259 other tracked parent blobs preserved. Only scoped CONTRACT/STATUS/results/trace metadata add five complete observable DOMSensor copy/move originals and correct preceding MutableSensors public/hosted status. No production, fixture, dependency or policy edit.",
   "decision": "approved",
-  "evidence_source_digest": "8dc7659e72194a5a0ac9162bad8a16d0ee9f24bb5188aeeb68a2e59a099f55ea",
-  "files_sha256": {
-    "docs/CONTRACT.md": "33f518c1a523b807b3e635255d41bb535bb2676d53611379b9235f02186d995f",
-    "docs/STATUS.md": "9e976f2d3aaecbd3d25a11a338eb66a7d01b7f5259a213655e1be1b875002d16",
-    "reference/results.json": "4d0353e97c0726966f248acb95b0aa5540429ba37c7356a10b7b29f8c619a199",
-    "reference/traceability.json": "76727afba7d8d97a4913aa00bd74a318d90ce419fd5a49382e580e01e336592a",
-    "tests/sensor_ownership_original.rs": "419c009d92c3dab2bac419f6cbb5c228fb138bb7c41b149a1c20f90fb814deb9"
-  },
-  "final_freeze": "artifacts/sensor-ownership/frozen-final.json",
-  "final_freeze_sha256": "99a003f761e8c7d76012a535fe9057b16f089cb7120c6d2cdfab3b19a3cbb598",
-  "parent": "cc3b1e2f6828a047106859b079d5558f5d4038cd",
-  "protected_digest": "4e653658f75cbbcf123cfe5945987ffb1b8d0e130911d5116efd300947869ee7",
-  "remaining": "Normal protected staged hook, public commit/push and exact hosted CI.",
   "reviewer": "/root/transport_fallback",
-  "scope": "Five COMPLETE observable native original value/copy/move assertion mappings; C++ operator identity, moved-from state, Element identity, generic Sensor mutation, parser and serialization remain outside claim.",
-  "source_freeze_sha256": "b19dacd3f1d4b9e91d6b5cf227e55b2b29052573344b3e9590c93890c6742012",
-  "source_review_sha256": "bfd94821a06c54171e459e11b9b78f351a95d621bb7ce5a7772cddd428f20596"
+  "author": "/root/sdformat_owner_fallback",
+  "parent": "dbf349b6a52a77680900e6afc53de5c604cd409a",
+  "final_freeze": "artifacts/sensor-plugins/frozen-final.json",
+  "final_freeze_sha256": "0b476d7a7fd4626225a6f06d49b094ccff12825418dc37a40537b6e11d9edada",
+  "source_freeze_sha256": "04f1020e3d667fcd53275d474c03807eb1977358735689d18a59465ac0140cba",
+  "source_review_sha256": "7af94967bc629832715f9954dca6c9d45d16a0ce59ccedad418f7d42b1369ced",
+  "files_sha256": {
+    "docs/CONTRACT.md": "f5e7e51eeb9b91164f2a450c50f98b103f0f6eb073fbdca8babeff76816452fd",
+    "docs/STATUS.md": "b93ef247d0facae89abf9af2d967a0654c5c8ce7829999a76ea431a49b60562c",
+    "reference/results.json": "2638ab5d22de61d448e66cfc80638fd19f9215da7b51026a40fe1d8d9c2be3d4",
+    "reference/traceability.json": "f32cbc6fd1eaf5d2565a2201a1bb91f2b1d707fb4548cf708dd1aed46399825a",
+    "src/parse.rs": "594f2bb461d2c74bbef1470c8ffad542322b75eeccf5fdd1f88134823f36364d",
+    "src/types.rs": "b23dc6499af88bd0cdc11f398f2da4367e170236b7936af6a84307df9159180f",
+    "tests/sensor_plugins_original.rs": "0865bbd3fe6f12f95625c6ae114bbc13647b3a03617d99d13e45299beb9ec318"
+  },
+  "source_digest": "71f1e1f7213ee3915a52330a396e9b92bee89231d364d0bdef64a175e246d925",
+  "protected_digest": "da8956c81f2ee743a5f717d0f155fcb9551136dd933d8793f6ccbde50d162a3d",
+  "author_gate_sha256": "152cdc404f540c1de86220e26703852a32ae012cabcb6f3b1d1a182af327f7d5",
+  "binding_checks": "All seven candidate path hashes match the freeze, and all 258 other tracked parent blobs remain byte-identical. The three reviewed source/test hashes and source receipt are unchanged. The docs, results and traceability add only the scoped plugin case and correct the preceding five ownership public/hosted status. Diff check is clean; source and protected digests independently recompute exactly.",
+  "author_checks": "Fresh integrated 237 Rust tests, 16 tooling tests, formatting, Clippy, docs and direct coverage 3998/4017 lines, 6951/7152 regions, 2/2 changed executable lines.",
+  "scope": "One COMPLETE observable DOMSensor.Plugins original for owned plugin value, insertion order and clear. Parsed repeated plugin name, filename and XML preservation are supplemental. Native C++ method identity, ToElement and general plugin grammar remain unqualified.",
+  "remaining": "Normal protected staged hook, public commit/push and exact hosted qualification."
 }

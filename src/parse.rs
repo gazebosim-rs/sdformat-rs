@@ -2479,6 +2479,7 @@ impl Parser<'_> {
             "topic",
             "frame_id",
             "gz_frame_id",
+            "plugin",
             "imu",
             "contact",
             "force_torque",
@@ -2673,6 +2674,7 @@ impl Parser<'_> {
             always_on,
             enable_metrics,
             config,
+            plugins: self.plugins(node)?,
             topic: self
                 .optional_text(node, "topic")?
                 .filter(|topic| topic != "__default__")

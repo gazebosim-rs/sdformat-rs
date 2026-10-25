@@ -1952,7 +1952,7 @@ original's observed values; general Sensor mutation, parser and serialization
 behavior are separate work. C++ pointer/setter method identity is not a
 release criterion for the Rust API.
 
-## Five native DOMSensor copy and move originals candidate
+## Five native DOMSensor copy and move originals
 
 Pinned `DOMSensor.MoveConstructor`, `CopyConstructor`, `MoveAssignment`,
 `CopyAssignment` and `CopyAssignmentAfterMove` pass natively 5/0. The new
@@ -1967,6 +1967,29 @@ SHA256 `419c009d92c3dab2bac419f6cbb5c228fb138bb7c41b149a1c20f90fb814deb9`
 (receipt SHA256 `bfd94821a06c54171e459e11b9b78f351a95d621bb7ce5a7772cddd428f20596`), with private native and Rust 5/0. Author checks
 pass 235 Rust, sixteen tooling tests, formatting, Clippy and docs; production
 coverage is 3996/4015 lines and 6947/7147 regions with no production edits.
-Final metadata binding, protected staged hook and hosted qualification remain
-pending. Native C++ operator identity, moved-from state, Element identity and
+Final binding receipt SHA256 `4cdc5cf2eb773d8b64b33ebb7849e276d4a89697328e0e27efda0ce94dc8671a`,
+normal protected staged hook and exact hosted run 40241708877 succeeded
+at public `dbf349b6a52a77680900e6afc53de5c604cd409a`.
+Native C++ operator identity, moved-from state, Element identity and
 generic parser/serialization behavior remain outside these originals.
+
+## Native DOMSensor.Plugins original candidate
+
+Pinned `DOMSensor.Plugins` passes natively 1/0. The owned `Sensor` now keeps
+plugins in a `Vec<Plugin>`, and the existing parser reads repeated `<plugin>`
+children in declaration order. The retained Rust original checks empty,
+first copied add, size one, second add after changing the source plugin name,
+size two, both ordered names and clear. A separate parser test checks names,
+filenames and exact original XML spans. The test preserves the imported 2018
+OSRF Apache notice.
+
+Independent /root/transport_fallback approved complete observable original
+mapping on exact source freeze SHA256 `04f1020e3d667fcd53275d474c03807eb1977358735689d18a59465ac0140cba` (receipt SHA256
+`7af94967bc629832715f9954dca6c9d45d16a0ce59ccedad418f7d42b1369ced`). A private raw-parent replay passed native 1/0, Rust
+selected 2/0 and full 237/0. A parser-field disconnect mutant left the
+direct-value original passing but failed the parsed count control. Author
+checks pass 237 Rust, sixteen tooling tests, formatting, Clippy and docs;
+production coverage is 3998/4017 lines and 6951/7152 regions, with both
+changed executable lines covered. Final metadata binding, normal protected
+hook and hosted qualification remain pending. C++ method identity,
+`ToElement` and general plugin grammar remain outside this case.

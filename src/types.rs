@@ -688,6 +688,8 @@ pub struct Sensor {
     pub always_on: bool,
     pub enable_metrics: bool,
     pub config: SensorConfig,
+    /// Plugins in declaration or insertion order.
+    pub plugins: Vec<Plugin>,
     pub topic: String,
     /// Canonical SDF frame metadata; an empty value delegates fallback to the consumer.
     pub frame_id: String,

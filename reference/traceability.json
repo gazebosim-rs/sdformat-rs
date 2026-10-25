@@ -1023,7 +1023,7 @@
       "upstream_fixtures": {},
       "baseline": "Fresh exact pinned UNIT_Sensor_TEST five-case filter 5/0, no skips; source/binary hashes and frozen test SHA in artifacts/sensor-ownership/source-freeze.json. Independent private raw-parent selected Rust5/0; author full235 Rust/16 tools/fmt/Clippy/docs, production3996/4015 lines6947/7147 regions, zero changed production lines.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_fallback APPROVED complete observable assertion mapping, exact source receipt SHA256 bfd94821a06c54171e459e11b9b78f351a95d621bb7ce5a7772cddd428f20596 and freeze SHA256 b19dacd3f1d4b9e91d6b5cf227e55b2b29052573344b3e9590c93890c6742012. Private native5/0 and Rust5/0 replayed. Final metadata binding, normal protected hook and hosted qualification pending."
+      "review": "Independent /root/transport_fallback APPROVED complete observable assertion mapping, exact source receipt SHA256 bfd94821a06c54171e459e11b9b78f351a95d621bb7ce5a7772cddd428f20596 and freeze SHA256 b19dacd3f1d4b9e91d6b5cf227e55b2b29052573344b3e9590c93890c6742012. Private native5/0 and Rust5/0 replayed. Final binding receipt SHA256 4cdc5cf2eb773d8b64b33ebb7849e276d4a89697328e0e27efda0ce94dc8671a; normal protected hook and exact hosted verify run 40241708877 passed at public dbf349b6a52a77680900e6afc53de5c604cd409a."
     },
     {
       "target": "UNIT_Sensor_TEST",
@@ -1035,7 +1035,7 @@
       "upstream_fixtures": {},
       "baseline": "Fresh exact pinned UNIT_Sensor_TEST five-case filter 5/0, no skips; source/binary hashes and frozen test SHA in artifacts/sensor-ownership/source-freeze.json. Independent private raw-parent selected Rust5/0; author full235 Rust/16 tools/fmt/Clippy/docs, production3996/4015 lines6947/7147 regions, zero changed production lines.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_fallback APPROVED complete observable assertion mapping, exact source receipt SHA256 bfd94821a06c54171e459e11b9b78f351a95d621bb7ce5a7772cddd428f20596 and freeze SHA256 b19dacd3f1d4b9e91d6b5cf227e55b2b29052573344b3e9590c93890c6742012. Private native5/0 and Rust5/0 replayed. Final metadata binding, normal protected hook and hosted qualification pending."
+      "review": "Independent /root/transport_fallback APPROVED complete observable assertion mapping, exact source receipt SHA256 bfd94821a06c54171e459e11b9b78f351a95d621bb7ce5a7772cddd428f20596 and freeze SHA256 b19dacd3f1d4b9e91d6b5cf227e55b2b29052573344b3e9590c93890c6742012. Private native5/0 and Rust5/0 replayed. Final binding receipt SHA256 4cdc5cf2eb773d8b64b33ebb7849e276d4a89697328e0e27efda0ce94dc8671a; normal protected hook and exact hosted verify run 40241708877 passed at public dbf349b6a52a77680900e6afc53de5c604cd409a."
     },
     {
       "target": "UNIT_Sensor_TEST",
@@ -1047,7 +1047,7 @@
       "upstream_fixtures": {},
       "baseline": "Fresh exact pinned UNIT_Sensor_TEST five-case filter 5/0, no skips; source/binary hashes and frozen test SHA in artifacts/sensor-ownership/source-freeze.json. Independent private raw-parent selected Rust5/0; author full235 Rust/16 tools/fmt/Clippy/docs, production3996/4015 lines6947/7147 regions, zero changed production lines.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_fallback APPROVED complete observable assertion mapping, exact source receipt SHA256 bfd94821a06c54171e459e11b9b78f351a95d621bb7ce5a7772cddd428f20596 and freeze SHA256 b19dacd3f1d4b9e91d6b5cf227e55b2b29052573344b3e9590c93890c6742012. Private native5/0 and Rust5/0 replayed. Final metadata binding, normal protected hook and hosted qualification pending."
+      "review": "Independent /root/transport_fallback APPROVED complete observable assertion mapping, exact source receipt SHA256 bfd94821a06c54171e459e11b9b78f351a95d621bb7ce5a7772cddd428f20596 and freeze SHA256 b19dacd3f1d4b9e91d6b5cf227e55b2b29052573344b3e9590c93890c6742012. Private native5/0 and Rust5/0 replayed. Final binding receipt SHA256 4cdc5cf2eb773d8b64b33ebb7849e276d4a89697328e0e27efda0ce94dc8671a; normal protected hook and exact hosted verify run 40241708877 passed at public dbf349b6a52a77680900e6afc53de5c604cd409a."
     },
     {
       "target": "UNIT_Sensor_TEST",
@@ -1059,7 +1059,7 @@
       "upstream_fixtures": {},
       "baseline": "Fresh exact pinned UNIT_Sensor_TEST five-case filter 5/0, no skips; source/binary hashes and frozen test SHA in artifacts/sensor-ownership/source-freeze.json. Independent private raw-parent selected Rust5/0; author full235 Rust/16 tools/fmt/Clippy/docs, production3996/4015 lines6947/7147 regions, zero changed production lines.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_fallback APPROVED complete observable assertion mapping, exact source receipt SHA256 bfd94821a06c54171e459e11b9b78f351a95d621bb7ce5a7772cddd428f20596 and freeze SHA256 b19dacd3f1d4b9e91d6b5cf227e55b2b29052573344b3e9590c93890c6742012. Private native5/0 and Rust5/0 replayed. Final metadata binding, normal protected hook and hosted qualification pending."
+      "review": "Independent /root/transport_fallback APPROVED complete observable assertion mapping, exact source receipt SHA256 bfd94821a06c54171e459e11b9b78f351a95d621bb7ce5a7772cddd428f20596 and freeze SHA256 b19dacd3f1d4b9e91d6b5cf227e55b2b29052573344b3e9590c93890c6742012. Private native5/0 and Rust5/0 replayed. Final binding receipt SHA256 4cdc5cf2eb773d8b64b33ebb7849e276d4a89697328e0e27efda0ce94dc8671a; normal protected hook and exact hosted verify run 40241708877 passed at public dbf349b6a52a77680900e6afc53de5c604cd409a."
     },
     {
       "target": "UNIT_Sensor_TEST",
@@ -1071,7 +1071,19 @@
       "upstream_fixtures": {},
       "baseline": "Fresh exact pinned UNIT_Sensor_TEST five-case filter 5/0, no skips; source/binary hashes and frozen test SHA in artifacts/sensor-ownership/source-freeze.json. Independent private raw-parent selected Rust5/0; author full235 Rust/16 tools/fmt/Clippy/docs, production3996/4015 lines6947/7147 regions, zero changed production lines.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_fallback APPROVED complete observable assertion mapping, exact source receipt SHA256 bfd94821a06c54171e459e11b9b78f351a95d621bb7ce5a7772cddd428f20596 and freeze SHA256 b19dacd3f1d4b9e91d6b5cf227e55b2b29052573344b3e9590c93890c6742012. Private native5/0 and Rust5/0 replayed. Final metadata binding, normal protected hook and hosted qualification pending."
+      "review": "Independent /root/transport_fallback APPROVED complete observable assertion mapping, exact source receipt SHA256 bfd94821a06c54171e459e11b9b78f351a95d621bb7ce5a7772cddd428f20596 and freeze SHA256 b19dacd3f1d4b9e91d6b5cf227e55b2b29052573344b3e9590c93890c6742012. Private native5/0 and Rust5/0 replayed. Final binding receipt SHA256 4cdc5cf2eb773d8b64b33ebb7849e276d4a89697328e0e27efda0ce94dc8671a; normal protected hook and exact hosted verify run 40241708877 passed at public dbf349b6a52a77680900e6afc53de5c604cd409a."
+    },
+    {
+      "target": "UNIT_Sensor_TEST",
+      "case": "DOMSensor.Plugins",
+      "source": "src/Sensor_TEST.cc:584-605",
+      "rust_test": "tests/sensor_plugins_original.rs::original_dom_sensor_plugins; tests/sensor_plugins_original.rs::parsed_sensor_plugins_keep_order_and_original_xml (supplemental)",
+      "assertions": "Complete pinned original observable empty plugins, first copied add size one, second add size two after changing source name, original first name preserved, second name updated and clear empties. Rust owned Vec<Plugin> push of a clone maps native AddPlugin copy; direct vector operations map mutable DOM plugins. Supplemental parsed plugin test retains two declaration-order names, filenames and exact XML spans through existing Parser::plugins reader. Native Sensor::Load reads repeated plugins; no C++ method facade, ToElement or general plugin/schema grammar claim.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Pinned UNIT_Sensor_TEST DOMSensor.Plugins fresh native1/0, source/binary hashes and exact three source files in artifacts/sensor-plugins/source-freeze.json. Independent private raw-parent selected Rust2/0/full237/0; parser-field disconnect mutant fails supplemental count0 vs2 while direct-value original still passes. Author full237 Rust/16 tools/fmt/Clippy/docs, production3998/4017 lines6951/7152 regions, changed2/2.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback APPROVED complete observable native original mapping, exact source receipt SHA256 7af94967bc629832715f9954dca6c9d45d16a0ce59ccedad418f7d42b1369ced and freeze SHA256 04f1020e3d667fcd53275d474c03807eb1977358735689d18a59465ac0140cba. Private native1/0 and Rust selected2/0/full237/0, plus parser-disconnect mutant. Final metadata binding, protected hook and hosted qualification pending."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

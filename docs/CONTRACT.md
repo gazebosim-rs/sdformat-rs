@@ -550,3 +550,12 @@ observed type, full raw pose, relative frame, frame ID, Magnetometer noise and
 constructor update rate. The native cases do not inspect moved-from objects.
 C++ operator method identity and Element pointer identity are outside this
 value mapping; parsed Sensor behavior and serialization have separate gates.
+
+## Sensor plugins
+
+Owned `Sensor.plugins` keeps repeated plugins in declaration or insertion
+order. The parser preserves each plugin name, filename and original XML span.
+Cloning a `Plugin` before adding it captures the value, so changing the source
+value does not alter the earlier entry. Native `DOMSensor.Plugins` observes
+vector order and clear; `Sensor::ToElement` and broader plugin grammar remain
+separate acceptance work.

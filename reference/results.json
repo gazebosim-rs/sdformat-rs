@@ -60182,6 +60182,20 @@
     "original": "DOMAirSpeed.Construction and Set native2/0, no skips; Load and ToElement remain pending.",
     "rust": "Full 207 Rust tests, 15 tooling tests, fmt, Clippy and docs pass; direct production coverage 3461/3477 lines and 6038/6167 regions, zero changed production executable lines.",
     "scope": "Construction/Set default and Gaussian pressure-noise values, public-field setter mapping, copy/move transferred-value equality and default inequality. Case-insensitive source lookup guards the lowercase-s filename. Prior Link fragment remains partial; Load/ToElement and measurement remain unported.",
-    "review": "Independent /root/transport_fallback approved exact frozen Construction/Set source and assertions after native2/0 and private raw-parent selected Rust2/0; source receipt SHA256 b15e3e93bc237096cb81c8bded3c96b23bdef48c525f65543563cb2022927acf. Final metadata binding, protected hook and hosted qualification pending."
+    "review": "Independent /root/transport_fallback approved exact frozen Construction/Set source and assertions after native2/0 and private raw-parent selected Rust2/0; source receipt SHA256 b15e3e93bc237096cb81c8bded3c96b23bdef48c525f65543563cb2022927acf. Final metadata binding, normal protected hook and hosted verify run40226921154 passed at public2e46e223986bb2429150cd7b84881d2f4dd0e00a."
+  },
+  "lidar_original": {
+    "parent": "2e46e223986bb2429150cd7b84881d2f4dd0e00a",
+    "upstream": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "source_digest": "a9f59ffe1168e2a4eed8c5fda50cc6f5be71bc0b6c9efa2e55ff6942a343f949",
+    "native_dom_source_sha256": "01b8b9a89f76d97613f8a0dd579776866a2bd815822f7672044099f32f388ed5",
+    "native_dom_binary_sha256": "eb039f53eadbd04f982948e11fb0d5a612f01a664b605d5c8ae69f55f5c7a36b",
+    "native_link_source_sha256": "3f19b57d0cd02be6201a08be4580d5a478d5e3c1549457605754ccff99ccd4f1",
+    "native_link_binary_sha256": "5996c21878cab1dacd0d653c50bfdcf4a02c8064157855ae6136471939582716",
+    "fixture_sha256": "dc2b61c8b40a7df7f2c7b6e649f3039136ca1a03528371b307e9b9fc27406a00",
+    "original": "DOMLidar.Construction and Set native2/0 complete value observations; DOMLink.Sensors native1/0 four bounded fragments partial.",
+    "rust": "Full211 Rust tests,15 tooling tests,fmt,Clippy and docs pass; direct coverage3570/3587 production lines6255/6403 regions113/113 changed executable lines.",
+    "scope": "Owned Lidar scan/range/noise/visibility and typed parser; two exact DOM value originals complete. Four unchanged Link gpu_ray/gpu_lidar/ray/lidar fragments retain literal kind/name/full raw pose/metrics and selected scalar values only. Native effective SensorType::GPU_LIDAR/LIDAR enum classification, full Link count/index/name lookup, 16 other instances, rendering and measurement remain unported. Previous seven supported sensor fragments preserved.",
+    "review": "Independent /root/transport_fallback approved rebased five-file source/API/assertion mapping after native DOM2/0+Link1/0 and private raw-parent Rust DOM2/0+Link2/0; source receipt SHA256 5c3bb835a8c434142cd9ed4f74e629398c2b9a8c7cabb3114c97937d7769cdce. Final binding, normal protected hook and hosted qualification pending."
   }
 }

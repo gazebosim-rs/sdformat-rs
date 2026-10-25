@@ -2197,6 +2197,75 @@ impl Parser<'_> {
             source: Some(self.source(node)),
         })
     }
+    fn lidar_scan(&self, node: Node<'_, '_>, default: LidarScan) -> Result<LidarScan, Diagnostic> {
+        self.allowed(
+            node,
+            &["samples", "resolution", "min_angle", "max_angle"],
+            &[],
+        )?;
+        Ok(LidarScan {
+            samples: self.unsigned(node, "samples", default.samples)?,
+            resolution: self.scalar(node, "resolution", default.resolution)?,
+            min_angle: self.scalar(node, "min_angle", default.min_angle)?,
+            max_angle: self.scalar(node, "max_angle", default.max_angle)?,
+        })
+    }
+    fn lidar_noise(&self, node: Node<'_, '_>) -> Result<Noise, Diagnostic> {
+        self.allowed(node, &["type", "mean", "stddev"], &[])?;
+        let kind = match self
+            .optional_text(node, "type")?
+            .unwrap_or_else(|| "gaussian".into())
+            .trim_matches([' ', '\t', '\n'])
+            .to_ascii_lowercase()
+            .as_str()
+        {
+            "none" => NoiseKind::None,
+            "gaussian" => NoiseKind::Gaussian,
+            "gaussian_quantized" => NoiseKind::GaussianQuantized,
+            _ => return Err(self.err(node, ErrorCode::InvalidValue, "invalid lidar noise type")),
+        };
+        let noise = Noise {
+            kind,
+            mean: self.scalar(node, "mean", 0.)?,
+            stddev: self.scalar(node, "stddev", 0.)?,
+            ..Noise::default()
+        };
+        if noise.stddev < 0. {
+            return Err(self.err(node, ErrorCode::InvalidValue, "negative lidar noise stddev"));
+        }
+        Ok(noise)
+    }
+    fn lidar(&self, sensor: Node<'_, '_>, tag: &str) -> Result<Lidar, Diagnostic> {
+        let Some(node) = child(sensor, tag) else {
+            return Ok(Lidar::default());
+        };
+        self.allowed(node, &["scan", "range", "noise", "visibility_mask"], &[])?;
+        let scan = child(node, "scan")
+            .ok_or_else(|| self.err(node, ErrorCode::Missing, "missing lidar scan"))?;
+        self.allowed(scan, &["horizontal", "vertical"], &[])?;
+        let horizontal = child(scan, "horizontal")
+            .ok_or_else(|| self.err(scan, ErrorCode::Missing, "missing horizontal lidar scan"))?;
+        let range = child(node, "range")
+            .ok_or_else(|| self.err(node, ErrorCode::Missing, "missing lidar range"))?;
+        self.allowed(range, &["min", "max", "resolution"], &[])?;
+        let default = Lidar::default();
+        Ok(Lidar {
+            horizontal: self.lidar_scan(horizontal, default.horizontal)?,
+            vertical: child(scan, "vertical")
+                .map(|vertical| self.lidar_scan(vertical, default.vertical))
+                .transpose()?
+                .unwrap_or(default.vertical),
+            range_min: self.scalar(range, "min", default.range_min)?,
+            range_max: self.scalar(range, "max", default.range_max)?,
+            range_resolution: self.scalar(range, "resolution", default.range_resolution)?,
+            noise: child(node, "noise")
+                .map(|noise| self.lidar_noise(noise))
+                .transpose()?
+                .unwrap_or_default(),
+            visibility_mask: self.unsigned(node, "visibility_mask", default.visibility_mask)?,
+            source: Some(self.source(node)),
+        })
+    }
     fn magnetometer(&self, sensor: Node<'_, '_>) -> Result<Magnetometer, Diagnostic> {
         Ok(Magnetometer {
             noise: self.noise_vector(sensor, "magnetometer")?,
@@ -2223,6 +2292,8 @@ impl Parser<'_> {
                 "navsat",
                 "gps",
                 "air_speed",
+                "ray",
+                "lidar",
             ],
             &["name", "type"],
         )?;
@@ -2241,11 +2312,15 @@ impl Parser<'_> {
                 | "navsat"
                 | "gps"
                 | "air_speed"
+                | "ray"
+                | "lidar"
+                | "gpu_ray"
+                | "gpu_lidar"
         ) {
             return Err(self.err(
                 node,
                 ErrorCode::Unsupported,
-                "only IMU, contact, force/torque, magnetometer, altimeter, air pressure, NavSat/GPS and air speed sensor configurations are supported",
+                "only typed IMU, contact, force/torque, magnetometer, altimeter, air pressure, NavSat/GPS, air speed and Lidar sensor configurations are supported",
             ));
         }
         // Native Sensor::Load selects <navsat> before legacy <gps> for either type.
@@ -2254,6 +2329,12 @@ impl Parser<'_> {
                 "navsat"
             } else {
                 "gps"
+            }
+        } else if matches!(kind.as_str(), "ray" | "lidar" | "gpu_ray" | "gpu_lidar") {
+            if child(node, "lidar").is_some() {
+                "lidar"
+            } else {
+                "ray"
             }
         } else {
             kind.as_str()
@@ -2268,12 +2349,16 @@ impl Parser<'_> {
             "navsat",
             "gps",
             "air_speed",
+            "ray",
+            "lidar",
         ]
         .iter()
         .any(|name| {
             child(node, name).is_some()
                 && *name != config_tag
                 && !(matches!(kind.as_str(), "navsat" | "gps") && matches!(*name, "navsat" | "gps"))
+                && !(matches!(kind.as_str(), "ray" | "lidar" | "gpu_ray" | "gpu_lidar")
+                    && matches!(*name, "ray" | "lidar"))
         }) {
             return Err(self.err(
                 node,
@@ -2300,6 +2385,9 @@ impl Parser<'_> {
             "air_pressure" => SensorConfig::AirPressure(Box::new(self.air_pressure(node)?)),
             "navsat" | "gps" => SensorConfig::NavSat(Box::new(self.navsat(node, config_tag)?)),
             "air_speed" => SensorConfig::AirSpeed(Box::new(self.air_speed(node)?)),
+            "ray" | "lidar" | "gpu_ray" | "gpu_lidar" => {
+                SensorConfig::Lidar(Box::new(self.lidar(node, config_tag)?))
+            }
             _ => unreachable!("sensor type checked above"),
         };
         let configuration_xml =

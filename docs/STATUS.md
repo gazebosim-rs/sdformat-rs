@@ -1556,5 +1556,31 @@ tooling tests, formatting, Clippy and docs pass. Production coverage is
 Independent source review approved the exact three frozen source files after
 native Construction/Set 2/0 and private raw-parent Rust selected 2/0; source
 receipt SHA256 b15e3e93bc237096cb81c8bded3c96b23bdef48c525f65543563cb2022927acf.
-Final metadata binding, protected hook and hosted qualification are pending.
+Final metadata binding, the normal protected hook and hosted verify run
+40226921154 passed at public commit 2e46e223986bb2429150cd7b84881d2f4dd0e00a.
 Load and ToElement remain unported.
+
+## Typed Lidar DOM and parser candidate
+
+`SensorConfig::Lidar(Box<Lidar>)` retains horizontal and vertical scan samples,
+resolution and angles, range, noise, visibility mask, explicit source and exact
+selected XML. The literal native `ray`/`lidar` and `gpu_ray`/`gpu_lidar` type
+spellings select the owned Lidar configuration while preserving `Sensor.kind`.
+The pinned `DOMLidar.Construction` and `Set` originals pass natively 2/0; the
+Rust candidate maps default noise, sequential field set/get values, visibility
+default/mutation and copy/move transferred-value equality observations. The
+unchanged upstream `sensors.sdf` fixture passes native `DOMLink.Sensors` 1/0.
+Rust wraps only its four byte-identical GPU/ray/lidar sensor fragments in
+minimal model/link XML; original names, literal kinds, full raw poses and
+metrics are checked, with scan/range/noise scalar values for ray and lidar.
+Native effective `SensorType::GPU_LIDAR`/`LIDAR` classification is not exposed
+or asserted by the Rust API. The other 16 sensor instances, full Link
+count/index/lookup and ray rendering remain pending; the Link case is partial.
+
+The rebased source candidate on public Airspeed correction 2e46e223986bb2429150cd7b84881d2f4dd0e00a
+passes 211 Rust tests, 15 tooling tests, formatting, Clippy and docs. Direct
+production coverage is 3570/3587 lines, 6255/6403 regions and 113/113
+changed executable lines. Independent source review approved the exact five frozen source/fixture hashes
+after pinned native DOM2/0 and Link1/0 plus private raw-parent Rust DOM2/0
+and Link2/0; receipt SHA256 5c3bb835a8c434142cd9ed4f74e629398c2b9a8c7cabb3114c97937d7769cdce.
+Final metadata binding, protected staged hook and hosted qualification are pending.

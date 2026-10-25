@@ -708,6 +708,7 @@ pub enum SensorConfig {
     AirPressure(Box<AirPressure>),
     NavSat(Box<NavSat>),
     AirSpeed(Box<AirSpeed>),
+    Lidar(Box<Lidar>),
 }
 /// Contact-system element metadata; collision references remain unresolved.
 #[derive(Debug, Clone, PartialEq)]
@@ -786,6 +787,51 @@ pub struct NavSat {
     /// Source of the explicit declaration; omitted groups use effective defaults.
     pub source: Option<Source>,
 }
+/// Angular scan metadata in radians; a ray generator belongs to consumers.
+#[derive(Debug, Clone, Copy, PartialEq)]
+pub struct LidarScan {
+    pub samples: u32,
+    pub resolution: f64,
+    pub min_angle: f64,
+    pub max_angle: f64,
+}
+/// Lidar configuration only; no rays are simulated here.
+#[derive(Debug, Clone, PartialEq)]
+pub struct Lidar {
+    pub horizontal: LidarScan,
+    pub vertical: LidarScan,
+    pub range_min: f64,
+    pub range_max: f64,
+    pub range_resolution: f64,
+    pub noise: Noise,
+    pub visibility_mask: u32,
+    /// Source of the explicit declaration; omitted groups use effective defaults.
+    pub source: Option<Source>,
+}
+impl Default for Lidar {
+    fn default() -> Self {
+        Self {
+            horizontal: LidarScan {
+                samples: 640,
+                resolution: 1.,
+                min_angle: 0.,
+                max_angle: 0.,
+            },
+            vertical: LidarScan {
+                samples: 1,
+                resolution: 1.,
+                min_angle: 0.,
+                max_angle: 0.,
+            },
+            range_min: 0.,
+            range_max: 0.,
+            range_resolution: 0.,
+            noise: Noise::default(),
+            visibility_mask: u32::MAX,
+            source: None,
+        }
+    }
+}
 /// Magnetometer configuration only; field sampling belongs to consumers.
 #[derive(Debug, Default, Clone, PartialEq)]
 pub struct Magnetometer {
@@ -804,7 +850,8 @@ impl Sensor {
             | SensorConfig::Altimeter(_)
             | SensorConfig::AirPressure(_)
             | SensorConfig::NavSat(_)
-            | SensorConfig::AirSpeed(_) => None,
+            | SensorConfig::AirSpeed(_)
+            | SensorConfig::Lidar(_) => None,
         }
     }
     pub fn contact(&self) -> Option<&ContactSensor> {
@@ -816,7 +863,8 @@ impl Sensor {
             | SensorConfig::Altimeter(_)
             | SensorConfig::AirPressure(_)
             | SensorConfig::NavSat(_)
-            | SensorConfig::AirSpeed(_) => None,
+            | SensorConfig::AirSpeed(_)
+            | SensorConfig::Lidar(_) => None,
         }
     }
     pub fn force_torque(&self) -> Option<&ForceTorque> {
@@ -828,7 +876,8 @@ impl Sensor {
             | SensorConfig::Altimeter(_)
             | SensorConfig::AirPressure(_)
             | SensorConfig::NavSat(_)
-            | SensorConfig::AirSpeed(_) => None,
+            | SensorConfig::AirSpeed(_)
+            | SensorConfig::Lidar(_) => None,
         }
     }
     pub fn magnetometer(&self) -> Option<&Magnetometer> {
@@ -840,7 +889,8 @@ impl Sensor {
             | SensorConfig::Altimeter(_)
             | SensorConfig::AirPressure(_)
             | SensorConfig::NavSat(_)
-            | SensorConfig::AirSpeed(_) => None,
+            | SensorConfig::AirSpeed(_)
+            | SensorConfig::Lidar(_) => None,
         }
     }
     pub fn altimeter(&self) -> Option<&Altimeter> {
@@ -852,7 +902,8 @@ impl Sensor {
             | SensorConfig::Magnetometer(_)
             | SensorConfig::AirPressure(_)
             | SensorConfig::NavSat(_)
-            | SensorConfig::AirSpeed(_) => None,
+            | SensorConfig::AirSpeed(_)
+            | SensorConfig::Lidar(_) => None,
         }
     }
     pub fn air_pressure(&self) -> Option<&AirPressure> {
@@ -864,7 +915,8 @@ impl Sensor {
             | SensorConfig::Magnetometer(_)
             | SensorConfig::Altimeter(_)
             | SensorConfig::NavSat(_)
-            | SensorConfig::AirSpeed(_) => None,
+            | SensorConfig::AirSpeed(_)
+            | SensorConfig::Lidar(_) => None,
         }
     }
     pub fn navsat(&self) -> Option<&NavSat> {
@@ -876,7 +928,8 @@ impl Sensor {
             | SensorConfig::Magnetometer(_)
             | SensorConfig::Altimeter(_)
             | SensorConfig::AirPressure(_)
-            | SensorConfig::AirSpeed(_) => None,
+            | SensorConfig::AirSpeed(_)
+            | SensorConfig::Lidar(_) => None,
         }
     }
     pub fn air_speed(&self) -> Option<&AirSpeed> {
@@ -888,7 +941,21 @@ impl Sensor {
             | SensorConfig::Magnetometer(_)
             | SensorConfig::Altimeter(_)
             | SensorConfig::AirPressure(_)
-            | SensorConfig::NavSat(_) => None,
+            | SensorConfig::NavSat(_)
+            | SensorConfig::Lidar(_) => None,
+        }
+    }
+    pub fn lidar(&self) -> Option<&Lidar> {
+        match &self.config {
+            SensorConfig::Lidar(value) => Some(value),
+            SensorConfig::Imu(_)
+            | SensorConfig::Contact(_)
+            | SensorConfig::ForceTorque(_)
+            | SensorConfig::Magnetometer(_)
+            | SensorConfig::Altimeter(_)
+            | SensorConfig::AirPressure(_)
+            | SensorConfig::NavSat(_)
+            | SensorConfig::AirSpeed(_) => None,
         }
     }
 }

@@ -49,9 +49,10 @@ be aliases, but must resolve to different bodies; the child cannot be world.
 `SensorConfig::Altimeter(Box<Altimeter>)` or
 `SensorConfig::AirPressure(Box<AirPressure>)` or
 `SensorConfig::NavSat(Box<NavSat>)` or
-`SensorConfig::AirSpeed(Box<AirSpeed>)` settings. Optional `imu()`,
+`SensorConfig::AirSpeed(Box<AirSpeed>)` or
+`SensorConfig::Lidar(Box<Lidar>)` settings. Optional `imu()`,
 `contact()`, `force_torque()`, `magnetometer()`, `altimeter()`, `air_pressure()` and
-`navsat()` and `air_speed()` accessors expose the selected type; exact selected
+`navsat()`, `air_speed()` and `lidar()` accessors expose the selected type; exact selected
 child XML and owned source are preserved. Contact collision names and nested topic
 remain distinct from envelope topic; see docs/CONTACT_SENSOR.md. The six per-axis `Noise` records retain type,
 mean, standard deviation, bias mean/deviation, dynamic bias deviation/correlation
@@ -68,7 +69,11 @@ type/child spellings, and retains the literal type and selected source XML.
 When both child spellings occur, native `navsat` selection takes precedence.
 Omitted configuration and noise groups retain constructor defaults. AirSpeed
 owns differential pressure noise and optional explicit source XML, with an
-all-default omitted configuration. IMU orientation enable, localization, custom RPY and gravity direction
+all-default omitted configuration. Lidar retains horizontal and vertical scan
+samples, resolution and angles in radians, range, noise and visibility mask.
+Literal `ray`, `lidar`, `gpu_ray` and `gpu_lidar` types select the owned Lidar
+configuration; a present `<lidar>` child takes precedence over `<ray>`, matching
+native selection. Ray rendering and measurement belong to consumers. IMU orientation enable, localization, custom RPY and gravity direction
 with their parent-frame strings preserve native defaults. Localization and parent
 frame strings remain unconstrained at load time, matching the native DOM; their
 runtime interpretation belongs to the sensor implementation. No noise is sampled
@@ -233,7 +238,7 @@ value even if empty, then its effective sensor name. The simulator may override
 that name with the scoped sensor identity before applying fallback. This parser
 does not choose a runtime name or apply consumer fallback. These common fields
 apply to supported IMU, Contact, ForceTorque, Magnetometer, Altimeter,
-AirPressure, NavSat and AirSpeed variants. No
+AirPressure, NavSat, AirSpeed and Lidar variants. No
 other sensor-family completion or full DOMSensor original-case retirement is
 claimed.
 

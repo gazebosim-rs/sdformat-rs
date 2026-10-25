@@ -63,6 +63,11 @@ maps the native canonical type strings, but it does not permit parsing otherwise
 unsupported sensor configurations or replace the literal kind. The native
 `DOMSensor.Type` mutable `SetType` and invalid-string-preserves-state behavior
 remains unported.
+The parser also accepts `depth`/`depth_camera` and `rgbd`/`rgbd_camera`
+spellings with an owned `Camera` configuration selected from `<camera>`;
+`kind` retains the literal spelling and `effective_type()` gives
+`DepthCamera` or `RgbdCamera`. This is a bounded fixture and value parser,
+without depth image processing, full Camera grammar or rendering.
 The six per-axis `Noise` records retain type,
 mean, standard deviation, bias mean/deviation, dynamic bias deviation/correlation
 time, and precision. Standard deviations are nonnegative; noise types are case

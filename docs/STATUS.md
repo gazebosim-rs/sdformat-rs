@@ -1663,4 +1663,33 @@ and 80/80 changed executable lines. Independent /root/transport_fallback
 approved the exact partial source and assertion mapping (receipt SHA256
 `0ed6fc63d974ff0c2f5b211a8a4137db457c513704866177dc6e83d1e7b6b398`),
 including a gpu_ray mapping-removal countercontrol. Final metadata binding,
+protected hook and hosted qualification were pending at that review point;
+their completed results follow.
+
+The effective type packet subsequently passed independent final binding
+(receipt SHA256
+`ba915fc0424120e8e39187a4556f4ec411ca6718cfdcdd496e51030979f9ba1a`),
+normal protected hook and exact hosted verify run 40230201068 at public commit
+21ab18c336c29070e7a5c6b33a0bbd70862b58d3. Staged executable-line
+coverage was 3710/3722. The `DOMSensor.Type` original remains partial.
+
+## Depth and RGBD Camera fixture fragment candidate
+
+The existing owned `Camera` parser is selected for `depth`/`depth_camera`
+and `rgbd`/`rgbd_camera` XML types. The unchanged upstream `sensors.sdf`
+fixture contributes only the `depth_sensor` and `rgbd_sensor` subtrees in
+minimal model/link wrappers. Original name, native effective enum, full raw
+pose, metrics, nested Camera name, and RGBD trigger/topic observations are
+asserted. Literal XML types and selected `<camera>` source/XML remain owned;
+shared image/clip values are supplemental checks. The full 27-sensor Link
+original, count/index/name lookup, other 13 fixture instances, Camera grammar
+beyond the owned subset, depth output semantics and rendering remain pending.
+
+Pinned `DOMLink.Sensors` passes natively 1/0. The isolated source passes
+218 Rust tests, 15 tooling tests, formatting, Clippy and docs; direct
+production coverage is 3901/3919 lines, 6810/7007 regions and 11/11
+changed executable lines. Independent /root/transport_fallback approved the exact
+partial two-fragment source/assertion mapping (receipt SHA256
+`2352560d956859434718a5b1203050de965a7e46b8dd494c909abd6d8b5871dd`),
+including a depth-admission removal countercontrol. Final metadata binding,
 protected hook and hosted qualification are pending.

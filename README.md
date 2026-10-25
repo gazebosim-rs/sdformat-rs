@@ -39,6 +39,8 @@ ray/lidar and GPU spellings without simulating rays. An owned Camera value
 object retains construction defaults and setters; a typed parser retains the
 pinned camera sensor fixture fragment. Camera rendering remains pending. See [ForceTorque](docs/FORCE_TORQUE.md) and
 [the contract](docs/CONTRACT.md).
+The same owned Camera configuration also parses the bounded native depth and
+RGBD fixture fragments; depth image processing remains outside this library.
 The sensor's literal XML type remains available as `kind`; `effective_type()`
 provides the native classification for parsed sensor kinds, including legacy
 GPS and GPU/CPU lidar aliases. This does not widen parser support.

@@ -2497,11 +2497,15 @@ impl Parser<'_> {
                 | "gpu_ray"
                 | "gpu_lidar"
                 | "camera"
+                | "depth"
+                | "depth_camera"
+                | "rgbd"
+                | "rgbd_camera"
         ) {
             return Err(self.err(
                 node,
                 ErrorCode::Unsupported,
-                "only typed IMU, contact, force/torque, magnetometer, altimeter, air pressure, NavSat/GPS, air speed, Lidar and Camera sensor configurations are supported",
+                "only typed IMU, contact, force/torque, magnetometer, altimeter, air pressure, NavSat/GPS, air speed, Lidar and supported Camera sensor configurations are supported",
             ));
         }
         // Native Sensor::Load selects <navsat> before legacy <gps> for either type.
@@ -2517,6 +2521,11 @@ impl Parser<'_> {
             } else {
                 "ray"
             }
+        } else if matches!(
+            kind.as_str(),
+            "depth" | "depth_camera" | "rgbd" | "rgbd_camera"
+        ) {
+            "camera"
         } else {
             kind.as_str()
         };
@@ -2570,7 +2579,9 @@ impl Parser<'_> {
             "ray" | "lidar" | "gpu_ray" | "gpu_lidar" => {
                 SensorConfig::Lidar(Box::new(self.lidar(node, config_tag)?))
             }
-            "camera" => SensorConfig::Camera(Box::new(self.camera(node)?)),
+            "camera" | "depth" | "depth_camera" | "rgbd" | "rgbd_camera" => {
+                SensorConfig::Camera(Box::new(self.camera(node)?))
+            }
             _ => unreachable!("sensor type checked above"),
         };
         let configuration_xml =

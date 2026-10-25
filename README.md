@@ -41,6 +41,8 @@ pinned camera sensor fixture fragment. Camera rendering remains pending. See [Fo
 [the contract](docs/CONTRACT.md).
 The same owned Camera configuration also parses the bounded native depth and
 RGBD fixture fragments; depth image processing remains outside this library.
+Segmentation and bounding box camera fragments retain their declared output
+type and presence flags without implementing rendering.
 The sensor's literal XML type remains available as `kind`; `effective_type()`
 provides the native classification for parsed sensor kinds, including legacy
 GPS and GPU/CPU lidar aliases. This does not widen parser support.

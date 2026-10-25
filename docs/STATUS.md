@@ -1692,4 +1692,33 @@ changed executable lines. Independent /root/transport_fallback approved the exac
 partial two-fragment source/assertion mapping (receipt SHA256
 `2352560d956859434718a5b1203050de965a7e46b8dd494c909abd6d8b5871dd`),
 including a depth-admission removal countercontrol. Final metadata binding,
-protected hook and hosted qualification are pending.
+protected hook and hosted qualification were pending at that review point;
+their completed results follow.
+
+The depth/RGBD packet subsequently passed independent final binding (receipt
+SHA256 `cd29907a6dc796154d88fe91515a908b2362e11d1615d0d6c52b351ad798149c`),
+normal protected hook and exact hosted verify run 40230955943 at public commit
+cde524db0b82d848e82d307e76765eb3ad4efcb2. Staged executable-line
+coverage was 3719/3731; the Link original remains partial.
+
+## Segmentation and bounding box Camera fixture fragment candidate
+
+Native `Camera::Load` reads explicit `<segmentation_type>` and `<box_type>`
+and sets corresponding presence flags. The owned Camera parser now retains
+those values. Only the byte-identical `segmentation_sensor` and
+`boundingbox_sensor` subtrees of upstream `sensors.sdf` are wrapped in minimal
+model/link XML. Tests retain original sensor name, effective enum, full raw
+pose, nested Camera name, explicit type/presence pairs (`semantic` and `2d`),
+plus owned literal kind and selected source/XML. Alias/default/mismatch and
+common Camera scalar checks are supplemental. The full 27-sensor Link original,
+count/index/name lookup, 11 other fixture instances, broad Camera grammar and
+segmentation/bounding box rendering remain pending.
+
+Pinned `DOMLink.Sensors` passes natively 1/0. The isolated source passes
+221 Rust tests, 15 tooling tests, formatting, Clippy and docs; direct
+production coverage is 3929/3947 lines, 6838/7037 regions and 31/31
+changed executable lines. Independent /root/transport_fallback approved the exact
+partial source/assertion mapping (receipt SHA256
+`6261af285b52fed63364d9da923c31fadaf9b724c3011b2fa646400ba586bf9c`),
+including a segmentation presence-bit removal countercontrol. Final metadata
+binding, protected hook and hosted qualification are pending.

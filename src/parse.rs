@@ -2304,6 +2304,8 @@ impl Parser<'_> {
                 "distortion",
                 "lens",
                 "visibility_mask",
+                "segmentation_type",
+                "box_type",
             ],
             &["name"],
         )?;
@@ -2321,6 +2323,14 @@ impl Parser<'_> {
         camera.trigger_topic = self
             .optional_text(node, "trigger_topic")?
             .unwrap_or_default();
+        if let Some(value) = self.optional_text(node, "segmentation_type")? {
+            camera.segmentation_type = value;
+            camera.has_segmentation_type = true;
+        }
+        if let Some(value) = self.optional_text(node, "box_type")? {
+            camera.bounding_box_type = value;
+            camera.has_bounding_box_type = true;
+        }
         let image = child(node, "image")
             .ok_or_else(|| self.err(node, ErrorCode::Missing, "camera image is missing"))?;
         self.allowed(image, &["width", "height", "format"], &[])?;
@@ -2501,6 +2511,10 @@ impl Parser<'_> {
                 | "depth_camera"
                 | "rgbd"
                 | "rgbd_camera"
+                | "segmentation"
+                | "segmentation_camera"
+                | "boundingbox"
+                | "boundingbox_camera"
         ) {
             return Err(self.err(
                 node,
@@ -2523,7 +2537,14 @@ impl Parser<'_> {
             }
         } else if matches!(
             kind.as_str(),
-            "depth" | "depth_camera" | "rgbd" | "rgbd_camera"
+            "depth"
+                | "depth_camera"
+                | "rgbd"
+                | "rgbd_camera"
+                | "segmentation"
+                | "segmentation_camera"
+                | "boundingbox"
+                | "boundingbox_camera"
         ) {
             "camera"
         } else {
@@ -2579,9 +2600,15 @@ impl Parser<'_> {
             "ray" | "lidar" | "gpu_ray" | "gpu_lidar" => {
                 SensorConfig::Lidar(Box::new(self.lidar(node, config_tag)?))
             }
-            "camera" | "depth" | "depth_camera" | "rgbd" | "rgbd_camera" => {
-                SensorConfig::Camera(Box::new(self.camera(node)?))
-            }
+            "camera"
+            | "depth"
+            | "depth_camera"
+            | "rgbd"
+            | "rgbd_camera"
+            | "segmentation"
+            | "segmentation_camera"
+            | "boundingbox"
+            | "boundingbox_camera" => SensorConfig::Camera(Box::new(self.camera(node)?)),
             _ => unreachable!("sensor type checked above"),
         };
         let configuration_xml =

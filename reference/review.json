@@ -1,27 +1,27 @@
 {
   "author": "/root/sdformat_owner_fallback",
-  "author_gate": "Fresh integrated 218 Rust,15 tooling,fmt,Clippy,docs;3901/3919 lines6810/7007 regions11/11 changed, source digest matched. Reviewer independently checked exact hashes, protected/source digests and parent preservation.",
+  "author_gate": "Fresh integrated 221 Rust,15 tooling,fmt,Clippy,docs;3929/3947 lines6838/7037 regions31/31 changed. Reviewer independently checked exact hashes, protected/source digests and parent preservation.",
   "decision": "approved",
   "files_sha256": {
-    "README.md": "efeca408c9686a5c263627bc835e6a5424e864cfcc8a2cef6394e1fcbd33e317",
-    "docs/CONTRACT.md": "1aa4d7745820708013945c38f2ac14b8432f37e52675796ccc06956a90910ca7",
-    "docs/STATUS.md": "66f1149c024c67f5d8176b6eaa0a619154d3d1ce35084bb88faa6b6bab740c93",
-    "reference/results.json": "768d0f9d7a4e857ab89f05e68b13ff5b62ff698e53ab11a1295237a33d29de4f",
-    "reference/traceability.json": "6fcda075b6c61241d32c988af54000cda1b7cc08947c9c27fca15f3ff6c87b71",
-    "src/parse.rs": "b469fb2df671217bfaef5723e904c34a1d586882225ce9159adb6e6e64add1a5",
-    "tests/depth_rgbd_link_original.rs": "428398ac8607b301bd827b2b43aca454b464d22ae042c385a13cf5d12c63d975"
+    "README.md": "33fca0b7ec62a5071db7676e6303bbe6d904d58c62ca92a075a146fa9f6a832d",
+    "docs/CONTRACT.md": "33967b6f020d0c22c746b127c9408e64045ca8bbc45a4bff33707b82ba92db71",
+    "docs/STATUS.md": "7ee18d31f8eebce15dd91029189ecdc8e0f1b9d8ff8b9a17dbe64b6cf3933b75",
+    "reference/results.json": "e7746b6427fb94e6af45e672504a7a8beb8ff9415377152ca3602aa374053e79",
+    "reference/traceability.json": "786971bc1ae061e32b9320f8c6c306a310afab22fd9cd222dde64e621bd21957",
+    "src/parse.rs": "71280931839fa208ebb52f69b1a9382527a63cfeed89ddf91cc4ade2695c4657",
+    "tests/segmentation_box_link_original.rs": "2ed0466f1060c1700c0ddd0520366e8fff0fd55cbb570e0888dd51e8e9fe0c11"
   },
-  "final_freeze": "artifacts/depth-rgbd/frozen-final.json",
-  "final_freeze_sha256": "a8b99219de44e6de008d74dff1952fb49b6182d5cb7f117d907e7f8e7bfa5baf",
+  "final_freeze": "artifacts/segmentation-box/frozen-final.json",
+  "final_freeze_sha256": "ce62d5bee4e94c8056964e8f81b48032cf33e1b0b5d04514212c85d598e81554",
   "limits": [
-    "Exact normal protected staged hook, publication and hosted CI remain required.",
-    "DOMLink.Sensors stays partial; only two fixture fragments and selected assertions are covered."
+    "Normal protected staged hook, publication and hosted CI remain required.",
+    "Only two exact sensor fixture fragments are qualified; DOMLink.Sensors remains partial."
   ],
-  "parent": "21ab18c336c29070e7a5c6b33a0bbd70862b58d3",
-  "preserved_parent_files": 248,
-  "protected_digest": "4c51496451cb51223654be8435d57df7de5a63f960513390962b952e78f2bf0f",
+  "parent": "cde524db0b82d848e82d307e76765eb3ad4efcb2",
+  "preserved_parent_files": 249,
+  "protected_digest": "f2533eb0416e0544d5c50f40283ee18c69dab6c6bafe18259b06c4c4192d8299",
   "reviewer": "/root/transport_fallback",
-  "scope": "Final public-parent and metadata binding of the independently approved PARTIAL DOMLink.Sensors depth_sensor/rgbd_sensor fragment parser and assertions. Seven exact candidate paths, unchanged source-reviewed parser/test bytes and upstream sensors fixture, 248 preserved parent tracked blobs. Documentation/results/trace extend only the two fragments and correct prior effective-type hosted status. Full Link and camera grammar/rendering remain unported.",
-  "source_digest": "2c49fa137aa78d5d86c6e145590ef152e6aa490458e3ed4aee6dce5633285543",
-  "source_review_sha256": "2352560d956859434718a5b1203050de965a7e46b8dd494c909abd6d8b5871dd"
+  "scope": "Final public-parent and metadata binding of independently approved PARTIAL DOMLink.Sensors segmentation_sensor and boundingbox_sensor fragments. Seven exact candidate paths, reviewed parser/test unchanged, upstream sensors fixture unchanged, 249 other tracked parent blobs preserved. Documentation/results/trace add only two typed Camera fragments and correct prior depth/RGBD hosted status. Full Link and camera grammar/rendering remain pending.",
+  "source_digest": "6bbed861067e6dba6c4332db3c7aa2669a726b1e3caf512038d224855db420e7",
+  "source_review_sha256": "6261af285b52fed63364d9da923c31fadaf9b724c3011b2fa646400ba586bf9c"
 }

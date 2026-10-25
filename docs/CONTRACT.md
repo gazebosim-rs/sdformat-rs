@@ -68,6 +68,12 @@ spellings with an owned `Camera` configuration selected from `<camera>`;
 `kind` retains the literal spelling and `effective_type()` gives
 `DepthCamera` or `RgbdCamera`. This is a bounded fixture and value parser,
 without depth image processing, full Camera grammar or rendering.
+The `segmentation`/`segmentation_camera` and
+`boundingbox`/`boundingbox_camera` spellings also select the owned Camera
+values. Explicit `<segmentation_type>` and `<box_type>` populate their strings
+and presence flags as in native `Camera::Load`; omitted elements retain
+defaults with false presence. Native effective type remains separate from the
+literal XML spelling. Segmentation and bounding box rendering are not owned.
 The six per-axis `Noise` records retain type,
 mean, standard deviation, bias mean/deviation, dynamic bias deviation/correlation
 time, and precision. Standard deviations are nonnegative; noise types are case

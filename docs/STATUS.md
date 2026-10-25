@@ -670,3 +670,38 @@ Visual tempfile fixes are inherited unchanged; no new production unsafe or
 dependencies are added by terrain. The full Shapes assertion mapping is now
 reviewed (33 complete and six partial mappings), while final integration receipt
 and the normal strict staged/hosted gates remain required before publication.
+
+
+The isolated model-scope merge slice flattens imported members through native
+proxy frames, validates imported graph scope before flattening, and retains owned
+merged-include snapshots/source identities. Placement, nested merges/models,
+canonical attachment, direct-reference/axis rewrites, plugin order and deferred
+non-frame behavior match the bounded native corpus. Literal spaced true words
+produce normal nesting, as native does. World merge, three schema-extension
+controls and two legacy name collisions remain explicitly Unsupported.
+
+All 112 Rust checks, fmt/clippy and 11 tooling checks pass; working coverage is
+2572/2590 production lines, 4534/4639 regions and 152/152 changed executable lines.
+Fresh native evidence contains 153 observations: 148 parity rows and five explicit
+native-accepted gaps. Both unchanged original native include cases pass, but
+their full source resource still has unsupported fields; no case is retired.
+The exact old merge=false negative input remains as a positive normal-include
+regression, and merge=true with an unresolved URI remains a Resource error.
+Independent review and normal exact staged/hosted gates remain required.
+
+Independent review found two false-accept families in the initial candidate.
+Placement lookup now uses schema-local scope rules rather than the broader public
+query rules. Original resource root poses are validated before include overrides,
+so nonempty relative_to values cannot bind to the parent or be hidden by a valid
+include pose. Native-backed controls retain all three placement spellings, 12
+resource pose/canonical cases, 35 include-override combinations and 35 ordinary
+include controls. All 112 Rust tests and the rebuilt 153-row native proof pass;
+Clippy and working-tree coverage also pass. The corrected candidate requires
+independent re-review and the exact staged/hosted gates before publication.
+
+Independent /root/msgs re-review approved the corrected source and assertions.
+All 112 Rust checks passed in a fresh reviewer-owned source/target; the rebuilt
+153-row native proof and both exact original native cases matched all shared
+hashes. Five explicit gaps remain, and no original mapping is newly retired.
+The unchanged candidate is integrated onto public terrain commit c4e5d627;
+matching exact receipt, staged gate and hosted CI remain required.

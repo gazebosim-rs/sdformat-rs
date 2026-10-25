@@ -189,14 +189,21 @@ fn include_values_are_owned_snapshots_and_errors_stay_explicit() {
         old_document.models[0].models[0].source.uri,
         "resolved://resource.sdf"
     );
+    // Retain the formerly unsupported input as an explicit native normal-include regression.
+    let false_include = "<include merge='false'><uri>r</uri></include>";
+    let false_xml =
+        format!("<sdf version='1.12'><model name='outer'>{false_include}</model></sdf>");
+    let normal = load_str(&false_xml, "parent.sdf", &resolver).unwrap();
+    assert!(normal.models[0].merged_includes.is_empty());
+    let nested = &normal.models[0].models[0];
+    assert_eq!(nested.name, "base");
+    assert_eq!(nested.include.as_ref().unwrap().xml, false_include);
+    assert_eq!(nested.source.uri, "resolved://resource.sdf");
+    assert_eq!(nested.plugins[0].filename, "base.so");
     for (content, code) in [
         ("<include/>", ErrorCode::Missing),
         ("<include><uri/></include>", ErrorCode::Missing),
         ("<include><uri>r</uri><name/></include>", ErrorCode::Missing),
-        (
-            "<include merge='false'><uri>r</uri></include>",
-            ErrorCode::Unsupported,
-        ),
         (
             "<include><uri>r</uri><unknown/></include>",
             ErrorCode::Unsupported,

@@ -569,7 +569,8 @@ fn invalid_documents_fail_atomically() {
         ),
         (
             "<include merge='true'><uri>missing</uri></include>",
-            ErrorCode::Unsupported,
+            // Merge is implemented; the same unresolved input still rejects.
+            ErrorCode::Resource,
         ),
     ] {
         let xml = format!("<sdf version='1.12'><model name='m'>{content}</model></sdf>");

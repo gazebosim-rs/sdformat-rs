@@ -93,7 +93,7 @@ models before applying the same frame renaming, independent of XML order.
 Same-kind raw duplicates reject, and reference strings are not rewritten.
 Modern shared names reject. Flattened names remain Unsupported; 1.4 and older
 conversions remain unavailable. Full schema/version-aware
-validation, serialization, visual rendering properties/material data, mesh resource loading, merge, automatic inertia, URDF, other sensor families and most other
+validation, serialization, visual material data/rendering effects, mesh resource loading, world merge and legacy merge collisions, automatic inertia, URDF, other sensor families and most other
 SDF features remain pending. Unknown schema features error; opaque plugin XML is the stated exception.
 XML names are lexical, matching upstream TinyXML: extension prefixes need not
 be declared. Plugin XML retains original bytes/ranges, including references,
@@ -343,3 +343,10 @@ is invented. Metadata acceptance implements no collision, terrain, rendering or
 lidar effects. Physics consumers must reject heightmap/polyline shapes until the
 backend supports them. Full conversion, generic vector-stream parity, Element
 mutation and serialization remain pending.
+
+
+Model-scope merge includes flatten imported members through the native generated
+proxy frame, retaining Model.merged_includes provenance snapshots. Imported scope
+validation occurs before flattening. See MERGE_INCLUDES.md for exact reference,
+boolean-attribute, deferred-error and unsupported-schema/legacy/world boundaries.
+No new IO or simulator dependency is introduced.

@@ -208,6 +208,8 @@ pub struct Model {
     pub placement_frame: String,
     /// Original include metadata; absent for a model declared directly in XML.
     pub include: Option<Box<Include>>,
+    /// Includes flattened into this model; their generated frames remain in frames.
+    pub merged_includes: Vec<MergedInclude>,
     pub links: Vec<Link>,
     pub joints: Vec<Joint>,
     pub models: Vec<Model>,
@@ -536,8 +538,16 @@ pub struct Sensor {
     pub configuration_xml: String,
     pub source: Source,
 }
+/// Provenance of a model-scope merge after its model node has been flattened.
+#[derive(Debug, Clone)]
+pub struct MergedInclude {
+    pub include: Box<Include>,
+    pub model_source: Source,
+    pub proxy_frame: String,
+}
+
 /// Original include values, independently of the resolved model/resource state.
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Include {
     /// Native string value; resolver requests preserve CDATA whitespace separately.
     pub uri: String,

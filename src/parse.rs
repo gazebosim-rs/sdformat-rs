@@ -336,24 +336,26 @@ impl Parser<'_> {
     fn plugins(&self, node: Node<'_, '_>) -> Result<Vec<Plugin>, Diagnostic> {
         elements(node)
             .filter(|n| n.has_tag_name("plugin"))
-            .map(|p| {
-                let filename = p
-                    .attribute("filename")
-                    .map(|value| value.trim_matches([' ', '\t', '\n']))
-                    .filter(|value| !value.is_empty())
-                    .ok_or_else(|| self.err(p, ErrorCode::Missing, "missing filename attribute"))?;
-                Ok(Plugin {
-                    name: p
-                        .attribute("name")
-                        .unwrap_or("")
-                        .trim_matches([' ', '\t', '\n'])
-                        .into(),
-                    filename: filename.into(),
-                    xml: self.xml[p.range()].into(),
-                })
-            })
+            .map(|p| self.plugin(p))
             .collect()
     }
+    fn plugin(&self, node: Node<'_, '_>) -> Result<Plugin, Diagnostic> {
+        let filename = node
+            .attribute("filename")
+            .map(|value| value.trim_matches([' ', '\t', '\n']))
+            .filter(|value| !value.is_empty())
+            .ok_or_else(|| self.err(node, ErrorCode::Missing, "missing filename attribute"))?;
+        Ok(Plugin {
+            name: node
+                .attribute("name")
+                .unwrap_or("")
+                .trim_matches([' ', '\t', '\n'])
+                .into(),
+            filename: filename.into(),
+            xml: self.xml[node.range()].into(),
+        })
+    }
+
     fn world(&mut self, node: Node<'_, '_>) -> Result<World, Diagnostic> {
         self.allowed(
             node,
@@ -434,7 +436,15 @@ impl Parser<'_> {
                 if n.has_tag_name("model") {
                     self.model(n, scope, None)
                 } else {
-                    self.include(n, scope)
+                    let (model, merge) = self.include(n, scope)?;
+                    if merge {
+                        return Err(self.err(
+                            n,
+                            ErrorCode::Unsupported,
+                            "world merge includes are not implemented",
+                        ));
+                    }
+                    Ok(model)
                 }
             })
             .collect()
@@ -473,6 +483,8 @@ impl Parser<'_> {
         let mut joints = Vec::new();
         let mut models = Vec::new();
         let mut frames = Vec::new();
+        let mut plugins = Vec::new();
+        let mut merged_includes = Vec::new();
         let mut names = BTreeSet::new();
         let mut typed_names = BTreeSet::new();
         // Legacy collisions rename only the element loaded later. Future names
@@ -520,11 +532,42 @@ impl Parser<'_> {
                     frames.push(frame);
                 }
                 "model" | "include" => {
-                    let nested = if member.has_tag_name("model") {
-                        self.model(member, &scoped_name, None)?
+                    let (nested, merge) = if member.has_tag_name("model") {
+                        (self.model(member, &scoped_name, None)?, false)
                     } else {
                         self.include(member, &scoped_name)?
                     };
+                    if merge {
+                        let (imported, proxy, provenance) =
+                            self.merge_model(nested, &scoped_name)?;
+                        if is_pre17(node) {
+                            for (kind, name) in std::iter::once(("frame", &proxy.name))
+                                .chain(imported.links.iter().map(|v| ("link", &v.name)))
+                                .chain(imported.joints.iter().map(|v| ("joint", &v.name)))
+                                .chain(imported.frames.iter().map(|v| ("frame", &v.name)))
+                                .chain(imported.models.iter().map(|v| ("model", &v.name)))
+                            {
+                                if names.contains(name) {
+                                    return Err(self.err(
+                                        member,
+                                        ErrorCode::Unsupported,
+                                        "legacy merge name collisions are not implemented",
+                                    ));
+                                }
+                                names.insert(name.clone());
+                                typed_names.insert((kind, name.clone()));
+                            }
+                        }
+                        links.extend(imported.links);
+                        joints.extend(imported.joints);
+                        frames.push(proxy);
+                        frames.extend(imported.frames);
+                        models.extend(imported.models);
+                        plugins.extend(imported.plugins);
+                        merged_includes.push(provenance);
+                        merged_includes.extend(imported.merged_includes);
+                        continue;
+                    }
                     if is_pre17(node) {
                         self.legacy_name(
                             member,
@@ -536,6 +579,7 @@ impl Parser<'_> {
                     }
                     models.push(nested);
                 }
+                "plugin" => plugins.push(self.plugin(member)?),
                 _ => {}
             }
         }
@@ -547,20 +591,22 @@ impl Parser<'_> {
             canonical_link: node.attribute("canonical_link").unwrap_or("").into(),
             placement_frame: node.attribute("placement_frame").unwrap_or("").into(),
             include: None,
+            merged_includes,
             links,
             joints,
             models,
             frames,
-            plugins: self.plugins(node)?,
+            plugins,
             source: self.source(node),
         })
     }
-    fn include(&mut self, node: Node<'_, '_>, scope: &str) -> Result<Model, Diagnostic> {
+    fn include(&mut self, node: Node<'_, '_>, scope: &str) -> Result<(Model, bool), Diagnostic> {
         self.allowed(
             node,
             &["uri", "name", "pose", "static", "placement_frame", "plugin"],
-            &[],
+            &["merge"],
         )?;
+        let merge = self.merge_attribute(node)?;
         if self.includes.len() >= 64 {
             return Err(self.err(
                 node,
@@ -626,6 +672,15 @@ impl Parser<'_> {
         {
             return Err(self.err(node, ErrorCode::InvalidValue, "invalid include name"));
         }
+        // The resource is a standalone document before include overrides are
+        // applied. Its root pose cannot acquire the including parent's scope.
+        if !imported.pose(all[0])?.relative_to.is_empty() {
+            return Err(imported.err(
+                all[0],
+                ErrorCode::InvalidValue,
+                "top-level model pose relative_to must be empty",
+            ));
+        }
         let mut model = imported.model(all[0], scope, rename.as_deref())?;
         let pose = child(node, "pose").map(|_| self.pose(node)).transpose()?;
         let placement_frame = if let Some(placement) = child(node, "placement_frame") {
@@ -664,7 +719,89 @@ impl Parser<'_> {
             source: self.source(node),
             xml: self.xml[node.range()].into(),
         }));
-        Ok(model)
+        Ok((model, merge))
+    }
+    fn merge_attribute(&self, node: Node<'_, '_>) -> Result<bool, Diagnostic> {
+        let Some(raw) = node.attribute("merge") else {
+            return Ok(false);
+        };
+        let trimmed = raw.trim_matches([' ', '\t', '\n']);
+        if !matches!(
+            trimmed.to_ascii_lowercase().as_str(),
+            "" | "true" | "false" | "1" | "0"
+        ) {
+            return Err(self.err(node, ErrorCode::InvalidValue, "invalid merge boolean"));
+        }
+        // Schema validation trims the attribute, but TinyXML BoolAttribute uses
+        // the original spelling: words with surrounding whitespace default false.
+        Ok(raw.eq_ignore_ascii_case("true") || trimmed == "1")
+    }
+    fn merge_model(
+        &self,
+        mut model: Model,
+        scope: &str,
+    ) -> Result<(Model, Frame, MergedInclude), Diagnostic> {
+        let pose = std::mem::take(&mut model.pose);
+        let placement = std::mem::take(&mut model.placement_frame);
+        // Validate the imported scope before flattening. Otherwise an invalid
+        // imported reference might accidentally resolve to a parent's entity.
+        let graphs = Graphs::build(&[], std::slice::from_ref(&model), &model.source)?;
+        validate_model(&model, &graphs)?;
+        let mut transform = pose.transform;
+        if !placement.is_empty() {
+            let frame = graphs.validate_reference(&placement, &model.scoped_name, &model.source)?;
+            let offset = graphs.pose_of(&frame, &model.scoped_name)?;
+            transform = transform.compose(offset.inverse());
+        }
+        let proxy = format!("_merged__{}__model__", model.name);
+        let include = model
+            .include
+            .take()
+            .expect("merge_model receives an expanded include");
+        let frame = Frame {
+            name: proxy.clone(),
+            attached_to: model.canonical_link_and_relative_name().1,
+            pose: Pose {
+                transform,
+                relative_to: if pose.relative_to.is_empty() {
+                    "__model__".into()
+                } else {
+                    pose.relative_to
+                },
+            },
+            source: include.source.clone(),
+        };
+        let provenance = MergedInclude {
+            include,
+            model_source: model.source.clone(),
+            proxy_frame: proxy.clone(),
+        };
+        let rewrite = |value: &mut String, empty: bool| {
+            if *value == "__model__" || (empty && value.is_empty()) {
+                *value = proxy.clone();
+            }
+        };
+        for link in &mut model.links {
+            link.scoped_name = join(scope, &link.name);
+            rewrite(&mut link.pose.relative_to, true);
+        }
+        for nested in &mut model.models {
+            rewrite(&mut nested.pose.relative_to, true);
+            rescope_model(nested, scope);
+        }
+        for frame in &mut model.frames {
+            rewrite(&mut frame.attached_to, true);
+            rewrite(&mut frame.pose.relative_to, false);
+        }
+        for joint in &mut model.joints {
+            rewrite(&mut joint.pose.relative_to, false);
+            rewrite(&mut joint.parent, false);
+            rewrite(&mut joint.child, false);
+            for axis in joint.axis.iter_mut().chain(&mut joint.axis2) {
+                rewrite(&mut axis.expressed_in, false);
+            }
+        }
+        Ok((model, frame, provenance))
     }
     fn link(&self, node: Node<'_, '_>, scope: &str) -> Result<Link, Diagnostic> {
         self.allowed(
@@ -1630,5 +1767,15 @@ fn param_text<'a>(node: Node<'a, '_>) -> Cow<'a, str> {
         )
     } else {
         Cow::Borrowed(text)
+    }
+}
+
+fn rescope_model(model: &mut Model, scope: &str) {
+    model.scoped_name = join(scope, &model.name);
+    for link in &mut model.links {
+        link.scoped_name = join(&model.scoped_name, &link.name);
+    }
+    for nested in &mut model.models {
+        rescope_model(nested, &model.scoped_name);
     }
 }

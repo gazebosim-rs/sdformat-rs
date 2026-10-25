@@ -1,0 +1,819 @@
+[
+  {
+    "id": "heightmap_defaults",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><heightmap><uri>height.png</uri></heightmap></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "tokens": [
+      "heightmap",
+      "6865696768742e706e67",
+      "4607182418800017408",
+      "4607182418800017408",
+      "4607182418800017408",
+      "0",
+      "0",
+      "0",
+      "0",
+      "1",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "heightmap_empty",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><heightmap></heightmap></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "tokens": [
+      "heightmap",
+      "5f5f64656661756c745f5f",
+      "4607182418800017408",
+      "4607182418800017408",
+      "4607182418800017408",
+      "0",
+      "0",
+      "0",
+      "0",
+      "1",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "heightmap_empty_uri",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><heightmap><uri/></heightmap></geometry></collision></link></model></sdf>",
+    "accepted": false,
+    "tokens": [
+      "error"
+    ]
+  },
+  {
+    "id": "heightmap_blank_uri",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><heightmap><uri>  </uri></heightmap></geometry></collision></link></model></sdf>",
+    "accepted": false,
+    "tokens": [
+      "error"
+    ]
+  },
+  {
+    "id": "heightmap_cdata_blank_uri",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><heightmap><uri><![CDATA[  ]]></uri></heightmap></geometry></collision></link></model></sdf>",
+    "accepted": false,
+    "tokens": [
+      "error"
+    ]
+  },
+  {
+    "id": "heightmap_sentinel_uri",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><heightmap><uri>__default__</uri></heightmap></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "tokens": [
+      "heightmap",
+      "5f5f64656661756c745f5f",
+      "4607182418800017408",
+      "4607182418800017408",
+      "4607182418800017408",
+      "0",
+      "0",
+      "0",
+      "0",
+      "1",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "heightmap_nb_uri",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><heightmap><uri>&#160;h&#160;</uri></heightmap></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "tokens": [
+      "heightmap",
+      "c2a068c2a0",
+      "4607182418800017408",
+      "4607182418800017408",
+      "4607182418800017408",
+      "0",
+      "0",
+      "0",
+      "0",
+      "1",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "heightmap_spaced_uri",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><heightmap><uri> a  b\t c </uri></heightmap></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "tokens": [
+      "heightmap",
+      "6120622063",
+      "4607182418800017408",
+      "4607182418800017408",
+      "4607182418800017408",
+      "0",
+      "0",
+      "0",
+      "0",
+      "1",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "heightmap_size",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><heightmap><uri>h</uri><size>2 3 4</size></heightmap></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "tokens": [
+      "heightmap",
+      "68",
+      "4611686018427387904",
+      "4613937818241073152",
+      "4616189618054758400",
+      "0",
+      "0",
+      "0",
+      "0",
+      "1",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "heightmap_size_negative",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><heightmap><uri>h</uri><size>-1 0 -3</size></heightmap></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "tokens": [
+      "heightmap",
+      "68",
+      "13830554455654793216",
+      "0",
+      "13837309855095848960",
+      "0",
+      "0",
+      "0",
+      "0",
+      "1",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "heightmap_size_empty",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><heightmap><uri>h</uri><size/></heightmap></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "tokens": [
+      "heightmap",
+      "68",
+      "4607182418800017408",
+      "4607182418800017408",
+      "4607182418800017408",
+      "0",
+      "0",
+      "0",
+      "0",
+      "1",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "heightmap_size_bad",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><heightmap><uri>h</uri><size>1 2</size></heightmap></geometry></collision></link></model></sdf>",
+    "accepted": false,
+    "tokens": [
+      "error"
+    ]
+  },
+  {
+    "id": "heightmap_position",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><heightmap><uri>h</uri><pos>4 -2 0.5</pos></heightmap></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "tokens": [
+      "heightmap",
+      "68",
+      "4607182418800017408",
+      "4607182418800017408",
+      "4607182418800017408",
+      "4616189618054758400",
+      "13835058055282163712",
+      "4602678819172646912",
+      "0",
+      "1",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "heightmap_paging_true",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><heightmap><uri>h</uri><use_terrain_paging>true</use_terrain_paging></heightmap></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "tokens": [
+      "heightmap",
+      "68",
+      "4607182418800017408",
+      "4607182418800017408",
+      "4607182418800017408",
+      "0",
+      "0",
+      "0",
+      "1",
+      "1",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "heightmap_paging_bad",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><heightmap><uri>h</uri><use_terrain_paging>bad</use_terrain_paging></heightmap></geometry></collision></link></model></sdf>",
+    "accepted": false,
+    "tokens": [
+      "error"
+    ]
+  },
+  {
+    "id": "heightmap_sampling_zero",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><heightmap><uri>h</uri><sampling>0</sampling></heightmap></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "tokens": [
+      "heightmap",
+      "68",
+      "4607182418800017408",
+      "4607182418800017408",
+      "4607182418800017408",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "heightmap_sampling_negative",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><heightmap><uri>h</uri><sampling>-1</sampling></heightmap></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "tokens": [
+      "heightmap",
+      "68",
+      "4607182418800017408",
+      "4607182418800017408",
+      "4607182418800017408",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4294967295",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "heightmap_sampling_wrap",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><heightmap><uri>h</uri><sampling>4294967296</sampling></heightmap></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "tokens": [
+      "heightmap",
+      "68",
+      "4607182418800017408",
+      "4607182418800017408",
+      "4607182418800017408",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "heightmap_sampling_prefix",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><heightmap><uri>h</uri><sampling>0xAbtail</sampling></heightmap></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "tokens": [
+      "heightmap",
+      "68",
+      "4607182418800017408",
+      "4607182418800017408",
+      "4607182418800017408",
+      "0",
+      "0",
+      "0",
+      "0",
+      "171",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "heightmap_texture",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><heightmap><uri>h</uri><texture><size>5</size><diffuse>d</diffuse><normal>n</normal></texture></heightmap></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "tokens": [
+      "heightmap",
+      "68",
+      "4607182418800017408",
+      "4607182418800017408",
+      "4607182418800017408",
+      "0",
+      "0",
+      "0",
+      "0",
+      "1",
+      "1",
+      "4617315517961601024",
+      "64",
+      "6e",
+      "0"
+    ]
+  },
+  {
+    "id": "heightmap_texture_empty",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><heightmap><uri>h</uri><texture/></heightmap></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "tokens": [
+      "heightmap",
+      "68",
+      "4607182418800017408",
+      "4607182418800017408",
+      "4607182418800017408",
+      "0",
+      "0",
+      "0",
+      "0",
+      "1",
+      "1",
+      "4621819117588971520",
+      "5f5f64656661756c745f5f",
+      "5f5f64656661756c745f5f",
+      "0"
+    ]
+  },
+  {
+    "id": "heightmap_texture_no_size",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><heightmap><uri>h</uri><texture><diffuse>d</diffuse><normal>n</normal></texture></heightmap></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "tokens": [
+      "heightmap",
+      "68",
+      "4607182418800017408",
+      "4607182418800017408",
+      "4607182418800017408",
+      "0",
+      "0",
+      "0",
+      "0",
+      "1",
+      "1",
+      "4621819117588971520",
+      "64",
+      "6e",
+      "0"
+    ]
+  },
+  {
+    "id": "heightmap_texture_no_diffuse",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><heightmap><uri>h</uri><texture><size>5</size><normal>n</normal></texture></heightmap></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "tokens": [
+      "heightmap",
+      "68",
+      "4607182418800017408",
+      "4607182418800017408",
+      "4607182418800017408",
+      "0",
+      "0",
+      "0",
+      "0",
+      "1",
+      "1",
+      "4617315517961601024",
+      "5f5f64656661756c745f5f",
+      "6e",
+      "0"
+    ]
+  },
+  {
+    "id": "heightmap_texture_no_normal",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><heightmap><uri>h</uri><texture><size>5</size><diffuse>d</diffuse></texture></heightmap></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "tokens": [
+      "heightmap",
+      "68",
+      "4607182418800017408",
+      "4607182418800017408",
+      "4607182418800017408",
+      "0",
+      "0",
+      "0",
+      "0",
+      "1",
+      "1",
+      "4617315517961601024",
+      "64",
+      "5f5f64656661756c745f5f",
+      "0"
+    ]
+  },
+  {
+    "id": "heightmap_texture_empty_strings",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><heightmap><uri>h</uri><texture><size>5</size><diffuse/><normal/></texture></heightmap></geometry></collision></link></model></sdf>",
+    "accepted": false,
+    "tokens": [
+      "error"
+    ]
+  },
+  {
+    "id": "heightmap_texture_empty_size",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><heightmap><uri>h</uri><texture><size/><diffuse>d</diffuse><normal>n</normal></texture></heightmap></geometry></collision></link></model></sdf>",
+    "accepted": false,
+    "tokens": [
+      "error"
+    ]
+  },
+  {
+    "id": "heightmap_texture_negative_size",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><heightmap><uri>h</uri><texture><size>-5</size><diffuse>d</diffuse><normal>n</normal></texture></heightmap></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "tokens": [
+      "heightmap",
+      "68",
+      "4607182418800017408",
+      "4607182418800017408",
+      "4607182418800017408",
+      "0",
+      "0",
+      "0",
+      "0",
+      "1",
+      "1",
+      "13840687554816376832",
+      "64",
+      "6e",
+      "0"
+    ]
+  },
+  {
+    "id": "heightmap_texture_underflow",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><heightmap><uri>h</uri><texture><size>1e-310</size><diffuse>d</diffuse><normal>n</normal></texture></heightmap></geometry></collision></link></model></sdf>",
+    "accepted": false,
+    "tokens": [
+      "error"
+    ]
+  },
+  {
+    "id": "heightmap_blend",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><heightmap><uri>h</uri><blend><min_height>15</min_height><fade_dist>5</fade_dist></blend></heightmap></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "tokens": [
+      "heightmap",
+      "68",
+      "4607182418800017408",
+      "4607182418800017408",
+      "4607182418800017408",
+      "0",
+      "0",
+      "0",
+      "0",
+      "1",
+      "0",
+      "1",
+      "4624633867356078080",
+      "4617315517961601024"
+    ]
+  },
+  {
+    "id": "heightmap_blend_empty",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><heightmap><uri>h</uri><blend/></heightmap></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "tokens": [
+      "heightmap",
+      "68",
+      "4607182418800017408",
+      "4607182418800017408",
+      "4607182418800017408",
+      "0",
+      "0",
+      "0",
+      "0",
+      "1",
+      "0",
+      "1",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "heightmap_blend_no_min",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><heightmap><uri>h</uri><blend><fade_dist>5</fade_dist></blend></heightmap></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "tokens": [
+      "heightmap",
+      "68",
+      "4607182418800017408",
+      "4607182418800017408",
+      "4607182418800017408",
+      "0",
+      "0",
+      "0",
+      "0",
+      "1",
+      "0",
+      "1",
+      "0",
+      "4617315517961601024"
+    ]
+  },
+  {
+    "id": "heightmap_blend_no_fade",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><heightmap><uri>h</uri><blend><min_height>15</min_height></blend></heightmap></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "tokens": [
+      "heightmap",
+      "68",
+      "4607182418800017408",
+      "4607182418800017408",
+      "4607182418800017408",
+      "0",
+      "0",
+      "0",
+      "0",
+      "1",
+      "0",
+      "1",
+      "4624633867356078080",
+      "0"
+    ]
+  },
+  {
+    "id": "heightmap_blend_negative",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><heightmap><uri>h</uri><blend><min_height>-15</min_height><fade_dist>-5</fade_dist></blend></heightmap></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "tokens": [
+      "heightmap",
+      "68",
+      "4607182418800017408",
+      "4607182418800017408",
+      "4607182418800017408",
+      "0",
+      "0",
+      "0",
+      "0",
+      "1",
+      "0",
+      "1",
+      "13848005904210853888",
+      "13840687554816376832"
+    ]
+  },
+  {
+    "id": "heightmap_blend_empty_values",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><heightmap><uri>h</uri><blend><min_height/><fade_dist/></blend></heightmap></geometry></collision></link></model></sdf>",
+    "accepted": false,
+    "tokens": [
+      "error"
+    ]
+  },
+  {
+    "id": "heightmap_ordered",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><heightmap><uri>h</uri><texture><size>2</size><diffuse>d1</diffuse><normal>n1</normal></texture><blend><min_height>5</min_height><fade_dist>2</fade_dist></blend><texture><size>3</size><diffuse>d2</diffuse><normal>n2</normal></texture><blend><min_height>6</min_height><fade_dist>4</fade_dist></blend></heightmap></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "tokens": [
+      "heightmap",
+      "68",
+      "4607182418800017408",
+      "4607182418800017408",
+      "4607182418800017408",
+      "0",
+      "0",
+      "0",
+      "0",
+      "1",
+      "2",
+      "4611686018427387904",
+      "6431",
+      "6e31",
+      "4613937818241073152",
+      "6432",
+      "6e32",
+      "2",
+      "4617315517961601024",
+      "4611686018427387904",
+      "4618441417868443648",
+      "4616189618054758400"
+    ]
+  },
+  {
+    "id": "polyline_valid",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><polyline><height>1</height><point>1 2</point><point>3 4</point><point>5 6</point></polyline></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "tokens": [
+      "polyline",
+      "1",
+      "4607182418800017408",
+      "3",
+      "4607182418800017408",
+      "4611686018427387904",
+      "4613937818241073152",
+      "4616189618054758400",
+      "4617315517961601024",
+      "4618441417868443648"
+    ]
+  },
+  {
+    "id": "polyline_empty",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><polyline></polyline></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "tokens": [
+      "polyline",
+      "1",
+      "4607182418800017408",
+      "1",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "polyline_no_height",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><polyline><point>1 2</point></polyline></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "tokens": [
+      "polyline",
+      "1",
+      "4607182418800017408",
+      "1",
+      "4607182418800017408",
+      "4611686018427387904"
+    ]
+  },
+  {
+    "id": "polyline_no_points",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><polyline><height>1</height></polyline></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "tokens": [
+      "polyline",
+      "1",
+      "4607182418800017408",
+      "1",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "polyline_one_point",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><polyline><height>1</height><point>1 2</point></polyline></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "tokens": [
+      "polyline",
+      "1",
+      "4607182418800017408",
+      "1",
+      "4607182418800017408",
+      "4611686018427387904"
+    ]
+  },
+  {
+    "id": "polyline_two_points",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><polyline><height>1</height><point>1 2</point><point>3 4</point></polyline></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "tokens": [
+      "polyline",
+      "1",
+      "4607182418800017408",
+      "2",
+      "4607182418800017408",
+      "4611686018427387904",
+      "4613937818241073152",
+      "4616189618054758400"
+    ]
+  },
+  {
+    "id": "polyline_negative_height",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><polyline><height>-2</height><point>1 2</point></polyline></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "tokens": [
+      "polyline",
+      "1",
+      "13835058055282163712",
+      "1",
+      "4607182418800017408",
+      "4611686018427387904"
+    ]
+  },
+  {
+    "id": "polyline_zero_height",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><polyline><height>0</height><point>1 2</point></polyline></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "tokens": [
+      "polyline",
+      "1",
+      "0",
+      "1",
+      "4607182418800017408",
+      "4611686018427387904"
+    ]
+  },
+  {
+    "id": "polyline_empty_height",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><polyline><height/><point>1 2</point></polyline></geometry></collision></link></model></sdf>",
+    "accepted": false,
+    "tokens": [
+      "error"
+    ]
+  },
+  {
+    "id": "polyline_bad_height",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><polyline><height>bad</height><point>1 2</point></polyline></geometry></collision></link></model></sdf>",
+    "accepted": false,
+    "tokens": [
+      "error"
+    ]
+  },
+  {
+    "id": "polyline_empty_point",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><polyline><height>1</height><point/></polyline></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "tokens": [
+      "polyline",
+      "1",
+      "4607182418800017408",
+      "1",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "polyline_bad_point",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><polyline><height>1</height><point>1</point></polyline></geometry></collision></link></model></sdf>",
+    "accepted": false,
+    "tokens": [
+      "error"
+    ]
+  },
+  {
+    "id": "polyline_spaced_point",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><polyline><height>1</height><point>  1  2 \t </point></polyline></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "tokens": [
+      "polyline",
+      "1",
+      "4607182418800017408",
+      "1",
+      "4607182418800017408",
+      "4611686018427387904"
+    ]
+  },
+  {
+    "id": "polyline_prefix_height",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><polyline><height>2tail</height><point>1 2</point></polyline></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "tokens": [
+      "polyline",
+      "1",
+      "4611686018427387904",
+      "1",
+      "4607182418800017408",
+      "4611686018427387904"
+    ]
+  },
+  {
+    "id": "polyline_cdata_height",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><polyline><height><![CDATA[ 2 ]]></height><point>1 2</point></polyline></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "tokens": [
+      "polyline",
+      "1",
+      "4611686018427387904",
+      "1",
+      "4607182418800017408",
+      "4611686018427387904"
+    ]
+  },
+  {
+    "id": "polyline_underflow_height",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><polyline><height>1e-310</height><point>1 2</point></polyline></geometry></collision></link></model></sdf>",
+    "accepted": false,
+    "tokens": [
+      "error"
+    ]
+  },
+  {
+    "id": "polyline_multiple",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><polyline><height>2</height><point>1 2</point></polyline><polyline><height>3</height><point>3 4</point><point>5 6</point></polyline></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "tokens": [
+      "polyline",
+      "2",
+      "4611686018427387904",
+      "1",
+      "4607182418800017408",
+      "4611686018427387904",
+      "4613937818241073152",
+      "2",
+      "4613937818241073152",
+      "4616189618054758400",
+      "4617315517961601024",
+      "4618441417868443648"
+    ]
+  }
+]

@@ -440,6 +440,23 @@
       "baseline": "Exact unchanged native case passed; XML one run, zero failures; artifacts/fluid/original.xml",
       "status": "ported_reviewed",
       "review": "Independent /root/transport_recovery approved isolated 9d3251471e128b6d133c3b068acb618e3f0d434b46949e79e8da7bcc77ef97ee on 2026-10-25 after full original assertion/source/schema comparison, all 98 Rust tests, freshly rebuilt 40 native presence/bit observations and exact native original XML one run/zero failures. All proof hashes matched. Explicitly approved successful mandatory load-time physical-inertia validation plus exact known-valid mass/moments as this fixture's IsValid true observation; no generic validity algorithm/API parity claimed. All model/link/presence, pose/scalar and 36 matrix observations retained. Metadata only; consumer must reject Some until physics support. Final integrated overlap review remains required."
+    },
+    {
+      "target": "INTEGRATION_geometry_dom",
+      "case": "DOMGeometry.Shapes",
+      "source": "test/integration/geometry_dom.cc:45",
+      "rust_test": "tests/shapes.rs::original_geometry_shapes",
+      "assertions": "Every original root/model/link, named collision/visual and typed geometry existence/type observation retained through owned collection lookup and enum matching. All primitive dimensions, plane normals/sizes, mesh optimization string/enum, optional decomposition and URI/scale/submesh/center values, heightmap URI/size/position/textures/blends, ordered polyline counts/heights and original point indices retained. Native component-wise Vector3 <=1e-3 and Vector2 <=1e-6 and EXPECT_DOUBLE_EQ four-ULP bounds retained. Mesh optimization spelling maps the typed enum explicitly; no independent string facade or generic Element API is introduced. Unchanged full shapes.sdf loads without rewriting any content.",
+      "fixtures": {
+        "tests/fixtures/shapes.sdf": "b6e361cd945f1d7327a618b7fbb78fc6979a9866792358312e002b00817cd6c5"
+      },
+      "upstream_fixtures": {
+        "test/integration/geometry_dom.cc": "792f21dc6519b71da6655f862f50280e6115ebc6209c14fceddc53e010556ad2",
+        "test/sdf/shapes.sdf": "b6e361cd945f1d7327a618b7fbb78fc6979a9866792358312e002b00817cd6c5"
+      },
+      "baseline": "Exact unchanged native DOMGeometry.Shapes passed once with zero failures; artifacts/terrain/original.xml",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_recovery approved corrected isolated 0eb5bd0d on 2026-10-25 after source/original/assertion/provenance comparison. Independently all 108 combined Rust checks,52 fresh native observations and exact unchanged DOMGeometry.Shapes XML one run/zero failures pass; every proof field/hash matches. Original Vector2 <=1e-6, Vector3 <=1e-3 and four-ULP scalar assertions retained. Explicitly approved owned lookups/enums/index collections and canonical optimization-string mapping as faithful for this case. Visual parent unsafe/ABI scope is separately approved by /root/msgs. Final integrated overlap receipt, strict staged/hosted gates remain required."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

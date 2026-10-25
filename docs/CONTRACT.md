@@ -324,3 +324,22 @@ specified in SCALAR_CONVERSION.md. Native nonfinite DOM values remain an explici
 unsupported semantic boundary. These properties are metadata; no render/lidar
 effect or image/mesh IO is implemented by parsing. Consumers may retain them as
 scene metadata before rendering/lidar support; they must not claim those effects.
+
+
+Geometry additionally retains boxed Heightmap and ordered Vec<Polyline> metadata.
+Heightmap owns URI, size, position, paging and sampling, ordered textures/blends
+and resource Source. Polyline owns height, ordered 2D points and Source. These
+records are clonable and independent of Bevy, filesystem and image decoding. URI
+strings remain unresolved, matching native default StoreResolvedURIs(false); the
+include ResourceResolver is not called for image/texture assets. Source identity
+continues to identify the imported document.
+
+Native schema-inserted defaults are retained: missing heightmap URI and texture
+strings become __default__, omitted required numeric values use schema defaults,
+and a polyline without points contains one zero point. Explicit empty required
+string/scalar children reject; empty vector children keep schema defaults. No
+positive-height, closed-polygon, texture/blend count or sampling-power constraint
+is invented. Metadata acceptance implements no collision, terrain, rendering or
+lidar effects. Physics consumers must reject heightmap/polyline shapes until the
+backend supports them. Full conversion, generic vector-stream parity, Element
+mutation and serialization remain pending.

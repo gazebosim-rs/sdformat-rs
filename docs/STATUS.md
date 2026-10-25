@@ -629,3 +629,44 @@ both corrected fault tests then passed in a fresh raw export using a new externa
 target, without source/target creation. Its review explicitly covers the new
 strtof_l boundary and dev-only tempfile correction. Final exact receipt and
 strict staged/hosted verification remain required before publication.
+
+
+The next isolated terrain slice adds owned heightmap/polyline metadata and loads
+the unchanged full upstream shapes.sdf fixture. The proposed complete
+DOMGeometry.Shapes port retains every named lookup, enum/presence, primitive,
+mesh, heightmap and polyline assertion, including native Vector3 1e-3, Vector2 1e-6 and scalar
+four-ULP comparisons. It is pending independent assertion review; the 32 accepted
+complete and six accepted partial mappings do not yet change.
+
+All 108 combined Rust checks and fmt/clippy pass. Working coverage is 2440/2456
+production lines and 4289/4389 regions, with 142/142 changed executable lines
+relative to c75839f, including the pending visual parent. Fresh native evidence
+contains 52 matching terrain observations and one exact Shapes original with
+zero failures. Required schema-default insertion, explicit-empty errors, ordered
+textures/blends/points, unconstrained finite dimensions and imported resource
+identity are retained. No asset resolution, image decoding, collision or rendering
+effect is implemented. Consumers must explicitly reject heightmap/polyline
+collisions until physical support. Source/assertion/provenance review and the
+separate visual ABI/safety review must precede normal staged/hosted publication.
+
+
+Independent /root/transport_recovery approved the corrected terrain source and
+complete Shapes assertion mapping after finding and correcting the original
+Vector2 tolerance. All 108 combined Rust checks, 52 fresh native observations
+and the exact unchanged original case pass independently; all proof hashes
+match. Owned lookups, enum variants/index collections and the canonical mesh
+optimization spelling preserve this original case. The visual parent safety
+review remains separately attributed to /root/msgs. This unchanged terrain
+delta is now integrated on visual commit 0644c0f; final overlap review and exact
+staged/hosted gates remain required. No physical terrain or rendering effect is
+implemented, and the new Shapes mapping does not complete a plan packet.
+
+
+On visual parent 0644c0f, all 108 integrated Rust checks and fmt/clippy pass.
+Working coverage remains 2440/2456 lines and 4289/4389 regions; the terrain-only
+changed-line delta is 91/91. Fresh native proof equals the independently reviewed
+isolated proof, including every shared source, fixture, header and binary hash.
+Visual tempfile fixes are inherited unchanged; no new production unsafe or
+dependencies are added by terrain. The full Shapes assertion mapping is now
+reviewed (33 complete and six partial mappings), while final integration receipt
+and the normal strict staged/hosted gates remain required before publication.

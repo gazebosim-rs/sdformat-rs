@@ -430,7 +430,39 @@ pub enum Geometry {
     Cone { radius: f64, length: f64 },
     Ellipsoid { radii: [f64; 3] },
     Mesh(Mesh),
+    Heightmap(Box<Heightmap>),
+    Polyline(Vec<Polyline>),
     Plane { normal: [f64; 3], size: [f64; 2] },
+}
+/// Heightmap metadata; URIs are retained without resource or image IO.
+#[derive(Debug, Clone, PartialEq)]
+pub struct Heightmap {
+    pub uri: String,
+    pub size: [f64; 3],
+    pub position: [f64; 3],
+    pub use_terrain_paging: bool,
+    pub sampling: u32,
+    pub textures: Vec<HeightmapTexture>,
+    pub blends: Vec<HeightmapBlend>,
+    pub source: Source,
+}
+#[derive(Debug, Clone, PartialEq)]
+pub struct HeightmapTexture {
+    pub size: f64,
+    pub diffuse: String,
+    pub normal: String,
+}
+#[derive(Debug, Clone, PartialEq)]
+pub struct HeightmapBlend {
+    pub min_height: f64,
+    pub fade_distance: f64,
+}
+/// Ordered polyline metadata; loading does not validate a physical polygon.
+#[derive(Debug, Clone, PartialEq)]
+pub struct Polyline {
+    pub height: f64,
+    pub points: Vec<[f64; 2]>,
+    pub source: Source,
 }
 /// Mesh metadata; the URI is retained without performing filesystem or network IO.
 #[derive(Debug, PartialEq)]

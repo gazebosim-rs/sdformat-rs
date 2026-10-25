@@ -140,6 +140,10 @@ impl Parser<'_> {
             "visual",
             "sensor",
             "plugin",
+            "polyline",
+            "point",
+            "texture",
+            "blend",
         ];
         let mut seen = BTreeSet::new();
         for child in elements(node) {
@@ -921,11 +925,14 @@ impl Parser<'_> {
                 "ellipsoid",
                 "mesh",
                 "plane",
+                "heightmap",
+                "polyline",
             ],
             &[],
         )?;
         let shapes = elements(geometry).collect::<Vec<_>>();
-        if shapes.len() != 1 {
+        let polylines = !shapes.is_empty() && shapes.iter().all(|n| n.has_tag_name("polyline"));
+        if shapes.len() != 1 && !polylines {
             return Err(self.err(
                 geometry,
                 ErrorCode::InvalidValue,
@@ -990,6 +997,13 @@ impl Parser<'_> {
                     },
                 }
             }
+            "heightmap" => Geometry::Heightmap(Box::new(self.heightmap(shape)?)),
+            "polyline" => Geometry::Polyline(
+                shapes
+                    .into_iter()
+                    .map(|n| self.polyline(n))
+                    .collect::<Result<_, _>>()?,
+            ),
             "mesh" => Geometry::Mesh(self.mesh(shape)?),
             _ => {
                 self.allowed(shape, &["normal", "size"], &[])?;
@@ -1017,6 +1031,94 @@ impl Parser<'_> {
         // Each primitive branch applies its native fallback to nonpositive
         // dimensions. Mesh scale is deliberately unconstrained by that policy.
         Ok(geometry)
+    }
+    fn heightmap(&self, node: Node<'_, '_>) -> Result<Heightmap, Diagnostic> {
+        self.allowed(
+            node,
+            &[
+                "uri",
+                "size",
+                "pos",
+                "use_terrain_paging",
+                "sampling",
+                "texture",
+                "blend",
+            ],
+            &[],
+        )?;
+        let mut textures = Vec::new();
+        let mut blends = Vec::new();
+        for item in elements(node) {
+            if item.has_tag_name("texture") {
+                self.allowed(item, &["size", "diffuse", "normal"], &[])?;
+                textures.push(HeightmapTexture {
+                    size: self.required_scalar(item, "size", 10.)?,
+                    diffuse: self.schema_string(item, "diffuse", "__default__")?,
+                    normal: self.schema_string(item, "normal", "__default__")?,
+                });
+            } else if item.has_tag_name("blend") {
+                self.allowed(item, &["min_height", "fade_dist"], &[])?;
+                blends.push(HeightmapBlend {
+                    min_height: self.required_scalar(item, "min_height", 0.)?,
+                    fade_distance: self.required_scalar(item, "fade_dist", 0.)?,
+                });
+            }
+        }
+        Ok(Heightmap {
+            uri: self.schema_string(node, "uri", "__default__")?,
+            size: child(node, "size").map_or(Ok([1.; 3]), |n| self.geometry_values(n, [1.; 3]))?,
+            position: child(node, "pos")
+                .map_or(Ok([0.; 3]), |n| self.geometry_values(n, [0.; 3]))?,
+            use_terrain_paging: self.boolean(node, "use_terrain_paging", false)?,
+            sampling: self.unsigned(node, "sampling", 1)?,
+            textures,
+            blends,
+            source: self.source(node),
+        })
+    }
+    fn polyline(&self, node: Node<'_, '_>) -> Result<Polyline, Diagnostic> {
+        self.allowed(node, &["height", "point"], &[])?;
+        let mut points = elements(node)
+            .filter(|n| n.has_tag_name("point"))
+            .map(|n| self.geometry_values(n, [0.; 2]))
+            .collect::<Result<Vec<_>, _>>()?;
+        // Native schema parsing inserts the required point when none is present.
+        if points.is_empty() {
+            points.push([0.; 2]);
+        }
+        Ok(Polyline {
+            height: self.required_scalar(node, "height", 1.)?,
+            points,
+            source: self.source(node),
+        })
+    }
+    fn schema_string(
+        &self,
+        node: Node<'_, '_>,
+        name: &str,
+        default: &str,
+    ) -> Result<String, Diagnostic> {
+        let Some(value) = child(node, name) else {
+            return Ok(default.into());
+        };
+        self.allowed(value, &[], &[])?;
+        let text = param_text(value);
+        if text.is_empty() {
+            return Err(self.err(value, ErrorCode::Missing, format!("missing {name}")));
+        }
+        Ok(text.into_owned())
+    }
+    fn geometry_values<const N: usize>(
+        &self,
+        node: Node<'_, '_>,
+        default: [f64; N],
+    ) -> Result<[f64; N], Diagnostic> {
+        self.allowed(node, &[], &[])?;
+        if param_text(node).is_empty() {
+            Ok(default)
+        } else {
+            self.values(node)
+        }
     }
     fn required_scalar(
         &self,

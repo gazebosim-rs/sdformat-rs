@@ -9784,5 +9784,808 @@
     "scope": "Owned VisualProperties retains native loaded-XML cast_shadows, float32 transparency, visibility_flags and optional laser_retro presence. Linux GNU FE_TONEAREST transparency follows stored double -> 17 significant decimal digits -> strtof_l; second-conversion ERANGE defaults zero without rejecting the DOM. All 143 native observations are retained; 141 finite/error rows match, while infinity and NaN remain explicit existing finite-policy gaps. Console diagnostics, other rounding environments, mutable setter/serializer APIs, rendering and lidar effects are unqualified. No original case is retired and no production dependencies or exclusions change. The new tempfile3.27.0 dependency is test-only, owning isolated fault-shim output directories; production dependencies remain unchanged.",
     "checks": "All 104 Rust checks, fmt/clippy and working coverage pass: 2344/2360 production lines, 4089/4185 regions, 51/51 changed executable lines. Installed-header ABI check and fresh 143-row C++ probe pass; concurrency, caller errno/global locale and second-locale allocation failure tests pass. Independent source/ABI/safety review and matching strict staged/hosted gates remain required. Independent review found inherited/new tests writing shim outputs into source/target; both now use RAII temp directories, retaining every child/allocation/errno assertion. Both fault tests pass in a fresh source export with an external Cargo target; the source/target directory remains absent. All 104 Rust checks, fmt/clippy and 11 tooling checks pass after the correction. Final independent replay and qualified receipt remain required.",
     "review": "Independent /root/msgs approved corrected 7191d8d0 on 2026-10-25 after source/ABI/safety and native getter comparison. Fresh 143 native observations plus installed-header ABI proof match every recorded shared hash. All 104 Rust checks independently passed before test-path correction with identical production bytes. Reviewer reproduced old clean-export linker failure, then independently passed both corrected allocation-failure tests from a fresh raw export with a new external target and verified source/target remained absent. Reviewed dev-only tempfile/lock additions, pointer/locale ownership and immediate errno capture/restoration. FE_TONEAREST/classic formatting, two explicit nonfinite DOM gaps and console-diagnostic/rendering/setter/serializer/performance limits remain. No original retirement or physics claim."
+  },
+  "terrain_corpus": {
+    "upstream_sha": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "corpus_sha256": "4cd7565ee914b73030b4eb2e7cc3a58b859f5a1e1a8ceda74c924ecb57404462",
+    "probe_source_sha256": "fd0b64afdf8cbea9e35f04fc802c704ced36c6256fbae752ea507fb065d9a97b",
+    "probe_binary_sha256": "123705b8a05d4819d88ae5abe70e84e268f24dba0ca78fcb2be0fe6a01f285fe",
+    "native_library_sha256": "bcc864bcee56b49c13081e29722051e26c036260e3dd037e7736aa2b8620358f",
+    "source_sha256": {
+      "src/Heightmap.cc": "7f1e7d7053acdd4780bff373136c771271a53598107e88e76f9d51f7e6eb721c",
+      "src/Polyline.cc": "2ada8f02df9a242d829c853d9b511ea32a86791f1cd88e4b8547cdeb106f7c66",
+      "src/Geometry.cc": "a7029bf11019d86cf891d3269e62dc2cf9b5f83cca072f0c75c4d79540f551ff",
+      "src/Param.cc": "487407a4a2301617b262ccb782312fe9c1d3d099e715aa42f3bb3cb713b29dce",
+      "src/Utils.cc": "8f8eeaf4184535424f8e91d83c61dd24f6f422810af6cbfbe783a24d34ea2b21",
+      "src/parser.cc": "2ec95e05647c61121ced7910ca8164161a189d31f4b1d1249c9bf2d1ee93463d",
+      "include/sdf/Heightmap.hh": "fb757e36840693c4317e1847e9a2625f9f67bac62a6df8b6921c4597b9724a8e",
+      "include/sdf/Polyline.hh": "da794aaaf9323b9b68a4ffb53533c7f8e8a5ce01e93a715bb1c98c9c11403043",
+      "include/sdf/Geometry.hh": "f38220d86b8c1faa91aa5b93e2540bd2f3358480ae078fd54dd3449cdceb8747",
+      "sdf/1.12/heightmap_shape.sdf": "9b56b5b652e2d9b1c59db53e74c653b339c44f79001349cb872ecc1858f8769f",
+      "sdf/1.12/polyline_shape.sdf": "32f0294fd57fcc6c2f67007cfd85cee4c8a75da9b3bdf9767c2074954987806f",
+      "test/integration/geometry_dom.cc": "792f21dc6519b71da6655f862f50280e6115ebc6209c14fceddc53e010556ad2",
+      "test/sdf/shapes.sdf": "b6e361cd945f1d7327a618b7fbb78fc6979a9866792358312e002b00817cd6c5"
+    },
+    "math_upstream_sha": "1316ed334f4d5bda7be59aae07cd6e8ff31cfe13",
+    "math_header_sha256": {
+      "Vector2.hh": "61327029fd665e2dbfa5f274792181cde4f8dd56b3121aca1ca6be2a21495da4",
+      "Vector3.hh": "b4e8d01584139efba180bf530c95e18101aee4fb070aa93b8ddfe7cc38282a38",
+      "Helpers.hh": "24aeb75ca8b1ee502c654f045901d39befcbd84dfce4bd7fd93c8e2ca1e439f5"
+    },
+    "fixture_sha256": "b6e361cd945f1d7327a618b7fbb78fc6979a9866792358312e002b00817cd6c5",
+    "original_binary_sha256": "67f1bc5b1ade405664b5b4219b04e68fea0bd7e63b0b34a6cb54994d54f8286b",
+    "original_tests": 1,
+    "original_failures": 0,
+    "observations": [
+      {
+        "id": "heightmap_defaults",
+        "accepted": true,
+        "tokens": [
+          "heightmap",
+          "6865696768742e706e67",
+          "4607182418800017408",
+          "4607182418800017408",
+          "4607182418800017408",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "id": "heightmap_empty",
+        "accepted": true,
+        "tokens": [
+          "heightmap",
+          "5f5f64656661756c745f5f",
+          "4607182418800017408",
+          "4607182418800017408",
+          "4607182418800017408",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "id": "heightmap_empty_uri",
+        "accepted": false,
+        "tokens": [
+          "error"
+        ]
+      },
+      {
+        "id": "heightmap_blank_uri",
+        "accepted": false,
+        "tokens": [
+          "error"
+        ]
+      },
+      {
+        "id": "heightmap_cdata_blank_uri",
+        "accepted": false,
+        "tokens": [
+          "error"
+        ]
+      },
+      {
+        "id": "heightmap_sentinel_uri",
+        "accepted": true,
+        "tokens": [
+          "heightmap",
+          "5f5f64656661756c745f5f",
+          "4607182418800017408",
+          "4607182418800017408",
+          "4607182418800017408",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "id": "heightmap_nb_uri",
+        "accepted": true,
+        "tokens": [
+          "heightmap",
+          "c2a068c2a0",
+          "4607182418800017408",
+          "4607182418800017408",
+          "4607182418800017408",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "id": "heightmap_spaced_uri",
+        "accepted": true,
+        "tokens": [
+          "heightmap",
+          "6120622063",
+          "4607182418800017408",
+          "4607182418800017408",
+          "4607182418800017408",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "id": "heightmap_size",
+        "accepted": true,
+        "tokens": [
+          "heightmap",
+          "68",
+          "4611686018427387904",
+          "4613937818241073152",
+          "4616189618054758400",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "id": "heightmap_size_negative",
+        "accepted": true,
+        "tokens": [
+          "heightmap",
+          "68",
+          "13830554455654793216",
+          "0",
+          "13837309855095848960",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "id": "heightmap_size_empty",
+        "accepted": true,
+        "tokens": [
+          "heightmap",
+          "68",
+          "4607182418800017408",
+          "4607182418800017408",
+          "4607182418800017408",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "id": "heightmap_size_bad",
+        "accepted": false,
+        "tokens": [
+          "error"
+        ]
+      },
+      {
+        "id": "heightmap_position",
+        "accepted": true,
+        "tokens": [
+          "heightmap",
+          "68",
+          "4607182418800017408",
+          "4607182418800017408",
+          "4607182418800017408",
+          "4616189618054758400",
+          "13835058055282163712",
+          "4602678819172646912",
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "id": "heightmap_paging_true",
+        "accepted": true,
+        "tokens": [
+          "heightmap",
+          "68",
+          "4607182418800017408",
+          "4607182418800017408",
+          "4607182418800017408",
+          "0",
+          "0",
+          "0",
+          "1",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "id": "heightmap_paging_bad",
+        "accepted": false,
+        "tokens": [
+          "error"
+        ]
+      },
+      {
+        "id": "heightmap_sampling_zero",
+        "accepted": true,
+        "tokens": [
+          "heightmap",
+          "68",
+          "4607182418800017408",
+          "4607182418800017408",
+          "4607182418800017408",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "id": "heightmap_sampling_negative",
+        "accepted": true,
+        "tokens": [
+          "heightmap",
+          "68",
+          "4607182418800017408",
+          "4607182418800017408",
+          "4607182418800017408",
+          "0",
+          "0",
+          "0",
+          "0",
+          "4294967295",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "id": "heightmap_sampling_wrap",
+        "accepted": true,
+        "tokens": [
+          "heightmap",
+          "68",
+          "4607182418800017408",
+          "4607182418800017408",
+          "4607182418800017408",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "id": "heightmap_sampling_prefix",
+        "accepted": true,
+        "tokens": [
+          "heightmap",
+          "68",
+          "4607182418800017408",
+          "4607182418800017408",
+          "4607182418800017408",
+          "0",
+          "0",
+          "0",
+          "0",
+          "171",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "id": "heightmap_texture",
+        "accepted": true,
+        "tokens": [
+          "heightmap",
+          "68",
+          "4607182418800017408",
+          "4607182418800017408",
+          "4607182418800017408",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "1",
+          "4617315517961601024",
+          "64",
+          "6e",
+          "0"
+        ]
+      },
+      {
+        "id": "heightmap_texture_empty",
+        "accepted": true,
+        "tokens": [
+          "heightmap",
+          "68",
+          "4607182418800017408",
+          "4607182418800017408",
+          "4607182418800017408",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "1",
+          "4621819117588971520",
+          "5f5f64656661756c745f5f",
+          "5f5f64656661756c745f5f",
+          "0"
+        ]
+      },
+      {
+        "id": "heightmap_texture_no_size",
+        "accepted": true,
+        "tokens": [
+          "heightmap",
+          "68",
+          "4607182418800017408",
+          "4607182418800017408",
+          "4607182418800017408",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "1",
+          "4621819117588971520",
+          "64",
+          "6e",
+          "0"
+        ]
+      },
+      {
+        "id": "heightmap_texture_no_diffuse",
+        "accepted": true,
+        "tokens": [
+          "heightmap",
+          "68",
+          "4607182418800017408",
+          "4607182418800017408",
+          "4607182418800017408",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "1",
+          "4617315517961601024",
+          "5f5f64656661756c745f5f",
+          "6e",
+          "0"
+        ]
+      },
+      {
+        "id": "heightmap_texture_no_normal",
+        "accepted": true,
+        "tokens": [
+          "heightmap",
+          "68",
+          "4607182418800017408",
+          "4607182418800017408",
+          "4607182418800017408",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "1",
+          "4617315517961601024",
+          "64",
+          "5f5f64656661756c745f5f",
+          "0"
+        ]
+      },
+      {
+        "id": "heightmap_texture_empty_strings",
+        "accepted": false,
+        "tokens": [
+          "error"
+        ]
+      },
+      {
+        "id": "heightmap_texture_empty_size",
+        "accepted": false,
+        "tokens": [
+          "error"
+        ]
+      },
+      {
+        "id": "heightmap_texture_negative_size",
+        "accepted": true,
+        "tokens": [
+          "heightmap",
+          "68",
+          "4607182418800017408",
+          "4607182418800017408",
+          "4607182418800017408",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "1",
+          "13840687554816376832",
+          "64",
+          "6e",
+          "0"
+        ]
+      },
+      {
+        "id": "heightmap_texture_underflow",
+        "accepted": false,
+        "tokens": [
+          "error"
+        ]
+      },
+      {
+        "id": "heightmap_blend",
+        "accepted": true,
+        "tokens": [
+          "heightmap",
+          "68",
+          "4607182418800017408",
+          "4607182418800017408",
+          "4607182418800017408",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0",
+          "1",
+          "4624633867356078080",
+          "4617315517961601024"
+        ]
+      },
+      {
+        "id": "heightmap_blend_empty",
+        "accepted": true,
+        "tokens": [
+          "heightmap",
+          "68",
+          "4607182418800017408",
+          "4607182418800017408",
+          "4607182418800017408",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "id": "heightmap_blend_no_min",
+        "accepted": true,
+        "tokens": [
+          "heightmap",
+          "68",
+          "4607182418800017408",
+          "4607182418800017408",
+          "4607182418800017408",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0",
+          "1",
+          "0",
+          "4617315517961601024"
+        ]
+      },
+      {
+        "id": "heightmap_blend_no_fade",
+        "accepted": true,
+        "tokens": [
+          "heightmap",
+          "68",
+          "4607182418800017408",
+          "4607182418800017408",
+          "4607182418800017408",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0",
+          "1",
+          "4624633867356078080",
+          "0"
+        ]
+      },
+      {
+        "id": "heightmap_blend_negative",
+        "accepted": true,
+        "tokens": [
+          "heightmap",
+          "68",
+          "4607182418800017408",
+          "4607182418800017408",
+          "4607182418800017408",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0",
+          "1",
+          "13848005904210853888",
+          "13840687554816376832"
+        ]
+      },
+      {
+        "id": "heightmap_blend_empty_values",
+        "accepted": false,
+        "tokens": [
+          "error"
+        ]
+      },
+      {
+        "id": "heightmap_ordered",
+        "accepted": true,
+        "tokens": [
+          "heightmap",
+          "68",
+          "4607182418800017408",
+          "4607182418800017408",
+          "4607182418800017408",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "2",
+          "4611686018427387904",
+          "6431",
+          "6e31",
+          "4613937818241073152",
+          "6432",
+          "6e32",
+          "2",
+          "4617315517961601024",
+          "4611686018427387904",
+          "4618441417868443648",
+          "4616189618054758400"
+        ]
+      },
+      {
+        "id": "polyline_valid",
+        "accepted": true,
+        "tokens": [
+          "polyline",
+          "1",
+          "4607182418800017408",
+          "3",
+          "4607182418800017408",
+          "4611686018427387904",
+          "4613937818241073152",
+          "4616189618054758400",
+          "4617315517961601024",
+          "4618441417868443648"
+        ]
+      },
+      {
+        "id": "polyline_empty",
+        "accepted": true,
+        "tokens": [
+          "polyline",
+          "1",
+          "4607182418800017408",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "id": "polyline_no_height",
+        "accepted": true,
+        "tokens": [
+          "polyline",
+          "1",
+          "4607182418800017408",
+          "1",
+          "4607182418800017408",
+          "4611686018427387904"
+        ]
+      },
+      {
+        "id": "polyline_no_points",
+        "accepted": true,
+        "tokens": [
+          "polyline",
+          "1",
+          "4607182418800017408",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "id": "polyline_one_point",
+        "accepted": true,
+        "tokens": [
+          "polyline",
+          "1",
+          "4607182418800017408",
+          "1",
+          "4607182418800017408",
+          "4611686018427387904"
+        ]
+      },
+      {
+        "id": "polyline_two_points",
+        "accepted": true,
+        "tokens": [
+          "polyline",
+          "1",
+          "4607182418800017408",
+          "2",
+          "4607182418800017408",
+          "4611686018427387904",
+          "4613937818241073152",
+          "4616189618054758400"
+        ]
+      },
+      {
+        "id": "polyline_negative_height",
+        "accepted": true,
+        "tokens": [
+          "polyline",
+          "1",
+          "13835058055282163712",
+          "1",
+          "4607182418800017408",
+          "4611686018427387904"
+        ]
+      },
+      {
+        "id": "polyline_zero_height",
+        "accepted": true,
+        "tokens": [
+          "polyline",
+          "1",
+          "0",
+          "1",
+          "4607182418800017408",
+          "4611686018427387904"
+        ]
+      },
+      {
+        "id": "polyline_empty_height",
+        "accepted": false,
+        "tokens": [
+          "error"
+        ]
+      },
+      {
+        "id": "polyline_bad_height",
+        "accepted": false,
+        "tokens": [
+          "error"
+        ]
+      },
+      {
+        "id": "polyline_empty_point",
+        "accepted": true,
+        "tokens": [
+          "polyline",
+          "1",
+          "4607182418800017408",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "id": "polyline_bad_point",
+        "accepted": false,
+        "tokens": [
+          "error"
+        ]
+      },
+      {
+        "id": "polyline_spaced_point",
+        "accepted": true,
+        "tokens": [
+          "polyline",
+          "1",
+          "4607182418800017408",
+          "1",
+          "4607182418800017408",
+          "4611686018427387904"
+        ]
+      },
+      {
+        "id": "polyline_prefix_height",
+        "accepted": true,
+        "tokens": [
+          "polyline",
+          "1",
+          "4611686018427387904",
+          "1",
+          "4607182418800017408",
+          "4611686018427387904"
+        ]
+      },
+      {
+        "id": "polyline_cdata_height",
+        "accepted": true,
+        "tokens": [
+          "polyline",
+          "1",
+          "4611686018427387904",
+          "1",
+          "4607182418800017408",
+          "4611686018427387904"
+        ]
+      },
+      {
+        "id": "polyline_underflow_height",
+        "accepted": false,
+        "tokens": [
+          "error"
+        ]
+      },
+      {
+        "id": "polyline_multiple",
+        "accepted": true,
+        "tokens": [
+          "polyline",
+          "2",
+          "4611686018427387904",
+          "1",
+          "4607182418800017408",
+          "4611686018427387904",
+          "4613937818241073152",
+          "2",
+          "4613937818241073152",
+          "4616189618054758400",
+          "4617315517961601024",
+          "4618441417868443648"
+        ]
+      }
+    ],
+    "scope": "Plain boxed heightmap and ordered polyline metadata. Default native schema insertion is retained, including __default__ missing URI/string values and a zero point when none is present. Explicit empty required scalar/string values reject; empty vectors keep native defaults. Negative dimensions/heights and blend/texture counts remain unconstrained metadata. URI text stays unresolved, matching native default StoreResolvedURIs(false); asset lookup/image decoding/physics/serializer/setter behavior and generic vector-stream prefix/nonfinite parity remain separate. Every explicit heightmap/polyline collision must be rejected by consumers until physical support.",
+    "review": "Independent /root/transport_recovery approved corrected isolated 0eb5bd0d on 2026-10-25 after source/original/assertion/provenance comparison. Independently all 108 combined Rust checks,52 fresh native observations and exact unchanged DOMGeometry.Shapes XML one run/zero failures pass; every proof field/hash matches. Original Vector2 <=1e-6, Vector3 <=1e-3 and four-ULP scalar assertions retained. Explicitly approved owned lookups/enums/index collections and canonical optimization-string mapping as faithful for this case. Visual parent unsafe/ABI scope is separately approved by /root/msgs. Final integrated overlap receipt, strict staged/hosted gates remain required.",
+    "checks": "All 108 combined Rust checks and fmt/clippy pass. Working coverage is 2440/2456 production lines, 4289/4389 regions and 142/142 changed executable lines relative to c75839f (including pending visual parent). Fresh 52-case native probe and exact DOMGeometry.Shapes XML one run/zero failures pass; full source/assertion/provenance and pending visual safety reviews remain required.",
+    "integration": "Exact terrain production/assertion delta integrated onto independently reviewed visual commit0644c0f03c265762ba3b84ee4a99166be4baefb2. All108 Rust checks, fmt/clippy and working coverage pass:2440/2456 production lines,4289/4389 regions,91/91 changed executable lines. Fresh52-case native proof equals the independently reviewed isolated proof in every shared field/hash. New visual tempfile correction is inherited unchanged; no new terrain unsafe or dependencies. Final overlap receipt and exact staged/hosted gates remain required."
   }
 }

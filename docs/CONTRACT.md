@@ -74,6 +74,10 @@ values. Explicit `<segmentation_type>` and `<box_type>` populate their strings
 and presence flags as in native `Camera::Load`; omitted elements retain
 defaults with false presence. Native effective type remains separate from the
 literal XML spelling. Segmentation and bounding box rendering are not owned.
+`thermal`/`thermal_camera` and `wideanglecamera`/`wide_angle_camera` also
+select the owned Camera parser. The wide angle fixture retains its FOV,
+image/clip, lens function and coefficients, topic and update rate as values;
+no image rendering, thermal sampling or general camera grammar is implied.
 The six per-axis `Noise` records retain type,
 mean, standard deviation, bias mean/deviation, dynamic bias deviation/correlation
 time, and precision. Standard deviations are nonnegative; noise types are case

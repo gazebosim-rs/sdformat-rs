@@ -1721,4 +1721,38 @@ changed executable lines. Independent /root/transport_fallback approved the exac
 partial source/assertion mapping (receipt SHA256
 `6261af285b52fed63364d9da923c31fadaf9b724c3011b2fa646400ba586bf9c`),
 including a segmentation presence-bit removal countercontrol. Final metadata
+binding, protected hook and hosted qualification were pending at that review
+point; their completed results follow.
+
+The segmentation/bounding-box packet subsequently passed independent final
+binding (receipt SHA256
+`cacb0156ca11e38463dffcd9cddc9bc735866674c411604c1cbd7196268ce09f`),
+normal protected hook and exact hosted verify run 40232182970 at public commit
+349a05b4cc2d3194db1f6b7e8966dd174a7da073. Staged executable-line
+coverage was 3747/3759; the Link original remains partial.
+
+## Thermal and wide angle Camera fixture fragment candidate
+
+The owned Camera parser now accepts native `thermal`/`thermal_camera` and
+`wideanglecamera`/`wide_angle_camera` type spellings while keeping the exact
+literal kind. The unchanged upstream `sensors.sdf` contributes only the
+`thermal_sensor` and `wide_angle_camera_sensor` subtrees in minimal model/link
+wrappers. Thermal assertions retain original name, effective type, full raw
+pose, metrics and nested Camera name. Wide angle assertions retain original
+name, effective type, full sensor and Camera raw poses, metrics, FOV,
+topic/trigger, image/clip, lens function/coefficients and cutoff/texture size;
+owned envelope rate/always-on and source/XML are supplementary. Native Link
+name lookup and `SensorNameExists`, full count/index, nine other fixture
+instances, broad Camera grammar, thermal measurement and rendering remain
+unported. The full Link original remains partial.
+
+Pinned `DOMLink.Sensors` passes natively 1/0. The isolated source passes
+224 Rust tests, 15 tooling tests, formatting, Clippy and docs; direct
+production coverage is 3941/3959 lines, 6850/7049 regions and 13/13 changed
+executable lines. The initial pre-freeze Clippy approximate-constant finding
+was corrected by comparing the exact fixture decimal values through standard
+float parsing; no test or lint was weakened. Independent
+/root/transport_fallback approved the exact partial source/assertion mapping
+(receipt SHA256 `e4d6e18fe7e50ccc1ed449bab401a171a0e0da5ae0623ec3b571c358352540e5`),
+including a wideanglecamera admission-removal countercontrol. Final metadata
 binding, protected hook and hosted qualification are pending.

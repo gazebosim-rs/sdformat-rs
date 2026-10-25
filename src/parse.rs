@@ -2515,6 +2515,10 @@ impl Parser<'_> {
                 | "segmentation_camera"
                 | "boundingbox"
                 | "boundingbox_camera"
+                | "thermal"
+                | "thermal_camera"
+                | "wideanglecamera"
+                | "wide_angle_camera"
         ) {
             return Err(self.err(
                 node,
@@ -2545,6 +2549,10 @@ impl Parser<'_> {
                 | "segmentation_camera"
                 | "boundingbox"
                 | "boundingbox_camera"
+                | "thermal"
+                | "thermal_camera"
+                | "wideanglecamera"
+                | "wide_angle_camera"
         ) {
             "camera"
         } else {
@@ -2608,7 +2616,11 @@ impl Parser<'_> {
             | "segmentation"
             | "segmentation_camera"
             | "boundingbox"
-            | "boundingbox_camera" => SensorConfig::Camera(Box::new(self.camera(node)?)),
+            | "boundingbox_camera"
+            | "thermal"
+            | "thermal_camera"
+            | "wideanglecamera"
+            | "wide_angle_camera" => SensorConfig::Camera(Box::new(self.camera(node)?)),
             _ => unreachable!("sensor type checked above"),
         };
         let configuration_xml =

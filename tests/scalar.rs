@@ -94,6 +94,11 @@ fn scalar_loading_does_not_change_global_numeric_locale() {
     for case in cases().as_array().unwrap() {
         let _ = load_str(case["xml"].as_str().unwrap(), "locale.sdf", &NoResources);
     }
+    let visuals: serde_json::Value =
+        serde_json::from_str(include_str!("visual_properties.json")).unwrap();
+    for case in visuals.as_array().unwrap() {
+        let _ = load_str(case["xml"].as_str().unwrap(), "locale-visual", &NoResources);
+    }
     assert_eq!(locale_snapshot::numeric(), before);
 }
 
@@ -109,7 +114,8 @@ fn locale_allocation_failure() {
         return;
     }
     let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR"));
-    let library = root.join("target/scalar-locale-failure.so");
+    let temporary = tempfile::tempdir().unwrap();
+    let library = temporary.path().join("scalar-locale-failure.so");
     let compile = std::process::Command::new("cc")
         .args(["-shared", "-fPIC", "-Wall", "-Wextra", "-Werror"])
         .arg(root.join("tests/locale_failure.c"))

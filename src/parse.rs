@@ -1148,7 +1148,19 @@ impl Parser<'_> {
         })
     }
     fn visual(&self, node: Node<'_, '_>) -> Result<Visual, Diagnostic> {
-        self.allowed(node, &["pose", "geometry", "plugin"], &["name"])?;
+        self.allowed(
+            node,
+            &[
+                "pose",
+                "geometry",
+                "plugin",
+                "cast_shadows",
+                "transparency",
+                "visibility_flags",
+                "laser_retro",
+            ],
+            &["name"],
+        )?;
         let geometry = child(node, "geometry")
             .map(|n| {
                 if elements(n).next().is_none() {
@@ -1164,6 +1176,19 @@ impl Parser<'_> {
             name: self.name(node)?,
             pose: self.pose(node)?,
             geometry,
+            properties: VisualProperties {
+                cast_shadows: self.boolean(node, "cast_shadows", true)?,
+                transparency: if let Some(value) = child(node, "transparency") {
+                    crate::number::stored_double_to_float(self.scalar(node, "transparency", 0.)?)
+                        .map_err(|code| self.err(value, code, "transparency conversion failed"))?
+                } else {
+                    0.
+                },
+                visibility_flags: self.unsigned(node, "visibility_flags", u32::MAX)?,
+                laser_retro: child(node, "laser_retro")
+                    .map(|_| self.scalar(node, "laser_retro", 0.))
+                    .transpose()?,
+            },
             plugins: self.plugins(node)?,
             source: self.source(node),
         })

@@ -48,10 +48,6 @@ fn visual_validation_and_explicit_remaining_schema_contract() {
             ErrorCode::Unsupported,
         ),
         (
-            "<visual name='v'><transparency>0.5</transparency></visual>",
-            ErrorCode::Unsupported,
-        ),
-        (
             "<visual name='v'><geometry foo='x'/></visual>",
             ErrorCode::Unsupported,
         ),
@@ -63,6 +59,16 @@ fn visual_validation_and_explicit_remaining_schema_contract() {
         let xml = format!("<link name='l'>{visual}</link>");
         assert_eq!(document(&xml).unwrap_err().code, code, "{visual}");
     }
+    let transparent = document(
+        "<link name='l'><visual name='v'><transparency>0.5</transparency></visual></link>",
+    )
+    .unwrap();
+    assert_eq!(
+        transparent.models[0].links[0].visuals[0]
+            .properties
+            .transparency,
+        0.5
+    );
     let sdf = document("<link name='l'><visual name='v'><geometry><sphere><radius>-1</radius></sphere></geometry></visual></link>").unwrap();
     assert!(matches!(
         sdf.models[0].links[0].visuals[0].geometry,

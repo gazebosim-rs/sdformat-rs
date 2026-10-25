@@ -48,6 +48,47 @@ checks are retained alongside all previous original assertion ports.
 
 Per-call locale ownership has a cost. No parsing performance improvement or
 cached-locale optimization is claimed. Native and complete-parser benchmarks
-remain required before optimization or performance claims. Surface metadata
-remains separately unaccepted until its numeric correction and independent
-review pass the matching strict staged gate.
+remain required before optimization or performance claims. Surface metadata was
+subsequently reviewed on this boundary; physics parameter mapping remains a
+separate consumer capability.
+
+
+## Typed visual float getter
+
+Visual XML transparency is a double Param. Native Visual::Load requests float;
+Param::Get therefore prints the stored double with max_digits10 (17 significant
+digits), then uses std::stof. Range errors in that second conversion keep the
+float getter default zero and do not enter Root load errors. A direct f64-to-f32
+cast is observably different at float midpoints. Raw-token strtof also bypasses
+the first double conversion and loses native range/fallback behavior.
+
+The private stored_double_to_float(f64) -> Result<f32, ErrorCode> follows that
+finite-double getter path. Its sole parser caller first uses the existing scalar
+checker. The standard Rust formatter emits 17 significant decimal digits in
+scientific notation; exponent spelling and trailing zeros do not change stof's
+numeric input. The qualified floating environment is Linux GNU/glibc with default
+FE_TONEAREST and native classic formatting. Other rounding environments are not
+qualified. Two native-accepted nonfinite DOM controls remain rejected by the
+existing finite scalar policy, explicitly outside matching finite/error rows.
+
+The added local strtof_l declaration matches the installed stdlib.h float ABI.
+As with strtod_l, each call owns a fresh C numeric locale and NUL-terminated input;
+end is comparison-only, errno is captured immediately and restored after freeing
+the valid locale and dropping the buffer. Invalid/range conversion returns the
+native getter's zero default. Locale allocation failure remains Resource. There
+is no process/thread locale switch, pointer escape, callback or new dependency.
+The existing deny lint and single allow-scoped module remain unchanged. This
+extension requires independent code, ABI, lifecycle and assertion review before
+publication; prior strtod approval alone does not approve strtof.
+
+Native controls compare exact float bits for signed zero, both signs of midpoint
+neighbors, normal/subnormal/overflow edges, boolean/prefix/hex input and malformed
+values. The original scalar global-locale snapshot also exercises visual inputs.
+Concurrent errno tests and a separate LD_PRELOAD child force failure on the second
+locale allocation, checking cleanup after the first successful double conversion
+and no null free. No formatting or parsing speedup is claimed.
+
+Native float-getter conversion failures also write console diagnostics. This
+new-value Rust API retains the returned zero and successful DOM load, but does
+not emit those console warnings; diagnostic bytes and side effects are not
+qualified. No mutable Visual setter or serializer facade is introduced.

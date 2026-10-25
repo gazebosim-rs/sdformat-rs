@@ -397,8 +397,29 @@ pub struct Visual {
     pub name: String,
     pub pose: Pose,
     pub geometry: Option<Geometry>,
+    pub properties: VisualProperties,
     pub plugins: Vec<Plugin>,
     pub source: Source,
+}
+/// Owned rendering/lidar metadata; parsing does not implement those effects.
+#[derive(Debug, Clone, PartialEq)]
+pub struct VisualProperties {
+    pub cast_shadows: bool,
+    /// Native getter stores float32 after converting its XML double value.
+    pub transparency: f32,
+    pub visibility_flags: u32,
+    /// Presence matches native HasLaserRetro, including Some(0.0).
+    pub laser_retro: Option<f64>,
+}
+impl Default for VisualProperties {
+    fn default() -> Self {
+        Self {
+            cast_shadows: true,
+            transparency: 0.,
+            visibility_flags: u32::MAX,
+            laser_retro: None,
+        }
+    }
 }
 #[derive(Debug, PartialEq)]
 pub enum Geometry {

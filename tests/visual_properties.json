@@ -1,0 +1,1392 @@
+[
+  {
+    "id": "absent",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "empty_tags",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><cast_shadows/><transparency/><visibility_flags/><laser_retro/></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": true,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "transparency_0",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "transparency_-0",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 2147483648,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "transparency_0.22",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0.22</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 1046562734,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "transparency_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>1</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 1065353216,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "transparency_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-1</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 3212836864,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "transparency_2",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>2</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 1073741824,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "transparency_1e-40",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>1e-40</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "transparency_1e-38",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>1e-38</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "transparency_1.1754943508222875e-38",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>1.1754943508222875e-38</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 8388608,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "transparency_3.4028234663852886e38",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>3.4028234663852886e38</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 2139095039,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "transparency_3.4028236e38",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>3.4028236e38</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "transparency_1e100",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>1e100</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "transparency_1e-310",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>1e-310</transparency></visual></link></model></sdf>",
+    "accepted": false,
+    "errors": "Error Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/visual[@name=\"v\"]/transparency:<data-string>:L1]: Msg: Error reading element <transparency>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/visual[@name=\"v\"]:<data-string>:L1]: Msg: Error reading element <visual>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]:<data-string>:L1]: Msg: Error reading element <link>\nError Code 9: [/sdf/model[@name=\"m\"]:<data-string>:L1]: Msg: Error reading element <model>\nError Code 9: Msg: Error reading element <sdf>\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>1e-310</transparency></visual></link></model></sdf>\n"
+  },
+  {
+    "id": "transparency_0x1p-149",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1p-149</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "transparency_0x1p-1074",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1p-1074</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "transparency_0.5000000298023223876953125",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0.5000000298023223876953125</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 1056964609,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "transparency_0.5000000298023224",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0.5000000298023224</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 1056964609,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "transparency_true",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>true</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 1065353216,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "transparency_1.2tail",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>1.2tail</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 1067030938,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "transparency_inf",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>inf</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 2139095040,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "transparency_nan",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>nan</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 2143289344,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "transparency_bad",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>bad</transparency></visual></link></model></sdf>",
+    "accepted": false,
+    "errors": "Error Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/visual[@name=\"v\"]/transparency:<data-string>:L1]: Msg: Error reading element <transparency>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/visual[@name=\"v\"]:<data-string>:L1]: Msg: Error reading element <visual>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]:<data-string>:L1]: Msg: Error reading element <link>\nError Code 9: [/sdf/model[@name=\"m\"]:<data-string>:L1]: Msg: Error reading element <model>\nError Code 9: Msg: Error reading element <sdf>\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>bad</transparency></visual></link></model></sdf>\n"
+  },
+  {
+    "id": "transparency_<![CDATA[\u000b]]>",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency><![CDATA[\u000b]]></transparency></visual></link></model></sdf>",
+    "accepted": false,
+    "errors": "Error Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/visual[@name=\"v\"]/transparency:<data-string>:L1]: Msg: Error reading element <transparency>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/visual[@name=\"v\"]:<data-string>:L1]: Msg: Error reading element <visual>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]:<data-string>:L1]: Msg: Error reading element <link>\nError Code 9: [/sdf/model[@name=\"m\"]:<data-string>:L1]: Msg: Error reading element <model>\nError Code 9: Msg: Error reading element <sdf>\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency><![CDATA[\u000b]]></transparency></visual></link></model></sdf>\n"
+  },
+  {
+    "id": "flags_0",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><visibility_flags>0</visibility_flags></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 0,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "flags_0xAB",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><visibility_flags>0xAB</visibility_flags></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 171,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "flags_1tail",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><visibility_flags>1tail</visibility_flags></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 1,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "flags_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><visibility_flags>-1</visibility_flags></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "flags_4294967296",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><visibility_flags>4294967296</visibility_flags></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 0,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "flags_18446744073709551615",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><visibility_flags>18446744073709551615</visibility_flags></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "flags_18446744073709551616",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><visibility_flags>18446744073709551616</visibility_flags></visual></link></model></sdf>",
+    "accepted": false,
+    "errors": "Error Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/visual[@name=\"v\"]/visibility_flags:<data-string>:L1]: Msg: Error reading element <visibility_flags>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/visual[@name=\"v\"]:<data-string>:L1]: Msg: Error reading element <visual>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]:<data-string>:L1]: Msg: Error reading element <link>\nError Code 9: [/sdf/model[@name=\"m\"]:<data-string>:L1]: Msg: Error reading element <model>\nError Code 9: Msg: Error reading element <sdf>\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.12'><model name='m'><link name='l'><visual name='v'><visibility_flags>18446744073709551616</visibility_flags></visual></link></model></sdf>\n"
+  },
+  {
+    "id": "flags_-18446744073709551616",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><visibility_flags>-18446744073709551616</visibility_flags></visual></link></model></sdf>",
+    "accepted": false,
+    "errors": "Error Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/visual[@name=\"v\"]/visibility_flags:<data-string>:L1]: Msg: Error reading element <visibility_flags>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/visual[@name=\"v\"]:<data-string>:L1]: Msg: Error reading element <visual>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]:<data-string>:L1]: Msg: Error reading element <link>\nError Code 9: [/sdf/model[@name=\"m\"]:<data-string>:L1]: Msg: Error reading element <model>\nError Code 9: Msg: Error reading element <sdf>\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.12'><model name='m'><link name='l'><visual name='v'><visibility_flags>-18446744073709551616</visibility_flags></visual></link></model></sdf>\n"
+  },
+  {
+    "id": "flags_true",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><visibility_flags>true</visibility_flags></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 1,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "flags_bad",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><visibility_flags>bad</visibility_flags></visual></link></model></sdf>",
+    "accepted": false,
+    "errors": "Error Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/visual[@name=\"v\"]/visibility_flags:<data-string>:L1]: Msg: Error reading element <visibility_flags>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/visual[@name=\"v\"]:<data-string>:L1]: Msg: Error reading element <visual>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]:<data-string>:L1]: Msg: Error reading element <link>\nError Code 9: [/sdf/model[@name=\"m\"]:<data-string>:L1]: Msg: Error reading element <model>\nError Code 9: Msg: Error reading element <sdf>\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.12'><model name='m'><link name='l'><visual name='v'><visibility_flags>bad</visibility_flags></visual></link></model></sdf>\n"
+  },
+  {
+    "id": "retro_0",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><laser_retro>0</laser_retro></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": true,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "retro_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><laser_retro>-1</laser_retro></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": true,
+    "laser_retro_bits": 13830554455654793216
+  },
+  {
+    "id": "retro_1e-310",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><laser_retro>1e-310</laser_retro></visual></link></model></sdf>",
+    "accepted": false,
+    "errors": "Error Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/visual[@name=\"v\"]/laser_retro:<data-string>:L1]: Msg: Error reading element <laser_retro>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/visual[@name=\"v\"]:<data-string>:L1]: Msg: Error reading element <visual>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]:<data-string>:L1]: Msg: Error reading element <link>\nError Code 9: [/sdf/model[@name=\"m\"]:<data-string>:L1]: Msg: Error reading element <model>\nError Code 9: Msg: Error reading element <sdf>\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.12'><model name='m'><link name='l'><visual name='v'><laser_retro>1e-310</laser_retro></visual></link></model></sdf>\n"
+  },
+  {
+    "id": "retro_true",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><laser_retro>true</laser_retro></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": true,
+    "laser_retro_bits": 4607182418800017408
+  },
+  {
+    "id": "retro_bad",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><laser_retro>bad</laser_retro></visual></link></model></sdf>",
+    "accepted": false,
+    "errors": "Error Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/visual[@name=\"v\"]/laser_retro:<data-string>:L1]: Msg: Error reading element <laser_retro>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/visual[@name=\"v\"]:<data-string>:L1]: Msg: Error reading element <visual>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]:<data-string>:L1]: Msg: Error reading element <link>\nError Code 9: [/sdf/model[@name=\"m\"]:<data-string>:L1]: Msg: Error reading element <model>\nError Code 9: Msg: Error reading element <sdf>\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.12'><model name='m'><link name='l'><visual name='v'><laser_retro>bad</laser_retro></visual></link></model></sdf>\n"
+  },
+  {
+    "id": "shadows_false",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><cast_shadows>false</cast_shadows></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": false,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "shadows_true",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><cast_shadows>true</cast_shadows></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "shadows_TRUE",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><cast_shadows>TRUE</cast_shadows></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "shadows_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><cast_shadows>1</cast_shadows></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "shadows_0",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><cast_shadows>0</cast_shadows></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": false,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "shadows_2",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><cast_shadows>2</cast_shadows></visual></link></model></sdf>",
+    "accepted": false,
+    "errors": "Error Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/visual[@name=\"v\"]/cast_shadows:<data-string>:L1]: Msg: Error reading element <cast_shadows>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/visual[@name=\"v\"]:<data-string>:L1]: Msg: Error reading element <visual>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]:<data-string>:L1]: Msg: Error reading element <link>\nError Code 9: [/sdf/model[@name=\"m\"]:<data-string>:L1]: Msg: Error reading element <model>\nError Code 9: Msg: Error reading element <sdf>\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.12'><model name='m'><link name='l'><visual name='v'><cast_shadows>2</cast_shadows></visual></link></model></sdf>\n"
+  },
+  {
+    "id": "shadows_bad",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><cast_shadows>bad</cast_shadows></visual></link></model></sdf>",
+    "accepted": false,
+    "errors": "Error Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/visual[@name=\"v\"]/cast_shadows:<data-string>:L1]: Msg: Error reading element <cast_shadows>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/visual[@name=\"v\"]:<data-string>:L1]: Msg: Error reading element <visual>\nError Code 9: [/sdf/model[@name=\"m\"]/link[@name=\"l\"]:<data-string>:L1]: Msg: Error reading element <link>\nError Code 9: [/sdf/model[@name=\"m\"]:<data-string>:L1]: Msg: Error reading element <model>\nError Code 9: Msg: Error reading element <sdf>\nError Code 30: Msg: Unable to read SDF string: <sdf version='1.12'><model name='m'><link name='l'><visual name='v'><cast_shadows>bad</cast_shadows></visual></link></model></sdf>\n"
+  },
+  {
+    "id": "float_00000000_below_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.fffffffffffffp-151</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_00000000_below_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.fffffffffffffp-151</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_00000000_mid_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.0000000000000p-150</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_00000000_mid_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.0000000000000p-150</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_00000000_above_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.0000000000001p-150</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_00000000_above_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.0000000000001p-150</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_00000001_below_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.7ffffffffffffp-149</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_00000001_below_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.7ffffffffffffp-149</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_00000001_mid_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.8000000000000p-149</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_00000001_mid_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.8000000000000p-149</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_00000001_above_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.8000000000001p-149</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_00000001_above_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.8000000000001p-149</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_00000002_below_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.3ffffffffffffp-148</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_00000002_below_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.3ffffffffffffp-148</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_00000002_mid_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.4000000000000p-148</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_00000002_mid_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.4000000000000p-148</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_00000002_above_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.4000000000001p-148</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_00000002_above_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.4000000000001p-148</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_007ffffe_below_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.fffff9fffffffp-127</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_007ffffe_below_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.fffff9fffffffp-127</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_007ffffe_mid_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.fffffa0000000p-127</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_007ffffe_mid_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.fffffa0000000p-127</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_007ffffe_above_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.fffffa0000001p-127</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_007ffffe_above_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.fffffa0000001p-127</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_007fffff_below_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.fffffdfffffffp-127</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_007fffff_below_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.fffffdfffffffp-127</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_007fffff_mid_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.fffffe0000000p-127</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_007fffff_mid_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.fffffe0000000p-127</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_007fffff_above_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.fffffe0000001p-127</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_007fffff_above_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.fffffe0000001p-127</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 0,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_00800000_below_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.000000fffffffp-126</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 8388608,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_00800000_below_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.000000fffffffp-126</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 2155872256,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_00800000_mid_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.0000010000000p-126</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 8388608,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_00800000_mid_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.0000010000000p-126</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 2155872256,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_00800000_above_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.0000010000001p-126</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 8388609,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_00800000_above_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.0000010000001p-126</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 2155872257,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_00800001_below_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.000002fffffffp-126</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 8388609,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_00800001_below_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.000002fffffffp-126</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 2155872257,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_00800001_mid_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.0000030000000p-126</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 8388610,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_00800001_mid_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.0000030000000p-126</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 2155872258,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_00800001_above_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.0000030000001p-126</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 8388610,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_00800001_above_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.0000030000001p-126</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 2155872258,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3effffff_below_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.fffffefffffffp-2</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 1056964607,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3effffff_below_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.fffffefffffffp-2</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 3204448255,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3effffff_mid_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.ffffff0000000p-2</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 1056964608,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3effffff_mid_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.ffffff0000000p-2</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 3204448256,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3effffff_above_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.ffffff0000001p-2</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 1056964608,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3effffff_above_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.ffffff0000001p-2</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 3204448256,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3f000000_below_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.000000fffffffp-1</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 1056964608,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3f000000_below_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.000000fffffffp-1</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 3204448256,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3f000000_mid_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.0000010000000p-1</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 1056964609,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3f000000_mid_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.0000010000000p-1</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 3204448257,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3f000000_above_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.0000010000001p-1</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 1056964609,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3f000000_above_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.0000010000001p-1</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 3204448257,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3f000001_below_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.000002fffffffp-1</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 1056964609,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3f000001_below_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.000002fffffffp-1</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 3204448257,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3f000001_mid_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.0000030000000p-1</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 1056964609,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3f000001_mid_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.0000030000000p-1</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 3204448257,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3f000001_above_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.0000030000001p-1</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 1056964610,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3f000001_above_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.0000030000001p-1</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 3204448258,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3f000002_below_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.000004fffffffp-1</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 1056964610,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3f000002_below_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.000004fffffffp-1</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 3204448258,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3f000002_mid_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.0000050000000p-1</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 1056964611,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3f000002_mid_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.0000050000000p-1</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 3204448259,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3f000002_above_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.0000050000001p-1</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 1056964611,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3f000002_above_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.0000050000001p-1</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 3204448259,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3f7fffff_below_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.fffffefffffffp-1</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 1065353215,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3f7fffff_below_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.fffffefffffffp-1</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 3212836863,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3f7fffff_mid_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.ffffff0000000p-1</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 1065353215,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3f7fffff_mid_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.ffffff0000000p-1</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 3212836863,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3f7fffff_above_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.ffffff0000001p-1</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 1065353216,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3f7fffff_above_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.ffffff0000001p-1</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 3212836864,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3f800000_below_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.000000fffffffp+0</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 1065353216,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3f800000_below_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.000000fffffffp+0</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 3212836864,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3f800000_mid_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.0000010000000p+0</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 1065353217,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3f800000_mid_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.0000010000000p+0</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 3212836865,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3f800000_above_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.0000010000001p+0</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 1065353217,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3f800000_above_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.0000010000001p+0</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 3212836865,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3f800001_below_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.000002fffffffp+0</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 1065353217,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3f800001_below_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.000002fffffffp+0</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 3212836865,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3f800001_mid_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.0000030000000p+0</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 1065353217,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3f800001_mid_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.0000030000000p+0</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 3212836865,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3f800001_above_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.0000030000001p+0</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 1065353218,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3f800001_above_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.0000030000001p+0</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 3212836866,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3fffffff_below_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.fffffefffffffp+0</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 1073741823,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3fffffff_below_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.fffffefffffffp+0</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 3221225471,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3fffffff_mid_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.ffffff0000000p+0</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 1073741823,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3fffffff_mid_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.ffffff0000000p+0</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 3221225471,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3fffffff_above_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.ffffff0000001p+0</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 1073741824,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_3fffffff_above_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.ffffff0000001p+0</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 3221225472,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_7f7ffffe_below_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.fffffcfffffffp+127</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 2139095038,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_7f7ffffe_below_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.fffffcfffffffp+127</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 4286578686,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_7f7ffffe_mid_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.fffffd0000000p+127</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 2139095039,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_7f7ffffe_mid_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.fffffd0000000p+127</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 4286578687,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_7f7ffffe_above_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>0x1.fffffd0000001p+127</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 2139095039,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  },
+  {
+    "id": "float_7f7ffffe_above_-1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><visual name='v'><transparency>-0x1.fffffd0000001p+127</transparency></visual></link></model></sdf>",
+    "accepted": true,
+    "cast_shadows": true,
+    "transparency_bits": 4286578687,
+    "visibility_flags": 4294967295,
+    "has_laser_retro": false,
+    "laser_retro_bits": 0
+  }
+]

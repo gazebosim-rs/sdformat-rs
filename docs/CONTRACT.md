@@ -308,3 +308,19 @@ negative/indefinite values remain permitted native DOM metadata; no extra
 positive-definiteness or hydrodynamic calculation is imposed. Physics consumers
 must reject Some until their engine supports it. Existing rigid-body mass/inertia
 validation is unchanged; this metadata API introduces no math dependency.
+
+
+Visual.properties is an owned clonable VisualProperties record. It preserves
+cast_shadows (default true), float32 transparency (default zero), visibility_flags
+(default u32::MAX) and laser_retro (None if absent, Some even for explicit zero).
+The optional laser value matches native HasLaserRetro for loaded XML; no generic
+mutable C++ setter facade is claimed. Finite negative/outside-unit transparency
+and negative laser values remain native DOM metadata, without extra clamping.
+
+Transparency follows native double storage, 17-digit formatting and float getter
+conversion, including zero fallback when the second conversion is out of range.
+The Linux GNU/default-rounding qualification and audited strtof_l extension are
+specified in SCALAR_CONVERSION.md. Native nonfinite DOM values remain an explicit
+unsupported semantic boundary. These properties are metadata; no render/lidar
+effect or image/mesh IO is implemented by parsing. Consumers may retain them as
+scene metadata before rendering/lidar support; they must not claim those effects.

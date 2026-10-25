@@ -8247,5 +8247,1542 @@
     "scope": "Optional boxed symmetric 6x6 [x,y,z,p,q,r] metadata about the link origin. None differs from explicit zero; 21 optional scalar entries default zero and mirror into lower triangle. Finite negative/indefinite matrices remain valid native metadata; no positive-definiteness or hydrodynamic behavior added. Existing physical rigid-body inertia validation remains unchanged. Unknown/schema duplicate fields remain explicit Rust errors; generic Element mutation/serialization and automatic inertia remain pending. Consumer must reject Some until engine support. Linux GNU scalar qualification remains; native infinity/NaN matrices are rejected here by the native symmetry check and match Rust rejection.",
     "review": "Independent /root/transport_recovery approved isolated 9d3251471e128b6d133c3b068acb618e3f0d434b46949e79e8da7bcc77ef97ee after source/schema/original assertion comparison and independently passing all 98 Rust tests, 40 freshly rebuilt native bit/presence observations and exact original XML one run/zero failures. All proof fields/hashes matched. Explicitly approved this fixture's IsValid true observation through mandatory typed physical-inertia validation plus exact known-valid rigid inertia values; no generic validity algorithm/API parity claim.",
     "integration": "Unchanged production/type/assertion delta integrated onto reviewed version-1.5 parent 9222bd64cf494e90cefe30608d51167d95fd02ce. All 100 Rust checks, fmt/clippy and working coverage pass: 2292/2308 lines, 4005/4101 regions and 16/16 changed executable lines. Fresh 40 native observations and proof are byte-value-identical to isolated reviewed proof. Prior include/version/primitive mappings preserved. Exact integrated overlap review, matching protected receipt and normal strict staged/hosted gates remain required."
+  },
+  "visual_properties_corpus": {
+    "upstream_sha": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "corpus_sha256": "7d858833e40720201e6262beebfc07c8fbd73b75797701d507907702a54385ff",
+    "probe_source_sha256": "8ee5de83b56f6958adee0d83e561abdb91a61ad9a374f0c7ad22333ed5fe7c7c",
+    "probe_binary_sha256": "e006139e1dc48a3d58c9659d72534bffd743d89cdf5334e641ce89cbf84d9e1d",
+    "native_library_sha256": "bcc864bcee56b49c13081e29722051e26c036260e3dd037e7736aa2b8620358f",
+    "native_cpp_library_sha256": "1fd75fe70354a416d75aef22bcae68c47bd25d20e2d0568c30b1a9838cf62f11",
+    "source_sha256": {
+      "src/Visual.cc": "a8d15282614dab9037029fc4d0774eae0014b77812d3d9a670a24ee4d76c04d2",
+      "include/sdf/Visual.hh": "b156de0f7bd84fea3238b7d32aab59962fb029f0a8d4f0a6cb5faa541577a4da",
+      "src/Param.cc": "487407a4a2301617b262ccb782312fe9c1d3d099e715aa42f3bb3cb713b29dce",
+      "include/sdf/Param.hh": "9a9ac972d4bede5b6b7dd8081b799fbecf95b3c720d5e43741cef68e9c288bd1",
+      "src/Element.cc": "252cd5d441eb5de53a6cd46c45733f2202abf6aa8bb6ba5d023b1a55fa57e063",
+      "include/sdf/Element.hh": "7fd9188523a957c8d9d96e33f31ff39ccf95fd3752a664bf3ffb60185be9da4e",
+      "sdf/1.12/visual.sdf": "e93cc29ec101955f463981232dde8048ca7373b2fb85d298d936ec7c55c7d4c4",
+      "src/Visual_TEST.cc": "ad3f44abdbe5b96820fbe0ac120a24ea9558154a69c627dbce110270baf16f6a"
+    },
+    "stdlib_header_sha256": "21500d5cb6062df47d6507baef6111cc951ceece4e2df26289a420fcf05ebec4",
+    "abi_check_sha256": "29400be1306f318774626307fca910764f8df57bed4a054bd166fef1d6c2a13c",
+    "fault_shim_sha256": "978d22f019a3bf568fca6546c90c96087c7148bf4dcfc3e785e0f14d47f6f173",
+    "libc_version": "ldd (Ubuntu GLIBC 2.39-0ubuntu8.9) 2.39",
+    "observations": [
+      {
+        "id": "absent",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "empty_tags",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          1,
+          0
+        ]
+      },
+      {
+        "id": "transparency_0",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "transparency_-0",
+        "accepted": true,
+        "values": [
+          1,
+          2147483648,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "transparency_0.22",
+        "accepted": true,
+        "values": [
+          1,
+          1046562734,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "transparency_1",
+        "accepted": true,
+        "values": [
+          1,
+          1065353216,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "transparency_-1",
+        "accepted": true,
+        "values": [
+          1,
+          3212836864,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "transparency_2",
+        "accepted": true,
+        "values": [
+          1,
+          1073741824,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "transparency_1e-40",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "transparency_1e-38",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "transparency_1.1754943508222875e-38",
+        "accepted": true,
+        "values": [
+          1,
+          8388608,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "transparency_3.4028234663852886e38",
+        "accepted": true,
+        "values": [
+          1,
+          2139095039,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "transparency_3.4028236e38",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "transparency_1e100",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "transparency_1e-310",
+        "accepted": false
+      },
+      {
+        "id": "transparency_0x1p-149",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "transparency_0x1p-1074",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "transparency_0.5000000298023223876953125",
+        "accepted": true,
+        "values": [
+          1,
+          1056964609,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "transparency_0.5000000298023224",
+        "accepted": true,
+        "values": [
+          1,
+          1056964609,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "transparency_true",
+        "accepted": true,
+        "values": [
+          1,
+          1065353216,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "transparency_1.2tail",
+        "accepted": true,
+        "values": [
+          1,
+          1067030938,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "transparency_inf",
+        "accepted": true,
+        "values": [
+          1,
+          2139095040,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "transparency_nan",
+        "accepted": true,
+        "values": [
+          1,
+          2143289344,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "transparency_bad",
+        "accepted": false
+      },
+      {
+        "id": "transparency_<![CDATA[\u000b]]>",
+        "accepted": false
+      },
+      {
+        "id": "flags_0",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "flags_0xAB",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          171,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "flags_1tail",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "flags_-1",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "flags_4294967296",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "flags_18446744073709551615",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "flags_18446744073709551616",
+        "accepted": false
+      },
+      {
+        "id": "flags_-18446744073709551616",
+        "accepted": false
+      },
+      {
+        "id": "flags_true",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "flags_bad",
+        "accepted": false
+      },
+      {
+        "id": "retro_0",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          1,
+          0
+        ]
+      },
+      {
+        "id": "retro_-1",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          1,
+          13830554455654793216
+        ]
+      },
+      {
+        "id": "retro_1e-310",
+        "accepted": false
+      },
+      {
+        "id": "retro_true",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          1,
+          4607182418800017408
+        ]
+      },
+      {
+        "id": "retro_bad",
+        "accepted": false
+      },
+      {
+        "id": "shadows_false",
+        "accepted": true,
+        "values": [
+          0,
+          0,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "shadows_true",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "shadows_TRUE",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "shadows_1",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "shadows_0",
+        "accepted": true,
+        "values": [
+          0,
+          0,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "shadows_2",
+        "accepted": false
+      },
+      {
+        "id": "shadows_bad",
+        "accepted": false
+      },
+      {
+        "id": "float_00000000_below_1",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_00000000_below_-1",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_00000000_mid_1",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_00000000_mid_-1",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_00000000_above_1",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_00000000_above_-1",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_00000001_below_1",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_00000001_below_-1",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_00000001_mid_1",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_00000001_mid_-1",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_00000001_above_1",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_00000001_above_-1",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_00000002_below_1",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_00000002_below_-1",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_00000002_mid_1",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_00000002_mid_-1",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_00000002_above_1",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_00000002_above_-1",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_007ffffe_below_1",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_007ffffe_below_-1",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_007ffffe_mid_1",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_007ffffe_mid_-1",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_007ffffe_above_1",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_007ffffe_above_-1",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_007fffff_below_1",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_007fffff_below_-1",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_007fffff_mid_1",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_007fffff_mid_-1",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_007fffff_above_1",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_007fffff_above_-1",
+        "accepted": true,
+        "values": [
+          1,
+          0,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_00800000_below_1",
+        "accepted": true,
+        "values": [
+          1,
+          8388608,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_00800000_below_-1",
+        "accepted": true,
+        "values": [
+          1,
+          2155872256,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_00800000_mid_1",
+        "accepted": true,
+        "values": [
+          1,
+          8388608,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_00800000_mid_-1",
+        "accepted": true,
+        "values": [
+          1,
+          2155872256,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_00800000_above_1",
+        "accepted": true,
+        "values": [
+          1,
+          8388609,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_00800000_above_-1",
+        "accepted": true,
+        "values": [
+          1,
+          2155872257,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_00800001_below_1",
+        "accepted": true,
+        "values": [
+          1,
+          8388609,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_00800001_below_-1",
+        "accepted": true,
+        "values": [
+          1,
+          2155872257,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_00800001_mid_1",
+        "accepted": true,
+        "values": [
+          1,
+          8388610,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_00800001_mid_-1",
+        "accepted": true,
+        "values": [
+          1,
+          2155872258,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_00800001_above_1",
+        "accepted": true,
+        "values": [
+          1,
+          8388610,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_00800001_above_-1",
+        "accepted": true,
+        "values": [
+          1,
+          2155872258,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3effffff_below_1",
+        "accepted": true,
+        "values": [
+          1,
+          1056964607,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3effffff_below_-1",
+        "accepted": true,
+        "values": [
+          1,
+          3204448255,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3effffff_mid_1",
+        "accepted": true,
+        "values": [
+          1,
+          1056964608,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3effffff_mid_-1",
+        "accepted": true,
+        "values": [
+          1,
+          3204448256,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3effffff_above_1",
+        "accepted": true,
+        "values": [
+          1,
+          1056964608,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3effffff_above_-1",
+        "accepted": true,
+        "values": [
+          1,
+          3204448256,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3f000000_below_1",
+        "accepted": true,
+        "values": [
+          1,
+          1056964608,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3f000000_below_-1",
+        "accepted": true,
+        "values": [
+          1,
+          3204448256,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3f000000_mid_1",
+        "accepted": true,
+        "values": [
+          1,
+          1056964609,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3f000000_mid_-1",
+        "accepted": true,
+        "values": [
+          1,
+          3204448257,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3f000000_above_1",
+        "accepted": true,
+        "values": [
+          1,
+          1056964609,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3f000000_above_-1",
+        "accepted": true,
+        "values": [
+          1,
+          3204448257,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3f000001_below_1",
+        "accepted": true,
+        "values": [
+          1,
+          1056964609,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3f000001_below_-1",
+        "accepted": true,
+        "values": [
+          1,
+          3204448257,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3f000001_mid_1",
+        "accepted": true,
+        "values": [
+          1,
+          1056964609,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3f000001_mid_-1",
+        "accepted": true,
+        "values": [
+          1,
+          3204448257,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3f000001_above_1",
+        "accepted": true,
+        "values": [
+          1,
+          1056964610,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3f000001_above_-1",
+        "accepted": true,
+        "values": [
+          1,
+          3204448258,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3f000002_below_1",
+        "accepted": true,
+        "values": [
+          1,
+          1056964610,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3f000002_below_-1",
+        "accepted": true,
+        "values": [
+          1,
+          3204448258,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3f000002_mid_1",
+        "accepted": true,
+        "values": [
+          1,
+          1056964611,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3f000002_mid_-1",
+        "accepted": true,
+        "values": [
+          1,
+          3204448259,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3f000002_above_1",
+        "accepted": true,
+        "values": [
+          1,
+          1056964611,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3f000002_above_-1",
+        "accepted": true,
+        "values": [
+          1,
+          3204448259,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3f7fffff_below_1",
+        "accepted": true,
+        "values": [
+          1,
+          1065353215,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3f7fffff_below_-1",
+        "accepted": true,
+        "values": [
+          1,
+          3212836863,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3f7fffff_mid_1",
+        "accepted": true,
+        "values": [
+          1,
+          1065353215,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3f7fffff_mid_-1",
+        "accepted": true,
+        "values": [
+          1,
+          3212836863,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3f7fffff_above_1",
+        "accepted": true,
+        "values": [
+          1,
+          1065353216,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3f7fffff_above_-1",
+        "accepted": true,
+        "values": [
+          1,
+          3212836864,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3f800000_below_1",
+        "accepted": true,
+        "values": [
+          1,
+          1065353216,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3f800000_below_-1",
+        "accepted": true,
+        "values": [
+          1,
+          3212836864,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3f800000_mid_1",
+        "accepted": true,
+        "values": [
+          1,
+          1065353217,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3f800000_mid_-1",
+        "accepted": true,
+        "values": [
+          1,
+          3212836865,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3f800000_above_1",
+        "accepted": true,
+        "values": [
+          1,
+          1065353217,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3f800000_above_-1",
+        "accepted": true,
+        "values": [
+          1,
+          3212836865,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3f800001_below_1",
+        "accepted": true,
+        "values": [
+          1,
+          1065353217,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3f800001_below_-1",
+        "accepted": true,
+        "values": [
+          1,
+          3212836865,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3f800001_mid_1",
+        "accepted": true,
+        "values": [
+          1,
+          1065353217,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3f800001_mid_-1",
+        "accepted": true,
+        "values": [
+          1,
+          3212836865,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3f800001_above_1",
+        "accepted": true,
+        "values": [
+          1,
+          1065353218,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3f800001_above_-1",
+        "accepted": true,
+        "values": [
+          1,
+          3212836866,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3fffffff_below_1",
+        "accepted": true,
+        "values": [
+          1,
+          1073741823,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3fffffff_below_-1",
+        "accepted": true,
+        "values": [
+          1,
+          3221225471,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3fffffff_mid_1",
+        "accepted": true,
+        "values": [
+          1,
+          1073741823,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3fffffff_mid_-1",
+        "accepted": true,
+        "values": [
+          1,
+          3221225471,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3fffffff_above_1",
+        "accepted": true,
+        "values": [
+          1,
+          1073741824,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_3fffffff_above_-1",
+        "accepted": true,
+        "values": [
+          1,
+          3221225472,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_7f7ffffe_below_1",
+        "accepted": true,
+        "values": [
+          1,
+          2139095038,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_7f7ffffe_below_-1",
+        "accepted": true,
+        "values": [
+          1,
+          4286578686,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_7f7ffffe_mid_1",
+        "accepted": true,
+        "values": [
+          1,
+          2139095039,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_7f7ffffe_mid_-1",
+        "accepted": true,
+        "values": [
+          1,
+          4286578687,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_7f7ffffe_above_1",
+        "accepted": true,
+        "values": [
+          1,
+          2139095039,
+          4294967295,
+          0,
+          0
+        ]
+      },
+      {
+        "id": "float_7f7ffffe_above_-1",
+        "accepted": true,
+        "values": [
+          1,
+          4286578687,
+          4294967295,
+          0,
+          0
+        ]
+      }
+    ],
+    "native_observations": 143,
+    "matching_finite_or_error_observations": 141,
+    "explicit_nonfinite_gaps": [
+      "transparency_inf",
+      "transparency_nan"
+    ],
+    "floating_environment": "FE_TONEAREST; default C++ classic formatting; no other rounding-mode qualification",
+    "scope": "Owned VisualProperties retains native loaded-XML cast_shadows, float32 transparency, visibility_flags and optional laser_retro presence. Linux GNU FE_TONEAREST transparency follows stored double -> 17 significant decimal digits -> strtof_l; second-conversion ERANGE defaults zero without rejecting the DOM. All 143 native observations are retained; 141 finite/error rows match, while infinity and NaN remain explicit existing finite-policy gaps. Console diagnostics, other rounding environments, mutable setter/serializer APIs, rendering and lidar effects are unqualified. No original case is retired and no production dependencies or exclusions change. The new tempfile3.27.0 dependency is test-only, owning isolated fault-shim output directories; production dependencies remain unchanged.",
+    "checks": "All 104 Rust checks, fmt/clippy and working coverage pass: 2344/2360 production lines, 4089/4185 regions, 51/51 changed executable lines. Installed-header ABI check and fresh 143-row C++ probe pass; concurrency, caller errno/global locale and second-locale allocation failure tests pass. Independent source/ABI/safety review and matching strict staged/hosted gates remain required. Independent review found inherited/new tests writing shim outputs into source/target; both now use RAII temp directories, retaining every child/allocation/errno assertion. Both fault tests pass in a fresh source export with an external Cargo target; the source/target directory remains absent. All 104 Rust checks, fmt/clippy and 11 tooling checks pass after the correction. Final independent replay and qualified receipt remain required.",
+    "review": "Independent /root/msgs approved corrected 7191d8d0 on 2026-10-25 after source/ABI/safety and native getter comparison. Fresh 143 native observations plus installed-header ABI proof match every recorded shared hash. All 104 Rust checks independently passed before test-path correction with identical production bytes. Reviewer reproduced old clean-export linker failure, then independently passed both corrected allocation-failure tests from a fresh raw export with a new external target and verified source/target remained absent. Reviewed dev-only tempfile/lock additions, pointer/locale ownership and immediate errno capture/restoration. FE_TONEAREST/classic formatting, two explicit nonfinite DOM gaps and console-diagnostic/rendering/setter/serializer/performance limits remain. No original retirement or physics claim."
   }
 }

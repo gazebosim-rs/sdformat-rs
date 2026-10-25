@@ -588,3 +588,44 @@ against the isolated review. The fresh native proof matches, and all 100 Rust
 checks pass independently. Its qualified receipt retains the fixture-specific
 validity mapping and mandatory consumer rejection until physics support. Exact
 staged and hosted gates remain required before publication acceptance.
+
+
+The isolated visual-property slice preserves clonable owned cast-shadow,
+visibility-mask and laser-retro metadata, including absent versus explicit zero.
+Transparency follows the native double Param's float getter: a 17-digit decimal
+round trip and GNU float conversion, with a second-conversion range error keeping
+the zero getter default. Direct double-to-float casts fail the retained midpoint
+regression. The Linux GNU unsafe boundary adds only strtof_l; no production dependency,
+exclusion or unsafe-lint scope changes. Independent code, ABI and safety review
+is required before publication.
+
+All 104 Rust checks and fmt/clippy pass. Working coverage is 2344/2360 production
+lines and 4089/4185 regions, with 51/51 changed executable lines. The freshly
+compiled C++ probe records 143 observations: 141 matching finite/error outcomes
+and two explicit native-accepted nonfinite DOM gaps retained under the existing
+finite scalar policy. The installed-header ABI check passes. Concurrent errno,
+unchanged global locale and isolated second-locale allocation-failure checks
+cover ownership and cleanup. Native console warning bytes/side effects, other
+rounding environments, mutable Visual setter/serializer APIs and rendering/lidar
+effects remain unqualified. No original case is retired by this slice; full
+Shapes still needs heightmap/polyline metadata and assertion review.
+
+
+Independent visual review found a test-artifact isolation defect: both scalar
+and visual fault tests wrote shared objects under source/target. Both now use
+maintained test-only tempfile 3.27.0 directories, kept alive until the child
+completes and removed by RAII. All allocation-failure and errno assertions are
+unchanged. Both fault tests pass in a fresh source export with an external Cargo target;
+source/target remains absent. All 104 Rust checks, fmt/clippy and 11 tooling
+checks pass after correction. Final independent replay and review receipt remain
+required; production conversion bytes are unchanged.
+
+
+Independent /root/msgs approved the corrected visual source, ABI, lifetime and
+assertion scope. It freshly reproduced all 143 native observations and the
+installed-header ABI proof, with exact shared hashes. All 104 Rust tests passed
+independently before the test-path correction with identical production bytes;
+both corrected fault tests then passed in a fresh raw export using a new external
+target, without source/target creation. Its review explicitly covers the new
+strtof_l boundary and dev-only tempfile correction. Final exact receipt and
+strict staged/hosted verification remain required before publication.

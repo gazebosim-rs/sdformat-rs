@@ -1,26 +1,11 @@
 {
-  "schema_version": 1,
-  "reviewer": "/root",
-  "task": "SDF-01 audit rustdoc clarification",
-  "parent": "e59a674d3f41129e94eac829de95166dd5d355e2",
-  "diff_sha256": "159d9a7d09f3a8f800e4f086392a060b46f8c8ce5cbbebda7091486c6f010255",
-  "protected_digest": "961d87c2d47d4497a246d829405dba07f4cd72cfc679f549db74c82e818eb4bc",
-  "owned_files": [
-    "src/lib.rs"
-  ],
   "decision": "approved",
-  "findings": [
-    "Supported loader floor agrees with reviewed1.5 subset and explicit contract limits.",
-    "Frame graph validation and deferred non-frame validation distinction is accurate; callers must validate before runtime instantiation.",
-    "No executable, unsafe, assertion, fixture, tolerance, denominator or exclusion changes."
-  ],
-  "verification": {
-    "command": "cargo test --locked --doc",
-    "result": "passed; zero examples, documentation compilation only"
-  },
-  "limitations": [
-    "No new behavioral parity or packet acceptance inferred.",
-    "Consumer e59 pin remains immutable; producer full strict staged checks required before publication."
-  ],
-  "author": "/root/sdformat"
+  "author": "/root/sdformat",
+  "reviewer": "/root/msgs",
+  "date": "2026-10-25T02:41:13.442507+00:00",
+  "protected_digest": "3025b5332a7976dce9d0ff93f9d8ce61a822909b97ada6907363696c4ad9d46c",
+  "scope": "Bounded VisualProperties DOM metadata and private stored-double-to-float GNU ABI extension. Independently read native Visual::Load and Param::Get/ParamStreamer17-digit/std::stof fallback behavior, Rust parser/types and new strtof_l wrapper. c_float/const-char/end-pointer/locale_t signature matches installed headers; owned NUL buffer and per-call C locale remain live through conversion, end pointer is only compared, valid locale is freed once, errno is captured immediately and restored after cleanup. No process/thread locale switch or native pointer escape. Finite stored-double scientific17-digit conversion retains observed native getter rounding and zero range fallback.",
+  "independent_checks": "Freshly rebuilt all143 native visual observations and installed-header ABI check; every shared source/schema/library/header/probe/corpus hash matches recorded proof. All104 Rust tests passed independently using a separate msgs-owned Cargo target before test-path correction, with identical production bytes. Reproduced the clean-export native-shim linker failure caused by hardcoded source/target output. Both corrected allocation-failure tests then passed from a new raw source export and a new external reviewer-owned target; source/target remained absent. Verified dev-only tempfile/lock delta, unchanged failure/errno assertions, all production/test/probe/Cargo bytes against corrected7191 and final metadata-only main integration.",
+  "test_isolation": "Initial test-artifact path failure and logs retained locally. RAII tempfile directories now own both shim outputs until child completion; neither targets a producer source directory. No assertion was weakened or hidden.",
+  "limits": "LinuxGNU/glibc default FE_TONEAREST and classic formatting only;141 finite/error parity rows plus2 explicit nonfinite DOM gaps. Native console diagnostics, rendering/lidar effects, mutable setters, serialization, nondefault rounding/platforms and performance remain unqualified. No new original mapping or SDF packet acceptance. Updated author104/11/fmt/clippy/coverage evidence is distinguished from reviewer pre-correction full104 plus corrected focused fault replay. Matching strict staged/hosted gates remain required."
 }

@@ -780,6 +780,18 @@
       "baseline": "Exact native original one run, zero failures/skips; artifacts/frame-move/original.xml; pinned upstream 1249805d. Inline input SHA-256 55513c8fb8f00555d1d2d63a624fed2fbdaef573e19e04384d56c9b92c6a3db4 and 746f2a9fab8ac5c5665df120e64c3a0b4da7d83f49d8a032496779e498f6ab5d.",
       "status": "ported_reviewed",
       "review": "Independent /root/transport_fallback approved exact source digest 9c702e1041d0c06391cddedc2ace1e6a2d24cc7af4c419634283119e4968514b as a complete original assertion port. Both 161-byte inline inputs match native byte-for-byte; exact native original1/0, private185 Rust/fmt/Clippy pass and an omitted move-assignment mutant fails. Rust owned Sdf/Graphs moves transfer the complete value, with all four blocks and world/frame presence/names/pose observations retained. No moved-from/pointer identity or arbitrary graph edit claim. Final metadata binding and staged/hosted qualification pending."
+    },
+    {
+      "target": "UNIT_ForceTorque_TEST",
+      "case": "DOMForceTorque.Construction",
+      "source": "src/ForceTorque_TEST.cc:23",
+      "rust_test": "tests/force_torque_construction_original.rs::original_force_torque_construction_and_owned_copy_move",
+      "assertions": "Complete original observable mapping: default six noise axes, each distinct axis assignment/getter with exact Gaussian parameters, default and changed frame/direction, copy and move construction/assignment equality, post-move reassignments and final inequality. Rust public field writes map native setters, owned clone/move map value transfer. Supplementary owned source=None is not an Element() native assertion. No parsed-object equality, parser/serialization or sampling claim.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Exact pinned native DOMForceTorque.Construction original one run, zero failures/skips; artifacts/force-torque-construction/original.xml.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback approved exact corrected source digest bd645847fd2ec625c994633c1e24d8c25bf20a149abe3e9f5276409547cba66d and COMPLETE original observable mapping after native1/0, private selected1/full189 Rust replay and exact 2020 OSRF notice check. Source receipt SHA256 449246e99a90e44dde83a4925fbe26fe63576446d6483b797dd8a81dadb887a9. Native setters map direct fields; Rust parsed-object source provenance equality differs, outside original. Final metadata binding and protected staged/hosted gates pending."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

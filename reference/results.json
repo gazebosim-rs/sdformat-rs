@@ -60068,5 +60068,17 @@
     "rust": "All 189 integrated Rust tests, 13 tooling tests, fmt, Clippy and docs pass; direct coverage3300/3316 production lines,5746/5857 regions and no production delta.",
     "scope": "Partial original: sixteen world and six embedded model body values, world invalid-name failure and seven model-scope out-of-scope failures. Native modelGraph world rejection differs from public world alias and is unported, as are graph/Count checks and native error code/text.",
     "review": "Independent /root/transport_fallback approved corrected partial source/assertion mapping, receipt SHA256 e85fa4a7c32de943a752257a298f1d317af675be1036806b0fd4ee3854d56fed. Final metadata binding, normal hook and hosted qualification pending."
+  },
+  "force_torque_construction_original": {
+    "parent": "844cf12652ac7b306ca6814f721636b0cf2a01bc",
+    "integration_parent": "0ede9a7a5b1dbce661c50f5086c2085ff0b72717",
+    "upstream": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "source_digest": "bd645847fd2ec625c994633c1e24d8c25bf20a149abe3e9f5276409547cba66d",
+    "native_source_sha256": "c8e48170bfbcc4cd1ce2cfccf2e96a96b136b91341b7617ef5149b7cd20e98a8",
+    "native_binary_sha256": "63755b6f0d11ab3bdc2f7b391df88bd623042c7711635c8936df0c5028cc4925",
+    "original": "DOMForceTorque.Construction: one run, zero failures/skips.",
+    "rust": "All 190 integrated Rust tests, 13 tooling tests, fmt, Clippy and docs pass; direct coverage3300/3316 production lines,5746/5857 regions; no production delta.",
+    "scope": "Complete original observable assertion mapping approved independently: six noise axes, frame/direction, copy/move/equality/inequality. Native setter method names map to direct public fields; supplementary source None is not native Element evidence. No parsed-object equality, parser/serialization or sampler claim.",
+    "review": "Independent /root/transport_fallback complete original source/assertion approval receipt SHA256 449246e99a90e44dde83a4925fbe26fe63576446d6483b797dd8a81dadb887a9. Final metadata binding, normal hook and hosted qualification pending."
   }
 }

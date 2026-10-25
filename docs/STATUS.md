@@ -1390,3 +1390,18 @@ this corrected partial mapping after private selected1/full187 Rust replay.
 All 189 integrated Rust tests, 13 tooling checks, fmt, Clippy and docs pass;
 author direct coverage is 3300/3316 production lines and 5746/5857 regions.
 Final public-parent binding, normal protected hook and hosted CI remain pending.
+
+## ForceTorque owned construction original candidate
+
+The pinned `DOMForceTorque.Construction` native original passes 1/0. An owned
+Rust test retains every observable default and mutation for all six noise axes,
+the frame and measure-direction values, plus copy and move value equality and
+inequality. Direct public field writes map native setters. Independent review
+approved this as one complete original assertion mapping after native1/0 and
+private selected1/full189 Rust replay, with the original 2020 OSRF notice
+restored. The supplementary `source == None` check describes owned provenance;
+it is not native Element evidence. Native parsed-object equality and parser,
+serialization and sampling behavior are outside this original. All 190 integrated
+Rust tests, 13 tooling checks, fmt, Clippy and docs pass; direct coverage is
+3300/3316 production lines and 5746/5857 regions. Final main metadata
+binding, normal protected hook and hosted CI remain pending.

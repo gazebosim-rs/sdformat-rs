@@ -1862,3 +1862,33 @@ native-positive dispositions (receipt SHA256 `337619aec4b90721ae787e7e832b0efac6
 a zero-parameter production mutant caught by the integer-value assertion.
 Integrated final metadata binding, normal hook and hosted qualification remain
 pending. No complete original-case credit is claimed.
+
+## Complete fixed-fixture DOMLink.Sensors original candidate
+
+The prior Custom fragment published at `d4b3238fcd079e2a73422f1b039e4069d7fcc2f3`;
+exact hosted verify run 40237113309 succeeded. Its historical partial mapping
+remains in the earlier checkpoint and fragment tests.
+
+The unchanged upstream `sensors.sdf` fixture SHA256
+`dc2b61c8b40a7df7f2c7b6e649f3039136ca1a03528371b307e9b9fc27406a00`
+now drives one consolidated `DOMLink.Sensors` Rust test. It checks successful
+load, model/link names, Count27, index-zero Altimeter, all native name-existence
+and ByName observations, every asserted effective type, full raw pose and
+metrics value, and the nested camera, contact, custom, NavSat, IMU, Lidar,
+magnetometer, altimeter, air-pressure, air-speed and wide-angle values.
+Ordinary Rust vector access maps the native fixed-fixture index/name checks;
+owned selected XML and CustomSensor values map the read-only custom Element
+child and integer assertion. Existing fragment tests and fixture bytes remain.
+
+The pinned native original passed 1/0. Independent /root/transport_fallback
+enumerated all 318 native EXPECT/ASSERT macros and approved the complete
+fixed-fixture mapping after private raw-parent Rust 1/0 and fresh native 1/0
+(source receipt SHA256
+`1bf75df6f35131441c7d49e4c35fbacd3550f7045de0d4f6607a8e782e475b5a`).
+Author checks pass 229 Rust, sixteen tooling tests, formatting and Clippy;
+production coverage is 3990/4009 lines and 6940/7140 regions with no changed
+production lines. Main metadata binding, normal protected staged hook and
+hosted qualification remain pending. This closes one original's observable
+assertions; native Link method identity, arbitrary lookup, mutable Element,
+other Link originals, generic sensor grammar, serialization and rendering
+remain outside this case. Broad SDF phase acceptance remains open.

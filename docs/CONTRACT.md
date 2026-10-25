@@ -516,8 +516,11 @@ field mutation for image, clipping, distortion, pose, lens, projection and
 visibility metadata. `CameraPixelFormat` currently covers only the two formats
 exercised by the retained construction original. A typed `SensorConfig::Camera`
 parser retains the exact camera fixture fragment with owned source and XML. The
-full Link sensor original, remaining native camera grammar (`anti_aliasing`,
-`depth_camera`, segmentation and box types, other pixel formats), `ToElement`,
-image capture and rendering remain pending. An explicit `<camera>` requires
+pinned fixed-fixture `DOMLink.Sensors` original maps all 27 sensor observations
+and ordinary index/name lookups through the owned Link sensor vector. Native
+Link method identity and mutable Element semantics are outside that mapping.
+Remaining native camera grammar (`anti_aliasing`, `depth_camera`, segmentation
+and box types, other pixel formats), `ToElement`, image capture and rendering
+remain pending. An explicit `<camera>` requires
 `<image>` and `<clip>`; only the first missing-element diagnostic is reported
 by the Rust loader, while native `Camera::Load` returns both.

@@ -60295,6 +60295,18 @@
     "original": "DOMLink.Sensors native1/0, exact custom_sensor extension fragment and full fixture model/link names/Count27 PARTIAL only.",
     "rust": "tests/custom_sensor_link_original.rs exact vendor element and integer123; tests/contact_sensor.rs corrected family_custom native-positive; tests/xml.rs corrected full-fixture native-positive/count27. Full isolated228 Rust/15 tools.",
     "scope": "CustomSensor stores one lexical vendor extension child name and direct text parameters, with exact raw subtree on Sensor. Original custom name/effective CUSTOM/Element child/int123 and full fixture load/model/link/Count27 map. Mutable native Element identity, arbitrary nested extension grammar, Link name/index lookup and remaining original assertions unported. Prior Rust-only family_custom gap metadata removed with XML/native tokens unchanged; full fixture Unsupported control corrected. No complete Link credit.",
-    "review": "Independent /root APPROVED exact frozen source/API/assertion mapping and native-positive dispositions, source receipt SHA256 337619aec4b90721ae787e7e832b0efac6e98e6c3702819ddfe72715842441b2. Private raw tree selected15 Rust +2 supplemental boundaries and fresh byte-identical native85-row/full Link1/0 proof. Final main metadata binding, normal hook and hosted qualification pending."
+    "review": "Independent /root APPROVED exact frozen source/API/assertion mapping and native-positive dispositions, source receipt SHA256 337619aec4b90721ae787e7e832b0efac6e98e6c3702819ddfe72715842441b2. Private raw tree selected15 Rust +2 supplemental boundaries and fresh byte-identical native85-row/full Link1/0 proof. Final metadata binding receipt SHA256 ecbe97c8d1a7fcbc03b4e399329b0ed3a6ebca9f1944dc8a35d0566811f8bf5d, normal protected hook and exact hosted verify run40237113309 passed at public d4b3238fcd079e2a73422f1b039e4069d7fcc2f3. Historical partial scope describes its bounded predecessor; the separate full-original case is reviewed in link_sensors_full_original."
+  },
+  "link_sensors_full_original": {
+    "parent": "d4b3238fcd079e2a73422f1b039e4069d7fcc2f3",
+    "upstream": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "source_review_sha256": "1bf75df6f35131441c7d49e4c35fbacd3550f7045de0d4f6607a8e782e475b5a",
+    "source_freeze_sha256": "5b2842d6d1e5fe67927c9cdd521f70813b4c1f343ebdb973bc37fa804ca76f8a",
+    "test_sha256": "58f25e317c827eb666e381e9ddd56bb73550a1454ca25d3500b4ae9e348e5657",
+    "fixture_sha256": "dc2b61c8b40a7df7f2c7b6e649f3039136ca1a03528371b307e9b9fc27406a00",
+    "original": "Pinned test/integration/link_dom.cc DOMLink.Sensors fresh native1/0, 318 EXPECT/ASSERT macros in one unchanged 27-sensor fixture.",
+    "rust": "Consolidated full original tests/link_sensors_full_original.rs selected1/0; full author229 Rust,16 tools, fmt and Clippy pass; production coverage 3990/4009 lines,6940/7140 regions, no changed production line.",
+    "scope": "Complete original fixed-fixture observations via owned Rust Vec index/name lookup and read-only CustomSensor child/parameter; no native method identity, arbitrary lookup, mutable Element, other Link cases, generic sensor grammar, rendering or broad SDF phase acceptance.",
+    "review": "Independent /root/transport_fallback complete source/assertion approval receipt SHA256 1bf75df6f35131441c7d49e4c35fbacd3550f7045de0d4f6607a8e782e475b5a. Final public-parent metadata binding, normal protected hook and hosted qualification pending."
   }
 }

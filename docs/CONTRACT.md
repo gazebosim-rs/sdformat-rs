@@ -529,3 +529,15 @@ and box types, other pixel formats), `ToElement`, image capture and rendering
 remain pending. An explicit `<camera>` requires
 `<image>` and `<clip>`; only the first missing-element diagnostic is reported
 by the Rust loader, while native `Camera::Load` returns both.
+
+## Mutable Sensor payload values
+
+`SensorConfig` owns one selected payload, which callers may mutably borrow and
+then read through the typed `Sensor` accessors. The pinned
+`DOMSensor.MutableSensors` original observes eight payload field updates and
+reads; those values map through normal Rust enum borrowing. This is a value
+contract, not a requirement to reproduce C++ mutable pointer or setter method
+names. Generic in-memory Sensor mutation and serialization have separate
+behavioral acceptance requirements. The native original also installs an IMU
+payload while its type tag remains ForceTorque; that observed independence is
+retained in the Rust case.

@@ -1921,3 +1921,34 @@ hook and exact hosted qualification remain pending. This completes only the
 observable value-state original; native Sensor object-method identity, parsed
 literal XML kind/config/Element synchronization and broad parser semantics
 remain open.
+
+## Native DOMSensor.MutableSensors original candidate
+
+The preceding `DOMSensor.Type` value-state original published at
+`f44fa295b5fcd135490632a94e821d5fc08ef0d3`; exact hosted verify run
+40239690601 succeeded. Its accepted value transitions do not require a C++
+setter facade. The remaining parsed kind/config/Element synchronization is a
+separate behavior question.
+
+Pinned `DOMSensor.MutableSensors` passes natively 1/0. The retained Rust test
+maps all eight original payload blocks: Altimeter, AirPressure, Camera,
+ForceTorque, Imu, Lidar, Magnetometer and NavSat. Each block mutably borrows
+the owned `SensorConfig`, updates the observed field to 2.0 and re-reads it
+through the typed `Sensor` accessor. The native original sets a ForceTorque
+type tag before installing the IMU payload; the Rust test keeps that observed
+independence instead of silently correcting the native source.
+
+Independent /root/transport_fallback approved the complete observable
+mutation/re-read mapping on the exact frozen test after private raw-parent
+Rust 1/0 and fresh native 1/0 (source receipt SHA256
+`4db4e76a186072632924a0426788d8e1f50e13e4f854a268f24358cbe1ce30ad`).
+The source test SHA256
+`91873352157fedc35aac604e17a34e5b5c1f503a0eb2daa1caf2ed4896f11c77`
+remains unchanged across integration onto the newer public Type parent.
+Isolated author checks pass 230 Rust tests, sixteen tooling tests, formatting,
+Clippy and docs; production coverage is 3990/4009 lines and 6940/7140
+regions with no changed production lines. Main metadata binding, protected
+staged hook and hosted qualification remain pending. This closes one native
+original's observed values; general Sensor mutation, parser and serialization
+behavior are separate work. C++ pointer/setter method identity is not a
+release criterion for the Rust API.

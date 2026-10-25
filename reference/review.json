@@ -1,23 +1,23 @@
 {
-  "decision": "approved",
-  "reviewer": "/root",
   "author": "/root/sdformat_owner_fallback",
-  "type": "final public-parent and metadata binding",
-  "parent": "4e14e8b88930dc73254de58e7fea272919fd13c8",
-  "tree": "a0ac3ee08c7fb491bbb6590955e1a7b64c246b56",
-  "diff_sha256": "2cc37a8bb2e210676962deda956340dd0afc25581fb625f34d1d5651dfeba165",
-  "frozen_final_sha256": "bb6da2f7330eef9012645cfbe273bbb8210c7d0648d47e2d614c236d9641ac61",
+  "author_checks": "Fresh integrated 230 Rust tests, 16 tooling tests, fmt, Clippy, docs and ledger passed; production coverage 3996/4015 lines and 6947/7147 regions, zero changed production executable lines; final evidence source digest matches freeze.",
+  "binding_checks": "Exact five changed paths and hashes matched revised freeze; one new test byte-identical to independently approved isolated source, copied source receipt byte-identical, 258 other tracked parent blobs preserved. Only scoped docs/results/trace metadata added a complete observable DOMSensor.MutableSensors row and corrected prior DOMSensor.Type public/hosted status. No production source, fixture, dependency, policy or gate change.",
+  "decision": "approved",
+  "evidence_source_digest": "dc86746ad5b8778459858892663dc909f1e5c16a8d0a98f79761a55f5cd3d97c",
   "files_sha256": {
-    "docs/CONTRACT.md": "2970ba11155bfd079c6eef69a523ca38ac8da349a1cfd33c5a3ffb28c3c1a4ac",
-    "docs/STATUS.md": "355ba98bc20dada88b141221b5fb23ad6828b648caac1845e815139a17e7c9da",
-    "reference/results.json": "aeff6f182fe8bd49e8a5703718b0c877ef6517b6a9248b96eb9d94ba734b27c7",
-    "reference/traceability.json": "2a65029bad33c913c5d586341b1486d8e01f64d1a76d7bf2c83ffd9abf55307b",
-    "src/types.rs": "95ad9e168179f5541705e3ab4d8130dd151c293aaf8cbde0cfb08400f5ef0f94",
-    "tests/sensor_effective_type_original.rs": "eade49b0135adee6c69f0728ab1608f11b9486cbb8bf098aa2667050353dc180"
+    "docs/CONTRACT.md": "906f41081efe4548dd05a0240e2ca7cdd496072216cd38038543f7b5359531fb",
+    "docs/STATUS.md": "38d8e24c5b40ed998219c3b3ede85a0cc4f2d61dbbfe152ee188d72dc4b1cff9",
+    "reference/results.json": "159a891bbb028c12ad7235d123f8f46832a51cd8dee3723967d185733745ba1c",
+    "reference/traceability.json": "ae55330bd809cbbc1201383d9cceb6bbf88f11478f51a37d55e26cb4ef11d6c3",
+    "tests/sensor_mutable_original.rs": "91873352157fedc35aac604e17a34e5b5c1f503a0eb2daa1caf2ed4896f11c77"
   },
-  "preserved_parent_files": 256,
-  "source_review_sha256": "acbfd43e12f3ac680bddb9120d108e4ede2c8f2640d7d57df59840bbb15d99c3",
-  "protected_digest": "52bea18b9a1fdd55b85a396784e16a1e4346e7e6bb4716507f671c4ec1ce55ff",
-  "source_digest": "c07d7e540beb83bc219289f4142953862c01989b5cd0fa473682a563067994cf",
-  "scope": "Exact two source-reviewed type value implementation/test blobs preserved; four metadata paths only add complete observable DOMSensor.Type mapping, native/API/parsed-kind limits and prior Link hosted checkpoint. One original moves partial to complete, other parent blobs unchanged. Corrected dangling CONTRACT fragment checked. Owner ordinary index untouched. Normal protected hook/publication/exact hosted still required; broad SDF/P2 unclaimed."
+  "final_freeze": "artifacts/sensor-mutable/frozen-final.json",
+  "final_freeze_sha256": "d8fb773e3fd7e8fec1d907118919d3fdcadddce1c649a07badae8129442750f0",
+  "parent": "f44fa295b5fcd135490632a94e821d5fc08ef0d3",
+  "protected_digest": "d5d727dad5503b3bcc96f5b055d1b0374db6277d00ef02b20b8a8156fc2c2fba",
+  "remaining": "Normal protected staged hook, public commit/push and exact hosted CI required.",
+  "reviewer": "/root/transport_fallback",
+  "scope": "COMPLETE observable eight payload mutation/re-read blocks of this one native original; native mutable pointer/setter facade, generic Sensor mutation, parser and serialization remain outside the claim.",
+  "source_freeze_sha256": "15873d6ddf9956c36821fe0331cf90e775b2300aa6a44fd0528827d13936a1ef",
+  "source_review_sha256": "4db4e76a186072632924a0426788d8e1f50e13e4f854a268f24358cbe1ce30ad"
 }

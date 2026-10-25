@@ -60317,6 +60317,17 @@
     "original": "Pinned DOMSensor.Type native1/0, complete observable default/23 enum assignments/23 canonical string assignments and invalid-string-preserves-prior-value assertions.",
     "rust": "Owned SensorType::set_from_type_str and exact retained original test; private raw-parent2/0 and invalid-clobber-to-None mutant red; author full229Rust/16tools/fmt/Clippy/docs, coverage3996/4015 lines6947/7147 regions changed6/6.",
     "scope": "Complete value-state original through ordinary Rust enum assignment and checked string mutation. Native Sensor object setter method identity, parsed Sensor.kind/config/Element synchronization and generic parser behavior are not claimed. Earlier effective-type partial result is a historical bounded predecessor.",
-    "review": "Independent /root source/API/assertion approval receipt SHA256 acbfd43e12f3ac680bddb9120d108e4ede2c8f2640d7d57df59840bbb15d99c3. Final metadata binding, normal protected hook and exact hosted verification pending."
+    "review": "Independent /root source/API/assertion approval receipt SHA256 acbfd43e12f3ac680bddb9120d108e4ede2c8f2640d7d57df59840bbb15d99c3. Final binding receipt SHA256 daf2b30a3cda895a80eb5fae04539c9c1af2e9c8cea3dd02fcbf174c5b502082 and publication-envelope receipt SHA256 f57ad3e99b208a37fd99e9cf1a4e3782d866069956a54e7d297a73ad1e468374; normal protected hook and exact hosted verify run40239690601 passed at publicf44fa295b5fcd135490632a94e821d5fc08ef0d3."
+  },
+  "sensor_mutable_original": {
+    "parent": "f44fa295b5fcd135490632a94e821d5fc08ef0d3",
+    "source_parent": "4e14e8b88930dc73254de58e7fea272919fd13c8",
+    "upstream": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "source_freeze_sha256": "15873d6ddf9956c36821fe0331cf90e775b2300aa6a44fd0528827d13936a1ef",
+    "source_review_sha256": "4db4e76a186072632924a0426788d8e1f50e13e4f854a268f24358cbe1ce30ad",
+    "original": "Pinned DOMSensor.MutableSensors native1/0, eight complete observable default/mutable-payload/accessor re-read blocks.",
+    "rust": "Unchanged reviewed test SHA91873352 integrated onto newer Type parent; author230Rust/16tools/fmt/Clippy/docs, coverage3990/4009 lines6940/7140 regions, no changed production lines.",
+    "scope": "Complete original payload value observations through owned mutable SensorConfig and typed immutable accessors. Native pointer/setter method identity is not asserted by the original and is not a required facade; generic Sensor mutation, parser/serialization and other originals remain outside this case.",
+    "review": "Independent /root/transport_fallback source/assertion approval receipt SHA256 4db4e76a186072632924a0426788d8e1f50e13e4f854a268f24358cbe1ce30ad. Final main parent/metadata binding, normal hook and exact hosted qualification pending."
   }
 }

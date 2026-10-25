@@ -35831,5 +35831,708 @@
       }
     ]
   },
-  "axis_dynamics_review": "Independent /root/transport_recovery approved isolated cd64b3c0: fresh 125 owned Rust tests, 68 native observations and exact complete DOMJointAxis.Construction one run/zero failures; entire proof including source/binary/header/library hashes equals author. Twelve default/setter value observations approved as partial only; constructor/Element/XYZ/error/graph/bounds/mimic scope explicitly pending. Existing frame/query assertions in semantics.rs unchanged after six new required initializer fields. Author 13 tools/full coverage remain distinct. Identical axis source/assertion delta integrates onto public material 01464a42; final overlap review and mandatory staged/hosted verification remain required. Integrated author replay passes 130 Rust/13 tools, with fresh complete native proof equality to reviewed isolated inputs; author full coverage remains separate."
+  "axis_dynamics_review": "Independent /root/transport_recovery approved isolated cd64b3c0: fresh 125 owned Rust tests, 68 native observations and exact complete DOMJointAxis.Construction one run/zero failures; entire proof including source/binary/header/library hashes equals author. Twelve default/setter value observations approved as partial only; constructor/Element/XYZ/error/graph/bounds/mimic scope explicitly pending. Existing frame/query assertions in semantics.rs unchanged after six new required initializer fields. Author 13 tools/full coverage remain distinct. Identical axis source/assertion delta integrates onto public material 01464a42; final overlap review and mandatory staged/hosted verification remain required. Integrated author replay passes 130 Rust/13 tools, with fresh complete native proof equality to reviewed isolated inputs; author full coverage remains separate.",
+  "link_properties_corpus": {
+    "upstream_sha": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "corpus_sha256": "1d10527d1c4e741dd5f67f47553e46e1eb064bc239f91741d81f7fa22a4abc7f",
+    "probe_source_sha256": "74d6f55c2732ed539df4527f1eff731f37f53c3b377328ad7a38f3a2ecddcfd8",
+    "probe_binary_sha256": "a12e873696021ba7b859ae8735b1e021854d4785e0b16c46b7d51e9643558d52",
+    "linked_libraries_sha256": {
+      "libsdformat.so.17": "bcc864bcee56b49c13081e29722051e26c036260e3dd037e7736aa2b8620358f",
+      "libstdc++.so.6": "1fd75fe70354a416d75aef22bcae68c47bd25d20e2d0568c30b1a9838cf62f11",
+      "libc.so.6": "3a15d66867d83762c7f2f1e37359cb8f6c5743edb369c65285cb0b1c4f7498bf",
+      "libgz-math.so.10": "288c6f52fac45359f5de67d97e0069b7f37420f5f78888e61406b8f565656c4f"
+    },
+    "source_sha256": {
+      "src/Link.cc": "ff58b54bef267f7e13a2ac5ee99e7bcece921729915d3de6906309bc237e07cc",
+      "src/Model.cc": "9ce157bcd85ad233af6022192315ffa61ff5374490f8912f6750c98a0448d8d9",
+      "src/Joint.cc": "4ebe9449ca64f4011a618c01292ba6673db069c7b5ec7dd6eae70018ad4d5271",
+      "src/Param.cc": "487407a4a2301617b262ccb782312fe9c1d3d099e715aa42f3bb3cb713b29dce",
+      "include/sdf/Link.hh": "3d35750221ef5753a3db80264f09edefc36188f26ea2ff60c12c1b863aff3352",
+      "include/sdf/Model.hh": "efc07cccb992ee8a0cd881e644454fb73b82260085e38567e5573573dc105e2d",
+      "include/sdf/Joint.hh": "4fd4a37dc51dce993fbd375e2c4e4e29895879d171be4cc31f494f20ef2398fc",
+      "sdf/1.12/link.sdf": "acda018bb6b66b01956608a816027b2e81460f335ff896b12c03dc307fd3708e",
+      "sdf/1.4/link.sdf": "1ec607bf0bac90cc3a89aa9cf2ad5e7444adac72e4904086d642b187d73a2063",
+      "test/integration/link_dom.cc": "3f19b57d0cd02be6201a08be4580d5a478d5e3c1549457605754ccff99ccd4f1",
+      "test/integration/joint_dom.cc": "84de4d0263c47fab2e7a23298d4683cb0e927ca3ac9cbae98730483f816b4fef",
+      "test/sdf/double_pendulum.sdf": "de1d53d4cf8949f5c1f8db6afcd18b41426d5de45b6a8d1521027d2f662d3f67"
+    },
+    "fixture_sha256": "de1d53d4cf8949f5c1f8db6afcd18b41426d5de45b6a8d1521027d2f662d3f67",
+    "originals": [
+      {
+        "case": "DOMLink.InertialDoublePendulum",
+        "binary_sha256": "5996c21878cab1dacd0d653c50bfdcf4a02c8064157855ae6136471939582716",
+        "tests": 1,
+        "failures": 0
+      },
+      {
+        "case": "DOMJoint.DoublePendulum",
+        "binary_sha256": "cc12b5936e5c7e3aa89a2d625c9371e69f0b2d0ce19805b800048a9cb6cddd7b",
+        "tests": 1,
+        "failures": 0
+      }
+    ],
+    "math_upstream_sha": "1316ed334f4d5bda7be59aae07cd6e8ff31cfe13",
+    "math_header_sha256": {
+      "include/gz/math/Pose3.hh": "6bfc53f0bd22a3e1596bbdb07c24bacdac9e17bd8178b9373d8df1b01e4fc6f6",
+      "include/gz/math/Quaternion.hh": "9170601444da93735b4d14b369cc4266fafc7655657a6af7613e31206382b873",
+      "include/gz/math/Vector3.hh": "b4e8d01584139efba180bf530c95e18101aee4fb070aa93b8ddfe7cc38282a38",
+      "include/gz/math/MassMatrix3.hh": "115c54a0ab11714e891f0ab060fbb2350652ed0aa6dfcf19958781b162543b5b"
+    },
+    "observations": [
+      {
+        "id": "absent",
+        "tokens": [
+          "0",
+          "1",
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "id": "enable_wind0",
+        "tokens": [
+          "0",
+          "1",
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "id": "enable_wind1",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "id": "enable_wind2",
+        "tokens": [
+          "0",
+          "1",
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "id": "enable_wind3",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "id": "enable_wind4",
+        "tokens": [
+          "0",
+          "1",
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "id": "enable_wind5",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "id": "enable_wind6",
+        "tokens": [
+          "5",
+          "9",
+          "9",
+          "9",
+          "9",
+          "30"
+        ]
+      },
+      {
+        "id": "enable_wind7",
+        "tokens": [
+          "5",
+          "9",
+          "9",
+          "9",
+          "9",
+          "30"
+        ]
+      },
+      {
+        "id": "enable_wind8",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "id": "enable_wind9",
+        "tokens": [
+          "5",
+          "9",
+          "9",
+          "9",
+          "9",
+          "30"
+        ]
+      },
+      {
+        "id": "enable_wind10",
+        "tokens": [
+          "5",
+          "9",
+          "9",
+          "9",
+          "9",
+          "30"
+        ]
+      },
+      {
+        "id": "gravity0",
+        "tokens": [
+          "0",
+          "1",
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "id": "gravity1",
+        "tokens": [
+          "0",
+          "1",
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "id": "gravity2",
+        "tokens": [
+          "0",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "id": "gravity3",
+        "tokens": [
+          "0",
+          "1",
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "id": "gravity4",
+        "tokens": [
+          "0",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "id": "gravity5",
+        "tokens": [
+          "0",
+          "1",
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "id": "gravity6",
+        "tokens": [
+          "5",
+          "9",
+          "9",
+          "9",
+          "9",
+          "30"
+        ]
+      },
+      {
+        "id": "gravity7",
+        "tokens": [
+          "5",
+          "9",
+          "9",
+          "9",
+          "9",
+          "30"
+        ]
+      },
+      {
+        "id": "gravity8",
+        "tokens": [
+          "0",
+          "1",
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "id": "gravity9",
+        "tokens": [
+          "5",
+          "9",
+          "9",
+          "9",
+          "9",
+          "30"
+        ]
+      },
+      {
+        "id": "gravity10",
+        "tokens": [
+          "5",
+          "9",
+          "9",
+          "9",
+          "9",
+          "30"
+        ]
+      },
+      {
+        "id": "kinematic0",
+        "tokens": [
+          "0",
+          "1",
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "id": "kinematic1",
+        "tokens": [
+          "0",
+          "1",
+          "0",
+          "1",
+          "1",
+          "0"
+        ]
+      },
+      {
+        "id": "kinematic2",
+        "tokens": [
+          "0",
+          "1",
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "id": "kinematic3",
+        "tokens": [
+          "0",
+          "1",
+          "0",
+          "1",
+          "1",
+          "0"
+        ]
+      },
+      {
+        "id": "kinematic4",
+        "tokens": [
+          "0",
+          "1",
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "id": "kinematic5",
+        "tokens": [
+          "0",
+          "1",
+          "0",
+          "1",
+          "1",
+          "0"
+        ]
+      },
+      {
+        "id": "kinematic6",
+        "tokens": [
+          "5",
+          "9",
+          "9",
+          "9",
+          "9",
+          "30"
+        ]
+      },
+      {
+        "id": "kinematic7",
+        "tokens": [
+          "5",
+          "9",
+          "9",
+          "9",
+          "9",
+          "30"
+        ]
+      },
+      {
+        "id": "kinematic8",
+        "tokens": [
+          "0",
+          "1",
+          "0",
+          "1",
+          "1",
+          "0"
+        ]
+      },
+      {
+        "id": "kinematic9",
+        "tokens": [
+          "5",
+          "9",
+          "9",
+          "9",
+          "9",
+          "30"
+        ]
+      },
+      {
+        "id": "kinematic10",
+        "tokens": [
+          "5",
+          "9",
+          "9",
+          "9",
+          "9",
+          "30"
+        ]
+      },
+      {
+        "id": "self_collide0",
+        "tokens": [
+          "0",
+          "1",
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "id": "self_collide1",
+        "tokens": [
+          "0",
+          "1",
+          "0",
+          "1",
+          "0",
+          "1"
+        ]
+      },
+      {
+        "id": "self_collide2",
+        "tokens": [
+          "0",
+          "1",
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "id": "self_collide3",
+        "tokens": [
+          "0",
+          "1",
+          "0",
+          "1",
+          "0",
+          "1"
+        ]
+      },
+      {
+        "id": "self_collide4",
+        "tokens": [
+          "0",
+          "1",
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "id": "self_collide5",
+        "tokens": [
+          "0",
+          "1",
+          "0",
+          "1",
+          "0",
+          "1"
+        ]
+      },
+      {
+        "id": "self_collide6",
+        "tokens": [
+          "5",
+          "9",
+          "9",
+          "9",
+          "9",
+          "30"
+        ]
+      },
+      {
+        "id": "self_collide7",
+        "tokens": [
+          "5",
+          "9",
+          "9",
+          "9",
+          "9",
+          "30"
+        ]
+      },
+      {
+        "id": "self_collide8",
+        "tokens": [
+          "0",
+          "1",
+          "0",
+          "1",
+          "0",
+          "1"
+        ]
+      },
+      {
+        "id": "self_collide9",
+        "tokens": [
+          "5",
+          "9",
+          "9",
+          "9",
+          "9",
+          "30"
+        ]
+      },
+      {
+        "id": "self_collide10",
+        "tokens": [
+          "5",
+          "9",
+          "9",
+          "9",
+          "9",
+          "30"
+        ]
+      },
+      {
+        "id": "all",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "0",
+          "1",
+          "1"
+        ]
+      },
+      {
+        "id": "version1.4",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "0",
+          "1",
+          "1"
+        ]
+      },
+      {
+        "id": "version1.5",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "0",
+          "1",
+          "1"
+        ]
+      },
+      {
+        "id": "version1.6",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "0",
+          "1",
+          "1"
+        ]
+      },
+      {
+        "id": "version1.7",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "0",
+          "1",
+          "1"
+        ]
+      },
+      {
+        "id": "version1.8",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "0",
+          "1",
+          "1"
+        ]
+      },
+      {
+        "id": "version1.9",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "0",
+          "1",
+          "1"
+        ]
+      },
+      {
+        "id": "version1.10",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "0",
+          "1",
+          "1"
+        ]
+      },
+      {
+        "id": "version1.11",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "0",
+          "1",
+          "1"
+        ]
+      },
+      {
+        "id": "axis_both",
+        "tokens": [
+          "0",
+          "2",
+          "0",
+          "1",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0",
+          "0",
+          "A",
+          "1",
+          "0",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1"
+        ]
+      },
+      {
+        "id": "axis_first_only",
+        "tokens": [
+          "0",
+          "2",
+          "0",
+          "1",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0",
+          "0",
+          "A",
+          "1",
+          "0",
+          "0",
+          "1",
+          "0",
+          "1",
+          "0",
+          "1"
+        ]
+      }
+    ]
+  },
+  "link_properties_review": {
+    "reviewer": "/root/msgs",
+    "implementation_digest": "c72775ad6bf482943969d5386d0aeee4a68090d7293b13d25099659665deeb30",
+    "rust_checks": 135,
+    "native_rows": 56,
+    "originals": "DOMLink.InertialDoublePendulum and DOMJoint.DoublePendulum: each one run / zero failures",
+    "proof": "Fresh complete proof equals author including all source/binary/header/library hashes; all original 54 corpus rows retained unchanged.",
+    "finding": "Native Axis clamps every positive index to axis2. Corrected borrowed API and added actual present/absent-axis reference-identity controls; original pendulum assertions unchanged.",
+    "assertions": "Complete two-case assertion mapping approved, including the narrow known-valid mass 100/identity-inertia IsValid observation; no general validity algorithm or runtime physical effects claimed.",
+    "coverage": "Author-only strict coverage 3079/3099 lines, 5353/5470 regions and 21/21 changed; normal staged and hosted gates required."
+  }
 }

@@ -1,0 +1,700 @@
+[
+  {
+    "id": "absent",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'></link></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "1",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "enable_wind0",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><enable_wind></enable_wind></link></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "1",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "enable_wind1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><enable_wind>true</enable_wind></link></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "1",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "enable_wind2",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><enable_wind>false</enable_wind></link></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "1",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "enable_wind3",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><enable_wind>1</enable_wind></link></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "1",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "enable_wind4",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><enable_wind>0</enable_wind></link></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "1",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "enable_wind5",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><enable_wind>TrUe</enable_wind></link></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "1",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "enable_wind6",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><enable_wind>2</enable_wind></link></model></sdf>",
+    "tokens": [
+      "5",
+      "9",
+      "9",
+      "9",
+      "9",
+      "30"
+    ]
+  },
+  {
+    "id": "enable_wind7",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><enable_wind>truejunk</enable_wind></link></model></sdf>",
+    "tokens": [
+      "5",
+      "9",
+      "9",
+      "9",
+      "9",
+      "30"
+    ]
+  },
+  {
+    "id": "enable_wind8",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><enable_wind><![CDATA[ true ]]></enable_wind></link></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "1",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "enable_wind9",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><enable_wind>&#160;true&#160;</enable_wind></link></model></sdf>",
+    "tokens": [
+      "5",
+      "9",
+      "9",
+      "9",
+      "9",
+      "30"
+    ]
+  },
+  {
+    "id": "enable_wind10",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><enable_wind><![CDATA[\u000btrue\u000b]]></enable_wind></link></model></sdf>",
+    "tokens": [
+      "5",
+      "9",
+      "9",
+      "9",
+      "9",
+      "30"
+    ]
+  },
+  {
+    "id": "gravity0",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><gravity></gravity></link></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "1",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "gravity1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><gravity>true</gravity></link></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "1",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "gravity2",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><gravity>false</gravity></link></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "gravity3",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><gravity>1</gravity></link></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "1",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "gravity4",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><gravity>0</gravity></link></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "gravity5",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><gravity>TrUe</gravity></link></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "1",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "gravity6",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><gravity>2</gravity></link></model></sdf>",
+    "tokens": [
+      "5",
+      "9",
+      "9",
+      "9",
+      "9",
+      "30"
+    ]
+  },
+  {
+    "id": "gravity7",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><gravity>truejunk</gravity></link></model></sdf>",
+    "tokens": [
+      "5",
+      "9",
+      "9",
+      "9",
+      "9",
+      "30"
+    ]
+  },
+  {
+    "id": "gravity8",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><gravity><![CDATA[ true ]]></gravity></link></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "1",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "gravity9",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><gravity>&#160;true&#160;</gravity></link></model></sdf>",
+    "tokens": [
+      "5",
+      "9",
+      "9",
+      "9",
+      "9",
+      "30"
+    ]
+  },
+  {
+    "id": "gravity10",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><gravity><![CDATA[\u000btrue\u000b]]></gravity></link></model></sdf>",
+    "tokens": [
+      "5",
+      "9",
+      "9",
+      "9",
+      "9",
+      "30"
+    ]
+  },
+  {
+    "id": "kinematic0",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><kinematic></kinematic></link></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "1",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "kinematic1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><kinematic>true</kinematic></link></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "1",
+      "1",
+      "0"
+    ]
+  },
+  {
+    "id": "kinematic2",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><kinematic>false</kinematic></link></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "1",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "kinematic3",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><kinematic>1</kinematic></link></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "1",
+      "1",
+      "0"
+    ]
+  },
+  {
+    "id": "kinematic4",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><kinematic>0</kinematic></link></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "1",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "kinematic5",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><kinematic>TrUe</kinematic></link></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "1",
+      "1",
+      "0"
+    ]
+  },
+  {
+    "id": "kinematic6",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><kinematic>2</kinematic></link></model></sdf>",
+    "tokens": [
+      "5",
+      "9",
+      "9",
+      "9",
+      "9",
+      "30"
+    ]
+  },
+  {
+    "id": "kinematic7",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><kinematic>truejunk</kinematic></link></model></sdf>",
+    "tokens": [
+      "5",
+      "9",
+      "9",
+      "9",
+      "9",
+      "30"
+    ]
+  },
+  {
+    "id": "kinematic8",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><kinematic><![CDATA[ true ]]></kinematic></link></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "1",
+      "1",
+      "0"
+    ]
+  },
+  {
+    "id": "kinematic9",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><kinematic>&#160;true&#160;</kinematic></link></model></sdf>",
+    "tokens": [
+      "5",
+      "9",
+      "9",
+      "9",
+      "9",
+      "30"
+    ]
+  },
+  {
+    "id": "kinematic10",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><kinematic><![CDATA[\u000btrue\u000b]]></kinematic></link></model></sdf>",
+    "tokens": [
+      "5",
+      "9",
+      "9",
+      "9",
+      "9",
+      "30"
+    ]
+  },
+  {
+    "id": "self_collide0",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><self_collide></self_collide></link></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "1",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "self_collide1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><self_collide>true</self_collide></link></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "1",
+      "0",
+      "1"
+    ]
+  },
+  {
+    "id": "self_collide2",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><self_collide>false</self_collide></link></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "1",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "self_collide3",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><self_collide>1</self_collide></link></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "1",
+      "0",
+      "1"
+    ]
+  },
+  {
+    "id": "self_collide4",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><self_collide>0</self_collide></link></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "1",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "self_collide5",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><self_collide>TrUe</self_collide></link></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "1",
+      "0",
+      "1"
+    ]
+  },
+  {
+    "id": "self_collide6",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><self_collide>2</self_collide></link></model></sdf>",
+    "tokens": [
+      "5",
+      "9",
+      "9",
+      "9",
+      "9",
+      "30"
+    ]
+  },
+  {
+    "id": "self_collide7",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><self_collide>truejunk</self_collide></link></model></sdf>",
+    "tokens": [
+      "5",
+      "9",
+      "9",
+      "9",
+      "9",
+      "30"
+    ]
+  },
+  {
+    "id": "self_collide8",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><self_collide><![CDATA[ true ]]></self_collide></link></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "1",
+      "0",
+      "1"
+    ]
+  },
+  {
+    "id": "self_collide9",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><self_collide>&#160;true&#160;</self_collide></link></model></sdf>",
+    "tokens": [
+      "5",
+      "9",
+      "9",
+      "9",
+      "9",
+      "30"
+    ]
+  },
+  {
+    "id": "self_collide10",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><self_collide><![CDATA[\u000btrue\u000b]]></self_collide></link></model></sdf>",
+    "tokens": [
+      "5",
+      "9",
+      "9",
+      "9",
+      "9",
+      "30"
+    ]
+  },
+  {
+    "id": "all",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><enable_wind>true</enable_wind><gravity>false</gravity><kinematic>true</kinematic><self_collide>true</self_collide></link></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "0",
+      "1",
+      "1"
+    ]
+  },
+  {
+    "id": "version1.4",
+    "xml": "<sdf version='1.4'><model name='m'><link name='l'><enable_wind>true</enable_wind><gravity>false</gravity><kinematic>true</kinematic><self_collide>true</self_collide></link></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "0",
+      "1",
+      "1"
+    ]
+  },
+  {
+    "id": "version1.5",
+    "xml": "<sdf version='1.5'><model name='m'><link name='l'><enable_wind>true</enable_wind><gravity>false</gravity><kinematic>true</kinematic><self_collide>true</self_collide></link></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "0",
+      "1",
+      "1"
+    ]
+  },
+  {
+    "id": "version1.6",
+    "xml": "<sdf version='1.6'><model name='m'><link name='l'><enable_wind>true</enable_wind><gravity>false</gravity><kinematic>true</kinematic><self_collide>true</self_collide></link></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "0",
+      "1",
+      "1"
+    ]
+  },
+  {
+    "id": "version1.7",
+    "xml": "<sdf version='1.7'><model name='m'><link name='l'><enable_wind>true</enable_wind><gravity>false</gravity><kinematic>true</kinematic><self_collide>true</self_collide></link></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "0",
+      "1",
+      "1"
+    ]
+  },
+  {
+    "id": "version1.8",
+    "xml": "<sdf version='1.8'><model name='m'><link name='l'><enable_wind>true</enable_wind><gravity>false</gravity><kinematic>true</kinematic><self_collide>true</self_collide></link></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "0",
+      "1",
+      "1"
+    ]
+  },
+  {
+    "id": "version1.9",
+    "xml": "<sdf version='1.9'><model name='m'><link name='l'><enable_wind>true</enable_wind><gravity>false</gravity><kinematic>true</kinematic><self_collide>true</self_collide></link></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "0",
+      "1",
+      "1"
+    ]
+  },
+  {
+    "id": "version1.10",
+    "xml": "<sdf version='1.10'><model name='m'><link name='l'><enable_wind>true</enable_wind><gravity>false</gravity><kinematic>true</kinematic><self_collide>true</self_collide></link></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "0",
+      "1",
+      "1"
+    ]
+  },
+  {
+    "id": "version1.11",
+    "xml": "<sdf version='1.11'><model name='m'><link name='l'><enable_wind>true</enable_wind><gravity>false</gravity><kinematic>true</kinematic><self_collide>true</self_collide></link></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "0",
+      "1",
+      "1"
+    ]
+  },
+  {
+    "id": "axis_both",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz></axis><axis2><xyz>0 1 0</xyz></axis2></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "2",
+      "0",
+      "1",
+      "0",
+      "0",
+      "0",
+      "1",
+      "0",
+      "0",
+      "A",
+      "1",
+      "0",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1"
+    ]
+  },
+  {
+    "id": "axis_first_only",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "2",
+      "0",
+      "1",
+      "0",
+      "0",
+      "0",
+      "1",
+      "0",
+      "0",
+      "A",
+      "1",
+      "0",
+      "0",
+      "1",
+      "0",
+      "1",
+      "0",
+      "1"
+    ]
+  }
+]

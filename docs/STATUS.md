@@ -888,3 +888,38 @@ Integrated author coverage is 3058/3078 lines, 5323/5440 regions and 34/34 chang
 executable lines, with 130 Rust and 13 tooling checks passing. This does not expand
 the twelve-value partial original mapping; totals remain 35 complete and eleven
 partial cases pending the final exact review receipt and publication gates.
+
+## Link properties and unchanged pendulum candidate
+
+The isolated successor retains four link flags with native defaults and adds a
+borrowed Joint::axis(index) lookup. No simulator, Fuel, solver or FFI code changes.
+The unchanged double_pendulum.sdf fixture now parses, supporting proposed complete
+DOMLink.InertialDoublePendulum and DOMJoint.DoublePendulum ports. All original
+lookups, pose/vector 1e-3 comparisons without sign relaxation, four-ULP scalar
+comparisons, raw relative strings, flags, inertia fields and repeated base fluid
+absence remain. The known-valid fixture IsValid mapping explicitly awaits review;
+there is no generic mass-matrix validity parity claim or articulated simulation.
+
+All 135 Rust checks, 13 tools, fresh 56 native flag rows and both exact unchanged
+native cases (one run, zero failures each) pass. Source/schema/header/math/fixture
+and native binary/library hashes are bound. Corrected working coverage is 3079/3099 lines,
+5353/5470 regions and 21/21 changed executable lines. Clippy initially objected to
+the original 1.5708 literal; a local test-only allowance preserves that exact input
+and its original comparison. No old assertion, gate threshold or exclusion changes.
+Independent source/assertion review and exact staged/hosted gates remain required.
+
+Independent review caught an unpublished accessor assumption: native Joint::Axis
+clamps all positive indices to its second axis. The helper now preserves that
+convention in Rust's usize domain; the original absent-axis checks stay unchanged.
+The exact reviewer universal-joint XML and an absent-second-axis control are added
+after all original 54 rows. Stored-reference identities at 1, 2 and usize::MAX are
+asserted. This correction does not change physical flag metadata or the pending
+known-fixture validity mapping. Independent correction review remains required.
+
+Independent /root/msgs approved both complete original mappings after fresh 135
+Rust checks, 56 native observations and both unchanged originals, with full proof
+equality. The known-fixture IsValid observation is explicitly approved through
+mandatory validation plus the exact mass 100/identity inertia; general validity
+parity and physical effects remain unclaimed. Corrected source/assertions/corpus
+are unchanged by this review-metadata update. Normal staged and hosted gates
+remain required.

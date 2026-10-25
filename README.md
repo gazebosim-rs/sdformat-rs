@@ -12,7 +12,8 @@ let pose = sdf.pose_of("robot::base", "::")?;
 
 The supported subset has SDF 1.4–1.12 worlds with owned physics profile metadata,
 nested and included models,
-links, primitive and mesh collision/visual metadata and poses, owned visual/material
+links with owned wind/gravity/kinematic/self-collision flags, primitive and mesh
+collision/visual metadata and poses, owned visual/material
 metadata, physical mass/inertia,
 fixed/revolute/prismatic/continuous/universal/revolute2 joints with owned axis
 dynamics and stop metadata, typed IMU sensor configuration, frames, and opaque plugin content.

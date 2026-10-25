@@ -954,6 +954,10 @@ impl Parser<'_> {
                 "visual",
                 "sensor",
                 "plugin",
+                "enable_wind",
+                "gravity",
+                "kinematic",
+                "self_collide",
             ],
             &["name"],
         )?;
@@ -991,6 +995,12 @@ impl Parser<'_> {
             collisions,
             visuals,
             sensors,
+            properties: LinkProperties {
+                enable_wind: self.boolean(node, "enable_wind", false)?,
+                enable_gravity: self.boolean(node, "gravity", true)?,
+                kinematic: self.boolean(node, "kinematic", false)?,
+                self_collide: self.boolean(node, "self_collide", false)?,
+            },
             plugins: self.plugins(node)?,
             source: self.source(node),
         })

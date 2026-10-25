@@ -540,6 +540,38 @@
       "baseline": "Exact original DOMVisual.Material XML one run/zero failures, artifacts/material/original.xml.",
       "status": "ported_reviewed",
       "review": "Independent /root/msgs compared the complete original assertion body/fixture and approved all presence, Color <=1e-6, EXPECT_FLOAT_EQ four-ULP, flags, shader/script/normal-map assertions. Fresh 124 owned Rust tests plus independent string-edge check, 110 native rows, exact original one run/zero failures and ABI proof pass; scope excludes URI resolution/PBR/renderer/Element/setter behavior."
+    },
+    {
+      "target": "INTEGRATION_link_dom",
+      "case": "DOMLink.InertialDoublePendulum",
+      "source": "test/integration/link_dom.cc:117",
+      "rust_test": "tests/link_properties_originals.rs::original_link_inertial_double_pendulum",
+      "assertions": "Full original typed-load/model/three-link presence, raw poses and relative strings, base/upper mass and all inertia components, repeated BASE fluid absence, upper wind/kinematic flags and upper inertial position. Pose comparison retains native component-wise <=1e-3 without sign relaxation; scalar components retain four-ULP EXPECT_DOUBLE_EQ. Known-valid base MassMatrix::IsValid true observation maps to mandatory successful typed inertia validation plus exact known mass/matrix values, as reviewed for InertialComplete; no generic math algorithm parity claim.",
+      "fixtures": {
+        "tests/fixtures/double_pendulum.sdf": "de1d53d4cf8949f5c1f8db6afcd18b41426d5de45b6a8d1521027d2f662d3f67"
+      },
+      "upstream_fixtures": {
+        "test/sdf/double_pendulum.sdf": "de1d53d4cf8949f5c1f8db6afcd18b41426d5de45b6a8d1521027d2f662d3f67"
+      },
+      "baseline": "Both exact native originals XML one run/zero failures each, artifacts/link-properties/{link,joint}-original.xml.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/msgs compared every original assertion and unchanged fixture; approved complete ports with native component-wise pose/vector and four-ULP scalar bounds. Explicitly approved the known-fixture IsValid observation through mandatory typed validation plus mass 100/identity inertia, without generic validity equivalence. Fresh private replay passed all 135 Rust checks, 56 native observations and both exact originals; full proof including source/binary/header/library hashes equals author. Native positive-index clamp finding is corrected with original 54-row prefix and absent-axis assertions unchanged."
+    },
+    {
+      "target": "INTEGRATION_joint_dom",
+      "case": "DOMJoint.DoublePendulum",
+      "source": "test/integration/joint_dom.cc:67",
+      "rust_test": "tests/link_properties_originals.rs::original_joint_double_pendulum",
+      "assertions": "Full original load/model, two-joint count, invalid/upper/lower lookup, exact parent/child strings, empty relative_to, absent indices1/2 and present axis0 on both joints, normalized UnitX using native component-wise <=1e-3. New borrowed Joint::axis(index) exercises original lookup/clamped-positive-index path rather than replacing index behavior with a local array.",
+      "fixtures": {
+        "tests/fixtures/double_pendulum.sdf": "de1d53d4cf8949f5c1f8db6afcd18b41426d5de45b6a8d1521027d2f662d3f67"
+      },
+      "upstream_fixtures": {
+        "test/sdf/double_pendulum.sdf": "de1d53d4cf8949f5c1f8db6afcd18b41426d5de45b6a8d1521027d2f662d3f67"
+      },
+      "baseline": "Both exact native originals XML one run/zero failures each, artifacts/link-properties/{link,joint}-original.xml.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/msgs compared every original assertion and unchanged fixture; approved complete ports with native component-wise pose/vector and four-ULP scalar bounds. Explicitly approved the known-fixture IsValid observation through mandatory typed validation plus mass 100/identity inertia, without generic validity equivalence. Fresh private replay passed all 135 Rust checks, 56 native observations and both exact originals; full proof including source/binary/header/library hashes equals author. Native positive-index clamp finding is corrected with original 54-row prefix and absent-axis assertions unchanged."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

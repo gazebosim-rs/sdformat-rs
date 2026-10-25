@@ -380,3 +380,9 @@ Axis.dynamics and joint-stop stiffness/dissipation retain native metadata for bo
 axes, independently of runtime articulation support; see AXIS_DYNAMICS.md. Optional
 source/XML records distinguish declaration presence. Native negative/default
 values are retained; their runtime interpretation belongs to the consumer.
+
+Link.properties owns the native wind/gravity/kinematic values and self_collide XML
+parameter; see LINK_PROPERTIES.md. Parsing these flags does not implement physical
+effects. Simulator builders must implement/reject unsupported nondefaults before
+spawning. Joint::axis(index) borrows the first axis at zero and the second axis for every
+positive index; this does not add mutable Element or serialization facades.

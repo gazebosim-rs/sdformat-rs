@@ -312,8 +312,28 @@ pub struct Link {
     pub collisions: Vec<Collision>,
     pub visuals: Vec<Visual>,
     pub sensors: Vec<Sensor>,
+    pub properties: LinkProperties,
     pub plugins: Vec<Plugin>,
     pub source: Source,
+}
+/// Link flags retained as data; consumers implement or reject their physical use.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct LinkProperties {
+    pub enable_wind: bool,
+    pub enable_gravity: bool,
+    pub kinematic: bool,
+    /// Effective XML parameter; the native Link DOM has no corresponding getter.
+    pub self_collide: bool,
+}
+impl Default for LinkProperties {
+    fn default() -> Self {
+        Self {
+            enable_wind: false,
+            enable_gravity: true,
+            kinematic: false,
+            self_collide: false,
+        }
+    }
 }
 #[derive(Debug)]
 pub struct Inertial {
@@ -584,6 +604,17 @@ pub struct Joint {
     pub axis: Option<Axis>,
     pub axis2: Option<Axis>,
     pub source: Source,
+}
+impl Joint {
+    /// Zero borrows the first axis; every positive index aliases the second.
+    /// This follows native Joint::Axis clamping without narrowing Rust's usize.
+    pub fn axis(&self, index: usize) -> Option<&Axis> {
+        if index == 0 {
+            self.axis.as_ref()
+        } else {
+            self.axis2.as_ref()
+        }
+    }
 }
 #[derive(Debug)]
 pub struct Axis {

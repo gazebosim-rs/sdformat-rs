@@ -278,6 +278,9 @@ pub struct Inertial {
     /// ixx, iyy, izz, ixy, ixz, iyz in the inertial frame.
     pub inertia: [f64; 6],
     pub pose: Pose,
+    /// Symmetric [x,y,z,p,q,r] fluid added mass about the link origin.
+    /// Metadata only; None differs from an explicit zero matrix.
+    pub fluid_added_mass: Option<Box<[[f64; 6]; 6]>>,
 }
 impl Default for Inertial {
     fn default() -> Self {
@@ -285,6 +288,7 @@ impl Default for Inertial {
             mass: 1.,
             inertia: [1., 1., 1., 0., 0., 0.],
             pose: Pose::default(),
+            fluid_added_mass: None,
         }
     }
 }

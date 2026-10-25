@@ -717,7 +717,7 @@ impl Parser<'_> {
         let Some(node) = child(link, "inertial") else {
             return Ok(Inertial::default());
         };
-        self.allowed(node, &["mass", "inertia", "pose"], &[])?;
+        self.allowed(node, &["mass", "inertia", "pose", "fluid_added_mass"], &[])?;
         let mut result = Inertial {
             mass: self.scalar(node, "mass", 1.)?,
             pose: self.pose(node)?,
@@ -731,6 +731,21 @@ impl Parser<'_> {
             {
                 result.inertia[i] = self.scalar(inertia, name, result.inertia[i])?;
             }
+        }
+        if let Some(fluid) = child(node, "fluid_added_mass") {
+            let names = [
+                "xx", "xy", "xz", "xp", "xq", "xr", "yy", "yz", "yp", "yq", "yr", "zz", "zp", "zq",
+                "zr", "pp", "pq", "pr", "qq", "qr", "rr",
+            ];
+            self.allowed(fluid, &names, &[])?;
+            let mut matrix = [[0.; 6]; 6];
+            let upper = (0..6).flat_map(|row| (row..6).map(move |column| (row, column)));
+            for ((row, column), name) in upper.zip(names) {
+                let value = self.scalar(fluid, name, 0.)?;
+                matrix[row][column] = value;
+                matrix[column][row] = value;
+            }
+            result.fluid_added_mass = Some(Box::new(matrix));
         }
         let [a, b, c, d, e, f] = result.inertia;
         // Sylvester's criterion and triangle inequalities on the second moment

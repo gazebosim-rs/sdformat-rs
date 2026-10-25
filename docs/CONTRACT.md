@@ -299,3 +299,12 @@ gravity/magnetic-field moves and legacy IMU noise redistribution are Unsupported
 as are unimplemented schema fields at newer versions. No full 1.5 conversion or
 serialization claim is made. Empty 1.5 roots now report Missing after version
 acceptance; 1.4 roots remain Version errors.
+
+Inertial.fluid_added_mass is optional boxed symmetric 6x6 data in native
+[x,y,z,p,q,r] order about the link origin, independently of the inertial pose.
+An absent element is None; an explicitly empty element is Some(zero matrix).
+The 21 named upper-triangle entries default to zero and are mirrored. Finite
+negative/indefinite values remain permitted native DOM metadata; no extra
+positive-definiteness or hydrodynamic calculation is imposed. Physics consumers
+must reject Some until their engine supports it. Existing rigid-body mass/inertia
+validation is unchanged; this metadata API introduces no math dependency.

@@ -549,3 +549,42 @@ original case. All 97 Rust tests pass independently using the existing default
 target; no independent clean build or coverage rerun is claimed. The complete
 IncludeElements mapping is reviewed: 31 complete and six partial mappings total.
 Exact final receipt and normal strict staged/hosted gates remain required.
+
+The isolated fluid-added-mass candidate retains optional boxed symmetric 6x6
+metadata and the unchanged inertial_complete.sdf fixture. All 40 fresh native
+observations match presence and exact coefficient bits, including every XML
+entry, empty/default distinctions, signed zero, finite negative values,
+scalar-prefix/coercion behavior and range/nonfinite errors. All 98 Rust checks,
+fmt/clippy and working coverage pass: 2289/2306 lines, 3999/4096 regions and
+16/16 changed executable lines. No unsafe, dependencies or exclusions changed.
+
+The exact native DOMLink.InertialComplete case passes once with zero failures.
+Its proposed Rust mapping retains mass, all six rigid inertia values, three
+translation values, fluid presence and all 36 matrix coefficients. The native
+MassMatrix.IsValid observation maps to successful mandatory physical-inertia
+validation during loading, also retaining the exact known-valid values. A
+reviewer must explicitly judge that API mapping; no complete port is accepted
+before review. Consumers must reject any explicit fluid matrix until engine
+support; no fluid force or full inertia/serialization claim is made.
+
+Independent /root/transport_recovery approved the isolated fluid source, schema
+and complete original assertion mapping, including the fixture-specific IsValid
+observation via mandatory load-time validation and retained exact known-valid
+mass/inertia values. It independently passed all 98 Rust tests, 40 freshly
+rebuilt native bit/presence observations and the exact original case; proof
+hashes matched. This does not claim a generic validity algorithm or physics API.
+
+The identical fluid delta is integrated onto version-1.5 commit 9222bd6. All
+100 Rust checks and fmt/clippy pass; working coverage is 2292/2308 lines and
+4005/4101 regions, with 16/16 changed executable lines. The fresh native proof
+is identical to the isolated reviewed proof. Total proposed reviewed mappings
+are 32 complete and six partial; final overlap review, exact receipt and strict
+staged/hosted checks remain required. Every explicit fluid matrix still needs
+consumer rejection until physics support is implemented.
+
+Independent /root/transport_recovery approved the integrated fluid overlap and
+final metadata, verifying identical parser/type changes and all five new files
+against the isolated review. The fresh native proof matches, and all 100 Rust
+checks pass independently. Its qualified receipt retains the fixture-specific
+validity mapping and mandatory consumer rejection until physics support. Exact
+staged and hosted gates remain required before publication acceptance.

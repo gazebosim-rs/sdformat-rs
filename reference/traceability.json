@@ -424,6 +424,22 @@
       "baseline": "Exact unchanged native case passed; XML one run, zero failures; artifacts/version15/version15-original.xml",
       "status": "ported_reviewed",
       "review": "Independent /root/msgs approved implementation 454a1fbd1f2d28f54d223259fd973e43d92a4752c5341773e4e940ead51ea5db on 2026-10-25. Compared every original assertion at nested_model.cc1507-1589: exact model/index/include presence and lookup paths, both URI/name/pose/placement/plugin observations, and component-wise 1e-3 Pose3 comparisons. Fresh native script exactly recreated all shared proof fields, original raw-string/resource hashes, 201 matching observations including unchanged 139 prefix plus 62 version-1.5 controls, two native-supported/Rust-Unsupported gaps and exact original XML one run/zero failures. Independently all 97 Rust tests passed using existing default target, not a clean build or independent full coverage run. No Element/serializer or full version-conversion claim."
+    },
+    {
+      "target": "INTEGRATION_link_dom",
+      "case": "DOMLink.InertialComplete",
+      "source": "test/integration/link_dom.cc:174",
+      "rust_test": "tests/fluid.rs::inertial_complete_original_assertions",
+      "assertions": "Original successful load/model/link lookup, mass, six inertia values, three inertial translation values, fluid presence and all 36 symmetric matrix coefficient observations retained. Exact scalar/array comparisons strengthen native EXPECT_DOUBLE_EQ. MassMatrix.IsValid maps to successful typed load with mandatory existing physical-inertia validation; the exact known-valid mass/inertia values are also retained. No public generic math/Element or physics implementation facade claimed.",
+      "fixtures": {
+        "tests/fixtures/inertial_complete.sdf": "f868d10cc57a612bb6d7c924b3c5200d65e20a56a598afd63a27e852fc914a53"
+      },
+      "upstream_fixtures": {
+        "test/sdf/inertial_complete.sdf": "f868d10cc57a612bb6d7c924b3c5200d65e20a56a598afd63a27e852fc914a53"
+      },
+      "baseline": "Exact unchanged native case passed; XML one run, zero failures; artifacts/fluid/original.xml",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_recovery approved isolated 9d3251471e128b6d133c3b068acb618e3f0d434b46949e79e8da7bcc77ef97ee on 2026-10-25 after full original assertion/source/schema comparison, all 98 Rust tests, freshly rebuilt 40 native presence/bit observations and exact native original XML one run/zero failures. All proof hashes matched. Explicitly approved successful mandatory load-time physical-inertia validation plus exact known-valid mass/moments as this fixture's IsValid true observation; no generic validity algorithm/API parity claimed. All model/link/presence, pose/scalar and 36 matrix observations retained. Metadata only; consumer must reject Some until physics support. Final integrated overlap review remains required."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

@@ -1,10 +1,11 @@
 {
   "decision": "approved",
   "author": "/root/sdformat",
-  "reviewer": "/root/msgs",
-  "protected_digest": "69bfac3b9bdc341b1c220ff96361485d88792fe8f447ccc20e6bd9abb9f37777",
-  "date": "2026-10-25T01:09:08.081506+00:00",
-  "scope": "Bounded SDF1.5 common model subset and complete NestedModel.IncludeElements mapping. Compared every original assertion at nested_model.cc1507\u20131589 and exact unchanged raw-string plus box/test_model resources; Option/presence, lookup/index paths, plugin attributes and <=1e-3 component Pose comparisons retained. is_pre17 extends pinned pose/axis/shared-name chain; no full conversion or Element/serializer facade claimed. Final metadata reviewed after implementation454a1fbd; no source/test changes in metadata delta.",
-  "independent_checks": "Fresh tools/version15_reference.py reproduces every recorded proof key, original native XML1run/0fail,201 matching native rows incl62 new controls, two explicit native-supported/Rust-Unsupported obligations, all source/resource/binding/library/binary hashes. Verified prior139 corpus prefix unchanged. cargo test --locked --offline --tests passes97 using existing default target; no independent clean build or full coverage rerun.",
-  "limits": "Strict matching staged gate and hosted CI still required. Legacy IMU noise and physics gravity/magnetic-field conversion remain Unsupported; version1.4 and full conversion/serialization/performance not accepted."
+  "reviewer": "/root/transport_recovery",
+  "protected_digest": "b0f3c3d554d42a9042f56ba60e4ec607d834c19338ed3b5270d3d045fde049fe",
+  "date": "2026-10-25T01:13:22.364958+00:00",
+  "scope": "Independent exact integrated overlap review on published version-1.5 parent 9222bd64cf494e90cefe30608d51167d95fd02ce. Production parser/type added/deleted lines match approved isolated fluid 9d325147 snapshot exactly; all five new fixture/corpus/test/probe/tool files are byte-identical. No version/include/primitive source overlap drift or dependency/unsafe/quality changes. Final contract/results/traceability preserve optional symmetric metadata, explicit consumer rejection and broad pending physics/error/serialization scope.",
+  "assertion_mapping": "Reaffirms complete exact DOMLink.InertialComplete fixture mapping: mandatory successful physical-inertia validation plus exact known-valid mass and six inertia values preserve its true MassMatrix.IsValid observation. Native Root.Model and LinkByIndex(0) presence map to typed first()/unwrap(); all scalar/translation/presence/36-matrix assertions retained. This is not generic validity algorithm, fluid dynamics or broad inertia acceptance. Total mappings remain explicitly 32 complete and six partial.",
+  "independent_checks": "All 100 integrated Rust tests independently pass under default parallel execution. Fresh author integrated 40-case native proof equals the previously independently rebuilt isolated proof, including all fixture/source/schema/math-header/native-library/probe/original-binary identities. Prior independent 40 exact native bit observations and unchanged original XML one run/zero failures remain applicable to identical primitive input/code. Author full coverage 2292/2308 lines,4005/4101 regions,16/16 changed lines inspected, not independently recomputed.",
+  "limits": "Matching final protected receipt, strict staged and hosted gates remain required. Explicit Some fluid matrices must be rejected by consumers until engine support; no physics or general IsValid API parity, performance or full packet claim."
 }

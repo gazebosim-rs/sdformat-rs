@@ -375,3 +375,8 @@ order follows direct std::stof, and render/lidar/texture effects remain consumer
 work. PBR and unknown extensions remain Unsupported. No resource resolver call or
 asset IO occurs while loading this metadata. Scalar/vector numeric policies remain
 distinct; the existing finite-double shininess boundary remains explicit.
+
+Axis.dynamics and joint-stop stiffness/dissipation retain native metadata for both
+axes, independently of runtime articulation support; see AXIS_DYNAMICS.md. Optional
+source/XML records distinguish declaration presence. Native negative/default
+values are retained; their runtime interpretation belongs to the consumer.

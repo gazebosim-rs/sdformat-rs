@@ -34790,5 +34790,1046 @@
       }
     ]
   },
-  "material_review": "Independent /root/msgs approved corrected isolated 6b128c18 after source/ABI/safety/assertion review: all 124 owned Rust tests plus one independent eight-case string-edge test passed; fresh 110 native rows, exact original one run/zero failures and installed-header ABI proof exactly matched. Original 102-row prefix and numeric boundary bytes unchanged from initial review; six script-name mismatches fixed with Param text normalization and eight exact reviewer controls retained. Whole integrated replay/overlap and mandatory strict staged/hosted gates remain required. World physics parent and hook policies retain their separate prior review. Integrated author replay onto public 7ed5ad02 passes all 127 owned Rust tests, 13 tooling checks, 110 native rows/original/ABI and exact entire native proof equality; 3032/3052 lines, 5275/5393 regions and 168/169 changed executable lines. Numeric module and material assertion/fixture/probe files are unchanged from corrected isolated review; existing physics source/proof/mapping and hook policy preserved."
+  "material_review": "Independent /root/msgs approved corrected isolated 6b128c18 after source/ABI/safety/assertion review: all 124 owned Rust tests plus one independent eight-case string-edge test passed; fresh 110 native rows, exact original one run/zero failures and installed-header ABI proof exactly matched. Original 102-row prefix and numeric boundary bytes unchanged from initial review; six script-name mismatches fixed with Param text normalization and eight exact reviewer controls retained. Whole integrated replay/overlap and mandatory strict staged/hosted gates remain required. World physics parent and hook policies retain their separate prior review. Integrated author replay onto public 7ed5ad02 passes all 127 owned Rust tests, 13 tooling checks, 110 native rows/original/ABI and exact entire native proof equality; 3032/3052 lines, 5275/5393 regions and 168/169 changed executable lines. Numeric module and material assertion/fixture/probe files are unchanged from corrected isolated review; existing physics source/proof/mapping and hook policy preserved.",
+  "axis_dynamics_corpus": {
+    "upstream_sha": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "corpus_sha256": "40250f9f81687ff7ac4bd6db72be43019ac7f748fdc6e25197ee00419ba17e9d",
+    "probe_source_sha256": "03c19512cc45227e65261f1e8e413d6d4087e3e0ae5bbc4b0ed0685fad9ae5c6",
+    "probe_binary_sha256": "69f5bb2a02791a4e7a7f36c6a593e252910e314e0da993505bb12409d4b5213a",
+    "linked_libraries_sha256": {
+      "libsdformat.so.17": "bcc864bcee56b49c13081e29722051e26c036260e3dd037e7736aa2b8620358f",
+      "libstdc++.so.6": "1fd75fe70354a416d75aef22bcae68c47bd25d20e2d0568c30b1a9838cf62f11",
+      "libc.so.6": "3a15d66867d83762c7f2f1e37359cb8f6c5743edb369c65285cb0b1c4f7498bf",
+      "libgz-math.so.10": "288c6f52fac45359f5de67d97e0069b7f37420f5f78888e61406b8f565656c4f"
+    },
+    "source_sha256": {
+      "src/JointAxis.cc": "36977f34d632d6dd997ee198cfe718473476cca88f373650975b1f53fd2a445e",
+      "src/Param.cc": "487407a4a2301617b262ccb782312fe9c1d3d099e715aa42f3bb3cb713b29dce",
+      "src/JointAxis_TEST.cc": "cea41f209752f8c1a2f52c236d96ab71161b6a3c68228f3e2c5d32ab85152dbc",
+      "include/sdf/JointAxis.hh": "03da959246e4bac7c42164b4f8fe9a5459883f8af8d362c623bf56212ba849c7",
+      "sdf/1.12/joint.sdf": "4a79d5104cdee19dec79e21ea4f51077f40c153a460b50bb29ae4a30dd82bbe5",
+      "sdf/1.4/joint.sdf": "c2b2aadf04e894c49a053d05f739e47b3fbab5fedea6e59745cc6840e4302956"
+    },
+    "original_binary_sha256": "17b73d9c1a1a3955d378d103942f8a4c03a151862929d2444a3009c7c240b33a",
+    "original_tests": 1,
+    "original_failures": 0,
+    "explicit_gap_ids": [
+      "damping_nonfinite",
+      "friction_nonfinite",
+      "spring_reference_nonfinite",
+      "spring_stiffness_nonfinite",
+      "stiffness_nonfinite",
+      "dissipation_nonfinite",
+      "damping_nan",
+      "friction_nan",
+      "spring_reference_nan",
+      "spring_stiffness_nan",
+      "stiffness_nan",
+      "dissipation_nan",
+      "dynamics_custom_child",
+      "limit_custom_child"
+    ],
+    "observations": [
+      {
+        "id": "absent",
+        "tokens": [
+          "0",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "4726483295884279808",
+          "4607182418800017408",
+          "0"
+        ]
+      },
+      {
+        "id": "empty",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "4726483295884279808",
+          "4607182418800017408",
+          "0"
+        ]
+      },
+      {
+        "id": "values",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "4591870180066957722",
+          "4596373779694328218",
+          "4608533498688228557",
+          "4622156887561024307",
+          "4638355772470722560",
+          "4612811918334230528",
+          "0"
+        ]
+      },
+      {
+        "id": "damping_empty",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "4726483295884279808",
+          "4607182418800017408",
+          "0"
+        ]
+      },
+      {
+        "id": "damping_negative",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "13831680355561635840",
+          "0",
+          "0",
+          "0",
+          "4726483295884279808",
+          "4607182418800017408",
+          "0"
+        ]
+      },
+      {
+        "id": "damping_zero",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "9223372036854775808",
+          "0",
+          "0",
+          "0",
+          "4726483295884279808",
+          "4607182418800017408",
+          "0"
+        ]
+      },
+      {
+        "id": "damping_prefix",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "4596373779694328218",
+          "0",
+          "0",
+          "0",
+          "4726483295884279808",
+          "4607182418800017408",
+          "0"
+        ]
+      },
+      {
+        "id": "damping_subnormal",
+        "tokens": [
+          "7",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "30"
+        ]
+      },
+      {
+        "id": "damping_bad",
+        "tokens": [
+          "7",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "30"
+        ]
+      },
+      {
+        "id": "damping_bool",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "4607182418800017408",
+          "0",
+          "0",
+          "0",
+          "4726483295884279808",
+          "4607182418800017408",
+          "0"
+        ]
+      },
+      {
+        "id": "damping_nonfinite",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "9218868437227405312",
+          "0",
+          "0",
+          "0",
+          "4726483295884279808",
+          "4607182418800017408",
+          "0"
+        ]
+      },
+      {
+        "id": "friction_empty",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "4726483295884279808",
+          "4607182418800017408",
+          "0"
+        ]
+      },
+      {
+        "id": "friction_negative",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "0",
+          "13831680355561635840",
+          "0",
+          "0",
+          "4726483295884279808",
+          "4607182418800017408",
+          "0"
+        ]
+      },
+      {
+        "id": "friction_zero",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "0",
+          "9223372036854775808",
+          "0",
+          "0",
+          "4726483295884279808",
+          "4607182418800017408",
+          "0"
+        ]
+      },
+      {
+        "id": "friction_prefix",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "0",
+          "4596373779694328218",
+          "0",
+          "0",
+          "4726483295884279808",
+          "4607182418800017408",
+          "0"
+        ]
+      },
+      {
+        "id": "friction_subnormal",
+        "tokens": [
+          "7",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "30"
+        ]
+      },
+      {
+        "id": "friction_bad",
+        "tokens": [
+          "7",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "30"
+        ]
+      },
+      {
+        "id": "friction_bool",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "0",
+          "4607182418800017408",
+          "0",
+          "0",
+          "4726483295884279808",
+          "4607182418800017408",
+          "0"
+        ]
+      },
+      {
+        "id": "friction_nonfinite",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "0",
+          "9218868437227405312",
+          "0",
+          "0",
+          "4726483295884279808",
+          "4607182418800017408",
+          "0"
+        ]
+      },
+      {
+        "id": "spring_reference_empty",
+        "tokens": [
+          "7",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "30"
+        ]
+      },
+      {
+        "id": "spring_reference_negative",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "0",
+          "0",
+          "13831680355561635840",
+          "0",
+          "4726483295884279808",
+          "4607182418800017408",
+          "0"
+        ]
+      },
+      {
+        "id": "spring_reference_zero",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "0",
+          "0",
+          "9223372036854775808",
+          "0",
+          "4726483295884279808",
+          "4607182418800017408",
+          "0"
+        ]
+      },
+      {
+        "id": "spring_reference_prefix",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "0",
+          "0",
+          "4596373779694328218",
+          "0",
+          "4726483295884279808",
+          "4607182418800017408",
+          "0"
+        ]
+      },
+      {
+        "id": "spring_reference_subnormal",
+        "tokens": [
+          "7",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "30"
+        ]
+      },
+      {
+        "id": "spring_reference_bad",
+        "tokens": [
+          "7",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "30"
+        ]
+      },
+      {
+        "id": "spring_reference_bool",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "0",
+          "0",
+          "4607182418800017408",
+          "0",
+          "4726483295884279808",
+          "4607182418800017408",
+          "0"
+        ]
+      },
+      {
+        "id": "spring_reference_nonfinite",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "0",
+          "0",
+          "9218868437227405312",
+          "0",
+          "4726483295884279808",
+          "4607182418800017408",
+          "0"
+        ]
+      },
+      {
+        "id": "spring_stiffness_empty",
+        "tokens": [
+          "7",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "30"
+        ]
+      },
+      {
+        "id": "spring_stiffness_negative",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "0",
+          "0",
+          "0",
+          "13831680355561635840",
+          "4726483295884279808",
+          "4607182418800017408",
+          "0"
+        ]
+      },
+      {
+        "id": "spring_stiffness_zero",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "0",
+          "0",
+          "0",
+          "9223372036854775808",
+          "4726483295884279808",
+          "4607182418800017408",
+          "0"
+        ]
+      },
+      {
+        "id": "spring_stiffness_prefix",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "0",
+          "0",
+          "0",
+          "4596373779694328218",
+          "4726483295884279808",
+          "4607182418800017408",
+          "0"
+        ]
+      },
+      {
+        "id": "spring_stiffness_subnormal",
+        "tokens": [
+          "7",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "30"
+        ]
+      },
+      {
+        "id": "spring_stiffness_bad",
+        "tokens": [
+          "7",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "30"
+        ]
+      },
+      {
+        "id": "spring_stiffness_bool",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "0",
+          "0",
+          "0",
+          "4607182418800017408",
+          "4726483295884279808",
+          "4607182418800017408",
+          "0"
+        ]
+      },
+      {
+        "id": "spring_stiffness_nonfinite",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "0",
+          "0",
+          "0",
+          "9218868437227405312",
+          "4726483295884279808",
+          "4607182418800017408",
+          "0"
+        ]
+      },
+      {
+        "id": "stiffness_empty",
+        "tokens": [
+          "0",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "4726483295884279808",
+          "4607182418800017408",
+          "0"
+        ]
+      },
+      {
+        "id": "stiffness_negative",
+        "tokens": [
+          "0",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "13831680355561635840",
+          "4607182418800017408",
+          "0"
+        ]
+      },
+      {
+        "id": "stiffness_zero",
+        "tokens": [
+          "0",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "9223372036854775808",
+          "4607182418800017408",
+          "0"
+        ]
+      },
+      {
+        "id": "stiffness_prefix",
+        "tokens": [
+          "0",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "4596373779694328218",
+          "4607182418800017408",
+          "0"
+        ]
+      },
+      {
+        "id": "stiffness_subnormal",
+        "tokens": [
+          "7",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "30"
+        ]
+      },
+      {
+        "id": "stiffness_bad",
+        "tokens": [
+          "7",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "30"
+        ]
+      },
+      {
+        "id": "stiffness_bool",
+        "tokens": [
+          "0",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "4607182418800017408",
+          "4607182418800017408",
+          "0"
+        ]
+      },
+      {
+        "id": "stiffness_nonfinite",
+        "tokens": [
+          "0",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "9218868437227405312",
+          "4607182418800017408",
+          "0"
+        ]
+      },
+      {
+        "id": "dissipation_empty",
+        "tokens": [
+          "0",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "4726483295884279808",
+          "4607182418800017408",
+          "0"
+        ]
+      },
+      {
+        "id": "dissipation_negative",
+        "tokens": [
+          "0",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "4726483295884279808",
+          "13831680355561635840",
+          "0"
+        ]
+      },
+      {
+        "id": "dissipation_zero",
+        "tokens": [
+          "0",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "4726483295884279808",
+          "9223372036854775808",
+          "0"
+        ]
+      },
+      {
+        "id": "dissipation_prefix",
+        "tokens": [
+          "0",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "4726483295884279808",
+          "4596373779694328218",
+          "0"
+        ]
+      },
+      {
+        "id": "dissipation_subnormal",
+        "tokens": [
+          "7",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "30"
+        ]
+      },
+      {
+        "id": "dissipation_bad",
+        "tokens": [
+          "7",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "30"
+        ]
+      },
+      {
+        "id": "dissipation_bool",
+        "tokens": [
+          "0",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "4726483295884279808",
+          "4607182418800017408",
+          "0"
+        ]
+      },
+      {
+        "id": "dissipation_nonfinite",
+        "tokens": [
+          "0",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "4726483295884279808",
+          "9218868437227405312",
+          "0"
+        ]
+      },
+      {
+        "id": "both",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "4611686018427387904",
+          "0",
+          "0",
+          "0",
+          "4726483295884279808",
+          "4607182418800017408",
+          "1",
+          "1",
+          "0",
+          "13839561654909534208",
+          "0",
+          "4612361558371493478",
+          "0",
+          "4607182418800017408"
+        ]
+      },
+      {
+        "id": "version1.4",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "4611686018427387904",
+          "0",
+          "13830554455654793216",
+          "0",
+          "4726483295884279808",
+          "4607182418800017408",
+          "0"
+        ]
+      },
+      {
+        "id": "version1.5",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "4611686018427387904",
+          "0",
+          "13830554455654793216",
+          "0",
+          "4726483295884279808",
+          "4607182418800017408",
+          "0"
+        ]
+      },
+      {
+        "id": "version1.6",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "4611686018427387904",
+          "0",
+          "13830554455654793216",
+          "0",
+          "4726483295884279808",
+          "4607182418800017408",
+          "0"
+        ]
+      },
+      {
+        "id": "version1.7",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "4611686018427387904",
+          "0",
+          "13830554455654793216",
+          "0",
+          "4726483295884279808",
+          "4607182418800017408",
+          "0"
+        ]
+      },
+      {
+        "id": "version1.8",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "4611686018427387904",
+          "0",
+          "13830554455654793216",
+          "0",
+          "4726483295884279808",
+          "4607182418800017408",
+          "0"
+        ]
+      },
+      {
+        "id": "version1.9",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "4611686018427387904",
+          "0",
+          "13830554455654793216",
+          "0",
+          "4726483295884279808",
+          "4607182418800017408",
+          "0"
+        ]
+      },
+      {
+        "id": "version1.10",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "4611686018427387904",
+          "0",
+          "13830554455654793216",
+          "0",
+          "4726483295884279808",
+          "4607182418800017408",
+          "0"
+        ]
+      },
+      {
+        "id": "version1.11",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "4611686018427387904",
+          "0",
+          "13830554455654793216",
+          "0",
+          "4726483295884279808",
+          "4607182418800017408",
+          "0"
+        ]
+      },
+      {
+        "id": "damping_nan",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "9221120237041090560",
+          "0",
+          "0",
+          "0",
+          "4726483295884279808",
+          "4607182418800017408",
+          "0"
+        ]
+      },
+      {
+        "id": "friction_nan",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "0",
+          "9221120237041090560",
+          "0",
+          "0",
+          "4726483295884279808",
+          "4607182418800017408",
+          "0"
+        ]
+      },
+      {
+        "id": "spring_reference_nan",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "0",
+          "0",
+          "9221120237041090560",
+          "0",
+          "4726483295884279808",
+          "4607182418800017408",
+          "0"
+        ]
+      },
+      {
+        "id": "spring_stiffness_nan",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "0",
+          "0",
+          "0",
+          "9221120237041090560",
+          "4726483295884279808",
+          "4607182418800017408",
+          "0"
+        ]
+      },
+      {
+        "id": "stiffness_nan",
+        "tokens": [
+          "0",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "9221120237041090560",
+          "4607182418800017408",
+          "0"
+        ]
+      },
+      {
+        "id": "dissipation_nan",
+        "tokens": [
+          "0",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "4726483295884279808",
+          "9221120237041090560",
+          "0"
+        ]
+      },
+      {
+        "id": "dynamics_custom_child",
+        "tokens": [
+          "0",
+          "1",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "4726483295884279808",
+          "4607182418800017408",
+          "0"
+        ]
+      },
+      {
+        "id": "limit_custom_child",
+        "tokens": [
+          "0",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "4726483295884279808",
+          "4607182418800017408",
+          "0"
+        ]
+      }
+    ]
+  },
+  "axis_dynamics_review": "Independent /root/transport_recovery approved isolated cd64b3c0: fresh 125 owned Rust tests, 68 native observations and exact complete DOMJointAxis.Construction one run/zero failures; entire proof including source/binary/header/library hashes equals author. Twelve default/setter value observations approved as partial only; constructor/Element/XYZ/error/graph/bounds/mimic scope explicitly pending. Existing frame/query assertions in semantics.rs unchanged after six new required initializer fields. Author 13 tools/full coverage remain distinct. Identical axis source/assertion delta integrates onto public material 01464a42; final overlap review and mandatory staged/hosted verification remain required. Integrated author replay passes 130 Rust/13 tools, with fresh complete native proof equality to reviewed isolated inputs; author full coverage remains separate."
 }

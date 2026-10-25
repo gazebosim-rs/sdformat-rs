@@ -854,3 +854,37 @@ isolated proof. Integrated coverage is 3032/3052 lines, 5275/5393 regions and
 168/169 changed executable lines. Existing physics source/mapping/proof and hook
 policy remain untouched. Final overlap receipt and mandatory staged/hosted gates
 remain required; accepted original mappings now total 35 complete and ten partial.
+
+## Joint axis dynamics candidate
+
+The isolated successor retains damping, friction, spring reference/stiffness and
+independent joint-stop stiffness/dissipation on both axes. Native defaults, required
+empty errors, negative/signed-zero/prefix/range behavior and owned declaration
+source/XML are tested. No runtime joint effect, FFI change, mimic or initial-position
+support is added. Two existing manual Axis fixtures gained the new default fields;
+their original frame/query assertions and values are unchanged. Initial compilation
+failures from these new required struct fields are retained.
+
+All 125 Rust checks, 13 tooling checks, fmt/clippy, fresh 68 native observations and
+the exact original DOMJointAxis.Construction (one run, zero failures) pass. Only
+twelve dynamics/stop default/setter observations are proposed as a partial mapping;
+Element, XYZ/error/graph, bounds/effort/velocity and mimic assertions remain pending.
+The complete original case is not retired. Native nonfinite-double and custom-child
+gaps remain explicit. No dependency, exclusion or threshold changes are made.
+
+An initial changed-line gate correctly rejected 32/34 coverage. Added native-backed
+custom-child rejection cases exercise both new outer validation paths; all original
+66 rows are retained. Final working coverage is 2883/2901 production lines,
+5022/5127 regions and 34/34 changed executable lines. Independent review and exact
+staged/hosted verification remain required; no whole SDF packet is self-accepted.
+
+Independent /root/transport_recovery approved the isolated twelve-value partial
+mapping after all 125 Rust checks, 68 fresh native observations and the complete
+original (one run, zero failures), with entire native proof equality. Original
+frame/query assertions are unchanged after the six initializer additions. The
+identical axis source/assertion delta is integrated separately onto public material
+01464a42; final overlap/staged/hosted qualification is required.
+Integrated author coverage is 3058/3078 lines, 5323/5440 regions and 34/34 changed
+executable lines, with 130 Rust and 13 tooling checks passing. This does not expand
+the twelve-value partial original mapping; totals remain 35 complete and eleven
+partial cases pending the final exact review receipt and publication gates.

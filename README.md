@@ -14,7 +14,8 @@ The supported subset has SDF 1.4–1.12 worlds with owned physics profile metada
 nested and included models,
 links, primitive and mesh collision/visual metadata and poses, owned visual/material
 metadata, physical mass/inertia,
-fixed/revolute/prismatic/continuous/universal/revolute2 joints, typed IMU sensor configuration, frames, and opaque plugin content.
+fixed/revolute/prismatic/continuous/universal/revolute2 joints with owned axis
+dynamics and stop metadata, typed IMU sensor configuration, frames, and opaque plugin content.
 Model and include placement frames resolve through nested links, frames, joints,
 and models. Pose and attachment graphs are separate. Loading is atomic; non-frame
 pose errors remain deferred until resolution, matching the native DOM. Scene

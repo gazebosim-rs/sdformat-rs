@@ -1,56 +1,61 @@
 {
-  "reviewer": "/root/msgs",
-  "date": "2026-10-25T07:27:14.293180+00:00",
   "decision": "approved",
-  "base": "7ed5ad02ac12185e071d0ab358de1adad61418e8",
-  "protected_digest": "432e7611cc1a5b53d99e26f2b25416e043ed139a64fdff84e4d2eb7ca7741d2e",
-  "source_sha256": {
-    "README.md": "ec6d88a3827fcea652e2ddec051a9b5175c932baf2e9a0c52abfb05a5dff9c66",
-    "docs/CONTRACT.md": "c716ce303fbdf99a2c6a0a55b1b5a041760d8cc5ac26ea7972e4445db5459bfb",
-    "docs/MATERIALS.md": "445494264cd94b49b6e6f3bfd36505123d3a7338a5b02e7cb1945a34bbbfb23d",
-    "docs/SCALAR_CONVERSION.md": "ab6bbb48acdaae447d225bd3c3d2d88d941829c35bed9ac43f7f004f73d7d3a6",
-    "docs/STATUS.md": "508f6dede5e8d1e714468c000cc06a179bfb79415c0f21b7f715446987b0f25e",
-    "reference/results.json": "0ba770d06b92820f2137e4bb7044e7420dfb73279247d6d4f73193b7af3182bb",
-    "reference/traceability.json": "2af6052bfa4b09a49db1a9fdd2fdc2c999795140bf0a4032f4828cba0903f14f",
-    "src/number.rs": "dd277f2034cc43ce7a4cd6085ce5357244392c26c2a459d3adbc0cc58f1216a5",
-    "src/parse.rs": "11396cdd7e381ccff5c568b5b34a60b92be2c2834b899b30d0550347210f973a",
-    "src/types.rs": "ca05fd6435fe174663fe72da036c4bca89d61a2add37a016866598363498aeca",
-    "tests/fixtures/material.sdf": "a9cbcfbaf4a26f700058238b4790f7c6581cfc2b6fd028b866ae31dd1ccc635d",
-    "tests/material.json": "b651cada072ea1f7a6dc254ae1212b995f1a04956a98f44aa3ee1ba766650953",
-    "tests/material.rs": "5fa81b4c824d2934c939705e2fbc0cf882f3854bafbb3420f9206e7881f3f5d9",
-    "tests/material_numeric.rs": "164a85e40880ecbaf5bea3922dc75bcefbca7babde488613f9707b580189dfe0",
-    "tests/material_original.rs": "2de26196c5dcadfba87bf4aff781895ccebd2476022f6713beeb3893c3ee1011",
-    "tests/material_reference.cc": "8ede82af3e883b74ea98046894b354e1b846ba5e4e6949129e81e019d7b508c8",
-    "tests/semantics.rs": "7bbf5e1cac39e71aec958de934cf533b5f795b9ff0ca48da580d1c85fc5cf22e",
-    "tests/visuals.rs": "fa7d1147698155350c5809272d2b7d959d4e64b54bb477c0226090e992c08545",
-    "tools/material_reference.py": "9033faeea19e3b06e5feb746a6307fd71764b7d4ca9e76c57f04cd45f8003213"
+  "author": "/root/sdformat",
+  "reviewer": "/root/transport_recovery",
+  "base": "01464a4276a19ce524312e2a7d8de4caa4f9dfa5",
+  "protected_digest": "fb10bb95aaf2bfbadfef7290155396fb4859dc82bc38df72b41ca4817d859ff7",
+  "scope": "Final integrated Axis dynamics/stop metadata on the public material parent; only twelve Construction scalar observations are reviewed partial, with no complete original retirement.",
+  "file_sha256": {
+    "README.md": "023e3ba093330f0abe10a09df50fbe2eb53ff75f190496ba925c1a0c442974f1",
+    "docs/AXIS_DYNAMICS.md": "496f67ec4016b42f15a6b9f1d4aca037a0b0fb96c63cf0189780f99a295630ea",
+    "docs/CONTRACT.md": "258593061566b9d0e2acdb7439bc4a15446ef95807a818f86058375e81266274",
+    "docs/STATUS.md": "6542751be7a5598694732974f3e7ed1f28360110f99300f5da3f42ef7a5b75eb",
+    "reference/results.json": "c648f7a9b53d2c95d01f79cec6c04e164bf78f1e6489142c06a24bc4d9cfa390",
+    "reference/traceability.json": "88eb0f25fb2c48d97fb5f85a5da1b22cf370709f929f163c034f3fa3797f5ef3",
+    "src/parse.rs": "88bdb7463d049f65e46f822a37b808ac9f4dc8764b5c6d3e9cd7d3d004bb1089",
+    "src/types.rs": "d07e40e923d9070a762769466af7694b358cb4ce38e3908d37dbc3c36f369b37",
+    "tests/axis_dynamics.json": "40250f9f81687ff7ac4bd6db72be43019ac7f748fdc6e25197ee00419ba17e9d",
+    "tests/axis_dynamics.rs": "ac17cb2cf06a162bba1f227df034837987ec88a292d75e8482e14c2f559adecc",
+    "tests/axis_dynamics_original.rs": "d612e7d656a1ed6a96da4b4c5a881c24b260ecab16ae8cc506e8dbcf12b13ec3",
+    "tests/axis_dynamics_reference.cc": "03c19512cc45227e65261f1e8e413d6d4087e3e0ae5bbc4b0ed0685fad9ae5c6",
+    "tests/semantics.rs": "267b3b818a71b485371c53c8a7bfe01300c37553904f49ed606d002515f9fb1e",
+    "tools/axis_dynamics_reference.py": "af738234a5ee32ee3baf1c20ed6e4e4e09035d5d31a6701a3e2b91fbf0804aae"
   },
   "independent_checks": [
-    "Raw-exported and Git-blob/type/mode/path-set verified the isolated and integrated public parents, applied only their frozen material files and reverified all source bindings. Every Cargo build used reviewer-owned source and private targets.",
-    "Independently compared full DOMVisual.Material original source and unchanged material.sdf bytes: load/model/link/three visual/material presence, all four color arrays with <=1e-6 native tolerance, lighting/double-sided, positive render-order four-ULP bound, shader selections and script/normal-map strings are retained. Original 2018 attribution remains.",
-    "Initial frozen snapshot passes all 124 owned Rust checks, and freshly compiled native helper reproduces all 102 rows/original 1 run / 0 failures/header ABI checks. Added independent eight script-name cases and reproduced six real ASCII-collapse/NBSP/CDATA-VT mismatches; original failed test/log retained.",
-    "Corrected frozen 6b128c18 preserves all original 102 rows and numeric/ABI source. Private replay passes all 124 owned tests plus independent edge test (125 total). Fresh 110 native observations, exact original 1 run / 0 failures and installed-header strtof_l type/storage checks produce an entire proof dictionary identical to the author.",
-    "Audited raw strtof_l helper C locale ownership, live NUL-terminated buffer and writable end pointer, immediate errno capture, no pointer escape/end dereference, exactly-once nonnull cleanup and errno restoration after buffer destruction. Stored-double wrapper retains 17-significant-digit conversion/default-zero behavior and restores errno around formatting/drop. New helper uses no locale mutation; existing deny/allow scope and dependencies do not broaden. Fresh fault-child and eight-thread tests pass.",
-    "For final integration, independently three-way merged corrected material parse.rs/types.rs changes onto public Physics 7ed5ad02 and obtained byte-identical integrated files, retaining the parent physics/repeated-tag additions. Number/tests/fixture/corpus/probe/tool inputs remain unchanged. Fresh integrated private target passes all 127 owned Rust checks; unchanged native proof matches the corrected independent proof entirely."
+    "Raw Git-parent export plus 14 hash-verified overlays recomputes final protected digest; actual main protected digest also matches. Fresh integrated reviewer-owned Cargo target passes all 130 Rust checks.",
+    "Compared exact parse/types/semantics production/test edit segments with the reviewed isolated snapshot: identical changes. All six new files match isolated byte-for-byte; all 135 untouched parent files match public Git blobs.",
+    "Every inherited parent reference-results object and prior traceability entry is unchanged. Material code/native proof/mapping, number boundary and hook policies remain intact. Merged metadata accurately keeps the twelve-value mapping partial.",
+    "Fresh integrated native observer reproduces all 68 rows and complete unchanged DOMJointAxis.Construction XML one run/zero failures. Entire proof matches the independently replayed isolated proof, including every source/schema/header/library/corpus/probe/original-binary hash."
   ],
+  "assertion_mapping": "Inherits exact isolated review c98ec9333b6c6761f32f15418f5f95e89d6548b243d99f35204661abdb927e27: four zero dynamics defaults, 1e8/1 stop defaults and six literal setter/readbacks only. Parsed default/public assignment API is accepted for these values; no native constructor facade. Element/null, XYZ/errors/graphs, native constructed infinite bounds/effort/velocity, mimic and complete original remain pending.",
   "author_gate": {
-    "rust_tests": 127,
-    "tool_tests": 13,
+    "rust_checks": 130,
+    "tooling_checks": 13,
     "lines": [
-      3032,
-      3052
+      3058,
+      3078
     ],
     "regions": [
-      5275,
-      5393
+      5323,
+      5440
     ],
     "changed_lines": [
-      168,
-      169
+      34,
+      34
     ],
-    "qualification": "Reported author integrated fmt/clippy/strict coverage gate; independent full coverage/tooling rerun not claimed."
+    "qualification": "Author strict fmt/clippy/tooling/coverage, not independently recomputed. Independent 130 Rust plus native replay above are distinct."
   },
-  "limits": "Plain owned metadata only; no renderer/IO/PBR/URI-resolution-mode or console diagnostic/effect equivalence. Four explicit PBR/schema/double-nonfinite gaps and new API render_order nonfinite policy remain. No full SDF packet acceptance. Final copied receipt/metadata binding and normal exact staged/hosted gates remain required.",
-  "scope": "approved for bounded owned material metadata and raw-f32 helper scope",
-  "author": "/root/sdformat"
+  "limits": [
+    "Existing twelve nonfinite and two custom-child metadata gaps remain explicit; no complete native error-vector or schema/Element/serialization/engine/physical effect claim.",
+    "Native proof qualifies the current installed/build SDK, not a completely reproduced reference baseline.",
+    "New required Axis fields need deliberate consumer integration and unsupported runtime validation.",
+    "Normal exact protected staged hook and hosted qualification remain required."
+  ],
+  "artifacts": {
+    "rust": "rust.log",
+    "native": "native.log",
+    "native_proof": "reference.json",
+    "overlap": "overlap.json",
+    "freeze": "freeze.json"
+  }
 }

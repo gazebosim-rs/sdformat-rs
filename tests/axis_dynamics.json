@@ -1,0 +1,1085 @@
+[
+  {
+    "id": "absent",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4726483295884279808",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "empty",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics/></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4726483295884279808",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "values",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><damping>0.1</damping><friction>0.2</friction><spring_reference>1.3</spring_reference><spring_stiffness>10.6</spring_stiffness></dynamics><limit><stiffness>123</stiffness><dissipation>2.5</dissipation></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "4591870180066957722",
+      "4596373779694328218",
+      "4608533498688228557",
+      "4622156887561024307",
+      "4638355772470722560",
+      "4612811918334230528",
+      "0"
+    ]
+  },
+  {
+    "id": "damping_empty",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><damping></damping></dynamics></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4726483295884279808",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "damping_negative",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><damping>-1.25</damping></dynamics></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "13831680355561635840",
+      "0",
+      "0",
+      "0",
+      "4726483295884279808",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "damping_zero",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><damping>-0</damping></dynamics></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "9223372036854775808",
+      "0",
+      "0",
+      "0",
+      "4726483295884279808",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "damping_prefix",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><damping>0.2tail</damping></dynamics></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "4596373779694328218",
+      "0",
+      "0",
+      "0",
+      "4726483295884279808",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "damping_subnormal",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><damping>1e-310</damping></dynamics></axis></joint></model></sdf>",
+    "tokens": [
+      "7",
+      "9",
+      "9",
+      "9",
+      "9",
+      "9",
+      "9",
+      "30"
+    ]
+  },
+  {
+    "id": "damping_bad",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><damping>junk</damping></dynamics></axis></joint></model></sdf>",
+    "tokens": [
+      "7",
+      "9",
+      "9",
+      "9",
+      "9",
+      "9",
+      "9",
+      "30"
+    ]
+  },
+  {
+    "id": "damping_bool",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><damping>true</damping></dynamics></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "4607182418800017408",
+      "0",
+      "0",
+      "0",
+      "4726483295884279808",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "damping_nonfinite",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><damping>inf</damping></dynamics></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "9218868437227405312",
+      "0",
+      "0",
+      "0",
+      "4726483295884279808",
+      "4607182418800017408",
+      "0"
+    ],
+    "gap": "Existing finite-double metadata policy"
+  },
+  {
+    "id": "friction_empty",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><friction></friction></dynamics></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4726483295884279808",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "friction_negative",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><friction>-1.25</friction></dynamics></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "0",
+      "13831680355561635840",
+      "0",
+      "0",
+      "4726483295884279808",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "friction_zero",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><friction>-0</friction></dynamics></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "0",
+      "9223372036854775808",
+      "0",
+      "0",
+      "4726483295884279808",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "friction_prefix",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><friction>0.2tail</friction></dynamics></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "0",
+      "4596373779694328218",
+      "0",
+      "0",
+      "4726483295884279808",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "friction_subnormal",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><friction>1e-310</friction></dynamics></axis></joint></model></sdf>",
+    "tokens": [
+      "7",
+      "9",
+      "9",
+      "9",
+      "9",
+      "9",
+      "9",
+      "30"
+    ]
+  },
+  {
+    "id": "friction_bad",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><friction>junk</friction></dynamics></axis></joint></model></sdf>",
+    "tokens": [
+      "7",
+      "9",
+      "9",
+      "9",
+      "9",
+      "9",
+      "9",
+      "30"
+    ]
+  },
+  {
+    "id": "friction_bool",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><friction>true</friction></dynamics></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "0",
+      "4607182418800017408",
+      "0",
+      "0",
+      "4726483295884279808",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "friction_nonfinite",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><friction>inf</friction></dynamics></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "0",
+      "9218868437227405312",
+      "0",
+      "0",
+      "4726483295884279808",
+      "4607182418800017408",
+      "0"
+    ],
+    "gap": "Existing finite-double metadata policy"
+  },
+  {
+    "id": "spring_reference_empty",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><spring_reference></spring_reference></dynamics></axis></joint></model></sdf>",
+    "tokens": [
+      "7",
+      "9",
+      "9",
+      "9",
+      "9",
+      "9",
+      "9",
+      "30"
+    ]
+  },
+  {
+    "id": "spring_reference_negative",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><spring_reference>-1.25</spring_reference></dynamics></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "0",
+      "0",
+      "13831680355561635840",
+      "0",
+      "4726483295884279808",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "spring_reference_zero",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><spring_reference>-0</spring_reference></dynamics></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "0",
+      "0",
+      "9223372036854775808",
+      "0",
+      "4726483295884279808",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "spring_reference_prefix",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><spring_reference>0.2tail</spring_reference></dynamics></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "0",
+      "0",
+      "4596373779694328218",
+      "0",
+      "4726483295884279808",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "spring_reference_subnormal",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><spring_reference>1e-310</spring_reference></dynamics></axis></joint></model></sdf>",
+    "tokens": [
+      "7",
+      "9",
+      "9",
+      "9",
+      "9",
+      "9",
+      "9",
+      "30"
+    ]
+  },
+  {
+    "id": "spring_reference_bad",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><spring_reference>junk</spring_reference></dynamics></axis></joint></model></sdf>",
+    "tokens": [
+      "7",
+      "9",
+      "9",
+      "9",
+      "9",
+      "9",
+      "9",
+      "30"
+    ]
+  },
+  {
+    "id": "spring_reference_bool",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><spring_reference>true</spring_reference></dynamics></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "0",
+      "0",
+      "4607182418800017408",
+      "0",
+      "4726483295884279808",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "spring_reference_nonfinite",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><spring_reference>inf</spring_reference></dynamics></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "0",
+      "0",
+      "9218868437227405312",
+      "0",
+      "4726483295884279808",
+      "4607182418800017408",
+      "0"
+    ],
+    "gap": "Existing finite-double metadata policy"
+  },
+  {
+    "id": "spring_stiffness_empty",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><spring_stiffness></spring_stiffness></dynamics></axis></joint></model></sdf>",
+    "tokens": [
+      "7",
+      "9",
+      "9",
+      "9",
+      "9",
+      "9",
+      "9",
+      "30"
+    ]
+  },
+  {
+    "id": "spring_stiffness_negative",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><spring_stiffness>-1.25</spring_stiffness></dynamics></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "0",
+      "0",
+      "0",
+      "13831680355561635840",
+      "4726483295884279808",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "spring_stiffness_zero",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><spring_stiffness>-0</spring_stiffness></dynamics></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "0",
+      "0",
+      "0",
+      "9223372036854775808",
+      "4726483295884279808",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "spring_stiffness_prefix",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><spring_stiffness>0.2tail</spring_stiffness></dynamics></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "0",
+      "0",
+      "0",
+      "4596373779694328218",
+      "4726483295884279808",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "spring_stiffness_subnormal",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><spring_stiffness>1e-310</spring_stiffness></dynamics></axis></joint></model></sdf>",
+    "tokens": [
+      "7",
+      "9",
+      "9",
+      "9",
+      "9",
+      "9",
+      "9",
+      "30"
+    ]
+  },
+  {
+    "id": "spring_stiffness_bad",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><spring_stiffness>junk</spring_stiffness></dynamics></axis></joint></model></sdf>",
+    "tokens": [
+      "7",
+      "9",
+      "9",
+      "9",
+      "9",
+      "9",
+      "9",
+      "30"
+    ]
+  },
+  {
+    "id": "spring_stiffness_bool",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><spring_stiffness>true</spring_stiffness></dynamics></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408",
+      "4726483295884279808",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "spring_stiffness_nonfinite",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><spring_stiffness>inf</spring_stiffness></dynamics></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "0",
+      "0",
+      "0",
+      "9218868437227405312",
+      "4726483295884279808",
+      "4607182418800017408",
+      "0"
+    ],
+    "gap": "Existing finite-double metadata policy"
+  },
+  {
+    "id": "stiffness_empty",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><limit><stiffness></stiffness></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4726483295884279808",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "stiffness_negative",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><limit><stiffness>-1.25</stiffness></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "13831680355561635840",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "stiffness_zero",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><limit><stiffness>-0</stiffness></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "9223372036854775808",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "stiffness_prefix",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><limit><stiffness>0.2tail</stiffness></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4596373779694328218",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "stiffness_subnormal",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><limit><stiffness>1e-310</stiffness></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "7",
+      "9",
+      "9",
+      "9",
+      "9",
+      "9",
+      "9",
+      "30"
+    ]
+  },
+  {
+    "id": "stiffness_bad",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><limit><stiffness>junk</stiffness></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "7",
+      "9",
+      "9",
+      "9",
+      "9",
+      "9",
+      "9",
+      "30"
+    ]
+  },
+  {
+    "id": "stiffness_bool",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><limit><stiffness>true</stiffness></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "stiffness_nonfinite",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><limit><stiffness>inf</stiffness></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "9218868437227405312",
+      "4607182418800017408",
+      "0"
+    ],
+    "gap": "Existing finite-double metadata policy"
+  },
+  {
+    "id": "dissipation_empty",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><limit><dissipation></dissipation></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4726483295884279808",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "dissipation_negative",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><limit><dissipation>-1.25</dissipation></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4726483295884279808",
+      "13831680355561635840",
+      "0"
+    ]
+  },
+  {
+    "id": "dissipation_zero",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><limit><dissipation>-0</dissipation></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4726483295884279808",
+      "9223372036854775808",
+      "0"
+    ]
+  },
+  {
+    "id": "dissipation_prefix",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><limit><dissipation>0.2tail</dissipation></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4726483295884279808",
+      "4596373779694328218",
+      "0"
+    ]
+  },
+  {
+    "id": "dissipation_subnormal",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><limit><dissipation>1e-310</dissipation></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "7",
+      "9",
+      "9",
+      "9",
+      "9",
+      "9",
+      "9",
+      "30"
+    ]
+  },
+  {
+    "id": "dissipation_bad",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><limit><dissipation>junk</dissipation></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "7",
+      "9",
+      "9",
+      "9",
+      "9",
+      "9",
+      "9",
+      "30"
+    ]
+  },
+  {
+    "id": "dissipation_bool",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><limit><dissipation>true</dissipation></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4726483295884279808",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "dissipation_nonfinite",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><limit><dissipation>inf</dissipation></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4726483295884279808",
+      "9218868437227405312",
+      "0"
+    ],
+    "gap": "Existing finite-double metadata policy"
+  },
+  {
+    "id": "both",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><damping>2</damping></dynamics></axis><axis2><xyz>0 1 0</xyz><dynamics><friction>-4</friction><spring_stiffness>2.3</spring_stiffness></dynamics><limit><stiffness>0</stiffness></limit></axis2></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "4611686018427387904",
+      "0",
+      "0",
+      "0",
+      "4726483295884279808",
+      "4607182418800017408",
+      "1",
+      "1",
+      "0",
+      "13839561654909534208",
+      "0",
+      "4612361558371493478",
+      "0",
+      "4607182418800017408"
+    ]
+  },
+  {
+    "id": "version1.4",
+    "xml": "<sdf version='1.4'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><damping>2</damping><spring_reference>-1</spring_reference></dynamics></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "4611686018427387904",
+      "0",
+      "13830554455654793216",
+      "0",
+      "4726483295884279808",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "version1.5",
+    "xml": "<sdf version='1.5'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><damping>2</damping><spring_reference>-1</spring_reference></dynamics></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "4611686018427387904",
+      "0",
+      "13830554455654793216",
+      "0",
+      "4726483295884279808",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "version1.6",
+    "xml": "<sdf version='1.6'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><damping>2</damping><spring_reference>-1</spring_reference></dynamics></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "4611686018427387904",
+      "0",
+      "13830554455654793216",
+      "0",
+      "4726483295884279808",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "version1.7",
+    "xml": "<sdf version='1.7'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><damping>2</damping><spring_reference>-1</spring_reference></dynamics></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "4611686018427387904",
+      "0",
+      "13830554455654793216",
+      "0",
+      "4726483295884279808",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "version1.8",
+    "xml": "<sdf version='1.8'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><damping>2</damping><spring_reference>-1</spring_reference></dynamics></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "4611686018427387904",
+      "0",
+      "13830554455654793216",
+      "0",
+      "4726483295884279808",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "version1.9",
+    "xml": "<sdf version='1.9'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><damping>2</damping><spring_reference>-1</spring_reference></dynamics></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "4611686018427387904",
+      "0",
+      "13830554455654793216",
+      "0",
+      "4726483295884279808",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "version1.10",
+    "xml": "<sdf version='1.10'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><damping>2</damping><spring_reference>-1</spring_reference></dynamics></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "4611686018427387904",
+      "0",
+      "13830554455654793216",
+      "0",
+      "4726483295884279808",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "version1.11",
+    "xml": "<sdf version='1.11'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><damping>2</damping><spring_reference>-1</spring_reference></dynamics></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "4611686018427387904",
+      "0",
+      "13830554455654793216",
+      "0",
+      "4726483295884279808",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "damping_nan",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><damping>nan</damping></dynamics></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "9221120237041090560",
+      "0",
+      "0",
+      "0",
+      "4726483295884279808",
+      "4607182418800017408",
+      "0"
+    ],
+    "gap": "Existing finite-double metadata policy"
+  },
+  {
+    "id": "friction_nan",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><friction>nan</friction></dynamics></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "0",
+      "9221120237041090560",
+      "0",
+      "0",
+      "4726483295884279808",
+      "4607182418800017408",
+      "0"
+    ],
+    "gap": "Existing finite-double metadata policy"
+  },
+  {
+    "id": "spring_reference_nan",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><spring_reference>nan</spring_reference></dynamics></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "0",
+      "0",
+      "9221120237041090560",
+      "0",
+      "4726483295884279808",
+      "4607182418800017408",
+      "0"
+    ],
+    "gap": "Existing finite-double metadata policy"
+  },
+  {
+    "id": "spring_stiffness_nan",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><spring_stiffness>nan</spring_stiffness></dynamics></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "0",
+      "0",
+      "0",
+      "9221120237041090560",
+      "4726483295884279808",
+      "4607182418800017408",
+      "0"
+    ],
+    "gap": "Existing finite-double metadata policy"
+  },
+  {
+    "id": "stiffness_nan",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><limit><stiffness>nan</stiffness></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "9221120237041090560",
+      "4607182418800017408",
+      "0"
+    ],
+    "gap": "Existing finite-double metadata policy"
+  },
+  {
+    "id": "dissipation_nan",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><limit><dissipation>nan</dissipation></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4726483295884279808",
+      "9221120237041090560",
+      "0"
+    ],
+    "gap": "Existing finite-double metadata policy"
+  },
+  {
+    "id": "dynamics_custom_child",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><dynamics><custom_field/></dynamics></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4726483295884279808",
+      "4607182418800017408",
+      "0"
+    ],
+    "gap": "Unimplemented custom schema field",
+    "expected_error": "Unsupported"
+  },
+  {
+    "id": "limit_custom_child",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='universal'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz><limit><custom_field/></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4726483295884279808",
+      "4607182418800017408",
+      "0"
+    ],
+    "gap": "Unimplemented custom schema field",
+    "expected_error": "Unsupported"
+  }
+]

@@ -625,6 +625,18 @@
       "baseline": "Exact original native case passed once with zero failures; artifacts/primitives/Plane.xml",
       "status": "partial_reviewed",
       "review": "Independent /root/transport_recovery reviewed implementation 4baa643c061786bccd8b6447ad89aa3d8fa3cb420810e8547b13d09f2b8f1847 on 2026-10-25: compared exact Load value assertions and native source/normalization; independently reran 91 Rust checks, 37 freshly rebuilt native exact-bit observations and all four exact original Load cases, zero failures. Only value observations mapped; Element/error-vector/mutation assertions remain pending."
+    },
+    {
+      "target": "UNIT_JointAxis_TEST",
+      "case": "DOMJointAxis.Construction",
+      "source": "src/JointAxis_TEST.cc:24",
+      "rust_test": "tests/axis_dynamics_original.rs::original_joint_axis_construction_dynamics_and_stop_values",
+      "assertions": "Twelve exact native dynamics/stop default and per-field setter observations: damping, friction, spring reference/stiffness and limit stiffness/dissipation. Rust parsed-default fields/public assignment preserve these value observations. Element pointer, XYZ/set validation/no-graph resolution, default bounds/effort/velocity and mimic assertions remain pending; no complete case retirement.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Exact native DOMJointAxis.Construction one run/zero failures in artifacts/axis-dynamics/original.xml.",
+      "status": "partial_reviewed",
+      "review": "Independent /root/transport_recovery compared exact twelve defaults/setters/literals; approved partial observation mapping only with constructor/Element/XYZ/error/graph/bounds/mimic exclusions explicit. Fresh 125 Rust tests, 68 native observations and full original one run/zero failures pass; entire proof equals author, no complete case retirement."
     }
   ]
 }

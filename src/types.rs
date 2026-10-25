@@ -593,6 +593,21 @@ pub struct Axis {
     pub upper: f64,
     pub effort: f64,
     pub velocity: f64,
+    pub dynamics: AxisDynamics,
+    /// Joint-stop stiffness, independently of the spring stiffness in dynamics.
+    pub stiffness: f64,
+    pub dissipation: f64,
+}
+/// Native axis dynamics metadata; no damping, friction or spring is simulated here.
+#[derive(Debug, Default, Clone, PartialEq)]
+pub struct AxisDynamics {
+    pub damping: f64,
+    pub friction: f64,
+    pub spring_reference: f64,
+    pub spring_stiffness: f64,
+    /// Explicit dynamics declaration, if present; absent declarations use zero defaults.
+    pub source: Option<Source>,
+    pub xml: Option<String>,
 }
 #[derive(Debug)]
 pub struct Sensor {

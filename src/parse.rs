@@ -1778,9 +1778,9 @@ impl Parser<'_> {
         self.allowed(
             axis,
             if is_pre17(axis) {
-                &["xyz", "limit", "use_parent_model_frame"]
+                &["xyz", "limit", "dynamics", "use_parent_model_frame"]
             } else {
-                &["xyz", "limit"]
+                &["xyz", "limit", "dynamics"]
             },
             &[],
         )?;
@@ -1829,13 +1829,50 @@ impl Parser<'_> {
             upper: 1e16,
             effort: f64::INFINITY,
             velocity: f64::INFINITY,
+            dynamics: if let Some(node) = child(axis, "dynamics") {
+                self.allowed(
+                    node,
+                    &[
+                        "damping",
+                        "friction",
+                        "spring_reference",
+                        "spring_stiffness",
+                    ],
+                    &[],
+                )?;
+                AxisDynamics {
+                    damping: self.scalar(node, "damping", 0.)?,
+                    friction: self.scalar(node, "friction", 0.)?,
+                    spring_reference: self.required_scalar(node, "spring_reference", 0.)?,
+                    spring_stiffness: self.required_scalar(node, "spring_stiffness", 0.)?,
+                    source: Some(self.source(node)),
+                    xml: Some(self.xml[node.range()].into()),
+                }
+            } else {
+                AxisDynamics::default()
+            },
+            stiffness: 1e8,
+            dissipation: 1.,
         };
         if let Some(limit) = child(axis, "limit") {
-            self.allowed(limit, &["lower", "upper", "effort", "velocity"], &[])?;
+            self.allowed(
+                limit,
+                &[
+                    "lower",
+                    "upper",
+                    "effort",
+                    "velocity",
+                    "stiffness",
+                    "dissipation",
+                ],
+                &[],
+            )?;
             result.lower = self.scalar(limit, "lower", result.lower)?;
             result.upper = self.scalar(limit, "upper", result.upper)?;
             result.effort = self.scalar(limit, "effort", result.effort)?;
             result.velocity = self.scalar(limit, "velocity", result.velocity)?;
+            result.stiffness = self.scalar(limit, "stiffness", result.stiffness)?;
+            result.dissipation = self.scalar(limit, "dissipation", result.dissipation)?;
             if result.effort < 0. {
                 result.effort = f64::INFINITY;
             }

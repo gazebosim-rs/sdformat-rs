@@ -2,24 +2,20 @@
   "decision": "approved",
   "author": "/root/sdformat_owner_fallback",
   "reviewer": "/root/transport_fallback",
-  "final_freeze": "artifacts/unconfigured-sensors/frozen-final.json",
-  "parent": "f1de0576f8ff7916b2868b5c9e7d2e5df910b4ad",
-  "protected_digest": "da95636d0ae897bc653606283e896cf30cc958298933236624ecbbcea37e34f7",
-  "source_digest": "1bc9d8b65f5eb5463b3130965d5e9de17a9532acd4ef4eee610a44664931d0ce",
+  "final_freeze": "artifacts/static-anchor/frozen-final.json",
+  "parent": "67d3d05af7f0b898028f0754b7dd01aaf5f92711",
+  "protected_digest": "cbc7e9daa7dfaf423abce8f87b76f51f2a00d2b3c0766e7a0fd45ac0360f0299",
+  "source_digest": "75bf2ca77f2a25097e41c9279e39b124883e318367658ecfa82841d1a321f337",
   "files_sha256": {
-    "README.md": "fd712b603710b42572b856fca87f1fd6bb379387623e70dc2d229b5a377a78ec",
-    "docs/CONTRACT.md": "66bba02a19c51b4c0bfe5f43f134dba4382cf0c26d2597f61ffeb74c18775a70",
-    "docs/STATUS.md": "a227a14ed8f8f5c931212dbcd7a5a977f38f681b4810675dc20ecacf4d9ca61f",
-    "reference/results.json": "f1177aef013b207c0e8a80be139761f4a055392da1a00e01699831e875fdd40d",
-    "reference/traceability.json": "07b6a0699b8de1f7ffcce953ac8313df2c2f1265e715cb104963c00e902a2fdc",
-    "src/parse.rs": "ab3d6b1b32d052a6c0538cfb2803a040a2e02d140c81f4c30a0fc625c338e22f",
-    "src/types.rs": "acbdf5ef78228ee18fa42a82dcfdc82e8f102b3dd9bc397221a88835a33d38b4",
-    "tests/contact_sensor.rs": "f21d76aa638e464ed1641a33c1df9f29973080fb4a04fc5b50084149b438de9a",
-    "tests/semantics.rs": "373edcb4c70008d3ff1eae1af703339b3cb089f156d4c60a2a307bbc3c9ba4d7",
-    "tests/unconfigured_sensor_link_original.rs": "e07165c5d116fbb6f8addba21a32bb3e2c1199ea5bf00600984d35ffb87c12a4"
+    "docs/STATIC_MODEL_ATTACHMENTS.md": "e31bb71e9e9d4f7583b743b8bbaf408e8606346df2e83c97a139c69c19fb873e",
+    "docs/STATUS.md": "be2163dde318dac6c35fdafa2cc9f9091ae823db202a69ef9a3edfba9fc1a08c",
+    "reference/results.json": "31f87c565d149f8e40f3e4a73054f384741d5109dc874d28c85524a62c8ec3d9",
+    "reference/static_model_disposition.json": "9f13313ebc4755daddee36157920f344d17553acfbc02e18c1e18be57ab31b2a",
+    "tools/static_model_reference.py": "8e3c8f3c14e71e945f09667e84fccc30c6ea566fb3ce71e1d3cfbadbe9408915",
+    "tools/test_static_model_reference.py": "4531c015b1d9a330545977f60a7434f2c2891e96f032fd61a8dd56c77f3667c3"
   },
-  "source_review_sha256": "ac04ed9be165c3e91acace8d4250898c067a7735313b7c74e46ee26091114c98",
-  "binding": "Ten exact candidate file hashes match main; five executable/test reviewed source hashes and unchanged fixture match isolated source review; all 249 other parent tracked blobs are unchanged. tools/verify.py --review-digest matches protected digest and fresh integrated evidence matches source digest. Metadata extends only the existing PARTIAL DOMLink.Sensors row with seven envelope fragments, corrects historical native-positive RFID wording, and accurately limits known mismatched child rejection.",
-  "author_gate": "227 Rust, 15 tools, fmt, Clippy, docs, 3955/3973 lines, 6865/7064 regions, 24/24 changed executable lines on exact main digest.",
-  "limits": "Normal protected staged hook, public push, and hosted verification remain required; no full Link or family-payload acceptance."
+  "source_review_sha256": "b0f2104d7a4475e131971462fa0b00b93188519a59d670f93bd5831c71d83589",
+  "binding": "All six exact candidate hashes match main; three source/provenance files retain approved isolated bytes and the corrected source receipt is copied unchanged to ignored artifacts. All 254 other tracked parent blobs remain unchanged. tools/verify.py --review-digest matches the protected digest and integrated evidence matches the source digest. The docs/results describe only the helper anchoring correction, exact guarded-file scope and unchanged native observation set.",
+  "author_gate": "227 Rust, 16 tools, fmt, Clippy and docs; 3955/3973 production lines, 6865/7064 regions and zero changed production executable lines on exact main digest.",
+  "limits": "Normal protected staged hook, public commit and hosted qualification remain required. No static parser/graph/runtime policy change is accepted."
 }

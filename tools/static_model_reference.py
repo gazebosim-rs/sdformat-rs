@@ -12,6 +12,27 @@ import subprocess
 import xml.etree.ElementTree as ET
 
 
+def check_disposition(root, disposition):
+    """Rewind only reviewed successor edits before checking the static-model preimage."""
+    for path, change in disposition['files'].items():
+        restored = (root / path).read_text()
+        states = [change['post_static_sha256']]
+        states.extend(edit['after_sha256'] for edit in change.get('successor_edits', []))
+        current = hashlib.sha256(restored.encode()).hexdigest()
+        assert current in states, path
+        applied = states.index(current)
+        for edit in reversed(change.get('successor_edits', [])[:applied]):
+            assert restored.count(edit['after']) == 1, path
+            restored = restored.replace(edit['after'], edit['before'], 1)
+        assert hashlib.sha256(restored.encode()).hexdigest() == states[0], path
+        for edit in change['edits']:
+            assert edit['after'] and edit['after'] in restored, path
+            restored = restored.replace(edit['after'], edit['before'], 1)
+        assert hashlib.sha256(restored.encode()).hexdigest() == change['parent_sha256'], path
+    for path, expected in disposition['unchanged_input_sha256'].items():
+        assert hashlib.sha256((root / path).read_bytes()).hexdigest() == expected, path
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('upstream', type=Path)
@@ -23,14 +44,7 @@ def main():
     output.parent.mkdir(parents=True, exist_ok=True)
     sha = lambda path: hashlib.sha256(path.read_bytes()).hexdigest()
     disposition = json.loads((root / 'reference/static_model_disposition.json').read_text())
-    for path, change in disposition['files'].items():
-        restored = (root / path).read_text()
-        for edit in change['edits']:
-            assert edit['after'] and edit['after'] in restored, path
-            restored = restored.replace(edit['after'], edit['before'], 1)
-        assert hashlib.sha256(restored.encode()).hexdigest() == change['parent_sha256'], path
-    for path, expected in disposition['unchanged_input_sha256'].items():
-        assert sha(root / path) == expected, path
+    check_disposition(root, disposition)
     rows = json.loads((root / 'tests/static_model.json').read_text())
     retained = {row['id']: hashlib.sha256(row['xml'].encode()).hexdigest()
                 for row in rows if row['id'].startswith('old_')}

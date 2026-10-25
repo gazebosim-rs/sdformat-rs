@@ -60277,5 +60277,13 @@
     "rust": "tests/unconfigured_sensor_link_original.rs two tests plus corrected native-positive RFID controls in tests/contact_sensor.rs and tests/semantics.rs; full isolated227/0.",
     "scope": "Name, literal/native effective type, full raw pose and disabled metrics for logical_camera, multicamera, RFID, RFIDTAG, sonar, wireless receiver and transmitter from unchanged fixture. SensorConfig::Unconfigured has no family payload. The negative rejects a known mismatched <imu> child under RFID, not arbitrary unknown children. Native custom extension, Link lookup/count/index and full original remain unported; one other fixture instance pending. Historical RFID Unsupported controls corrected to bogus_sensor_type on native-positive evidence.",
     "review": "Independent /root/transport_fallback APPROVED exact frozen source/API/assertion mapping as PARTIAL only; receipt SHA256 ac04ed9be165c3e91acace8d4250898c067a7735313b7c74e46ee26091114c98. Fresh pinned native Link1/0 and private raw-parent Rust2/0. Integrated final metadata binding, protected hook and hosted qualification pending."
+  },
+  "static_model_reference_anchor": {
+    "parent": "67d3d05af7f0b898028f0754b7dd01aaf5f92711",
+    "source_digest": "b356f1ad5463d605b72702aaaced34580e4ba40d92d7642e55b2407b0a4e20c5",
+    "original": "NestedFrameSemantics.ModelWithoutLinksWithNestedStaticModel unchanged original1/0 and exact 61 native static-model observations; no new case credit.",
+    "rust": "New tools/test_static_model_reference.py unit verifies original static post-state, both reviewed later full-file-hash states and rejection of an unrelated static assertion mutation. Full isolated227 Rust/16 tools.",
+    "scope": "Helper-only provenance repair. Exact hashed camera→RFID→bogus_sensor_type successor states are reversed before original static edits and exact original parent SHA check. Git-free raw SDF575 and public67d exports each pass fresh native61 rows and original1/0. No production/parser/native fixture or D23/simulator policy change.",
+    "review": "Independent /root/transport_fallback APPROVED exact three-source-file helper/provenance source, receipt SHA256 b0f2104d7a4475e131971462fa0b00b93188519a59d670f93bd5831c71d83589. Private raw-parent native proof byte-identical SHA0232d6e6dbf211b8d7481bcf3acb19d8f28e6b4cefdac42331ab17f04907a5cc. Final metadata binding, normal protected hook and hosted qualification pending."
   }
 }

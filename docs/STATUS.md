@@ -1808,3 +1808,26 @@ tests, 15 tooling tests, formatting, Clippy and docs; production coverage is
 Independent /root/transport_fallback approved the exact partial source and
 negative-control disposition (source receipt SHA256 `ac04ed9be165c3e91acace8d4250898c067a7735313b7c74e46ee26091114c98`). Final
 metadata binding, protected hook and hosted qualification remain pending.
+
+
+## Current static-model reference helper anchoring
+
+The original static-model proof helper failed before native execution on
+later reviewed `tests/semantics.rs` changes: the historical Camera negative
+control became RFID and then an unknown kind as the parser gained native
+sensor families. Its original reverse-parent hash assertion remained sound
+for the original static packet, but could not replay a later raw export.
+The corrected helper accepts only full-file hashes for the original static
+post-state and those two reviewed successor states, reverses later edits,
+then checks the original static packet's exact parent hashes and listed
+unchanged inputs. A test proves all three states and rejects an unreviewed
+static assertion mutation.
+
+Fresh Git-free raw exports of SDF575 and current public67d each pass the
+61 native static-model observations and unchanged original 1/0 with the
+corrected helper. No static parser/graph/runtime policy or fixture changed.
+Isolated author checks pass 227 Rust tests, sixteen tooling tests, formatting,
+Clippy and docs; production coverage is 3955/3973 lines and 6865/7064
+regions with no changed production lines. Independent /root/transport_fallback
+approved exact source/provenance behavior (receipt SHA256 `b0f2104d7a4475e131971462fa0b00b93188519a59d670f93bd5831c71d83589`).
+Final metadata binding, protected hook and hosted qualification remain pending.

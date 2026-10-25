@@ -35,7 +35,8 @@ its original XML, native tokens and gap metadata, and now runs through all ordin
 pose/axis assertions after a positive load assertion. The unrelated invalid
 reference, duplicate, cycle, same-body and world-child errors remain asserted.
 `reference/static_model_disposition.json` records exact replacements; reversing
-them reconstructs all three public-parent test files byte-for-byte. Existing
+them reconstructs all three original static-packet parent test files byte-for-byte.
+The reviewed later sensor-test edits are separately hash-bound and rewound first. Existing
 canonical/model-frame JSON corpora are byte-identical. The full native 150-row /
 four-original alias replay is unchanged, including its historical gap annotation.
 
@@ -45,6 +46,19 @@ static model-frame sink. The retained red log is author evidence. The corrected
 corpus separately checks the dynamic-parent canonical-link path.
 
 Run `python3 tools/static_model_reference.py /path/to/pinned/sdformat` and
-`cargo test --locked --test static_model`. Independent assertion/source review passed; exact main overlap, strict staged
-verification and hosted qualification are still required before publication. This parser/frame correction does not decide simulator D23, execute
-joint limits, change physics static flags or adapt any downstream sensor API.
+`cargo test --locked --test static_model`. The original static-model parser/frame
+packet passed independent review and public qualification. It does not decide
+simulator D23, execute joint limits, change physics static flags or adapt any
+downstream sensor API.
+
+The reference helper now accepts only the exact original post-static test-file
+hashes and two later independently reviewed `tests/semantics.rs` successor
+hashes. It reverses the later camera→RFID→unknown-kind control edits, then
+reverses the original static-model edits and checks the exact original parent
+hashes. Any unreviewed mutation to those guarded files or listed unchanged
+inputs fails before native execution. This restores
+replay from both the adopted SDF575 raw export and the current raw export; each
+freshly passed all 61 native observations and the unchanged original. The
+helper change has no parser, native fixture or simulator behavior effect. Its
+separate independent source receipt is SHA256 `b0f2104d7a4475e131971462fa0b00b93188519a59d670f93bd5831c71d83589`; final metadata
+binding, normal hook and hosted qualification are pending.

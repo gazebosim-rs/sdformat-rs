@@ -17,6 +17,21 @@
           "before": "    assert_eq!(sdf.attached_body(\"m\").unwrap(), \"::\");\n",
           "after": "    assert_eq!(sdf.attached_body(\"m\").unwrap(), \"m::__model__\");\n"
         }
+      ],
+      "post_static_sha256": "54a4e4e29de5f1faa0d4ac5fa2647461490cdeb63ca24a06a41c0514c88e3ee6",
+      "successor_edits": [
+        {
+          "reviewed_at": "39f250303b7fdcba809de6b50a47b9489c2a8d4a",
+          "before": "            \"<link name='l'><sensor name='s' type='camera'/></link>\",\n",
+          "after": "            \"<link name='l'><sensor name='s' type='rfid'/></link>\",\n",
+          "after_sha256": "3ebd64b1e25df3b4ffcde6c6fca7a36ac9f3ee994d44ad554b3b480ffc281dca"
+        },
+        {
+          "reviewed_at": "67d3d05af7f0b898028f0754b7dd01aaf5f92711",
+          "before": "            \"<link name='l'><sensor name='s' type='rfid'/></link>\",\n",
+          "after": "            \"<link name='l'><sensor name='s' type='bogus_sensor_type'/></link>\",\n",
+          "after_sha256": "373edcb4c70008d3ff1eae1af703339b3cb089f156d4c60a2a307bbc3c9ba4d7"
+        }
       ]
     },
     "tests/canonical.rs": {
@@ -26,7 +41,8 @@
           "before": "            assert_eq!(sdf.attached_body(&model.scoped_name).unwrap(), \"::\");\n",
           "after": "            assert_eq!(\n                sdf.attached_body(&model.scoped_name).unwrap(),\n                \"m::inner::nested\"\n            );\n"
         }
-      ]
+      ],
+      "post_static_sha256": "6ca8e2c3c380ecf2812519b8e61dbbec72627a5fc59d8a76703bba8f3224bef0"
     },
     "tests/joint_frames.rs": {
       "parent_sha256": "b72a0780fe33ecff35bc91ee34094c6f3a82c92a5a09a34d12c783ecd7263b53",
@@ -35,7 +51,8 @@
           "before": "            assert_eq!(parsed.unwrap_err().code, sdformat::ErrorCode::InvalidValue);\n            continue;\n",
           "after": "            // Historical gap metadata is retained byte-for-byte. This exact\n            // native-positive payload now follows the ordinary assertions below.\n            assert!(parsed.is_ok(), \"{:?}\", parsed.as_ref().err());\n"
         }
-      ]
+      ],
+      "post_static_sha256": "0d074cf723b8fcb4aae416a327673c44f241e56c4a98322bdef5892d90bb2591"
     }
   },
   "retained_xml_sha256": {

@@ -24,7 +24,7 @@ pose errors remain deferred until resolution, matching the native DOM. Scene
 builders can call `validate_non_frame_poses` before constructing objects. Unsupported elements,
 attributes, versions, merge features, DTD declarations and automatic inertia produce
 explicit diagnostics. IMU noise, orientation settings and original XML are retained together. SensorConfig
-selects boxed IMU/ForceTorque/Magnetometer/Altimeter/AirPressure/NavSat/AirSpeed/Lidar or owned Contact settings; optional accessors
+selects boxed IMU/ForceTorque/Magnetometer/Altimeter/AirPressure/NavSat/AirSpeed/Lidar/Camera or owned Contact settings; optional accessors
 expose the chosen configuration without dummy values. Contact collision names
 and nested topic are metadata, with no contact runtime effect. Joint sensors retain
 their joint-default pose frame and exact raw configuration; force/torque fields
@@ -36,8 +36,8 @@ and velocity noise records for both `navsat` and legacy `gps` spellings without
 computing coordinates. AirSpeed retains differential pressure noise without
 measuring speed. Lidar retains scan, range, noise and visibility settings for
 ray/lidar and GPU spellings without simulating rays. An owned Camera value
-object retains construction defaults and setters; sensor parsing and rendering
-for Camera remain pending. See [ForceTorque](docs/FORCE_TORQUE.md) and
+object retains construction defaults and setters; a typed parser retains the
+pinned camera sensor fixture fragment. Camera rendering remains pending. See [ForceTorque](docs/FORCE_TORQUE.md) and
 [the contract](docs/CONTRACT.md).
 
 Scalar and pose-component conversion is qualified for Linux GNU/glibc using an

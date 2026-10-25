@@ -50,9 +50,10 @@ be aliases, but must resolve to different bodies; the child cannot be world.
 `SensorConfig::AirPressure(Box<AirPressure>)` or
 `SensorConfig::NavSat(Box<NavSat>)` or
 `SensorConfig::AirSpeed(Box<AirSpeed>)` or
-`SensorConfig::Lidar(Box<Lidar>)` settings. Optional `imu()`,
+`SensorConfig::Lidar(Box<Lidar>)` or
+`SensorConfig::Camera(Box<Camera>)` settings. Optional `imu()`,
 `contact()`, `force_torque()`, `magnetometer()`, `altimeter()`, `air_pressure()` and
-`navsat()`, `air_speed()` and `lidar()` accessors expose the selected type; exact selected
+`navsat()`, `air_speed()`, `lidar()` and `camera()` accessors expose the selected type; exact selected
 child XML and owned source are preserved. Contact collision names and nested topic
 remain distinct from envelope topic; see docs/CONTACT_SENSOR.md. The six per-axis `Noise` records retain type,
 mean, standard deviation, bias mean/deviation, dynamic bias deviation/correlation
@@ -238,7 +239,7 @@ value even if empty, then its effective sensor name. The simulator may override
 that name with the scoped sensor identity before applying fallback. This parser
 does not choose a runtime name or apply consumer fallback. These common fields
 apply to supported IMU, Contact, ForceTorque, Magnetometer, Altimeter,
-AirPressure, NavSat, AirSpeed and Lidar variants. No
+AirPressure, NavSat, AirSpeed, Lidar and Camera variants. No
 other sensor-family completion or full DOMSensor original-case retirement is
 claimed.
 
@@ -477,6 +478,10 @@ intermediate BOM document text remains a named grammar gap; see UTF8_BOM.md.
 The owned `Camera` value object retains native construction defaults and direct
 field mutation for image, clipping, distortion, pose, lens, projection and
 visibility metadata. `CameraPixelFormat` currently covers only the two formats
-exercised by the retained construction original. This value API is not yet
-selected by `SensorConfig`; camera parsing, `ToElement`, Link sensor assertions,
-image capture and rendering remain pending.
+exercised by the retained construction original. A typed `SensorConfig::Camera`
+parser retains the exact camera fixture fragment with owned source and XML. The
+full Link sensor original, remaining native camera grammar (`anti_aliasing`,
+`depth_camera`, segmentation and box types, other pixel formats), `ToElement`,
+image capture and rendering remain pending. An explicit `<camera>` requires
+`<image>` and `<clip>`; only the first missing-element diagnostic is reported
+by the Rust loader, while native `Camera::Load` returns both.

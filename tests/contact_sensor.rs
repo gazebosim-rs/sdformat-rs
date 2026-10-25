@@ -119,7 +119,7 @@ fn invalid_values_and_unknown_or_mismatched_payloads_do_not_default_to_imu() {
             "<update_rate>-1</update_rate>",
             ErrorCode::InvalidValue,
         ),
-        ("camera", "", ErrorCode::Unsupported),
+        ("rfid", "", ErrorCode::Unsupported),
         ("none", "", ErrorCode::Unsupported),
         ("", "", ErrorCode::Missing),
     ] {
@@ -204,6 +204,32 @@ fn native_contact_configuration_and_envelope_corpus() {
         let id = row["id"].as_str().unwrap();
         let tokens = row["tokens"].as_array().unwrap();
         let parsed = load_str(row["xml"].as_str().unwrap(), "corpus.sdf", &NoResources);
+        if id == "family_camera" {
+            // The unchanged native corpus marks this as a success. Camera is
+            // now an owned value, while the historical Rust gap stays visible.
+            assert_eq!(tokens[0], "0");
+            assert_eq!(row["rust_error"], "Unsupported");
+            assert!(row.get("gap").is_some());
+            let sdf = parsed.unwrap();
+            let sensor = &sdf.models[0].links[0].sensors[0];
+            assert_eq!(sensor.kind, unhex(tokens[1].as_str().unwrap()));
+            assert_eq!(tokens[2], "0");
+            assert_eq!(tokens[3], "0");
+            assert!(sensor.imu().is_none());
+            assert!(sensor.contact().is_none());
+            assert!(sensor.camera().is_some());
+            assert_eq!(sensor.camera().unwrap(), &sdformat::Camera::default());
+            assert!(sensor.configuration_xml.is_empty());
+            assert_eq!(sensor.topic, unhex(tokens[4].as_str().unwrap()));
+            assert_eq!(
+                sensor.update_rate.to_bits(),
+                tokens[5].as_str().unwrap().parse::<u64>().unwrap()
+            );
+            assert_eq!(sensor.always_on, tokens[6] == "1");
+            assert_eq!(sensor.enable_metrics, tokens[7] == "1");
+            assert_eq!(sensor.frame_id, unhex(tokens[8].as_str().unwrap()));
+            continue;
+        }
         if row.get("gap").is_some() {
             assert!(matches!(
                 id,
@@ -216,7 +242,6 @@ fn native_contact_configuration_and_envelope_corpus() {
                     | "unknown_contact_attribute"
                     | "nonfinite_rate_inf"
                     | "nonfinite_rate_nan"
-                    | "family_camera"
                     | "family_custom"
             ));
             assert_eq!(tokens[0], "0", "{id}");

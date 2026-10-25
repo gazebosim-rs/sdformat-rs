@@ -1,6 +1,7 @@
 // Copyright (C) 2026 Open Source Robotics Foundation
 // SPDX-License-Identifier: Apache-2.0
 
+use crate::Camera;
 use crate::graph::Graphs;
 use glam::{DQuat, DVec3};
 
@@ -709,6 +710,7 @@ pub enum SensorConfig {
     NavSat(Box<NavSat>),
     AirSpeed(Box<AirSpeed>),
     Lidar(Box<Lidar>),
+    Camera(Box<Camera>),
 }
 /// Contact-system element metadata; collision references remain unresolved.
 #[derive(Debug, Clone, PartialEq)]
@@ -851,7 +853,8 @@ impl Sensor {
             | SensorConfig::AirPressure(_)
             | SensorConfig::NavSat(_)
             | SensorConfig::AirSpeed(_)
-            | SensorConfig::Lidar(_) => None,
+            | SensorConfig::Lidar(_)
+            | SensorConfig::Camera(_) => None,
         }
     }
     pub fn contact(&self) -> Option<&ContactSensor> {
@@ -864,7 +867,8 @@ impl Sensor {
             | SensorConfig::AirPressure(_)
             | SensorConfig::NavSat(_)
             | SensorConfig::AirSpeed(_)
-            | SensorConfig::Lidar(_) => None,
+            | SensorConfig::Lidar(_)
+            | SensorConfig::Camera(_) => None,
         }
     }
     pub fn force_torque(&self) -> Option<&ForceTorque> {
@@ -877,7 +881,8 @@ impl Sensor {
             | SensorConfig::AirPressure(_)
             | SensorConfig::NavSat(_)
             | SensorConfig::AirSpeed(_)
-            | SensorConfig::Lidar(_) => None,
+            | SensorConfig::Lidar(_)
+            | SensorConfig::Camera(_) => None,
         }
     }
     pub fn magnetometer(&self) -> Option<&Magnetometer> {
@@ -890,7 +895,8 @@ impl Sensor {
             | SensorConfig::AirPressure(_)
             | SensorConfig::NavSat(_)
             | SensorConfig::AirSpeed(_)
-            | SensorConfig::Lidar(_) => None,
+            | SensorConfig::Lidar(_)
+            | SensorConfig::Camera(_) => None,
         }
     }
     pub fn altimeter(&self) -> Option<&Altimeter> {
@@ -903,7 +909,8 @@ impl Sensor {
             | SensorConfig::AirPressure(_)
             | SensorConfig::NavSat(_)
             | SensorConfig::AirSpeed(_)
-            | SensorConfig::Lidar(_) => None,
+            | SensorConfig::Lidar(_)
+            | SensorConfig::Camera(_) => None,
         }
     }
     pub fn air_pressure(&self) -> Option<&AirPressure> {
@@ -916,7 +923,8 @@ impl Sensor {
             | SensorConfig::Altimeter(_)
             | SensorConfig::NavSat(_)
             | SensorConfig::AirSpeed(_)
-            | SensorConfig::Lidar(_) => None,
+            | SensorConfig::Lidar(_)
+            | SensorConfig::Camera(_) => None,
         }
     }
     pub fn navsat(&self) -> Option<&NavSat> {
@@ -929,7 +937,8 @@ impl Sensor {
             | SensorConfig::Altimeter(_)
             | SensorConfig::AirPressure(_)
             | SensorConfig::AirSpeed(_)
-            | SensorConfig::Lidar(_) => None,
+            | SensorConfig::Lidar(_)
+            | SensorConfig::Camera(_) => None,
         }
     }
     pub fn air_speed(&self) -> Option<&AirSpeed> {
@@ -942,7 +951,8 @@ impl Sensor {
             | SensorConfig::Altimeter(_)
             | SensorConfig::AirPressure(_)
             | SensorConfig::NavSat(_)
-            | SensorConfig::Lidar(_) => None,
+            | SensorConfig::Lidar(_)
+            | SensorConfig::Camera(_) => None,
         }
     }
     pub fn lidar(&self) -> Option<&Lidar> {
@@ -955,7 +965,14 @@ impl Sensor {
             | SensorConfig::Altimeter(_)
             | SensorConfig::AirPressure(_)
             | SensorConfig::NavSat(_)
-            | SensorConfig::AirSpeed(_) => None,
+            | SensorConfig::AirSpeed(_)
+            | SensorConfig::Camera(_) => None,
+        }
+    }
+    pub fn camera(&self) -> Option<&Camera> {
+        match &self.config {
+            SensorConfig::Camera(value) => Some(value),
+            _ => None,
         }
     }
 }

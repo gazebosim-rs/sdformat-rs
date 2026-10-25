@@ -1,7 +1,7 @@
 // Copyright (C) 2026 Open Source Robotics Foundation
 // SPDX-License-Identifier: Apache-2.0
 
-use crate::Pose;
+use crate::{Noise, Pose, Source};
 
 /// Pixel formats observed by the retained camera construction original.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
@@ -139,10 +139,13 @@ pub struct Camera {
     pub has_bounding_box_type: bool,
     pub save_frames: bool,
     pub save_frames_path: String,
+    pub image_noise: Noise,
     pub distortion: CameraDistortion,
     pub pose: Pose,
     pub lens: CameraLens,
     pub visibility_mask: u32,
+    /// Source of the explicit camera declaration; omitted groups use defaults.
+    pub source: Option<Source>,
 }
 
 impl Default for Camera {
@@ -169,10 +172,12 @@ impl Default for Camera {
             has_bounding_box_type: false,
             save_frames: false,
             save_frames_path: String::new(),
+            image_noise: Noise::default(),
             distortion: CameraDistortion::default(),
             pose: Pose::default(),
             lens: CameraLens::default(),
             visibility_mask: u32::MAX,
+            source: None,
         }
     }
 }

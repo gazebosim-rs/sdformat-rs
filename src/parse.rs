@@ -2266,6 +2266,185 @@ impl Parser<'_> {
             source: Some(self.source(node)),
         })
     }
+    fn camera_noise(&self, node: Node<'_, '_>) -> Result<Noise, Diagnostic> {
+        self.allowed(node, &["type", "mean", "stddev"], &[])?;
+        let kind = match self
+            .optional_text(node, "type")?
+            .unwrap_or_else(|| "gaussian".into())
+            .as_str()
+        {
+            "none" => NoiseKind::None,
+            "gaussian" => NoiseKind::Gaussian,
+            "gaussian_quantized" => NoiseKind::GaussianQuantized,
+            _ => return Err(self.err(node, ErrorCode::InvalidValue, "invalid camera noise type")),
+        };
+        Ok(Noise {
+            kind,
+            mean: self.scalar(node, "mean", 0.)?,
+            stddev: self.scalar(node, "stddev", 0.)?,
+            ..Noise::default()
+        })
+    }
+    fn camera(&self, sensor: Node<'_, '_>) -> Result<Camera, Diagnostic> {
+        let Some(node) = child(sensor, "camera") else {
+            return Ok(Camera::default());
+        };
+        self.allowed(
+            node,
+            &[
+                "pose",
+                "camera_info_topic",
+                "horizontal_fov",
+                "triggered",
+                "trigger_topic",
+                "image",
+                "clip",
+                "save",
+                "noise",
+                "distortion",
+                "lens",
+                "visibility_mask",
+            ],
+            &["name"],
+        )?;
+        let mut camera = Camera {
+            name: node.attribute("name").unwrap_or_default().into(),
+            pose: self.pose(node)?,
+            source: Some(self.source(node)),
+            ..Camera::default()
+        };
+        camera.camera_info_topic = self
+            .optional_text(node, "camera_info_topic")?
+            .unwrap_or_default();
+        camera.horizontal_fov = self.scalar(node, "horizontal_fov", camera.horizontal_fov)?;
+        camera.triggered = self.boolean(node, "triggered", camera.triggered)?;
+        camera.trigger_topic = self
+            .optional_text(node, "trigger_topic")?
+            .unwrap_or_default();
+        let image = child(node, "image")
+            .ok_or_else(|| self.err(node, ErrorCode::Missing, "camera image is missing"))?;
+        self.allowed(image, &["width", "height", "format"], &[])?;
+        camera.image_width = self.unsigned(image, "width", camera.image_width)?;
+        camera.image_height = self.unsigned(image, "height", camera.image_height)?;
+        if let Some(format) = self.optional_text(image, "format")? {
+            camera.pixel_format = match format.as_str() {
+                "R8G8B8" => CameraPixelFormat::RgbInt8,
+                "L8" => CameraPixelFormat::LInt8,
+                _ => {
+                    return Err(self.err(
+                        image,
+                        ErrorCode::InvalidValue,
+                        "invalid camera pixel format",
+                    ));
+                }
+            };
+        }
+        let clip = child(node, "clip")
+            .ok_or_else(|| self.err(node, ErrorCode::Missing, "camera clip is missing"))?;
+        self.allowed(clip, &["near", "far"], &[])?;
+        camera.near_clip = self.scalar(clip, "near", camera.near_clip)?;
+        camera.far_clip = self.scalar(clip, "far", camera.far_clip)?;
+        if let Some(save) = child(node, "save") {
+            self.allowed(save, &["path"], &["enabled"])?;
+            camera.save_frames = match save.attribute("enabled").unwrap_or("false") {
+                "true" | "1" => true,
+                "false" | "0" => false,
+                _ => {
+                    return Err(self.err(
+                        save,
+                        ErrorCode::InvalidValue,
+                        "invalid camera save enabled",
+                    ));
+                }
+            };
+            camera.save_frames_path = self.optional_text(save, "path")?.unwrap_or_default();
+        }
+        if let Some(noise) = child(node, "noise") {
+            camera.image_noise = self.camera_noise(noise)?;
+        }
+        if let Some(distortion) = child(node, "distortion") {
+            self.allowed(distortion, &["k1", "k2", "k3", "p1", "p2", "center"], &[])?;
+            camera.distortion.k1 = self.scalar(distortion, "k1", camera.distortion.k1)?;
+            camera.distortion.k2 = self.scalar(distortion, "k2", camera.distortion.k2)?;
+            camera.distortion.k3 = self.scalar(distortion, "k3", camera.distortion.k3)?;
+            camera.distortion.p1 = self.scalar(distortion, "p1", camera.distortion.p1)?;
+            camera.distortion.p2 = self.scalar(distortion, "p2", camera.distortion.p2)?;
+            if let Some(center) = child(distortion, "center") {
+                camera.distortion.center = self.values::<2>(center)?;
+            }
+        }
+        if let Some(lens) = child(node, "lens") {
+            self.allowed(
+                lens,
+                &[
+                    "type",
+                    "scale_to_hfov",
+                    "custom_function",
+                    "cutoff_angle",
+                    "env_texture_size",
+                    "intrinsics",
+                    "projection",
+                ],
+                &[],
+            )?;
+            camera.lens.kind = self
+                .optional_text(lens, "type")?
+                .unwrap_or(camera.lens.kind);
+            camera.lens.scale_to_hfov =
+                self.boolean(lens, "scale_to_hfov", camera.lens.scale_to_hfov)?;
+            if let Some(custom) = child(lens, "custom_function") {
+                self.allowed(custom, &["c1", "c2", "c3", "f", "fun"], &[])?;
+                camera.lens.c1 = self.scalar(custom, "c1", camera.lens.c1)?;
+                camera.lens.c2 = self.scalar(custom, "c2", camera.lens.c2)?;
+                camera.lens.c3 = self.scalar(custom, "c3", camera.lens.c3)?;
+                camera.lens.focal_length = self.scalar(custom, "f", camera.lens.focal_length)?;
+                camera.lens.function = self
+                    .optional_text(custom, "fun")?
+                    .unwrap_or(camera.lens.function);
+            }
+            camera.lens.cutoff_angle =
+                self.scalar(lens, "cutoff_angle", camera.lens.cutoff_angle)?;
+            camera.lens.environment_texture_size = self.unsigned(
+                lens,
+                "env_texture_size",
+                camera.lens.environment_texture_size,
+            )?;
+            if let Some(intrinsics) = child(lens, "intrinsics") {
+                self.allowed(intrinsics, &["fx", "fy", "cx", "cy", "s"], &[])?;
+                camera.lens.intrinsics.fx =
+                    self.scalar(intrinsics, "fx", camera.lens.intrinsics.fx)?;
+                camera.lens.intrinsics.fy =
+                    self.scalar(intrinsics, "fy", camera.lens.intrinsics.fy)?;
+                camera.lens.intrinsics.cx =
+                    self.scalar(intrinsics, "cx", camera.lens.intrinsics.cx)?;
+                camera.lens.intrinsics.cy =
+                    self.scalar(intrinsics, "cy", camera.lens.intrinsics.cy)?;
+                camera.lens.intrinsics.skew =
+                    self.scalar(intrinsics, "s", camera.lens.intrinsics.skew)?;
+            }
+            if let Some(projection) = child(lens, "projection") {
+                self.allowed(
+                    projection,
+                    &["p_fx", "p_fy", "p_cx", "p_cy", "tx", "ty"],
+                    &[],
+                )?;
+                camera.lens.projection.fx =
+                    self.scalar(projection, "p_fx", camera.lens.projection.fx)?;
+                camera.lens.projection.fy =
+                    self.scalar(projection, "p_fy", camera.lens.projection.fy)?;
+                camera.lens.projection.cx =
+                    self.scalar(projection, "p_cx", camera.lens.projection.cx)?;
+                camera.lens.projection.cy =
+                    self.scalar(projection, "p_cy", camera.lens.projection.cy)?;
+                camera.lens.projection.tx =
+                    self.scalar(projection, "tx", camera.lens.projection.tx)?;
+                camera.lens.projection.ty =
+                    self.scalar(projection, "ty", camera.lens.projection.ty)?;
+            }
+        }
+        camera.visibility_mask = self.unsigned(node, "visibility_mask", camera.visibility_mask)?;
+        Ok(camera)
+    }
     fn magnetometer(&self, sensor: Node<'_, '_>) -> Result<Magnetometer, Diagnostic> {
         Ok(Magnetometer {
             noise: self.noise_vector(sensor, "magnetometer")?,
@@ -2294,6 +2473,7 @@ impl Parser<'_> {
                 "air_speed",
                 "ray",
                 "lidar",
+                "camera",
             ],
             &["name", "type"],
         )?;
@@ -2316,11 +2496,12 @@ impl Parser<'_> {
                 | "lidar"
                 | "gpu_ray"
                 | "gpu_lidar"
+                | "camera"
         ) {
             return Err(self.err(
                 node,
                 ErrorCode::Unsupported,
-                "only typed IMU, contact, force/torque, magnetometer, altimeter, air pressure, NavSat/GPS, air speed and Lidar sensor configurations are supported",
+                "only typed IMU, contact, force/torque, magnetometer, altimeter, air pressure, NavSat/GPS, air speed, Lidar and Camera sensor configurations are supported",
             ));
         }
         // Native Sensor::Load selects <navsat> before legacy <gps> for either type.
@@ -2351,6 +2532,7 @@ impl Parser<'_> {
             "air_speed",
             "ray",
             "lidar",
+            "camera",
         ]
         .iter()
         .any(|name| {
@@ -2388,6 +2570,7 @@ impl Parser<'_> {
             "ray" | "lidar" | "gpu_ray" | "gpu_lidar" => {
                 SensorConfig::Lidar(Box::new(self.lidar(node, config_tag)?))
             }
+            "camera" => SensorConfig::Camera(Box::new(self.camera(node)?)),
             _ => unreachable!("sensor type checked above"),
         };
         let configuration_xml =

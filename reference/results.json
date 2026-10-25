@@ -1005,7 +1005,7 @@
       {
         "id": "sdf16_pose_nbsp",
         "accepted": false,
-        "errors": "Error Code 26: Msg: relative_to name[\u00a0f\u00a0] specified by link with name[l] does not match a nested model, link, joint, or frame name in model with name[m].\nError Code 28: Msg: PoseRelativeToGraph error, Vertex with name [m::l] is disconnected; it should have 1 incoming edge in MODEL relative_to graph.\nError Code 28: Msg: PoseRelativeToGraph unable to find path to source vertex when starting from vertex with id [3].\n"
+        "errors": "Error Code 26: Msg: relative_to name[ f ] specified by link with name[l] does not match a nested model, link, joint, or frame name in model with name[m].\nError Code 28: Msg: PoseRelativeToGraph error, Vertex with name [m::l] is disconnected; it should have 1 incoming edge in MODEL relative_to graph.\nError Code 28: Msg: PoseRelativeToGraph unable to find path to source vertex when starting from vertex with id [3].\n"
       },
       {
         "id": "sdf16_pose_ref_cr",
@@ -2047,7 +2047,7 @@
       {
         "id": "v15_sdf16_pose_nbsp",
         "accepted": false,
-        "errors": "Error Code 26: Msg: relative_to name[\u00a0f\u00a0] specified by link with name[l] does not match a nested model, link, joint, or frame name in model with name[m].\nError Code 28: Msg: PoseRelativeToGraph error, Vertex with name [m::l] is disconnected; it should have 1 incoming edge in MODEL relative_to graph.\nError Code 28: Msg: PoseRelativeToGraph unable to find path to source vertex when starting from vertex with id [3].\n"
+        "errors": "Error Code 26: Msg: relative_to name[ f ] specified by link with name[l] does not match a nested model, link, joint, or frame name in model with name[m].\nError Code 28: Msg: PoseRelativeToGraph error, Vertex with name [m::l] is disconnected; it should have 1 incoming edge in MODEL relative_to graph.\nError Code 28: Msg: PoseRelativeToGraph unable to find path to source vertex when starting from vertex with id [3].\n"
       },
       {
         "id": "v15_sdf16_pose_ref_cr",
@@ -6164,7 +6164,7 @@
       {
         "id": "v15_sdf16_pose_nbsp",
         "accepted": false,
-        "errors": "Error Code 26: Msg: relative_to name[\u00a0f\u00a0] specified by link with name[l] does not match a nested model, link, joint, or frame name in model with name[m].\nError Code 28: Msg: PoseRelativeToGraph error, Vertex with name [m::l] is disconnected; it should have 1 incoming edge in MODEL relative_to graph.\nError Code 28: Msg: PoseRelativeToGraph unable to find path to source vertex when starting from vertex with id [3].\n"
+        "errors": "Error Code 26: Msg: relative_to name[ f ] specified by link with name[l] does not match a nested model, link, joint, or frame name in model with name[m].\nError Code 28: Msg: PoseRelativeToGraph error, Vertex with name [m::l] is disconnected; it should have 1 incoming edge in MODEL relative_to graph.\nError Code 28: Msg: PoseRelativeToGraph unable to find path to source vertex when starting from vertex with id [3].\n"
       },
       {
         "id": "v15_sdf16_pose_ref_cr",
@@ -39699,7 +39699,7 @@
   "axis_limit_disposition": {
     "author": "/root/sdformat",
     "coordinator": "/root",
-    "scope": "Finite lower/upper ordering is preserved as native data; missing bounds use native Root converted-schema \u00b1Inf defaults; explicit empty bound children reject. Only two obsolete Rust-only negative tuples are replaced by exact native-backed positive XML/value regressions. All unrelated assertion bytes reconstruct the public parent exactly. Explicit independent disposition review required.",
+    "scope": "Finite lower/upper ordering is preserved as native data; missing bounds use native Root converted-schema ±Inf defaults; explicit empty bound children reject. Only two obsolete Rust-only negative tuples are replaced by exact native-backed positive XML/value regressions. All unrelated assertion bytes reconstruct the public parent exactly. Explicit independent disposition review required.",
     "changes": [
       {
         "path": "tests/semantics.rs",
@@ -39731,7 +39731,7 @@
       }
     ],
     "additional_production_changes": [
-      "Axis initial lower/upper default changes from \u00b11e16 to \u00b1Inf after actual Root probes across every supported source version.",
+      "Axis initial lower/upper default changes from ±1e16 to ±Inf after actual Root probes across every supported source version.",
       "Existing required_scalar helper rejects explicit empty lower/upper while absent children retain defaults.",
       "Explicit nonfinite input remains an independently documented rejection gap; implicit unbounded defaults are permitted metadata."
     ],
@@ -60207,6 +60207,19 @@
     "original": "DOMCamera.Construction native1/0, no skips.",
     "rust": "Full212 Rust tests,15 tooling tests,fmt,Clippy and docs pass; direct coverage3645/3662 production lines6284/6432 regions75/75 changed executable lines.",
     "scope": "Owned value API preserves exact default/set/read image, clipping, optional presence, distortion, raw pose, lens/intrinsics/projection, pixel-format and visibility values plus copy/move/equality observations. SensorConfig camera parsing, ToElement, Link fixture, capture/rendering remain unported.",
-    "review": "Independent /root/transport_fallback approved exact frozen Construction values after pinned native1/0 and private raw-parent selected Rust1/0; source receipt SHA256 30b887a07891ffc757c72fecf125160909fbc0f0392e8e240c16df589aad70f7. Complete value original only; parser/Load/ToElement/Link/rendering pending. Final metadata binding, normal hook and hosted qualification pending."
+    "review": "Independent /root/transport_fallback approved exact frozen Construction values after pinned native1/0 and private raw-parent selected Rust1/0; source receipt SHA256 30b887a07891ffc757c72fecf125160909fbc0f0392e8e240c16df589aad70f7. Complete value original only; parser/Load/ToElement/Link/rendering pending. Final metadata binding, normal protected hook and hosted verify run40227988669 passed at public8b0416cc6d947e169b6a2c67fe3eb408cadc71d4."
+  },
+  "camera_link_fragment": {
+    "parent": "8b0416cc6d947e169b6a2c67fe3eb408cadc71d4",
+    "upstream": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "source_digest": "eb2b12d63d978e8271686c3d47e8701ffd905c416abbc66b119924b61e7f92f3",
+    "native_link_source_sha256": "3f19b57d0cd02be6201a08be4580d5a478d5e3c1549457605754ccff99ccd4f1",
+    "native_link_binary_sha256": "5996c21878cab1dacd0d653c50bfdcf4a02c8064157855ae6136471939582716",
+    "sensor_fixture_sha256": "dc2b61c8b40a7df7f2c7b6e649f3039136ca1a03528371b307e9b9fc27406a00",
+    "contact_corpus_sha256": "20e570710f926fb9cac5a608bda7606da9c9a76cb44c8da74ffc82cde13e2d2b",
+    "original": "DOMLink.Sensors native1/0, exact camera_sensor fragment PARTIAL only; native contact corpus85/0 confirms family_camera success.",
+    "rust": "Full214 Rust tests,15 tooling tests,fmt,Clippy and docs pass; direct coverage3812/3830 production lines6667/6864 regions175/175 changed executable lines.",
+    "scope": "Typed Camera parser/accessor/source/XML retains exact unchanged camera_sensor name/literal kind/full raw pose/metrics/topic and image, clip, noise, distortion and lens values. Native effective SensorType::CAMERA enum, Link name/count/index, 15 other instances, remaining camera grammar (anti_aliasing/depth_camera/segmentation/box_type/other pixel formats), ToElement/rendering remain unported. Native Camera::Load on empty explicit camera emits two code8 Missing errors (image then clip); Rust checks first Missing only and full error vector/count remain unported. Two old Rust-only camera Unsupported expectations corrected to native-positive; unchanged 85-row corpus now checks all nine family_camera tokens and RFID remains unsupported control. No complete Link credit.",
+    "review": "Independent /root/transport_fallback APPROVED corrected v2 source/API/assertion and native-positive disposition as PARTIAL only; source receipt SHA256 f7737e6ef72a5280245984898b0dbf83405b48ddf232e19017b920aa3976ddec supersedes revoked d14ed656. Private raw-parent selected camera2/contact7/semantics17, pinned native Link1/0, byte-identical 85-row native corpus, exact two code8 native Camera::Load diagnostics and clip-guard mutant confirmed. Final metadata binding, normal protected hook and hosted qualification pending."
   }
 }

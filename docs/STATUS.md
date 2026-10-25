@@ -1600,4 +1600,37 @@ formatting, Clippy and docs. Direct production coverage is 3645/3662 lines,
 6284/6432 regions and 75/75 changed executable lines. Independent source review approved the exact three-file frozen packet after
 pinned native1/0 and private raw-parent Rust selected1/0; reviewer receipt
 SHA256 30b887a07891ffc757c72fecf125160909fbc0f0392e8e240c16df589aad70f7.
-Final metadata binding, normal protected hook and hosted CI are pending.
+Final metadata binding, the normal protected hook and hosted verify run
+40227988669 passed at public commit 8b0416cc6d947e169b6a2c67fe3eb408cadc71d4.
+
+## Typed Camera fixture fragment candidate
+
+`SensorConfig::Camera(Box<Camera>)` retains the exact unchanged
+`camera_sensor` subtree of upstream `sensors.sdf`, including name, literal
+kind, full raw pose, metrics and topic, plus camera image dimensions and pixel
+format, clips, image noise, distortion, lens intrinsics and projection. The
+selected camera XML and source location are owned. The pinned full
+`DOMLink.Sensors` original passes natively 1/0; this candidate maps only its
+camera fragment. Native effective `SensorType::CAMERA` enum classification,
+`SensorByName`/`SensorNameExists`, full Link count/index, the other 15 sensor
+instances, remaining native camera grammar (anti aliasing, depth camera,
+segmentation and box types, other pixel formats), `ToElement` and rendering
+remain pending. Explicit `<camera>` omitting `<image>` or `<clip>` returns
+the first Missing diagnostic; pinned native `Camera::Load` emits two code 8
+missing-element errors when both are absent, and the full error vector/count
+remains unported.
+
+The unchanged 85-row native contact/envelope corpus reports `family_camera`
+as success. Two older Rust-only Camera `Unsupported` expectations are corrected
+to native-positive behavior, with all nine native corpus tokens asserted and
+an RFID unsupported-family control retained. The corpus and sensor fixture
+bytes are unchanged. The isolated source candidate passes 214 Rust tests, 15
+tooling tests, formatting, Clippy and docs; direct production coverage is
+3812/3830 lines, 6667/6864 regions and 175/175 changed executable lines.
+Independent /root/transport_fallback approved the corrected v2 source and
+native-positive disposition as a partial Link mapping (receipt SHA256
+`f7737e6ef72a5280245984898b0dbf83405b48ddf232e19017b920aa3976ddec`).
+The earlier source receipt was revoked after the missing-element discovery.
+The integrated main gate also passes 214 Rust tests, 15 tooling tests,
+formatting, Clippy and docs at the same production coverage. Final metadata
+binding, protected hook and hosted qualification are pending.

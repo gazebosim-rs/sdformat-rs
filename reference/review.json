@@ -2,23 +2,39 @@
   "author": "/root/sdformat_owner_fallback",
   "decision": "approved",
   "files_sha256": {
-    "README.md": "1f25f8b3dc12b0995bdf48f1726a8203996034c6aed9a2457798940b3e47c1da",
-    "docs/CONTRACT.md": "dcb6ec7960ecf08c02d4481848fa0d7c71e4c266b86f5ecd8d4c1cd20b21b16a",
-    "docs/STATUS.md": "47c75564885dd24b4d10c572f4781ba5cfc36320d66ef69b48c9a7709c3878ca",
-    "reference/results.json": "527f4bd0c2296102023f90819a73cccbfba0a9aab44cc0baf64d2db6a1c51d26",
-    "reference/traceability.json": "2363bbe4ae5f48a62dba900e3312d7afc0a8112de22ecac30cd8c3bb926cf400",
-    "src/camera.rs": "e4a46a4ef16c65293a01fc326f736c415385b5cf51d5329292e0f4b8d7e1a601",
-    "src/lib.rs": "63566ea38a79b8a221c07322e954999fda0ec0a1bf67352b794b315caccab347",
-    "tests/camera_construction_original.rs": "0b944e741d26d19515f1a6b9198ad9d4d069a10bc45fdcd65cd2fa7cf4f25bab"
+    "README.md": "2e3e0a9947f40e33ae2cb2259d15f1037e8fd87550438188c57ba686d1c72180",
+    "docs/CONTRACT.md": "bd295cd3b00ad56e69c16f046e1592912db9b7050253e06f082dbf7e1803b2fe",
+    "docs/STATUS.md": "b346d54a88f70609496f58267fdd121d8c72c47edf1a55fbe4b7fb8d99685ed1",
+    "reference/results.json": "dbec2d2244f599ee284a6f68020dcd323c3a8f24549633846f77da29cbf6cc3b",
+    "reference/traceability.json": "26fadff81e5e930fd8d1cc147408f5b8d249a9fc4840ee4b3631750d6faf608f",
+    "src/camera.rs": "a3f5fbee28c73f72e1f7907d290ee5a2291fe63b4dae9658f0aa5a6b893bcbf3",
+    "src/parse.rs": "9ed074ad85cdc48c9f5e0bd8f6ed0f1bf9519d53d9d7293da689b607ff222991",
+    "src/types.rs": "de5e12897a68f6c301b16b11d2d4dbaa8df7754746b83c5205b2f2e1b9d43ecd",
+    "tests/camera_link_original.rs": "96c5de0258f0750ecdf2023f8eef82fcf0b370778157de5f63d7c498efd01d68",
+    "tests/contact_sensor.rs": "25f99ebbb5e2207baaa181a1081f15b4933a7143929cfec153e57910cb15d48f",
+    "tests/semantics.rs": "3ebd64b1e25df3b4ffcde6c6fca7a36ac9f3ee994d44ad554b3b480ffc281dca"
   },
-  "final_freeze": "artifacts/camera-construction/frozen-final.json",
-  "final_freeze_sha256": "142c2741f747781a0d40ea76b3bad6502c2d5801be580af5ef7804c1e78bb079",
-  "parent": "01fabe7d17773f9969c275a4d45447c6385f94ac",
-  "preserved_parent_files": 244,
-  "protected_digest": "ca0765765e0dd0a2b91925f2b1b54f333c233ec6a5eb58e5a2ede3ce40460508",
+  "final_freeze": "artifacts/camera-link/frozen-final.json",
+  "final_freeze_sha256": "4ec1820bfa7065ff624aced60a0e48276b2c206e97c4bca40c5caba789a4f0ea",
+  "parent": "8b0416cc6d947e169b6a2c67fe3eb408cadc71d4",
+  "preserved_parent_files": 242,
+  "protected_digest": "fe561ea05614809448bb9b4f52aeb9787dcec2883a517abbd1cdc3e8de89c2ee",
+  "reviewed_source_sha256": {
+    "src/camera.rs": "a3f5fbee28c73f72e1f7907d290ee5a2291fe63b4dae9658f0aa5a6b893bcbf3",
+    "src/parse.rs": "9ed074ad85cdc48c9f5e0bd8f6ed0f1bf9519d53d9d7293da689b607ff222991",
+    "src/types.rs": "de5e12897a68f6c301b16b11d2d4dbaa8df7754746b83c5205b2f2e1b9d43ecd",
+    "tests/camera_link_original.rs": "96c5de0258f0750ecdf2023f8eef82fcf0b370778157de5f63d7c498efd01d68",
+    "tests/contact_sensor.rs": "25f99ebbb5e2207baaa181a1081f15b4933a7143929cfec153e57910cb15d48f",
+    "tests/semantics.rs": "3ebd64b1e25df3b4ffcde6c6fca7a36ac9f3ee994d44ad554b3b480ffc281dca"
+  },
   "reviewer": "/root/transport_fallback",
-  "scope": "Exact three source-reviewed Camera API/test files bound atop hosted-green Lidar parent; DOMCamera.Construction complete value original only. Limited pixel formats and direct field writes; parser, Load, ToElement, Link fixtures, rendering and sampling remain unported.",
-  "source_digest": "f81e81c7c3f0b52965fda7d769d8af6942e7c4a39e28c82ea27e08eef400791e",
-  "source_review_sha256": "30b887a07891ffc757c72fecf125160909fbc0f0392e8e240c16df589aad70f7",
-  "verification": "Independently checked eight candidate hashes, tools.verify source/protected digests, 244 other parent blobs, exact source review SHA and scoped additive metadata. Author final digest-bound 212 Rust/15 tools/fmt/Clippy/docs/direct strict coverage passed. Normal protected staged hook, publication and hosted qualification remain required."
+  "revoked_source_review_sha256": "d14ed656875f6b32839963fb7948dd82daf8fe6cee84c309425d6d3b680a8506",
+  "scope": "Exact corrected v2 Camera parser/API/test bytes on hosted-green Camera Construction parent. PARTIAL DOMLink.Sensors camera_sensor fixture fragment and native-positive correction only. Native effective CAMERA enum, Link name/count/index, other 15 instances, broad camera grammar and full two-error vector remain unported. Prior v1 review is explicitly revoked.",
+  "source_digest": "02fdf12d1bed4db070299c22bdb4fc026ca19102796c0ed732182520580df496",
+  "source_review_sha256": "f7737e6ef72a5280245984898b0dbf83405b48ddf232e19017b920aa3976ddec",
+  "unchanged_fixture_sha256": {
+    "tests/contact_sensor.json": "20e570710f926fb9cac5a608bda7606da9c9a76cb44c8da74ffc82cde13e2d2b",
+    "tests/fixtures/sensors.sdf": "dc2b61c8b40a7df7f2c7b6e649f3039136ca1a03528371b307e9b9fc27406a00"
+  },
+  "verification": "Independently checked eleven candidate hashes, two unchanged fixture/corpus hashes, exact v2 receipt, tools.verify source/protected digests and all 242 other parent blobs. Parsed metadata has only prior Camera hosted status, additive Camera Link result and scoped partial Link trace updates; UTF-8 escape reserialization leaves other JSON values unchanged. Author integrated214 Rust/15 tools/fmt/Clippy/docs/direct strict coverage 3812/3830 lines6667/6864 regions175/175 changed passed. Normal protected hook, publication and hosted qualification remain required."
 }

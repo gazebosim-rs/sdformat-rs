@@ -2,25 +2,26 @@
   "decision": "approved",
   "author": "/root/sdformat_owner_fallback",
   "reviewer": "/root/transport_fallback",
-  "scope": "Final metadata and parent-overlap binding for the partial NestedFrameSemantics.buildFrameAttachedToGraph_Model assertion port.",
-  "parent": "e2943817ddbc22c14e6b2a9fdb9349d0983f137b",
-  "final_freeze": "artifacts/nested-model-bodies/frozen-final.json",
-  "final_freeze_sha256": "ce733c8a63814f56b7d785e6d6d3a5e02ab93dbcfc480d41343cc6555aee1758",
-  "protected_digest": "9122a6e96e14adbe453e44d914be1a83b9a103a0b8e83cf6ac173644916ca96f",
-  "source_digest": "bf00c7e6eb0606138e0a804ab9269fbeadc8325e95fe118996440a644c477ddb",
-  "reviewed_source_digest": "58ab6f0b9bcec8fe317158a190296d67c2f46764e4cefebc01037c30e6ce3632",
-  "source_review_receipt_sha256": "fc83f96c6985dfa97e3494a59e0eea34d4832a11a8ad908a94ec5198d6db4442",
-  "unchanged_fixture_sha256": "1200082d81358b6176ce6671133bfaf5ff9a5d0c3de21c92ff8b71e834c3e6f5",
+  "scope": "Final metadata and parent-overlap binding for two partial basic model/world frame attachment-body original ports.",
+  "parent": "1826af6e51c68d1a631aae7ff0cf587ab99debb1",
+  "final_freeze": "artifacts/basic-frame-bodies/frozen-final.json",
+  "final_freeze_sha256": "264341eb2d6a209e5806d4e2668ae688b4d374b58bad5075dac2a9bc6a0355f1",
+  "protected_digest": "e2b0251584b38ee2f7ec2949e2d22b6569f81036fc2d230cc838478026adc2c0",
+  "source_digest": "db305c539aab05e893ae4c02181200552c3588ad27f95899718f41df625714d2",
+  "reviewed_source_digest": "99f17c2d8d28ee90247785deb37c4ef3d732cfd46a0f6d25ee3f29f0fc578917",
+  "source_review_receipt_sha256": "2a31b9f36526d347fa1f90a858478edc229a430211a4b13ee471386a609ab0b",
   "files": {
-    "docs/STATUS.md": "db49486cf1470c16b391ece042bbaa7dc755e884e6d78bbaf8fb13895b11dd49",
-    "reference/results.json": "1c2ca964a9a6408fed5fb2f75dac268c98c6c606c0c78a49599b8e9bc6423a2c",
-    "reference/traceability.json": "c07d76172448b5cf1cdb74d449bcbe9f4fc73e4d014152fb80da70d4a4b6eab0",
-    "tests/nested_model_bodies_original.rs": "23319d57597666b0e34c3b86acbf49a4221db560cdc84152dc3fda81995d399d"
+    "docs/STATUS.md": "1a648c3e980ef1aab808fa8e8301fb0394d1430d904622d009a20768db6d00b0",
+    "reference/results.json": "8c09af0dbd596cad0a95f0f48512b22be07344ac61805c5baae65247dc42b5c3",
+    "reference/traceability.json": "bc9a7998ce2fa2b6cd5e7412d2ae38912b3844627925bca98a8a988a47fa3113",
+    "tests/basic_frame_bodies_original.rs": "f1126b30c6120fb2e80488eabbaf7beedc8f98d7140cacfe2a81db2f1018db44",
+    "tests/fixtures/model_frame_attached_to.sdf": "410b6074c8ff683cb7fe6db72a9e0c6a3d41042035c79f662b31de3611b6a4cf",
+    "tests/fixtures/world_frame_attached_to.sdf": "ea542d419381f2f219a9c9dad628ba47ca89844809a8fba0cde1e7c2d56384ce"
   },
   "checks": [
-    "The four final hashes and manifest SHA-256 match the uncommitted main checkout on parent e294381; Git shows only these four changed or added paths and no staged drift. The unchanged fixture retains its upstream SHA-256, and 228 tracked parent files remain unchanged.",
-    "The new test is byte-identical to the independently reviewed isolated source. The three metadata files add only the scoped partial result, status and traceability row with its source-review receipt and explicit unported assertions.",
-    "The author reports fresh combined-main 186 Rust tests, 13 tooling tests, formatting, Clippy, docs and direct coverage of 3300/3316 lines and 5746/5857 regions on this exact metadata snapshot."
+    "The six final file hashes and manifest SHA-256 match the uncommitted main checkout; Git shows only these six changed or added paths and no staged drift. The 229 other public-parent tracked files remain unchanged.",
+    "The Rust test and both copied upstream fixture bytes are identical to the independently reviewed isolated source. The three metadata files add only accurate status, result and two partial traceability rows, each retaining explicit unported graph and error observations.",
+    "The author reports fresh integrated 188 Rust tests, 13 tooling tests, formatting, Clippy, docs and direct coverage of 3300/3316 lines and 5746/5857 regions on this exact metadata snapshot."
   ],
-  "limits": "This binding approves only the reviewed 13 resolved body values and invalid-name failure, not native graph build/validation, fourteen Count checks, graph-check booleans, or exact native error code/text. Normal protected staged hook, publication and hosted CI remain pending. Author direct coverage and tools were inspected, not independently rerun on the final metadata."
+  "limits": "Both original mappings remain PARTIAL: graph construction and validation, map/vertex/edge/count observations, graph-check booleans and native invalid-name code/text are unported. Normal protected staged hook, publication and hosted CI remain pending. Author direct coverage and tools were inspected, not independently rerun on final metadata."
 }

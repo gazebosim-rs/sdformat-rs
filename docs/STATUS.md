@@ -1360,3 +1360,17 @@ Clippy and docs pass; direct coverage is 3300/3316 production lines and
 5746/5857 regions. Independent review approved the exact 13 body values and invalid-name
 failure as partial only after fresh native1/0 and private185 Rust replay. Final
 public-parent overlap, protected staged gate and hosted CI remain pending.
+
+## Basic model and world frame attachment bodies candidate
+
+Unchanged `model_frame_attached_to.sdf` and `world_frame_attached_to.sdf` fixtures
+drive two partial original ports of `FrameSemantics.buildFrameAttachedToGraph_Model`
+and `_World`. The exact pinned native originals pass 2/0. Public name resolution
+and attached-body queries retain all six root model, six world and three embedded
+model body values and both invalid-name failures. Native explicit graph build,
+validation, map/vertex/edge/Count observations, graph-check booleans and exact
+error code/text remain unported. Independent review approved those public query
+assertions only after a private selected2/full188 Rust replay. All 188 author Rust
+tests, 13 tooling checks, fmt, Clippy and docs pass; direct coverage is 3300/3316
+production lines and 5746/5857 regions with no production delta. Final metadata
+binding, normal protected hook and hosted CI remain pending.

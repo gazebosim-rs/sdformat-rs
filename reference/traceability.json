@@ -925,6 +925,38 @@
       "baseline": "Exact native original one run, zero failures/skips; artifacts/nested-model-bodies/original.xml; pinned upstream 1249805d.",
       "status": "partial_reviewed",
       "review": "Independent /root/transport_fallback approved exact frozen source digest 58ab6f0b9bcec8fe317158a190296d67c2f46764e4cefebc01037c30e6ce3632 after unchanged fixture/2019-notice comparison, fresh exact native original1/0, private selected1/full185 Rust and all thirteen body-value pairs in original order. resolve_name plus attached_body and removal of only the root model scope prefix are approved for this fixture. Native graph build/validate, fourteen Count observations, check booleans and native invalid-name code/text remain unported; partial only. Final public-parent overlap and staged/hosted gates pending."
+    },
+    {
+      "target": "UNIT_FrameSemantics_TEST",
+      "case": "FrameSemantics.buildFrameAttachedToGraph_Model",
+      "source": "src/FrameSemantics_TEST.cc:41",
+      "rust_test": "tests/basic_frame_bodies_original.rs::original_model_frame_attachment_bodies",
+      "assertions": "Unchanged fixture; original root model load success, all six successful resolveFrameAttachedToBody/body-value observations and invalid-name failure map to public resolve_name+attached_body. Native explicit graph build/validate, map/vertex/edge counts, seven Count checks, checkFrameAttachedToGraph/Names and native invalid-name error code/text remain unported; partial only.",
+      "fixtures": {
+        "tests/fixtures/model_frame_attached_to.sdf": "410b6074c8ff683cb7fe6db72a9e0c6a3d41042035c79f662b31de3611b6a4cf"
+      },
+      "upstream_fixtures": {
+        "test/sdf/model_frame_attached_to.sdf": "410b6074c8ff683cb7fe6db72a9e0c6a3d41042035c79f662b31de3611b6a4cf"
+      },
+      "baseline": "Both exact native originals together two runs, zero failures/skips; artifacts/basic-frame-bodies/original.xml; pinned upstream 1249805d.",
+      "status": "partial_reviewed",
+      "review": "Independent /root/transport_fallback approved frozen source digest 99f17c2d8d28ee90247785deb37c4ef3d732cfd46a0f6d25ee3f29f0fc578917 after exact original body-value/invalid failure comparison, unchanged fixture and 2019 notice checks, native2/0 and private selected2/full188 Rust replays. Reviewer source receipt SHA256 2a31b9f36526d347fa1f90a858478edc229a430211a4b13ee471386a609ab0b. Graph internals/check booleans and native error code/text remain unported; final metadata binding and staged/hosted qualification pending."
+    },
+    {
+      "target": "UNIT_FrameSemantics_TEST",
+      "case": "FrameSemantics.buildFrameAttachedToGraph_World",
+      "source": "src/FrameSemantics_TEST.cc:108",
+      "rust_test": "tests/basic_frame_bodies_original.rs::original_world_frame_attachment_bodies",
+      "assertions": "Unchanged fixture; original world load success, six world-scope and three embedded-model successful resolveFrameAttachedToBody/body-value observations plus world invalid-name failure map to public resolve_name+attached_body. Native explicit graph build/validate, map/vertex/edge counts, Count checks, checkFrameAttachedToGraph/Names and native invalid-name error code/text remain unported; partial only.",
+      "fixtures": {
+        "tests/fixtures/world_frame_attached_to.sdf": "ea542d419381f2f219a9c9dad628ba47ca89844809a8fba0cde1e7c2d56384ce"
+      },
+      "upstream_fixtures": {
+        "test/sdf/world_frame_attached_to.sdf": "ea542d419381f2f219a9c9dad628ba47ca89844809a8fba0cde1e7c2d56384ce"
+      },
+      "baseline": "Both exact native originals together two runs, zero failures/skips; artifacts/basic-frame-bodies/original.xml; pinned upstream 1249805d.",
+      "status": "partial_reviewed",
+      "review": "Independent /root/transport_fallback approved frozen source digest 99f17c2d8d28ee90247785deb37c4ef3d732cfd46a0f6d25ee3f29f0fc578917 after exact original body-value/invalid failure comparison, unchanged fixture and 2019 notice checks, native2/0 and private selected2/full188 Rust replays. Reviewer source receipt SHA256 2a31b9f36526d347fa1f90a858478edc229a430211a4b13ee471386a609ab0b. Graph internals/check booleans and native error code/text remain unported; final metadata binding and staged/hosted qualification pending."
     }
   ]
 }

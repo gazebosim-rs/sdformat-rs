@@ -1573,8 +1573,8 @@ unchanged upstream `sensors.sdf` fixture passes native `DOMLink.Sensors` 1/0.
 Rust wraps only its four byte-identical GPU/ray/lidar sensor fragments in
 minimal model/link XML; original names, literal kinds, full raw poses and
 metrics are checked, with scan/range/noise scalar values for ray and lidar.
-Native effective `SensorType::GPU_LIDAR`/`LIDAR` classification is not exposed
-or asserted by the Rust API. The other 16 sensor instances, full Link
+At this published Lidar revision, native effective `SensorType::GPU_LIDAR`/
+`LIDAR` classification was not exposed or asserted by the Rust API. The other 16 sensor instances, full Link
 count/index/lookup and ray rendering remain pending; the Link case is partial.
 
 The rebased source candidate on public Airspeed correction 2e46e223986bb2429150cd7b84881d2f4dd0e00a
@@ -1632,5 +1632,35 @@ native-positive disposition as a partial Link mapping (receipt SHA256
 `f7737e6ef72a5280245984898b0dbf83405b48ddf232e19017b920aa3976ddec`).
 The earlier source receipt was revoked after the missing-element discovery.
 The integrated main gate also passes 214 Rust tests, 15 tooling tests,
-formatting, Clippy and docs at the same production coverage. Final metadata
-binding, protected hook and hosted qualification are pending.
+formatting, Clippy and docs at the same production coverage. At that review
+point, final metadata binding, protected hook and hosted qualification were
+pending; their completed results follow.
+
+The corrected Camera Link packet subsequently passed independent final
+metadata binding (receipt SHA256
+`8967da0e633d966e721a44fb155313e229ac16babd80b3ed24c25c0aec12f62b`),
+the normal protected hook and exact hosted verify run 40229045183 at public
+commit 39f250303b7fdcba809de6b50a47b9489c2a8d4a. Staged executable-line
+coverage was 3630/3642; the Link original remains partial.
+
+## Native effective sensor type candidate
+
+`SensorType` retains the native 27-entry canonical type-string table. The
+older pinned `DOMSensor.Type` original checks 23 of those entries by setting
+the enum and string on a mutable Sensor; Rust retains their type/string value
+observations and the four later table entries as supplemental checks. Native
+mutable `Sensor::SetType` state and invalid-string preservation are not mapped,
+so that original remains partial. `Sensor::effective_type()` classifies only
+the literal kind of an already parsed sensor, retaining that literal kind.
+It asserts the previously unported native `GPU_LIDAR`/`LIDAR`, `NAVSAT` and
+`CAMERA` values for the unchanged Link fixture fragments. Other Link assertions
+and unsupported sensor configurations remain pending.
+
+Pinned `DOMSensor.Type` and `DOMLink.Sensors` each pass natively 1/0. The
+isolated source passes 216 Rust tests, 15 tooling tests, formatting, Clippy
+and docs; direct production coverage is 3892/3910 lines, 6795/6992 regions
+and 80/80 changed executable lines. Independent /root/transport_fallback
+approved the exact partial source and assertion mapping (receipt SHA256
+`0ed6fc63d974ff0c2f5b211a8a4137db457c513704866177dc6e83d1e7b6b398`),
+including a gpu_ray mapping-removal countercontrol. Final metadata binding,
+protected hook and hosted qualification are pending.

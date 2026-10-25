@@ -40,6 +40,7 @@ fn native_link_camera_fragment_values_are_typed() {
     let sensor = &sdf.models[0].links[0].sensors[0];
     assert_eq!(sensor.name, "camera_sensor");
     assert_eq!(sensor.kind, "camera");
+    assert_eq!(sensor.effective_type(), Some(sdformat::SensorType::Camera));
     assert!(matches!(sensor.config, SensorConfig::Camera(_)));
     assert_eq!(sensor.pose.transform.translation, [1., 2., 3.]);
     assert_eq!(sensor.pose.transform.rotation, [0., 0., 0., 1.]);

@@ -55,7 +55,15 @@ be aliases, but must resolve to different bodies; the child cannot be world.
 `contact()`, `force_torque()`, `magnetometer()`, `altimeter()`, `air_pressure()` and
 `navsat()`, `air_speed()`, `lidar()` and `camera()` accessors expose the selected type; exact selected
 child XML and owned source are preserved. Contact collision names and nested topic
-remain distinct from envelope topic; see docs/CONTACT_SENSOR.md. The six per-axis `Noise` records retain type,
+remain distinct from envelope topic; see docs/CONTACT_SENSOR.md. The literal
+`Sensor.kind` remains the XML spelling. `Sensor::effective_type()` returns the
+native `SensorType` classification for a parsed kind (`gps` becomes `NavSat`,
+`gpu_ray` becomes `GpuLidar`, and `ray` becomes `Lidar`). The public enum also
+maps the native canonical type strings, but it does not permit parsing otherwise
+unsupported sensor configurations or replace the literal kind. The native
+`DOMSensor.Type` mutable `SetType` and invalid-string-preserves-state behavior
+remains unported.
+The six per-axis `Noise` records retain type,
 mean, standard deviation, bias mean/deviation, dynamic bias deviation/correlation
 time, and precision. Standard deviations are nonnegative; noise types are case
 insensitive, after native space/tab/LF attribute-edge trimming. Explicit noise

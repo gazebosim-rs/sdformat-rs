@@ -18,7 +18,7 @@
 // Copyright (C) 2026 Open Source Robotics Foundation
 // SPDX-License-Identifier: Apache-2.0
 
-use sdformat::{ErrorCode, NavSat, NoResources, Noise, SensorConfig, load_str};
+use sdformat::{ErrorCode, NavSat, NoResources, Noise, SensorConfig, SensorType, load_str};
 
 #[test]
 fn original_navsat_construction() {
@@ -100,6 +100,7 @@ fn native_navsat_gps_sensor_fragment_is_typed() {
     let sensor = &sdf.models[0].links[0].sensors[0];
     assert_eq!(sensor.name, "navsat_sensor");
     assert_eq!(sensor.kind, "gps", "literal legacy type remains owned");
+    assert_eq!(sensor.effective_type(), Some(SensorType::NavSat));
     assert!(matches!(sensor.config, SensorConfig::NavSat(_)));
     assert_eq!(sensor.pose.transform.translation, [13., 14., 15.]);
     assert_eq!(sensor.pose.transform.rotation, [0., 0., 0., 1.]);

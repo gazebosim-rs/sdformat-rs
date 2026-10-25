@@ -698,6 +698,129 @@ pub struct Sensor {
     pub configuration_xml: String,
     pub source: Source,
 }
+/// Native sensor classification, separate from the literal XML `type` value.
+/// A parsed `gps` sensor, for example, has type [`SensorType::NavSat`].
+#[derive(Debug, Default, Clone, Copy, PartialEq, Eq)]
+pub enum SensorType {
+    #[default]
+    None,
+    Altimeter,
+    Camera,
+    Contact,
+    DepthCamera,
+    ForceTorque,
+    Gps,
+    GpuLidar,
+    Imu,
+    LogicalCamera,
+    Magnetometer,
+    Multicamera,
+    Lidar,
+    Rfid,
+    RfidTag,
+    Sonar,
+    WirelessReceiver,
+    WirelessTransmitter,
+    AirPressure,
+    RgbdCamera,
+    ThermalCamera,
+    NavSat,
+    SegmentationCamera,
+    BoundingBoxCamera,
+    Custom,
+    WideAngleCamera,
+    AirSpeed,
+}
+
+impl SensorType {
+    /// The string returned by native `Sensor::TypeStr` for this classification.
+    pub const fn as_str(self) -> &'static str {
+        match self {
+            Self::None => "none",
+            Self::Altimeter => "altimeter",
+            Self::Camera => "camera",
+            Self::Contact => "contact",
+            Self::DepthCamera => "depth_camera",
+            Self::ForceTorque => "force_torque",
+            Self::Gps => "gps",
+            Self::GpuLidar => "gpu_lidar",
+            Self::Imu => "imu",
+            Self::LogicalCamera => "logical_camera",
+            Self::Magnetometer => "magnetometer",
+            Self::Multicamera => "multicamera",
+            Self::Lidar => "lidar",
+            Self::Rfid => "rfid",
+            Self::RfidTag => "rfidtag",
+            Self::Sonar => "sonar",
+            Self::WirelessReceiver => "wireless_receiver",
+            Self::WirelessTransmitter => "wireless_transmitter",
+            Self::AirPressure => "air_pressure",
+            Self::RgbdCamera => "rgbd_camera",
+            Self::ThermalCamera => "thermal_camera",
+            Self::NavSat => "navsat",
+            Self::SegmentationCamera => "segmentation_camera",
+            Self::BoundingBoxCamera => "boundingbox_camera",
+            Self::Custom => "custom",
+            Self::WideAngleCamera => "wide_angle_camera",
+            Self::AirSpeed => "air_speed",
+        }
+    }
+
+    /// Parse a canonical native `TypeStr` name. This does not enable XML loading.
+    pub fn from_type_str(value: &str) -> Option<Self> {
+        Some(match value {
+            "none" => Self::None,
+            "altimeter" => Self::Altimeter,
+            "camera" => Self::Camera,
+            "contact" => Self::Contact,
+            "depth_camera" => Self::DepthCamera,
+            "force_torque" => Self::ForceTorque,
+            "gps" => Self::Gps,
+            "gpu_lidar" => Self::GpuLidar,
+            "imu" => Self::Imu,
+            "logical_camera" => Self::LogicalCamera,
+            "magnetometer" => Self::Magnetometer,
+            "multicamera" => Self::Multicamera,
+            "lidar" => Self::Lidar,
+            "rfid" => Self::Rfid,
+            "rfidtag" => Self::RfidTag,
+            "sonar" => Self::Sonar,
+            "wireless_receiver" => Self::WirelessReceiver,
+            "wireless_transmitter" => Self::WirelessTransmitter,
+            "air_pressure" => Self::AirPressure,
+            "rgbd_camera" => Self::RgbdCamera,
+            "thermal_camera" => Self::ThermalCamera,
+            "navsat" => Self::NavSat,
+            "segmentation_camera" => Self::SegmentationCamera,
+            "boundingbox_camera" => Self::BoundingBoxCamera,
+            "custom" => Self::Custom,
+            "wide_angle_camera" => Self::WideAngleCamera,
+            "air_speed" => Self::AirSpeed,
+            _ => return None,
+        })
+    }
+
+    /// Classify an XML type using native `Sensor::Load` alias rules. Parsing
+    /// support remains limited to the configurations accepted by the loader.
+    pub fn from_xml_kind(value: &str) -> Option<Self> {
+        if value == "none" {
+            return None;
+        }
+        Some(match value {
+            "gps" | "navsat" => Self::NavSat,
+            "gpu_ray" | "gpu_lidar" => Self::GpuLidar,
+            "ray" | "lidar" => Self::Lidar,
+            "depth" | "depth_camera" => Self::DepthCamera,
+            "rgbd" | "rgbd_camera" => Self::RgbdCamera,
+            "thermal" | "thermal_camera" => Self::ThermalCamera,
+            "segmentation" | "segmentation_camera" => Self::SegmentationCamera,
+            "boundingbox" | "boundingbox_camera" => Self::BoundingBoxCamera,
+            "wideanglecamera" | "wide_angle_camera" => Self::WideAngleCamera,
+            _ => Self::from_type_str(value)?,
+        })
+    }
+}
+
 /// Owned configuration selected by the parsed sensor type; unsupported types error.
 #[derive(Debug, Clone, PartialEq)]
 pub enum SensorConfig {
@@ -843,6 +966,12 @@ pub struct Magnetometer {
     pub source: Option<Source>,
 }
 impl Sensor {
+    /// Native effective type of the literal XML kind. Parsed sensors always
+    /// return `Some`; manually changed or unknown kinds return `None`.
+    pub fn effective_type(&self) -> Option<SensorType> {
+        SensorType::from_xml_kind(&self.kind)
+    }
+
     pub fn imu(&self) -> Option<&Imu> {
         match &self.config {
             SensorConfig::Imu(value) => Some(value),

@@ -18,7 +18,7 @@
 // Copyright (C) 2026 Open Source Robotics Foundation
 // SPDX-License-Identifier: Apache-2.0
 
-use sdformat::{ErrorCode, Lidar, NoResources, NoiseKind, SensorConfig, load_str};
+use sdformat::{ErrorCode, Lidar, NoResources, NoiseKind, SensorConfig, SensorType, load_str};
 
 fn sensor_xml(child: &str, kind: &str) -> String {
     format!(
@@ -50,6 +50,14 @@ fn native_lidar_link_fragments_are_typed() {
         let sensor = &sdf.models[0].links[0].sensors[0];
         assert_eq!(sensor.name, name);
         assert_eq!(sensor.kind, kind);
+        assert_eq!(
+            sensor.effective_type(),
+            Some(if kind.starts_with("gpu_") {
+                SensorType::GpuLidar
+            } else {
+                SensorType::Lidar
+            })
+        );
         assert!(matches!(sensor.config, SensorConfig::Lidar(_)));
         assert_eq!(sensor.pose.transform.translation, [1., 2., 3.]);
         assert_eq!(sensor.pose.transform.rotation, [0., 0., 0., 1.]);

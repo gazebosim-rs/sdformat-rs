@@ -39,6 +39,9 @@ ray/lidar and GPU spellings without simulating rays. An owned Camera value
 object retains construction defaults and setters; a typed parser retains the
 pinned camera sensor fixture fragment. Camera rendering remains pending. See [ForceTorque](docs/FORCE_TORQUE.md) and
 [the contract](docs/CONTRACT.md).
+The sensor's literal XML type remains available as `kind`; `effective_type()`
+provides the native classification for parsed sensor kinds, including legacy
+GPS and GPU/CPU lidar aliases. This does not widen parser support.
 
 Scalar and pose-component conversion is qualified for Linux GNU/glibc using an
 owned C locale and native range/prefix semantics. One reviewed FFI module is the

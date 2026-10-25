@@ -1,40 +1,30 @@
 {
   "author": "/root/sdformat_owner_fallback",
+  "author_gate": "Fresh integrated 216 Rust, 15 tools, fmt, Clippy and docs; 3892/3910 lines, 6795/6992 regions,80/80 changed, source digest matched. Independently verified exact file hashes, parent, protected/source digests and 244 unchanged parent blobs.",
   "decision": "approved",
   "files_sha256": {
-    "README.md": "2e3e0a9947f40e33ae2cb2259d15f1037e8fd87550438188c57ba686d1c72180",
-    "docs/CONTRACT.md": "bd295cd3b00ad56e69c16f046e1592912db9b7050253e06f082dbf7e1803b2fe",
-    "docs/STATUS.md": "b346d54a88f70609496f58267fdd121d8c72c47edf1a55fbe4b7fb8d99685ed1",
-    "reference/results.json": "dbec2d2244f599ee284a6f68020dcd323c3a8f24549633846f77da29cbf6cc3b",
-    "reference/traceability.json": "26fadff81e5e930fd8d1cc147408f5b8d249a9fc4840ee4b3631750d6faf608f",
-    "src/camera.rs": "a3f5fbee28c73f72e1f7907d290ee5a2291fe63b4dae9658f0aa5a6b893bcbf3",
-    "src/parse.rs": "9ed074ad85cdc48c9f5e0bd8f6ed0f1bf9519d53d9d7293da689b607ff222991",
-    "src/types.rs": "de5e12897a68f6c301b16b11d2d4dbaa8df7754746b83c5205b2f2e1b9d43ecd",
-    "tests/camera_link_original.rs": "96c5de0258f0750ecdf2023f8eef82fcf0b370778157de5f63d7c498efd01d68",
-    "tests/contact_sensor.rs": "25f99ebbb5e2207baaa181a1081f15b4933a7143929cfec153e57910cb15d48f",
-    "tests/semantics.rs": "3ebd64b1e25df3b4ffcde6c6fca7a36ac9f3ee994d44ad554b3b480ffc281dca"
+    "README.md": "652d81afcca2546556e9e55886332cd3ac652d81790cd4bbe64fc4c2413c310f",
+    "docs/CONTRACT.md": "63082e7fbf4ab6d3cd5df62ba9a38f80dbe0940e168b705b83a23205a862eb3c",
+    "docs/STATUS.md": "5397909e12fde00b5be638142b6fcb51bbd2f9840ecdb38d194bb179f7fbe73c",
+    "reference/results.json": "45032a2d5f8f5d229b99278266b8039ad0b9d560fb4b8922255420fe840c8f3b",
+    "reference/traceability.json": "0305bbf8cc5485d67932189be05028cf68e5b4659e8349b0dbc634958a4edf4c",
+    "src/types.rs": "e17f55b9cb74555ca317e9b6d4a7a59366e3a3aa9f3a8dc0eec5bef2d3b9cdc0",
+    "tests/camera_link_original.rs": "a91db92ee7685a9f604bd18d266b7191a0aeeeda27e21526a0cdca1028c4ffca",
+    "tests/lidar_link_original.rs": "d55b7c7a933a01b17765a461a547387ef4881fc63048c30f4204bdb7313625a5",
+    "tests/navsat_original.rs": "e3c46b7180c84bba11ddd562b64a78466b42cd8d81f0a6f4676ff07bd32f5b33",
+    "tests/sensor_effective_type_original.rs": "949ad98fe815cab2ea71e8d7c8e7c47aa34b5db90bd60e6330c9663311404e5c"
   },
-  "final_freeze": "artifacts/camera-link/frozen-final.json",
-  "final_freeze_sha256": "4ec1820bfa7065ff624aced60a0e48276b2c206e97c4bca40c5caba789a4f0ea",
-  "parent": "8b0416cc6d947e169b6a2c67fe3eb408cadc71d4",
-  "preserved_parent_files": 242,
-  "protected_digest": "fe561ea05614809448bb9b4f52aeb9787dcec2883a517abbd1cdc3e8de89c2ee",
-  "reviewed_source_sha256": {
-    "src/camera.rs": "a3f5fbee28c73f72e1f7907d290ee5a2291fe63b4dae9658f0aa5a6b893bcbf3",
-    "src/parse.rs": "9ed074ad85cdc48c9f5e0bd8f6ed0f1bf9519d53d9d7293da689b607ff222991",
-    "src/types.rs": "de5e12897a68f6c301b16b11d2d4dbaa8df7754746b83c5205b2f2e1b9d43ecd",
-    "tests/camera_link_original.rs": "96c5de0258f0750ecdf2023f8eef82fcf0b370778157de5f63d7c498efd01d68",
-    "tests/contact_sensor.rs": "25f99ebbb5e2207baaa181a1081f15b4933a7143929cfec153e57910cb15d48f",
-    "tests/semantics.rs": "3ebd64b1e25df3b4ffcde6c6fca7a36ac9f3ee994d44ad554b3b480ffc281dca"
-  },
+  "final_freeze": "artifacts/sensor-effective-type/frozen-final.json",
+  "final_freeze_sha256": "cc1c2fd5e9622a1fbe677e11264e721dfe97ac36b443d12a51397c037c800d29",
+  "limits": [
+    "Normal protected staged hook, publication and hosted CI remain required.",
+    "Native DOMSensor.Type and DOMLink.Sensors originals remain partial; original mutable SetType state is unqualified."
+  ],
+  "parent": "39f250303b7fdcba809de6b50a47b9489c2a8d4a",
+  "preserved_parent_files": 244,
+  "protected_digest": "a85fcf40f2d2d93a7903212147ab59d6e108de9b8155d3f198b57827ffaf0a40",
   "reviewer": "/root/transport_fallback",
-  "revoked_source_review_sha256": "d14ed656875f6b32839963fb7948dd82daf8fe6cee84c309425d6d3b680a8506",
-  "scope": "Exact corrected v2 Camera parser/API/test bytes on hosted-green Camera Construction parent. PARTIAL DOMLink.Sensors camera_sensor fixture fragment and native-positive correction only. Native effective CAMERA enum, Link name/count/index, other 15 instances, broad camera grammar and full two-error vector remain unported. Prior v1 review is explicitly revoked.",
-  "source_digest": "02fdf12d1bed4db070299c22bdb4fc026ca19102796c0ed732182520580df496",
-  "source_review_sha256": "f7737e6ef72a5280245984898b0dbf83405b48ddf232e19017b920aa3976ddec",
-  "unchanged_fixture_sha256": {
-    "tests/contact_sensor.json": "20e570710f926fb9cac5a608bda7606da9c9a76cb44c8da74ffc82cde13e2d2b",
-    "tests/fixtures/sensors.sdf": "dc2b61c8b40a7df7f2c7b6e649f3039136ca1a03528371b307e9b9fc27406a00"
-  },
-  "verification": "Independently checked eleven candidate hashes, two unchanged fixture/corpus hashes, exact v2 receipt, tools.verify source/protected digests and all 242 other parent blobs. Parsed metadata has only prior Camera hosted status, additive Camera Link result and scoped partial Link trace updates; UTF-8 escape reserialization leaves other JSON values unchanged. Author integrated214 Rust/15 tools/fmt/Clippy/docs/direct strict coverage 3812/3830 lines6667/6864 regions175/175 changed passed. Normal protected hook, publication and hosted qualification remain required."
+  "scope": "Final metadata and public-parent binding of the independently approved partial DOMSensor.Type canonical value/string mapping and parsed Link effective-type assertions. Ten exact candidate paths; reviewed source/tests and unchanged sensors fixture retain their approved hashes. Only additive API/contract/status/results/trace metadata and existing Link-partial review wording changed. Mutable native SetType and invalid-string state, parser widening, full DOMSensor.Type and DOMLink.Sensors retirement remain unported.",
+  "source_digest": "0d2aaba170935f4e546e1f8e4d5e65a8ad7138935769fbab5994cecccd633417",
+  "source_review_sha256": "0ed6fc63d974ff0c2f5b211a8a4137db457c513704866177dc6e83d1e7b6b398"
 }

@@ -865,6 +865,22 @@
       "baseline": "Exact native DOMJointAxis.Construction one run/zero failures in artifacts/axis-dynamics/original.xml.",
       "status": "partial_reviewed",
       "review": "Independent /root/transport_recovery compared exact twelve defaults/setters/literals; approved partial observation mapping only with constructor/Element/XYZ/error/graph/bounds/mimic exclusions explicit. Fresh 125 Rust tests, 68 native observations and full original one run/zero failures pass; entire proof equals author, no complete case retirement."
+    },
+    {
+      "target": "UNIT_FrameSemantics_TEST",
+      "case": "FrameSemantics.buildPoseRelativeToGraph",
+      "source": "src/FrameSemantics_TEST.cc:209",
+      "rust_test": "tests/pose_graph_original.rs::original_pose_relative_to_graph_public_queries",
+      "assertions": "Pinned unchanged fixture; original load success plus eight root-relative pose values, seven raw relative-to pose values and both invalid-name failures. Pose equality uses the established component-wise <=1e-3 native bound. Public typed pose queries replace successful graph resolve calls; invalid names map only to failure and Rust UnknownReference. Native graph vertex/edge/count/build/validate checks and exact POSE_RELATIVE_TO_INVALID code/text remain unported; this is a partial mapping.",
+      "fixtures": {
+        "tests/fixtures/model_frame_relative_to_joint.sdf": "458a99be8b0f2e15e53b8603de7392205c4e4b71e367235f0dd38fc81abce54b"
+      },
+      "upstream_fixtures": {
+        "test/sdf/model_frame_relative_to_joint.sdf": "458a99be8b0f2e15e53b8603de7392205c4e4b71e367235f0dd38fc81abce54b"
+      },
+      "baseline": "Exact original one run, zero failures/skips; artifacts/pose-graph/original.xml; pinned upstream 1249805d.",
+      "status": "partial_reviewed",
+      "review": "Independent /root/transport_fallback approved corrected test/fixture source digest a5e7c7827545cb1ebbda4753df429b4fb14a9b7bcc14b5ee4014621dd2804de4 after exact 8 root, 7 relative and 2 invalid-name assertion comparison, unchanged pinned fixture/source and restored original 2019 Apache notice. Independently replayed exact native original 1/0 plus 182 Rust tests, fmt and Clippy in a private source/target. Graph internals and exact native error code/text remain unported; partial only. Final metadata binding and staged/hosted qualification pending."
     }
   ]
 }

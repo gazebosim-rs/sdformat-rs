@@ -1288,3 +1288,20 @@ layout/dependency checks pass on the final protected metadata. Coverage remains
 covered. Only additive review metadata, the approved original's mapping status
 and current review prose differ from the source freeze. Exact independent main
 binding, normal protected staged hook and hosted qualification remain required.
+
+## Pose-relative graph original candidate
+
+The unchanged `model_frame_relative_to_joint.sdf` fixture now drives a partial
+port of `FrameSemantics.buildPoseRelativeToGraph`. The exact pinned native original
+passes one run with zero failures. The isolated Rust test passes all eight
+model-root poses, seven poses in their declared relative frames and both invalid
+name failures with the original component-wise pose comparison bound. All
+182 Rust and 13 tooling checks, formatting, Clippy and docs pass in the isolated
+worktree; author direct coverage is 3281/3297 production lines and 5728/5839
+regions with no changed production lines. Native graph map/vertex/edge counts and direct build/validate checks, plus exact native
+error code/text, have no public equivalent in this typed loader and remain
+unported. This does not retire a complete original case or change production
+behavior. Independent assertion/source review approved the corrected notice,
+all 8+7+2 query mappings and the explicit partial scope after fresh native 1/0
+and private 182 Rust/fmt/Clippy replay. Exact metadata binding and protected
+staged/hosted gates remain pending.

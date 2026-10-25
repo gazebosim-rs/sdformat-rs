@@ -921,21 +921,29 @@ impl Parser<'_> {
         let geometry = match shape.tag_name().name() {
             "box" => {
                 self.allowed(shape, &["size"], &[])?;
+                let size = child(shape, "size").map_or(Ok([1.; 3]), |n| self.values(n))?;
                 Geometry::Box {
-                    size: child(shape, "size").map_or(Ok([1.; 3]), |n| self.values(n))?,
+                    size: if size.iter().all(|value| *value > 0.) {
+                        size
+                    } else {
+                        [1.; 3]
+                    },
                 }
             }
             "sphere" => {
                 self.allowed(shape, &["radius"], &[])?;
+                let radius = self.required_scalar(shape, "radius", 1.)?;
                 Geometry::Sphere {
-                    radius: self.scalar(shape, "radius", 1.)?,
+                    radius: if radius > 0. { radius } else { 1. },
                 }
             }
             "cylinder" => {
                 self.allowed(shape, &["radius", "length"], &[])?;
+                let radius = self.required_scalar(shape, "radius", 1.)?;
+                let length = self.required_scalar(shape, "length", 1.)?;
                 Geometry::Cylinder {
-                    radius: self.scalar(shape, "radius", 1.)?,
-                    length: self.scalar(shape, "length", 1.)?,
+                    radius: if radius > 0. { radius } else { 0.5 },
+                    length: if length > 0. { length } else { 1. },
                 }
             }
             "capsule" | "cone" => {
@@ -971,34 +979,28 @@ impl Parser<'_> {
             _ => {
                 self.allowed(shape, &["normal", "size"], &[])?;
                 let normal = child(shape, "normal").map_or(Ok([0., 0., 1.]), |n| self.values(n))?;
-                if DVec3::from_array(normal).length_squared() < f64::MIN_POSITIVE
-                    || !DVec3::from_array(normal).length_squared().is_finite()
-                {
-                    return Err(self.err(shape, ErrorCode::InvalidValue, "plane normal is zero"));
-                }
+                let vector = DVec3::from_array(normal);
+                let length = vector.length();
+                // Native Vector3::Normalize leaves vectors within 1e-6 of zero
+                // unchanged; overflowed finite lengths divide to zero.
+                let normal = if length > 1e-6 {
+                    (vector / length).to_array()
+                } else {
+                    normal
+                };
+                let size = child(shape, "size").map_or(Ok([1.; 2]), |n| self.values(n))?;
                 Geometry::Plane {
-                    normal: DVec3::from_array(normal).normalize().to_array(),
-                    size: child(shape, "size").map_or(Ok([1.; 2]), |n| self.values(n))?,
+                    normal,
+                    size: if size.iter().all(|value| *value > 0.) {
+                        size
+                    } else {
+                        [1.; 2]
+                    },
                 }
             }
         };
-        let positive = match &geometry {
-            Geometry::Box { size } => size.iter().all(|v| *v > 0.),
-            Geometry::Sphere { radius } => *radius > 0.,
-            Geometry::Cylinder { radius, length }
-            | Geometry::Capsule { radius, length }
-            | Geometry::Cone { radius, length } => *radius > 0. && *length > 0.,
-            Geometry::Ellipsoid { radii } => radii.iter().all(|r| *r > 0.),
-            Geometry::Mesh(_) => true,
-            Geometry::Plane { size, .. } => size.iter().all(|v| *v > 0.),
-        };
-        if !positive {
-            return Err(self.err(
-                shape,
-                ErrorCode::InvalidValue,
-                "shape dimensions must be positive",
-            ));
-        }
+        // Each primitive branch applies its native fallback to nonpositive
+        // dimensions. Mesh scale is deliberately unconstrained by that policy.
         Ok(geometry)
     }
     fn required_scalar(

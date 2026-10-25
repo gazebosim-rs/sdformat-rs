@@ -59,14 +59,15 @@ fn visual_validation_and_explicit_remaining_schema_contract() {
             "<visual name='v'><geometry><box/><sphere/></geometry></visual>",
             ErrorCode::InvalidValue,
         ),
-        (
-            "<visual name='v'><geometry><sphere><radius>-1</radius></sphere></geometry></visual>",
-            ErrorCode::InvalidValue,
-        ),
     ] {
         let xml = format!("<link name='l'>{visual}</link>");
         assert_eq!(document(&xml).unwrap_err().code, code, "{visual}");
     }
+    let sdf = document("<link name='l'><visual name='v'><geometry><sphere><radius>-1</radius></sphere></geometry></visual></link>").unwrap();
+    assert!(matches!(
+        sdf.models[0].links[0].visuals[0].geometry,
+        Some(Geometry::Sphere { radius: 1. })
+    ));
 }
 #[test]
 fn both_joint_axes_keep_omission_defaults_limits_and_scope_validation() {

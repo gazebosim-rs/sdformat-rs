@@ -441,6 +441,54 @@
       "baseline": "Exact original native case passed, one run and zero failures; artifacts/include/INTEGRATION_model_dom.xml",
       "status": "partial_reviewed",
       "review": "Independent /root/msgs approved implementation 2dbbb3fcb33c66993d32a85efb88b2e28a5bb435895e77cd6bef8beb653598a8 and qualified metadata adafd3e95a46653e17dc1cf5dc893441112b428836821cfeb9b44455f8697f42 on 2026-10-25. Compared original parsing/plugin assertions and exact fixture bytes, reran all 89 Rust checks, 61 freshly rebuilt native observations and both exact originals (one run, zero failures each); all shared native proof hashes match. Only declared parsing/metadata/plugin observations mapped; serialization, Element/path facade and version 1.5 IncludeElements remain pending. Accepted-row callback equivalence only; invalid-input callback ordering and two native exception extensions are explicitly separate."
+    },
+    {
+      "target": "UNIT_Box_TEST",
+      "case": "DOMBox.Load",
+      "source": "src/Box_TEST.cc:116",
+      "rust_test": "tests/basic_primitives.rs::box_load_original_negative_value_subset",
+      "assertions": "Negative (-1,-1,-1) size falls back to (1,1,1). XML construction replaces native mutable Element setup. Non-null typed shape variant replaces shape presence only; null Element, wrong-tag, schema-description/missing-element error count/code/text, stored Element and repeated-load mutation assertions remain unported. Original vector component <=1e-3 plus exact checks and scalar exact checks retain value bounds.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Exact original native case passed once with zero failures; artifacts/primitives/Box.xml",
+      "status": "partial_reviewed",
+      "review": "Independent /root/transport_recovery reviewed implementation 4baa643c061786bccd8b6447ad89aa3d8fa3cb420810e8547b13d09f2b8f1847 on 2026-10-25: compared exact Load value assertions and native source/normalization; independently reran 91 Rust checks, 37 freshly rebuilt native exact-bit observations and all four exact original Load cases, zero failures. Only value observations mapped; Element/error-vector/mutation assertions remain pending."
+    },
+    {
+      "target": "UNIT_Sphere_TEST",
+      "case": "DOMSphere.Load",
+      "source": "src/Sphere_TEST.cc:104",
+      "rust_test": "tests/basic_primitives.rs::sphere_load_original_value_subset",
+      "assertions": "Valid radius 2.5 and negative radius -1 fallback 1.0. XML construction replaces native mutable Element setup. Non-null typed shape variant replaces shape presence only; null Element, wrong-tag, schema-description/missing-element error count/code/text, stored Element and repeated-load mutation assertions remain unported. Original vector component <=1e-3 plus exact checks and scalar exact checks retain value bounds.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Exact original native case passed once with zero failures; artifacts/primitives/Sphere.xml",
+      "status": "partial_reviewed",
+      "review": "Independent /root/transport_recovery reviewed implementation 4baa643c061786bccd8b6447ad89aa3d8fa3cb420810e8547b13d09f2b8f1847 on 2026-10-25: compared exact Load value assertions and native source/normalization; independently reran 91 Rust checks, 37 freshly rebuilt native exact-bit observations and all four exact original Load cases, zero failures. Only value observations mapped; Element/error-vector/mutation assertions remain pending."
+    },
+    {
+      "target": "UNIT_Cylinder_TEST",
+      "case": "DOMCylinder.Load",
+      "source": "src/Cylinder_TEST.cc:124",
+      "rust_test": "tests/basic_primitives.rs::cylinder_load_original_negative_value_subset",
+      "assertions": "Negative radius -1 with length 3 defaults radius to 0.5; radius 1 with negative length -1 defaults length to 1. XML construction replaces native mutable Element setup. Non-null typed shape variant replaces shape presence only; null Element, wrong-tag, schema-description/missing-element error count/code/text, stored Element and repeated-load mutation assertions remain unported. Original vector component <=1e-3 plus exact checks and scalar exact checks retain value bounds.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Exact original native case passed once with zero failures; artifacts/primitives/Cylinder.xml",
+      "status": "partial_reviewed",
+      "review": "Independent /root/transport_recovery reviewed implementation 4baa643c061786bccd8b6447ad89aa3d8fa3cb420810e8547b13d09f2b8f1847 on 2026-10-25: compared exact Load value assertions and native source/normalization; independently reran 91 Rust checks, 37 freshly rebuilt native exact-bit observations and all four exact original Load cases, zero failures. Only value observations mapped; Element/error-vector/mutation assertions remain pending."
+    },
+    {
+      "target": "UNIT_Plane_TEST",
+      "case": "DOMPlane.Load",
+      "source": "src/Plane_TEST.cc:116",
+      "rust_test": "tests/basic_primitives.rs::plane_load_original_negative_value_subset",
+      "assertions": "Negative (-1,-1) size with UnitX normal falls back to (1,1). XML construction replaces native mutable Element setup. Non-null typed shape variant replaces shape presence only; null Element, wrong-tag, schema-description/missing-element error count/code/text, stored Element and repeated-load mutation assertions remain unported. Original vector component <=1e-3 plus exact checks and scalar exact checks retain value bounds.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Exact original native case passed once with zero failures; artifacts/primitives/Plane.xml",
+      "status": "partial_reviewed",
+      "review": "Independent /root/transport_recovery reviewed implementation 4baa643c061786bccd8b6447ad89aa3d8fa3cb420810e8547b13d09f2b8f1847 on 2026-10-25: compared exact Load value assertions and native source/normalization; independently reran 91 Rust checks, 37 freshly rebuilt native exact-bit observations and all four exact original Load cases, zero failures. Only value observations mapped; Element/error-vector/mutation assertions remain pending."
     }
   ]
 }

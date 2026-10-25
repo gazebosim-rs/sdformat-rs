@@ -483,3 +483,41 @@ The include parsing/plugin mapping is now independently reviewed as partial.
 Total mappings remain 30 complete and two partial out of 1344 runtime cases;
 no complete case or SDF packet is retired by this increment. Final publication
 requires the matching protected receipt, strict staged gate and hosted checks.
+
+The basic primitive correction closes measured Box/Sphere/Cylinder/Plane DOM
+fallback and normalization gaps. Thirty-seven fresh native observations match
+exact numeric bits, including signed zero, tiny normals, the normalization
+threshold, overflowed lengths, absent defaults and explicit required-empty errors.
+Previously rejected negative Sphere and zero/large Plane inputs remain explicit
+positive regressions, including a visual Sphere. No original assertion was
+removed. Four unchanged native Load cases pass; only their supported value
+observations are mapped partially because mutable Element, null/wrong-tag,
+schema-description and accumulated-error contracts remain unported.
+
+All 91 Rust tests, fmt/clippy and working coverage pass: 2209/2234 production
+lines, 3836/3955 regions and 20/20 changed executable lines. No dependencies,
+unsafe code, exclusions or quality thresholds changed. Independent review and the
+matching strict staged gate remain required before acceptance or publication.
+
+Independent /root/transport_recovery compared the primitive source, normalization
+rules and all four original Load value subsets. It reran all 91 Rust checks,
+37 fresh native bit observations and four unchanged native Load cases; all pass
+and native proof hashes match. These four mappings are reviewed partial ports,
+with no new complete case retirement. Its isolated receipt does not authorize a
+changed integrated snapshot; overlap review and the strict staged gate remain
+required before publication.
+
+The unchanged primitive correction is integrated onto reviewed include commit
+8db5770. All 95 Rust tests, fmt/clippy and working coverage pass: 2272/2289 lines,
+3941/4040 regions and 20/20 changed executable lines. The fresh 37-case native
+proof equals the isolated reviewed proof, including all source/header/binary
+hashes. Include behavior/mapping remains intact; total mappings are 30 complete
+and six reviewed partials. Exact integration review, receipt and normal staged
+gate remain required before publication.
+
+Independent /root/transport_recovery approved the final integrated overlap:
+production/assertion changes and all four new files match its isolated review,
+and the fresh native proof equals its independently rebuilt proof. All 95
+integrated Rust tests pass independently. The exact qualified receipt preserves
+that scope; coverage is author-reported and matching staged/hosted gates remain
+required. The four new Load mappings remain partial.

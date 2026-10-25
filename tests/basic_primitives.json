@@ -1,0 +1,386 @@
+[
+  {
+    "id": "box_negative",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><box><size>-1 2 3</size></box></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "kind": "box",
+    "bits": [
+      4607182418800017408,
+      4607182418800017408,
+      4607182418800017408
+    ]
+  },
+  {
+    "id": "box_zero",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><box><size>0 2 3</size></box></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "kind": "box",
+    "bits": [
+      4607182418800017408,
+      4607182418800017408,
+      4607182418800017408
+    ]
+  },
+  {
+    "id": "box_empty",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><box><size/></box></geometry></collision></link></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "sphere_negative",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><sphere><radius>-1</radius></sphere></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "kind": "sphere",
+    "bits": [
+      4607182418800017408
+    ]
+  },
+  {
+    "id": "sphere_zero",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><sphere><radius>0</radius></sphere></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "kind": "sphere",
+    "bits": [
+      4607182418800017408
+    ]
+  },
+  {
+    "id": "sphere_empty",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><sphere><radius/></sphere></geometry></collision></link></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "cylinder_negative",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><cylinder><radius>-1</radius><length>-2</length></cylinder></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "kind": "cylinder",
+    "bits": [
+      4602678819172646912,
+      4607182418800017408
+    ]
+  },
+  {
+    "id": "cylinder_zero",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><cylinder><radius>0</radius><length>0</length></cylinder></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "kind": "cylinder",
+    "bits": [
+      4602678819172646912,
+      4607182418800017408
+    ]
+  },
+  {
+    "id": "cylinder_empty_radius",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><cylinder><radius/></cylinder></geometry></collision></link></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "cylinder_empty_length",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><cylinder><length/></cylinder></geometry></collision></link></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "plane_zero_normal",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><plane><normal>0 0 0</normal></plane></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "kind": "plane",
+    "bits": [
+      0,
+      0,
+      0,
+      4607182418800017408,
+      4607182418800017408
+    ]
+  },
+  {
+    "id": "plane_zero_size",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><plane><size>0 0</size></plane></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "kind": "plane",
+    "bits": [
+      0,
+      0,
+      4607182418800017408,
+      4607182418800017408,
+      4607182418800017408
+    ]
+  },
+  {
+    "id": "plane_negative_size",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><plane><size>-1 2</size></plane></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "kind": "plane",
+    "bits": [
+      0,
+      0,
+      4607182418800017408,
+      4607182418800017408,
+      4607182418800017408
+    ]
+  },
+  {
+    "id": "plane_empty_normal",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><plane><normal/></plane></geometry></collision></link></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "plane_empty_size",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><plane><size/></plane></geometry></collision></link></model></sdf>",
+    "accepted": false
+  },
+  {
+    "id": "plane_normal_0",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><plane><normal>0 0 0</normal></plane></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "kind": "plane",
+    "bits": [
+      0,
+      0,
+      0,
+      4607182418800017408,
+      4607182418800017408
+    ]
+  },
+  {
+    "id": "plane_normal_-0",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><plane><normal>-0 0 0</normal></plane></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "kind": "plane",
+    "bits": [
+      9223372036854775808,
+      0,
+      0,
+      4607182418800017408,
+      4607182418800017408
+    ]
+  },
+  {
+    "id": "plane_normal_1e-310",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><plane><normal>1e-310 0 0</normal></plane></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "kind": "plane",
+    "bits": [
+      20240225330731,
+      0,
+      0,
+      4607182418800017408,
+      4607182418800017408
+    ]
+  },
+  {
+    "id": "plane_normal_1e-8",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><plane><normal>1e-8 0 0</normal></plane></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "kind": "plane",
+    "bits": [
+      4487126258331716666,
+      0,
+      0,
+      4607182418800017408,
+      4607182418800017408
+    ]
+  },
+  {
+    "id": "plane_normal_1e-6",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><plane><normal>1e-6 0 0</normal></plane></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "kind": "plane",
+    "bits": [
+      4517329193108106637,
+      0,
+      0,
+      4607182418800017408,
+      4607182418800017408
+    ]
+  },
+  {
+    "id": "plane_normal_1.0001e-6",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><plane><normal>1.0001e-6 0 0</normal></plane></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "kind": "plane",
+    "bits": [
+      4607182418800017408,
+      0,
+      0,
+      4607182418800017408,
+      4607182418800017408
+    ]
+  },
+  {
+    "id": "plane_normal_1e-5",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><plane><normal>1e-5 0 0</normal></plane></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "kind": "plane",
+    "bits": [
+      4607182418800017408,
+      0,
+      0,
+      4607182418800017408,
+      4607182418800017408
+    ]
+  },
+  {
+    "id": "plane_normal_1e308",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><plane><normal>1e308 0 0</normal></plane></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "kind": "plane",
+    "bits": [
+      0,
+      0,
+      0,
+      4607182418800017408,
+      4607182418800017408
+    ]
+  },
+  {
+    "id": "plane_normal_-1e308",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><plane><normal>-1e308 0 0</normal></plane></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "kind": "plane",
+    "bits": [
+      9223372036854775808,
+      0,
+      0,
+      4607182418800017408,
+      4607182418800017408
+    ]
+  },
+  {
+    "id": "cylinder_mixed",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><cylinder><radius>2</radius><length>-1</length></cylinder></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "kind": "cylinder",
+    "bits": [
+      4611686018427387904,
+      4607182418800017408
+    ]
+  },
+  {
+    "id": "box_mixed",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><box><size>2 0 4</size></box></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "kind": "box",
+    "bits": [
+      4607182418800017408,
+      4607182418800017408,
+      4607182418800017408
+    ]
+  },
+  {
+    "id": "plane_mixed_size",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><plane><size>2 0</size></plane></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "kind": "plane",
+    "bits": [
+      0,
+      0,
+      4607182418800017408,
+      4607182418800017408,
+      4607182418800017408
+    ]
+  },
+  {
+    "id": "plane_large_diagonal",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><plane><normal>1e308 -1e308 1e308</normal></plane></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "kind": "plane",
+    "bits": [
+      0,
+      9223372036854775808,
+      0,
+      4607182418800017408,
+      4607182418800017408
+    ]
+  },
+  {
+    "id": "box_absent",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><box/></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "kind": "box",
+    "bits": [
+      4607182418800017408,
+      4607182418800017408,
+      4607182418800017408
+    ]
+  },
+  {
+    "id": "sphere_absent",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><sphere/></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "kind": "sphere",
+    "bits": [
+      4607182418800017408
+    ]
+  },
+  {
+    "id": "cylinder_absent",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><cylinder/></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "kind": "cylinder",
+    "bits": [
+      4607182418800017408,
+      4607182418800017408
+    ]
+  },
+  {
+    "id": "plane_absent",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><plane/></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "kind": "plane",
+    "bits": [
+      0,
+      0,
+      4607182418800017408,
+      4607182418800017408,
+      4607182418800017408
+    ]
+  },
+  {
+    "id": "box_original_negative",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><box><size>-1 -1 -1</size></box></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "bits": [
+      4607182418800017408,
+      4607182418800017408,
+      4607182418800017408
+    ]
+  },
+  {
+    "id": "sphere_original_valid",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><sphere><radius>2.5</radius></sphere></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "bits": [
+      4612811918334230528
+    ]
+  },
+  {
+    "id": "cylinder_original_radius",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><cylinder><radius>-1</radius><length>3</length></cylinder></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "bits": [
+      4602678819172646912,
+      4613937818241073152
+    ]
+  },
+  {
+    "id": "cylinder_original_length",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><cylinder><radius>1</radius><length>-1</length></cylinder></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "bits": [
+      4607182418800017408,
+      4607182418800017408
+    ]
+  },
+  {
+    "id": "plane_original_negative",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><plane><normal>1 0 0</normal><size>-1 -1</size></plane></geometry></collision></link></model></sdf>",
+    "accepted": true,
+    "bits": [
+      4607182418800017408,
+      0,
+      0,
+      4607182418800017408,
+      4607182418800017408
+    ]
+  }
+]

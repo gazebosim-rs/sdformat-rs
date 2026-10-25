@@ -512,14 +512,6 @@ fn invalid_documents_fail_atomically() {
             ErrorCode::InvalidValue,
         ),
         (
-            "<link name='l'><collision name='c'><geometry><sphere><radius>-1</radius></sphere></geometry></collision></link>",
-            ErrorCode::InvalidValue,
-        ),
-        (
-            "<link name='l'><collision name='c'><geometry><plane><normal>0 0 0</normal></plane></geometry></collision></link>",
-            ErrorCode::InvalidValue,
-        ),
-        (
             "<link name='l'><collision name='c'><geometry><sphere/></geometry></collision><collision name='c'><geometry><box/></geometry></collision></link>",
             ErrorCode::DuplicateName,
         ),
@@ -914,12 +906,14 @@ fn nested_scalar_schema_and_model_depth_are_validated() {
         ErrorCode::Resource
     );
     let xml = "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><plane><normal>1e308 0 0</normal></plane></geometry></collision></link></model></sdf>";
-    assert_eq!(
-        load_str(xml, "large-normal", &NoResources)
-            .unwrap_err()
-            .code,
-        ErrorCode::InvalidValue
-    );
+    let sdf = load_str(xml, "large-normal", &NoResources).unwrap();
+    assert!(matches!(
+        sdf.models[0].links[0].collisions[0].geometry,
+        Geometry::Plane {
+            normal: [0., 0., 0.],
+            size: [1., 1.]
+        }
+    ));
 }
 
 #[test]

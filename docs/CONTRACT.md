@@ -279,3 +279,13 @@ Rejected inputs can fail before lookup in this Result API; for example a
 whitespace-only CDATA URI is rejected before calling the resolver, while the
 pinned native loader can call its callback before rejecting it. Invalid-input
 lookup side effects and diagnostic ordering are not claimed as native parity.
+
+Basic Box/Sphere/Cylinder/Plane parsing applies the native DOM fallback for
+nonpositive dimensions. Any nonpositive Box or Plane size component resets the
+whole size to ones; Sphere radius resets to one, while Cylinder radius and length
+reset independently to 0.5 and one. Omitted children retain schema defaults,
+including Cylinder's XML radius of one; explicitly empty required values fail.
+Plane normalization follows native gz-math: lengths at most 1e-6 leave the raw
+normal unchanged, including zero; an overflowed length divides finite components
+to signed zero. This is DOM data, not a physics capability or valid-normal claim.
+Consumers must validate supported physical geometry before instantiation.

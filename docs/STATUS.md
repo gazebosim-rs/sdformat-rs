@@ -1185,3 +1185,31 @@ entire native 150-row/four-original proof matches isolated evidence. The new gra
 implementation and all new fixtures/assertions/probe bytes are preserved; existing
 ForceTorque/IMU/Contact source, assertions and native evidence remain intact.
 Final independent overlap binding and normal staged/hosted checks are required.
+
+
+## UTF-8 BOM source-span candidate
+
+Two real public-parent failures expose shifted raw XML ranges after an initial
+BOM: corrupted plugin XML and a valid Unicode model name causing a UTF-8 boundary
+panic. A bounded tokenizer-origin correction preserves original spans/source
+coordinates for plugin/configuration/physics/axis/include data and imported
+resources without changing tokenizer input or document grammar. Nine focused
+Rust tests pass, including full-source position comparisons across 96 layouts;
+87 fresh native rows and three unchanged originals pass within three explicit
+existing XML grammar gaps. No new original mapping, dependency, unsafe or runtime
+change is introduced. Full author checks and independent review pass; staged/hosted qualification
+remains pending. The performance cache is a separate prototype.
+
+Fresh author checks pass all 177 Rust tests, 13 tools, formatting/Clippy and doc
+compilation. Coverage is 3259/3275 lines and 5694/5806 regions, with all six
+changed executable lines covered. The full 87-row/three-original native proof
+passes; 84 rows match and three inherited grammar differences remain explicit.
+No original mapping or old assertion changes. Independent review passed; normal
+staged/hosted qualification remains required.
+
+Independent /root/transport_fallback approved the ten-file BOM correction after
+177 fresh private Rust tests, formatting/Clippy and the exact 87-row/three-original
+native proof. A separate pre-fix cursor countercontrol reproduced both real failures;
+all reviewed bytes pass. Raw/source contracts and the three existing grammar gaps
+were checked. No case retirement or cache code is introduced. Exact main metadata
+binding and normal staged/hosted gates remain required.

@@ -437,3 +437,10 @@ retaining raw DOM strings. Link/Frame/Joint/missing prefixes and intermediate or
 repeated implicit aliases do not qualify. Strict schema scope boundaries remain
 unchanged. See MODEL_FRAME_REFERENCES.md for native observations, original joint
 assertion candidates and the inherited static child endpoint policy difference.
+
+
+An initial UTF-8 BOM is accounted for in original XML spans and tokenizer error
+positions. Preserved plugin/configuration/physics/axis/include XML and imported
+resources retain their exact original bytes. Source coordinates keep existing
+LF-row/Unicode-scalar-column semantics over the original input. Repeated or
+intermediate BOM document text remains a named grammar gap; see UTF8_BOM.md.

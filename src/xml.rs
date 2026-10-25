@@ -90,6 +90,13 @@ impl<'input> Document<'input> {
             elements: vec![],
         };
         let mut reader = Reader::from_str(xml);
+        // The pinned slice tokenizer consumes an initial UTF-8 BOM without
+        // counting its bytes in reported offsets. Ranges index the original XML.
+        let bom_len = if xml.starts_with('\u{feff}') {
+            '\u{feff}'.len_utf8()
+        } else {
+            0
+        };
         reader.config_mut().check_comments = false;
         reader.config_mut().allow_dangling_amp = true;
         if let Some(offset) = xml.find('\0') {
@@ -98,15 +105,15 @@ impl<'input> Document<'input> {
         let mut stack = Vec::<usize>::new();
         let mut prolog_closed = false;
         loop {
-            let start = reader.buffer_position() as usize;
+            let start = reader.buffer_position() as usize + bom_len;
             let event = reader.read_event().map_err(|error| {
                 document.error(
                     ErrorCode::Xml,
-                    reader.error_position() as usize,
+                    reader.error_position() as usize + bom_len,
                     error.to_string(),
                 )
             })?;
-            let end = reader.buffer_position() as usize;
+            let end = reader.buffer_position() as usize + bom_len;
             let empty = matches!(&event, Event::Empty(_));
             match event {
                 Event::Start(element) | Event::Empty(element) => {

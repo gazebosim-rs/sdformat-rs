@@ -2,26 +2,25 @@
   "decision": "approved",
   "author": "/root/sdformat",
   "reviewer": "/root/transport_fallback",
-  "reviewed_at": "2026-10-25T14:26:54.027857+00:00",
-  "base": "18e6fec0ef35afdea7cd520a16b126ac4318ce4b",
-  "source_review_base": "a4eb3a08cff8e237c56bc3333a08eb669d541b69",
-  "protected_digest": "9ab7ee64aa6cd43308b50c65402714e105238e55f1a2c84f7c921aca25ca4fcc",
-  "matching_source_digest": "0af92eb60eca65276f48eb045fc896bfa67e5c0e605077734d6696f2da83c82e",
-  "source_reviewed_digest": "8cc40dbd4c2814f49185902333a3edd8cca4cca14501d3ea48187e3308c9c739",
-  "frozen_manifest_sha256": "e57f432ec0facf80c36c02cef97a50d67bd22dcdc12eddda48f0cf4cb2b65548",
-  "semantic_receipt_sha256": "6d4e55f000048fc734d3a22edd833de908cb3f013b5f0b15d5cbbe8d2c8feaf7",
-  "scope": "Independent final overlap and metadata binding of reviewed terminal implicit-model-frame alias correction onto public ForceTorque parent 18e6fec0. Four complete unchanged DOMJoint original assertion mappings remain approved. Graph source, all new Rust/native tests, corpus, four fixtures and native runner are byte-identical to isolated approval; types.rs changes only the same two rustdoc lines over the preserved ForceTorque API.",
-  "independent_checks": [
-    "Raw public-parent export plus 15 frozen files reproduced every final file hash, source digest 0af92eb6 and protected digest 9ab7ee64; 193 other tracked public-parent files retain exact hashes.",
-    "All inherited reference/results sections and all inherited traceability ports are unchanged; only four model-frame sections and four reviewed ports are added. Contract/STATUS/MODEL_FRAME_REFERENCES text accurately preserves static gap, source review and pending staged/hosted limits.",
-    "Fresh private integrated source/target passed 168 Rust tests, formatting, Clippy and docs; native 150-row/four-original proof SHA fa1f7af7 is byte-identical to isolated approval and author integration.",
-    "Author integrated strict evidence binds current source digest and reports 3256/3272 lines,5689/5801 regions,11/11 changed executable lines; 13 tools passed. No independent LLVM instrumentation claim.",
-    "Private pre-fix graph-only mutant of isolated candidate failed exact nested original on M1::__model__ at line69; no accepted test/assertion removal."
-  ],
+  "reviewed_at": "2026-10-25T15:05:21.345003+00:00",
+  "base": "d1a4dc4e1d22a521487a02e9c2c20cca9d78a623",
+  "protected_digest": "31dc4c2d78b3d7d348771ce23279652e5f78251c66a46f8bb8bb0eb9139bcee9",
+  "source_digest": "337f64eb045866bd688d76cc38c10f6e6f8997149b799e465cb943e1063db932",
+  "frozen_manifest": "artifacts/utf8-bom-integration/frozen-final.json",
+  "frozen_manifest_sha256": "30223e494961edd828bc3c4e61195fdbe8137c850047539b5b38e2267e4419b8",
+  "source_review_receipt_sha256": "50f3168f564fcce663bdeccabad5962aea633c287ac2a73317d404cc40d28645",
+  "scope": "Final main-tree metadata and parent-overlap binding for the independently approved ten-file UTF-8 BOM correction. All executable XML, test, fixture, native-probe, tool and contract bytes exactly match the approved isolated source. Only scoped review prose and additive results.utf8_bom_review changed; no unrelated parent file changed.",
+  "evidence": {
+    "frozen_ten_hashes": "10/10 independently verified",
+    "preserved_parent_hashes": "204/204 independently verified",
+    "source_and_protected_digests": "Both independently recomputed from the exact main tree and equal the final manifest.",
+    "native_reference_sha256": "d4dfed6b3e08d48a0bb2257b44f133177fc471869887f5770e839fc72c9eae97",
+    "quality": "Fresh main author gate: 177 Rust,13 tooling,fmt/Clippy/doc;3259/3275 lines,5694/5806 regions,6/6 changed executable; exact source digest matches final manifest."
+  },
   "findings": [],
   "limits": [
-    "static_joint_child remains a native-accepted STATIC_MODEL sink with model-frame identity while existing Rust rejects its child endpoint; no policy relaxation.",
-    "No mutable graph/endpoint diagnostic, runtime joint, or complete SDF packet parity claim.",
-    "Normal exact protected staged hook, public publication and hosted CI remain pending."
+    "Three native-accepted repeated/intermediate BOM grammar gaps remain explicit.",
+    "Native diagnostic column/normalized-serialization parity and performance cache are outside this correction.",
+    "Normal exact protected staged hook, publication and hosted CI remain pending."
   ]
 }

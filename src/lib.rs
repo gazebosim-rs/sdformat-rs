@@ -9,6 +9,10 @@
 //! references, including the documented stronger inertial-frame policy.
 //! Unsupported schema features are errors.
 mod graph;
+mod model_config;
+pub use model_config::{
+    ModelConfigSelection, ModelConfigWarning, ModelConfigWarningKind, select_model_config,
+};
 // The only owned production unsafe boundary; see docs/SCALAR_CONVERSION.md.
 #[allow(unsafe_code)]
 mod number;

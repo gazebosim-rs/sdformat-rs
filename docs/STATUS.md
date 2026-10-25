@@ -705,3 +705,40 @@ All 112 Rust checks passed in a fresh reviewer-owned source/target; the rebuilt
 hashes. Five explicit gaps remain, and no original mapping is newly retired.
 The unchanged candidate is integrated onto public terrain commit c4e5d627;
 matching exact receipt, staged gate and hosted CI remain required.
+
+Pure model.config selection is implemented in an isolated candidate on public
+terrain commit c4e5d627. The new owned API returns filename/version metadata and
+ordered source-located warnings; it has no filesystem, Fuel, dependency or unsafe
+addition. Native first-tag fallback and the nonstandard gz-math version parser
+are retained. Numeric native exceptions become typed errors, and warning creation
+with missing name metadata is safe rather than reproducing native exceptions or
+a null dereference. These new API boundaries are explicit in MODEL_CONFIG.md.
+
+All 112 isolated Rust tests pass, including two filename-only partial original
+ports; no complete upstream case is retired. Eleven tooling tests, fmt and Clippy
+pass. Working coverage is 2568/2584 lines, 4492/4592 regions and 117/117 changed
+executable lines. The freshly rebuilt probe matches all 89 native observations,
+with safe warning/error boundaries identified separately; two exact native
+originals pass. Sources, math headers, libraries, corpus and immutable original
+fixtures are bound in reference/results.json. Independent review, integration
+overlap and strict staged/hosted checks remain required before publication.
+
+Independent config review reproduced all baseline tests/proof, then identified an
+overly broad test-only crash allowance and inherited XML cursor gaps. The allowance
+is now limited to two named native warning failures, with exact filename/version/
+warning assertions; unrelated native failures fail the corpus test. Eight reviewer
+XML controls are retained, including five accepted-native grammar gaps (extra roots,
+leading text and DOCTYPE) that Rust explicitly rejects. No production source changed.
+The revised corpus has 97 observations and binds libc/libstdc++ plus installed
+parser-header identity. Native proof/two originals and all isolated Rust checks pass;
+working coverage remains unchanged. Corrected independent review is pending.
+
+Independent /root/msgs approved the corrected config source/assertions/proof and
+both filename-only partial mappings. Production/API/Cargo bytes stayed unchanged;
+initial full 112 Rust checks and corrected four config checks/97 native observations/
+two originals passed independently. The unchanged delta is integrated onto public
+merge fd6d597, preserving all prior merge code/proof. Author integrated replay passes
+116 Rust checks and exact fresh native proof; coverage is 2700/2718 lines,
+4737/4842 regions and 117/117 changed executable lines. Mapping totals are 33
+complete and eight partial; no new full case is retired. Final integration receipt
+and strict staged/hosted gates remain required.

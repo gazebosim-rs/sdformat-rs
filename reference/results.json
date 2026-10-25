@@ -20034,5 +20034,642 @@
       "legacy_imported_frame_collision"
     ]
   },
-  "merge_review": "Independent /root/msgs approved corrected daf8adc02e7854df7bd3d24d48ac390531db909b0442a053309675e4eb91ab67 after source/assertion review, all 112 Rust tests in a fresh snapshot/private target, 153 fresh native observations and both exact original native include cases. Complete proof including binary/source/library/math-header hashes matched. Review found and rechecked placement schema lookup and original resource root-pose validation before include overrides; all original 68 corpus rows retained unchanged. Five schema/legacy gaps remain explicit; no original case is retired. Eleven tooling tests and full coverage are author evidence, not independent reviewer reruns. Exact staged and hosted gates remain required."
+  "merge_review": "Independent /root/msgs approved corrected daf8adc02e7854df7bd3d24d48ac390531db909b0442a053309675e4eb91ab67 after source/assertion review, all 112 Rust tests in a fresh snapshot/private target, 153 fresh native observations and both exact original native include cases. Complete proof including binary/source/library/math-header hashes matched. Review found and rechecked placement schema lookup and original resource root-pose validation before include overrides; all original 68 corpus rows retained unchanged. Five schema/legacy gaps remain explicit; no original case is retired. Eleven tooling tests and full coverage are author evidence, not independent reviewer reruns. Exact staged and hosted gates remain required.",
+  "model_config_selection": {
+    "upstream_sha": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "corpus_sha256": "53ff8671215935f48936d2ef0316f8cc5b69b93a9e49b13ca96b991bbacaeccd",
+    "probe_source_sha256": "f2c9adb7ed715c4336b73b79626e21c1eec6d891d9079a645e3cab9d133fdbc0",
+    "probe_binary_sha256": "f7a795a7ca9a1b153b067f0790bd537945dd9285eb0db51a291ad79ba9fdd0c2",
+    "linked_libraries_sha256": {
+      "libsdformat.so.17": "bcc864bcee56b49c13081e29722051e26c036260e3dd037e7736aa2b8620358f",
+      "libstdc++.so.6": "1fd75fe70354a416d75aef22bcae68c47bd25d20e2d0568c30b1a9838cf62f11",
+      "libc.so.6": "3a15d66867d83762c7f2f1e37359cb8f6c5743edb369c65285cb0b1c4f7498bf",
+      "libgz-math.so.10": "288c6f52fac45359f5de67d97e0069b7f37420f5f78888e61406b8f565656c4f",
+      "libtinyxml2.so.10": "f9e01d87fb78af744a426af8c992e94abf8cd3810a256e117bcc94cd84d2be6d"
+    },
+    "source_sha256": {
+      "src/parser.cc": "2ec95e05647c61121ced7910ca8164161a189d31f4b1d1249c9bf2d1ee93463d",
+      "include/sdf/parser.hh": "c782f6de544421972643d48aa46a532ba3ebf439a7b4ab955c427f16f88ddf49",
+      "test/integration/model_versions.cc": "90c0654958481e582b63995400db8d6a44fed746ce869eb8a2912e13b38f5aef",
+      "test/integration/model/cococan/model.config": "625666ef18b81875a44c796e5a74acd4371c9f4590bde4fc6e8b7103fe6f518c",
+      "test/integration/model/cococan_noversiontag/model.config": "e5998144f653e097438295f9104763d7f20f750d9aa32f32388087432e5306a9"
+    },
+    "math_upstream_sha": "1316ed334f4d5bda7be59aae07cd6e8ff31cfe13",
+    "math_source_sha256": {
+      "src/SemanticVersion.cc": "fab45698ede3b162821d48d5637fec7590ff5420865e80c7a32b56f09554f5a9",
+      "include/gz/math/SemanticVersion.hh": "9ae5458381b39e03f95edc71fb09c8c581488de89f98d706554a9b2728657bf6"
+    },
+    "fixture_sha256": {
+      "tests/fixtures/config_versions.config": "625666ef18b81875a44c796e5a74acd4371c9f4590bde4fc6e8b7103fe6f518c",
+      "tests/fixtures/config_no_version.config": "e5998144f653e097438295f9104763d7f20f750d9aa32f32388087432e5306a9"
+    },
+    "original_binary_sha256": "96dcf442719018b17a5d9fb82449fb5ae1584aad359704a88971682831d22dd1",
+    "original_tests": 2,
+    "original_failures": 0,
+    "explicit_xml_gap_ids": [
+      "leading_root",
+      "trailing_root",
+      "second_model",
+      "leading_text",
+      "doctype"
+    ],
+    "safe_warning_ids": [
+      "missing_name_future",
+      "empty_name"
+    ],
+    "safe_error_ids": [
+      "version_28",
+      "version_29",
+      "version_31",
+      "version_32",
+      "extra_version_65",
+      "extra_version_72",
+      "extra_version_73"
+    ],
+    "observations": [
+      {
+        "id": "highest",
+        "returncode": 0,
+        "stdout": "ok 6e65772e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "first_tie",
+        "returncode": 0,
+        "stdout": "ok 66697273742e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "version_2",
+        "returncode": 0,
+        "stdout": "ok 66616c6c6261636b2e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "version_3",
+        "returncode": 0,
+        "stdout": "ok 66616c6c6261636b2e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "version_4",
+        "returncode": 0,
+        "stdout": "ok 66616c6c6261636b2e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "version_5",
+        "returncode": 0,
+        "stdout": "ok 66697273742e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "version_6",
+        "returncode": 0,
+        "stdout": "ok 66616c6c6261636b2e736466 1 37\n",
+        "stderr": ""
+      },
+      {
+        "id": "version_7",
+        "returncode": 0,
+        "stdout": "ok 66616c6c6261636b2e736466 1 37\n",
+        "stderr": ""
+      },
+      {
+        "id": "version_8",
+        "returncode": 0,
+        "stdout": "ok 66616c6c6261636b2e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "version_9",
+        "returncode": 0,
+        "stdout": "ok 66616c6c6261636b2e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "version_10",
+        "returncode": 0,
+        "stdout": "ok 66616c6c6261636b2e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "version_11",
+        "returncode": 0,
+        "stdout": "ok 66697273742e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "version_12",
+        "returncode": 0,
+        "stdout": "ok 66616c6c6261636b2e736466 1 37\n",
+        "stderr": ""
+      },
+      {
+        "id": "version_13",
+        "returncode": 0,
+        "stdout": "ok 66697273742e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "version_14",
+        "returncode": 0,
+        "stdout": "ok 66697273742e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "version_15",
+        "returncode": 0,
+        "stdout": "ok 66697273742e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "version_16",
+        "returncode": 0,
+        "stdout": "ok 66697273742e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "version_17",
+        "returncode": 0,
+        "stdout": "ok 66697273742e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "version_18",
+        "returncode": 0,
+        "stdout": "ok 66697273742e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "version_19",
+        "returncode": 0,
+        "stdout": "ok 66697273742e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "version_20",
+        "returncode": 0,
+        "stdout": "ok 66697273742e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "version_21",
+        "returncode": 0,
+        "stdout": "ok 66697273742e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "version_22",
+        "returncode": 0,
+        "stdout": "ok 66616c6c6261636b2e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "version_23",
+        "returncode": 0,
+        "stdout": "ok 66697273742e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "version_24",
+        "returncode": 0,
+        "stdout": "ok 66616c6c6261636b2e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "version_25",
+        "returncode": 0,
+        "stdout": "ok 66616c6c6261636b2e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "version_26",
+        "returncode": 0,
+        "stdout": "ok 66697273742e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "version_27",
+        "returncode": 0,
+        "stdout": "ok 66697273742e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "version_28",
+        "returncode": 0,
+        "stdout": "exception 73746f69\n",
+        "stderr": ""
+      },
+      {
+        "id": "version_29",
+        "returncode": 0,
+        "stdout": "exception 73746f69\n",
+        "stderr": ""
+      },
+      {
+        "id": "version_30",
+        "returncode": 0,
+        "stdout": "ok 66697273742e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "version_31",
+        "returncode": 0,
+        "stdout": "exception 73746f69\n",
+        "stderr": ""
+      },
+      {
+        "id": "version_32",
+        "returncode": 0,
+        "stdout": "exception 73746f69\n",
+        "stderr": ""
+      },
+      {
+        "id": "version_33",
+        "returncode": 0,
+        "stdout": "ok 66616c6c6261636b2e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "order_34",
+        "returncode": 0,
+        "stdout": "ok 66697273742e736466 2 37 37\n",
+        "stderr": ""
+      },
+      {
+        "id": "order_35",
+        "returncode": 0,
+        "stdout": "ok 66697273742e736466 2 37 37\n",
+        "stderr": ""
+      },
+      {
+        "id": "order_36",
+        "returncode": 0,
+        "stdout": "ok 66697273742e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "order_37",
+        "returncode": 0,
+        "stdout": "ok 66697273742e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "order_38",
+        "returncode": 0,
+        "stdout": "ok 7365636f6e642e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "order_39",
+        "returncode": 0,
+        "stdout": "ok 66697273742e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "none",
+        "returncode": 0,
+        "stdout": "ok 66697273742e736466 1 37\n",
+        "stderr": ""
+      },
+      {
+        "id": "missing_then_version",
+        "returncode": 0,
+        "stdout": "ok 76657273696f6e65642e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "future_then_missing",
+        "returncode": 0,
+        "stdout": "ok 6675747572652e736466 1 37\n",
+        "stderr": ""
+      },
+      {
+        "id": "missing_then_future",
+        "returncode": 0,
+        "stdout": "ok 6d697373696e672e736466 2 37 37\n",
+        "stderr": ""
+      },
+      {
+        "id": "missing_name",
+        "returncode": 0,
+        "stdout": "ok 66696c652e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "missing_name_future",
+        "returncode": -11,
+        "stdout": "",
+        "stderr": ""
+      },
+      {
+        "id": "empty_name",
+        "returncode": 0,
+        "stdout": "exception 62617369635f737472696e673a3a5f4d5f636f6e737472756374206e756c6c206e6f742076616c6964\n",
+        "stderr": ""
+      },
+      {
+        "id": "text_47",
+        "returncode": 0,
+        "stdout": "ok - 1 40\n",
+        "stderr": ""
+      },
+      {
+        "id": "text_48",
+        "returncode": 0,
+        "stdout": "ok - 1 40\n",
+        "stderr": ""
+      },
+      {
+        "id": "text_49",
+        "returncode": 0,
+        "stdout": "ok 6120622063 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "text_50",
+        "returncode": 0,
+        "stdout": "ok 206120206209206320 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "text_51",
+        "returncode": 0,
+        "stdout": "ok 61 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "text_52",
+        "returncode": 0,
+        "stdout": "ok - 1 40\n",
+        "stderr": ""
+      },
+      {
+        "id": "text_53",
+        "returncode": 0,
+        "stdout": "ok - 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "text_54",
+        "returncode": 0,
+        "stdout": "ok c2a066696c652e736466c2a0 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "text_55",
+        "returncode": 0,
+        "stdout": "ok - 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "text_56",
+        "returncode": 0,
+        "stdout": "ok 20 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "text_57",
+        "returncode": 0,
+        "stdout": "ok 61 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "text_58",
+        "returncode": 0,
+        "stdout": "ok 61 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "text_59",
+        "returncode": 0,
+        "stdout": "ok 612662 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "absent",
+        "returncode": 0,
+        "stdout": "ok - 1 40\n",
+        "stderr": ""
+      },
+      {
+        "id": "wrong_root",
+        "returncode": 0,
+        "stdout": "ok - 1 40\n",
+        "stderr": ""
+      },
+      {
+        "id": "malformed",
+        "returncode": 0,
+        "stdout": "ok - 1 40\n",
+        "stderr": ""
+      },
+      {
+        "id": "extra_version_63",
+        "returncode": 0,
+        "stdout": "ok 66697273742e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "extra_version_64",
+        "returncode": 0,
+        "stdout": "ok 66616c6c6261636b2e736466 1 37\n",
+        "stderr": ""
+      },
+      {
+        "id": "extra_version_65",
+        "returncode": 0,
+        "stdout": "exception 73746f69\n",
+        "stderr": ""
+      },
+      {
+        "id": "extra_version_66",
+        "returncode": 0,
+        "stdout": "ok 66616c6c6261636b2e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "extra_version_67",
+        "returncode": 0,
+        "stdout": "ok 66697273742e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "extra_version_68",
+        "returncode": 0,
+        "stdout": "ok 66697273742e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "extra_version_69",
+        "returncode": 0,
+        "stdout": "ok 66697273742e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "extra_version_70",
+        "returncode": 0,
+        "stdout": "ok 66697273742e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "extra_version_71",
+        "returncode": 0,
+        "stdout": "ok 66616c6c6261636b2e736466 1 37\n",
+        "stderr": ""
+      },
+      {
+        "id": "extra_version_72",
+        "returncode": 0,
+        "stdout": "exception 73746f69\n",
+        "stderr": ""
+      },
+      {
+        "id": "extra_version_73",
+        "returncode": 0,
+        "stdout": "exception 73746f69\n",
+        "stderr": ""
+      },
+      {
+        "id": "extra_version_74",
+        "returncode": 0,
+        "stdout": "ok 66697273742e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "extra_version_75",
+        "returncode": 0,
+        "stdout": "ok 66697273742e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "extra_version_76",
+        "returncode": 0,
+        "stdout": "ok 66697273742e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "extra_version_77",
+        "returncode": 0,
+        "stdout": "ok 66697273742e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "extra_text_78",
+        "returncode": 0,
+        "stdout": "ok 2e2e2f6f7574736964652e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "extra_text_79",
+        "returncode": 0,
+        "stdout": "ok 2f6162736f6c7574652e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "extra_text_80",
+        "returncode": 0,
+        "stdout": "ok 6d6f64656c3a2f2f7265736f75726365 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "extra_text_81",
+        "returncode": 0,
+        "stdout": "ok 5f5f64656661756c745f5f 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "extra_text_82",
+        "returncode": 0,
+        "stdout": "ok - 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "extra_text_83",
+        "returncode": 0,
+        "stdout": "ok - 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "extra_text_84",
+        "returncode": 0,
+        "stdout": "ok - 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "extra_text_85",
+        "returncode": 0,
+        "stdout": "ok - 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "extra_text_86",
+        "returncode": 0,
+        "stdout": "ok - 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "extra_text_87",
+        "returncode": 0,
+        "stdout": "ok 2623303b 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "extra_text_88",
+        "returncode": 0,
+        "stdout": "ok 61 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "leading_root",
+        "returncode": 0,
+        "stdout": "ok 6f6b2e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "trailing_root",
+        "returncode": 0,
+        "stdout": "ok 6f6b2e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "second_model",
+        "returncode": 0,
+        "stdout": "ok 6f6b2e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "leading_text",
+        "returncode": 0,
+        "stdout": "ok 6f6b2e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "trailing_text",
+        "returncode": 0,
+        "stdout": "ok - 1 40\n",
+        "stderr": ""
+      },
+      {
+        "id": "doctype",
+        "returncode": 0,
+        "stdout": "ok 6f6b2e736466 0\n",
+        "stderr": ""
+      },
+      {
+        "id": "internal_pi",
+        "returncode": 0,
+        "stdout": "ok - 1 40\n",
+        "stderr": ""
+      },
+      {
+        "id": "version_duplicate",
+        "returncode": 0,
+        "stdout": "ok - 1 40\n",
+        "stderr": ""
+      }
+    ]
+  },
+  "model_config_review": "Independent /root/msgs approved corrected isolated 2113a103768ba8130fa640b5423aa596e50469cbdd48fb3f6515077ea42d3529. Initial fresh full 112 Rust/89 native/two originals passed; corrected fresh replay passed four config tests and all 97 native observations/two originals, with complete proof equality including installed header/libc/libstdc++ hashes. Production/API/Cargo unchanged from initial review. Two filename-only mappings approved as partial; no complete retirement. Five accepted-native XML grammar gaps and two safe-warning native-failure boundaries explicitly asserted/documented; unrelated native failures fail tests. Integrated author replay atop public merge fd6d597 passes 116 Rust checks and fresh exact native proof, with all config production/assertion/probe bytes unchanged. Eleven tools and full coverage remain author evidence. Final overlap receipt, normal strict staged gate and hosted CI required."
 }

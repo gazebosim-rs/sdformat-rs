@@ -1,0 +1,701 @@
+[
+  {
+    "id": "highest",
+    "xml": "<model><name>m</name><sdf version=\"1.2\">old.sdf</sdf><sdf version=\"1.12\">new.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 6e65772e736466 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "first_tie",
+    "xml": "<model><name>m</name><sdf version=\"1.12\">first.sdf</sdf><sdf version=\"1.12.0\">second.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66697273742e736466 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "version_2",
+    "xml": "<model><name>m</name><sdf version=\"\">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66616c6c6261636b2e736466 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "version_3",
+    "xml": "<model><name>m</name><sdf version=\"1\">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66616c6c6261636b2e736466 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "version_4",
+    "xml": "<model><name>m</name><sdf version=\"1.2\">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66616c6c6261636b2e736466 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "version_5",
+    "xml": "<model><name>m</name><sdf version=\"1.12\">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66697273742e736466 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "version_6",
+    "xml": "<model><name>m</name><sdf version=\"1.13\">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66616c6c6261636b2e736466 1 37\n",
+    "stderr": ""
+  },
+  {
+    "id": "version_7",
+    "xml": "<model><name>m</name><sdf version=\"2.0\">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66616c6c6261636b2e736466 1 37\n",
+    "stderr": ""
+  },
+  {
+    "id": "version_8",
+    "xml": "<model><name>m</name><sdf version=\"0\">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66616c6c6261636b2e736466 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "version_9",
+    "xml": "<model><name>m</name><sdf version=\"0.0\">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66616c6c6261636b2e736466 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "version_10",
+    "xml": "<model><name>m</name><sdf version=\"0.1\">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66616c6c6261636b2e736466 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "version_11",
+    "xml": "<model><name>m</name><sdf version=\"1.12.0\">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66697273742e736466 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "version_12",
+    "xml": "<model><name>m</name><sdf version=\"1.12.1\">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66616c6c6261636b2e736466 1 37\n",
+    "stderr": ""
+  },
+  {
+    "id": "version_13",
+    "xml": "<model><name>m</name><sdf version=\"1.12-pre\">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66697273742e736466 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "version_14",
+    "xml": "<model><name>m</name><sdf version=\"1.12.0-rc.2\">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66697273742e736466 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "version_15",
+    "xml": "<model><name>m</name><sdf version=\"1.12+build\">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66697273742e736466 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "version_16",
+    "xml": "<model><name>m</name><sdf version=\"1.12.0-a\">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66697273742e736466 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "version_17",
+    "xml": "<model><name>m</name><sdf version=\"1.12.0-b\">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66697273742e736466 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "version_18",
+    "xml": "<model><name>m</name><sdf version=\"1.12.0+abc\">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66697273742e736466 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "version_19",
+    "xml": "<model><name>m</name><sdf version=\"1.12.0-\">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66697273742e736466 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "version_20",
+    "xml": "<model><name>m</name><sdf version=\"1.12.0+\">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66697273742e736466 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "version_21",
+    "xml": "<model><name>m</name><sdf version=\"1.12.0.1\">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66697273742e736466 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "version_22",
+    "xml": "<model><name>m</name><sdf version=\"1.12.0.0\">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66616c6c6261636b2e736466 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "version_23",
+    "xml": "<model><name>m</name><sdf version=\"01.012\">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66697273742e736466 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "version_24",
+    "xml": "<model><name>m</name><sdf version=\"+1.12\">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66616c6c6261636b2e736466 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "version_25",
+    "xml": "<model><name>m</name><sdf version=\"-1.12\">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66616c6c6261636b2e736466 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "version_26",
+    "xml": "<model><name>m</name><sdf version=\" 1.12 \">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66697273742e736466 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "version_27",
+    "xml": "<model><name>m</name><sdf version=\"1.12garbage\">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66697273742e736466 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "version_28",
+    "xml": "<model><name>m</name><sdf version=\"garbage\">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "exception 73746f69\n",
+    "stderr": ""
+  },
+  {
+    "id": "version_29",
+    "xml": "<model><name>m</name><sdf version=\"1..12\">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "exception 73746f69\n",
+    "stderr": ""
+  },
+  {
+    "id": "version_30",
+    "xml": "<model><name>m</name><sdf version=\"1.12.\">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66697273742e736466 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "version_31",
+    "xml": "<model><name>m</name><sdf version=\"2147483648.0\">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "exception 73746f69\n",
+    "stderr": ""
+  },
+  {
+    "id": "version_32",
+    "xml": "<model><name>m</name><sdf version=\"1.4294967295\">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "exception 73746f69\n",
+    "stderr": ""
+  },
+  {
+    "id": "version_33",
+    "xml": "<model><name>m</name><sdf version=\"1.12+build-pre\">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66616c6c6261636b2e736466 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "order_34",
+    "xml": "<model><name>m</name><sdf version=\"1.13\">first.sdf</sdf><sdf version=\"2.0\">second.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66697273742e736466 2 37 37\n",
+    "stderr": ""
+  },
+  {
+    "id": "order_35",
+    "xml": "<model><name>m</name><sdf version=\"2.0\">first.sdf</sdf><sdf version=\"1.13\">second.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66697273742e736466 2 37 37\n",
+    "stderr": ""
+  },
+  {
+    "id": "order_36",
+    "xml": "<model><name>m</name><sdf version=\"0\">first.sdf</sdf><sdf version=\"0.0\">second.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66697273742e736466 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "order_37",
+    "xml": "<model><name>m</name><sdf version=\"1.12.0-a\">first.sdf</sdf><sdf version=\"1.12.0-b\">second.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66697273742e736466 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "order_38",
+    "xml": "<model><name>m</name><sdf version=\"1.12.0-a\">first.sdf</sdf><sdf version=\"1.12.0\">second.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 7365636f6e642e736466 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "order_39",
+    "xml": "<model><name>m</name><sdf version=\"1.12.0\">first.sdf</sdf><sdf version=\"1.12.0-a\">second.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66697273742e736466 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "none",
+    "xml": "<model><name>m</name><sdf>first.sdf</sdf><sdf>second.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66697273742e736466 1 37\n",
+    "stderr": ""
+  },
+  {
+    "id": "missing_then_version",
+    "xml": "<model><name>m</name><sdf>first.sdf</sdf><sdf version=\"1.4\">versioned.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 76657273696f6e65642e736466 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "future_then_missing",
+    "xml": "<model><name>m</name><sdf version=\"2.0\">future.sdf</sdf><sdf>missing.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 6675747572652e736466 1 37\n",
+    "stderr": ""
+  },
+  {
+    "id": "missing_then_future",
+    "xml": "<model><name>m</name><sdf>missing.sdf</sdf><sdf version=\"2.0\">future.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 6d697373696e672e736466 2 37 37\n",
+    "stderr": ""
+  },
+  {
+    "id": "missing_name",
+    "xml": "<model><sdf version=\"1.12\">file.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66696c652e736466 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "missing_name_future",
+    "xml": "<model><sdf version=\"2.0\">file.sdf</sdf></model>",
+    "returncode": -11,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "id": "empty_name",
+    "xml": "<model><name/><sdf>file.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "exception 62617369635f737472696e673a3a5f4d5f636f6e737472756374206e756c6c206e6f742076616c6964\n",
+    "stderr": ""
+  },
+  {
+    "id": "text_47",
+    "xml": "<model><name>m</name><sdf version=\"1.12\"></sdf></model>",
+    "returncode": 0,
+    "stdout": "ok - 1 40\n",
+    "stderr": ""
+  },
+  {
+    "id": "text_48",
+    "xml": "<model><name>m</name><sdf version=\"1.12\"> </sdf></model>",
+    "returncode": 0,
+    "stdout": "ok - 1 40\n",
+    "stderr": ""
+  },
+  {
+    "id": "text_49",
+    "xml": "<model><name>m</name><sdf version=\"1.12\"> a  b\t c </sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 6120622063 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "text_50",
+    "xml": "<model><name>m</name><sdf version=\"1.12\"><![CDATA[ a  b\t c ]]></sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 206120206209206320 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "text_51",
+    "xml": "<model><name>m</name><sdf version=\"1.12\">a<!--c-->b</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 61 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "text_52",
+    "xml": "<model><name>m</name><sdf version=\"1.12\"><child/>file.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok - 1 40\n",
+    "stderr": ""
+  },
+  {
+    "id": "text_53",
+    "xml": "<model><name>m</name><sdf version=\"1.12\">&#0;tail</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok - 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "text_54",
+    "xml": "<model><name>m</name><sdf version=\"1.12\">&#160;file.sdf&#160;</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok c2a066696c652e736466c2a0 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "text_55",
+    "xml": "<model><name>m</name><sdf version=\"1.12\"><![CDATA[]]>tail</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok - 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "text_56",
+    "xml": "<model><name>m</name><sdf version=\"1.12\"><![CDATA[ ]]></sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 20 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "text_57",
+    "xml": "<model><name>m</name><sdf version=\"1.12\"><![CDATA[a]]>tail</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 61 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "text_58",
+    "xml": "<model><name>m</name><sdf version=\"1.12\"><!--x-->a</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 61 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "text_59",
+    "xml": "<model><name>m</name><sdf version=\"1.12\">a&amp;b</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 612662 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "absent",
+    "xml": "<model><name>m</name></model>",
+    "returncode": 0,
+    "stdout": "ok - 1 40\n",
+    "stderr": ""
+  },
+  {
+    "id": "wrong_root",
+    "xml": "<wrong><name>m</name><sdf version=\"1.12\">a.sdf</sdf></wrong>",
+    "returncode": 0,
+    "stdout": "ok - 1 40\n",
+    "stderr": ""
+  },
+  {
+    "id": "malformed",
+    "xml": "<model>",
+    "returncode": 0,
+    "stdout": "ok - 1 40\n",
+    "stderr": ""
+  },
+  {
+    "id": "extra_version_63",
+    "xml": "<model><name>m</name><sdf version=\"1.12.0.0.1\">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66697273742e736466 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "extra_version_64",
+    "xml": "<model><name>m</name><sdf version=\"1.12.0.2\">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66616c6c6261636b2e736466 1 37\n",
+    "stderr": ""
+  },
+  {
+    "id": "extra_version_65",
+    "xml": "<model><name>m</name><sdf version=\"1.12.0..2\">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "exception 73746f69\n",
+    "stderr": ""
+  },
+  {
+    "id": "extra_version_66",
+    "xml": "<model><name>m</name><sdf version=\"1.12.0+build-pre\">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66616c6c6261636b2e736466 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "extra_version_67",
+    "xml": "<model><name>m</name><sdf version=\"1.12.0-pre+build\">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66697273742e736466 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "extra_version_68",
+    "xml": "<model><name>m</name><sdf version=\"1.12.0-rc.2+meta\">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66697273742e736466 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "extra_version_69",
+    "xml": "<model><name>m</name><sdf version=\"1.12.0+meta\">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66697273742e736466 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "extra_version_70",
+    "xml": "<model><name>m</name><sdf version=\"1.12.0.-1\">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66697273742e736466 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "extra_version_71",
+    "xml": "<model><name>m</name><sdf version=\"1.12.0.2147483647\">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66616c6c6261636b2e736466 1 37\n",
+    "stderr": ""
+  },
+  {
+    "id": "extra_version_72",
+    "xml": "<model><name>m</name><sdf version=\"1.12.0.2147483648\">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "exception 73746f69\n",
+    "stderr": ""
+  },
+  {
+    "id": "extra_version_73",
+    "xml": "<model><name>m</name><sdf version=\"&#160;1.12\">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "exception 73746f69\n",
+    "stderr": ""
+  },
+  {
+    "id": "extra_version_74",
+    "xml": "<model><name>m</name><sdf version=\"&#11;1.12\">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66697273742e736466 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "extra_version_75",
+    "xml": "<model><name>m</name><sdf version=\"1.&#11;12\">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66697273742e736466 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "extra_version_76",
+    "xml": "<model><name>m</name><sdf version=\"&#13;1.12\">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66697273742e736466 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "extra_version_77",
+    "xml": "<model><name>m</name><sdf version=\"1.12&#0;ignored\">first.sdf</sdf><sdf version=\"1.4\">fallback.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 66697273742e736466 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "extra_text_78",
+    "xml": "<model><name>m</name><sdf version=\"1.12\">../outside.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 2e2e2f6f7574736964652e736466 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "extra_text_79",
+    "xml": "<model><name>m</name><sdf version=\"1.12\">/absolute.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 2f6162736f6c7574652e736466 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "extra_text_80",
+    "xml": "<model><name>m</name><sdf version=\"1.12\">model://resource</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 6d6f64656c3a2f2f7265736f75726365 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "extra_text_81",
+    "xml": "<model><name>m</name><sdf version=\"1.12\">__default__</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 5f5f64656661756c745f5f 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "extra_text_82",
+    "xml": "<model><name>m</name><sdf version=\"1.12\">&#11;</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok - 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "extra_text_83",
+    "xml": "<model><name>m</name><sdf version=\"1.12\">&#13;</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok - 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "extra_text_84",
+    "xml": "<model><name>m</name><sdf version=\"1.12\">&#32;</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok - 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "extra_text_85",
+    "xml": "<model><name>m</name><sdf version=\"1.12\">&#11;<![CDATA[a.sdf]]></sdf></model>",
+    "returncode": 0,
+    "stdout": "ok - 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "extra_text_86",
+    "xml": "<model><name>m</name><sdf version=\"1.12\"><![CDATA[]]>a.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok - 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "extra_text_87",
+    "xml": "<model><name>m</name><sdf version=\"1.12\"><![CDATA[&#0;]]></sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 2623303b 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "extra_text_88",
+    "xml": "<model><name>m</name><sdf version=\"1.12\">a&#0;tail</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 61 0\n",
+    "stderr": ""
+  },
+  {
+    "id": "leading_root",
+    "xml": "<bad/><model><name>m</name><sdf version='1.12'>ok.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 6f6b2e736466 0\n",
+    "stderr": "",
+    "gap": {
+      "rust_error": "Xml",
+      "reason": "Inherited single-root/document-text/DOCTYPE XML cursor boundary; broader legacy native document grammar remains pending."
+    }
+  },
+  {
+    "id": "trailing_root",
+    "xml": "<model><name>m</name><sdf version='1.12'>ok.sdf</sdf></model><bad/>",
+    "returncode": 0,
+    "stdout": "ok 6f6b2e736466 0\n",
+    "stderr": "",
+    "gap": {
+      "rust_error": "Xml",
+      "reason": "Inherited single-root/document-text/DOCTYPE XML cursor boundary; broader legacy native document grammar remains pending."
+    }
+  },
+  {
+    "id": "second_model",
+    "xml": "<model><name>m</name><sdf version='1.12'>ok.sdf</sdf></model><model><name>m</name><sdf version='1.12'>second.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 6f6b2e736466 0\n",
+    "stderr": "",
+    "gap": {
+      "rust_error": "Xml",
+      "reason": "Inherited single-root/document-text/DOCTYPE XML cursor boundary; broader legacy native document grammar remains pending."
+    }
+  },
+  {
+    "id": "leading_text",
+    "xml": "prefix<model><name>m</name><sdf version='1.12'>ok.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 6f6b2e736466 0\n",
+    "stderr": "",
+    "gap": {
+      "rust_error": "Xml",
+      "reason": "Inherited single-root/document-text/DOCTYPE XML cursor boundary; broader legacy native document grammar remains pending."
+    }
+  },
+  {
+    "id": "trailing_text",
+    "xml": "<model><name>m</name><sdf version='1.12'>ok.sdf</sdf></model>suffix",
+    "returncode": 0,
+    "stdout": "ok - 1 40\n",
+    "stderr": ""
+  },
+  {
+    "id": "doctype",
+    "xml": "<!DOCTYPE model><model><name>m</name><sdf version='1.12'>ok.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok 6f6b2e736466 0\n",
+    "stderr": "",
+    "gap": {
+      "rust_error": "Unsupported",
+      "reason": "Inherited single-root/document-text/DOCTYPE XML cursor boundary; broader legacy native document grammar remains pending."
+    }
+  },
+  {
+    "id": "internal_pi",
+    "xml": "<model><name>m</name><?pi?><sdf version='1.12'>ok.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok - 1 40\n",
+    "stderr": ""
+  },
+  {
+    "id": "version_duplicate",
+    "xml": "<model><name>m</name><sdf version='1.12' version='1.2'>ok.sdf</sdf></model>",
+    "returncode": 0,
+    "stdout": "ok - 1 40\n",
+    "stderr": ""
+  }
+]

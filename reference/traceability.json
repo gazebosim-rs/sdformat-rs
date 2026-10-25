@@ -457,6 +457,38 @@
       "baseline": "Exact unchanged native DOMGeometry.Shapes passed once with zero failures; artifacts/terrain/original.xml",
       "status": "ported_reviewed",
       "review": "Independent /root/transport_recovery approved corrected isolated 0eb5bd0d on 2026-10-25 after source/original/assertion/provenance comparison. Independently all 108 combined Rust checks,52 fresh native observations and exact unchanged DOMGeometry.Shapes XML one run/zero failures pass; every proof field/hash matches. Original Vector2 <=1e-6, Vector3 <=1e-3 and four-ULP scalar assertions retained. Explicitly approved owned lookups/enums/index collections and canonical optimization-string mapping as faithful for this case. Visual parent unsafe/ABI scope is separately approved by /root/msgs. Final integrated overlap receipt, strict staged/hosted gates remain required."
+    },
+    {
+      "target": "INTEGRATION_model_versions",
+      "case": "ModelVersionsTest.NoVersionTag_ModelFilePath",
+      "source": "test/integration/model_versions.cc:53",
+      "rust_test": "tests/config_originals.rs::no_version_tag_filename_selection",
+      "assertions": "Partial filename-selection portion of the original final path equality: model-1_2.sdf from the unchanged original model.config fixture. Filesystem directory lookup, deprecated manifest fallback and path assembly are not exercised by the pure XML API and remain pending. No complete-case retirement.",
+      "fixtures": {
+        "tests/fixtures/config_no_version.config": "e5998144f653e097438295f9104763d7f20f750d9aa32f32388087432e5306a9"
+      },
+      "upstream_fixtures": {
+        "test/integration/model/cococan_noversiontag/model.config": "e5998144f653e097438295f9104763d7f20f750d9aa32f32388087432e5306a9"
+      },
+      "baseline": "Two exact native model-version originals passed; artifacts/config/original.xml.",
+      "status": "partial_reviewed",
+      "review": "Independent /root/msgs; 2026-10-25; compared both original filename-selection portions and immutable fixtures. Approved partial mapping only: filesystem directory lookup, manifest fallback and final path equality remain pending. Fresh native two-case run passed; corrected config replay passed. No complete retirement."
+    },
+    {
+      "target": "INTEGRATION_model_versions",
+      "case": "ModelVersionsTest.Correct_ModelFilePath",
+      "source": "test/integration/model_versions.cc:63",
+      "rust_test": "tests/config_originals.rs::correct_version_filename_selection",
+      "assertions": "Partial filename-selection portion of the original final path equality: model-1_4.sdf from the unchanged original model.config fixture. Filesystem directory lookup, deprecated manifest fallback and path assembly are not exercised by the pure XML API and remain pending. No complete-case retirement.",
+      "fixtures": {
+        "tests/fixtures/config_versions.config": "625666ef18b81875a44c796e5a74acd4371c9f4590bde4fc6e8b7103fe6f518c"
+      },
+      "upstream_fixtures": {
+        "test/integration/model/cococan/model.config": "625666ef18b81875a44c796e5a74acd4371c9f4590bde4fc6e8b7103fe6f518c"
+      },
+      "baseline": "Two exact native model-version originals passed; artifacts/config/original.xml.",
+      "status": "partial_reviewed",
+      "review": "Independent /root/msgs; 2026-10-25; compared both original filename-selection portions and immutable fixtures. Approved partial mapping only: filesystem directory lookup, manifest fallback and final path equality remain pending. Fresh native two-case run passed; corrected config replay passed. No complete retirement."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

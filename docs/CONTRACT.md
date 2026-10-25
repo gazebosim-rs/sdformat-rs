@@ -350,3 +350,10 @@ proxy frame, retaining Model.merged_includes provenance snapshots. Imported scop
 validation occurs before flattening. See MERGE_INCLUDES.md for exact reference,
 boolean-attribute, deferred-error and unsupported-schema/legacy/world boundaries.
 No new IO or simulator dependency is introduced.
+
+Pure model.config selection is available through select_model_config, returning
+owned filename/version metadata and ordered source-located warnings. Selection
+retains native first-tag fallback when no supported version improves on 0.0; it
+does not guarantee that the chosen file can be parsed. Filesystem lookup, path
+policy, deprecated manifest fallback and actual resource loading remain caller
+responsibilities. See MODEL_CONFIG.md for numeric/XML and safe-error boundaries.

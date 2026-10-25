@@ -60358,6 +60358,16 @@
     "original": "Pinned DOMModel.Plugins, DOMWorld.Plugins and DOMVisual.Plugins native3/0; all empty/copy/size/order/clear observations complete.",
     "rust": "Existing owned Model/World/Visual Vec<Plugin> plus exact reviewed test SHA309b13b4941377c9f91c14ab920ab982a56321db1e01289def90025f0a7dc66c; private raw-parent Rust3/0, author full240 Rust/16 tools/fmt/Clippy/docs, coverage3998/4017 lines6951/7152 regions and no production edit.",
     "scope": "Complete observable value/order/clear originals via ordinary Rust owned vectors. Original 2017 World and 2018 Model/Visual Apache notices preserved exactly; no C++ method facade, ToElement or general plugin grammar claim.",
-    "review": "Independent /root/transport_fallback source/assertion approval SHA256 d5525307d52bce88aa0d9c4dc98a857bdaee5e5f197240764572283e8816de9f. Final parent/metadata binding, protected hook and hosted qualification pending."
+    "review": "Independent /root/transport_fallback source/assertion approval SHA256 d5525307d52bce88aa0d9c4dc98a857bdaee5e5f197240764572283e8816de9f. Final binding receipt SHA256 fba3635a301bd34332b4653d96e6b6df638056a32b8fe66c9b20fca2e1fdb820; protected hook and exact hosted run 40244078782 passed at public 6bb760e275401cb6f122f07f4831ea5f1bf30a34."
+  },
+  "sensor_metrics_original": {
+    "parent": "6bb760e275401cb6f122f07f4831ea5f1bf30a34",
+    "upstream": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "source_freeze_sha256": "2404d9f27a8446bb98f7bb293674cd3eb96d7ef876a7410226594c172be46574",
+    "source_review_sha256": "f23a0600ec12c56d01cd5f6d1eed8c70b629d96a4388311f8d6f207cd00316bc",
+    "original": "Pinned DOMSensor.EnableMetrics native1/0; default false, exact inline SDF1.5 sensor element makes enable_metrics true, then mutation false.",
+    "rust": "Reviewed mutable Sensor::load_element_str on exact test SHAa2495106; native-invalid type none updates metrics then returns InvalidValue. Isolated selected2/0 and full242 Rust/16 tools/fmt/Clippy/docs, coverage4068/4088 lines7042/7251 regions, changed69/69.",
+    "scope": "Complete observable original only. Native Sensor::Load reports ATTRIBUTE_INVALID after metrics update; Rust supplemental asserts InvalidValue category, not exact native error code/message/vector. Full-document type none remains rejected. No full Sensor.Load/Element/graph/ToElement/arbitrary grammar claim.",
+    "review": "Independent source/API/assertion approval SHA256 f23a0600ec12c56d01cd5f6d1eed8c70b629d96a4388311f8d6f207cd00316bc, exact V2 freeze and private native1/0/raw-parent Rust2/0 plus metrics-removal mutant. Old freeze revoked; final binding/hook/hosted pending."
   }
 }

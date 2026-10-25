@@ -1995,7 +1995,7 @@ succeeded at public `861c9d8c1afdcf1527cf984d6c1a864c37ceddd2`.
 C++ method identity,
 `ToElement` and general plugin grammar remain outside this case.
 
-## Three native DOM plugin collection originals candidate
+## Three native DOM plugin collection originals
 
 Pinned `DOMModel.Plugins`, `DOMWorld.Plugins` and `DOMVisual.Plugins`
 pass natively 3/0. One retained Rust test checks each object's initially empty
@@ -2010,6 +2010,32 @@ raw-parent selected Rust 3/0. The source test SHA256 is
 `309b13b4941377c9f91c14ab920ab982a56321db1e01289def90025f0a7dc66c`.
 Author checks pass 240 Rust, sixteen tooling tests, formatting, Clippy and
 docs; production coverage is 3998/4017 lines and 6951/7152 regions with no
-production change. Final metadata binding, protected hook and hosted CI are
-pending. Native C++ plugin method identity, `ToElement` and general plugin
-grammar remain separate work.
+production change. Final binding receipt SHA256
+`fba3635a301bd34332b4653d96e6b6df638056a32b8fe66c9b20fca2e1fdb820`,
+normal protected hook and exact hosted run 40244078782 succeeded at public
+`6bb760e275401cb6f122f07f4831ea5f1bf30a34`. Native C++ plugin method
+identity, `ToElement` and general plugin grammar remain separate work.
+
+## Native DOMSensor.EnableMetrics original candidate
+
+Pinned `DOMSensor.EnableMetrics` passes natively 1/0. Its default Sensor has
+metrics disabled. The original extracts a `<sensor type='none'>` element from
+an exact inline SDF 1.5 document, calls `Sensor::Load`, observes metrics
+enabled, then sets and reads false. Native `Sensor::Load` sets the metrics
+value before reporting an invalid type; the original does not inspect its
+returned error list. The owned `Sensor::load_element_str` retains the mutation
+and reports `InvalidValue`. Full-document loading still rejects type `none`.
+
+Independent /root/transport_fallback approved the complete observable original
+mapping on corrected V2 source freeze SHA256
+`2404d9f27a8446bb98f7bb293674cd3eb96d7ef876a7410226594c172be46574`
+(receipt SHA256 `f23a0600ec12c56d01cd5f6d1eed8c70b629d96a4388311f8d6f207cd00316bc`).
+Private pinned native 1/0 and raw-parent Rust 2/0 passed; removing the
+metrics assignment failed the original true assertion. Isolated author
+checks pass 242 Rust, sixteen tooling tests, formatting, Clippy and docs;
+production coverage is 4068/4088 lines and 7042/7251 regions, with all
+69 changed executable lines covered. The earlier source freeze was revoked
+after its native error-state mismatch. Final metadata binding, normal hook and
+hosted qualification are pending. Exact native error code and message, full
+`Sensor::Load`, Element identity, frame graph and general sensor grammar remain
+separate work.

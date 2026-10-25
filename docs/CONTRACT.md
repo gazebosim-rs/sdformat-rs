@@ -568,3 +568,14 @@ source value changes, and clearing the vector removes all entries. The three
 pinned native Model, World and Visual plugin originals observe those values.
 Their C++ method names, `ToElement` serialization and broader plugin grammar
 are separate contracts.
+
+## Standalone Sensor metrics loading
+
+`Sensor::load_element_str` loads an owned standalone `<sensor>` element without
+a frame graph. For the pinned `DOMSensor.EnableMetrics` element with
+`type='none'`, native `Sensor::Load` updates `enable_metrics` and then reports
+an invalid type. The Rust method likewise retains the value change and returns
+`InvalidValue`; full-document loading continues to reject type `none`. This
+maps the original's observed false, true and false values. It does not imply
+exact native error-vector parity, complete `Sensor::Load` behavior, Element
+identity, serialization or general sensor grammar.

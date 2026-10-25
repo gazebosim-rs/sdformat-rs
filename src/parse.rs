@@ -68,6 +68,49 @@ pub(crate) fn load(
     })
 }
 
+pub(crate) fn load_sensor_element_into(
+    sensor: &mut Sensor,
+    xml: &str,
+    uri: &str,
+    resolver: &dyn ResourceResolver,
+) -> Result<(), Diagnostic> {
+    let parser = Parser {
+        uri,
+        xml,
+        resolver,
+        includes: vec![uri.into()],
+    };
+    let doc = Document::parse(xml).map_err(|e| Diagnostic {
+        code: e.code,
+        source: Source {
+            uri: uri.into(),
+            line: e.pos().row,
+            column: e.pos().col,
+        },
+        message: e.to_string(),
+    })?;
+    let root = doc.root_element();
+    if !root.has_tag_name("sensor") {
+        return Err(parser.err(root, ErrorCode::Xml, "root element must be sensor"));
+    }
+    if root.attribute("type") == Some("none") {
+        // Native Sensor::Load updates these envelope values before reporting
+        // ATTRIBUTE_INVALID for the special type-none element.
+        sensor.name = parser.name(root)?;
+        sensor.source = parser.source(root);
+        sensor.frame_id = parser.optional_text(root, "frame_id")?.unwrap_or_default();
+        sensor.update_rate = parser.scalar(root, "update_rate", sensor.update_rate)?;
+        sensor.topic = parser
+            .optional_text(root, "topic")?
+            .filter(|topic| topic != "__default__")
+            .unwrap_or_default();
+        sensor.enable_metrics = parser.boolean(root, "enable_metrics", sensor.enable_metrics)?;
+        return Err(parser.err(root, ErrorCode::InvalidValue, "sensor type none is invalid"));
+    }
+    *sensor = parser.sensor(root)?;
+    Ok(())
+}
+
 struct Parser<'a> {
     uri: &'a str,
     xml: &'a str,

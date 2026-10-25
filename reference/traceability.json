@@ -1095,7 +1095,7 @@
       "upstream_fixtures": {},
       "baseline": "Fresh exact pinned native Model, World and Visual plugin originals 3/0, no skips; source/binary hashes and test SHA in artifacts/dom-plugins/source-freeze.json. Independent private raw-parent selected Rust3/0; author full240 Rust/16 tools/fmt/Clippy/docs, production3998/4017 lines6951/7152 regions, no production edit.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_fallback APPROVED complete observable assertion mapping, exact source receipt SHA256 d5525307d52bce88aa0d9c4dc98a857bdaee5e5f197240764572283e8816de9f and freeze SHA256 34faf0b3d37f4bb26fbbde2aa0f9e33e9cc608778f6e5b1b07b785075ebed2fd. Private native3/0 and Rust selected3/0, imported notices checked. Final metadata binding, protected hook and hosted qualification pending."
+      "review": "Independent /root/transport_fallback APPROVED complete observable assertion mapping, exact source receipt SHA256 d5525307d52bce88aa0d9c4dc98a857bdaee5e5f197240764572283e8816de9f and freeze SHA256 34faf0b3d37f4bb26fbbde2aa0f9e33e9cc608778f6e5b1b07b785075ebed2fd. Private native3/0 and Rust selected3/0, imported notices checked. Final binding receipt SHA256 fba3635a301bd34332b4653d96e6b6df638056a32b8fe66c9b20fca2e1fdb820; normal protected hook and exact hosted run 40244078782 passed at public 6bb760e275401cb6f122f07f4831ea5f1bf30a34."
     },
     {
       "target": "UNIT_World_TEST",
@@ -1107,7 +1107,7 @@
       "upstream_fixtures": {},
       "baseline": "Fresh exact pinned native Model, World and Visual plugin originals 3/0, no skips; source/binary hashes and test SHA in artifacts/dom-plugins/source-freeze.json. Independent private raw-parent selected Rust3/0; author full240 Rust/16 tools/fmt/Clippy/docs, production3998/4017 lines6951/7152 regions, no production edit.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_fallback APPROVED complete observable assertion mapping, exact source receipt SHA256 d5525307d52bce88aa0d9c4dc98a857bdaee5e5f197240764572283e8816de9f and freeze SHA256 34faf0b3d37f4bb26fbbde2aa0f9e33e9cc608778f6e5b1b07b785075ebed2fd. Private native3/0 and Rust selected3/0, imported notices checked. Final metadata binding, protected hook and hosted qualification pending."
+      "review": "Independent /root/transport_fallback APPROVED complete observable assertion mapping, exact source receipt SHA256 d5525307d52bce88aa0d9c4dc98a857bdaee5e5f197240764572283e8816de9f and freeze SHA256 34faf0b3d37f4bb26fbbde2aa0f9e33e9cc608778f6e5b1b07b785075ebed2fd. Private native3/0 and Rust selected3/0, imported notices checked. Final binding receipt SHA256 fba3635a301bd34332b4653d96e6b6df638056a32b8fe66c9b20fca2e1fdb820; normal protected hook and exact hosted run 40244078782 passed at public 6bb760e275401cb6f122f07f4831ea5f1bf30a34."
     },
     {
       "target": "UNIT_Visual_TEST",
@@ -1119,7 +1119,19 @@
       "upstream_fixtures": {},
       "baseline": "Fresh exact pinned native Model, World and Visual plugin originals 3/0, no skips; source/binary hashes and test SHA in artifacts/dom-plugins/source-freeze.json. Independent private raw-parent selected Rust3/0; author full240 Rust/16 tools/fmt/Clippy/docs, production3998/4017 lines6951/7152 regions, no production edit.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_fallback APPROVED complete observable assertion mapping, exact source receipt SHA256 d5525307d52bce88aa0d9c4dc98a857bdaee5e5f197240764572283e8816de9f and freeze SHA256 34faf0b3d37f4bb26fbbde2aa0f9e33e9cc608778f6e5b1b07b785075ebed2fd. Private native3/0 and Rust selected3/0, imported notices checked. Final metadata binding, protected hook and hosted qualification pending."
+      "review": "Independent /root/transport_fallback APPROVED complete observable assertion mapping, exact source receipt SHA256 d5525307d52bce88aa0d9c4dc98a857bdaee5e5f197240764572283e8816de9f and freeze SHA256 34faf0b3d37f4bb26fbbde2aa0f9e33e9cc608778f6e5b1b07b785075ebed2fd. Private native3/0 and Rust selected3/0, imported notices checked. Final binding receipt SHA256 fba3635a301bd34332b4653d96e6b6df638056a32b8fe66c9b20fca2e1fdb820; normal protected hook and exact hosted run 40244078782 passed at public 6bb760e275401cb6f122f07f4831ea5f1bf30a34."
+    },
+    {
+      "target": "UNIT_Sensor_TEST",
+      "case": "DOMSensor.EnableMetrics",
+      "source": "src/Sensor_TEST.cc:339-364",
+      "rust_test": "tests/sensor_metrics_original.rs::original_dom_sensor_enable_metrics; tests/sensor_metrics_original.rs::standalone_none_sensor_reports_error_after_partial_mutation (supplemental)",
+      "assertions": "Complete pinned original observable false default, exact inline SDF1.5 sensor element loaded to true, then owned field mutation false. Native Sensor::Load sets enable_metrics before reporting ATTRIBUTE_INVALID for type none; Rust standalone Sensor::load_element_str mutates then returns InvalidValue, and the original ignores its error vector. Supplemental valid IMU, malformed/wrong-root and full-document none-rejection controls. Native Element pointer, exact error code/text/vector, complete Sensor::Load, graph and arbitrary grammar are unported.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Fresh pinned native DOMSensor.EnableMetrics 1/0, no skips; source/binary and Sensor.cc hashes plus exact inline SDF hash in artifacts/sensor-metrics/source-freeze-v2.json. Independent private raw-parent Rust2/0 and metrics-assignment-removal mutant failing original true assertion. Author isolated full242 Rust/16 tools/fmt/Clippy/docs, coverage4068/4088 lines7042/7251 regions, changed69/69.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback APPROVED complete observable original with native mutation-before-error and full-document rejection, exact source receipt SHA256 f23a0600ec12c56d01cd5f6d1eed8c70b629d96a4388311f8d6f207cd00316bc and V2 freeze SHA256 2404d9f27a8446bb98f7bb293674cd3eb96d7ef876a7410226594c172be46574. Old freeze bb5a1e95 revoked. Final metadata binding, protected hook and hosted qualification pending."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

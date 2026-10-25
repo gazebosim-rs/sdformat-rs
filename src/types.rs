@@ -700,6 +700,29 @@ pub struct Sensor {
     pub configuration_xml: String,
     pub source: Source,
 }
+impl Default for Sensor {
+    fn default() -> Self {
+        Self {
+            name: String::new(),
+            kind: "none".into(),
+            pose: Pose::default(),
+            update_rate: 0.0,
+            always_on: false,
+            enable_metrics: false,
+            config: SensorConfig::Unconfigured,
+            plugins: Vec::new(),
+            topic: String::new(),
+            frame_id: String::new(),
+            gz_frame_id: None,
+            configuration_xml: String::new(),
+            source: Source {
+                uri: String::new(),
+                line: 0,
+                column: 0,
+            },
+        }
+    }
+}
 /// Native sensor classification, separate from the literal XML `type` value.
 /// A parsed `gps` sensor, for example, has type [`SensorType::NavSat`].
 #[derive(Debug, Default, Clone, Copy, PartialEq, Eq)]
@@ -998,6 +1021,18 @@ pub struct Magnetometer {
     pub source: Option<Source>,
 }
 impl Sensor {
+    /// Load a standalone `<sensor>` element into this value without a frame graph.
+    /// A native-invalid `type="none"` updates envelope values before returning
+    /// an error, including `enable_metrics`; full document validation is separate.
+    pub fn load_element_str(
+        &mut self,
+        xml: &str,
+        source: &str,
+        resolver: &dyn crate::ResourceResolver,
+    ) -> Result<(), Diagnostic> {
+        crate::parse::load_sensor_element_into(self, xml, source, resolver)
+    }
+
     /// Native effective type of the literal XML kind. Parsed sensors always
     /// return `Some`; manually changed or unknown kinds return `None`.
     pub fn effective_type(&self) -> Option<SensorType> {

@@ -1,23 +1,25 @@
 {
-  "author": "/root/sdformat_owner_fallback",
   "decision": "approved",
-  "files_sha256": {
-    "docs/STATUS.md": "5c20fb000be34b306e649fb874f3d0c984f7e7ddeaa25f247e1db7a3bd88fc5d",
-    "reference/results.json": "fd19a13cbda68fc81fbf276a462da92a71da1aeeef6a70f2b35094111ae01c5a",
-    "reference/traceability.json": "2cacbf840f9201c934420129d00ee23fa84b1fa8a9303fdb161d0ee6c4a42ab2",
-    "tests/force_torque_link_original.rs": "43fa4f6f2e03504ce16543c0ab312a70bcf1dce9a920e29cf975ae39ad057d8b"
-  },
-  "final_freeze": "artifacts/force-torque-link/frozen-final.json",
-  "final_freeze_sha256": "e3e0f25ca87b393852dea6dd3ec5b7c5049dcb7494eaf067c098900e476bfdfa",
-  "limits": [
-    "No complete DOMLink.Sensors retirement.",
-    "Normal protected staged hook, public push and hosted CI remain required."
-  ],
-  "parent": "575d4d9abe5cd46dd2b02ebdd1267d9e25d6206f",
-  "preserved_parent_files": 254,
-  "protected_digest": "87759a7838394cefeee90f4b30100200e3197f2be5de98f50685ff24432c658b",
+  "author": "/root/sdformat_owner_fallback",
   "reviewer": "/root/transport_fallback",
-  "scope": "Exact approved ForceTorque Link test and unchanged sensor fixture; only additive STATUS/results and existing partial DOMLink.Sensors trace row differ from hosted-green parent. No production source changed. Native name/effective type/full raw pose/metrics asserted; Link lookup/count/index and eight other instances remain unported.",
-  "source_digest": "404015c2c95f474a3d1594e592b158d33f9c991cc7734b0df228e866f53f1dfe",
-  "source_review_sha256": "8bceeb86b13bb828559492dace9484d8479573f0791b8261a9be07b5d9ef31c4"
+  "final_freeze": "artifacts/unconfigured-sensors/frozen-final.json",
+  "parent": "f1de0576f8ff7916b2868b5c9e7d2e5df910b4ad",
+  "protected_digest": "da95636d0ae897bc653606283e896cf30cc958298933236624ecbbcea37e34f7",
+  "source_digest": "1bc9d8b65f5eb5463b3130965d5e9de17a9532acd4ef4eee610a44664931d0ce",
+  "files_sha256": {
+    "README.md": "fd712b603710b42572b856fca87f1fd6bb379387623e70dc2d229b5a377a78ec",
+    "docs/CONTRACT.md": "66bba02a19c51b4c0bfe5f43f134dba4382cf0c26d2597f61ffeb74c18775a70",
+    "docs/STATUS.md": "a227a14ed8f8f5c931212dbcd7a5a977f38f681b4810675dc20ecacf4d9ca61f",
+    "reference/results.json": "f1177aef013b207c0e8a80be139761f4a055392da1a00e01699831e875fdd40d",
+    "reference/traceability.json": "07b6a0699b8de1f7ffcce953ac8313df2c2f1265e715cb104963c00e902a2fdc",
+    "src/parse.rs": "ab3d6b1b32d052a6c0538cfb2803a040a2e02d140c81f4c30a0fc625c338e22f",
+    "src/types.rs": "acbdf5ef78228ee18fa42a82dcfdc82e8f102b3dd9bc397221a88835a33d38b4",
+    "tests/contact_sensor.rs": "f21d76aa638e464ed1641a33c1df9f29973080fb4a04fc5b50084149b438de9a",
+    "tests/semantics.rs": "373edcb4c70008d3ff1eae1af703339b3cb089f156d4c60a2a307bbc3c9ba4d7",
+    "tests/unconfigured_sensor_link_original.rs": "e07165c5d116fbb6f8addba21a32bb3e2c1199ea5bf00600984d35ffb87c12a4"
+  },
+  "source_review_sha256": "ac04ed9be165c3e91acace8d4250898c067a7735313b7c74e46ee26091114c98",
+  "binding": "Ten exact candidate file hashes match main; five executable/test reviewed source hashes and unchanged fixture match isolated source review; all 249 other parent tracked blobs are unchanged. tools/verify.py --review-digest matches protected digest and fresh integrated evidence matches source digest. Metadata extends only the existing PARTIAL DOMLink.Sensors row with seven envelope fragments, corrects historical native-positive RFID wording, and accurately limits known mismatched child rejection.",
+  "author_gate": "227 Rust, 15 tools, fmt, Clippy, docs, 3955/3973 lines, 6865/7064 regions, 24/24 changed executable lines on exact main digest.",
+  "limits": "Normal protected staged hook, public push, and hosted verification remain required; no full Link or family-payload acceptance."
 }

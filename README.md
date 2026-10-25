@@ -47,7 +47,9 @@ Thermal and wide angle camera fixture fragments retain the native Camera values,
 including the wide angle lens and sensor topic/rate, without rendering.
 The sensor's literal XML type remains available as `kind`; `effective_type()`
 provides the native classification for parsed sensor kinds, including legacy
-GPS and GPU/CPU lidar aliases. This does not widen parser support.
+GPS and GPU/CPU lidar aliases. Seven additional native-known fixture types
+retain their envelope with `SensorConfig::Unconfigured`; family payloads
+and runtime behavior remain pending.
 
 Scalar and pose-component conversion is qualified for Linux GNU/glibc using an
 owned C locale and native range/prefix semantics. One reviewed FFI module is the

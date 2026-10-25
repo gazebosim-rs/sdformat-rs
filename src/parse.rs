@@ -2519,11 +2519,18 @@ impl Parser<'_> {
                 | "thermal_camera"
                 | "wideanglecamera"
                 | "wide_angle_camera"
+                | "logical_camera"
+                | "multicamera"
+                | "rfid"
+                | "rfidtag"
+                | "sonar"
+                | "wireless_receiver"
+                | "wireless_transmitter"
         ) {
             return Err(self.err(
                 node,
                 ErrorCode::Unsupported,
-                "only typed IMU, contact, force/torque, magnetometer, altimeter, air pressure, NavSat/GPS, air speed, Lidar and supported Camera sensor configurations are supported",
+                "only typed sensor configurations and native-known envelope-only sensor types are supported",
             ));
         }
         // Native Sensor::Load selects <navsat> before legacy <gps> for either type.
@@ -2621,6 +2628,13 @@ impl Parser<'_> {
             | "thermal_camera"
             | "wideanglecamera"
             | "wide_angle_camera" => SensorConfig::Camera(Box::new(self.camera(node)?)),
+            "logical_camera"
+            | "multicamera"
+            | "rfid"
+            | "rfidtag"
+            | "sonar"
+            | "wireless_receiver"
+            | "wireless_transmitter" => SensorConfig::Unconfigured,
             _ => unreachable!("sensor type checked above"),
         };
         let configuration_xml =

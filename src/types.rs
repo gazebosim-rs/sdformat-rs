@@ -824,6 +824,9 @@ impl SensorType {
 /// Owned configuration selected by the parsed sensor type; unsupported types error.
 #[derive(Debug, Clone, PartialEq)]
 pub enum SensorConfig {
+    /// A native-known sensor family without an owned configuration payload.
+    /// Its literal kind and effective type remain on the Sensor envelope.
+    Unconfigured,
     Imu(Box<Imu>),
     Contact(ContactSensor),
     ForceTorque(Box<ForceTorque>),
@@ -983,7 +986,8 @@ impl Sensor {
             | SensorConfig::NavSat(_)
             | SensorConfig::AirSpeed(_)
             | SensorConfig::Lidar(_)
-            | SensorConfig::Camera(_) => None,
+            | SensorConfig::Camera(_)
+            | SensorConfig::Unconfigured => None,
         }
     }
     pub fn contact(&self) -> Option<&ContactSensor> {
@@ -997,7 +1001,8 @@ impl Sensor {
             | SensorConfig::NavSat(_)
             | SensorConfig::AirSpeed(_)
             | SensorConfig::Lidar(_)
-            | SensorConfig::Camera(_) => None,
+            | SensorConfig::Camera(_)
+            | SensorConfig::Unconfigured => None,
         }
     }
     pub fn force_torque(&self) -> Option<&ForceTorque> {
@@ -1011,7 +1016,8 @@ impl Sensor {
             | SensorConfig::NavSat(_)
             | SensorConfig::AirSpeed(_)
             | SensorConfig::Lidar(_)
-            | SensorConfig::Camera(_) => None,
+            | SensorConfig::Camera(_)
+            | SensorConfig::Unconfigured => None,
         }
     }
     pub fn magnetometer(&self) -> Option<&Magnetometer> {
@@ -1025,7 +1031,8 @@ impl Sensor {
             | SensorConfig::NavSat(_)
             | SensorConfig::AirSpeed(_)
             | SensorConfig::Lidar(_)
-            | SensorConfig::Camera(_) => None,
+            | SensorConfig::Camera(_)
+            | SensorConfig::Unconfigured => None,
         }
     }
     pub fn altimeter(&self) -> Option<&Altimeter> {
@@ -1039,7 +1046,8 @@ impl Sensor {
             | SensorConfig::NavSat(_)
             | SensorConfig::AirSpeed(_)
             | SensorConfig::Lidar(_)
-            | SensorConfig::Camera(_) => None,
+            | SensorConfig::Camera(_)
+            | SensorConfig::Unconfigured => None,
         }
     }
     pub fn air_pressure(&self) -> Option<&AirPressure> {
@@ -1053,7 +1061,8 @@ impl Sensor {
             | SensorConfig::NavSat(_)
             | SensorConfig::AirSpeed(_)
             | SensorConfig::Lidar(_)
-            | SensorConfig::Camera(_) => None,
+            | SensorConfig::Camera(_)
+            | SensorConfig::Unconfigured => None,
         }
     }
     pub fn navsat(&self) -> Option<&NavSat> {
@@ -1067,7 +1076,8 @@ impl Sensor {
             | SensorConfig::AirPressure(_)
             | SensorConfig::AirSpeed(_)
             | SensorConfig::Lidar(_)
-            | SensorConfig::Camera(_) => None,
+            | SensorConfig::Camera(_)
+            | SensorConfig::Unconfigured => None,
         }
     }
     pub fn air_speed(&self) -> Option<&AirSpeed> {
@@ -1081,7 +1091,8 @@ impl Sensor {
             | SensorConfig::AirPressure(_)
             | SensorConfig::NavSat(_)
             | SensorConfig::Lidar(_)
-            | SensorConfig::Camera(_) => None,
+            | SensorConfig::Camera(_)
+            | SensorConfig::Unconfigured => None,
         }
     }
     pub fn lidar(&self) -> Option<&Lidar> {
@@ -1095,7 +1106,8 @@ impl Sensor {
             | SensorConfig::AirPressure(_)
             | SensorConfig::NavSat(_)
             | SensorConfig::AirSpeed(_)
-            | SensorConfig::Camera(_) => None,
+            | SensorConfig::Camera(_)
+            | SensorConfig::Unconfigured => None,
         }
     }
     pub fn camera(&self) -> Option<&Camera> {

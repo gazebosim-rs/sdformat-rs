@@ -51,7 +51,8 @@ be aliases, but must resolve to different bodies; the child cannot be world.
 `SensorConfig::NavSat(Box<NavSat>)` or
 `SensorConfig::AirSpeed(Box<AirSpeed>)` or
 `SensorConfig::Lidar(Box<Lidar>)` or
-`SensorConfig::Camera(Box<Camera>)` settings. Optional `imu()`,
+`SensorConfig::Camera(Box<Camera>)` settings, or
+`SensorConfig::Unconfigured` for seven native-known envelope-only types. Optional `imu()`,
 `contact()`, `force_torque()`, `magnetometer()`, `altimeter()`, `air_pressure()` and
 `navsat()`, `air_speed()`, `lidar()` and `camera()` accessors expose the selected type; exact selected
 child XML and owned source are preserved. Contact collision names and nested topic
@@ -78,6 +79,12 @@ literal XML spelling. Segmentation and bounding box rendering are not owned.
 select the owned Camera parser. The wide angle fixture retains its FOV,
 image/clip, lens function and coefficients, topic and update rate as values;
 no image rendering, thermal sampling or general camera grammar is implied.
+`logical_camera`, `multicamera`, `rfid`, `rfidtag`, `sonar`,
+`wireless_receiver` and `wireless_transmitter` retain name, literal and
+effective type, raw pose and metrics with `SensorConfig::Unconfigured`.
+These have no owned family payload. A known mismatched configuration child
+(such as `<imu>` under RFID) is rejected; generic extension child grammar,
+family behavior and native Link count/index/name lookup remain unported.
 The six per-axis `Noise` records retain type,
 mean, standard deviation, bias mean/deviation, dynamic bias deviation/correlation
 time, and precision. Standard deviations are nonnegative; noise types are case

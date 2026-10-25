@@ -119,7 +119,7 @@ fn invalid_values_and_unknown_or_mismatched_payloads_do_not_default_to_imu() {
             "<update_rate>-1</update_rate>",
             ErrorCode::InvalidValue,
         ),
-        ("rfid", "", ErrorCode::Unsupported),
+        ("bogus_sensor_type", "", ErrorCode::Unsupported),
         ("none", "", ErrorCode::Unsupported),
         ("", "", ErrorCode::Missing),
     ] {

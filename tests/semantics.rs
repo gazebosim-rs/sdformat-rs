@@ -526,7 +526,7 @@ fn invalid_documents_fail_atomically() {
             ErrorCode::DuplicateName,
         ),
         (
-            "<link name='l'><sensor name='s' type='rfid'/></link>",
+            "<link name='l'><sensor name='s' type='bogus_sensor_type'/></link>",
             ErrorCode::Unsupported,
         ),
         (

@@ -1623,7 +1623,7 @@ remains unported.
 The unchanged 85-row native contact/envelope corpus reports `family_camera`
 as success. Two older Rust-only Camera `Unsupported` expectations are corrected
 to native-positive behavior, with all nine native corpus tokens asserted and
-an RFID unsupported-family control retained. The corpus and sensor fixture
+an RFID unsupported-family control retained at that historical checkpoint; the native-positive RFID correction is recorded below. The corpus and sensor fixture
 bytes are unchanged. The isolated source candidate passes 214 Rust tests, 15
 tooling tests, formatting, Clippy and docs; direct production coverage is
 3812/3830 lines, 6667/6864 regions and 175/175 changed executable lines.
@@ -1781,5 +1781,30 @@ production coverage remains 3941/3959 lines and 6850/7049 regions. There
 are no changed production lines. Independent /root/transport_fallback approved
 the exact partial test-only assertion mapping (reviewer source receipt SHA256
 `8bceeb86b13bb828559492dace9484d8479573f0791b8261a9be07b5d9ef31c4`), including an effective-type
-mutation countercontrol. Final metadata binding, protected hook and hosted
-qualification are pending.
+mutation countercontrol. At the source-review checkpoint final metadata binding, protected hook and hosted
+qualification were pending. Final binding receipt SHA256
+`79a9dceae2b67cbc6d3d679da1f3f015dc6673e9d5484a4809a61a348b009c0e`,
+normal protected hook and exact hosted verify run 40233407474 passed at public
+`f1de0576f8ff7916b2868b5c9e7d2e5df910b4ad`. The Link original stays partial.
+
+
+## Seven native-known envelope-only Link sensor fragments
+
+The unchanged upstream `sensors.sdf` supplies logical_camera, multicamera,
+RFID, RFIDTAG, sonar, wireless receiver and wireless transmitter fragments.
+The parser now admits their native-known envelope types with
+`SensorConfig::Unconfigured`, retaining each literal and effective type, name,
+full raw pose and disabled metrics. The explicit `<imu>` child under RFID is a
+known mismatched configuration and remains `Unsupported`; this does not
+qualify arbitrary unknown child grammar or sensor-family payload behavior.
+The old Rust-only RFID `Unsupported` controls in contact and semantics tests
+now use `bogus_sensor_type`, because pinned native `DOMLink.Sensors` accepts
+RFID. Fixture bytes are unchanged. Custom sensor extension XML, native Link
+name lookup/count/index and the whole original case remain unported.
+
+Pinned `DOMLink.Sensors` passes 1/0. The isolated source passes 227 Rust
+tests, 15 tooling tests, formatting, Clippy and docs; production coverage is
+3955/3973 lines, 6865/7064 regions and 24/24 changed executable lines.
+Independent /root/transport_fallback approved the exact partial source and
+negative-control disposition (source receipt SHA256 `ac04ed9be165c3e91acace8d4250898c067a7735313b7c74e46ee26091114c98`). Final
+metadata binding, protected hook and hosted qualification remain pending.

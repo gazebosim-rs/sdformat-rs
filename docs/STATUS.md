@@ -1118,3 +1118,33 @@ Every old value/operator and unrelated error assertion remains; exact original
 IMU fixture bytes are unchanged. Native source/schema trim rules and Unicode
 nonwhitespace/control boundaries were reviewed. Author tooling/coverage remain
 separately qualified; final metadata, normal staged and hosted checks are required.
+
+
+## ForceTorque and joint sensor candidate
+
+Owned Joint.sensors and SensorConfig::ForceTorque retain ordered envelopes,
+frame/direction and six Noise records with exact raw configuration/source ownership.
+Joint-default semantic pose resolution and deferred non-frame validation extend to
+joint sensors. Seven focused Rust tests and all 96 freshly compiled native rows
+pass, including normal/merged imports; three unchanged native baselines each run
+once with zero failures/skips. The full DOMJoint.Sensors assertion mapping has independent approval;
+mandatory staged/hosted qualification remains pending.
+Eight explicit strict-schema/finite-input differences and consumer/runtime limits
+remain documented. No new unsafe code, dependencies, sensor effects or whole
+SDF packet acceptance is claimed.
+
+Fresh author checks pass all 163 Rust tests, 13 tooling tests, formatting/Clippy
+and doc compilation. Coverage is 3239/3260 production lines and 5665/5780
+regions, with 89/89 changed executable lines. All 96 native observations and
+three original baselines pass with complete pinned source/schema/header/library
+proof. The seven added tests retain old IMU assertions and configuration ordering;
+no existing assertion or error policy is removed. The candidate original mapping
+has independent assertion approval; normal staged/hosted qualification is pending.
+
+Independent /root/transport_fallback approved the frozen configuration/API and
+complete Sensors mapping after 163 fresh private Rust checks, 96 native rows and
+three unchanged originals. The full proof and original fixture/source/header/
+library/binary identities match. Native pose/double bounds, shared IMU defaults
+and all four existing precedence diagnostics were checked. Eight explicit policy
+gaps and consumer runtime guards remain. This adds one complete mapping, for
+44 complete and 11 partial cases, subject to normal staged/hosted qualification.

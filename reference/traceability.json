@@ -672,6 +672,22 @@
       "baseline": "Existing pinned native original freshly rerun: exactly one actual test, zero failures/errors/skips; source/fixture/header/library/binary hashes recorded.",
       "status": "ported_reviewed",
       "review": "Independent /root/transport_fallback compared every original assertion in joint_dom.cc:205\u2013254/278\u2013341, approved the exact valid-fixture Root collection/index/name and graph-body relative-name translation, and component-wise native Pose3 tolerance <=1e-3. Fresh private 153 Rust/13 tools/fmt/Clippy and all three unchanged native originals 1/0/no skips pass; entire proof equals author. No production delta or generic mutable ResolveParent/Child error-vector API claim."
+    },
+    {
+      "target": "INTEGRATION_joint_dom",
+      "case": "DOMJoint.Sensors",
+      "source": "test/integration/joint_dom.cc:1156",
+      "rust_test": "tests/force_torque.rs::original_joint_sensors_complete_assertions",
+      "assertions": "Complete root/model/joint/sensor presence, names, count/type, raw pose, both semantic resolutions, ForceTorque presence/frame/direction and all twelve Mean/StdDev values. Owned collections/name search replace native borrowed DOM lookups; actual resolve_pose uses model scope and joint default frame. Original component-wise <=1e-3 Pose3 comparison and four-ULP EXPECT_DOUBLE_EQ bounds retained. No runtime effect or generic mutable Element facade claim.",
+      "fixtures": {
+        "tests/fixtures/joint_sensors.sdf": "5bc65923d5a7a039803c17d3bbfd7237e08adfa9f9c774b4365683f05835c37a"
+      },
+      "upstream_fixtures": {
+        "test/sdf/joint_sensors.sdf": "5bc65923d5a7a039803c17d3bbfd7237e08adfa9f9c774b4365683f05835c37a"
+      },
+      "baseline": "Exact unchanged DOMJoint.Sensors one run, zero failures/skips; artifacts/force-torque/INTEGRATION_joint_dom.xml.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback approved source/API and all complete original DOMJoint.Sensors assertions on frozen 8022fcae. Fresh private 163 Rust checks, 96 native rows and three unchanged originals pass; entire proof and all fixture/source/header/binary/library hashes match. Native component-wise <=1e-3 poses and four-ULP doubles retained. Shared IMU default/error order and four exact precedence controls verified. Eight strict-schema/finite gaps and metadata-only consumer rejection requirements remain; no general Element/runtime parity claim."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

@@ -1751,7 +1751,7 @@ impl Parser<'_> {
     fn joint(&self, node: Node<'_, '_>, model_frame_default: bool) -> Result<Joint, Diagnostic> {
         self.allowed(
             node,
-            &["parent", "child", "pose", "axis", "axis2"],
+            &["parent", "child", "pose", "axis", "axis2", "sensor"],
             &["name", "type"],
         )?;
         let kind = match self.attr(node, "type")?.as_str() {
@@ -1781,6 +1781,26 @@ impl Parser<'_> {
             pose: self.pose(node)?,
             axis,
             axis2,
+            sensors: {
+                let sensors = elements(node)
+                    .filter(|value| value.has_tag_name("sensor"))
+                    .map(|value| self.sensor(value))
+                    .collect::<Result<Vec<_>, _>>()?;
+                if sensors
+                    .iter()
+                    .map(|sensor| &sensor.name)
+                    .collect::<BTreeSet<_>>()
+                    .len()
+                    != sensors.len()
+                {
+                    return Err(self.err(
+                        node,
+                        ErrorCode::DuplicateName,
+                        "duplicate joint sensor name",
+                    ));
+                }
+                sensors
+            },
             source: self.source(node),
         })
     }
@@ -1911,22 +1931,8 @@ impl Parser<'_> {
             enable_orientation: self.boolean(node, "enable_orientation", true)?,
             ..Imu::default()
         };
-        for (name, noises) in [
-            ("angular_velocity", &mut imu.angular_velocity),
-            ("linear_acceleration", &mut imu.linear_acceleration),
-        ] {
-            if let Some(vector) = child(node, name) {
-                self.allowed(vector, &["x", "y", "z"], &[])?;
-                for (i, component) in ["x", "y", "z"].iter().enumerate() {
-                    if let Some(axis) = child(vector, component) {
-                        self.allowed(axis, &["noise"], &[])?;
-                        if let Some(noise) = child(axis, "noise") {
-                            noises[i] = self.noise(noise)?;
-                        }
-                    }
-                }
-            }
-        }
+        imu.angular_velocity = self.noise_vector(node, "angular_velocity")?;
+        imu.linear_acceleration = self.noise_vector(node, "linear_acceleration")?;
         if let Some(reference) = child(node, "orientation_reference_frame") {
             self.allowed(
                 reference,
@@ -1947,6 +1953,67 @@ impl Parser<'_> {
             }
         }
         Ok(imu)
+    }
+    fn noise_vector(&self, node: Node<'_, '_>, name: &str) -> Result<[Noise; 3], Diagnostic> {
+        let mut noises = std::array::from_fn(|_| Noise::default());
+        if let Some(vector) = child(node, name) {
+            self.allowed(vector, &["x", "y", "z"], &[])?;
+            for (index, component) in ["x", "y", "z"].iter().enumerate() {
+                if let Some(axis) = child(vector, component) {
+                    self.allowed(axis, &["noise"], &[])?;
+                    if let Some(noise) = child(axis, "noise") {
+                        noises[index] = self.noise(noise)?;
+                    }
+                }
+            }
+        }
+        Ok(noises)
+    }
+    fn force_torque(&self, sensor: Node<'_, '_>) -> Result<ForceTorque, Diagnostic> {
+        let Some(node) = child(sensor, "force_torque") else {
+            return Ok(ForceTorque::default());
+        };
+        self.allowed(
+            node,
+            &["frame", "measure_direction", "force", "torque"],
+            &[],
+        )?;
+        let frame = self
+            .optional_text(node, "frame")?
+            .filter(|value| !value.is_empty());
+        let frame = match frame.as_deref().unwrap_or("child") {
+            "parent" => ForceTorqueFrame::Parent,
+            "child" => ForceTorqueFrame::Child,
+            "sensor" => ForceTorqueFrame::Sensor,
+            _ => {
+                return Err(self.err(
+                    child(node, "frame").unwrap(),
+                    ErrorCode::InvalidValue,
+                    "invalid force/torque frame",
+                ));
+            }
+        };
+        let direction = self
+            .optional_text(node, "measure_direction")?
+            .filter(|value| !value.is_empty());
+        let measure_direction = match direction.as_deref().unwrap_or("child_to_parent") {
+            "parent_to_child" => ForceTorqueMeasureDirection::ParentToChild,
+            "child_to_parent" => ForceTorqueMeasureDirection::ChildToParent,
+            _ => {
+                return Err(self.err(
+                    child(node, "measure_direction").unwrap(),
+                    ErrorCode::InvalidValue,
+                    "invalid force/torque measure direction",
+                ));
+            }
+        };
+        Ok(ForceTorque {
+            frame,
+            measure_direction,
+            force: self.noise_vector(node, "force")?,
+            torque: self.noise_vector(node, "torque")?,
+            source: Some(self.source(node)),
+        })
     }
     fn noise(&self, node: Node<'_, '_>) -> Result<Noise, Diagnostic> {
         self.allowed(
@@ -2049,6 +2116,7 @@ impl Parser<'_> {
                 "gz_frame_id",
                 "imu",
                 "contact",
+                "force_torque",
             ],
             &["name", "type"],
         )?;
@@ -2056,15 +2124,17 @@ impl Parser<'_> {
             .attr(node, "type")?
             .trim_matches([' ', '\t', '\n'])
             .to_owned();
-        if !matches!(kind.as_str(), "imu" | "contact") {
+        if !matches!(kind.as_str(), "imu" | "contact" | "force_torque") {
             return Err(self.err(
                 node,
                 ErrorCode::Unsupported,
-                "only IMU and contact sensor configurations are supported",
+                "only IMU, contact and force/torque sensor configurations are supported",
             ));
         }
-        let other = if kind == "imu" { "contact" } else { "imu" };
-        if child(node, other).is_some() {
+        if ["imu", "contact", "force_torque"]
+            .iter()
+            .any(|name| *name != kind && child(node, name).is_some())
+        {
             return Err(self.err(
                 node,
                 ErrorCode::Unsupported,
@@ -2084,6 +2154,7 @@ impl Parser<'_> {
         let config = match kind.as_str() {
             "imu" => SensorConfig::Imu(Box::new(self.imu(node)?)),
             "contact" => SensorConfig::Contact(self.contact(node)?),
+            "force_torque" => SensorConfig::ForceTorque(Box::new(self.force_torque(node)?)),
             _ => unreachable!("sensor type checked above"),
         };
         let configuration_xml =

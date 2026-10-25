@@ -132,6 +132,12 @@ impl Sdf {
                     sdf.resolve_pose(pose, &model.scoped_name, &link.scoped_name, "::")?;
                 }
             }
+            for joint in &model.joints {
+                let frame = format!("{}::{}", model.scoped_name, joint.name);
+                for sensor in &joint.sensors {
+                    sdf.resolve_pose(&sensor.pose, &model.scoped_name, &frame, "::")?;
+                }
+            }
             for nested in &model.models {
                 validate(sdf, nested)?;
             }
@@ -630,6 +636,8 @@ pub struct Joint {
     pub pose: Pose,
     pub axis: Option<Axis>,
     pub axis2: Option<Axis>,
+    /// Owned sensor envelopes; their default pose frame is this joint.
+    pub sensors: Vec<Sensor>,
     pub source: Source,
 }
 impl Joint {
@@ -682,7 +690,7 @@ pub struct Sensor {
     /// Legacy literal gz_frame_id element, including an explicitly empty value.
     /// Consumers apply this only when frame_id is empty, before their name fallback.
     pub gz_frame_id: Option<String>,
-    /// Exact selected IMU/contact child XML; empty when that child was omitted.
+    /// Exact selected configuration child XML; empty when that child was omitted.
     pub configuration_xml: String,
     pub source: Source,
 }
@@ -691,6 +699,7 @@ pub struct Sensor {
 pub enum SensorConfig {
     Imu(Box<Imu>),
     Contact(ContactSensor),
+    ForceTorque(Box<ForceTorque>),
 }
 /// Contact-system element metadata; collision references remain unresolved.
 #[derive(Debug, Clone, PartialEq)]
@@ -710,17 +719,49 @@ impl Default for ContactSensor {
         }
     }
 }
+/// Force/torque measurement orientation; its point remains the joint origin.
+#[derive(Debug, Default, Clone, Copy, PartialEq, Eq)]
+pub enum ForceTorqueFrame {
+    Parent,
+    #[default]
+    Child,
+    Sensor,
+}
+#[derive(Debug, Default, Clone, Copy, PartialEq, Eq)]
+pub enum ForceTorqueMeasureDirection {
+    ParentToChild,
+    #[default]
+    ChildToParent,
+}
+/// Force/torque configuration only; no wrench is measured or noise sampled here.
+#[derive(Debug, Default, Clone, PartialEq)]
+pub struct ForceTorque {
+    pub frame: ForceTorqueFrame,
+    pub measure_direction: ForceTorqueMeasureDirection,
+    /// Three per-axis force noise records, in newtons.
+    pub force: [Noise; 3],
+    /// Three per-axis torque noise records, in newton metres.
+    pub torque: [Noise; 3],
+    /// Source of the explicit declaration; omitted groups use effective defaults.
+    pub source: Option<Source>,
+}
 impl Sensor {
     pub fn imu(&self) -> Option<&Imu> {
         match &self.config {
             SensorConfig::Imu(value) => Some(value),
-            SensorConfig::Contact(_) => None,
+            SensorConfig::Contact(_) | SensorConfig::ForceTorque(_) => None,
         }
     }
     pub fn contact(&self) -> Option<&ContactSensor> {
         match &self.config {
-            SensorConfig::Imu(_) => None,
             SensorConfig::Contact(value) => Some(value),
+            SensorConfig::Imu(_) | SensorConfig::ForceTorque(_) => None,
+        }
+    }
+    pub fn force_torque(&self) -> Option<&ForceTorque> {
+        match &self.config {
+            SensorConfig::ForceTorque(value) => Some(value),
+            SensorConfig::Imu(_) | SensorConfig::Contact(_) => None,
         }
     }
 }

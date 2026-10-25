@@ -1,24 +1,26 @@
 {
   "decision": "approved",
   "author": "/root/sdformat",
-  "reviewer": "/root/msgs_review_fallback",
-  "reviewed_at": "2026-10-25T12:43:59.182530+00:00",
-  "base": "bb9786c3139257115bd9ee816db8dfa3dd44ed97",
-  "protected_digest": "88360e156f4a683c3fea2caf52b9bcab38fa08c7f25f12d0b4aa973cb1ea40cb",
-  "matching_source_digest": "60fd16f6399a13495bcad18cc183ea1e45be1eb93bfb86270fcda69c6d31d957",
-  "source_reviewed_digest": "4c665be670dd70d6df46272555f30c69cf622434da01d4f1ec9be5f35f5dabf7",
-  "frozen_manifest_sha256": "a3acdf95943bb90ff9b51b59a211e863239afa7be91e21b6c9abb84e3bcb09c0",
-  "semantic_receipt_sha256": "8bacb065947eef66eeb19a6a079b7fbf2c76516f59a0a4904f364c0a2978c1af",
-  "scope": "Final Noise metadata and overlap binding of unchanged eight implementation/assertion/probe inputs from approved isolated candidate.",
+  "reviewer": "/root/transport_fallback",
+  "reviewed_at": "2026-10-25T13:58:28.454779+00:00",
+  "base": "a4eb3a08cff8e237c56bc3333a08eb669d541b69",
+  "protected_digest": "b174c1ff0291151437c0a83c0ddd9e1ef2b301a2f185af0072abe7d4696a2037",
+  "matching_source_digest": "df088e9878ffe954f9474a108ff6d74b920deb8607a61ef91b5f020938847d41",
+  "source_reviewed_digest": "8022fcae9728c3b117746226d8ee0ac3ed96886eea7fa3d6972a4d3bd669c44c",
+  "frozen_manifest_sha256": "c33d6f3386c32bc0474aecafd459bda00e36fb44d0ab7007f1d166a2ebf2aadf",
+  "semantic_receipt_sha256": "383aee2e9856ed82debb43a17c0b07bad5a0cc0d302419438869e238d4990989",
+  "scope": "Final metadata binding of unchanged reviewed ForceTorque/joint-sensor source, tests, corpus, probe and upstream fixture. Complete DOMJoint.Sensors original assertion mapping approved; one traceability row promoted to ported_reviewed.",
   "independent_checks": [
-    "All 11 main worktree hashes and final protected/source digests match final manifest and public base.",
-    "Eight implementation, test, corpus, disposition and probe files are byte-identical to isolated semantic approval. Only reference/results.json and two review/status docs changed.",
-    "Native integration proof is byte-identical to isolated 126-row/two-original proof. Main reference/results.json only adds scoped noise_type_review; existing prior mappings unchanged.",
-    "Author final 156 Rust/13 tools/3165 of 3186 lines/5533 of 5645 regions/3 of 3 changed executable lines inspected; no independent instrumentation claim."
+    "All 13 final file hashes and current protected/source digests reproduce the frozen manifest on the public a4eb3a08 parent.",
+    "Nine source/test/corpus/probe/fixture/README/contract inputs are byte-identical to the independently reviewed isolated candidate; only STATUS/FORCE_TORQUE prose, additive results.force_torque_review and one traceability review status/text differ.",
+    "All preexisting reference/results sections are byte-equivalent after JSON parse; integrated native proof SHA a2f60e363263d72cef19fcc12a0b56973b80d45837a13de2fdec5599ecab8dc1 is identical to reviewed proof.",
+    "Private raw-source replay passed 163 Rust tests, formatting, Clippy, doc checks, 96 native rows and three unchanged originals; author integrated coverage evidence binds current source digest and reports 3239/3260 lines, 5665/5780 regions, 89/89 changed executable lines."
   ],
   "findings": [],
   "limits": [
-    "Normal strict staged hook and hosted qualification still required.",
-    "Only bounded Noise required-type and trim correction approved; no full SDF parity claim."
+    "No independent LLVM instrumentation claim; author strict evidence inspected.",
+    "Eight named native-accepted strict-schema/finite inputs remain explicit Rust errors.",
+    "Joint/ForceTorque are metadata only; consumers must handle or reject unsupported enum variant and nonempty joint.sensors.",
+    "Normal exact staged hook, public publication and hosted CI remain required."
   ]
 }

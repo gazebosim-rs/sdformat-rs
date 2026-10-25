@@ -420,3 +420,13 @@ Explicit nonfinite input remains a documented scalar parity gap, distinct from
 implicit unlimited metadata. Parser acceptance does not execute, normalize or
 approve limits for any backend; consumers must handle their own admissibility.
 See AXIS_LIMITS.md for native controls and obsolete Rust-only rejection disposition.
+
+
+Joint.sensors owns ordered supported sensor envelopes with names unique per owner.
+SensorConfig::ForceTorque stores frame/direction and six Noise records; optional
+force_torque() borrows it. Defaults, explicit source/raw XML and joint-default
+semantic poses follow the bounded native controls in FORCE_TORQUE.md. The explicit
+non-frame validator includes joint sensors; load-time deferred pose failures stay
+deferred. Consumers must match or reject this enum variant and nonempty joint
+sensors until runtime support. No measurement, noise execution or publication is
+implemented here.

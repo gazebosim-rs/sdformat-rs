@@ -1,21 +1,21 @@
 {
   "author": "/root/sdformat_owner_fallback",
-  "author_checks": "Fresh integrated 191 Rust, 13 tooling, fmt, Clippy, docs, 3300/3316 production lines and 5746/5857 regions; zero production delta. Independent source review native1/0 and private full190/0 on isolated parent.",
-  "binding": "Exact source-reviewed test plus additive STATUS/results/traceability metadata only; all 235 other tracked parent files byte-preserved. Metadata marks DOMNoise.ConstructionAndSet COMPLETE only for its original assertions, with moved-from internal state/parser/serialization/sampling outside scope.",
+  "author_checks": "Fresh integrated 192 Rust, 13 tooling, fmt, Clippy, docs, 3300/3316 production lines and 5746/5857 regions; zero production delta. Independent source review native1/0 and private full192/0 on the same parent plus frozen test.",
+  "binding": "Exact source-reviewed test plus additive STATUS/results/traceability metadata only; all 236 other tracked parent files byte-preserved. Metadata marks DOMImu.Construction COMPLETE only for original assertions, with moved-from internal state/parser/serialization/sampling outside scope.",
   "decision": "approved",
   "files_sha256": {
-    "docs/STATUS.md": "03aaf17fcc870498c5944bb3909f4cdf1e0e84d3b017538b756c5557c6c5cab6",
-    "reference/results.json": "395afad26e8b903b04fc468319b9613425d78a391ced2603de72b7b29bde5b1a",
-    "reference/traceability.json": "0312826f6c0deacf11caa976fd789aa77bd7dbe2bddd8678e9db320b0b57c7f0",
-    "tests/noise_construction_original.rs": "4ac06dcb972fab187f33900839b2185040bb53d38cd4710ae45d8cd76a841aa9"
+    "docs/STATUS.md": "f616345bbdbdddfeb549cdc1f483370c45a2077b71610be7f24c54566bd6c5d1",
+    "reference/results.json": "6a8f5c867fe5686f36ff90101b4e3857d9df3a4ae7a0af26804122c601a7d2af",
+    "reference/traceability.json": "acacd5cae64c2640af2c140d11720e0e885efbe93654f8ed53b2d35c5f9062ca",
+    "tests/imu_construction_original.rs": "20956d7d678107e00f1658fd1cb36e9b07fdf5476b7089a4291a7fbfc7e05642"
   },
-  "final_freeze": "artifacts/noise-construction/frozen-final.json",
-  "final_freeze_sha256": "6426a560db2f7148bbc42c60cf3cbf54f361e07b0cd2ab2990925935adc8dd1f",
-  "parent": "577f5953c25dcb05636e48b37108b233b99ca493",
+  "final_freeze": "artifacts/imu-construction/frozen-final.json",
+  "final_freeze_sha256": "1af3e9212de66be71cbb2d6925d2bd1142d06b036d388efb60154f183e5e83a5",
+  "parent": "09aa7831ca5d22cf6d44130929837c921c984b2a",
   "pending": "normal exact protected staged hook, commit/push, exact hosted qualification; no hosted success claim",
-  "protected_digest": "5074ce37b35045d17faa9a594ff322eda753c4d19c176d84e230ed3200d5bda0",
-  "reviewed_source_parent": "0ede9a7a5b1dbce661c50f5086c2085ff0b72717",
+  "protected_digest": "532c40e78f5710af74f99565cb62845c6836746af084487ddfdc42ff4b85ed33",
+  "reviewed_source_parent": "09aa7831ca5d22cf6d44130929837c921c984b2a",
   "reviewer": "/root/transport_fallback",
-  "source_digest": "87bad5e88b58dde027c7c43119c5de75cfc5891a27cfa8cb9259ff354448c33e",
-  "source_review_receipt_sha256": "12138a9f5b01e8e712c18054e55c71e86311cfa8a2c0b63ce476569317f81c31"
+  "source_digest": "01c1cb12d2c170c49de238b1f90defa0afdb15ea9edd5b7c8c190a0dd8028779",
+  "source_review_receipt_sha256": "dd1d30c60d13705a21d591d9f1090e7e52f76be3e96e39b471d308d9f5b174cb"
 }

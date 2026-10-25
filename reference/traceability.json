@@ -804,6 +804,18 @@
       "baseline": "Exact pinned native DOMNoise.ConstructionAndSet original one run, zero failures/skips; artifacts/noise-construction/original.xml.",
       "status": "ported_reviewed",
       "review": "Independent /root/transport_fallback approved exact frozen source digest d5194f9b5f0c9288046731aa28d4427275af43454c9fb88c31a441f74bd4615a after native1/0, private selected1/full190 Rust replay and original 2019 OSRF notice check. Reviewer source receipt SHA256 12138a9f5b01e8e712c18054e55c71e86311cfa8a2c0b63ce476569317f81c31. Complete exact original observations only; final metadata binding and protected staged/hosted gates pending."
+    },
+    {
+      "target": "UNIT_Imu_TEST",
+      "case": "DOMImu.Construction",
+      "source": "src/Imu_TEST.cc:23",
+      "rust_test": "tests/imu_construction_original.rs::original_imu_construction_and_owned_copy_move",
+      "assertions": "Complete original observable mapping: six linear/angular noise default/set/get pairs with exact Gaussian parameters, gravity direction and custom RPY vector defaults/mutations, both parent-frame string defaults/mutations, localization and orientation-enabled defaults/mutations, copy/move construction and assignment value equality, post-move copy assignment and final inequality. Rust public field writes map native setters. No moved-from internal state, parser/serialization or sampling claim.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Exact pinned native DOMImu.Construction original one run, zero failures/skips; artifacts/imu-construction/original.xml.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback approved exact frozen source digest b855654173ceb3ca8d0b3515e8fae72e28ad51579b751ed6cbb80499cf207be0 after native1/0, private raw-parent selected1/full192 Rust replay and original 2019 OSRF notice check. Reviewer source receipt SHA256 dd1d30c60d13705a21d591d9f1090e7e52f76be3e96e39b471d308d9f5b174cb. Complete exact original observations only; final metadata binding and protected staged/hosted gates pending."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

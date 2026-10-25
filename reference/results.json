@@ -60092,5 +60092,17 @@
     "rust": "All 191 integrated Rust tests, 13 tooling tests, fmt, Clippy and docs pass; direct coverage3300/3316 production lines,5746/5857 regions; no production delta.",
     "scope": "Complete original observable assertion mapping approved independently: eight default/set/read values, copy/move value equality and post-move scalar observations. Public field writes map setters; mem::take preserves transferred values. No moved-from internal state, parser/serialization or sampler claim.",
     "review": "Independent /root/transport_fallback complete original source/assertion approval receipt SHA256 12138a9f5b01e8e712c18054e55c71e86311cfa8a2c0b63ce476569317f81c31. Final metadata binding, normal hook and hosted qualification pending."
+  },
+  "imu_construction_original": {
+    "parent": "09aa7831ca5d22cf6d44130929837c921c984b2a",
+    "integration_parent": "09aa7831ca5d22cf6d44130929837c921c984b2a",
+    "upstream": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "source_digest": "b855654173ceb3ca8d0b3515e8fae72e28ad51579b751ed6cbb80499cf207be0",
+    "native_source_sha256": "ac8b531a93c04b20cbfd36806f39f9d9c11bea83fe27a9002f18edc752b8c4ea",
+    "native_binary_sha256": "663204b41f077f9e10a5c8b8cde61ba2699a4bf662f85ba1ac27154a0da1b2de",
+    "original": "DOMImu.Construction: one run, zero failures/skips.",
+    "rust": "All 192 integrated Rust tests, 13 tooling tests, fmt, Clippy and docs pass; direct coverage3300/3316 production lines,5746/5857 regions; no production delta.",
+    "scope": "Complete original observable assertion mapping approved independently: six noise axes, gravity/custom orientation and parent-frame metadata, localization/orientation, copy/move/equality/inequality. Public field writes map setters. No moved-from internal state, parser/serialization or sampler claim.",
+    "review": "Independent /root/transport_fallback complete original source/assertion approval receipt SHA256 dd1d30c60d13705a21d591d9f1090e7e52f76be3e96e39b471d308d9f5b174cb. Final metadata binding, normal hook and hosted qualification pending."
   }
 }

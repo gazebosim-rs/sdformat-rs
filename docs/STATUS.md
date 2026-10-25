@@ -1420,3 +1420,17 @@ state, parser, serialization and noise sampling are outside this original.
 All 191 integrated Rust tests, 13 tooling checks, fmt, Clippy and docs pass;
 direct coverage is 3300/3316 production lines and 5746/5857 regions. Final
 main metadata binding, normal protected hook and hosted CI remain pending.
+
+## IMU owned construction original candidate
+
+The pinned `DOMImu.Construction` native original passes 1/0. An owned Rust
+test preserves six independent linear/angular noise defaults and assignments,
+gravity/custom orientation vectors and parent-frame strings, localization and
+orientation-enabled defaults/mutations, plus copy and move value equality and
+final inequality. Public field writes map native setters. Independent review
+approved one complete original assertion mapping after native1/0 and private
+selected1/full192 Rust replay, with the original 2019 OSRF notice retained.
+Moved-from internal state, parser, serialization and sampling are outside this
+original. All 192 integrated Rust tests, 13 tooling checks, fmt, Clippy and docs
+pass; direct coverage is 3300/3316 production lines and 5746/5857 regions.
+Final main metadata binding, normal protected hook and hosted CI remain pending.

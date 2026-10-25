@@ -1455,3 +1455,21 @@ pass; direct production coverage is 3314/3330 lines, 5771/5884 regions and
 19/19 changed executable lines. Consumer enum adoption and root pin remain
 coordinator-owned. Final metadata/contract binding, normal protected hook and
 hosted CI are pending.
+
+## Typed Altimeter DOM and parser candidate
+
+`SensorConfig::Altimeter(Box<Altimeter>)` now owns vertical position and velocity
+noise. The optional accessor, explicit source and exact selected XML retain the
+configuration without computing a measurement. The pinned
+`DOMAltimeter.Construction` and `Set` originals pass natively 2/0 and map their
+default, set, copy, move and equality observations in Rust. The unchanged
+upstream `sensors.sdf` fixture passes native `DOMLink.Sensors` 1/0. Rust parses
+only its byte-identical altimeter fragment in a minimal model/link wrapper and
+checks name, type, zero pose, disabled metrics and four noise scalars. The other
+23 sensor families, full Link original and runtime behavior remain pending.
+
+The isolated source candidate passes 198 Rust tests, 13 tooling tests, formatting,
+Clippy and docs. Direct production coverage is 3346/3362 lines, 5828/5944
+regions and 39/39 changed executable lines. Independent source review approved the exact four files after private full198
+Rust/fmt/Clippy and native DOM2/0 plus Link1/0; receipt SHA256 ecd82a075d3e7e801ae7e433e25e4af6a23029440854b971d46aa77bad5f735d.
+Final metadata binding, normal protected hook and hosted CI are pending.

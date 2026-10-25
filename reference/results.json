@@ -60118,5 +60118,19 @@
     "rust": "All 195 integrated Rust tests, 13 tooling tests, fmt, Clippy and docs pass; direct coverage3314/3330 production lines,5771/5884 regions and19/19 changed executable lines.",
     "scope": "Two complete DOMMagnetometer value/copy/move originals. DOMLink.Sensors maps only the native fixture magnetometer fragment name/type/pose/metrics/six noise scalars; 24 other sensor families and whole-model assertions remain; full 27-sensor case remains partial. Adds typed SensorConfig::Magnetometer, parser and accessor; no simulator sampling or downstream consumer pin update.",
     "review": "Independent /root/transport_fallback approved two complete DOM source mappings and partial Link fixture subset; source receipt SHA256 8419e3e8785579d36bb924945c53bcc2ca3627c388ecadbf8079e445af92311b. Final metadata/contract binding, normal hook and hosted qualification pending."
+  },
+  "altimeter_original": {
+    "parent": "29a513dff43f5ad530d92b92a89e784394e409a5",
+    "upstream": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "source_digest": "e09dbd7fa982b17cdcf918e370288ba6a935265e53761df76e64d1c1e10db222",
+    "native_dom_source_sha256": "24b45ab29d429609fe3167338ee9138c695c83330a65e4df20140c61a6b3adc5",
+    "native_dom_binary_sha256": "49baa5d7f26deb333e4e4b5b3782d3c761a0bb75fa4b0a01344d95a4a1a59231",
+    "native_link_source_sha256": "3f19b57d0cd02be6201a08be4580d5a478d5e3c1549457605754ccff99ccd4f1",
+    "native_link_binary_sha256": "5996c21878cab1dacd0d653c50bfdcf4a02c8064157855ae6136471939582716",
+    "fixture_sha256": "dc2b61c8b40a7df7f2c7b6e649f3039136ca1a03528371b307e9b9fc27406a00",
+    "original": "DOMAltimeter.Construction and Set native2/0; DOMLink.Sensors native1/0, altimeter subset only.",
+    "rust": "All 198 integrated Rust tests, 13 tooling tests, fmt, Clippy and docs pass; direct coverage3346/3362 production lines,5828/5944 regions and39/39 changed executable lines.",
+    "scope": "Two complete DOMAltimeter value/copy/move originals. DOMLink.Sensors maps only unchanged fixture altimeter name/type/zero pose/disabled metrics/four noise scalars; 23 other sensor families and whole Link count/index remain; full 27-sensor case stays partial. Adds typed SensorConfig::Altimeter parser/accessor; no measurement, simulator behavior or downstream consumer pin update.",
+    "review": "Independent /root/transport_fallback approved two complete DOM mappings and partial Link fixture subset; source receipt SHA256 ecd82a075d3e7e801ae7e433e25e4af6a23029440854b971d46aa77bad5f735d. Final metadata/contract binding, normal hook and hosted qualification pending."
   }
 }

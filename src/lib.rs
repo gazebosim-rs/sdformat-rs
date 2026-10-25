@@ -3,8 +3,11 @@
 
 //! Validated SDFormat model and frame semantics, independent of a simulator.
 //!
-//! Loading is atomic: syntax, validation, include expansion and graph errors never
-//! expose a partially validated model. Unsupported schema features are errors.
+//! Loading returns an owned document or a source-located error. Frame graphs are
+//! validated during loading; native non-frame pose errors may remain deferred.
+//! Before instantiation, call [`Sdf::validate_non_frame_poses`] to validate those
+//! references, including the documented stronger inertial-frame policy.
+//! Unsupported schema features are errors.
 mod graph;
 // The only owned production unsafe boundary; see docs/SCALAR_CONVERSION.md.
 #[allow(unsafe_code)]
@@ -28,7 +31,8 @@ impl ResourceResolver for NoResources {
     }
 }
 
-/// Parse the supported SDF 1.6–1.12 subset and validate its semantic graphs.
+/// Parse the supported SDF 1.5–1.12 subset and validate its frame graphs.
+/// Call [`Sdf::validate_non_frame_poses`] before constructing runtime objects.
 pub fn load_str(
     xml: &str,
     source: &str,

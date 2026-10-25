@@ -1,11 +1,26 @@
 {
+  "schema_version": 1,
+  "reviewer": "/root",
+  "task": "SDF-01 audit rustdoc clarification",
+  "parent": "e59a674d3f41129e94eac829de95166dd5d355e2",
+  "diff_sha256": "159d9a7d09f3a8f800e4f086392a060b46f8c8ce5cbbebda7091486c6f010255",
+  "protected_digest": "961d87c2d47d4497a246d829405dba07f4cd72cfc679f549db74c82e818eb4bc",
+  "owned_files": [
+    "src/lib.rs"
+  ],
   "decision": "approved",
-  "author": "/root/sdformat",
-  "reviewer": "/root/transport_recovery",
-  "protected_digest": "b0f3c3d554d42a9042f56ba60e4ec607d834c19338ed3b5270d3d045fde049fe",
-  "date": "2026-10-25T01:13:22.364958+00:00",
-  "scope": "Independent exact integrated overlap review on published version-1.5 parent 9222bd64cf494e90cefe30608d51167d95fd02ce. Production parser/type added/deleted lines match approved isolated fluid 9d325147 snapshot exactly; all five new fixture/corpus/test/probe/tool files are byte-identical. No version/include/primitive source overlap drift or dependency/unsafe/quality changes. Final contract/results/traceability preserve optional symmetric metadata, explicit consumer rejection and broad pending physics/error/serialization scope.",
-  "assertion_mapping": "Reaffirms complete exact DOMLink.InertialComplete fixture mapping: mandatory successful physical-inertia validation plus exact known-valid mass and six inertia values preserve its true MassMatrix.IsValid observation. Native Root.Model and LinkByIndex(0) presence map to typed first()/unwrap(); all scalar/translation/presence/36-matrix assertions retained. This is not generic validity algorithm, fluid dynamics or broad inertia acceptance. Total mappings remain explicitly 32 complete and six partial.",
-  "independent_checks": "All 100 integrated Rust tests independently pass under default parallel execution. Fresh author integrated 40-case native proof equals the previously independently rebuilt isolated proof, including all fixture/source/schema/math-header/native-library/probe/original-binary identities. Prior independent 40 exact native bit observations and unchanged original XML one run/zero failures remain applicable to identical primitive input/code. Author full coverage 2292/2308 lines,4005/4101 regions,16/16 changed lines inspected, not independently recomputed.",
-  "limits": "Matching final protected receipt, strict staged and hosted gates remain required. Explicit Some fluid matrices must be rejected by consumers until engine support; no physics or general IsValid API parity, performance or full packet claim."
+  "findings": [
+    "Supported loader floor agrees with reviewed1.5 subset and explicit contract limits.",
+    "Frame graph validation and deferred non-frame validation distinction is accurate; callers must validate before runtime instantiation.",
+    "No executable, unsafe, assertion, fixture, tolerance, denominator or exclusion changes."
+  ],
+  "verification": {
+    "command": "cargo test --locked --doc",
+    "result": "passed; zero examples, documentation compilation only"
+  },
+  "limitations": [
+    "No new behavioral parity or packet acceptance inferred.",
+    "Consumer e59 pin remains immutable; producer full strict staged checks required before publication."
+  ],
+  "author": "/root/sdformat"
 }

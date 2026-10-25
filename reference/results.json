@@ -60080,5 +60080,17 @@
     "rust": "All 190 integrated Rust tests, 13 tooling tests, fmt, Clippy and docs pass; direct coverage3300/3316 production lines,5746/5857 regions; no production delta.",
     "scope": "Complete original observable assertion mapping approved independently: six noise axes, frame/direction, copy/move/equality/inequality. Native setter method names map to direct public fields; supplementary source None is not native Element evidence. No parsed-object equality, parser/serialization or sampler claim.",
     "review": "Independent /root/transport_fallback complete original source/assertion approval receipt SHA256 449246e99a90e44dde83a4925fbe26fe63576446d6483b797dd8a81dadb887a9. Final metadata binding, normal hook and hosted qualification pending."
+  },
+  "noise_construction_original": {
+    "parent": "0ede9a7a5b1dbce661c50f5086c2085ff0b72717",
+    "integration_parent": "577f5953c25dcb05636e48b37108b233b99ca493",
+    "upstream": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "source_digest": "d5194f9b5f0c9288046731aa28d4427275af43454c9fb88c31a441f74bd4615a",
+    "native_source_sha256": "db6d611a39a91f53314a18f05420ee768aa899fbb22871461d13b1a57d180111",
+    "native_binary_sha256": "d9d835979d937ab69dace25455e450903b9cbc303d1c6d1a6f8bd353e6992237",
+    "original": "DOMNoise.ConstructionAndSet: one run, zero failures/skips.",
+    "rust": "All 191 integrated Rust tests, 13 tooling tests, fmt, Clippy and docs pass; direct coverage3300/3316 production lines,5746/5857 regions; no production delta.",
+    "scope": "Complete original observable assertion mapping approved independently: eight default/set/read values, copy/move value equality and post-move scalar observations. Public field writes map setters; mem::take preserves transferred values. No moved-from internal state, parser/serialization or sampler claim.",
+    "review": "Independent /root/transport_fallback complete original source/assertion approval receipt SHA256 12138a9f5b01e8e712c18054e55c71e86311cfa8a2c0b63ce476569317f81c31. Final metadata binding, normal hook and hosted qualification pending."
   }
 }

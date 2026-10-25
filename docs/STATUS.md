@@ -1405,3 +1405,18 @@ serialization and sampling behavior are outside this original. All 190 integrate
 Rust tests, 13 tooling checks, fmt, Clippy and docs pass; direct coverage is
 3300/3316 production lines and 5746/5857 regions. Final main metadata
 binding, normal protected hook and hosted CI remain pending.
+
+## Noise owned construction original candidate
+
+The pinned `DOMNoise.ConstructionAndSet` native original passes 1/0. An owned
+Rust test preserves its eight distinct default, mutation and read observations,
+copy and move value equality, and both final means after post-move assignment.
+Public field writes map native setters; `mem::take` expresses transferred
+values. Independent review approved this as one complete original assertion
+mapping after native1/0 and private selected1/full190 Rust replay, with the
+original 2019 OSRF notice retained. Exact Rust equality is stronger than the
+native double comparison for these literal assignments. Moved-from internal
+state, parser, serialization and noise sampling are outside this original.
+All 191 integrated Rust tests, 13 tooling checks, fmt, Clippy and docs pass;
+direct coverage is 3300/3316 production lines and 5746/5857 regions. Final
+main metadata binding, normal protected hook and hosted CI remain pending.

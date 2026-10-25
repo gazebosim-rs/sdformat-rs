@@ -792,6 +792,18 @@
       "baseline": "Exact pinned native DOMForceTorque.Construction original one run, zero failures/skips; artifacts/force-torque-construction/original.xml.",
       "status": "ported_reviewed",
       "review": "Independent /root/transport_fallback approved exact corrected source digest bd645847fd2ec625c994633c1e24d8c25bf20a149abe3e9f5276409547cba66d and COMPLETE original observable mapping after native1/0, private selected1/full189 Rust replay and exact 2020 OSRF notice check. Source receipt SHA256 449246e99a90e44dde83a4925fbe26fe63576446d6483b797dd8a81dadb887a9. Native setters map direct fields; Rust parsed-object source provenance equality differs, outside original. Final metadata binding and protected staged/hosted gates pending."
+    },
+    {
+      "target": "UNIT_Noise_TEST",
+      "case": "DOMNoise.ConstructionAndSet",
+      "source": "src/Noise_TEST.cc:23",
+      "rust_test": "tests/noise_construction_original.rs::original_noise_construction_set_copy_and_move",
+      "assertions": "Complete original observable mapping: eight independent default/set/read values for type, mean, standard deviation, bias mean/deviation, precision, dynamic bias deviation and correlation time; copy constructor/assignment equality, move constructor/assignment transferred-value equality, and both scalar values after post-move assignments. Public field writes map native setters; mem::take makes value transfer explicit. Rust exact literal equality is stronger than original EXPECT_DOUBLE_EQ for these assignments. No moved-from internal state or parser/serialization/sampling claim.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Exact pinned native DOMNoise.ConstructionAndSet original one run, zero failures/skips; artifacts/noise-construction/original.xml.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback approved exact frozen source digest d5194f9b5f0c9288046731aa28d4427275af43454c9fb88c31a441f74bd4615a after native1/0, private selected1/full190 Rust replay and original 2019 OSRF notice check. Reviewer source receipt SHA256 12138a9f5b01e8e712c18054e55c71e86311cfa8a2c0b63ce476569317f81c31. Complete exact original observations only; final metadata binding and protected staged/hosted gates pending."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

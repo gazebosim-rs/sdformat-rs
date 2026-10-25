@@ -1,21 +1,21 @@
 {
   "author": "/root/sdformat_owner_fallback",
-  "author_checks": "Fresh integrated 190 Rust, 13 tooling, fmt, Clippy, docs, 3300/3316 production lines and 5746/5857 regions; zero production delta. Independent source review native1/0 and private full189/0 on the isolated parent.",
-  "binding": "Only the exact source-reviewed test and additive STATUS/results/traceability metadata differ from clean public parent. All 234 other tracked parent files are byte-preserved. Metadata accurately marks DOMForceTorque.Construction ported_reviewed COMPLETE for original assertions and keeps parsed-object equality/Element/parser/serialization/sampling limits.",
+  "author_checks": "Fresh integrated 191 Rust, 13 tooling, fmt, Clippy, docs, 3300/3316 production lines and 5746/5857 regions; zero production delta. Independent source review native1/0 and private full190/0 on isolated parent.",
+  "binding": "Exact source-reviewed test plus additive STATUS/results/traceability metadata only; all 235 other tracked parent files byte-preserved. Metadata marks DOMNoise.ConstructionAndSet COMPLETE only for its original assertions, with moved-from internal state/parser/serialization/sampling outside scope.",
   "decision": "approved",
   "files_sha256": {
-    "docs/STATUS.md": "0de4532c86f4c15dd51df20c2750bb054593042f56c7e1d9146be5427522c270",
-    "reference/results.json": "d3e87626ba173c1d22651924fb553ea5393b52978661ce9ec3f1466581e8423e",
-    "reference/traceability.json": "a53cc043906f155d7ff6845d2b4fd18994dd7e8978245e3c1f59b80d28e13933",
-    "tests/force_torque_construction_original.rs": "63be6727ca5720207c5186b91050750d3fd42caef868d8b8497fdbba57bac0cc"
+    "docs/STATUS.md": "03aaf17fcc870498c5944bb3909f4cdf1e0e84d3b017538b756c5557c6c5cab6",
+    "reference/results.json": "395afad26e8b903b04fc468319b9613425d78a391ced2603de72b7b29bde5b1a",
+    "reference/traceability.json": "0312826f6c0deacf11caa976fd789aa77bd7dbe2bddd8678e9db320b0b57c7f0",
+    "tests/noise_construction_original.rs": "4ac06dcb972fab187f33900839b2185040bb53d38cd4710ae45d8cd76a841aa9"
   },
-  "final_freeze": "artifacts/force-torque-construction/frozen-final.json",
-  "final_freeze_sha256": "9c91cdec17b944750d4f579b643c4268269a70667a005d394645d15b06e50bff",
-  "parent": "0ede9a7a5b1dbce661c50f5086c2085ff0b72717",
+  "final_freeze": "artifacts/noise-construction/frozen-final.json",
+  "final_freeze_sha256": "6426a560db2f7148bbc42c60cf3cbf54f361e07b0cd2ab2990925935adc8dd1f",
+  "parent": "577f5953c25dcb05636e48b37108b233b99ca493",
   "pending": "normal exact protected staged hook, commit/push, exact hosted qualification; no hosted success claim",
-  "protected_digest": "a29d017bd6bba13ef5e8e0b171502f20836302f9892f9976e6c337f442c2bbdd",
-  "reviewed_source_parent": "844cf12652ac7b306ca6814f721636b0cf2a01bc",
+  "protected_digest": "5074ce37b35045d17faa9a594ff322eda753c4d19c176d84e230ed3200d5bda0",
+  "reviewed_source_parent": "0ede9a7a5b1dbce661c50f5086c2085ff0b72717",
   "reviewer": "/root/transport_fallback",
-  "source_digest": "d2d04f2be870bc07c6535e0e80ea201bac366ae44de760d70651784b33f06299",
-  "source_review_receipt_sha256": "449246e99a90e44dde83a4925fbe26fe63576446d6483b797dd8a81dadb887a9"
+  "source_digest": "87bad5e88b58dde027c7c43119c5de75cfc5891a27cfa8cb9259ff354448c33e",
+  "source_review_receipt_sha256": "12138a9f5b01e8e712c18054e55c71e86311cfa8a2c0b63ce476569317f81c31"
 }

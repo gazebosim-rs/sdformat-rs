@@ -948,3 +948,29 @@ pendulum's graph-validity observation is explicitly approved through mandatory
 successful validation of both graph types; generic mutable revalidation and
 error-vector parity remain unclaimed. Source/assertion/native proof bytes are
 unchanged by the review metadata. Normal staged/hosted gates remain required.
+
+
+The isolated member-DOM successor adds borrowed joint/frame lookup and shared
+native member-scope selection. The original 36 model/link observations remain
+unchanged; 104 fresh native rows also cover scoped kind-specific references,
+implicit-frame absence and exact literal-name fallback after owned field edits.
+No parser namespace, semantic graph or runtime behavior is relaxed. The unchanged
+MultiNestedModel fixture has a proposed full assertion port, including actual
+stored pointer identity and seven specific graph-membership observations. The
+latter mapping requires explicit independent judgment, not a generic graph facade.
+
+All 140 Rust checks, 13 tools, fmt/clippy, 104 native rows and the exact original
+(one run/zero failures) pass. Coverage is 3099/3119 lines, 5398/5515 regions and
+16/16 changed executable lines. An initial new-test enum spelling compilation
+failure is retained; its actual UnknownReference contract now passes. Dependencies,
+unsafe scope, existing assertions and quality policy are unchanged. Independent
+review and exact normal staged/hosted gates remain required.
+
+Independent /root/msgs approved the complete MultiNestedModel port after all 140
+Rust checks and fresh 104-row/exact-original native proof matched, including all
+hashes and unchanged prior 36-row prefix. Scoped stored-reference identity and
+native prefix/fallback precedence were inspected. The seven known-fixture graph
+membership observations are explicitly approved through exact attachment lookup;
+general mutable membership APIs remain unclaimed. This metadata update changes
+no production, assertion, fixture or native input. Normal staged/hosted gates
+remain required.

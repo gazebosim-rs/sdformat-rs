@@ -608,6 +608,22 @@
       "baseline": "Exact unchanged original case one run/zero failures in artifacts/model-dom/DOMRoot.NestedModel-original.xml.",
       "status": "ported_reviewed",
       "review": "Independent /root/msgs compared both complete original assertion bodies and approved presence/count/index/name/pose/pointer observations. Explicitly approved the unchanged valid pendulum zero-error ValidateGraphs observation through mandatory successful loader build/validation of both graph types, without generic mutable revalidation or error-vector parity. Fresh reconstructed-parent/private-target replay passed all 138 Rust checks and complete 36-row/two-original proof exactly equals author including all hashes; literal-colon/interface scopes remain excluded."
+    },
+    {
+      "target": "INTEGRATION_model_dom",
+      "case": "DOMRoot.MultiNestedModel",
+      "source": "test/integration/model_dom.cc:224",
+      "rust_test": "tests/member_dom_original.rs::original_root_multi_nested_model",
+      "assertions": "All original root/middle/inner model/link/joint/frame counts, index-presence bounds, exact names and name-existence observations; explicit nested paths preserve actual stored pointer equality for model/link/joint/frame references. Seven graph-name membership observations are retained using successful attachment lookup at exact scoped names on this unchanged validated fixture, with the missing unqualified mid_link producing UnknownReference. This fixture-specific graph-membership mapping requires explicit independent review; no general mutable graph API or error-vector parity.",
+      "fixtures": {
+        "tests/fixtures/model_multi_nested_model.sdf": "95c95bd97bba9d29a01c9d6438b2e4d5a760f99882f38840fe00f79245aaafb5"
+      },
+      "upstream_fixtures": {
+        "test/sdf/model_multi_nested_model.sdf": "95c95bd97bba9d29a01c9d6438b2e4d5a760f99882f38840fe00f79245aaafb5"
+      },
+      "baseline": "Exact unchanged original DOMRoot.MultiNestedModel XML one run/zero failures, artifacts/member-dom/DOMRoot.MultiNestedModel-original.xml.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/msgs compared all original counts/presence/bounds/names/scoped pointers and explicitly approved seven known-valid-fixture graph membership observations through successful attachment lookup at exact scoped names and UnknownReference for missing direct mid_link. No mutable/general graph-membership parity. Fresh private replay passed all 140 Rust checks and entire 104-row/exact-original native proof equals author including hashes; prior 36 rows retained unchanged. Native resolved-prefix precedence and unresolved-prefix literal-name fallback reviewed against pinned source."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

@@ -395,3 +395,12 @@ existing canonical-link traversal without changing canonical-link selection.
 Literal double-colon declaration names, interface models, mutable DOM facades and
 model-level graph revalidation after arbitrary field edits remain outside this
 subset. See MODEL_DOM.md for the original-fixture mapping.
+
+Model.joint_by_name and frame_by_name borrow stored members through the same
+explicit model scopes as link_by_name. Frame lookup includes declared frames
+only, not implicit link/joint/model graph vertices. All three member methods
+preserve native exact-name fallback when a model prefix is missing, including
+literal-colon names assigned in memory. If the prefix resolves, only that nested
+model is searched even if the direct parent contains a matching literal name.
+Parsed declaration names still reserve double colons; edited DOM names do not
+refresh the separately stored semantic graphs. See MEMBER_DOM.md.

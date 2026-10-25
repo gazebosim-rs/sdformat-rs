@@ -17,7 +17,7 @@ collision/visual metadata and poses, owned visual/material
 metadata, physical mass/inertia,
 fixed/revolute/prismatic/continuous/universal/revolute2 joints with owned axis
 dynamics and stop metadata, typed IMU sensor configuration, frames, and opaque plugin content.
-Borrowed model/link DOM lookups follow explicit relative nested scopes.
+Borrowed model/link/joint/frame DOM lookups follow explicit relative nested scopes.
 Model and include placement frames resolve through nested links, frames, joints,
 and models. Pose and attachment graphs are separate. Loading is atomic; non-frame
 pose errors remain deferred until resolution, matching the native DOM. Scene

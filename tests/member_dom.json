@@ -1,0 +1,846 @@
+[
+  {
+    "id": "0",
+    "fixture": "nested_model.sdf",
+    "scope": "",
+    "kind": "model",
+    "name": "nested_model",
+    "path": "0"
+  },
+  {
+    "id": "1",
+    "fixture": "nested_model.sdf",
+    "scope": "",
+    "kind": "model",
+    "name": "nested_model::nested_nested_model",
+    "path": "0/0"
+  },
+  {
+    "id": "2",
+    "fixture": "nested_model.sdf",
+    "scope": "",
+    "kind": "model",
+    "name": "nested_nested_model",
+    "path": "-"
+  },
+  {
+    "id": "3",
+    "fixture": "nested_model.sdf",
+    "scope": "",
+    "kind": "model",
+    "name": "top_level_model",
+    "path": "-"
+  },
+  {
+    "id": "4",
+    "fixture": "nested_model.sdf",
+    "scope": "",
+    "kind": "model",
+    "name": "top_level_model::nested_model",
+    "path": "-"
+  },
+  {
+    "id": "5",
+    "fixture": "nested_model.sdf",
+    "scope": "",
+    "kind": "model",
+    "name": "nested_model::",
+    "path": "-"
+  },
+  {
+    "id": "6",
+    "fixture": "nested_model.sdf",
+    "scope": "",
+    "kind": "model",
+    "name": "::nested_model",
+    "path": "-"
+  },
+  {
+    "id": "7",
+    "fixture": "nested_model.sdf",
+    "scope": "",
+    "kind": "model",
+    "name": "",
+    "path": "-"
+  },
+  {
+    "id": "8",
+    "fixture": "nested_model.sdf",
+    "scope": "",
+    "kind": "model",
+    "name": "missing::nested_model",
+    "path": "-"
+  },
+  {
+    "id": "9",
+    "fixture": "nested_model.sdf",
+    "scope": "",
+    "kind": "link",
+    "name": "parent",
+    "path": "#0"
+  },
+  {
+    "id": "10",
+    "fixture": "nested_model.sdf",
+    "scope": "",
+    "kind": "link",
+    "name": "child",
+    "path": "#1"
+  },
+  {
+    "id": "11",
+    "fixture": "nested_model.sdf",
+    "scope": "",
+    "kind": "link",
+    "name": "nested_model::nested_link01",
+    "path": "0#0"
+  },
+  {
+    "id": "12",
+    "fixture": "nested_model.sdf",
+    "scope": "",
+    "kind": "link",
+    "name": "nested_model::nested_nested_model::nested_nested_link01",
+    "path": "0/0#0"
+  },
+  {
+    "id": "13",
+    "fixture": "nested_model.sdf",
+    "scope": "",
+    "kind": "link",
+    "name": "nested_link01",
+    "path": "-"
+  },
+  {
+    "id": "14",
+    "fixture": "nested_model.sdf",
+    "scope": "",
+    "kind": "link",
+    "name": "nested_nested_link01",
+    "path": "-"
+  },
+  {
+    "id": "15",
+    "fixture": "nested_model.sdf",
+    "scope": "",
+    "kind": "link",
+    "name": "nested_nested_model::nested_nested_link01",
+    "path": "-"
+  },
+  {
+    "id": "16",
+    "fixture": "nested_model.sdf",
+    "scope": "",
+    "kind": "link",
+    "name": "top_level_model::parent",
+    "path": "-"
+  },
+  {
+    "id": "17",
+    "fixture": "nested_model.sdf",
+    "scope": "",
+    "kind": "link",
+    "name": "nested_model::parent",
+    "path": "-"
+  },
+  {
+    "id": "18",
+    "fixture": "nested_model.sdf",
+    "scope": "",
+    "kind": "link",
+    "name": "nested_model::",
+    "path": "-"
+  },
+  {
+    "id": "19",
+    "fixture": "nested_model.sdf",
+    "scope": "",
+    "kind": "link",
+    "name": "::parent",
+    "path": "-"
+  },
+  {
+    "id": "20",
+    "fixture": "nested_model.sdf",
+    "scope": "",
+    "kind": "link",
+    "name": "",
+    "path": "-"
+  },
+  {
+    "id": "21",
+    "fixture": "nested_model.sdf",
+    "scope": "nested_model",
+    "kind": "model",
+    "name": "nested_nested_model",
+    "path": "0/0"
+  },
+  {
+    "id": "22",
+    "fixture": "nested_model.sdf",
+    "scope": "nested_model",
+    "kind": "model",
+    "name": "nested_model",
+    "path": "-"
+  },
+  {
+    "id": "23",
+    "fixture": "nested_model.sdf",
+    "scope": "nested_model",
+    "kind": "model",
+    "name": "nested_model::nested_nested_model",
+    "path": "-"
+  },
+  {
+    "id": "24",
+    "fixture": "nested_model.sdf",
+    "scope": "nested_model",
+    "kind": "model",
+    "name": "",
+    "path": "-"
+  },
+  {
+    "id": "25",
+    "fixture": "nested_model.sdf",
+    "scope": "nested_model",
+    "kind": "link",
+    "name": "nested_link01",
+    "path": "0#0"
+  },
+  {
+    "id": "26",
+    "fixture": "nested_model.sdf",
+    "scope": "nested_model",
+    "kind": "link",
+    "name": "nested_nested_model::nested_nested_link01",
+    "path": "0/0#0"
+  },
+  {
+    "id": "27",
+    "fixture": "nested_model.sdf",
+    "scope": "nested_model",
+    "kind": "link",
+    "name": "parent",
+    "path": "-"
+  },
+  {
+    "id": "28",
+    "fixture": "nested_model.sdf",
+    "scope": "nested_model",
+    "kind": "link",
+    "name": "nested_nested_link01",
+    "path": "-"
+  },
+  {
+    "id": "29",
+    "fixture": "double_pendulum.sdf",
+    "scope": "",
+    "kind": "link",
+    "name": "base",
+    "path": "#0"
+  },
+  {
+    "id": "30",
+    "fixture": "double_pendulum.sdf",
+    "scope": "",
+    "kind": "link",
+    "name": "upper_link",
+    "path": "#1"
+  },
+  {
+    "id": "31",
+    "fixture": "double_pendulum.sdf",
+    "scope": "",
+    "kind": "link",
+    "name": "lower_link",
+    "path": "#2"
+  },
+  {
+    "id": "32",
+    "fixture": "double_pendulum.sdf",
+    "scope": "",
+    "kind": "link",
+    "name": "double_pendulum_with_base::base",
+    "path": "-"
+  },
+  {
+    "id": "33",
+    "fixture": "double_pendulum.sdf",
+    "scope": "",
+    "kind": "link",
+    "name": "missing",
+    "path": "-"
+  },
+  {
+    "id": "34",
+    "fixture": "double_pendulum.sdf",
+    "scope": "",
+    "kind": "model",
+    "name": "double_pendulum_with_base",
+    "path": "-"
+  },
+  {
+    "id": "35",
+    "fixture": "double_pendulum.sdf",
+    "scope": "",
+    "kind": "model",
+    "name": "",
+    "path": "-"
+  },
+  {
+    "id": "36",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "link",
+    "name": "outer_link",
+    "path": "#0"
+  },
+  {
+    "id": "37",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "link",
+    "name": "mid_model::mid_link",
+    "path": "0#0"
+  },
+  {
+    "id": "38",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "link",
+    "name": "mid_model::inner_model::inner_link",
+    "path": "0/0#0"
+  },
+  {
+    "id": "39",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "link",
+    "name": "mid_link",
+    "path": "-"
+  },
+  {
+    "id": "40",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "link",
+    "name": "inner_link",
+    "path": "-"
+  },
+  {
+    "id": "41",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "link",
+    "name": "outer_model::outer_link",
+    "path": "-"
+  },
+  {
+    "id": "42",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "link",
+    "name": "mid_model::outer_link",
+    "path": "-"
+  },
+  {
+    "id": "43",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "link",
+    "name": "mid_model::",
+    "path": "-"
+  },
+  {
+    "id": "44",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "link",
+    "name": "::outer_link",
+    "path": "-"
+  },
+  {
+    "id": "45",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "link",
+    "name": "",
+    "path": "-"
+  },
+  {
+    "id": "46",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "link",
+    "name": "mid_model::missing::inner_link",
+    "path": "-"
+  },
+  {
+    "id": "47",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "mid_model",
+    "kind": "link",
+    "name": "mid_link",
+    "path": "0#0"
+  },
+  {
+    "id": "48",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "mid_model",
+    "kind": "link",
+    "name": "inner_model::inner_link",
+    "path": "0/0#0"
+  },
+  {
+    "id": "49",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "mid_model",
+    "kind": "link",
+    "name": "inner_link",
+    "path": "-"
+  },
+  {
+    "id": "50",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "mid_model",
+    "kind": "link",
+    "name": "outer_link",
+    "path": "-"
+  },
+  {
+    "id": "51",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "mid_model::inner_model",
+    "kind": "link",
+    "name": "inner_link",
+    "path": "0/0#0"
+  },
+  {
+    "id": "52",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "mid_model::inner_model",
+    "kind": "link",
+    "name": "mid_link",
+    "path": "-"
+  },
+  {
+    "id": "53",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "link",
+    "name": "missing::literal",
+    "path": "#0",
+    "mode": "missing_scope"
+  },
+  {
+    "id": "54",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "link",
+    "name": "outer_link",
+    "path": "-",
+    "mode": "missing_scope"
+  },
+  {
+    "id": "55",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "link",
+    "name": "missing::literal::x",
+    "path": "-",
+    "mode": "missing_scope"
+  },
+  {
+    "id": "56",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "link",
+    "name": "mid_model::absent",
+    "path": "-",
+    "mode": "present_scope"
+  },
+  {
+    "id": "57",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "joint",
+    "name": "outer_joint",
+    "path": "@0"
+  },
+  {
+    "id": "58",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "joint",
+    "name": "mid_model::mid_joint",
+    "path": "0@0"
+  },
+  {
+    "id": "59",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "joint",
+    "name": "mid_model::inner_model::inner_joint",
+    "path": "0/0@0"
+  },
+  {
+    "id": "60",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "joint",
+    "name": "mid_joint",
+    "path": "-"
+  },
+  {
+    "id": "61",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "joint",
+    "name": "inner_joint",
+    "path": "-"
+  },
+  {
+    "id": "62",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "joint",
+    "name": "outer_model::outer_joint",
+    "path": "-"
+  },
+  {
+    "id": "63",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "joint",
+    "name": "mid_model::outer_joint",
+    "path": "-"
+  },
+  {
+    "id": "64",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "joint",
+    "name": "mid_model::",
+    "path": "-"
+  },
+  {
+    "id": "65",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "joint",
+    "name": "::outer_joint",
+    "path": "-"
+  },
+  {
+    "id": "66",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "joint",
+    "name": "",
+    "path": "-"
+  },
+  {
+    "id": "67",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "joint",
+    "name": "mid_model::missing::inner_joint",
+    "path": "-"
+  },
+  {
+    "id": "68",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "mid_model",
+    "kind": "joint",
+    "name": "mid_joint",
+    "path": "0@0"
+  },
+  {
+    "id": "69",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "mid_model",
+    "kind": "joint",
+    "name": "inner_model::inner_joint",
+    "path": "0/0@0"
+  },
+  {
+    "id": "70",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "mid_model",
+    "kind": "joint",
+    "name": "inner_joint",
+    "path": "-"
+  },
+  {
+    "id": "71",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "mid_model",
+    "kind": "joint",
+    "name": "outer_joint",
+    "path": "-"
+  },
+  {
+    "id": "72",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "mid_model::inner_model",
+    "kind": "joint",
+    "name": "inner_joint",
+    "path": "0/0@0"
+  },
+  {
+    "id": "73",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "mid_model::inner_model",
+    "kind": "joint",
+    "name": "mid_joint",
+    "path": "-"
+  },
+  {
+    "id": "74",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "joint",
+    "name": "missing::literal",
+    "path": "@0",
+    "mode": "missing_scope"
+  },
+  {
+    "id": "75",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "joint",
+    "name": "outer_joint",
+    "path": "-",
+    "mode": "missing_scope"
+  },
+  {
+    "id": "76",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "joint",
+    "name": "missing::literal::x",
+    "path": "-",
+    "mode": "missing_scope"
+  },
+  {
+    "id": "77",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "joint",
+    "name": "mid_model::absent",
+    "path": "-",
+    "mode": "present_scope"
+  },
+  {
+    "id": "78",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "frame",
+    "name": "outer_frame",
+    "path": "%0"
+  },
+  {
+    "id": "79",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "frame",
+    "name": "mid_model::mid_frame",
+    "path": "0%0"
+  },
+  {
+    "id": "80",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "frame",
+    "name": "mid_model::inner_model::inner_frame",
+    "path": "0/0%0"
+  },
+  {
+    "id": "81",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "frame",
+    "name": "mid_frame",
+    "path": "-"
+  },
+  {
+    "id": "82",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "frame",
+    "name": "inner_frame",
+    "path": "-"
+  },
+  {
+    "id": "83",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "frame",
+    "name": "outer_model::outer_frame",
+    "path": "-"
+  },
+  {
+    "id": "84",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "frame",
+    "name": "mid_model::outer_frame",
+    "path": "-"
+  },
+  {
+    "id": "85",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "frame",
+    "name": "mid_model::",
+    "path": "-"
+  },
+  {
+    "id": "86",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "frame",
+    "name": "::outer_frame",
+    "path": "-"
+  },
+  {
+    "id": "87",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "frame",
+    "name": "",
+    "path": "-"
+  },
+  {
+    "id": "88",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "frame",
+    "name": "mid_model::missing::inner_frame",
+    "path": "-"
+  },
+  {
+    "id": "89",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "mid_model",
+    "kind": "frame",
+    "name": "mid_frame",
+    "path": "0%0"
+  },
+  {
+    "id": "90",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "mid_model",
+    "kind": "frame",
+    "name": "inner_model::inner_frame",
+    "path": "0/0%0"
+  },
+  {
+    "id": "91",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "mid_model",
+    "kind": "frame",
+    "name": "inner_frame",
+    "path": "-"
+  },
+  {
+    "id": "92",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "mid_model",
+    "kind": "frame",
+    "name": "outer_frame",
+    "path": "-"
+  },
+  {
+    "id": "93",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "mid_model::inner_model",
+    "kind": "frame",
+    "name": "inner_frame",
+    "path": "0/0%0"
+  },
+  {
+    "id": "94",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "mid_model::inner_model",
+    "kind": "frame",
+    "name": "mid_frame",
+    "path": "-"
+  },
+  {
+    "id": "95",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "frame",
+    "name": "missing::literal",
+    "path": "%0",
+    "mode": "missing_scope"
+  },
+  {
+    "id": "96",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "frame",
+    "name": "outer_frame",
+    "path": "-",
+    "mode": "missing_scope"
+  },
+  {
+    "id": "97",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "frame",
+    "name": "missing::literal::x",
+    "path": "-",
+    "mode": "missing_scope"
+  },
+  {
+    "id": "98",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "frame",
+    "name": "mid_model::absent",
+    "path": "-",
+    "mode": "present_scope"
+  },
+  {
+    "id": "99",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "frame",
+    "name": "outer_link",
+    "path": "-"
+  },
+  {
+    "id": "100",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "frame",
+    "name": "outer_joint",
+    "path": "-"
+  },
+  {
+    "id": "101",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "frame",
+    "name": "mid_model",
+    "path": "-"
+  },
+  {
+    "id": "102",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "frame",
+    "name": "__model__",
+    "path": "-"
+  },
+  {
+    "id": "103",
+    "fixture": "model_multi_nested_model.sdf",
+    "scope": "",
+    "kind": "frame",
+    "name": "world",
+    "path": "-"
+  }
+]

@@ -2,52 +2,53 @@
   "author": "/root/sdformat",
   "reviewer": "/root/msgs",
   "decision": "approved",
-  "date": "2026-10-25T09:07:17.119508+00:00",
-  "base": "f4514ca956db59e7d73b3f4930509f74dc8d65be",
-  "protected_digest": "1cd2212a167bae5290d7c68e6eec7ee379f891c5fedb931665eeb68c9c9ba141",
+  "date": "2026-10-25T09:19:04.637573+00:00",
+  "base": "d6c96c31cbaf794a1e90c9054afffe57e353cbba",
+  "protected_digest": "bcd7523359a992451cdcf7bd13c6fbda54520ba8b7da624a7d306cdfc7ec4572",
   "source_sha256": {
-    "README.md": "893d10e6a0d467e7869a6137753a54b3ad57887b3f7176d55802fbd240b033ff",
-    "docs/CONTRACT.md": "40c7981811f9718698544da85172fdd5d750c559ad7bf1f776150456ad449f62",
-    "docs/MODEL_DOM.md": "c0f81d933385553fb4dcf4acc5a426517772696c3fed9ce66bf6bb6cc005541f",
-    "docs/STATUS.md": "06bdcae022f6163270ff2e435e6b5f1a6d9f4208e44a16179dc8bfb1deec2965",
-    "reference/results.json": "41998802952dd5735170e254d6124faea01badf6f0f0e8ea0722f2840b3e622c",
-    "reference/traceability.json": "7729875f723dcea15a10b6235344e46e85ac7a86c7172d705a4b3fef2bd09590",
-    "src/types.rs": "900579db56aa4a23895f67b76aaa855cc9904d06cd3c0561d1749936d016d34d",
-    "tests/fixtures/nested_model.sdf": "15c673f290a5a674c855c3ba22d4b7c9b558a42ce47c9348319e3c013ea5fda4",
-    "tests/model_dom.json": "019ce5c23c5eb216845df4a77b67c90444e8bffbd1f8cde627a743b871b2df3b",
-    "tests/model_dom.rs": "92c37c7c49c3e3270fc068d22b3adf4231e302fc12686f318d5de4605ba307a3",
-    "tests/model_dom_originals.rs": "3c17d73aa98147f3579c8c2f74a00ca1b43617c423fe5fe35480517efb3e192c",
-    "tests/model_dom_reference.cc": "e29784b1ebf0495577c5c889cfe650b12266fc5e4187a7c8febcb83503b6248d",
-    "tools/model_dom_reference.py": "4d92642f4d311ff384d57ac2a8bc32cfd7ba2ec1552863296dbf5e34ce27834c"
+    "README.md": "b5c4ad395e7f078f7baf97ee97833ef914799862d4145f0e06c19a03f826891a",
+    "docs/CONTRACT.md": "7161ce9033e45d7f6725f6805342890fc1506eb747ff60f78829d25d66871705",
+    "docs/MODEL_DOM.md": "fd11cead582ce04d6d6510934e58d2a7cb3ca1e0096bb44356ec4e5d45dbbb1f",
+    "docs/MEMBER_DOM.md": "2f5e58f4a51801c8d1c9d09bb80d2c49de36479f19f6d46ccdb2c82d0d5e2e58",
+    "docs/STATUS.md": "0f1bccb8ceff3635bff3e339a18fb1db4dc696c6414dcc52c7eb303b4aa3b634",
+    "reference/results.json": "738f816d548ff466238a7b721c1fd082c4b7d83a294f91417691a671bff6dee0",
+    "reference/traceability.json": "ecd27b702b872a43182c5ecee6caff3353c6cc8e40d3b63bd74c69aca169eb75",
+    "src/types.rs": "de8c4023261ceeadba0311c80bf940daaa0f918e390ff529533745a3567e35ee",
+    "tests/fixtures/model_multi_nested_model.sdf": "95c95bd97bba9d29a01c9d6438b2e4d5a760f99882f38840fe00f79245aaafb5",
+    "tests/member_dom.json": "f36f902886c9daff1da5ee68b487e990fef4f2c260c35023528c31273300271b",
+    "tests/member_dom.rs": "d2166da953962e8cc144498a0c9ff33895646cc8345b1f95b3fedaed68afd9d1",
+    "tests/member_dom_original.rs": "8085c370a8520d959dc23678b2ae39ed4581965d8b059c3fa6bfcc9ac0897c96",
+    "tests/member_dom_reference.cc": "af9565aae6308f18b2b075b12416177ae5e4a23c4bec402f84e6b2067df48175",
+    "tools/member_dom_reference.py": "dccf5d5c3714831dce1673d3289f5b5c9c3688db747d3d1ac59ea15ec55cd174"
   },
-  "scope": "Bounded borrowed Model::model_by_name/link_by_name traversal and complete DOMRoot.LoadDoublePendulum / DOMRoot.NestedModel assertion mappings within the documented parser subset.",
+  "scope": "Bounded stored member lookup and one complete DOMRoot.MultiNestedModel assertion mapping; no generic mutable graph-membership or physical behavior claim.",
   "independent_checks": [
-    "Reconstructed public f4514ca raw Git parent blobs and applied only the 13 hash-verified candidate files in a new reviewer-owned source and private Cargo target. Independently passed all 138 Rust tests; no shared producer target.",
-    "Compared full pinned original model_dom.cc lines 118\u2013241. Load/model/link/joint/nested-model count, index presence/absence, names, raw poses and relative strings, repeated missing descendant queries, explicit nested paths and stored pointer equality all remain. The Rust original ports preserve each assertion, with component-wise native Pose bounds at 1e-3 and no quaternion sign relaxation. Original 2018 notice and unchanged nested_model/double_pendulum fixture bytes retained.",
-    "Inspected native ModelByName first-scope recursion and LinkByName last-scope traversal against the exposed Rust traversal. The qualified parser reserves literal double-colon declarations; native legacy literal-name fallback and interface-model scopes remain explicitly excluded. Existing canonical-link traversal behavior is preserved.",
-    "Explicitly approve only the unchanged valid pendulum final zero-error ValidateGraphs observation: typed load cannot return until Graphs::build invokes mandatory validation of both pose and attachment graphs, including reference resolution and cycle checks. No generic mutable revalidation, native error-vector parity or arbitrary post-mutation validity is claimed.",
-    "Fresh native compilation/replay passes all 36 stored-pointer scope observations and both exact unchanged native originals, each 1 run / 0 failures. The entire regenerated proof dictionary equals the author, including corpus/fixtures, source/schema, installed headers/math comparison headers, libraries, helper binary and original binary hashes.",
-    "Verified final main remains on the same public parent; all source/test/corpus/probe/tool bytes match reviewed 2f4adfdd. Only accurate new result-review metadata, two reviewed mapping records and appended STATUS differ. Actual protected digest equals 1cd2212a167bae5290d7c68e6eec7ee379f891c5fedb931665eeb68c9c9ba141."
+    "Reconstructed the raw immutable public parent and applied only the 14 hash-bound candidate files. All builds used a new reviewer-owned source and private target. Independently passed all 140 Rust checks.",
+    "Compared every original MultiNestedModel assertion against the Rust port: all model/link/joint/frame counts, indexed presence and bounds, names, explicit nested lookup, repeated NameExists/pointer observations and stored object identity remain. Original 2018 notice and unchanged fixture bytes retained.",
+    "Inspected pinned Model::LinkByName, JointByName and FrameByName: last-scope lookup, exact direct literal-name fallback only when model prefix fails, and no fallback once a prefix resolves match the shared Rust helper. Native SetName and Rust field-mutation controls retain actual stored identity. Implicit semantic graph frames do not become declared DOM Frame objects.",
+    "Explicitly approve only the seven known-valid-fixture frame-graph membership observations: successful attachment lookup at the exact scoped names preserves the six positive membership observations; the missing direct mid_link yields UnknownReference. The typed loader validates this unchanged graph before return. This is not a generic mutable membership/revalidation facade or error-vector parity.",
+    "Fresh native compilation/replay reproduces all 104 observations and exact unchanged DOMRoot.MultiNestedModel original, 1 run / 0 failures. The entire native proof equals author evidence, including source/schema/headers/math headers/fixtures/libraries/probe and original binary hashes. Verified the original 36-row model/link corpus prefix is unchanged.",
+    "Final main remains on the same public parent; all implementation/test/corpus/native input bytes match reviewed 3eab3855. Only an accurate review-result object, the one approved mapping record and appended STATUS differ. Actual protected digest equals bcd7523359a992451cdcf7bd13c6fbda54520ba8b7da624a7d306cdfc7ec4572."
   ],
   "author_gate": {
-    "rust_tests": 138,
+    "rust_tests": 140,
     "tooling_tests": 13,
     "lines": [
-      3087,
-      3107
+      3099,
+      3119
     ],
     "regions": [
-      5373,
-      5490
+      5398,
+      5515
     ],
     "changed_lines": [
-      10,
-      10
+      16,
+      16
     ]
   },
   "limits": [
     "Full author tooling/coverage gate not independently repeated; normal exact staged and hosted gates remain mandatory.",
-    "Known-fixture eager graph-validation mapping is not a generic mutable DOM graph-validation API. Literal-colon legacy fallback, interface models, setters/serialization and wider SDF packets remain open.",
-    "Two mappings may be classified as complete faithful ports within the reviewed representation; no other original case or packet retirement."
+    "The graph-membership mapping is limited to the unchanged valid fixture. Mutation does not rebuild semantic graphs; interface models, generic mutable graph APIs and full SDF packets remain open.",
+    "Only MultiNestedModel may be classified as a complete faithful port under this reviewed Rust representation; no other mapping or packet retirement."
   ]
 }

@@ -4,8 +4,9 @@ Model.model_by_name and link_by_name use explicit relative nested scopes and
 return the actual stored model/link references. The model lookup follows native
 Model::ModelByName; the link method exposes the already-reviewed canonical-link
 lookup path. There is no semantic alias resolution or implicit descendant search.
-The supported parser reserves double-colon declaration names; native legacy
-fallback for such literal link names and interface-model facades are not claimed.
+The supported parser reserves double-colon declaration names. Subsequent
+in-memory member fallback qualification is recorded in MEMBER_DOM.md;
+interface-model facades remain unclaimed.
 No IO, simulator or dependency change is involved.
 
 The unchanged nested_model.sdf and double_pendulum.sdf fixtures support proposed

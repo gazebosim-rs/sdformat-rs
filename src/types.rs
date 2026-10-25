@@ -299,14 +299,28 @@ impl Model {
     /// Borrow a link using a name relative to this model's DOM scope.
     /// Explicit nested scopes are required; no semantic frame aliases are followed.
     pub fn link_by_name(&self, name: &str) -> Option<&Link> {
-        if let Some((model, remaining)) = name.split_once("::") {
-            self.models
-                .iter()
-                .find(|candidate| candidate.name == model)?
-                .link_by_name(remaining)
-        } else {
-            self.links.iter().find(|link| link.name == name)
+        let (model, name) = self.member_scope(name);
+        model.links.iter().find(|link| link.name == name)
+    }
+    /// Borrow a joint using explicit relative nested model scopes.
+    pub fn joint_by_name(&self, name: &str) -> Option<&Joint> {
+        let (model, name) = self.member_scope(name);
+        model.joints.iter().find(|joint| joint.name == name)
+    }
+    /// Borrow an explicitly declared frame; implicit model/link frames are absent.
+    pub fn frame_by_name(&self, name: &str) -> Option<&Frame> {
+        let (model, name) = self.member_scope(name);
+        model.frames.iter().find(|frame| frame.name == name)
+    }
+    fn member_scope<'n>(&self, name: &'n str) -> (&Self, &'n str) {
+        if let Some((scope, local)) = name.rsplit_once("::")
+            && let Some(model) = self.model_by_name(scope)
+        {
+            return (model, local);
         }
+        // Native DOM lookup falls back to an exact direct member name when the
+        // model prefix is absent, including literal-colon names set in memory.
+        (self, name)
     }
 }
 #[derive(Debug)]

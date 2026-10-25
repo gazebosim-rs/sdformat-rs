@@ -667,7 +667,7 @@ pub struct AxisDynamics {
     pub source: Option<Source>,
     pub xml: Option<String>,
 }
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Sensor {
     pub name: String,
     pub kind: String,
@@ -675,17 +675,56 @@ pub struct Sensor {
     pub update_rate: f64,
     pub always_on: bool,
     pub enable_metrics: bool,
-    pub imu: Imu,
+    pub config: SensorConfig,
     pub topic: String,
     /// Canonical SDF frame metadata; an empty value delegates fallback to the consumer.
     pub frame_id: String,
     /// Legacy literal gz_frame_id element, including an explicitly empty value.
     /// Consumers apply this only when frame_id is empty, before their name fallback.
     pub gz_frame_id: Option<String>,
-    /// Original IMU-specific XML, retained alongside the typed configuration.
+    /// Exact selected IMU/contact child XML; empty when that child was omitted.
     pub configuration_xml: String,
     pub source: Source,
 }
+/// Owned configuration selected by the parsed sensor type; unsupported types error.
+#[derive(Debug, Clone, PartialEq)]
+pub enum SensorConfig {
+    Imu(Box<Imu>),
+    Contact(ContactSensor),
+}
+/// Contact-system element metadata; collision references remain unresolved.
+#[derive(Debug, Clone, PartialEq)]
+pub struct ContactSensor {
+    pub collisions: Vec<String>,
+    /// Native contact/topic value. The consumer applies __default_topic__ fallback.
+    pub topic: String,
+    /// None for an omitted contact group; Some for an explicit declaration.
+    pub source: Option<Source>,
+}
+impl Default for ContactSensor {
+    fn default() -> Self {
+        Self {
+            collisions: vec!["__default__".into()],
+            topic: "__default_topic__".into(),
+            source: None,
+        }
+    }
+}
+impl Sensor {
+    pub fn imu(&self) -> Option<&Imu> {
+        match &self.config {
+            SensorConfig::Imu(value) => Some(value),
+            SensorConfig::Contact(_) => None,
+        }
+    }
+    pub fn contact(&self) -> Option<&ContactSensor> {
+        match &self.config {
+            SensorConfig::Imu(_) => None,
+            SensorConfig::Contact(value) => Some(value),
+        }
+    }
+}
+
 /// Provenance of a model-scope merge after its model node has been flattened.
 #[derive(Debug, Clone)]
 pub struct MergedInclude {

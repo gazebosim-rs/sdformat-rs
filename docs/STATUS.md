@@ -57,17 +57,19 @@ Exact versions plus transitives are locked. Custom code is SDF graph scoping and
 schema/domain validation, not generic XML, quaternion or graph algorithms.
 serde_json 1.0.150 is a test-only corpus dependency.
 
-The next bounded slice adds complete typed IMU-specific configuration and source
-mapping. The original DOMLink.Sensors IMU assertion subset passes in Rust on the
-exact IMU subtree from the unchanged sensors.sdf. All other sensor families in
-that source case remain pending, so the original case is not marked ported.
+The initial IMU slice added typed IMU-specific configuration and source mapping.
+The original DOMLink.Sensors IMU assertion subset passed on the exact IMU subtree
+from the unchanged sensors.sdf. Other families remained pending in that slice,
+so the original case was not marked ported. The later Contact candidate below
+adds one more exact subtree; the case remains partial.
 The complete native DOMLink.Sensors case passes. Differential probes establish
 negative noise sigma rejection, case-insensitive gaussian_quantized, and native
 preservation of unknown localization/parent-frame strings. Original sensor XML
-is retained with typed settings. The full upstream fixture has an undeclared XML
-prefix in another sensor, which roxmltree rejects; exact-subtree extraction keeps
-the relevant IMU bytes unchanged and does not hide that open syntax compatibility
-gap. This slice has 18 Rust tests and six gate tests; coverage independently reviewed by /root is 1193/1201 lines, 2077/2164 regions, and 117/118 changed
+is retained with typed settings. At that stage the full fixture had an undeclared XML
+prefix rejected by roxmltree; the later element cursor described below corrected
+that syntax limitation. Exact-subtree extraction preserves the relevant original
+bytes; unsupported typed sensor families remain explicit. The initial slice had
+18 Rust tests and six gate tests; coverage independently reviewed by /root is 1193/1201 lines, 2077/2164 regions, and 117/118 changed
 executable lines. No coverage exclusion was introduced.
 
 Next bounded work: model/include placement frames and merge behavior with C++ probes; older conversions and
@@ -139,8 +141,8 @@ TinyXML rejects. Raw plugin spans index the unchanged input. Native differential
 cases establish acceptance of undeclared prefixes, unknown references, bare
 ampersands and opaque numeric-reference quirks; literal NUL and invalid element
 names are rejected. Full unchanged sensors.sdf now reaches Unsupported semantic
-validation instead of failing XML parsing. Its other26 sensor families remain
-pending. DTD remains an explicit Unsupported feature. Original fixture bytes and
+validation instead of failing XML parsing. At that stage its other 26 sensor
+families remained pending; the later Contact candidate reduces that number by one. DTD remains an explicit Unsupported feature. Original fixture bytes and
 all earlier assertions remain intact. Corpus:35 native/Rust acceptance cases,
 four numeric pose observations;33 Rust tests and six gate tests pass. Cargo
 manifest/lock/toolchain files are now included in protected review digests.
@@ -1015,3 +1017,47 @@ controls for fixed joints without axes and retained revolute unbounded values wi
 independent UTF-8 source cloning. Runtime graph resolution remains Sdf-owned;
 Clone retains configuration only. The normal exact staged and hosted gates remain
 required before publication.
+
+
+## Contact sensor configuration candidate
+
+Isolated work adds an owned SensorConfig enum with boxed IMU or Contact settings,
+optional typed accessors, exact selected XML and clone/source ownership. Contact
+collision names preserve order and duplicates; nested topic remains distinct
+from envelope topic. No dummy IMU, runtime scheduling or contact effect is added.
+Existing negative IMU-rate rejection remains; native finite negative contact
+rates are preserved as metadata. The complete original Sensors case passes
+natively; Rust adds only the exact contact subtree assertions to the prior IMU
+partial mapping. Other families and whole fixture assertions remain pending.
+The native 85-row corpus has 74 supported parity rows and 11 precisely named
+policy/schema gaps. Independent source/assertion review passed; exact staged and
+hosted gates remain required. No whole SDF packet acceptance is claimed.
+
+Author checks pass 150 integrated Rust tests, 13 tooling tests, formatting and
+strict Clippy.
+Production coverage is 3160/3181 lines and 5519/5631 regions; changed executable
+lines are 77/78, above the strict threshold. The complete native Sensors original
+and all 85 differential observations pass. These are working-tree measurements;
+independent review is complete and the normal exact staged gate remains pending.
+
+Self-review found and fixed premature IMU configuration evaluation in the new
+enum path. Four exact diagnostic controls from a fresh public-parent consumer
+preserve envelope name/pose/boolean precedence, including code, source position
+and message. The new test failed before correction and passes after restoring
+the original evaluation order. The earlier 81 native observations are unchanged;
+four additional invalid-envelope controls now also bind their native outcomes.
+
+Contact integration onto public Clone 4ed690b3 retains its three derives, owned
+consumer test and contract text. Fresh integrated author replay passes all 150
+Rust checks, 13 tools and the complete 85-row/original native proof; every native
+proof field equals the corrected isolated result. Coverage remains 3160/3181
+lines and 5519/5631 regions, with 77/78 changed executable lines.
+
+Independent /root/transport_fallback approved the exact Contact source and partial
+assertions after 150 fresh private Rust checks, 13 tools, formatting/Clippy, all
+85 native rows and the full Sensors original. A separate public-parent build
+reproduced all four old IMU diagnostics exactly. Source, XML ownership and native
+pose tolerance were reviewed; no full case retirement or runtime effect is
+claimed. The reviewer also detected only a post-coverage quality-metadata digest
+drift; fresh final-byte author checks corrected that binding. Final metadata,
+normal exact staged hook and hosted qualification remain required.

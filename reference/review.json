@@ -2,39 +2,40 @@
   "decision": "approved",
   "repository": "sdformat-rs",
   "author": "/root/sdformat",
-  "reviewer": "/root",
-  "base": "706e8fde8d096e520cac0cfcc34847ef138dfbb9",
-  "protected_digest": "ebe01d92dc0ebcf34b570a2c3d5bfee32264d4350fd87a0a539f83570aac8592",
+  "reviewer": "/root/transport_fallback",
+  "reviewed_at": "2026-10-25T11:45:29Z",
+  "base": "4ed690b3a872e395df0f3544b278c7f1d3c45a7e",
+  "protected_digest": "5d555f42135dfce7f18ba3e0041e7083788dce2442259e51f7f072412c0c63e5",
+  "source_digest": "6abac39647c76babb085254913e63c498ea12ceb77cea98827ada32d4a77d1d6",
   "files": {
-    "docs/CONTRACT.md": "b89a352ada383f32f9e7368be7f2de6a0c5440a09400ed2b8d5e3629b61ed357",
-    "docs/STATUS.md": "5ca928860d572bccc7be20ae0d705ad293a25b8f0aad62da6928279136cf6bed",
-    "src/types.rs": "9090b55401c53097eda5bd13986ca74053dc9065271d067b4f1968db34afb4da",
-    "tests/joint_clone.rs": "d6b6de82ce66f21631775dcde651a70cdf49ab543dc3e943c54ef098d28e3f99"
+    "README.md": "21269ed3139a9261162f163b818b78d70fc9a5987c88d3714c06b28659e7749b",
+    "docs/CONTACT_SENSOR.md": "e280e925d1fc809cb48348b633b51d67fe0705aaaedca0bca8b60b87f99404fa",
+    "docs/CONTRACT.md": "50c6a725a9caab13e4f159929218634b62bd55f1dba9006414c3d0e8592a2295",
+    "docs/STATUS.md": "ed1bcd9303ad87eddb5ec135aaa428357f9799aa281314b85257a383e9edb9d8",
+    "reference/results.json": "c81c20e7daf6dfba68579774ab0cc65f0645a59cce60f5a19bb13d3e67f1fc73",
+    "reference/traceability.json": "15043c185509ce97885cf69801cb906dfb5c8c2e4a2e2a93eebd8e088732d6f4",
+    "src/parse.rs": "5fc6f4c5c53ee7b7f8b4d094e853574b83f8ac5264143f2d14cd7c6c5eaa2acb",
+    "src/types.rs": "6465684941721bf97075460fcb93c37da9f686996f4c337f71f4dd00c29ae681",
+    "tests/contact_sensor.json": "20e570710f926fb9cac5a608bda7606da9c9a76cb44c8da74ffc82cde13e2d2b",
+    "tests/contact_sensor.rs": "e1f1714c5201d2e9e4d6fb6dd6dd20589376a13dcab4ab0f11ae9284372e891c",
+    "tests/contact_sensor_reference.cc": "14d875d182b0aea7c382d290b2ccca852abe01ab71833592edfe70202d6861b1",
+    "tests/imu.rs": "da86e75b61f7bab17cdad12fdde1ebab50dd2c9ef446b880c0f2314d091da820",
+    "tests/scalar.rs": "40ad376f7122f02bc802d92b2562f80fe883342356f3eb7c6ec1d040394abdf0",
+    "tools/contact_sensor_reference.py": "246518dca15f9ba62d51a9f7c9558f4cf04f2ec49c31e86d72f8d8450c2231f8"
   },
-  "scope": "Three derived Clone implementations on owned JointKind/Joint/Axis. No parser, normalization, dependency, unsafe, native input, old assertion or coverage gate changes. New configuration-retention API only; semantic frame resolution still belongs to Sdf.",
+  "scope": "Owned Contact sensor configuration and exact contact subtree of DOMLink.Sensors as a partial reviewed mapping; no complete case retirement, runtime Contact behavior, dependency, unsafe or performance claim.",
   "independent_checks": {
-    "snapshot": "Raw706 tree exported with private index and raw Git hash validation, four exact frozen overlays verified. Final STATUS-only concise evidence adjustment rebound; three other hashes unchanged.",
-    "authored_test": "Fresh private source and Cargo target: joint_clone1/0 passed.",
-    "reviewer_controls": "Fixed clone retains absent axes; Revolute clone retains implicit negative/positive infinity bits and UTF8 source after document drop and independent clone mutation.2/0 passed.",
-    "source_review": "Exactly three derived traits added; all members already own Clone values. No original assertion retirement or weakening. Source/types and contract reviewed; Apache-2.0 and OSRF attribution retained.",
-    "compiler": "rustc 1.94.1 (e408947bf 2026-03-25)\nbinary: rustc\ncommit-hash: e408947bfd200af42db322daf0fadfe7e26d3bd1\ncommit-date: 2026-03-25\nhost: x86_64-unknown-linux-gnu\nrelease: 1.94.1\nLLVM version: 21.1.8\n",
-    "command": "CARGO_TARGET_DIR=<private target> cargo test --locked --test joint_clone --test reviewer_joint_clone",
-    "qualification": "Initial private snapshot placed under simulator workspace could not run due Cargo workspace membership; retained joint-clone.log. Moved identical raw snapshot outside workspace without source/manifest edits, then passed with producer-pinned1.94.1. No independent full143/13 gate or coverage replay claimed."
+    "source": "Separate clean public Clone base export plus exact 14 frozen overlays; all source SHA256 and final protected digest verified, with only traceability/results/STATUS final metadata changed after source review.",
+    "rust": "Fresh separate reviewer source and Cargo target: all 150 Rust checks passed; 13 tooling tests, rustfmt and Clippy with warnings denied passed.",
+    "native": "Freshly compiled pinned C++ contact helper passed all 85 raw Root observations; complete proof equals reference/results contact_sensor_corpus; unchanged DOMLink.Sensors original passed 1/0.",
+    "precedence": "Separate public Clone baseline consumer reproduced all four exact old IMU diagnostic strings; frozen Contact test preserved each code, source position and message. Earlier premature-IMU negative test and correction evidence inspected.",
+    "original_assertions": "Exact unchanged contact subtree assertions at link_dom.cc:362-372 map presence/name/type, raw pose, both semantic resolution targets and metrics. Pinned gz-math Pose3 equality delegates to component-wise Vector3/Quaternion <=1e-3, matching Rust port; original XML subtree and OSRF notice retained.",
+    "coverage": "Author full strict gate on final bytes matched source_digest; 3160/3181 production lines, 5519/5631 regions, 77/78 changed executable lines. Uncovered changed parse.rs:2085 unreachable branch remains in denominator. Independent full LLVM coverage rerun not claimed."
   },
-  "author_evidence": {
-    "rust_checks": 143,
-    "tooling_checks": 13,
-    "coverage": {
-      "lines": {
-        "count": 3112,
-        "covered": 3092
-      },
-      "regions": {
-        "count": 5510,
-        "covered": 5395
-      }
-    },
-    "changed_executable_lines": 0
-  },
-  "remaining": "Final exact staged normal hook and hosted qualification remain required before publication/consumer adoption."
+  "limits": [
+    "74 native parity rows; 11 named native-accepted Rust policy/schema gaps.",
+    "Other 25 sensor families and whole Sensors/model/link assertions remain pending.",
+    "Public Sensor.imu field migration requires downstream adaptation; consumer must reject Contact until runtime exists.",
+    "Final normal exact staged hook and hosted CI remain required before publication."
+  ]
 }

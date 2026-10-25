@@ -35,7 +35,13 @@ fn scalar_native_range_prefix_and_bits() {
                     };
                     mesh.scale[0]
                 }
-                _ => sdf.models[0].links[0].sensors[0].imu.angular_velocity[0].mean,
+                _ => {
+                    sdf.models[0].links[0].sensors[0]
+                        .imu()
+                        .unwrap()
+                        .angular_velocity[0]
+                        .mean
+                }
             };
             assert_eq!(value.to_bits(), case["bits"].as_u64().unwrap(), "{case}");
         }

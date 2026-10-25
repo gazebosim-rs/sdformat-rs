@@ -42,8 +42,11 @@ when present on another supported joint kind.
 Negative effort/velocity sentinels become positive infinity. Axis resolution
 rotates into the requested frame without translation. Joint endpoint frames may
 be aliases, but must resolve to different bodies; the child cannot be world.
-`Sensor` supports IMU pose, rate in Hz, always_on, enable_metrics, topic, typed
-`Imu` settings and original IMU XML. The six per-axis `Noise` records retain type,
+`Sensor` has pose, rate in Hz, always_on, enable_metrics, topic and selected
+`SensorConfig::Imu(Box<Imu>)` or `SensorConfig::Contact(ContactSensor)` settings.
+Optional `imu()` / `contact()` accessors expose the selected type; exact selected
+child XML and owned source are preserved. Contact collision names and nested topic
+remain distinct from envelope topic; see docs/CONTACT_SENSOR.md. The six per-axis `Noise` records retain type,
 mean, standard deviation, bias mean/deviation, dynamic bias deviation/correlation
 time, and precision. Standard deviations are nonnegative; noise types are case
 insensitive. IMU orientation enable, localization, custom RPY and gravity direction
@@ -95,7 +98,7 @@ models before applying the same frame renaming, independent of XML order.
 Same-kind raw duplicates reject, and reference strings are not rewritten.
 Modern shared names reject. Flattened names remain Unsupported; 1.3 and older
 conversions remain unavailable. Full schema/version-aware
-validation, serialization, visual material data/rendering effects, mesh resource loading, world merge and legacy merge collisions, automatic inertia, URDF, other sensor families and most other
+validation, serialization, rendering effects, mesh resource loading, world merge and legacy merge collisions, automatic inertia, URDF, other sensor families and most other
 SDF features remain pending. Unknown schema features error; opaque plugin XML is the stated exception.
 XML names are lexical, matching upstream TinyXML: extension prefixes need not
 be declared. Plugin XML retains original bytes/ranges, including references,
@@ -209,9 +212,9 @@ and gz_frame_id leaf names are accepted; other extensions remain Unsupported.
 The consumer chooses a nonempty canonical value first, then a present legacy
 value even if empty, then its effective sensor name. The simulator may override
 that name with the scoped sensor identity before applying fallback. This parser
-does not choose a runtime name or apply consumer fallback. The sensor remains
-an IMU-only supported envelope; no additional sensor-family completion or full
-DOMSensor original-case retirement is claimed by these metadata assertions.
+does not choose a runtime name or apply consumer fallback. These common fields
+apply to both supported IMU and Contact variants. No other sensor-family
+completion or full DOMSensor original-case retirement is claimed.
 
 
 Sensor.topic uses the same native string text-origin handling as frame metadata:

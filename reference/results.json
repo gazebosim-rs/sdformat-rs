@@ -39747,5 +39747,1471 @@
     "obsolete_assertion_disposition": "Explicitly approved exact old XML and helper-wrapper preservation as positive value regressions; reinserting only the two recorded tuples reconstructs both public parent test files byte-for-byte. Unrelated error assertions are unchanged.",
     "semantics": "Finite ordering preserved; implicit converted-schema unbounded defaults distinguished from explicit nonfinite-input gaps and explicit-empty errors. No runtime normalization or original retirement.",
     "coverage": "Author-only 3092/3112 lines, 5395/5510 regions, 2/2 changed; normal staged/hosted gates required."
+  },
+  "contact_sensor_corpus": {
+    "upstream_sha": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "corpus_sha256": "20e570710f926fb9cac5a608bda7606da9c9a76cb44c8da74ffc82cde13e2d2b",
+    "probe_source_sha256": "14d875d182b0aea7c382d290b2ccca852abe01ab71833592edfe70202d6861b1",
+    "probe_binary_sha256": "83575ef686a5e42af09f80cfeacd16b3340267e513cdbce67402c15a58ec8123",
+    "linked_libraries_sha256": {
+      "libsdformat.so.17": "bcc864bcee56b49c13081e29722051e26c036260e3dd037e7736aa2b8620358f",
+      "libstdc++.so.6": "1fd75fe70354a416d75aef22bcae68c47bd25d20e2d0568c30b1a9838cf62f11",
+      "libc.so.6": "3a15d66867d83762c7f2f1e37359cb8f6c5743edb369c65285cb0b1c4f7498bf",
+      "libgz-math.so.10": "288c6f52fac45359f5de67d97e0069b7f37420f5f78888e61406b8f565656c4f"
+    },
+    "source_sha256": {
+      "src/Sensor.cc": "5fbab175624338e03264f1655a15863a5a29180573cbc898591429fa8f3856ba",
+      "src/Param.cc": "487407a4a2301617b262ccb782312fe9c1d3d099e715aa42f3bb3cb713b29dce",
+      "src/parser.cc": "2ec95e05647c61121ced7910ca8164161a189d31f4b1d1249c9bf2d1ee93463d",
+      "include/sdf/Sensor.hh": "67b9a581845924841512c6b09c64a84196a0b392ba82b5637a6ef7b3db6cf29a",
+      "include/sdf/Element.hh": "7fd9188523a957c8d9d96e33f31ff39ccf95fd3752a664bf3ffb60185be9da4e",
+      "sdf/1.12/sensor.sdf": "2f2dc839a5121b3b33fe985c978e530565b093d310ebd03fc781a6cbce0b3efc",
+      "sdf/1.12/contact.sdf": "8c2367ead394aaf5289d96fb71ae4d46159d30b1de91ef6ad0196b698801ab79",
+      "test/integration/link_dom.cc": "3f19b57d0cd02be6201a08be4580d5a478d5e3c1549457605754ccff99ccd4f1",
+      "test/sdf/sensors.sdf": "dc2b61c8b40a7df7f2c7b6e649f3039136ca1a03528371b307e9b9fc27406a00"
+    },
+    "fixture_sha256": "dc2b61c8b40a7df7f2c7b6e649f3039136ca1a03528371b307e9b9fc27406a00",
+    "originals": [
+      {
+        "case": "DOMLink.Sensors",
+        "binary_sha256": "5996c21878cab1dacd0d653c50bfdcf4a02c8064157855ae6136471939582716",
+        "tests": 1,
+        "failures": 0
+      }
+    ],
+    "math_upstream_sha": "1316ed334f4d5bda7be59aae07cd6e8ff31cfe13",
+    "math_header_sha256": {
+      "include/gz/math/Pose3.hh": "6bfc53f0bd22a3e1596bbdb07c24bacdac9e17bd8178b9373d8df1b01e4fc6f6",
+      "include/gz/math/Quaternion.hh": "9170601444da93735b4d14b369cc4266fafc7655657a6af7613e31206382b873",
+      "include/gz/math/Vector3.hh": "b4e8d01584139efba180bf530c95e18101aee4fb070aa93b8ddfe7cc38282a38"
+    },
+    "sim_upstream_sha": "71c60db31fddd5c98d2aa689e9a2cccb3548a0a3",
+    "consumer_source_sha256": {
+      "src/systems/contact/Contact.cc": "0f6f0eff84ccebb5a19e5eae3cbe4de0ffc02632bb805e5e55aac3af0808517e",
+      "include/gz/sim/components/ContactSensor.hh": "19b76ff68dfa2e42e12daba0a2a0f47a432ab55613d9135738649b4e9331bf91"
+    },
+    "observations": [
+      {
+        "id": "absent",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "0",
+          "1",
+          "5f5f64656661756c745f5f",
+          "5f5f64656661756c745f746f7069635f5f",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "empty",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "1",
+          "1",
+          "5f5f64656661756c745f5f",
+          "5f5f64656661756c745f746f7069635f5f",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "name",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "1",
+          "1",
+          "63",
+          "5f5f64656661756c745f746f7069635f5f",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "empty_name",
+        "tokens": [
+          "7",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "30"
+        ]
+      },
+      {
+        "id": "two",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "1",
+          "2",
+          "63",
+          "64",
+          "5f5f64656661756c745f746f7069635f5f",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "topic",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "1",
+          "1",
+          "5f5f64656661756c745f5f",
+          "666f6f",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "empty_topic",
+        "tokens": [
+          "7",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "30"
+        ]
+      },
+      {
+        "id": "spaces",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "1",
+          "1",
+          "612062",
+          "782079",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "1.4_absent",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "0",
+          "1",
+          "5f5f64656661756c745f5f",
+          "5f5f64656661756c745f746f7069635f5f",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "1.4_names",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "1",
+          "2",
+          "61",
+          "62",
+          "6e6573746564",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "1.5_absent",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "0",
+          "1",
+          "5f5f64656661756c745f5f",
+          "5f5f64656661756c745f746f7069635f5f",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "1.5_names",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "1",
+          "2",
+          "61",
+          "62",
+          "6e6573746564",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "1.6_absent",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "0",
+          "1",
+          "5f5f64656661756c745f5f",
+          "5f5f64656661756c745f746f7069635f5f",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "1.6_names",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "1",
+          "2",
+          "61",
+          "62",
+          "6e6573746564",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "1.7_absent",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "0",
+          "1",
+          "5f5f64656661756c745f5f",
+          "5f5f64656661756c745f746f7069635f5f",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "1.7_names",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "1",
+          "2",
+          "61",
+          "62",
+          "6e6573746564",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "1.8_absent",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "0",
+          "1",
+          "5f5f64656661756c745f5f",
+          "5f5f64656661756c745f746f7069635f5f",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "1.8_names",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "1",
+          "2",
+          "61",
+          "62",
+          "6e6573746564",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "1.9_absent",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "0",
+          "1",
+          "5f5f64656661756c745f5f",
+          "5f5f64656661756c745f746f7069635f5f",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "1.9_names",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "1",
+          "2",
+          "61",
+          "62",
+          "6e6573746564",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "1.10_absent",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "0",
+          "1",
+          "5f5f64656661756c745f5f",
+          "5f5f64656661756c745f746f7069635f5f",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "1.10_names",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "1",
+          "2",
+          "61",
+          "62",
+          "6e6573746564",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "1.11_absent",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "0",
+          "1",
+          "5f5f64656661756c745f5f",
+          "5f5f64656661756c745f746f7069635f5f",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "1.11_names",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "1",
+          "2",
+          "61",
+          "62",
+          "6e6573746564",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "1.12_absent",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "0",
+          "1",
+          "5f5f64656661756c745f5f",
+          "5f5f64656661756c745f746f7069635f5f",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "1.12_names",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "1",
+          "2",
+          "61",
+          "62",
+          "6e6573746564",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "collision_plain",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "1",
+          "1",
+          "61726d",
+          "5f5f64656661756c745f746f7069635f5f",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "collision_ordinary",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "1",
+          "1",
+          "6120622063",
+          "5f5f64656661756c745f746f7069635f5f",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "collision_cdata",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "1",
+          "1",
+          "61202062092063",
+          "5f5f64656661756c745f746f7069635f5f",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "collision_nbsp",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "1",
+          "1",
+          "c2a061c2a0",
+          "5f5f64656661756c745f746f7069635f5f",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "collision_nbsp_only",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "1",
+          "1",
+          "c2a0",
+          "5f5f64656661756c745f746f7069635f5f",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "collision_nul",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "1",
+          "1",
+          "61",
+          "5f5f64656661756c745f746f7069635f5f",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "collision_cdata_then_text",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "1",
+          "1",
+          "61",
+          "5f5f64656661756c745f746f7069635f5f",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "collision_comment_split",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "1",
+          "1",
+          "61",
+          "5f5f64656661756c745f746f7069635f5f",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "collision_child_lf",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "1",
+          "1",
+          "612062",
+          "5f5f64656661756c745f746f7069635f5f",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "collision_empty",
+        "tokens": [
+          "7",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "30"
+        ]
+      },
+      {
+        "id": "collision_space",
+        "tokens": [
+          "7",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "30"
+        ]
+      },
+      {
+        "id": "collision_cdata_empty",
+        "tokens": [
+          "7",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "30"
+        ]
+      },
+      {
+        "id": "collision_cdata_space",
+        "tokens": [
+          "7",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "30"
+        ]
+      },
+      {
+        "id": "collision_cdata_vt",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "1",
+          "1",
+          "0b",
+          "5f5f64656661756c745f746f7069635f5f",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "collision_literal_default",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "1",
+          "1",
+          "5f5f64656661756c745f5f",
+          "5f5f64656661756c745f746f7069635f5f",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "collision_literal_topic_default",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "1",
+          "1",
+          "5f5f64656661756c745f746f7069635f5f",
+          "5f5f64656661756c745f746f7069635f5f",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "topic_plain",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "1",
+          "1",
+          "5f5f64656661756c745f5f",
+          "61726d",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "topic_ordinary",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "1",
+          "1",
+          "5f5f64656661756c745f5f",
+          "6120622063",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "topic_cdata",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "1",
+          "1",
+          "5f5f64656661756c745f5f",
+          "61202062092063",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "topic_nbsp",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "1",
+          "1",
+          "5f5f64656661756c745f5f",
+          "c2a061c2a0",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "topic_nbsp_only",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "1",
+          "1",
+          "5f5f64656661756c745f5f",
+          "c2a0",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "topic_nul",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "1",
+          "1",
+          "5f5f64656661756c745f5f",
+          "61",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "topic_cdata_then_text",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "1",
+          "1",
+          "5f5f64656661756c745f5f",
+          "61",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "topic_comment_split",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "1",
+          "1",
+          "5f5f64656661756c745f5f",
+          "61",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "topic_child_lf",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "1",
+          "1",
+          "5f5f64656661756c745f5f",
+          "612062",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "topic_empty",
+        "tokens": [
+          "7",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "30"
+        ]
+      },
+      {
+        "id": "topic_space",
+        "tokens": [
+          "7",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "30"
+        ]
+      },
+      {
+        "id": "topic_cdata_empty",
+        "tokens": [
+          "7",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "30"
+        ]
+      },
+      {
+        "id": "topic_cdata_space",
+        "tokens": [
+          "7",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "30"
+        ]
+      },
+      {
+        "id": "topic_cdata_vt",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "1",
+          "1",
+          "5f5f64656661756c745f5f",
+          "0b",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "topic_literal_default",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "1",
+          "1",
+          "5f5f64656661756c745f5f",
+          "5f5f64656661756c745f5f",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "topic_literal_topic_default",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "1",
+          "1",
+          "5f5f64656661756c745f5f",
+          "5f5f64656661756c745f746f7069635f5f",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "envelope_distinct",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "1",
+          "1",
+          "63",
+          "6e6573746564",
+          "656e76656c6f7065",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "duplicates",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "1",
+          "3",
+          "61",
+          "61",
+          "62",
+          "5f5f64656661756c745f746f7069635f5f",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "contact_negative_rate",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "0",
+          "1",
+          "5f5f64656661756c745f5f",
+          "5f5f64656661756c745f746f7069635f5f",
+          "-",
+          "13830554455654793216",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "contact_common_fields",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "0",
+          "1",
+          "5f5f64656661756c745f5f",
+          "5f5f64656661756c745f746f7069635f5f",
+          "-",
+          "4613937818241073152",
+          "1",
+          "1",
+          "6672616d65"
+        ]
+      },
+      {
+        "id": "type_space",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "0",
+          "1",
+          "5f5f64656661756c745f5f",
+          "5f5f64656661756c745f746f7069635f5f",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "type_nbsp",
+        "tokens": [
+          "1",
+          "5"
+        ]
+      },
+      {
+        "id": "imu_default",
+        "tokens": [
+          "0",
+          "696d75",
+          "1",
+          "0",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "imu_space",
+        "tokens": [
+          "0",
+          "696d75",
+          "1",
+          "0",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "imu_negative_rate_existing_policy",
+        "tokens": [
+          "0",
+          "696d75",
+          "1",
+          "0",
+          "-",
+          "13830554455654793216",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "unused_imu_payload",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "0",
+          "1",
+          "5f5f64656661756c745f5f",
+          "5f5f64656661756c745f746f7069635f5f",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "unused_contact_payload",
+        "tokens": [
+          "0",
+          "696d75",
+          "1",
+          "1",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "unknown_extension_collision",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "1",
+          "1",
+          "5f5f64656661756c745f5f",
+          "5f5f64656661756c745f746f7069635f5f",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "duplicate_topic",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "1",
+          "1",
+          "5f5f64656661756c745f5f",
+          "61",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "duplicate_contact",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "1",
+          "1",
+          "5f5f64656661756c745f5f",
+          "5f5f64656661756c745f746f7069635f5f",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "unknown_contact_attribute",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "1",
+          "1",
+          "5f5f64656661756c745f5f",
+          "5f5f64656661756c745f746f7069635f5f",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "nonfinite_rate_inf",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "0",
+          "1",
+          "5f5f64656661756c745f5f",
+          "5f5f64656661756c745f746f7069635f5f",
+          "-",
+          "9218868437227405312",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "nonfinite_rate_nan",
+        "tokens": [
+          "0",
+          "636f6e74616374",
+          "0",
+          "0",
+          "1",
+          "5f5f64656661756c745f5f",
+          "5f5f64656661756c745f746f7069635f5f",
+          "-",
+          "9221120237041090560",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "family_camera",
+        "tokens": [
+          "0",
+          "63616d657261",
+          "0",
+          "0",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "family_custom",
+        "tokens": [
+          "0",
+          "637573746f6d",
+          "0",
+          "0",
+          "-",
+          "0",
+          "0",
+          "0",
+          "-"
+        ]
+      },
+      {
+        "id": "invalid_type_none",
+        "tokens": [
+          "1",
+          "5"
+        ]
+      },
+      {
+        "id": "invalid_type_garbage",
+        "tokens": [
+          "1",
+          "5"
+        ]
+      },
+      {
+        "id": "invalid_type_CONTACT",
+        "tokens": [
+          "1",
+          "5"
+        ]
+      },
+      {
+        "id": "empty_type",
+        "tokens": [
+          "6",
+          "5",
+          "9",
+          "9",
+          "9",
+          "9",
+          "30"
+        ]
+      },
+      {
+        "id": "imu_envelope_empty_name",
+        "tokens": [
+          "6",
+          "5",
+          "9",
+          "9",
+          "9",
+          "9",
+          "30"
+        ]
+      },
+      {
+        "id": "imu_envelope_bad_pose",
+        "tokens": [
+          "6",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "30"
+        ]
+      },
+      {
+        "id": "imu_envelope_bad_always_on",
+        "tokens": [
+          "6",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "30"
+        ]
+      },
+      {
+        "id": "imu_envelope_bad_metrics",
+        "tokens": [
+          "6",
+          "9",
+          "9",
+          "9",
+          "9",
+          "9",
+          "30"
+        ]
+      }
+    ]
+  },
+  "contact_sensor_api_migration": [
+    {
+      "path": "tests/imu.rs",
+      "before_sha256": "862211c2d3421c9295661abd9f32521883f5b0f15196f67196bca5c87cc26895",
+      "after_sha256": "da86e75b61f7bab17cdad12fdde1ebab50dd2c9ef446b880c0f2314d091da820",
+      "scope": "Only required non-null configuration accessor expressions and rustfmt layout; assertion data/operators and negative-rate IMU XML remain unchanged."
+    },
+    {
+      "path": "tests/scalar.rs",
+      "before_sha256": "969b0ac86875b1b809f22449ef953de945a59f2ae3799a812b4123b56e03d575",
+      "after_sha256": "40ad376f7122f02bc802d92b2562f80fe883342356f3eb7c6ec1d040394abdf0",
+      "scope": "Only required non-null configuration accessor expressions and rustfmt layout; assertion data/operators and negative-rate IMU XML remain unchanged."
+    }
+  ],
+  "contact_sensor_quality": {
+    "rust_checks": 150,
+    "tools": 13,
+    "coverage": {
+      "lines": {
+        "count": 3181,
+        "covered": 3160
+      },
+      "regions": {
+        "count": 5631,
+        "covered": 5519
+      }
+    },
+    "changed_lines": {
+      "count": 78,
+      "covered": 77
+    },
+    "native_rows": 85,
+    "native_parity_rows": 74,
+    "named_gap_rows": 11,
+    "scope": "Integrated onto published Clone4ed690b3, with unchanged corrected Contact parsing/types/test/corpus/probe; all inherited Clone source/test contracts retained."
+  },
+  "contact_sensor_error_precedence": {
+    "baseline_revision": "706e8fde8d096e520cac0cfcc34847ef138dfbb9",
+    "baseline_parse_sha256": "aee63f9aff9c92ebbd4ae7128a42d4ebbcb495443ec0b43757f53fdac7ca9c53",
+    "baseline_consumer": "Fresh separate Rust consumer linked to unchanged public main before correction; no cache-only claim.",
+    "exact_cases": [
+      {
+        "id": "empty_name",
+        "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='' type='imu'><imu><angular_velocity><x><noise type='unsupported'/></x></angular_velocity></imu></sensor></link></model></sdf>",
+        "baseline_stdout": "Diagnostic { code: Missing, source: Source { uri: \"precedence\", line: 1, column: 52 }, message: \"missing name attribute\" }\n"
+      },
+      {
+        "id": "bad_pose",
+        "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><pose>bad</pose><imu><angular_velocity><x><noise type='unsupported'/></x></angular_velocity></imu></sensor></link></model></sdf>",
+        "baseline_stdout": "Diagnostic { code: InvalidValue, source: Source { uri: \"precedence\", line: 1, column: 80 }, message: \"expected numeric vector\" }\n"
+      },
+      {
+        "id": "bad_always_on",
+        "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><always_on>bad</always_on><imu><angular_velocity><x><noise type='unsupported'/></x></angular_velocity></imu></sensor></link></model></sdf>",
+        "baseline_stdout": "Diagnostic { code: InvalidValue, source: Source { uri: \"precedence\", line: 1, column: 80 }, message: \"expected boolean\" }\n"
+      },
+      {
+        "id": "bad_metrics",
+        "xml": "<sdf version='1.12'><model name='m'><link name='l'><sensor name='s' type='imu'><enable_metrics>bad</enable_metrics><imu><angular_velocity><x><noise type='unsupported'/></x></angular_velocity></imu></sensor></link></model></sdf>",
+        "baseline_stdout": "Diagnostic { code: InvalidValue, source: Source { uri: \"precedence\", line: 1, column: 80 }, message: \"expected boolean\" }\n"
+      }
+    ],
+    "red_test": "New test failed on empty-name case before correction: invalid noise type preceded the original missing-name diagnostic.",
+    "correction": "Preserve original name, pose, always_on and enable_metrics validation before IMU configuration. Exact debug diagnostics include code/source/position/message.",
+    "old_81_observations_unchanged": true
+  },
+  "contact_sensor_review": {
+    "reviewer": "/root/transport_fallback",
+    "source_protected_digest": "9b4072d4995f54e9da276cd73cc30758fdc62e05b9d373213d080f8307cdccbc",
+    "independent_checks": {
+      "rust": 150,
+      "tools": 13,
+      "fmt_clippy": "passed",
+      "native_rows": 85,
+      "original_sensors": {
+        "tests": 1,
+        "failures": 0
+      },
+      "proof": "Complete fresh native proof equals recorded result, including all shared hashes.",
+      "precedence": "Separate fresh public Clone 4ed690b3 baseline target reproduces every exact old IMU diagnostic; all four corrected controls match code, source position and message."
+    },
+    "mapping": "Exact contact subtree presence/name/type/raw pose/two semantic resolutions/metrics retain native component-wise <=1e-3 Pose3 equality. IMU/scalar assertion data/operators and negative-rate rejection retained with non-null accessor migration; case remains partial.",
+    "scope": "Owned selected enum, effective defaults, ordered names, distinct nested topic, source/XML cloning, explicit policy/schema gaps; no dummy IMU, new dependency or unsafe code.",
+    "evidence_binding": "Reviewer identified only post-coverage quality metadata drift; all author components reran on exact frozen source and metadata, digest verified equal. Final review metadata and actual staged gate are bound separately.",
+    "coverage": "Author-only 3160/3181 lines, 5519/5631 regions, 77/78 changed; unreachable branch remains counted.",
+    "consumer": "Root deliberately uses public Clone parent first. New Sensor.imu accessor/enum migration and explicit Contact rejection remain required on consumer adoption."
   }
 }

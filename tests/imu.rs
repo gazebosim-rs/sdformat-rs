@@ -43,7 +43,7 @@ fn link_dom_sensors_original_imu_assertions() {
     assert_eq!(sensor.pose.transform.translation, [4., 5., 6.]);
     assert_eq!(sensor.pose.transform.rotation, [0., 0., 0., 1.]);
     assert!(!sensor.enable_metrics);
-    let imu = &sensor.imu;
+    let imu = sensor.imu().unwrap();
     for (actual, expected) in imu
         .linear_acceleration
         .iter()
@@ -80,8 +80,8 @@ fn link_dom_sensors_original_imu_assertions() {
 fn typed_defaults_and_all_noise_fields() {
     let empty = sensor("");
     let explicit = sensor("<imu/>");
-    assert_eq!(empty.imu, explicit.imu);
-    let imu = &empty.imu;
+    assert_eq!(empty.imu().unwrap(), explicit.imu().unwrap());
+    let imu = empty.imu().unwrap();
     assert!(imu.enable_orientation);
     assert_eq!(imu.localization, "CUSTOM");
     assert_eq!(imu.custom_rpy, [0.; 3]);
@@ -96,11 +96,11 @@ fn typed_defaults_and_all_noise_fields() {
         "<enable_metrics>1</enable_metrics><imu><angular_velocity><x><noise type='GaUsSiaN_QUANTIZED'><mean>1.2</mean><stddev>2.3</stddev><bias_mean>4.5</bias_mean><bias_stddev>6.7</bias_stddev><precision>8.9</precision><dynamic_bias_stddev>10.11</dynamic_bias_stddev><dynamic_bias_correlation_time>12.13</dynamic_bias_correlation_time></noise></x><y/><z><noise/></z></angular_velocity><orientation_reference_frame><localization>BOGUS</localization><custom_rpy>0 0 1</custom_rpy><grav_dir_x>0 0 0</grav_dir_x></orientation_reference_frame></imu>",
     );
     assert!(all.enable_metrics);
-    assert_eq!(all.imu.localization, "BOGUS");
-    assert_eq!(all.imu.custom_rpy, [0., 0., 1.]);
-    assert_eq!(all.imu.gravity_dir_x, [0.; 3]);
+    assert_eq!(all.imu().unwrap().localization, "BOGUS");
+    assert_eq!(all.imu().unwrap().custom_rpy, [0., 0., 1.]);
+    assert_eq!(all.imu().unwrap().gravity_dir_x, [0.; 3]);
     assert_eq!(
-        all.imu.angular_velocity[0],
+        all.imu().unwrap().angular_velocity[0],
         Noise {
             kind: NoiseKind::GaussianQuantized,
             mean: 1.2,
@@ -112,9 +112,9 @@ fn typed_defaults_and_all_noise_fields() {
             dynamic_bias_correlation_time: 12.13
         }
     );
-    assert_eq!(all.imu.angular_velocity[1], Noise::default());
-    assert_eq!(all.imu.angular_velocity[2], Noise::default());
-    let original = all.imu.clone();
+    assert_eq!(all.imu().unwrap().angular_velocity[1], Noise::default());
+    assert_eq!(all.imu().unwrap().angular_velocity[2], Noise::default());
+    let original = all.imu().unwrap().clone();
     let mut copied = Imu::default();
     copied.clone_from(&original);
     assert_eq!(original, copied);

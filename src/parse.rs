@@ -2004,6 +2004,36 @@ impl Parser<'_> {
             })
             .transpose()
     }
+    fn contact_string(&self, value: Node<'_, '_>) -> Result<String, Diagnostic> {
+        self.allowed(value, &[], &[])?;
+        let text = param_text(value);
+        if text.is_empty() {
+            return Err(self.err(value, ErrorCode::Missing, "empty required contact value"));
+        }
+        Ok(text.into_owned())
+    }
+    fn contact(&self, sensor: Node<'_, '_>) -> Result<ContactSensor, Diagnostic> {
+        let Some(node) = child(sensor, "contact") else {
+            return Ok(ContactSensor::default());
+        };
+        self.allowed(node, &["collision", "topic"], &[])?;
+        let mut collisions = elements(node)
+            .filter(|value| value.has_tag_name("collision"))
+            .map(|value| self.contact_string(value))
+            .collect::<Result<Vec<_>, _>>()?;
+        if collisions.is_empty() {
+            collisions.push("__default__".into());
+        }
+        let topic = child(node, "topic").map_or_else(
+            || Ok("__default_topic__".into()),
+            |value| self.contact_string(value),
+        )?;
+        Ok(ContactSensor {
+            collisions,
+            topic,
+            source: Some(self.source(node)),
+        })
+    }
     fn sensor(&self, node: Node<'_, '_>) -> Result<Sensor, Diagnostic> {
         self.allowed(
             node,
@@ -2016,37 +2046,61 @@ impl Parser<'_> {
                 "frame_id",
                 "gz_frame_id",
                 "imu",
+                "contact",
             ],
             &["name", "type"],
         )?;
-        let kind = self.attr(node, "type")?;
-        if kind != "imu" {
+        let kind = self
+            .attr(node, "type")?
+            .trim_matches([' ', '\t', '\n'])
+            .to_owned();
+        if !matches!(kind.as_str(), "imu" | "contact") {
             return Err(self.err(
                 node,
                 ErrorCode::Unsupported,
-                "only IMU sensor envelope is supported",
+                "only IMU and contact sensor configurations are supported",
+            ));
+        }
+        let other = if kind == "imu" { "contact" } else { "imu" };
+        if child(node, other).is_some() {
+            return Err(self.err(
+                node,
+                ErrorCode::Unsupported,
+                "mismatched sensor configuration",
             ));
         }
         let update_rate = self.scalar(node, "update_rate", 0.)?;
-        if update_rate < 0. {
+        // Keep the existing IMU policy; contact retains native unthrottled metadata.
+        if kind == "imu" && update_rate < 0. {
             return Err(self.err(node, ErrorCode::InvalidValue, "negative sensor update rate"));
         }
+        // Preserve the existing IMU envelope's first-error order before configuration.
+        let name = self.name(node)?;
+        let pose = self.pose(node)?;
+        let always_on = self.boolean(node, "always_on", false)?;
+        let enable_metrics = self.boolean(node, "enable_metrics", false)?;
+        let config = match kind.as_str() {
+            "imu" => SensorConfig::Imu(Box::new(self.imu(node)?)),
+            "contact" => SensorConfig::Contact(self.contact(node)?),
+            _ => unreachable!("sensor type checked above"),
+        };
+        let configuration_xml =
+            child(node, &kind).map_or(String::new(), |n| self.xml[n.range()].into());
         Ok(Sensor {
-            name: self.name(node)?,
+            name,
             kind,
-            pose: self.pose(node)?,
+            pose,
             update_rate,
-            always_on: self.boolean(node, "always_on", false)?,
-            enable_metrics: self.boolean(node, "enable_metrics", false)?,
-            imu: self.imu(node)?,
+            always_on,
+            enable_metrics,
+            config,
             topic: self
                 .optional_text(node, "topic")?
                 .filter(|topic| topic != "__default__")
                 .unwrap_or_default(),
             frame_id: self.optional_text(node, "frame_id")?.unwrap_or_default(),
             gz_frame_id: self.optional_text(node, "gz_frame_id")?,
-            configuration_xml: child(node, "imu")
-                .map_or(String::new(), |n| self.xml[n.range()].into()),
+            configuration_xml,
             source: self.source(node),
         })
     }

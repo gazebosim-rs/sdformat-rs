@@ -16,14 +16,17 @@ links with owned wind/gravity/kinematic/self-collision flags, primitive and mesh
 collision/visual metadata and poses, owned visual/material
 metadata, physical mass/inertia,
 fixed/revolute/prismatic/continuous/universal/revolute2 joints with owned axis
-dynamics and stop metadata, typed IMU sensor configuration, frames, and opaque plugin content.
+dynamics and stop metadata, typed IMU/contact sensor configuration, frames, and opaque plugin content.
 Borrowed model/link/joint/frame DOM lookups follow explicit relative nested scopes.
 Model and include placement frames resolve through nested links, frames, joints,
 and models. Pose and attachment graphs are separate. Loading is atomic; non-frame
 pose errors remain deferred until resolution, matching the native DOM. Scene
 builders can call `validate_non_frame_poses` before constructing objects. Unsupported elements,
 attributes, versions, merge features, DTD declarations and automatic inertia produce
-explicit diagnostics. IMU noise, orientation settings and original XML are retained together. See
+explicit diagnostics. IMU noise, orientation settings and original XML are retained together. SensorConfig
+selects boxed IMU or owned Contact settings; optional imu()/contact() accessors
+expose the chosen configuration without dummy values. Contact collision names
+and nested topic are metadata, with no contact runtime effect. See
 [the contract](docs/CONTRACT.md).
 
 Scalar and pose-component conversion is qualified for Linux GNU/glibc using an

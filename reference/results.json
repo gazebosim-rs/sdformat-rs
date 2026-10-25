@@ -60027,5 +60027,18 @@
     "rust": "All 185 isolated Rust tests, 13 tooling tests, fmt, Clippy and docs pass. Author direct coverage3300/3316 production lines and5746/5857 regions; no production delta.",
     "scope": "Complete original assertion mapping approved independently: four exact parse/move blocks, byte-identical inputs, world/frame presence and names, semantic pose resolution and native component-wise comparison. Rust owned Sdf moves transfer its Graphs value. No moved-from Root, pointer identity, arbitrary graph edit or broader SDF parity claim.",
     "review": "Independent /root/transport_fallback approved complete original assertion mapping; source receipt SHA256 c861506e6bee7c330b43082261b165b08c4f010a8028adfa2caa3f4a5069e2d5. Final metadata binding and normal staged/hosted gates pending."
+  },
+  "nested_model_bodies_original": {
+    "parent": "a62c2888366a72e30e1e7d5b184e973e301a7990",
+    "upstream": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "source_digest": "58ab6f0b9bcec8fe317158a190296d67c2f46764e4cefebc01037c30e6ce3632",
+    "fixture_sha256": "1200082d81358b6176ce6671133bfaf5ff9a5d0c3de21c92ff8b71e834c3e6f5",
+    "native_source_sha256": "e073d0e0d33584641d5d830e0140d233092b226f37f6488a304bf858d1cfccb1",
+    "native_binary_sha256": "26fa8eae908af45248188c60a95122a1c2a69c733d35ad6873ac6b47c01ed51a",
+    "original": "NestedFrameSemantics.buildFrameAttachedToGraph_Model: one run, zero failures/skips.",
+    "rust": "All 185 isolated Rust tests, 13 tooling tests, fmt, Clippy and docs pass; author direct coverage3300/3316 production lines,5746/5857 regions, no production delta.",
+    "scope": "Partial original approved independently: thirteen attached-body values and one invalid-name failure. Native graph build/validate, fourteen Count checks, graph check booleans and native error code/text remain unported.",
+    "review": "Independent /root/transport_fallback approved only the partial public body-query mapping; source receipt SHA256 fc83f96c6985dfa97e3494a59e0eea34d4832a11a8ad908a94ec5198d6db4442. Final public-parent overlap and staged/hosted gates pending.",
+    "integration_parent": "e2943817ddbc22c14e6b2a9fdb9349d0983f137b"
   }
 }

@@ -2,25 +2,25 @@
   "decision": "approved",
   "author": "/root/sdformat_owner_fallback",
   "reviewer": "/root/transport_fallback",
-  "scope": "Final metadata and public-parent overlap for the complete DOMRoot.FrameSemanticsOnMove original assertion port.",
-  "parent": "a62c2888366a72e30e1e7d5b184e973e301a7990",
-  "final_freeze": "artifacts/frame-move/frozen-final.json",
-  "final_freeze_sha256": "fefd7eb2d58cb76ea01ef5b81081783bba7abb023d83764831a21cf9126a82e0",
-  "protected_digest": "9a56467089afb944ddec20766730d540a2842b69120122daa5c65db48b7e380a",
-  "source_digest": "187392b150d80401eb048a10b568bf3e049e297c5d7b34b700361926b1c2481c",
-  "reviewed_source_digest": "9c702e1041d0c06391cddedc2ace1e6a2d24cc7af4c419634283119e4968514b",
-  "source_review_receipt_sha256": "c861506e6bee7c330b43082261b165b08c4f010a8028adfa2caa3f4a5069e2d5",
+  "scope": "Final metadata and parent-overlap binding for the partial NestedFrameSemantics.buildFrameAttachedToGraph_Model assertion port.",
+  "parent": "e2943817ddbc22c14e6b2a9fdb9349d0983f137b",
+  "final_freeze": "artifacts/nested-model-bodies/frozen-final.json",
+  "final_freeze_sha256": "ce733c8a63814f56b7d785e6d6d3a5e02ab93dbcfc480d41343cc6555aee1758",
+  "protected_digest": "9122a6e96e14adbe453e44d914be1a83b9a103a0b8e83cf6ac173644916ca96f",
+  "source_digest": "bf00c7e6eb0606138e0a804ab9269fbeadc8325e95fe118996440a644c477ddb",
+  "reviewed_source_digest": "58ab6f0b9bcec8fe317158a190296d67c2f46764e4cefebc01037c30e6ce3632",
+  "source_review_receipt_sha256": "fc83f96c6985dfa97e3494a59e0eea34d4832a11a8ad908a94ec5198d6db4442",
+  "unchanged_fixture_sha256": "1200082d81358b6176ce6671133bfaf5ff9a5d0c3de21c92ff8b71e834c3e6f5",
   "files": {
-    "docs/STATUS.md": "e2a75973c8044d8df390e177e41cce5dc108ee8e362f8f1fcda5022f13c911f0",
-    "reference/results.json": "5fd9a211eefff57c14b875d0c4808788bec16cf6671df1051c1bc0f6857806e6",
-    "reference/traceability.json": "ff75b2fd254378de03fce62405845b5a7cc0f051cf79c826d4c7ff62e64f9cf2",
-    "tests/frame_move_original.rs": "432c15dd69a5d8d58109da1cdf10f9a0b530b42a75a8e31fede76fb8134d4d25"
+    "docs/STATUS.md": "db49486cf1470c16b391ece042bbaa7dc755e884e6d78bbaf8fb13895b11dd49",
+    "reference/results.json": "1c2ca964a9a6408fed5fb2f75dac268c98c6c606c0c78a49599b8e9bc6423a2c",
+    "reference/traceability.json": "c07d76172448b5cf1cdb74d449bcbe9f4fc73e4d014152fb80da70d4a4b6eab0",
+    "tests/nested_model_bodies_original.rs": "23319d57597666b0e34c3b86acbf49a4221db560cdc84152dc3fda81995d399d"
   },
   "checks": [
-    "The four final file hashes and manifest SHA-256 match the uncommitted public-parent checkout; Git shows only these four additions or changes and no staged drift.",
-    "The test is byte-identical to the independently reviewed isolated source. The other three files contain only the additive status, result and traceability record for this original; 227 tracked parent files remain unchanged.",
-    "The corrected result scope agrees with the approved complete assertion mapping and explicitly limits moved-from Root, pointer identity, arbitrary graph edits and broader parity.",
-    "The author's prior main run passed 185 Rust tests, 13 tooling tests, formatting, Clippy, docs and direct coverage of 3300/3316 lines and 5746/5857 regions; a fresh run on this corrected metadata snapshot is in progress."
+    "The four final hashes and manifest SHA-256 match the uncommitted main checkout on parent e294381; Git shows only these four changed or added paths and no staged drift. The unchanged fixture retains its upstream SHA-256, and 228 tracked parent files remain unchanged.",
+    "The new test is byte-identical to the independently reviewed isolated source. The three metadata files add only the scoped partial result, status and traceability row with its source-review receipt and explicit unported assertions.",
+    "The author reports fresh combined-main 186 Rust tests, 13 tooling tests, formatting, Clippy, docs and direct coverage of 3300/3316 lines and 5746/5857 regions on this exact metadata snapshot."
   ],
-  "limits": "This binding accepts only the frozen four-file candidate and its recorded complete original mapping. The corrected-snapshot author rerun, normal protected staged hook, publication and exact hosted CI remain pending. Author direct coverage and tools were inspected, not independently rerun for the final metadata."
+  "limits": "This binding approves only the reviewed 13 resolved body values and invalid-name failure, not native graph build/validation, fourteen Count checks, graph-check booleans, or exact native error code/text. Normal protected staged hook, publication and hosted CI remain pending. Author direct coverage and tools were inspected, not independently rerun on the final metadata."
 }

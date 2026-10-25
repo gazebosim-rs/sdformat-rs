@@ -1342,3 +1342,21 @@ move-assignment countercontrol. No graph facade or production code changes are p
 All 185 isolated Rust tests, 13 tooling checks, formatting, Clippy and docs pass;
 author direct coverage is 3300/3316 production lines and 5746/5857 regions.
 Exact final metadata binding, protected staged gate and hosted CI remain pending.
+
+## Nested model attachment-body original candidate
+
+The unchanged `model_nested_frame_attached_to.sdf` fixture drives the public
+attachment-body subset of `NestedFrameSemantics.buildFrameAttachedToGraph_Model`.
+The exact pinned native original passes one run with zero failures. A Rust port
+checks all 13 original successful body values, including nested model-frame,
+link, declared frame and joint targets, plus the invalid-name failure. Public
+`resolve_name` translates terminal model-frame aliases before `attached_body`;
+returned names are compared relative to the original root model scope.
+
+Explicit native graph construction/validation, graph Count observations and the
+native invalid-name error code/text remain unported. This is partial only, not
+a full original retirement. All 185 isolated Rust and 13 tooling checks, fmt,
+Clippy and docs pass; direct coverage is 3300/3316 production lines and
+5746/5857 regions. Independent review approved the exact 13 body values and invalid-name
+failure as partial only after fresh native1/0 and private185 Rust replay. Final
+public-parent overlap, protected staged gate and hosted CI remain pending.

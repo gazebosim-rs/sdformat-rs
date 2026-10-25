@@ -909,6 +909,22 @@
       "baseline": "Exact native original one run, zero failures/skips; artifacts/invalid-attachment/original.xml; pinned upstream 1249805d.",
       "status": "partial_reviewed",
       "review": "Independent /root/transport_fallback approved frozen source digest ff77802fa3ccf204a2e3520713e779830565f83bd38dc34da60be4e571104691 after exact original first-message/fixture/2019-notice comparison, fresh native original1/0 and five source-hashed controls, private selected2/full184 Rust/fmt/Clippy, and public-parent red countercontrol. Eager load failure and first message map only errors-nonempty and errors[0].Message; native graph-check booleans, seven-error vector and native code23 remain unported. Final metadata binding and staged/hosted gates pending."
+    },
+    {
+      "target": "UNIT_FrameSemantics_TEST",
+      "case": "NestedFrameSemantics.buildFrameAttachedToGraph_Model",
+      "source": "src/FrameSemantics_TEST.cc:366",
+      "rust_test": "tests/nested_model_bodies_original.rs::original_nested_model_attachment_bodies",
+      "assertions": "Unchanged SDF 1.8 fixture; original load success plus all 13 successful resolveFrameAttachedToBody/body-value observations and the invalid-name failure map to public resolve_name+attached_body for the root model scope. Rust UnknownReference is not native FRAME_ATTACHED_TO_INVALID code/text. Native explicit graph build/validate, checkFrameAttachedToGraph/Names and fourteen Count membership observations remain unported; partial only.",
+      "fixtures": {
+        "tests/fixtures/model_nested_frame_attached_to.sdf": "1200082d81358b6176ce6671133bfaf5ff9a5d0c3de21c92ff8b71e834c3e6f5"
+      },
+      "upstream_fixtures": {
+        "test/sdf/model_nested_frame_attached_to.sdf": "1200082d81358b6176ce6671133bfaf5ff9a5d0c3de21c92ff8b71e834c3e6f5"
+      },
+      "baseline": "Exact native original one run, zero failures/skips; artifacts/nested-model-bodies/original.xml; pinned upstream 1249805d.",
+      "status": "partial_reviewed",
+      "review": "Independent /root/transport_fallback approved exact frozen source digest 58ab6f0b9bcec8fe317158a190296d67c2f46764e4cefebc01037c30e6ce3632 after unchanged fixture/2019-notice comparison, fresh exact native original1/0, private selected1/full185 Rust and all thirteen body-value pairs in original order. resolve_name plus attached_body and removal of only the root model scope prefix are approved for this fixture. Native graph build/validate, fourteen Count observations, check booleans and native invalid-name code/text remain unported; partial only. Final public-parent overlap and staged/hosted gates pending."
     }
   ]
 }

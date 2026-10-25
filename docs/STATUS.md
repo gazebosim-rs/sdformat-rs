@@ -1755,4 +1755,31 @@ float parsing; no test or lint was weakened. Independent
 /root/transport_fallback approved the exact partial source/assertion mapping
 (receipt SHA256 `e4d6e18fe7e50ccc1ed449bab401a171a0e0da5ae0623ec3b571c358352540e5`),
 including a wideanglecamera admission-removal countercontrol. Final metadata
-binding, protected hook and hosted qualification are pending.
+binding, protected hook and hosted qualification were pending at that review
+point; their completed results follow.
+
+The thermal/wide-angle packet subsequently passed independent final binding
+(receipt SHA256
+`8e18424ef646d452eb3609cebdcc3b9b70e41278eb84bd5269738e4c92ea211a`),
+normal protected hook and exact hosted verify run 40232749975 at public commit
+575d4d9abe5cd46dd2b02ebdd1267d9e25d6206f. Staged executable-line
+coverage was 3759/3771; the Link original remains partial.
+
+## ForceTorque Link fixture fragment candidate
+
+The byte-identical `force_torque_sensor` subtree of upstream `sensors.sdf`
+is wrapped in a minimal model/link document. A retained assertion checks
+the native sensor name, effective `FORCE_TORQUE` type, full raw pose and
+disabled metrics. The literal XML kind, default typed ForceTorque values and
+omitted configuration XML are supplemental checks. Native Link name lookup,
+count/index, eight other fixture instances and the full 27-sensor original
+remain pending.
+
+Pinned `DOMLink.Sensors` passes natively 1/0. The isolated test-only packet
+passes 225 Rust tests, 15 tooling tests, formatting, Clippy and docs;
+production coverage remains 3941/3959 lines and 6850/7049 regions. There
+are no changed production lines. Independent /root/transport_fallback approved
+the exact partial test-only assertion mapping (reviewer source receipt SHA256
+`8bceeb86b13bb828559492dace9484d8479573f0791b8261a9be07b5d9ef31c4`), including an effective-type
+mutation countercontrol. Final metadata binding, protected hook and hosted
+qualification are pending.

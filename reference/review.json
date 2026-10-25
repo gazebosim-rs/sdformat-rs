@@ -2,25 +2,22 @@
   "author": "/root/sdformat_owner_fallback",
   "decision": "approved",
   "files_sha256": {
-    "README.md": "8e3e5813510b1f64777bc8927a876b3e360cc4c6fdc79c6e58f8ed2822f20829",
-    "docs/CONTRACT.md": "283d29950c6eea520d9a848bc5d461ff0df1901c710ec424ce4feb25553776f6",
-    "docs/STATUS.md": "124b289013b872e38a92bcf3499c3a398fb8a0d94db34d3c4758db29f3c2d1fd",
-    "reference/results.json": "f2f2a2fc58200bd2b391c1353dce6ca2f40e60b7256a6bd4553ae6eed8d9212d",
-    "reference/traceability.json": "c5e8f108c040f281c7b48a0c881285fce3b42f196b20b8a9c80f9a43fa5b20a0",
-    "src/parse.rs": "d91847761f2ffa5d310e74320880374d608129a945cbbaaa3582686d2b07c6bb",
-    "tests/thermal_wide_link_original.rs": "b5833e96e381cfd4db132caa681b8b267dc1d591761ef1dfd48792dc97fe7332"
+    "docs/STATUS.md": "5c20fb000be34b306e649fb874f3d0c984f7e7ddeaa25f247e1db7a3bd88fc5d",
+    "reference/results.json": "fd19a13cbda68fc81fbf276a462da92a71da1aeeef6a70f2b35094111ae01c5a",
+    "reference/traceability.json": "2cacbf840f9201c934420129d00ee23fa84b1fa8a9303fdb161d0ee6c4a42ab2",
+    "tests/force_torque_link_original.rs": "43fa4f6f2e03504ce16543c0ab312a70bcf1dce9a920e29cf975ae39ad057d8b"
   },
-  "final_freeze": "artifacts/thermal-wide/frozen-final.json",
-  "final_freeze_sha256": "dbbfa6ae60cb7120fc95f30fb690d412097538b3c3ba90e352741201905c6b5e",
-  "limitations": [
-    "Normal protected staged hook, public commit/push and hosted CI remain required.",
-    "This final binding does not retire DOMLink.Sensors or authorize consumer pin changes."
+  "final_freeze": "artifacts/force-torque-link/frozen-final.json",
+  "final_freeze_sha256": "e3e0f25ca87b393852dea6dd3ec5b7c5049dcb7494eaf067c098900e476bfdfa",
+  "limits": [
+    "No complete DOMLink.Sensors retirement.",
+    "Normal protected staged hook, public push and hosted CI remain required."
   ],
-  "parent": "349a05b4cc2d3194db1f6b7e8966dd174a7da073",
-  "preserved_parent_files": 250,
-  "protected_digest": "8741beb5e630fa609eebbd8b39ed6aaae4446429069e3f8dc96626783801f234",
+  "parent": "575d4d9abe5cd46dd2b02ebdd1267d9e25d6206f",
+  "preserved_parent_files": 254,
+  "protected_digest": "87759a7838394cefeee90f4b30100200e3197f2be5de98f50685ff24432c658b",
   "reviewer": "/root/transport_fallback",
-  "scope": "Exact approved thermal/wide-angle parser/test bytes plus additive README, CONTRACT, STATUS, results and single existing DOMLink.Sensors partial traceability row. Source and fixture assertions unchanged from source review; nine other sensor instances, Link count/index/name lookup and broad grammar/rendering remain unported.",
-  "source_digest": "48b364702a2cbacda627289e1ff3ed9dd4f1776fd61a48a522a12cd76fbba9fd",
-  "source_review_sha256": "e4d6e18fe7e50ccc1ed449bab401a171a0e0da5ae0623ec3b571c358352540e5"
+  "scope": "Exact approved ForceTorque Link test and unchanged sensor fixture; only additive STATUS/results and existing partial DOMLink.Sensors trace row differ from hosted-green parent. No production source changed. Native name/effective type/full raw pose/metrics asserted; Link lookup/count/index and eight other instances remain unported.",
+  "source_digest": "404015c2c95f474a3d1594e592b158d33f9c991cc7734b0df228e866f53f1dfe",
+  "source_review_sha256": "8bceeb86b13bb828559492dace9484d8479573f0791b8261a9be07b5d9ef31c4"
 }

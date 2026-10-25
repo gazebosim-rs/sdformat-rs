@@ -386,3 +386,12 @@ parameter; see LINK_PROPERTIES.md. Parsing these flags does not implement physic
 effects. Simulator builders must implement/reject unsupported nondefaults before
 spawning. Joint::axis(index) borrows the first axis at zero and the second axis for every
 positive index; this does not add mutable Element or serialization facades.
+
+Model.model_by_name and link_by_name return references to stored DOM objects using
+explicit names relative to that model. Descendant models require each enclosing
+scope; unqualified names do not trigger recursive search. No leading global-root,
+current-model prefix or semantic frame-alias lookup is added. This exposes the
+existing canonical-link traversal without changing canonical-link selection.
+Literal double-colon declaration names, interface models, mutable DOM facades and
+model-level graph revalidation after arbitrary field edits remain outside this
+subset. See MODEL_DOM.md for the original-fixture mapping.

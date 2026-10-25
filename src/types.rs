@@ -259,13 +259,24 @@ pub struct Model {
     pub source: Source,
 }
 impl Model {
+    /// Borrow a nested model by an explicitly scoped relative name.
+    /// A descendant's unqualified name does not search through other models.
+    pub fn model_by_name(&self, name: &str) -> Option<&Model> {
+        let (first, remaining) = name.split_once("::").unwrap_or((name, ""));
+        let model = self.models.iter().find(|model| model.name == first)?;
+        if name.contains("::") {
+            model.model_by_name(remaining)
+        } else {
+            Some(model)
+        }
+    }
     /// Native DOM canonical-link selection, independently of static attachments.
     /// The name is relative to this model. An explicit frame alias can produce
     /// a nonempty name with no link. Only the first nested model is considered.
     pub fn canonical_link_and_relative_name(&self) -> (Option<&Link>, String) {
         if !self.canonical_link.is_empty() {
             return (
-                self.link_by_relative_name(&self.canonical_link),
+                self.link_by_name(&self.canonical_link),
                 self.canonical_link.clone(),
             );
         }
@@ -285,12 +296,14 @@ impl Model {
         }
         (None, String::new())
     }
-    fn link_by_relative_name(&self, name: &str) -> Option<&Link> {
+    /// Borrow a link using a name relative to this model's DOM scope.
+    /// Explicit nested scopes are required; no semantic frame aliases are followed.
+    pub fn link_by_name(&self, name: &str) -> Option<&Link> {
         if let Some((model, remaining)) = name.split_once("::") {
             self.models
                 .iter()
                 .find(|candidate| candidate.name == model)?
-                .link_by_relative_name(remaining)
+                .link_by_name(remaining)
         } else {
             self.links.iter().find(|link| link.name == name)
         }

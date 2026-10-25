@@ -2,53 +2,52 @@
   "author": "/root/sdformat",
   "reviewer": "/root/msgs",
   "decision": "approved",
-  "date": "2026-10-25T08:56:12.242905+00:00",
-  "base": "eab6183146c8b265222645d16d48d3ec13d26226",
-  "protected_digest": "5d69dac955746850cfb5ee540dabe6a0ae30844905ab8f44184240ce787a54ba",
+  "date": "2026-10-25T09:07:17.119508+00:00",
+  "base": "f4514ca956db59e7d73b3f4930509f74dc8d65be",
+  "protected_digest": "1cd2212a167bae5290d7c68e6eec7ee379f891c5fedb931665eeb68c9c9ba141",
   "source_sha256": {
-    "README.md": "4ef3c6fc924652e1defbc1aed2ef16e43565546a9a8bbae77883472ee9c7b9d5",
-    "docs/CONTRACT.md": "19a27321f61b60ed826ad84f2333b284b956a60609747402e3bba45f36f3f78b",
-    "docs/LINK_PROPERTIES.md": "b5ac1797da7c205364dfcd3438317f2f530d71e7fe6dfdcc526e7cc592693dd3",
-    "docs/STATUS.md": "15515b758745be5f35c80a8dddad614ccc7155f800cdd0d1b684d0be520cc344",
-    "reference/results.json": "5d2155567a119effbe99b0b3fab0f0be692092ec0a0ff159f13b6915a2afee50",
-    "reference/traceability.json": "fc410c3030e7f6f9901133eeb15d050740f36f79f8028ff806f7a13fc7bd6aba",
-    "src/parse.rs": "b781d6e7d377c4fd019c437b8475881bdf5374689173b64f787d4ef416a8c8e8",
-    "src/types.rs": "75388d298062fa5f6e144dcf1836044812cb6eace05fa2b597adb5a1635046e2",
-    "tests/fixtures/double_pendulum.sdf": "de1d53d4cf8949f5c1f8db6afcd18b41426d5de45b6a8d1521027d2f662d3f67",
-    "tests/link_properties.json": "1d10527d1c4e741dd5f67f47553e46e1eb064bc239f91741d81f7fa22a4abc7f",
-    "tests/link_properties.rs": "c2ae05a872bf29925bdd6e6b482b1ed0f47238626ba2367f18ca667e77b0fa80",
-    "tests/link_properties_originals.rs": "1a25c09b9a6da397f7bd8aeb8f124a987b28794d077776357f60d3536ee1657a",
-    "tests/link_properties_reference.cc": "74d6f55c2732ed539df4527f1eff731f37f53c3b377328ad7a38f3a2ecddcfd8",
-    "tools/link_properties_reference.py": "628857cd7f5b7c6b1c8176ca10cf5ca3fe3a7bc00e8f38a491b844cda8bc8f7a"
+    "README.md": "893d10e6a0d467e7869a6137753a54b3ad57887b3f7176d55802fbd240b033ff",
+    "docs/CONTRACT.md": "40c7981811f9718698544da85172fdd5d750c559ad7bf1f776150456ad449f62",
+    "docs/MODEL_DOM.md": "c0f81d933385553fb4dcf4acc5a426517772696c3fed9ce66bf6bb6cc005541f",
+    "docs/STATUS.md": "06bdcae022f6163270ff2e435e6b5f1a6d9f4208e44a16179dc8bfb1deec2965",
+    "reference/results.json": "41998802952dd5735170e254d6124faea01badf6f0f0e8ea0722f2840b3e622c",
+    "reference/traceability.json": "7729875f723dcea15a10b6235344e46e85ac7a86c7172d705a4b3fef2bd09590",
+    "src/types.rs": "900579db56aa4a23895f67b76aaa855cc9904d06cd3c0561d1749936d016d34d",
+    "tests/fixtures/nested_model.sdf": "15c673f290a5a674c855c3ba22d4b7c9b558a42ce47c9348319e3c013ea5fda4",
+    "tests/model_dom.json": "019ce5c23c5eb216845df4a77b67c90444e8bffbd1f8cde627a743b871b2df3b",
+    "tests/model_dom.rs": "92c37c7c49c3e3270fc068d22b3adf4231e302fc12686f318d5de4605ba307a3",
+    "tests/model_dom_originals.rs": "3c17d73aa98147f3579c8c2f74a00ca1b43617c423fe5fe35480517efb3e192c",
+    "tests/model_dom_reference.cc": "e29784b1ebf0495577c5c889cfe650b12266fc5e4187a7c8febcb83503b6248d",
+    "tools/model_dom_reference.py": "4d92642f4d311ff384d57ac2a8bc32cfd7ba2ec1552863296dbf5e34ce27834c"
   },
-  "scope": "Bounded owned link flag metadata, native-clamped borrowed Joint::axis lookup, and two complete original pendulum assertion mappings. No physical effects or generic mass-matrix validity API claim.",
+  "scope": "Bounded borrowed Model::model_by_name/link_by_name traversal and complete DOMRoot.LoadDoublePendulum / DOMRoot.NestedModel assertion mappings within the documented parser subset.",
   "independent_checks": [
-    "Reconstructed the immutable public parent from raw Git blobs and applied only the 14 hash-verified candidate files in reviewer-owned source with a separate private Cargo target. Independently ran all 135 Rust checks on the initial and corrected candidates; no producer target was shared.",
-    "Compared every assertion in pinned link_dom.cc DOMLink.InertialDoublePendulum and joint_dom.cc DOMJoint.DoublePendulum against the Rust ports. Model/link/joint/axis presence and missing-name paths, all literal scalar/matrix values, both parent-child names, relative strings, repeated base fluid absence, raw poses and both axes remain. Scalar comparisons retain four ULP; native Pose/Vector comparisons retain component-wise 1e-3 with no quaternion sign relaxation. Original 2018 notices and unchanged fixture bytes are retained.",
-    "Explicitly approve the original known-base-fixture IsValid true observation through mandatory typed inertia validation plus asserted mass 100 and identity inertia. Its positive unit principal moments satisfy native validity conditions. This approval does not infer general native validity equivalence from parse success and does not retire a general MassMatrix::IsValid API.",
-    "Found native Joint::Axis clamps every positive index to axis2, unlike the initial Rust out-of-range None behavior. Fresh C++ universal-joint counterexample proves Axis(1), Axis(2) and Axis(UINT_MAX) reference equality. Corrected source preserves this without usize narrowing; present-axis pointer checks at 1, 2 and usize::MAX and original absent-axis checks pass. Reconstructed original 54-row XML/token prefix hashes exactly to its initial frozen SHA.",
-    "Freshly compiled corrected native probe reproduces all 56 observations and both exact unchanged original binaries, each 1 run / 0 failures. The entire regenerated proof dictionary equals author evidence, including fixture, source, native binary, schema, installed headers, math headers and linked library hashes.",
-    "Final main integration remains on the same reviewed public parent. All 14 files match the final manifest; only STATUS and the two reference metadata files differ from corrected c72775ad. Inspected those metadata deltas: only accurate review evidence and the two reviewed mapping statuses were added. Actual protected digest is 5d69dac955746850cfb5ee540dabe6a0ae30844905ab8f44184240ce787a54ba."
+    "Reconstructed public f4514ca raw Git parent blobs and applied only the 13 hash-verified candidate files in a new reviewer-owned source and private Cargo target. Independently passed all 138 Rust tests; no shared producer target.",
+    "Compared full pinned original model_dom.cc lines 118\u2013241. Load/model/link/joint/nested-model count, index presence/absence, names, raw poses and relative strings, repeated missing descendant queries, explicit nested paths and stored pointer equality all remain. The Rust original ports preserve each assertion, with component-wise native Pose bounds at 1e-3 and no quaternion sign relaxation. Original 2018 notice and unchanged nested_model/double_pendulum fixture bytes retained.",
+    "Inspected native ModelByName first-scope recursion and LinkByName last-scope traversal against the exposed Rust traversal. The qualified parser reserves literal double-colon declarations; native legacy literal-name fallback and interface-model scopes remain explicitly excluded. Existing canonical-link traversal behavior is preserved.",
+    "Explicitly approve only the unchanged valid pendulum final zero-error ValidateGraphs observation: typed load cannot return until Graphs::build invokes mandatory validation of both pose and attachment graphs, including reference resolution and cycle checks. No generic mutable revalidation, native error-vector parity or arbitrary post-mutation validity is claimed.",
+    "Fresh native compilation/replay passes all 36 stored-pointer scope observations and both exact unchanged native originals, each 1 run / 0 failures. The entire regenerated proof dictionary equals the author, including corpus/fixtures, source/schema, installed headers/math comparison headers, libraries, helper binary and original binary hashes.",
+    "Verified final main remains on the same public parent; all source/test/corpus/probe/tool bytes match reviewed 2f4adfdd. Only accurate new result-review metadata, two reviewed mapping records and appended STATUS differ. Actual protected digest equals 1cd2212a167bae5290d7c68e6eec7ee379f891c5fedb931665eeb68c9c9ba141."
   ],
   "author_gate": {
-    "rust_tests": 135,
+    "rust_tests": 138,
     "tooling_tests": 13,
     "lines": [
-      3079,
-      3099
+      3087,
+      3107
     ],
     "regions": [
-      5353,
-      5470
+      5373,
+      5490
     ],
     "changed_lines": [
-      21,
-      21
+      10,
+      10
     ]
   },
   "limits": [
-    "Author full tooling/coverage gate was not independently repeated; mandatory normal staged and hosted gates remain required.",
-    "Wind, per-link gravity, kinematic motion, self-collision and articulated simulation effects are not implemented by this metadata slice; consumers must implement or reject unsupported nondefaults.",
-    "Both pendulum mappings may be classified as complete faithful ports within the explicitly reviewed Rust representation. Other original cases and complete SDF packets remain open."
+    "Full author tooling/coverage gate not independently repeated; normal exact staged and hosted gates remain mandatory.",
+    "Known-fixture eager graph-validation mapping is not a generic mutable DOM graph-validation API. Literal-colon legacy fallback, interface models, setters/serialization and wider SDF packets remain open.",
+    "Two mappings may be classified as complete faithful ports within the reviewed representation; no other original case or packet retirement."
   ]
 }

@@ -923,3 +923,28 @@ mandatory validation plus the exact mass 100/identity inertia; general validity
 parity and physical effects remain unclaimed. Corrected source/assertions/corpus
 are unchanged by this review-metadata update. Normal staged and hosted gates
 remain required.
+
+
+The isolated scoped DOM successor exposes borrowed Model.model_by_name and
+link_by_name, retaining explicit relative nested scopes and actual object identity.
+The existing canonical traversal is reused. Proposed full original NestedModel
+and LoadDoublePendulum ports preserve unchanged fixtures and all original
+lookups/count/index/name/pose assertions. The known-valid pendulum's final graph
+validation observation is mapped to mandatory successful eager validation only;
+independent review must explicitly judge that mapping, with partial disposition
+available. No general mutable graph-validation API or runtime behavior is added.
+
+All 138 Rust checks, 13 tools, fmt/clippy, fresh 36 native pointer-path observations
+and both exact originals pass. Coverage is 3087/3107 lines, 5373/5490 regions and
+10/10 changed executable lines. A test-only lint allowance preserves original
+index-zero presence assertions; the initial lint failure is retained. Reference
+source/header/library/binary/fixture provenance is bound. Independent review and
+normal staged/hosted gates remain pending.
+
+Independent /root/msgs approved both complete original mappings after all 138
+Rust checks and fresh 36-row/two-original proof matched in a new private snapshot.
+Every original assertion and unchanged fixture was compared. The known valid
+pendulum's graph-validity observation is explicitly approved through mandatory
+successful validation of both graph types; generic mutable revalidation and
+error-vector parity remain unclaimed. Source/assertion/native proof bytes are
+unchanged by the review metadata. Normal staged/hosted gates remain required.

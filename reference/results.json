@@ -36534,5 +36534,208 @@
     "finding": "Native Axis clamps every positive index to axis2. Corrected borrowed API and added actual present/absent-axis reference-identity controls; original pendulum assertions unchanged.",
     "assertions": "Complete two-case assertion mapping approved, including the narrow known-valid mass 100/identity-inertia IsValid observation; no general validity algorithm or runtime physical effects claimed.",
     "coverage": "Author-only strict coverage 3079/3099 lines, 5353/5470 regions and 21/21 changed; normal staged and hosted gates required."
+  },
+  "model_dom_lookup_corpus": {
+    "upstream_sha": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "corpus_sha256": "019ce5c23c5eb216845df4a77b67c90444e8bffbd1f8cde627a743b871b2df3b",
+    "probe_source_sha256": "e29784b1ebf0495577c5c889cfe650b12266fc5e4187a7c8febcb83503b6248d",
+    "probe_binary_sha256": "95c25fd592c2966a568809f404902fb77a6e3e09581baacdd7f46c455579352a",
+    "linked_libraries_sha256": {
+      "libsdformat.so.17": "bcc864bcee56b49c13081e29722051e26c036260e3dd037e7736aa2b8620358f",
+      "libstdc++.so.6": "1fd75fe70354a416d75aef22bcae68c47bd25d20e2d0568c30b1a9838cf62f11",
+      "libc.so.6": "3a15d66867d83762c7f2f1e37359cb8f6c5743edb369c65285cb0b1c4f7498bf",
+      "libgz-math.so.10": "288c6f52fac45359f5de67d97e0069b7f37420f5f78888e61406b8f565656c4f"
+    },
+    "source_sha256": {
+      "src/Model.cc": "9ce157bcd85ad233af6022192315ffa61ff5374490f8912f6750c98a0448d8d9",
+      "src/FrameSemantics.cc": "9fa1184da2130efdd3d4932ca5616de7bba347b8348ad2fcd972f4ec789992bc",
+      "src/parser.cc": "2ec95e05647c61121ced7910ca8164161a189d31f4b1d1249c9bf2d1ee93463d",
+      "include/sdf/Model.hh": "efc07cccb992ee8a0cd881e644454fb73b82260085e38567e5573573dc105e2d",
+      "include/sdf/Link.hh": "3d35750221ef5753a3db80264f09edefc36188f26ea2ff60c12c1b863aff3352",
+      "sdf/1.6/model.sdf": "16d0c192f0ff5ac030ace70c2de10b9b1af29e1e465fe297c82460701b9b0841",
+      "test/integration/model_dom.cc": "44b015ab999638962129dad19296cc98bdfb44716e5bf33ba3a9b0f98166ee40",
+      "test/sdf/double_pendulum.sdf": "de1d53d4cf8949f5c1f8db6afcd18b41426d5de45b6a8d1521027d2f662d3f67",
+      "test/sdf/nested_model.sdf": "15c673f290a5a674c855c3ba22d4b7c9b558a42ce47c9348319e3c013ea5fda4"
+    },
+    "fixture_sha256": {
+      "double_pendulum.sdf": "de1d53d4cf8949f5c1f8db6afcd18b41426d5de45b6a8d1521027d2f662d3f67",
+      "nested_model.sdf": "15c673f290a5a674c855c3ba22d4b7c9b558a42ce47c9348319e3c013ea5fda4"
+    },
+    "originals": [
+      {
+        "case": "DOMRoot.LoadDoublePendulum",
+        "binary_sha256": "0c0b02584eb3fa678770afb132d9e21cb4fefcd8533a51cf8373f2e69a384680",
+        "tests": 1,
+        "failures": 0
+      },
+      {
+        "case": "DOMRoot.NestedModel",
+        "binary_sha256": "0c0b02584eb3fa678770afb132d9e21cb4fefcd8533a51cf8373f2e69a384680",
+        "tests": 1,
+        "failures": 0
+      }
+    ],
+    "math_upstream_sha": "1316ed334f4d5bda7be59aae07cd6e8ff31cfe13",
+    "math_header_sha256": {
+      "include/gz/math/Pose3.hh": "6bfc53f0bd22a3e1596bbdb07c24bacdac9e17bd8178b9373d8df1b01e4fc6f6",
+      "include/gz/math/Quaternion.hh": "9170601444da93735b4d14b369cc4266fafc7655657a6af7613e31206382b873",
+      "include/gz/math/Vector3.hh": "b4e8d01584139efba180bf530c95e18101aee4fb070aa93b8ddfe7cc38282a38",
+      "include/gz/math/MassMatrix3.hh": "115c54a0ab11714e891f0ab060fbb2350652ed0aa6dfcf19958781b162543b5b"
+    },
+    "observations": [
+      {
+        "id": "0",
+        "path": "0"
+      },
+      {
+        "id": "1",
+        "path": "0/0"
+      },
+      {
+        "id": "2",
+        "path": "-"
+      },
+      {
+        "id": "3",
+        "path": "-"
+      },
+      {
+        "id": "4",
+        "path": "-"
+      },
+      {
+        "id": "5",
+        "path": "-"
+      },
+      {
+        "id": "6",
+        "path": "-"
+      },
+      {
+        "id": "7",
+        "path": "-"
+      },
+      {
+        "id": "8",
+        "path": "-"
+      },
+      {
+        "id": "9",
+        "path": "#0"
+      },
+      {
+        "id": "10",
+        "path": "#1"
+      },
+      {
+        "id": "11",
+        "path": "0#0"
+      },
+      {
+        "id": "12",
+        "path": "0/0#0"
+      },
+      {
+        "id": "13",
+        "path": "-"
+      },
+      {
+        "id": "14",
+        "path": "-"
+      },
+      {
+        "id": "15",
+        "path": "-"
+      },
+      {
+        "id": "16",
+        "path": "-"
+      },
+      {
+        "id": "17",
+        "path": "-"
+      },
+      {
+        "id": "18",
+        "path": "-"
+      },
+      {
+        "id": "19",
+        "path": "-"
+      },
+      {
+        "id": "20",
+        "path": "-"
+      },
+      {
+        "id": "21",
+        "path": "0/0"
+      },
+      {
+        "id": "22",
+        "path": "-"
+      },
+      {
+        "id": "23",
+        "path": "-"
+      },
+      {
+        "id": "24",
+        "path": "-"
+      },
+      {
+        "id": "25",
+        "path": "0#0"
+      },
+      {
+        "id": "26",
+        "path": "0/0#0"
+      },
+      {
+        "id": "27",
+        "path": "-"
+      },
+      {
+        "id": "28",
+        "path": "-"
+      },
+      {
+        "id": "29",
+        "path": "#0"
+      },
+      {
+        "id": "30",
+        "path": "#1"
+      },
+      {
+        "id": "31",
+        "path": "#2"
+      },
+      {
+        "id": "32",
+        "path": "-"
+      },
+      {
+        "id": "33",
+        "path": "-"
+      },
+      {
+        "id": "34",
+        "path": "-"
+      },
+      {
+        "id": "35",
+        "path": "-"
+      }
+    ]
+  },
+  "model_dom_lookup_review": {
+    "reviewer": "/root/msgs",
+    "implementation_digest": "2f4adfdd3eb0475cdfbdd8c361d869e24dd494e384436ac2608ef30c7c37f030",
+    "rust_checks": 138,
+    "native_rows": 36,
+    "proof": "Fresh complete 36-row/two-original proof equals author, including source/header/library/probe/original hashes.",
+    "assertions": "Both complete original mappings approved, including the narrow known-fixture zero-error graph-validity observation through mandatory eager validation; no mutable graph-validation or error-vector parity.",
+    "coverage": "Author-only 3087/3107 lines, 5373/5490 regions, 10/10 changed; normal staged/hosted gates remain mandatory."
   }
 }

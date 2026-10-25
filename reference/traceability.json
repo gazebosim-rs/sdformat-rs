@@ -572,6 +572,42 @@
       "baseline": "Both exact native originals XML one run/zero failures each, artifacts/link-properties/{link,joint}-original.xml.",
       "status": "ported_reviewed",
       "review": "Independent /root/msgs compared every original assertion and unchanged fixture; approved complete ports with native component-wise pose/vector and four-ULP scalar bounds. Explicitly approved the known-fixture IsValid observation through mandatory typed validation plus mass 100/identity inertia, without generic validity equivalence. Fresh private replay passed all 135 Rust checks, 56 native observations and both exact originals; full proof including source/binary/header/library hashes equals author. Native positive-index clamp finding is corrected with original 54-row prefix and absent-axis assertions unchanged."
+    },
+    {
+      "target": "INTEGRATION_model_dom",
+      "case": "DOMRoot.LoadDoublePendulum",
+      "source": "test/integration/model_dom.cc:118",
+      "rust_test": "tests/model_dom_originals.rs::original_root_load_double_pendulum",
+      "assertions": "All original load/model/name, three-link/two-joint counts and index bounds, relative strings, raw pose component-wise <=1e-3 and name-existence observations. The fixture-specific zero-error ValidateGraphs observation is represented by mandatory successful loader validation of both frame graphs before returning the unchanged DOM; this mapping specifically requires independent approval, with no general mutable graph-validation API claim.",
+      "fixtures": {
+        "tests/fixtures/nested_model.sdf": "15c673f290a5a674c855c3ba22d4b7c9b558a42ce47c9348319e3c013ea5fda4",
+        "tests/fixtures/double_pendulum.sdf": "de1d53d4cf8949f5c1f8db6afcd18b41426d5de45b6a8d1521027d2f662d3f67"
+      },
+      "upstream_fixtures": {
+        "test/sdf/nested_model.sdf": "15c673f290a5a674c855c3ba22d4b7c9b558a42ce47c9348319e3c013ea5fda4",
+        "test/sdf/double_pendulum.sdf": "de1d53d4cf8949f5c1f8db6afcd18b41426d5de45b6a8d1521027d2f662d3f67"
+      },
+      "baseline": "Exact unchanged original case one run/zero failures in artifacts/model-dom/DOMRoot.LoadDoublePendulum-original.xml.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/msgs compared both complete original assertion bodies and approved presence/count/index/name/pose/pointer observations. Explicitly approved the unchanged valid pendulum zero-error ValidateGraphs observation through mandatory successful loader build/validation of both graph types, without generic mutable revalidation or error-vector parity. Fresh reconstructed-parent/private-target replay passed all 138 Rust checks and complete 36-row/two-original proof exactly equals author including all hashes; literal-colon/interface scopes remain excluded."
+    },
+    {
+      "target": "INTEGRATION_model_dom",
+      "case": "DOMRoot.NestedModel",
+      "source": "test/integration/model_dom.cc:158",
+      "rust_test": "tests/model_dom_originals.rs::original_root_nested_model",
+      "assertions": "All original load/model/link/joint/frame/nested-model count and index-presence observations; raw pose component-wise <=1e-3 without sign relaxation, relative strings and exact names. Borrowed model/link methods retain actual scoped DOM name lookup and stored pointer/index identity. Unqualified descendant-model miss is asserted independently for both original null and NameExists observations; explicit nested paths and nested link presence are retained.",
+      "fixtures": {
+        "tests/fixtures/nested_model.sdf": "15c673f290a5a674c855c3ba22d4b7c9b558a42ce47c9348319e3c013ea5fda4",
+        "tests/fixtures/double_pendulum.sdf": "de1d53d4cf8949f5c1f8db6afcd18b41426d5de45b6a8d1521027d2f662d3f67"
+      },
+      "upstream_fixtures": {
+        "test/sdf/nested_model.sdf": "15c673f290a5a674c855c3ba22d4b7c9b558a42ce47c9348319e3c013ea5fda4",
+        "test/sdf/double_pendulum.sdf": "de1d53d4cf8949f5c1f8db6afcd18b41426d5de45b6a8d1521027d2f662d3f67"
+      },
+      "baseline": "Exact unchanged original case one run/zero failures in artifacts/model-dom/DOMRoot.NestedModel-original.xml.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/msgs compared both complete original assertion bodies and approved presence/count/index/name/pose/pointer observations. Explicitly approved the unchanged valid pendulum zero-error ValidateGraphs observation through mandatory successful loader build/validation of both graph types, without generic mutable revalidation or error-vector parity. Fresh reconstructed-parent/private-target replay passed all 138 Rust checks and complete 36-row/two-original proof exactly equals author including all hashes; literal-colon/interface scopes remain excluded."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

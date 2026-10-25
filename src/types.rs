@@ -827,6 +827,7 @@ pub enum SensorConfig {
     /// A native-known sensor family without an owned configuration payload.
     /// Its literal kind and effective type remain on the Sensor envelope.
     Unconfigured,
+    Custom(CustomSensor),
     Imu(Box<Imu>),
     Contact(ContactSensor),
     ForceTorque(Box<ForceTorque>),
@@ -837,6 +838,21 @@ pub enum SensorConfig {
     AirSpeed(Box<AirSpeed>),
     Lidar(Box<Lidar>),
     Camera(Box<Camera>),
+}
+/// Direct text values from one vendor extension child of a custom sensor.
+/// The original subtree remains in `Sensor::configuration_xml`.
+#[derive(Debug, Default, Clone, PartialEq)]
+pub struct CustomSensor {
+    pub element_name: String,
+    pub parameters: Vec<(String, String)>,
+}
+impl CustomSensor {
+    pub fn parameter_text(&self, name: &str) -> Option<&str> {
+        self.parameters
+            .iter()
+            .find(|(key, _)| key == name)
+            .map(|(_, value)| value.as_str())
+    }
 }
 /// Contact-system element metadata; collision references remain unresolved.
 #[derive(Debug, Clone, PartialEq)]
@@ -987,6 +1003,7 @@ impl Sensor {
             | SensorConfig::AirSpeed(_)
             | SensorConfig::Lidar(_)
             | SensorConfig::Camera(_)
+            | SensorConfig::Custom(_)
             | SensorConfig::Unconfigured => None,
         }
     }
@@ -1002,6 +1019,7 @@ impl Sensor {
             | SensorConfig::AirSpeed(_)
             | SensorConfig::Lidar(_)
             | SensorConfig::Camera(_)
+            | SensorConfig::Custom(_)
             | SensorConfig::Unconfigured => None,
         }
     }
@@ -1017,6 +1035,7 @@ impl Sensor {
             | SensorConfig::AirSpeed(_)
             | SensorConfig::Lidar(_)
             | SensorConfig::Camera(_)
+            | SensorConfig::Custom(_)
             | SensorConfig::Unconfigured => None,
         }
     }
@@ -1032,6 +1051,7 @@ impl Sensor {
             | SensorConfig::AirSpeed(_)
             | SensorConfig::Lidar(_)
             | SensorConfig::Camera(_)
+            | SensorConfig::Custom(_)
             | SensorConfig::Unconfigured => None,
         }
     }
@@ -1047,6 +1067,7 @@ impl Sensor {
             | SensorConfig::AirSpeed(_)
             | SensorConfig::Lidar(_)
             | SensorConfig::Camera(_)
+            | SensorConfig::Custom(_)
             | SensorConfig::Unconfigured => None,
         }
     }
@@ -1062,6 +1083,7 @@ impl Sensor {
             | SensorConfig::AirSpeed(_)
             | SensorConfig::Lidar(_)
             | SensorConfig::Camera(_)
+            | SensorConfig::Custom(_)
             | SensorConfig::Unconfigured => None,
         }
     }
@@ -1077,6 +1099,7 @@ impl Sensor {
             | SensorConfig::AirSpeed(_)
             | SensorConfig::Lidar(_)
             | SensorConfig::Camera(_)
+            | SensorConfig::Custom(_)
             | SensorConfig::Unconfigured => None,
         }
     }
@@ -1092,6 +1115,7 @@ impl Sensor {
             | SensorConfig::NavSat(_)
             | SensorConfig::Lidar(_)
             | SensorConfig::Camera(_)
+            | SensorConfig::Custom(_)
             | SensorConfig::Unconfigured => None,
         }
     }
@@ -1107,12 +1131,19 @@ impl Sensor {
             | SensorConfig::NavSat(_)
             | SensorConfig::AirSpeed(_)
             | SensorConfig::Camera(_)
+            | SensorConfig::Custom(_)
             | SensorConfig::Unconfigured => None,
         }
     }
     pub fn camera(&self) -> Option<&Camera> {
         match &self.config {
             SensorConfig::Camera(value) => Some(value),
+            _ => None,
+        }
+    }
+    pub fn custom(&self) -> Option<&CustomSensor> {
+        match &self.config {
+            SensorConfig::Custom(value) => Some(value),
             _ => None,
         }
     }

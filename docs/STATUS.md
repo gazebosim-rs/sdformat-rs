@@ -1806,8 +1806,11 @@ Pinned `DOMLink.Sensors` passes 1/0. The isolated source passes 227 Rust
 tests, 15 tooling tests, formatting, Clippy and docs; production coverage is
 3955/3973 lines, 6865/7064 regions and 24/24 changed executable lines.
 Independent /root/transport_fallback approved the exact partial source and
-negative-control disposition (source receipt SHA256 `ac04ed9be165c3e91acace8d4250898c067a7735313b7c74e46ee26091114c98`). Final
-metadata binding, protected hook and hosted qualification remain pending.
+negative-control disposition (source receipt SHA256 `ac04ed9be165c3e91acace8d4250898c067a7735313b7c74e46ee26091114c98`). At source review, final metadata binding, protected hook and hosted
+qualification were pending. Independent final binding (receipt SHA256
+`e267b0ff903c005d9ae28c7f4893974a2fa9a07505e20038b5f278ea420c2009`),
+normal protected hook and exact hosted verify run 40234584948 passed at public
+`67d3d05af7f0b898028f0754b7dd01aaf5f92711`; Link remains partial.
 
 
 ## Current static-model reference helper anchoring
@@ -1830,4 +1833,32 @@ Isolated author checks pass 227 Rust tests, sixteen tooling tests, formatting,
 Clippy and docs; production coverage is 3955/3973 lines and 6865/7064
 regions with no changed production lines. Independent /root/transport_fallback
 approved exact source/provenance behavior (receipt SHA256 `b0f2104d7a4475e131971462fa0b00b93188519a59d670f93bd5831c71d83589`).
-Final metadata binding, protected hook and hosted qualification remain pending.
+At source review, final binding, hook and hosted qualification were pending.
+Independent final binding (receipt SHA256 `57b849447b0699de9e2b102e6394e722b70ebd8dc7084226bb725d61065061bb`), normal protected
+hook and exact hosted verify run 40236633573 passed at public `7e13dfae9ab440113f2f141e0d248cd8f3ae2d34`.
+Staged executable-line coverage was 3773/3785; no new production line changed.
+
+
+## Native custom Link sensor extension fragment candidate
+
+The unchanged upstream `sensors.sdf` custom_sensor subtree retains the native
+name, effective CUSTOM type, lexical vendor element
+`my_namespace:custom_sensor` and direct `some_param` text parsed as integer
+123. The selected raw vendor XML is owned. This does not implement a mutable
+C++ Element tree, arbitrary nested extension grammar or all Link name/index
+lookup assertions. The full native DOMLink.Sensors case remains partial.
+The complete unchanged fixture now parses in Rust; its original model/link
+names and SensorCount27 are asserted. Prior Rust-only `family_custom`
+Unsupported metadata in the 85-row sensor corpus and the full-fixture
+Unsupported expectation in tests/xml.rs were corrected to native-positive.
+Their source XML and native token bytes were preserved.
+
+Fresh pinned native DOMLink.Sensors passes 1/0 and the 85-row native
+contact/envelope corpus passes byte-identically. Isolated author checks pass
+228 Rust tests, fifteen tooling tests, formatting, Clippy and docs with
+3990/4009 production lines, 6940/7140 regions and 57/58 changed executable
+lines. Independent /root approved exact source/API/assertion and both
+native-positive dispositions (receipt SHA256 `337619aec4b90721ae787e7e832b0efac6e98e6c3702819ddfe72715842441b2`), including
+a zero-parameter production mutant caught by the integer-value assertion.
+Integrated final metadata binding, normal hook and hosted qualification remain
+pending. No complete original-case credit is claimed.

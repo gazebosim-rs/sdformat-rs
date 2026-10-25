@@ -60,5 +60,6 @@ inputs fails before native execution. This restores
 replay from both the adopted SDF575 raw export and the current raw export; each
 freshly passed all 61 native observations and the unchanged original. The
 helper change has no parser, native fixture or simulator behavior effect. Its
-separate independent source receipt is SHA256 `b0f2104d7a4475e131971462fa0b00b93188519a59d670f93bd5831c71d83589`; final metadata
-binding, normal hook and hosted qualification are pending.
+separate independent source receipt is SHA256 `b0f2104d7a4475e131971462fa0b00b93188519a59d670f93bd5831c71d83589`. Independent final binding
+(receipt SHA256 `57b849447b0699de9e2b102e6394e722b70ebd8dc7084226bb725d61065061bb`), the normal protected hook and
+exact hosted verify run 40236633573 passed at public `7e13dfae9ab440113f2f141e0d248cd8f3ae2d34`.

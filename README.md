@@ -49,7 +49,9 @@ The sensor's literal XML type remains available as `kind`; `effective_type()`
 provides the native classification for parsed sensor kinds, including legacy
 GPS and GPU/CPU lidar aliases. Seven additional native-known fixture types
 retain their envelope with `SensorConfig::Unconfigured`; family payloads
-and runtime behavior remain pending.
+and runtime behavior remain pending. A bounded custom-sensor extension retains
+one vendor element name, its direct text parameters and exact raw subtree;
+full mutable Element and extension grammar remain pending.
 
 Scalar and pose-component conversion is qualified for Linux GNU/glibc using an
 owned C locale and native range/prefix semantics. One reviewed FFI module is the

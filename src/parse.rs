@@ -127,9 +127,9 @@ impl Parser<'_> {
             }
         }
         for child in elements(node) {
-            if child.tag_name().namespace().is_some()
-                || !children.contains(&child.tag_name().name())
-            {
+            // An explicitly listed lexical extension name is permitted only
+            // by its caller; ordinary SDF child lists contain no prefixes.
+            if !children.contains(&child.tag_name().name()) {
                 return Err(self.err(
                     child,
                     ErrorCode::Unsupported,
@@ -2462,35 +2462,40 @@ impl Parser<'_> {
         })
     }
     fn sensor(&self, node: Node<'_, '_>) -> Result<Sensor, Diagnostic> {
-        self.allowed(
-            node,
-            &[
-                "pose",
-                "update_rate",
-                "always_on",
-                "enable_metrics",
-                "topic",
-                "frame_id",
-                "gz_frame_id",
-                "imu",
-                "contact",
-                "force_torque",
-                "magnetometer",
-                "altimeter",
-                "air_pressure",
-                "navsat",
-                "gps",
-                "air_speed",
-                "ray",
-                "lidar",
-                "camera",
-            ],
-            &["name", "type"],
-        )?;
         let kind = self
             .attr(node, "type")?
             .trim_matches([' ', '\t', '\n'])
             .to_owned();
+        let custom_element = if kind == "custom" {
+            elements(node).find(|child| child.tag_name().namespace().is_some())
+        } else {
+            None
+        };
+        let mut allowed_children = vec![
+            "pose",
+            "update_rate",
+            "always_on",
+            "enable_metrics",
+            "topic",
+            "frame_id",
+            "gz_frame_id",
+            "imu",
+            "contact",
+            "force_torque",
+            "magnetometer",
+            "altimeter",
+            "air_pressure",
+            "navsat",
+            "gps",
+            "air_speed",
+            "ray",
+            "lidar",
+            "camera",
+        ];
+        if let Some(extension) = custom_element {
+            allowed_children.push(extension.tag_name().name());
+        }
+        self.allowed(node, &allowed_children, &["name", "type"])?;
         if !matches!(
             kind.as_str(),
             "imu"
@@ -2526,6 +2531,7 @@ impl Parser<'_> {
                 | "sonar"
                 | "wireless_receiver"
                 | "wireless_transmitter"
+                | "custom"
         ) {
             return Err(self.err(
                 node,
@@ -2635,10 +2641,30 @@ impl Parser<'_> {
             | "sonar"
             | "wireless_receiver"
             | "wireless_transmitter" => SensorConfig::Unconfigured,
+            "custom" => SensorConfig::Custom(CustomSensor {
+                element_name: custom_element
+                    .map(|extension| extension.tag_name().name().to_owned())
+                    .unwrap_or_default(),
+                parameters: custom_element
+                    .map(|extension| {
+                        elements(extension)
+                            .map(|item| {
+                                (
+                                    item.tag_name().name().to_owned(),
+                                    item.text().unwrap_or("").trim().to_owned(),
+                                )
+                            })
+                            .collect()
+                    })
+                    .unwrap_or_default(),
+            }),
             _ => unreachable!("sensor type checked above"),
         };
-        let configuration_xml =
-            child(node, config_tag).map_or(String::new(), |n| self.xml[n.range()].into());
+        let configuration_xml = if kind == "custom" {
+            custom_element.map_or(String::new(), |n| self.xml[n.range()].into())
+        } else {
+            child(node, config_tag).map_or(String::new(), |n| self.xml[n.range()].into())
+        };
         Ok(Sensor {
             name,
             kind,

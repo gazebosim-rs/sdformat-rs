@@ -10,17 +10,15 @@ fn legacy_undeclared_prefixes_and_opaque_entities_survive_unchanged() {
     let sdf = load_str(&xml, "legacy.sdf", &NoResources).unwrap();
     assert_eq!(sdf.models[0].plugins[0].xml, plugin);
     assert_eq!(sdf.models[0].plugins[0].filename, "driver.so");
-    let error = load_str(
+    let sensors = load_str(
         include_str!("fixtures/sensors.sdf"),
         "sensors.sdf",
         &NoResources,
     )
-    .unwrap_err();
-    assert_eq!(
-        error.code,
-        ErrorCode::Unsupported,
-        "full original fixture must reach semantic validation: {error}"
-    );
+    .unwrap();
+    assert_eq!(sensors.models[0].name, "model");
+    assert_eq!(sensors.models[0].links[0].name, "link");
+    assert_eq!(sensors.models[0].links[0].sensors.len(), 27);
 }
 
 #[test]

@@ -242,7 +242,6 @@ fn native_contact_configuration_and_envelope_corpus() {
                     | "unknown_contact_attribute"
                     | "nonfinite_rate_inf"
                     | "nonfinite_rate_nan"
-                    | "family_custom"
             ));
             assert_eq!(tokens[0], "0", "{id}");
         }

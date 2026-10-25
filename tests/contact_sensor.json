@@ -1358,9 +1358,7 @@
       "0",
       "0",
       "-"
-    ],
-    "rust_error": "Unsupported",
-    "gap": "Other sensor families remain Unsupported"
+    ]
   },
   {
     "id": "invalid_type_none",

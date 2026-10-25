@@ -52,7 +52,8 @@ be aliases, but must resolve to different bodies; the child cannot be world.
 `SensorConfig::AirSpeed(Box<AirSpeed>)` or
 `SensorConfig::Lidar(Box<Lidar>)` or
 `SensorConfig::Camera(Box<Camera>)` settings, or
-`SensorConfig::Unconfigured` for seven native-known envelope-only types. Optional `imu()`,
+`SensorConfig::Unconfigured` for seven native-known envelope-only types, or
+`SensorConfig::Custom(CustomSensor)` for one owned vendor-extension subtree. Optional `imu()`,
 `contact()`, `force_torque()`, `magnetometer()`, `altimeter()`, `air_pressure()` and
 `navsat()`, `air_speed()`, `lidar()` and `camera()` accessors expose the selected type; exact selected
 child XML and owned source are preserved. Contact collision names and nested topic
@@ -85,6 +86,11 @@ effective type, raw pose and metrics with `SensorConfig::Unconfigured`.
 These have no owned family payload. A known mismatched configuration child
 (such as `<imu>` under RFID) is rejected; generic extension child grammar,
 family behavior and native Link count/index/name lookup remain unported.
+`custom` retains one lexically named vendor child, its direct text children
+and the exact selected raw subtree. `custom()` exposes those values; the
+unchanged native fixture includes `my_namespace:custom_sensor` with
+`some_param=123`. Arbitrary nested extension grammar, mutable Element
+identity, generic child lookup and native Link name/index lookup are unported.
 The six per-axis `Noise` records retain type,
 mean, standard deviation, bias mean/deviation, dynamic bias deviation/correlation
 time, and precision. Standard deviations are nonnegative; noise types are case

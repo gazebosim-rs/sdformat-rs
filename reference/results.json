@@ -60276,7 +60276,7 @@
     "original": "DOMLink.Sensors native1/0, seven exact envelope-only fragments PARTIAL only.",
     "rust": "tests/unconfigured_sensor_link_original.rs two tests plus corrected native-positive RFID controls in tests/contact_sensor.rs and tests/semantics.rs; full isolated227/0.",
     "scope": "Name, literal/native effective type, full raw pose and disabled metrics for logical_camera, multicamera, RFID, RFIDTAG, sonar, wireless receiver and transmitter from unchanged fixture. SensorConfig::Unconfigured has no family payload. The negative rejects a known mismatched <imu> child under RFID, not arbitrary unknown children. Native custom extension, Link lookup/count/index and full original remain unported; one other fixture instance pending. Historical RFID Unsupported controls corrected to bogus_sensor_type on native-positive evidence.",
-    "review": "Independent /root/transport_fallback APPROVED exact frozen source/API/assertion mapping as PARTIAL only; receipt SHA256 ac04ed9be165c3e91acace8d4250898c067a7735313b7c74e46ee26091114c98. Fresh pinned native Link1/0 and private raw-parent Rust2/0. Integrated final metadata binding, protected hook and hosted qualification pending."
+    "review": "Independent /root/transport_fallback APPROVED exact frozen source/API/assertion mapping as PARTIAL only; receipt SHA256 ac04ed9be165c3e91acace8d4250898c067a7735313b7c74e46ee26091114c98. Fresh pinned native Link1/0 and private raw-parent Rust2/0. Integrated final metadata binding, protected hook and hosted qualification pending. Final metadata binding receipt SHA256 e267b0ff903c005d9ae28c7f4893974a2fa9a07505e20038b5f278ea420c2009, normal protected hook and exact hosted verify run40234584948 passed at public67d3d05af7f0b898028f0754b7dd01aaf5f92711; Link remains PARTIAL."
   },
   "static_model_reference_anchor": {
     "parent": "67d3d05af7f0b898028f0754b7dd01aaf5f92711",
@@ -60284,6 +60284,17 @@
     "original": "NestedFrameSemantics.ModelWithoutLinksWithNestedStaticModel unchanged original1/0 and exact 61 native static-model observations; no new case credit.",
     "rust": "New tools/test_static_model_reference.py unit verifies original static post-state, both reviewed later full-file-hash states and rejection of an unrelated static assertion mutation. Full isolated227 Rust/16 tools.",
     "scope": "Helper-only provenance repair. Exact hashed camera→RFID→bogus_sensor_type successor states are reversed before original static edits and exact original parent SHA check. Git-free raw SDF575 and public67d exports each pass fresh native61 rows and original1/0. No production/parser/native fixture or D23/simulator policy change.",
-    "review": "Independent /root/transport_fallback APPROVED exact three-source-file helper/provenance source, receipt SHA256 b0f2104d7a4475e131971462fa0b00b93188519a59d670f93bd5831c71d83589. Private raw-parent native proof byte-identical SHA0232d6e6dbf211b8d7481bcf3acb19d8f28e6b4cefdac42331ab17f04907a5cc. Final metadata binding, normal protected hook and hosted qualification pending."
+    "review": "Independent /root/transport_fallback APPROVED exact three-source-file helper/provenance source, receipt SHA256 b0f2104d7a4475e131971462fa0b00b93188519a59d670f93bd5831c71d83589. Private raw-parent native proof byte-identical SHA0232d6e6dbf211b8d7481bcf3acb19d8f28e6b4cefdac42331ab17f04907a5cc. Final metadata binding, normal protected hook and hosted qualification pending. Final metadata binding receipt SHA256 57b849447b0699de9e2b102e6394e722b70ebd8dc7084226bb725d61065061bb, normal protected hook and exact hosted verify run40236633573 passed at public 7e13dfae9ab440113f2f141e0d248cd8f3ae2d34; staged executable lines3773/3785, no changed production."
+  },
+  "custom_sensor_link_fragment": {
+    "parent": "7e13dfae9ab440113f2f141e0d248cd8f3ae2d34",
+    "upstream": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "source_digest": "e9cd7a38f80864854f1d4b9ee5af35a855740ed1ed6370cb405e08ae9e9f7583",
+    "native_contact_reference_sha256": "8e627b5d617c697288ac070debfe15f98b917b8f4f87ee91e6d56c8191e021fe",
+    "sensor_fixture_sha256": "dc2b61c8b40a7df7f2c7b6e649f3039136ca1a03528371b307e9b9fc27406a00",
+    "original": "DOMLink.Sensors native1/0, exact custom_sensor extension fragment and full fixture model/link names/Count27 PARTIAL only.",
+    "rust": "tests/custom_sensor_link_original.rs exact vendor element and integer123; tests/contact_sensor.rs corrected family_custom native-positive; tests/xml.rs corrected full-fixture native-positive/count27. Full isolated228 Rust/15 tools.",
+    "scope": "CustomSensor stores one lexical vendor extension child name and direct text parameters, with exact raw subtree on Sensor. Original custom name/effective CUSTOM/Element child/int123 and full fixture load/model/link/Count27 map. Mutable native Element identity, arbitrary nested extension grammar, Link name/index lookup and remaining original assertions unported. Prior Rust-only family_custom gap metadata removed with XML/native tokens unchanged; full fixture Unsupported control corrected. No complete Link credit.",
+    "review": "Independent /root APPROVED exact frozen source/API/assertion mapping and native-positive dispositions, source receipt SHA256 337619aec4b90721ae787e7e832b0efac6e98e6c3702819ddfe72715842441b2. Private raw tree selected15 Rust +2 supplemental boundaries and fresh byte-identical native85-row/full Link1/0 proof. Final main metadata binding, normal hook and hosted qualification pending."
   }
 }

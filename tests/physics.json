@@ -1,0 +1,1438 @@
+[
+  {
+    "id": "type_only",
+    "xml": "<sdf version='1.12'><world name='w'><physics type='ode'/></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "64656661756c745f70687973696373",
+      "0",
+      "6f6465",
+      "4562254508917369340",
+      "4607182418800017408",
+      "20",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "name_only",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p'/></world></sdf>",
+    "tokens": [
+      "5",
+      "4",
+      "9",
+      "9",
+      "9",
+      "30"
+    ]
+  },
+  {
+    "id": "empty_type",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type=''/></world></sdf>",
+    "tokens": [
+      "5",
+      "5",
+      "9",
+      "9",
+      "9",
+      "30"
+    ]
+  },
+  {
+    "id": "name0",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='' type='ode'/></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "64656661756c745f70687973696373",
+      "0",
+      "6f6465",
+      "4562254508917369340",
+      "4607182418800017408",
+      "20",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "name1",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='__default__' type='ode'/></world></sdf>",
+    "tokens": [
+      "2",
+      "3",
+      "9"
+    ]
+  },
+  {
+    "id": "name2",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='world' type='ode'/></world></sdf>",
+    "tokens": [
+      "2",
+      "3",
+      "9"
+    ]
+  },
+  {
+    "id": "name3",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='a::b' type='ode'/></world></sdf>",
+    "tokens": [
+      "3",
+      "3",
+      "3",
+      "30"
+    ]
+  },
+  {
+    "id": "name4",
+    "xml": "<sdf version='1.12'><world name='w'><physics name=' a ' type='ode'/></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "61",
+      "0",
+      "6f6465",
+      "4562254508917369340",
+      "4607182418800017408",
+      "20",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "name5",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='a b' type='ode'/></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "612062",
+      "0",
+      "6f6465",
+      "4562254508917369340",
+      "4607182418800017408",
+      "20",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "default0",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='ode' default=''/></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "6f6465",
+      "4562254508917369340",
+      "4607182418800017408",
+      "20",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "default1",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='ode' default=' true '/></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "1",
+      "6f6465",
+      "4562254508917369340",
+      "4607182418800017408",
+      "20",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "default2",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='ode' default='2'/></world></sdf>",
+    "tokens": [
+      "5",
+      "5",
+      "9",
+      "9",
+      "9",
+      "30"
+    ]
+  },
+  {
+    "id": "default3",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='ode' default='True'/></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "1",
+      "6f6465",
+      "4562254508917369340",
+      "4607182418800017408",
+      "20",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "default4",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='ode' default='false'/></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "6f6465",
+      "4562254508917369340",
+      "4607182418800017408",
+      "20",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "default5",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='ode' default='FALSE'/></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "6f6465",
+      "4562254508917369340",
+      "4607182418800017408",
+      "20",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "default6",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='ode' default='01'/></world></sdf>",
+    "tokens": [
+      "5",
+      "5",
+      "9",
+      "9",
+      "9",
+      "30"
+    ]
+  },
+  {
+    "id": "default7",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='ode' default='+1'/></world></sdf>",
+    "tokens": [
+      "5",
+      "5",
+      "9",
+      "9",
+      "9",
+      "30"
+    ]
+  },
+  {
+    "id": "step0",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='ode'><max_step_size></max_step_size></physics></world></sdf>",
+    "tokens": [
+      "5",
+      "9",
+      "9",
+      "9",
+      "9",
+      "30"
+    ]
+  },
+  {
+    "id": "step1",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='ode'><max_step_size>-1</max_step_size></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "6f6465",
+      "13830554455654793216",
+      "4607182418800017408",
+      "20",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "step2",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='ode'><max_step_size>-0</max_step_size></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "6f6465",
+      "9223372036854775808",
+      "4607182418800017408",
+      "20",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "step3",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='ode'><max_step_size>0</max_step_size></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "6f6465",
+      "0",
+      "4607182418800017408",
+      "20",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "step4",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='ode'><max_step_size>nan</max_step_size></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "6f6465",
+      "9221120237041090560",
+      "4607182418800017408",
+      "20",
+      "1",
+      "4652007308841189376"
+    ],
+    "gap": "Existing finite-double policy rejects nonfinite metadata"
+  },
+  {
+    "id": "step5",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='ode'><max_step_size>inf</max_step_size></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "6f6465",
+      "9218868437227405312",
+      "4607182418800017408",
+      "20",
+      "1",
+      "4652007308841189376"
+    ],
+    "gap": "Existing finite-double policy rejects nonfinite metadata"
+  },
+  {
+    "id": "step6",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='ode'><max_step_size>1e-310</max_step_size></physics></world></sdf>",
+    "tokens": [
+      "5",
+      "9",
+      "9",
+      "9",
+      "9",
+      "30"
+    ]
+  },
+  {
+    "id": "step7",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='ode'><max_step_size>true</max_step_size></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "6f6465",
+      "4607182418800017408",
+      "4607182418800017408",
+      "20",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "step8",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='ode'><max_step_size>0.001x</max_step_size></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "6f6465",
+      "4562254508917369340",
+      "4607182418800017408",
+      "20",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "contacts0",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='ode'><max_contacts></max_contacts></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "6f6465",
+      "4562254508917369340",
+      "4607182418800017408",
+      "20",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "contacts1",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='ode'><max_contacts>-1</max_contacts></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "6f6465",
+      "4562254508917369340",
+      "4607182418800017408",
+      "-1",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "contacts2",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='ode'><max_contacts>2147483648</max_contacts></physics></world></sdf>",
+    "tokens": [
+      "5",
+      "9",
+      "9",
+      "9",
+      "9",
+      "30"
+    ]
+  },
+  {
+    "id": "contacts3",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='ode'><max_contacts>-2147483649</max_contacts></physics></world></sdf>",
+    "tokens": [
+      "5",
+      "9",
+      "9",
+      "9",
+      "9",
+      "30"
+    ]
+  },
+  {
+    "id": "contacts4",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='ode'><max_contacts>0x10</max_contacts></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "6f6465",
+      "4562254508917369340",
+      "4607182418800017408",
+      "16",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "contacts5",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='ode'><max_contacts>-0x10</max_contacts></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "6f6465",
+      "4562254508917369340",
+      "4607182418800017408",
+      "0",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "contacts6",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='ode'><max_contacts>1junk</max_contacts></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "6f6465",
+      "4562254508917369340",
+      "4607182418800017408",
+      "1",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "contacts7",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='ode'><max_contacts>1.9</max_contacts></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "6f6465",
+      "4562254508917369340",
+      "4607182418800017408",
+      "1",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "contacts8",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='ode'><max_contacts>true</max_contacts></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "6f6465",
+      "4562254508917369340",
+      "4607182418800017408",
+      "1",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "absent",
+    "xml": "<sdf version='1.12'><world name='w'></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "64656661756c745f70687973696373",
+      "0",
+      "6f6465",
+      "4562254508917369340",
+      "4607182418800017408",
+      "20",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "first_default",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='a' type='ode'/><physics name='b' type='tpe' default='true'/><physics name='c' type='custom' default='true'/></world></sdf>",
+    "tokens": [
+      "0",
+      "3",
+      "1",
+      "61",
+      "0",
+      "6f6465",
+      "4562254508917369340",
+      "4607182418800017408",
+      "20",
+      "1",
+      "4652007308841189376",
+      "62",
+      "1",
+      "747065",
+      "4562254508917369340",
+      "4607182418800017408",
+      "20",
+      "1",
+      "4652007308841189376",
+      "63",
+      "1",
+      "637573746f6d",
+      "4562254508917369340",
+      "4607182418800017408",
+      "20",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "fallback_first",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='a' type='ode'/><physics name='b' type='tpe'/></world></sdf>",
+    "tokens": [
+      "0",
+      "2",
+      "0",
+      "61",
+      "0",
+      "6f6465",
+      "4562254508917369340",
+      "4607182418800017408",
+      "20",
+      "1",
+      "4652007308841189376",
+      "62",
+      "0",
+      "747065",
+      "4562254508917369340",
+      "4607182418800017408",
+      "20",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "duplicate",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='a' type='ode'/><physics name='a' type='tpe'/></world></sdf>",
+    "tokens": [
+      "2",
+      "2",
+      "9"
+    ]
+  },
+  {
+    "id": "max_step_size0",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='custom'><max_step_size>0</max_step_size></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "637573746f6d",
+      "0",
+      "4607182418800017408",
+      "20",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "max_step_size1",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='custom'><max_step_size>-1</max_step_size></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "637573746f6d",
+      "13830554455654793216",
+      "4607182418800017408",
+      "20",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "max_step_size2",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='custom'><max_step_size>1.5junk</max_step_size></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "637573746f6d",
+      "4609434218613702656",
+      "4607182418800017408",
+      "20",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "max_step_size3",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='custom'><max_step_size>true</max_step_size></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "637573746f6d",
+      "4607182418800017408",
+      "4607182418800017408",
+      "20",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "max_step_size4",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='custom'><max_step_size>false</max_step_size></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "637573746f6d",
+      "0",
+      "4607182418800017408",
+      "20",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "max_step_size5",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='custom'><max_step_size>1e-310</max_step_size></physics></world></sdf>",
+    "tokens": [
+      "5",
+      "9",
+      "9",
+      "9",
+      "9",
+      "30"
+    ]
+  },
+  {
+    "id": "max_step_size6",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='custom'><max_step_size><![CDATA[ ]]></max_step_size></physics></world></sdf>",
+    "tokens": [
+      "5",
+      "9",
+      "9",
+      "9",
+      "9",
+      "30"
+    ]
+  },
+  {
+    "id": "max_step_size7",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='custom'><max_step_size>nan</max_step_size></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "637573746f6d",
+      "9221120237041090560",
+      "4607182418800017408",
+      "20",
+      "1",
+      "4652007308841189376"
+    ],
+    "gap": "Existing finite-double policy rejects nonfinite metadata"
+  },
+  {
+    "id": "max_step_size8",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='custom'><max_step_size>inf</max_step_size></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "637573746f6d",
+      "9218868437227405312",
+      "4607182418800017408",
+      "20",
+      "1",
+      "4652007308841189376"
+    ],
+    "gap": "Existing finite-double policy rejects nonfinite metadata"
+  },
+  {
+    "id": "real_time_factor0",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='custom'><real_time_factor>0</real_time_factor></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "637573746f6d",
+      "4562254508917369340",
+      "0",
+      "20",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "real_time_factor1",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='custom'><real_time_factor>-1</real_time_factor></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "637573746f6d",
+      "4562254508917369340",
+      "13830554455654793216",
+      "20",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "real_time_factor2",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='custom'><real_time_factor>1.5junk</real_time_factor></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "637573746f6d",
+      "4562254508917369340",
+      "4609434218613702656",
+      "20",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "real_time_factor3",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='custom'><real_time_factor>true</real_time_factor></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "637573746f6d",
+      "4562254508917369340",
+      "4607182418800017408",
+      "20",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "real_time_factor4",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='custom'><real_time_factor>false</real_time_factor></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "637573746f6d",
+      "4562254508917369340",
+      "0",
+      "20",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "real_time_factor5",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='custom'><real_time_factor>1e-310</real_time_factor></physics></world></sdf>",
+    "tokens": [
+      "5",
+      "9",
+      "9",
+      "9",
+      "9",
+      "30"
+    ]
+  },
+  {
+    "id": "real_time_factor6",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='custom'><real_time_factor><![CDATA[ ]]></real_time_factor></physics></world></sdf>",
+    "tokens": [
+      "5",
+      "9",
+      "9",
+      "9",
+      "9",
+      "30"
+    ]
+  },
+  {
+    "id": "real_time_factor7",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='custom'><real_time_factor>nan</real_time_factor></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "637573746f6d",
+      "4562254508917369340",
+      "9221120237041090560",
+      "20",
+      "1",
+      "4652007308841189376"
+    ],
+    "gap": "Existing finite-double policy rejects nonfinite metadata"
+  },
+  {
+    "id": "real_time_factor8",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='custom'><real_time_factor>inf</real_time_factor></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "637573746f6d",
+      "4562254508917369340",
+      "9218868437227405312",
+      "20",
+      "1",
+      "4652007308841189376"
+    ],
+    "gap": "Existing finite-double policy rejects nonfinite metadata"
+  },
+  {
+    "id": "real_time_update_rate0",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='custom'><real_time_update_rate>0</real_time_update_rate></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "637573746f6d",
+      "4562254508917369340",
+      "4607182418800017408",
+      "20",
+      "1",
+      "0"
+    ]
+  },
+  {
+    "id": "real_time_update_rate1",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='custom'><real_time_update_rate>-1</real_time_update_rate></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "637573746f6d",
+      "4562254508917369340",
+      "4607182418800017408",
+      "20",
+      "1",
+      "13830554455654793216"
+    ]
+  },
+  {
+    "id": "real_time_update_rate2",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='custom'><real_time_update_rate>1.5junk</real_time_update_rate></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "637573746f6d",
+      "4562254508917369340",
+      "4607182418800017408",
+      "20",
+      "1",
+      "4609434218613702656"
+    ]
+  },
+  {
+    "id": "real_time_update_rate3",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='custom'><real_time_update_rate>true</real_time_update_rate></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "637573746f6d",
+      "4562254508917369340",
+      "4607182418800017408",
+      "20",
+      "1",
+      "4607182418800017408"
+    ]
+  },
+  {
+    "id": "real_time_update_rate4",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='custom'><real_time_update_rate>false</real_time_update_rate></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "637573746f6d",
+      "4562254508917369340",
+      "4607182418800017408",
+      "20",
+      "1",
+      "0"
+    ]
+  },
+  {
+    "id": "real_time_update_rate5",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='custom'><real_time_update_rate>1e-310</real_time_update_rate></physics></world></sdf>",
+    "tokens": [
+      "5",
+      "9",
+      "9",
+      "9",
+      "9",
+      "30"
+    ]
+  },
+  {
+    "id": "real_time_update_rate6",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='custom'><real_time_update_rate><![CDATA[ ]]></real_time_update_rate></physics></world></sdf>",
+    "tokens": [
+      "5",
+      "9",
+      "9",
+      "9",
+      "9",
+      "30"
+    ]
+  },
+  {
+    "id": "real_time_update_rate7",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='custom'><real_time_update_rate>nan</real_time_update_rate></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "637573746f6d",
+      "4562254508917369340",
+      "4607182418800017408",
+      "20",
+      "1",
+      "9221120237041090560"
+    ],
+    "gap": "Existing finite-double policy rejects nonfinite metadata"
+  },
+  {
+    "id": "real_time_update_rate8",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='custom'><real_time_update_rate>inf</real_time_update_rate></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "637573746f6d",
+      "4562254508917369340",
+      "4607182418800017408",
+      "20",
+      "1",
+      "9218868437227405312"
+    ],
+    "gap": "Existing finite-double policy rejects nonfinite metadata"
+  },
+  {
+    "id": "int_more0",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='ode'><max_contacts>2147483647</max_contacts></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "6f6465",
+      "4562254508917369340",
+      "4607182418800017408",
+      "2147483647",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "int_more1",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='ode'><max_contacts>-2147483648</max_contacts></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "6f6465",
+      "4562254508917369340",
+      "4607182418800017408",
+      "-2147483648",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "int_more2",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='ode'><max_contacts>0Xff</max_contacts></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "6f6465",
+      "4562254508917369340",
+      "4607182418800017408",
+      "255",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "int_more3",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='ode'><max_contacts>+12x</max_contacts></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "6f6465",
+      "4562254508917369340",
+      "4607182418800017408",
+      "12",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "int_more4",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='ode'><max_contacts>-0x4</max_contacts></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "6f6465",
+      "4562254508917369340",
+      "4607182418800017408",
+      "0",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "int_more5",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='ode'><max_contacts>+0x4</max_contacts></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "6f6465",
+      "4562254508917369340",
+      "4607182418800017408",
+      "0",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "int_more6",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='ode'><max_contacts>0x</max_contacts></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "6f6465",
+      "4562254508917369340",
+      "4607182418800017408",
+      "0",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "int_more7",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='ode'><max_contacts>0xg</max_contacts></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "6f6465",
+      "4562254508917369340",
+      "4607182418800017408",
+      "0",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "int_more8",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='ode'><max_contacts>&#11;2junk</max_contacts></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "6f6465",
+      "4562254508917369340",
+      "4607182418800017408",
+      "2",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "int_more9",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='ode'><max_contacts>&#160;2</max_contacts></physics></world></sdf>",
+    "tokens": [
+      "5",
+      "9",
+      "9",
+      "9",
+      "9",
+      "30"
+    ]
+  },
+  {
+    "id": "int_more10",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='ode'><max_contacts><![CDATA[\t]]></max_contacts></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "6f6465",
+      "4562254508917369340",
+      "4607182418800017408",
+      "20",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "int_more11",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='ode'><max_contacts>false</max_contacts></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "6f6465",
+      "4562254508917369340",
+      "4607182418800017408",
+      "0",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "solver",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='ode'><ode><solver><type>quick</type></solver></ode></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "6f6465",
+      "4562254508917369340",
+      "4607182418800017408",
+      "20",
+      "1",
+      "4652007308841189376"
+    ],
+    "gap": "Engine-specific parameters are explicitly unsupported"
+  },
+  {
+    "id": "foreign",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='p' type='ode'><custom>v</custom></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "6f6465",
+      "4562254508917369340",
+      "4607182418800017408",
+      "20",
+      "1",
+      "4652007308841189376"
+    ],
+    "gap": "Custom schema extensions are explicitly unsupported"
+  },
+  {
+    "id": "name_nbsp",
+    "xml": "<sdf version='1.12'><world name='w'><physics name='&#160;p&#160;' type=' custom '/></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "c2a070c2a0",
+      "0",
+      "637573746f6d",
+      "4562254508917369340",
+      "4607182418800017408",
+      "20",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "version1.4",
+    "xml": "<sdf version='1.4'><world name='w'><physics name='p' type='ode'><max_step_size>0.01</max_step_size></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "6f6465",
+      "4576918229304087675",
+      "4607182418800017408",
+      "20",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "version1.5",
+    "xml": "<sdf version='1.5'><world name='w'><physics name='p' type='ode'><max_step_size>0.01</max_step_size></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "6f6465",
+      "4576918229304087675",
+      "4607182418800017408",
+      "20",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "version1.6",
+    "xml": "<sdf version='1.6'><world name='w'><physics name='p' type='ode'><max_step_size>0.01</max_step_size></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "6f6465",
+      "4576918229304087675",
+      "4607182418800017408",
+      "20",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "version1.7",
+    "xml": "<sdf version='1.7'><world name='w'><physics name='p' type='ode'><max_step_size>0.01</max_step_size></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "6f6465",
+      "4576918229304087675",
+      "4607182418800017408",
+      "20",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "version1.8",
+    "xml": "<sdf version='1.8'><world name='w'><physics name='p' type='ode'><max_step_size>0.01</max_step_size></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "6f6465",
+      "4576918229304087675",
+      "4607182418800017408",
+      "20",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "version1.9",
+    "xml": "<sdf version='1.9'><world name='w'><physics name='p' type='ode'><max_step_size>0.01</max_step_size></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "6f6465",
+      "4576918229304087675",
+      "4607182418800017408",
+      "20",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "version1.10",
+    "xml": "<sdf version='1.10'><world name='w'><physics name='p' type='ode'><max_step_size>0.01</max_step_size></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "6f6465",
+      "4576918229304087675",
+      "4607182418800017408",
+      "20",
+      "1",
+      "4652007308841189376"
+    ]
+  },
+  {
+    "id": "version1.11",
+    "xml": "<sdf version='1.11'><world name='w'><physics name='p' type='ode'><max_step_size>0.01</max_step_size></physics></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "0",
+      "70",
+      "0",
+      "6f6465",
+      "4576918229304087675",
+      "4607182418800017408",
+      "20",
+      "1",
+      "4652007308841189376"
+    ]
+  }
+]

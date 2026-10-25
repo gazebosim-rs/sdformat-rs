@@ -193,10 +193,51 @@ impl Sdf {
 pub struct World {
     pub name: String,
     pub gravity: [f64; 3],
+    /// Physics profiles in declaration order, or the implicit native default.
+    pub physics: Vec<Physics>,
     pub models: Vec<Model>,
     pub frames: Vec<Frame>,
     pub plugins: Vec<Plugin>,
     pub source: Source,
+}
+impl World {
+    /// First explicitly default profile, otherwise the first profile.
+    pub fn physics_default(&self) -> Option<&Physics> {
+        self.physics
+            .iter()
+            .find(|profile| profile.is_default)
+            .or_else(|| self.physics.first())
+    }
+}
+
+/// Owned physics configuration; parsing does not select or configure an engine.
+#[derive(Debug, Clone, PartialEq)]
+pub struct Physics {
+    pub name: String,
+    pub is_default: bool,
+    pub engine_type: String,
+    pub max_step_size: f64,
+    pub real_time_factor: f64,
+    pub real_time_update_rate: f64,
+    pub max_contacts: i32,
+    /// Absent for a constructed value or the world's implicit default profile.
+    pub source: Option<Source>,
+    pub xml: Option<String>,
+}
+impl Default for Physics {
+    fn default() -> Self {
+        Self {
+            name: String::new(),
+            is_default: false,
+            engine_type: "ode".into(),
+            max_step_size: 0.001,
+            real_time_factor: 1.,
+            real_time_update_rate: 1000.,
+            max_contacts: 20,
+            source: None,
+            xml: None,
+        }
+    }
 }
 #[derive(Debug)]
 pub struct Model {

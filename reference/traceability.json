@@ -513,6 +513,17 @@
       "baseline": "Both exact native missing-flag cases passed; artifacts/version14/original.xml.",
       "status": "partial_reviewed",
       "review": "Independent /root/transport_recovery; 2026-10-25; compared exact native originals and direct/root/world/resource scope. Approved partial mappings only: 1.4 typed load/axis presence/effective __model__ and 1.5 typed load; converted Element assertions remain pending. Fresh 115 Rust checks, 61 native observations and both original cases passed with complete proof equality. No full retirement."
+    },
+    {
+      "target": "UNIT_Physics_TEST",
+      "case": "DOMPhysics.DefaultConstruction",
+      "source": "src/Physics_TEST.cc:24",
+      "rust_test": "tests/physics_original.rs::original_physics_default_construction",
+      "assertions": "Every original null Element, empty/set name, default/set bool, default/set engine, max-step and real-time-factor comparison. Null Element maps to absent XML on the constructed owned value; direct public field assignments preserve setter values. All original double expectations are strengthened to exact equality for identical literals.",
+      "fixtures": {},
+      "status": "ported_reviewed",
+      "review": "Independent /root reviewed all original default/setter assertions and approved the owned value/no-Element API mapping; fresh 122 Rust tests, 89 native observations and exact original one run/zero failures passed, complete native proof equality. Additional 15 native/Rust controls passed. No full SDF packet acceptance.",
+      "upstream_fixtures": {}
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

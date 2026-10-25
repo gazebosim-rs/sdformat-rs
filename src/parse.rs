@@ -140,6 +140,7 @@ impl Parser<'_> {
             "visual",
             "sensor",
             "plugin",
+            "physics",
             "polyline",
             "point",
             "texture",
@@ -359,11 +360,29 @@ impl Parser<'_> {
     fn world(&mut self, node: Node<'_, '_>) -> Result<World, Diagnostic> {
         self.allowed(
             node,
-            &["model", "include", "frame", "gravity", "plugin"],
+            &["model", "include", "frame", "gravity", "plugin", "physics"],
             &["name"],
         )?;
         let name = self.name(node)?;
         let gravity = child(node, "gravity").map_or(Ok([0., 0., -9.8]), |n| self.values(n))?;
+        let mut physics = elements(node)
+            .filter(|n| n.has_tag_name("physics"))
+            .map(|n| self.physics(n))
+            .collect::<Result<Vec<_>, _>>()?;
+        let mut names = BTreeSet::new();
+        if physics.iter().any(|profile| !names.insert(&profile.name)) {
+            return Err(self.err(
+                node,
+                ErrorCode::DuplicateName,
+                "duplicate physics profile name",
+            ));
+        }
+        if physics.is_empty() {
+            physics.push(Physics {
+                name: "default_physics".into(),
+                ..Physics::default()
+            });
+        }
         let models = self.models(node, &name)?;
         let mut frames = self.frames(node)?;
         if is_pre17(node) {
@@ -381,11 +400,124 @@ impl Parser<'_> {
         Ok(World {
             name,
             gravity,
+            physics,
             models,
             frames,
             plugins: self.plugins(node)?,
             source: self.source(node),
         })
+    }
+    fn physics(&self, node: Node<'_, '_>) -> Result<Physics, Diagnostic> {
+        self.allowed(
+            node,
+            &[
+                "max_step_size",
+                "real_time_factor",
+                "real_time_update_rate",
+                "max_contacts",
+            ],
+            &["name", "default", "type"],
+        )?;
+        let name = node
+            .attribute("name")
+            .unwrap_or("")
+            .trim_matches([' ', '\t', '\n']);
+        let name = if name.is_empty() {
+            "default_physics"
+        } else {
+            name
+        };
+        if reserved_name(name) || name.contains("::") {
+            return Err(self.err(
+                node,
+                ErrorCode::InvalidValue,
+                "reserved physics profile name",
+            ));
+        }
+        let engine = node
+            .attribute("type")
+            .unwrap_or("")
+            .trim_matches([' ', '\t', '\n']);
+        if engine.is_empty() {
+            return Err(self.err(node, ErrorCode::Missing, "physics requires type"));
+        }
+        let is_default = match node
+            .attribute("default")
+            .unwrap_or("")
+            .trim_matches([' ', '\t', '\n'])
+            .to_ascii_lowercase()
+            .as_str()
+        {
+            "" | "false" | "0" => false,
+            "true" | "1" => true,
+            _ => {
+                return Err(self.err(
+                    node,
+                    ErrorCode::InvalidValue,
+                    "invalid default physics boolean",
+                ));
+            }
+        };
+        Ok(Physics {
+            name: name.into(),
+            is_default,
+            engine_type: engine.into(),
+            max_step_size: self.required_scalar(node, "max_step_size", 0.001)?,
+            real_time_factor: self.required_scalar(node, "real_time_factor", 1.)?,
+            real_time_update_rate: self.required_scalar(node, "real_time_update_rate", 1000.)?,
+            max_contacts: self.signed_integer(node, "max_contacts", 20)?,
+            source: Some(self.source(node)),
+            xml: Some(self.xml[node.range()].into()),
+        })
+    }
+    fn signed_integer(
+        &self,
+        node: Node<'_, '_>,
+        name: &str,
+        default: i32,
+    ) -> Result<i32, Diagnostic> {
+        let Some(value) = child(node, name) else {
+            return Ok(default);
+        };
+        self.allowed(value, &[], &[])?;
+        let text = param_text(value);
+        if text.is_empty() {
+            return Ok(default);
+        }
+        let lower = text.to_ascii_lowercase();
+        let text = match lower.as_str() {
+            "true" => "1",
+            "false" => "0",
+            _ => text.as_ref(),
+        };
+        // Param's stoi chooses hexadecimal only for a leading 0x before sign
+        // handling; otherwise it accepts a decimal prefix and checks i32 range.
+        let radix = if lower.starts_with("0x") { 16 } else { 10 };
+        let text = text.trim_start_matches(legacy_whitespace);
+        let (sign, digits) = match text.as_bytes().first() {
+            Some(b'-') => (-1_i64, &text[1..]),
+            Some(b'+') => (1, &text[1..]),
+            _ => (1, text),
+        };
+        let digits = if radix == 16 && digits.as_bytes().get(2).is_some_and(u8::is_ascii_hexdigit) {
+            &digits[2..]
+        } else {
+            digits
+        };
+        let count = digits
+            .bytes()
+            .take_while(|c| {
+                if radix == 16 {
+                    c.is_ascii_hexdigit()
+                } else {
+                    c.is_ascii_digit()
+                }
+            })
+            .count();
+        i64::from_str_radix(&digits[..count], radix)
+            .ok()
+            .and_then(|n| i32::try_from(n * sign).ok())
+            .ok_or_else(|| self.err(value, ErrorCode::InvalidValue, "expected signed integer"))
     }
     fn frames(&self, node: Node<'_, '_>) -> Result<Vec<Frame>, Diagnostic> {
         elements(node)

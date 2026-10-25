@@ -783,3 +783,25 @@ The same regression fails with the original verifier because the child inherits
 Git locals. A second test covers restoration after a failed child. All 13 tooling
 checks pass; source/native assertions and thresholds are unchanged. Independent
 review and the normal strict staged/hosted gates remain required.
+
+## World physics profile candidate
+
+World now retains physics profiles and exposes native first-default/first-profile
+selection. Physics owns core step/rate/contact fields, unconstrained engine string,
+name/default flag and source/raw XML; missing declarations preserve native effective
+schema defaults. No solver/backend selection, engine-specific parameters or runtime
+policy is implemented. Signed maximum-contact conversion follows measured native
+stoi prefix/range behavior without another FFI boundary.
+
+All 122 Rust checks, fresh 89 native observations and the unchanged original
+DOMPhysics.DefaultConstruction pass. Its complete value/default/setter assertions
+are retained through public owned fields; source/Element/serializer scope remains
+explicit. Independent /root approved its complete value/default/setter assertion mapping
+and reproduced all 122 Rust tests, 89 native observations, the exact original
+(one run, zero failures), complete proof equality and 15 additional edge controls.
+The identical source/assertion delta is integrated onto the published hook fix.
+Working isolated coverage is
+2857/2875 production lines, 4974/5080 regions and 135/135 changed executable lines.
+Existing nonfinite-double limits and engine-specific/custom Unsupported gaps are
+recorded, with no dependencies, thresholds or coverage exclusions changed. Strict
+staged/hosted verification and independent assertion review remain required.

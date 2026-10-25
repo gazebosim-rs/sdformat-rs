@@ -362,3 +362,9 @@ The common loader subset accepts SDF 1.4 with the native direct-root/world joint
 axis default insertion scope. Nested models retain their existing default, and
 included documents use their own source version/scope. Actors, earlier versions
 and Element/serializer/conversion facades remain unsupported; see VERSION_14.md.
+
+World physics profiles are owned metadata, with native effective defaults and
+first-default/first-profile selection; see docs/PHYSICS.md. Parsing does not choose
+a runtime engine or timestep. Explicit engine-specific parameter blocks remain
+Unsupported. Consumers must validate configuration they use rather than assume
+that native DOM acceptance makes zero/negative values a valid runtime timestep.

@@ -60368,6 +60368,17 @@
     "original": "Pinned DOMSensor.EnableMetrics native1/0; default false, exact inline SDF1.5 sensor element makes enable_metrics true, then mutation false.",
     "rust": "Reviewed mutable Sensor::load_element_str on exact test SHAa2495106; native-invalid type none updates metrics then returns InvalidValue. Isolated selected2/0 and full242 Rust/16 tools/fmt/Clippy/docs, coverage4068/4088 lines7042/7251 regions, changed69/69.",
     "scope": "Complete observable original only. Native Sensor::Load reports ATTRIBUTE_INVALID after metrics update; Rust supplemental asserts InvalidValue category, not exact native error code/message/vector. Full-document type none remains rejected. No full Sensor.Load/Element/graph/ToElement/arbitrary grammar claim.",
-    "review": "Independent source/API/assertion approval SHA256 f23a0600ec12c56d01cd5f6d1eed8c70b629d96a4388311f8d6f207cd00316bc, exact V2 freeze and private native1/0/raw-parent Rust2/0 plus metrics-removal mutant. Old freeze revoked; final binding/hook/hosted pending."
+    "review": "Independent source/API/assertion approval SHA256 f23a0600ec12c56d01cd5f6d1eed8c70b629d96a4388311f8d6f207cd00316bc, exact V2 freeze and private native1/0/raw-parent Rust2/0 plus metrics-removal mutant. Old freeze revoked; final binding receipt SHA256 7b2f6200273beaf2c07de998bb2d302c24344158fa192c73499057b7254c394f, protected hook and exact hosted run 40245442664 passed at public 30123d93459465c0addd0c00c7a431c6de510952."
+  },
+  "plugin_ownership_originals": {
+    "parent": "30123d93459465c0addd0c00c7a431c6de510952",
+    "source_parent": "6bb760e275401cb6f122f07f4831ea5f1bf30a34",
+    "upstream": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "source_freeze_sha256": "8dc65db6b8bcf271e8ee6f73ed4677d1420acfe5d9275bd09f1e34c881ede73c",
+    "source_review_sha256": "43209bcc0e8c98122cf51fe0b0846f04992a576113fa42a60df704ccc8ca583a",
+    "original": "Four pinned DOMPlugin CopyConstructor/CopyAssigmentOperator/MoveAssignmentConstructor/CopyAssignmentAfterMove originals fresh native4/0; all observed final and retained source name/filename values.",
+    "rust": "Exact reviewed one-test-source SHA51badcb3195c363af52c8c99020ac45ed03734e8426e24370b531ffbb6d6f4f6; selected4/0, isolated full244 Rust/16 tools/fmt/Clippy/docs, production3998/4017 lines6951/7152 regions and no production edit.",
+    "scope": "Four complete observable value originals via Clone, clone_from, owned move and swap. Imported 2021 OSRF notice exact; no C++ method/operator identity, Element/Contents/ToElement, moved-from state or general Plugin grammar claim.",
+    "review": "Independent source/API/assertion approval SHA256 43209bcc0e8c98122cf51fe0b0846f04992a576113fa42a60df704ccc8ca583a; exact source freeze 8dc65db6b8bcf271e8ee6f73ed4677d1420acfe5d9275bd09f1e34c881ede73c, private native4/0/raw-parent Rust4/0. Final metadata binding, normal protected hook and hosted qualification pending."
   }
 }

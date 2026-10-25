@@ -2035,7 +2035,28 @@ metrics assignment failed the original true assertion. Isolated author
 checks pass 242 Rust, sixteen tooling tests, formatting, Clippy and docs;
 production coverage is 4068/4088 lines and 7042/7251 regions, with all
 69 changed executable lines covered. The earlier source freeze was revoked
-after its native error-state mismatch. Final metadata binding, normal hook and
-hosted qualification are pending. Exact native error code and message, full
+after its native error-state mismatch. Final binding receipt SHA256
+`7b2f6200273beaf2c07de998bb2d302c24344158fa192c73499057b7254c394f`,
+normal protected hook and exact hosted run 40245442664 succeeded at public
+`30123d93459465c0addd0c00c7a431c6de510952`. Exact native error code and message, full
 `Sensor::Load`, Element identity, frame graph and general sensor grammar remain
 separate work.
+
+## Four native DOMPlugin copy and assignment originals candidate
+
+Pinned `DOMPlugin.CopyConstructor`, `CopyAssigmentOperator`,
+`MoveAssignmentConstructor` and `CopyAssignmentAfterMove` pass natively 4/0.
+One retained test maps all observed source and destination name/filename
+values through owned `Clone`, `clone_from`, move and swap. It preserves the
+imported 2021 OSRF Apache notice.
+
+Independent /root/transport_fallback approved the complete observable values
+on source freeze SHA256
+`8dc65db6b8bcf271e8ee6f73ed4677d1420acfe5d9275bd09f1e34c881ede73c`
+(receipt SHA256 `43209bcc0e8c98122cf51fe0b0846f04992a576113fa42a60df704ccc8ca583a`).
+Private pinned native and raw-parent Rust selected runs passed 4/0. Isolated
+author checks pass 244 Rust, sixteen tooling tests, formatting, Clippy and
+docs; production coverage is 3998/4017 lines and 6951/7152 regions with no
+production edit. Final metadata binding, normal hook and hosted qualification
+are pending. C++ setter/operator identity, Element contents, serialization,
+moved-from state and general Plugin grammar remain separate work.

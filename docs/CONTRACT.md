@@ -579,3 +579,12 @@ an invalid type. The Rust method likewise retains the value change and returns
 maps the original's observed false, true and false values. It does not imply
 exact native error-vector parity, complete `Sensor::Load` behavior, Element
 identity, serialization or general sensor grammar.
+
+## Plugin owned copy and assignment values
+
+The pinned `DOMPlugin` copy constructor, copy assignment, move assignment and
+copy assignment after move originals observe name and filename values. Rust
+`Clone`, `clone_from`, owned move and swap retain those source and destination
+values. The native originals do not inspect moved-from state. Element
+contents, `ToElement`, C++ method identity and general plugin parsing remain
+separate acceptance work.

@@ -1131,7 +1131,55 @@
       "upstream_fixtures": {},
       "baseline": "Fresh pinned native DOMSensor.EnableMetrics 1/0, no skips; source/binary and Sensor.cc hashes plus exact inline SDF hash in artifacts/sensor-metrics/source-freeze-v2.json. Independent private raw-parent Rust2/0 and metrics-assignment-removal mutant failing original true assertion. Author isolated full242 Rust/16 tools/fmt/Clippy/docs, coverage4068/4088 lines7042/7251 regions, changed69/69.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_fallback APPROVED complete observable original with native mutation-before-error and full-document rejection, exact source receipt SHA256 f23a0600ec12c56d01cd5f6d1eed8c70b629d96a4388311f8d6f207cd00316bc and V2 freeze SHA256 2404d9f27a8446bb98f7bb293674cd3eb96d7ef876a7410226594c172be46574. Old freeze bb5a1e95 revoked. Final metadata binding, protected hook and hosted qualification pending."
+      "review": "Independent /root/transport_fallback APPROVED complete observable original with native mutation-before-error and full-document rejection, exact source receipt SHA256 f23a0600ec12c56d01cd5f6d1eed8c70b629d96a4388311f8d6f207cd00316bc and V2 freeze SHA256 2404d9f27a8446bb98f7bb293674cd3eb96d7ef876a7410226594c172be46574. Old freeze bb5a1e95 revoked. Final binding receipt SHA256 7b2f6200273beaf2c07de998bb2d302c24344158fa192c73499057b7254c394f; normal protected hook and exact hosted run 40245442664 passed at public 30123d93459465c0addd0c00c7a431c6de510952."
+    },
+    {
+      "target": "UNIT_Plugin_TEST",
+      "case": "DOMPlugin.CopyConstructor",
+      "source": "src/Plugin_TEST.cc:74-88",
+      "rust_test": "tests/plugin_ownership_original.rs::original_dom_plugin_copy_constructor",
+      "assertions": "Complete pinned original observable value mapping: Clone retains name and filename in both source and copy. Direct owned fields map native SetName/SetFilename value reads. C++ method/operator identity, Element, Contents, ToElement, moved-from state and broader parser behavior remain outside this original.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Fresh exact pinned UNIT_Plugin_TEST four-filter native4/0, no skips, source/binary hashes and test SHA51badcb3195c363af52c8c99020ac45ed03734e8426e24370b531ffbb6d6f4f6 in artifacts/plugin-ownership/source-freeze.json. Independent private raw-parent Rust4/0; author isolated full244 Rust/16 tools/fmt/Clippy/docs and 3998/4017 lines6951/7152 regions, no production edits.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback APPROVED complete observable four-case values, exact source receipt SHA256 43209bcc0e8c98122cf51fe0b0846f04992a576113fa42a60df704ccc8ca583a and freeze SHA256 8dc65db6b8bcf271e8ee6f73ed4677d1420acfe5d9275bd09f1e34c881ede73c. Private native4/0 and Rust4/0; imported 2021 OSRF notice exact. Final metadata binding, protected hook and hosted qualification pending."
+    },
+    {
+      "target": "UNIT_Plugin_TEST",
+      "case": "DOMPlugin.CopyAssigmentOperator",
+      "source": "src/Plugin_TEST.cc:89-104",
+      "rust_test": "tests/plugin_ownership_original.rs::original_dom_plugin_copy_assigment_operator",
+      "assertions": "Complete pinned original observable value mapping: clone_from retains name and filename in destination and source. Direct owned fields map native SetName/SetFilename value reads. C++ method/operator identity, Element, Contents, ToElement, moved-from state and broader parser behavior remain outside this original.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Fresh exact pinned UNIT_Plugin_TEST four-filter native4/0, no skips, source/binary hashes and test SHA51badcb3195c363af52c8c99020ac45ed03734e8426e24370b531ffbb6d6f4f6 in artifacts/plugin-ownership/source-freeze.json. Independent private raw-parent Rust4/0; author isolated full244 Rust/16 tools/fmt/Clippy/docs and 3998/4017 lines6951/7152 regions, no production edits.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback APPROVED complete observable four-case values, exact source receipt SHA256 43209bcc0e8c98122cf51fe0b0846f04992a576113fa42a60df704ccc8ca583a and freeze SHA256 8dc65db6b8bcf271e8ee6f73ed4677d1420acfe5d9275bd09f1e34c881ede73c. Private native4/0 and Rust4/0; imported 2021 OSRF notice exact. Final metadata binding, protected hook and hosted qualification pending."
+    },
+    {
+      "target": "UNIT_Plugin_TEST",
+      "case": "DOMPlugin.MoveAssignmentConstructor",
+      "source": "src/Plugin_TEST.cc:105-117",
+      "rust_test": "tests/plugin_ownership_original.rs::original_dom_plugin_move_assignment_constructor",
+      "assertions": "Complete pinned original observable value mapping: Owned move assignment retains destination name and filename. Direct owned fields map native SetName/SetFilename value reads. C++ method/operator identity, Element, Contents, ToElement, moved-from state and broader parser behavior remain outside this original.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Fresh exact pinned UNIT_Plugin_TEST four-filter native4/0, no skips, source/binary hashes and test SHA51badcb3195c363af52c8c99020ac45ed03734e8426e24370b531ffbb6d6f4f6 in artifacts/plugin-ownership/source-freeze.json. Independent private raw-parent Rust4/0; author isolated full244 Rust/16 tools/fmt/Clippy/docs and 3998/4017 lines6951/7152 regions, no production edits.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback APPROVED complete observable four-case values, exact source receipt SHA256 43209bcc0e8c98122cf51fe0b0846f04992a576113fa42a60df704ccc8ca583a and freeze SHA256 8dc65db6b8bcf271e8ee6f73ed4677d1420acfe5d9275bd09f1e34c881ede73c. Private native4/0 and Rust4/0; imported 2021 OSRF notice exact. Final metadata binding, protected hook and hosted qualification pending."
+    },
+    {
+      "target": "UNIT_Plugin_TEST",
+      "case": "DOMPlugin.CopyAssignmentAfterMove",
+      "source": "src/Plugin_TEST.cc:118-141",
+      "rust_test": "tests/plugin_ownership_original.rs::original_dom_plugin_copy_assignment_after_move",
+      "assertions": "Complete pinned original observable value mapping: Owned swap retains both final name/filename pairs after the native move-and-copy sequence. Direct owned fields map native SetName/SetFilename value reads. C++ method/operator identity, Element, Contents, ToElement, moved-from state and broader parser behavior remain outside this original.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Fresh exact pinned UNIT_Plugin_TEST four-filter native4/0, no skips, source/binary hashes and test SHA51badcb3195c363af52c8c99020ac45ed03734e8426e24370b531ffbb6d6f4f6 in artifacts/plugin-ownership/source-freeze.json. Independent private raw-parent Rust4/0; author isolated full244 Rust/16 tools/fmt/Clippy/docs and 3998/4017 lines6951/7152 regions, no production edits.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback APPROVED complete observable four-case values, exact source receipt SHA256 43209bcc0e8c98122cf51fe0b0846f04992a576113fa42a60df704ccc8ca583a and freeze SHA256 8dc65db6b8bcf271e8ee6f73ed4677d1420acfe5d9275bd09f1e34c881ede73c. Private native4/0 and Rust4/0; imported 2021 OSRF notice exact. Final metadata binding, protected hook and hosted qualification pending."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

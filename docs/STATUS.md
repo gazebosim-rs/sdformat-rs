@@ -1327,3 +1327,18 @@ one partial mapping, not a complete original retirement. Independent review
 approved the exact source, first-message mapping and five native rows after
 private 184 Rust/fmt/Clippy replay and a public-parent red countercontrol.
 Final metadata binding, protected staged gate and hosted CI remain pending.
+
+## Root frame semantics after move candidate
+
+The exact pinned `DOMRoot.FrameSemanticsOnMove` original passes one run with zero
+failures. Both inline SDF 1.8 inputs match the native source byte-for-byte. A
+Rust test retains its four load, move-construction and move-assignment blocks,
+with all original world/frame presence, frame-name, pose-resolution success and
+pose-value observations. Owned `Sdf` moves transfer its owned semantic graphs;
+independent review approved this one complete original mapping after
+replaying both exact input strings, all four observation blocks and a failing
+move-assignment countercontrol. No graph facade or production code changes are proposed.
+
+All 185 isolated Rust tests, 13 tooling checks, formatting, Clippy and docs pass;
+author direct coverage is 3300/3316 production lines and 5746/5857 regions.
+Exact final metadata binding, protected staged gate and hosted CI remain pending.

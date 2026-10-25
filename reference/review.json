@@ -2,26 +2,25 @@
   "decision": "approved",
   "author": "/root/sdformat_owner_fallback",
   "reviewer": "/root/transport_fallback",
-  "scope": "Final public-parent and metadata binding of the approved partial invalid world-frame attachment diagnostic.",
-  "parent": "1d364e9605700f56a426e6e5b5787d9a4e7105b0",
-  "final_freeze": "artifacts/invalid-attachment/frozen-final.json",
-  "final_freeze_sha256": "0222de54fec75f74081c28d1defdd3acd245e7097d2eb15aa5d8e369c847b6fb",
-  "protected_digest": "b7aaf100f2f50a9d2a12bf0ca43a2763f498bcd85647b06c2cab3f747b693dec",
-  "source_digest": "4b443b8825cf70176a1eb763c8f6ec4a74a99c4cdd62bebeb99a07a78e74bc09",
-  "reviewed_source_digest": "ff77802fa3ccf204a2e3520713e779830565f83bd38dc34da60be4e571104691",
-  "source_review_receipt_sha256": "d1e2eaae21221c7dd8c6120a25c77681a21d91bab8a4bf2063a80cc17b403f55",
+  "scope": "Final metadata and public-parent overlap for the complete DOMRoot.FrameSemanticsOnMove original assertion port.",
+  "parent": "a62c2888366a72e30e1e7d5b184e973e301a7990",
+  "final_freeze": "artifacts/frame-move/frozen-final.json",
+  "final_freeze_sha256": "fefd7eb2d58cb76ea01ef5b81081783bba7abb023d83764831a21cf9126a82e0",
+  "protected_digest": "9a56467089afb944ddec20766730d540a2842b69120122daa5c65db48b7e380a",
+  "source_digest": "187392b150d80401eb048a10b568bf3e049e297c5d7b34b700361926b1c2481c",
+  "reviewed_source_digest": "9c702e1041d0c06391cddedc2ace1e6a2d24cc7af4c419634283119e4968514b",
+  "source_review_receipt_sha256": "c861506e6bee7c330b43082261b165b08c4f010a8028adfa2caa3f4a5069e2d5",
   "files": {
-    "docs/STATUS.md": "95554f1ae0fe8b7ceb5decfafca4cce74f5d22259e2ad54421c0a06119681e78",
-    "reference/results.json": "b98c25bf96a14751b9a43a09989835e3ca1896f2b9cc9395eaa66318fba38dbe",
-    "reference/traceability.json": "7586b9199521f1031368ef697d69f10a4deb5b6db5d5f047561e6cd0642dcdde",
-    "src/graph.rs": "24a0f1b2aea34cbffa47180d9604e9a86a945b33cd8b4510e76c671099d020d4",
-    "tests/invalid_attachment_original.rs": "50a48b31028970c2ef2c987c2c1e359a531bf9b63c2bcb2e12c72884448637dc",
-    "tests/fixtures/world_frame_invalid_attached_to_scope.sdf": "68f28a59ed7b9ee873704e7e8c1bf9620caf1949e0550c814b933c579485db0b"
+    "docs/STATUS.md": "e2a75973c8044d8df390e177e41cce5dc108ee8e362f8f1fcda5022f13c911f0",
+    "reference/results.json": "5fd9a211eefff57c14b875d0c4808788bec16cf6671df1051c1bc0f6857806e6",
+    "reference/traceability.json": "ff75b2fd254378de03fce62405845b5a7cc0f051cf79c826d4c7ff62e64f9cf2",
+    "tests/frame_move_original.rs": "432c15dd69a5d8d58109da1cdf10f9a0b530b42a75a8e31fede76fb8134d4d25"
   },
   "checks": [
-    "All six final worktree SHA-256 values match the frozen manifest and are the only changed or added paths on the public parent.",
-    "Graph production, original assertion test and unchanged upstream fixture match the independently approved source hashes exactly. Only additive STATUS/results and one partial_reviewed traceability row changed.",
-    "The traceability row accurately limits the mapping to eager load failure and first native diagnostic; native graph-query booleans, all seven errors and native code 23 remain unported. Author's manifest preserves 224 other public-parent paths."
+    "The four final file hashes and manifest SHA-256 match the uncommitted public-parent checkout; Git shows only these four additions or changes and no staged drift.",
+    "The test is byte-identical to the independently reviewed isolated source. The other three files contain only the additive status, result and traceability record for this original; 227 tracked parent files remain unchanged.",
+    "The corrected result scope agrees with the approved complete assertion mapping and explicitly limits moved-from Root, pointer identity, arbitrary graph edits and broader parity.",
+    "The author's prior main run passed 185 Rust tests, 13 tooling tests, formatting, Clippy, docs and direct coverage of 3300/3316 lines and 5746/5857 regions; a fresh run on this corrected metadata snapshot is in progress."
   ],
-  "limits": "Approval covers source semantics and final metadata binding only. Fresh main author verification, normal protected staged hook, publication and hosted CI remain required; no complete original retirement or consumer change is approved."
+  "limits": "This binding accepts only the frozen four-file candidate and its recorded complete original mapping. The corrected-snapshot author rerun, normal protected staged hook, publication and exact hosted CI remain pending. Author direct coverage and tools were inspected, not independently rerun for the final metadata."
 }

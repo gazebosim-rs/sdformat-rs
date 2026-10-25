@@ -768,6 +768,18 @@
       "baseline": "Unchanged original one run, zero failures/skips; artifacts/static-model/ModelWithoutLinksWithNestedStaticModel.xml.",
       "status": "ported_reviewed",
       "review": "Independent /root/transport_fallback approved all original known-valid-fixture load/model/graph validation/body observations, including mandatory eager graph construction/validation before typed success. Private 181 Rust checks, fresh 61-row/exact-original native proof and parent red test verified. No generic mutable graph/error-vector/runtime claim."
+    },
+    {
+      "target": "UNIT_Root_TEST",
+      "case": "DOMRoot.FrameSemanticsOnMove",
+      "source": "src/Root_TEST.cc:243",
+      "rust_test": "tests/frame_move_original.rs::original_frame_semantics_on_move",
+      "assertions": "All four original load/move blocks are retained: two standalone parses, move construction and move assignment after both source/destination checks. The two inline SDF 1.8 strings are byte-identical to native. WorldByIndex(0), FrameByIndex(0), frame names, semantic pose Resolve success and expected Pose3 values are checked after each original observation, with component-wise <=1e-3 native equality. Rust owned Sdf moves and assignment directly transfer the owned graph; no graph API or mutation facade is introduced.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Exact native original one run, zero failures/skips; artifacts/frame-move/original.xml; pinned upstream 1249805d. Inline input SHA-256 55513c8fb8f00555d1d2d63a624fed2fbdaef573e19e04384d56c9b92c6a3db4 and 746f2a9fab8ac5c5665df120e64c3a0b4da7d83f49d8a032496779e498f6ab5d.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback approved exact source digest 9c702e1041d0c06391cddedc2ace1e6a2d24cc7af4c419634283119e4968514b as a complete original assertion port. Both 161-byte inline inputs match native byte-for-byte; exact native original1/0, private185 Rust/fmt/Clippy pass and an omitted move-assignment mutant fails. Rust owned Sdf/Graphs moves transfer the complete value, with all four blocks and world/frame presence/names/pose observations retained. No moved-from/pointer identity or arbitrary graph edit claim. Final metadata binding and staged/hosted qualification pending."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

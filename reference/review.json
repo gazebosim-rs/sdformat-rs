@@ -5,32 +5,34 @@
     "docs/STATUS.md",
     "reference/results.json",
     "reference/traceability.json",
-    "tests/joint_mutable_sensor_original.rs"
+    "src/types.rs",
+    "tests/model_add_original.rs"
   ],
   "decision": "approved",
   "files_sha256": {
-    "docs/CONTRACT.md": "8c49fec0db9b3b82b009768a3117468e695ae04ea3a2b418a21983d6c83a4c3b",
-    "docs/STATUS.md": "f84aa52aae94a6942b7456752cbc7d733d4ebf7bad042d9aa61bb8570187f48e",
-    "reference/results.json": "bc7c574f35548da8cf4a05f2859e40ff57a28001c45b0ed6b9ec139a5ebfcb0b",
-    "reference/traceability.json": "487bacd285f8bcc14ccc69c19a96d082e1a27443862d6e7a493392ab86e029f1",
-    "tests/joint_mutable_sensor_original.rs": "c5c0891577f7b2f6340440ff1cfacd4c4abec632e70e2f3d8e798c77e3c9fff2"
+    "docs/CONTRACT.md": "fc631049690b1ad65916d0d7c4c90299585665fc4831b0614ea786918519a599",
+    "docs/STATUS.md": "68f9bdc7bae062729ac697726862997714c9daa10e3960787dd72f7dd9be5618",
+    "reference/results.json": "81f95672f26d63a9feec6381cd83c2eb82993be08b46b4bdca101c2282c5a70b",
+    "reference/traceability.json": "17468c1b67f8404f6fd689542066a0574f19ba64e5c962aba2e4b29ea677284e",
+    "src/types.rs": "d52add65c781a0f12e92a8a952235edf16892f4d27cb4ba73dbbba60b1ad86de",
+    "tests/model_add_original.rs": "ebaac54d53c04cbbc03d10efd1cbe0dd090681d3e0c0b81db0e54a96e008e26b"
   },
-  "final_freeze": "artifacts/joint-mutable-integration/frozen-final.json",
-  "final_freeze_sha256": "25b0a1409391e617ddf5d964bd808ec6241cb258169947604f499e8104e78cdd",
-  "limits": "Receipt may be added as separate publication-envelope file only if all five candidate hashes remain unchanged. C++ pointer/method identity, native default Sensor construction, generic duplicate insertion policy and broader grammar remain unported. Normal protected hook and hosted CI are separate gates.",
-  "parent": "1e743e41bfb53eaf39ba61fd29c095841a47c9ce",
-  "pre_receipt_tree": "d39001f7ceb8046e5cd54d54033419f935ef6b8f",
-  "protected_digest": "597e9e7c976a14833aa017c715ee900fe6f2eb2a820d664c8e5e5a394ec3c027",
+  "final_freeze": "artifacts/model-add-integration/frozen-final.json",
+  "final_freeze_sha256": "692ef3eafd15b4f46d5fc11f28accb797e5f7dd07ab486ee6a49bc5437c9199b",
+  "limits": "Receipt may be added as a separate publication-envelope file only if all six candidate hashes remain unchanged. C++ method/pointer identity, arbitrary scoped/cross-kind uniqueness, Element, default-object identity and graph mutation remain unported. Normal protected hook and hosted CI are separate gates.",
+  "parent": "a1b0ee731ec7aa684b344b368f80f13cc666bdc3",
+  "pre_receipt_tree": "8ed101e4150a862bd4ed4f159de4e2b02e39730e",
+  "protected_digest": "709a21aec44dce93903a0045d99ee07d40d3a0c2511e2893b15fc2a72df6cd4c",
   "reviewer": "/root/transport_fallback",
-  "source_digest": "64c291f4063754cc763dcb50cce8f97450662ca65249542a4b70f4d71edec4d5",
-  "source_freeze_sha256": "b6d8067123da6cf8bd8168bb16fe7e92715f1c77a9b0525fa8e1189df5242928",
-  "source_review_sha256": "6a9ea39d079a7ca1ee00bcd5cdd34c751be10987766f4c8604a8b27786e0a0f9",
-  "staged_diff_sha256": "926c5b65fbe3ba10c80a2bb4f8eef46372da091aa556f08742cc20684acfe571",
+  "source_digest": "e1e1a03bdb3bcfb539922562e36a85db9287e40a414ce0f7f51b2c988e18b5e9",
+  "source_freeze_sha256": "42a916bbe8c9232ae2f193e121d56323365e22d0b76b094d63f36ccdb59d8590",
+  "source_review_sha256": "f8e1bd1d283af6d33e306da143bdc97803a962f27f078a6714b0863f6b342472",
+  "staged_diff_sha256": "5ef37690943113cd4e21b36242580f3876a645c27a8a77c02c564a1787a8248a",
   "verification": {
-    "author_gate": "272 Rust, 16 tools, fmt/Clippy/docs; production4205/4226 lines and7235/7455 regions, no changed executable production lines; exact log SHA256 61d3b8d3e91e3416b09d3f32ef89885ecfa1a1682b441c773aa018c6d1fad825",
-    "index": "Exact five candidate hashes and 100644 modes match staged bytes; no unstaged diff; pre-receipt tree and binary diff match freeze.",
-    "metadata": "CONTRACT, STATUS, results and traceability add only two complete fixed-value originals, distinguish Rust-only empty/count checks, and correct prior five ownership public/hosted status.",
-    "parent_overlap": "HEAD equals hosted-green public parent; 287 tracked parent blobs, four edited and one new candidate file; 283 other parent blobs preserved.",
-    "source": "Reviewed one-test SHAc5c08915 and copied source receipt SHA6a9ea39d remain unchanged."
+    "author_gate": "274 Rust, 16 tools, fmt/Clippy/docs; production4233/4254 lines and7267/7487 regions,26/26 changed; exact log SHA256 73695175fb5b440103f68781b18ebe144b935a25db26d87f5fa5a1625b8b0809",
+    "index": "Exact six candidate hashes and 100644 modes match staged bytes; no unstaged diff; pre-receipt tree and binary diff match freeze.",
+    "metadata": "CONTRACT, STATUS, results and traceability add two complete fixed-value originals and correct prior mutable sensor public/hosted state; parsed-static/graph limits explicit.",
+    "parent_overlap": "HEAD equals hosted-green public parent; 288 tracked parent blobs, five edited and one new candidate file; 283 other parent blobs preserved.",
+    "source": "Reviewed src/types.rs SHAd52add65 and test SHAebaac54d and copied source receipt SHAf8e1bd1d remain unchanged."
   }
 }

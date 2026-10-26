@@ -658,3 +658,14 @@ observations after one unique insertion. The Rust empty/count checks are
 supplemental. Native default Sensor construction, pointer identity, native
 method identity, duplicate insertion policy and broader sensor grammar are
 separate acceptance work.
+
+
+## Model owned collection mutation
+
+`Model::add_joint_unique` and `add_model_unique` consume an owned value and
+return whether a direct member name was new. `clear_joints` and `clear_models`
+empty those collections. The two pinned DOMModel add originals establish
+fixed count, duplicate rejection, clear, reinsert and index-name values.
+These mutations do not update an already built semantic frame graph. Native
+default-object state, C++ method/pointer identity, arbitrary scoped-name or
+cross-kind uniqueness, Element serialization and graph editing remain separate.

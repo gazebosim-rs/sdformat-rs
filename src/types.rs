@@ -271,6 +271,38 @@ pub struct Model {
     pub source: Source,
 }
 impl Model {
+    /// Insert a joint with a unique direct name.
+    /// This edits owned DOM data; an already built frame graph is unchanged.
+    pub fn add_joint_unique(&mut self, joint: Joint) -> bool {
+        if self
+            .joints
+            .iter()
+            .any(|existing| existing.name == joint.name)
+        {
+            return false;
+        }
+        self.joints.push(joint);
+        true
+    }
+    pub fn clear_joints(&mut self) {
+        self.joints.clear();
+    }
+    /// Insert a nested model with a unique direct name.
+    /// This edits owned DOM data; an already built frame graph is unchanged.
+    pub fn add_model_unique(&mut self, model: Model) -> bool {
+        if self
+            .models
+            .iter()
+            .any(|existing| existing.name == model.name)
+        {
+            return false;
+        }
+        self.models.push(model);
+        true
+    }
+    pub fn clear_models(&mut self) {
+        self.models.clear();
+    }
     /// Borrow a nested model by an explicitly scoped relative name.
     /// A descendant's unqualified name does not search through other models.
     pub fn model_by_name(&self, name: &str) -> Option<&Model> {

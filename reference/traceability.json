@@ -1385,7 +1385,7 @@
       "upstream_fixtures": {},
       "baseline": "Pinned native originals2/0 and private raw-parent Rust2/0, exact source/binary/inline XML and reviewed test SHAc5c08915 bound by source freeze b6d80671; isolated full272 Rust/16 tools, production4205/4226 lines7235/7455 regions.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_fallback source/API/assertion APPROVED receipt SHA256 6a9ea39d079a7ca1ee00bcd5cdd34c751be10987766f4c8604a8b27786e0a0f9; exact test and native assertions checked. Final metadata binding, normal hook and hosted qualification pending."
+      "review": "Independent /root/transport_fallback source/API/assertion APPROVED receipt SHA256 6a9ea39d079a7ca1ee00bcd5cdd34c751be10987766f4c8604a8b27786e0a0f9; exact test and native assertions checked. Final metadata binding receipt SHA256 a50e2d29fd7d6c56b6c866ecc3c69b4015a0992b17066cb767854f6d1f09b2d9, normal protected hook and public a1b0ee731ec7aa684b344b368f80f13cc666bdc3 passed exact hosted verify 40263088196 SUCCESS."
     },
     {
       "target": "UNIT_Joint_TEST",
@@ -1397,7 +1397,31 @@
       "upstream_fixtures": {},
       "baseline": "Pinned native originals2/0 and private raw-parent Rust2/0, exact source/binary/inline XML and reviewed test SHAc5c08915 bound by source freeze b6d80671; isolated full272 Rust/16 tools, production4205/4226 lines7235/7455 regions.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_fallback source/API/assertion APPROVED receipt SHA256 6a9ea39d079a7ca1ee00bcd5cdd34c751be10987766f4c8604a8b27786e0a0f9; exact test and native assertions checked. Final metadata binding, normal hook and hosted qualification pending."
+      "review": "Independent /root/transport_fallback source/API/assertion APPROVED receipt SHA256 6a9ea39d079a7ca1ee00bcd5cdd34c751be10987766f4c8604a8b27786e0a0f9; exact test and native assertions checked. Final metadata binding receipt SHA256 a50e2d29fd7d6c56b6c866ecc3c69b4015a0992b17066cb767854f6d1f09b2d9, normal protected hook and public a1b0ee731ec7aa684b344b368f80f13cc666bdc3 passed exact hosted verify 40263088196 SUCCESS."
+    },
+    {
+      "target": "UNIT_Model_TEST",
+      "case": "DOMModel.AddJoint",
+      "source": "src/Model_TEST.cc:286-307",
+      "rust_test": "tests/model_add_original.rs::original_dom_model_add_joint",
+      "assertions": "COMPLETE fixed observable initial count zero, unique insertion true/count one, duplicate false/count unchanged, clear/count zero, reinsert/count one, index0 non-null and exact name. Parsed static empty model and valid parsed value substitute native defaults; owned add_*_unique consumes input. Native C++ method/pointer identity, arbitrary scoped or cross-kind uniqueness, Element and graph mutation unclaimed.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Pinned native original filters2/0 and private raw-parent Rust2/0, exact source/binary/XML and two reviewed source hashes bound by freeze 42a916bb; isolated full274 Rust/16 tools, production4233/4254 lines7267/7487 regions, changed26/26.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback source/API/assertion APPROVED receipt SHA256 f8e1bd1d283af6d33e306da143bdc97803a962f27f078a6714b0863f6b342472; private native2/0 and Rust2/0, all original observable groups mapped. Final metadata binding, normal hook and hosted qualification pending."
+    },
+    {
+      "target": "UNIT_Model_TEST",
+      "case": "DOMModel.AddModel",
+      "source": "src/Model_TEST.cc:309-330",
+      "rust_test": "tests/model_add_original.rs::original_dom_model_add_model",
+      "assertions": "COMPLETE fixed observable initial count zero, unique insertion true/count one, duplicate false/count unchanged, clear/count zero, reinsert/count one, index0 non-null and exact name. Parsed static empty model and valid parsed value substitute native defaults; owned add_*_unique consumes input. Native C++ method/pointer identity, arbitrary scoped or cross-kind uniqueness, Element and graph mutation unclaimed.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Pinned native original filters2/0 and private raw-parent Rust2/0, exact source/binary/XML and two reviewed source hashes bound by freeze 42a916bb; isolated full274 Rust/16 tools, production4233/4254 lines7267/7487 regions, changed26/26.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback source/API/assertion APPROVED receipt SHA256 f8e1bd1d283af6d33e306da143bdc97803a962f27f078a6714b0863f6b342472; private native2/0 and Rust2/0, all original observable groups mapped. Final metadata binding, normal hook and hosted qualification pending."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

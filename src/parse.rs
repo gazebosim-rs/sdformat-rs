@@ -852,6 +852,7 @@ impl Parser<'_> {
         Ok(Model {
             name,
             scoped_name: scoped_name.clone(),
+            raw_namespace: None,
             pose,
             is_static: self.boolean(node, "static", false)?,
             canonical_link: node.attribute("canonical_link").unwrap_or("").into(),

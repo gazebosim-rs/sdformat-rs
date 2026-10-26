@@ -283,10 +283,12 @@ impl Default for Physics {
         }
     }
 }
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Model {
     pub name: String,
     pub scoped_name: String,
+    /// Owned namespace metadata. XML namespace loading is not supported yet.
+    pub raw_namespace: Option<String>,
     pub pose: Pose,
     pub is_static: bool,
     pub canonical_link: String,
@@ -303,6 +305,13 @@ pub struct Model {
     pub source: Source,
 }
 impl Model {
+    /// Resolve literal `{name}` placeholders against the current model name.
+    /// This does not change frame scopes or include/resource lookup.
+    pub fn namespace(&self) -> Option<String> {
+        self.raw_namespace
+            .as_ref()
+            .map(|namespace| namespace.replace("{name}", &self.name))
+    }
     /// Insert a link with a unique direct name; an existing frame graph is unchanged.
     pub fn add_link_unique(&mut self, link: Link) -> bool {
         if self.links.iter().any(|existing| existing.name == link.name) {
@@ -422,7 +431,7 @@ impl Model {
         (self, name)
     }
 }
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Frame {
     pub name: String,
     pub attached_to: String,

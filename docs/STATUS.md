@@ -2728,5 +2728,34 @@ checks are supplemental. Original 2018 OSRF notices remain with rewrite attribut
 Default constructor fields, mutable Element, C++ constructor/operator/storage
 identity, moved-from APIs, frame-graph rebuilding and resource/physics execution
 remain unqualified. The reviewed candidate ledger has 158 complete and 25 partial
-originals; final metadata binding, mandatory normal hook, public push and exact
-hosted qualification remain pending.
+originals. Final metadata binding receipt SHA256 eebd0d82cd9090689cafeaaf8ebdf7bee9b8af26e41700cfef24c4d45c971448, mandatory normal hook and public ef3866412bf65490de91955bcf85a472b4228e79 passed exact hosted verify 40369261559 SUCCESS.
+
+
+## Owned Model namespace metadata and cloning
+
+The frozen three-file source SHA256 `74efa0972bf21b578e92a2e2d769555d96b86529ea95083ee6331ee042a2ca30`
+on hosted-green parent `ef3866412bf65490de91955bcf85a472b4228e79` passed independent
+source/protected review SHA256 `a2b42c0757723fad9080818aaf7e8669a67e88a3d8c169482ddce6a95bd617e2`.
+Native Construction plus five ownership originals passed 6/0 before edits and
+in independent replay. Fresh private source and an exclusive reviewer target
+passed 8/0. Production-only Clone namespace loss failed all three clone-route
+original presence assertions while both move originals passed; returning raw
+placeholders failed the rename/placeholder supplement. Exact restoration passed
+8/0. Full author checks passed 362 Rust tests, sixteen tooling tests, formatting,
+Clippy and docs. Unfiltered strict coverage is 4778/4802 lines and 7924/8166 regions;
+all six changed instrumented executable lines are covered. No exclusions or
+performance claim were introduced.
+
+Five fixed originals preserve test_model/test_ns and swapped model2/test_ns2,
+model1/test_ns1, including every optional-presence predicate. Model and Frame
+cloning preserves owned metadata. Optional raw namespaces resolve literal
+{name} against the current model name, without changing frame scopes. Native
+Construction namespace observations, nonrecursive placeholders, name edits,
+nested ownership/drop and explicit Unsupported XML checks are supplemental.
+Whole Construction, extra Frame originals, mutable Element, C++ operator/storage
+or moved-from identity and graph rebuilding remain unqualified. XML model and
+include namespace loading stays explicitly unsupported; real version/include/
+merge characterization is the next slice. The reviewed candidate ledger has
+163 complete and 25 partial originals; final metadata binding, mandatory normal
+hook, public push and exact hosted qualification remain pending. SDF-02 remains
+in progress.

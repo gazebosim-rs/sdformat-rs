@@ -890,3 +890,22 @@ MoveConstructor actually invokes a copy; its Rust test retains that operation.
 Default constructor values, mutable Element, C++ constructor/operator/storage
 identity and moved-from APIs remain unqualified. Inertial ownership checks are
 supplemental and do not claim an additional native original or inertia solver.
+
+## Owned Model namespace metadata and cloning
+
+`Model.raw_namespace` is optional owned metadata: None differs from Some("").
+`namespace()` returns an owned resolved value, replacing every literal `{name}`
+with the current public model name without recursively expanding inserted text.
+Direct name edits therefore update the next namespace observation. Namespace
+metadata does not change `scoped_name`, frame references or resource lookup.
+The parser initializes None and still explicitly rejects model `namespace`
+attributes and include namespace children. XML version conversion, include
+namespace overrides and merged namespace behavior remain pending native evidence.
+
+`Model` and `Frame` implement Clone, retaining owned nested DOM values and
+provenance after independent edits and drop. Cloning does not rebuild or rebind
+frame graphs. Five fixed Model copy/move originals retain all final name and
+optional namespace presence/value observations. Construction namespace checks,
+placeholder/rename cases and nested lifetime checks are supplemental; whole
+Construction, extra Frame originals, mutable Element, C++ operator/storage or
+moved-from identity and physical runtime remain unqualified.

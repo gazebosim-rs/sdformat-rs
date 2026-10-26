@@ -1997,7 +1997,7 @@
       "upstream_fixtures": {},
       "baseline": "Pinned five Link originals 5/0 before source edits; independent 318 raw source/modes, exclusive reviewer target Rust 6/0/native 5/0. Production-only Link Clone empty-name control fails the four clone-route originals and supplemental ownership name assertion; the actual move-assignment case passes. Exact restored source 6/0. Full author 354 Rust/16 tooling/fmt/Clippy/docs, strict 4771/4795 lines 7915/8157 regions, zero changed instrumented executable lines and no exclusions. Ordinary correctness only.",
       "status": "ported_reviewed",
-      "review": "Independent /root source/protected approval SHA256 32e8877aef4b19b584ec5b7d2447bbdf0011367975e55c552e3377f731624e1d binds exact source freeze eb8186d71d6aa02f081a3757215c56fb430eec60c277becd0082534220d6f617 on hosted-green parent 685ff8d9c6b264eb046fd2d0e8de1e84a3d088e8, run40358636368. Final metadata binding, mandatory normal hook and exact new hosted qualification remain pending."
+      "review": "Independent /root source/protected approval SHA256 32e8877aef4b19b584ec5b7d2447bbdf0011367975e55c552e3377f731624e1d binds exact source freeze eb8186d71d6aa02f081a3757215c56fb430eec60c277becd0082534220d6f617 on hosted-green parent 685ff8d9c6b264eb046fd2d0e8de1e84a3d088e8, run40358636368. Final metadata binding receipt SHA256 eebd0d82cd9090689cafeaaf8ebdf7bee9b8af26e41700cfef24c4d45c971448, mandatory normal hook and public ef3866412bf65490de91955bcf85a472b4228e79 passed exact hosted verify 40369261559 SUCCESS."
     },
     {
       "target": "UNIT_Link_TEST",
@@ -2009,7 +2009,7 @@
       "upstream_fixtures": {},
       "baseline": "Pinned five Link originals 5/0 before source edits; independent 318 raw source/modes, exclusive reviewer target Rust 6/0/native 5/0. Production-only Link Clone empty-name control fails the four clone-route originals and supplemental ownership name assertion; the actual move-assignment case passes. Exact restored source 6/0. Full author 354 Rust/16 tooling/fmt/Clippy/docs, strict 4771/4795 lines 7915/8157 regions, zero changed instrumented executable lines and no exclusions. Ordinary correctness only.",
       "status": "ported_reviewed",
-      "review": "Independent /root source/protected approval SHA256 32e8877aef4b19b584ec5b7d2447bbdf0011367975e55c552e3377f731624e1d binds exact source freeze eb8186d71d6aa02f081a3757215c56fb430eec60c277becd0082534220d6f617 on hosted-green parent 685ff8d9c6b264eb046fd2d0e8de1e84a3d088e8, run40358636368. Final metadata binding, mandatory normal hook and exact new hosted qualification remain pending."
+      "review": "Independent /root source/protected approval SHA256 32e8877aef4b19b584ec5b7d2447bbdf0011367975e55c552e3377f731624e1d binds exact source freeze eb8186d71d6aa02f081a3757215c56fb430eec60c277becd0082534220d6f617 on hosted-green parent 685ff8d9c6b264eb046fd2d0e8de1e84a3d088e8, run40358636368. Final metadata binding receipt SHA256 eebd0d82cd9090689cafeaaf8ebdf7bee9b8af26e41700cfef24c4d45c971448, mandatory normal hook and public ef3866412bf65490de91955bcf85a472b4228e79 passed exact hosted verify 40369261559 SUCCESS."
     },
     {
       "target": "UNIT_Link_TEST",
@@ -2021,7 +2021,7 @@
       "upstream_fixtures": {},
       "baseline": "Pinned five Link originals 5/0 before source edits; independent 318 raw source/modes, exclusive reviewer target Rust 6/0/native 5/0. Production-only Link Clone empty-name control fails the four clone-route originals and supplemental ownership name assertion; the actual move-assignment case passes. Exact restored source 6/0. Full author 354 Rust/16 tooling/fmt/Clippy/docs, strict 4771/4795 lines 7915/8157 regions, zero changed instrumented executable lines and no exclusions. Ordinary correctness only.",
       "status": "ported_reviewed",
-      "review": "Independent /root source/protected approval SHA256 32e8877aef4b19b584ec5b7d2447bbdf0011367975e55c552e3377f731624e1d binds exact source freeze eb8186d71d6aa02f081a3757215c56fb430eec60c277becd0082534220d6f617 on hosted-green parent 685ff8d9c6b264eb046fd2d0e8de1e84a3d088e8, run40358636368. Final metadata binding, mandatory normal hook and exact new hosted qualification remain pending."
+      "review": "Independent /root source/protected approval SHA256 32e8877aef4b19b584ec5b7d2447bbdf0011367975e55c552e3377f731624e1d binds exact source freeze eb8186d71d6aa02f081a3757215c56fb430eec60c277becd0082534220d6f617 on hosted-green parent 685ff8d9c6b264eb046fd2d0e8de1e84a3d088e8, run40358636368. Final metadata binding receipt SHA256 eebd0d82cd9090689cafeaaf8ebdf7bee9b8af26e41700cfef24c4d45c971448, mandatory normal hook and public ef3866412bf65490de91955bcf85a472b4228e79 passed exact hosted verify 40369261559 SUCCESS."
     },
     {
       "target": "UNIT_Link_TEST",
@@ -2033,7 +2033,7 @@
       "upstream_fixtures": {},
       "baseline": "Pinned five Link originals 5/0 before source edits; independent 318 raw source/modes, exclusive reviewer target Rust 6/0/native 5/0. Production-only Link Clone empty-name control fails the four clone-route originals and supplemental ownership name assertion; the actual move-assignment case passes. Exact restored source 6/0. Full author 354 Rust/16 tooling/fmt/Clippy/docs, strict 4771/4795 lines 7915/8157 regions, zero changed instrumented executable lines and no exclusions. Ordinary correctness only.",
       "status": "ported_reviewed",
-      "review": "Independent /root source/protected approval SHA256 32e8877aef4b19b584ec5b7d2447bbdf0011367975e55c552e3377f731624e1d binds exact source freeze eb8186d71d6aa02f081a3757215c56fb430eec60c277becd0082534220d6f617 on hosted-green parent 685ff8d9c6b264eb046fd2d0e8de1e84a3d088e8, run40358636368. Final metadata binding, mandatory normal hook and exact new hosted qualification remain pending."
+      "review": "Independent /root source/protected approval SHA256 32e8877aef4b19b584ec5b7d2447bbdf0011367975e55c552e3377f731624e1d binds exact source freeze eb8186d71d6aa02f081a3757215c56fb430eec60c277becd0082534220d6f617 on hosted-green parent 685ff8d9c6b264eb046fd2d0e8de1e84a3d088e8, run40358636368. Final metadata binding receipt SHA256 eebd0d82cd9090689cafeaaf8ebdf7bee9b8af26e41700cfef24c4d45c971448, mandatory normal hook and public ef3866412bf65490de91955bcf85a472b4228e79 passed exact hosted verify 40369261559 SUCCESS."
     },
     {
       "target": "UNIT_Link_TEST",
@@ -2045,7 +2045,67 @@
       "upstream_fixtures": {},
       "baseline": "Pinned five Link originals 5/0 before source edits; independent 318 raw source/modes, exclusive reviewer target Rust 6/0/native 5/0. Production-only Link Clone empty-name control fails the four clone-route originals and supplemental ownership name assertion; the actual move-assignment case passes. Exact restored source 6/0. Full author 354 Rust/16 tooling/fmt/Clippy/docs, strict 4771/4795 lines 7915/8157 regions, zero changed instrumented executable lines and no exclusions. Ordinary correctness only.",
       "status": "ported_reviewed",
-      "review": "Independent /root source/protected approval SHA256 32e8877aef4b19b584ec5b7d2447bbdf0011367975e55c552e3377f731624e1d binds exact source freeze eb8186d71d6aa02f081a3757215c56fb430eec60c277becd0082534220d6f617 on hosted-green parent 685ff8d9c6b264eb046fd2d0e8de1e84a3d088e8, run40358636368. Final metadata binding, mandatory normal hook and exact new hosted qualification remain pending."
+      "review": "Independent /root source/protected approval SHA256 32e8877aef4b19b584ec5b7d2447bbdf0011367975e55c552e3377f731624e1d binds exact source freeze eb8186d71d6aa02f081a3757215c56fb430eec60c277becd0082534220d6f617 on hosted-green parent 685ff8d9c6b264eb046fd2d0e8de1e84a3d088e8, run40358636368. Final metadata binding receipt SHA256 eebd0d82cd9090689cafeaaf8ebdf7bee9b8af26e41700cfef24c4d45c971448, mandatory normal hook and public ef3866412bf65490de91955bcf85a472b4228e79 passed exact hosted verify 40369261559 SUCCESS."
+    },
+    {
+      "target": "UNIT_Model_TEST",
+      "case": "DOMModel.CopyConstructor",
+      "source": "src/Model_TEST.cc:181-191",
+      "rust_test": "tests/model_ownership_originals.rs::original_dom_model_copy_constructor",
+      "assertions": "Copied destination name test_model and present Namespace test_ns. Everyname,optionalpresence andnamespacevalue predicate retained. No wholeConstruction,Element,C++operator/storage/movedfrom,graphrebuild,XMLnamespace loading/includeoverride/version/merge orruntimeclaim.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Pinned Construction andfive exact Model ownership originals6/0 before edits and independently replayed. Fresh private319rawblobs/modes/exclusive reviewer target8/0. ProductionClone namespace-loss control fails allthreeclone original presence assertions;twomoves pass. Raw-placeholder resolver control fails rename/placeholder supplement;exactrestored8/0. Full author362Rust/16tools/fmt/Clippy/docs;strict4778/4802lines7924/8166regions,changed6/6,no exclusions. Ordinarycorrectness only.",
+      "status": "ported_reviewed",
+      "review": "Independent /root source/protected approval SHA256 a2b42c0757723fad9080818aaf7e8669a67e88a3d8c169482ddce6a95bd617e2 binds exact source freeze 74efa0972bf21b578e92a2e2d769555d96b86529ea95083ee6331ee042a2ca30 on hosted-green parent ef3866412bf65490de91955bcf85a472b4228e79, run40369261559. Final metadata binding, mandatory normal hook and exact new hosted qualification remain pending."
+    },
+    {
+      "target": "UNIT_Model_TEST",
+      "case": "DOMModel.CopyAssignmentOperator",
+      "source": "src/Model_TEST.cc:194-205",
+      "rust_test": "tests/model_ownership_originals.rs::original_dom_model_copy_assignment_operator",
+      "assertions": "Assigned destination name test_model and present Namespace test_ns. Everyname,optionalpresence andnamespacevalue predicate retained. No wholeConstruction,Element,C++operator/storage/movedfrom,graphrebuild,XMLnamespace loading/includeoverride/version/merge orruntimeclaim.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Pinned Construction andfive exact Model ownership originals6/0 before edits and independently replayed. Fresh private319rawblobs/modes/exclusive reviewer target8/0. ProductionClone namespace-loss control fails allthreeclone original presence assertions;twomoves pass. Raw-placeholder resolver control fails rename/placeholder supplement;exactrestored8/0. Full author362Rust/16tools/fmt/Clippy/docs;strict4778/4802lines7924/8166regions,changed6/6,no exclusions. Ordinarycorrectness only.",
+      "status": "ported_reviewed",
+      "review": "Independent /root source/protected approval SHA256 a2b42c0757723fad9080818aaf7e8669a67e88a3d8c169482ddce6a95bd617e2 binds exact source freeze 74efa0972bf21b578e92a2e2d769555d96b86529ea95083ee6331ee042a2ca30 on hosted-green parent ef3866412bf65490de91955bcf85a472b4228e79, run40369261559. Final metadata binding, mandatory normal hook and exact new hosted qualification remain pending."
+    },
+    {
+      "target": "UNIT_Model_TEST",
+      "case": "DOMModel.MoveConstructor",
+      "source": "src/Model_TEST.cc:208-218",
+      "rust_test": "tests/model_ownership_originals.rs::original_dom_model_move_constructor",
+      "assertions": "Moved destination name test_model and present Namespace test_ns. Everyname,optionalpresence andnamespacevalue predicate retained. No wholeConstruction,Element,C++operator/storage/movedfrom,graphrebuild,XMLnamespace loading/includeoverride/version/merge orruntimeclaim.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Pinned Construction andfive exact Model ownership originals6/0 before edits and independently replayed. Fresh private319rawblobs/modes/exclusive reviewer target8/0. ProductionClone namespace-loss control fails allthreeclone original presence assertions;twomoves pass. Raw-placeholder resolver control fails rename/placeholder supplement;exactrestored8/0. Full author362Rust/16tools/fmt/Clippy/docs;strict4778/4802lines7924/8166regions,changed6/6,no exclusions. Ordinarycorrectness only.",
+      "status": "ported_reviewed",
+      "review": "Independent /root source/protected approval SHA256 a2b42c0757723fad9080818aaf7e8669a67e88a3d8c169482ddce6a95bd617e2 binds exact source freeze 74efa0972bf21b578e92a2e2d769555d96b86529ea95083ee6331ee042a2ca30 on hosted-green parent ef3866412bf65490de91955bcf85a472b4228e79, run40369261559. Final metadata binding, mandatory normal hook and exact new hosted qualification remain pending."
+    },
+    {
+      "target": "UNIT_Model_TEST",
+      "case": "DOMModel.MoveAssignmentOperator",
+      "source": "src/Model_TEST.cc:221-232",
+      "rust_test": "tests/model_ownership_originals.rs::original_dom_model_move_assignment_operator",
+      "assertions": "Moved replacement destination name test_model and present Namespace test_ns. Everyname,optionalpresence andnamespacevalue predicate retained. No wholeConstruction,Element,C++operator/storage/movedfrom,graphrebuild,XMLnamespace loading/includeoverride/version/merge orruntimeclaim.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Pinned Construction andfive exact Model ownership originals6/0 before edits and independently replayed. Fresh private319rawblobs/modes/exclusive reviewer target8/0. ProductionClone namespace-loss control fails allthreeclone original presence assertions;twomoves pass. Raw-placeholder resolver control fails rename/placeholder supplement;exactrestored8/0. Full author362Rust/16tools/fmt/Clippy/docs;strict4778/4802lines7924/8166regions,changed6/6,no exclusions. Ordinarycorrectness only.",
+      "status": "ported_reviewed",
+      "review": "Independent /root source/protected approval SHA256 a2b42c0757723fad9080818aaf7e8669a67e88a3d8c169482ddce6a95bd617e2 binds exact source freeze 74efa0972bf21b578e92a2e2d769555d96b86529ea95083ee6331ee042a2ca30 on hosted-green parent ef3866412bf65490de91955bcf85a472b4228e79, run40369261559. Final metadata binding, mandatory normal hook and exact new hosted qualification remain pending."
+    },
+    {
+      "target": "UNIT_Model_TEST",
+      "case": "DOMModel.CopyAssignmentAfterMove",
+      "source": "src/Model_TEST.cc:235-257",
+      "rust_test": "tests/model_ownership_originals.rs::original_dom_model_copy_assignment_after_move",
+      "assertions": "Final first name model2 and present Namespace test_ns2;final second name model1 and present Namespace test_ns1 aftermove andtwocopies. Everyname,optionalpresence andnamespacevalue predicate retained. No wholeConstruction,Element,C++operator/storage/movedfrom,graphrebuild,XMLnamespace loading/includeoverride/version/merge orruntimeclaim.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Pinned Construction andfive exact Model ownership originals6/0 before edits and independently replayed. Fresh private319rawblobs/modes/exclusive reviewer target8/0. ProductionClone namespace-loss control fails allthreeclone original presence assertions;twomoves pass. Raw-placeholder resolver control fails rename/placeholder supplement;exactrestored8/0. Full author362Rust/16tools/fmt/Clippy/docs;strict4778/4802lines7924/8166regions,changed6/6,no exclusions. Ordinarycorrectness only.",
+      "status": "ported_reviewed",
+      "review": "Independent /root source/protected approval SHA256 a2b42c0757723fad9080818aaf7e8669a67e88a3d8c169482ddce6a95bd617e2 binds exact source freeze 74efa0972bf21b578e92a2e2d769555d96b86529ea95083ee6331ee042a2ca30 on hosted-green parent ef3866412bf65490de91955bcf85a472b4228e79, run40369261559. Final metadata binding, mandatory normal hook and exact new hosted qualification remain pending."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

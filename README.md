@@ -117,3 +117,7 @@ are retained; cloning performs no resource loading or physical execution.
 Owned `Link` and `Inertial` metadata support independent cloning, including nested
 geometry, visual, sensor and provenance data. Raw scoped references are retained;
 cloning does not rebuild frame graphs or perform resource or physics work.
+
+Owned `Model` and `Frame` values support cloning. Model `raw_namespace` retains
+optional metadata; `namespace()` replaces literal `{name}` placeholders using
+the current name. XML model/include namespace loading remains unsupported.

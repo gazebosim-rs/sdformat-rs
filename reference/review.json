@@ -2,21 +2,22 @@
   "decision": "approved",
   "author": "/root/sdformat_owner_v3",
   "reviewer": "/root",
-  "protected_digest": "933096651ec2ea30c3facb88149646bbbab0273a35f7ed566db59a16e06aa9ae",
-  "source_digest": "c6ecc4d863161adbd15ae0d47338671bb58536b308edb801ad17eb2a09dc36f1",
-  "pre_receipt_tree": "199fa397c1669f4f4722a7c833ffe9877bd47c81",
-  "parent": "685ff8d9c6b264eb046fd2d0e8de1e84a3d088e8",
-  "final_freeze_sha256": "7c8cf30a31c562f5557dc2a659db7d8c7e0b841758742d4f2961a679c7e6a9e8",
-  "source_review_sha256": "32e8877aef4b19b584ec5b7d2447bbdf0011367975e55c552e3377f731624e1d",
+  "protected_digest": "df8ce0f72e159711ceb560fc76725f8b6dd8fadb57ed83e3320b9e0413f227ad",
+  "source_digest": "11e877b377cf0bdba4da2ee35653cfbde5a5b48f79ec85a41f9049ee624f7b96",
+  "parent": "ef3866412bf65490de91955bcf85a472b4228e79",
+  "pre_receipt_tree": "012bd77a9adb35c35a5d98eb75b39516d9d1971d",
+  "final_freeze_sha256": "c9640523d005dd55972dbbbb9eaf0f02713d14180e57de76247116462a5f0a8d",
   "files_sha256": {
-    "README.md": "020123928cb6bdc84cfba2eaead574fdf50e857cb92c83deba9d17c2d46418b9",
-    "docs/CONTRACT.md": "8619703794e228705ecffb15236fba5ec67d7649d44baa1fd3d16361c8a7e78f",
-    "docs/STATUS.md": "d51153f32d00f62c25b376e08b787b95eace90c98887d0b52bba9de5c774f451",
-    "reference/results.json": "bda048a6affc18b6d7cafdc502dae39268610869f7e2aedd3fb9dac984a640bd",
-    "reference/traceability.json": "be9e22847b4187643daf3fed870e74faa4649a4cb92a015518d95e1353a93ba7",
-    "src/types.rs": "78c77a6ca9e7040453fd6674513363c18eac8bdcc7bcb5092c5fdf095c192910",
-    "tests/link_ownership_originals.rs": "e2220ee2528f2d03799a417fc0cc87a7693c96fdb941c8e249a3ea7e0beadd4c"
+    "README.md": "b5ccd6d5692f0c6a0fd93b6100cfe27248baafa8e722420de11fe37a8167ff52",
+    "docs/CONTRACT.md": "0424aa9cdfad6086593dbaec2bfdb6be8add963544daa6f90cd4ce699e7adfd2",
+    "docs/STATUS.md": "174694a23ff46c7f9c113987af98279a8b11bde2b8c42535770e309612abfc6c",
+    "reference/results.json": "e249017b814c01a82491e1ae088011010c992dcf4b80f61d94f4783b3dc169f0",
+    "reference/traceability.json": "b05a0bb66cfb22fe3eb2ad23192c7b0b3b70ec6deebaaa20db61a974c0952585",
+    "src/parse.rs": "97a53241d616dfbc398ab42ef39e3c6248dbeae31c3ee97fafa7f4b1d3da0cae",
+    "src/types.rs": "73af8b161f26ff7c0400e369e7d0c6c246b8af563103ded780764f078b4951cd",
+    "tests/model_ownership_originals.rs": "e38eafb3fa50c8a3ab7b666a5f1f99fc63fe8d06a3d5a733343aba6cc8fc0c5a"
   },
-  "evidence": "Exact staged/worktree seven paths and modes verified; source2 bytes unchanged, prior ports unchanged except Collision accepted publication chronology, exactlyfive reviewed originals appended. Author354Rust/16tools0failed/ignored; raw unfiltered production coverage recomputed4771/4795lines7915/8157regions strict>95,changed0. Exact source-gate digest remains premetadata; final metadata digest separately recomputed and bound. Existing pins/policy/fixtures and unrelated blobs unchanged.",
-  "limits": "Bounded final binding only; normal protected hook, publication and exact hosted qualification remain mandatory. No broad repository/P0/P2 or default fields/Element/graph/runtime acceptance."
+  "source_review_sha256": "a2b42c0757723fad9080818aaf7e8669a67e88a3d8c169482ddce6a95bd617e2",
+  "evidence": "Exact8staged/worktree blobs+modes, source3 unchanged. Sixretainedauthorproofs exact; rawunfilteredcoverage recomputed4778/4802lines7924/8166regions and6/6changed strict;362Rust0failedignored/16tools. Allpriorports unchangedexceptpreviousfiveLinkreviewchronology, exactlyfiveModelname+namespaceoriginalsappend. No oldassertion/fixture/threshold/pin/policy/exclusion/retirement changes.",
+  "limits": "Ownednamespace/Model+FrameClone only. XMLnamespace/include/version/merge explicitlyunsupported; no wholeConstruction or extraFramecase/graph/physics claim. Mandatorynormal/public/exacthosted remain."
 }

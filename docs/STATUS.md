@@ -2440,9 +2440,27 @@ Private raw-parent Rust originals2/0 and supplemental1/0 passed; author full
 checks passed 287 Rust, sixteen tools, formatting, Clippy and docs. Production
 coverage is 4365/4386 lines and 7407/7627 regions with all 29 changed
 executable lines covered. Two-job correctness checks overlapped Root V6
-dependency download; no timing claim. Final metadata binding, normal protected
-hook and hosted qualification remain pending. Scope is the exact fixed scalar
+dependency download; no timing claim. Final metadata binding receipt SHA256 `bafc8473143c61da83cb74a95c8b5d795f90fb74b8fc56495f0f6c24ea28cbaf`, normal protected
+hook and public `3a04c865c0c3e1f57318b8e32fa724fcf819f4bd` passed exact hosted verify `40277647034` SUCCESS.
+Scope is the exact fixed scalar
 observations only. Light XML, pose, nonfinite scalar parity, Element, rendering,
 other configuration and C++ method identity remain unported. The public Light
 struct gains six scalar fields and drops `Eq`; exhaustive literal and `Eq`
 consumers may need adaptation.
+
+## Native DOMLight default-value original candidate
+
+Pinned `DOMLight.DefaultConstruction` passes natively 1/0 with exact source
+and binary hashes and a fresh GTest result. Its two-file source freeze SHA256
+`c6e854787962da62761ae88df1e8f900f4523d716092b150102d8517b05f015e` on hosted-green parent `3a04c865c0c3e1f57318b8e32fa724fcf819f4bd` passed independent PARTIAL
+source/API/assertion review receipt SHA256 `dcc9b4803e1a2e6fe923360a2d20de2d14fa5d47d6a20f6bd02511ced2082f03`. Private raw-parent
+Rust selected1/0 and author full288 Rust/sixteen tools/fmt/Clippy/docs pass;
+production coverage is 4375/4396 lines, 7411/7631 regions and 10/10 changed
+executable lines. Two-job correctness checks overlapped Root V6 SDK and Msgs
+ordinary gate; no timing claim. The Rust value mapping covers native type,
+name, raw and relative pose values, flags, colors, attenuation, direction, spot
+values and intensity. Native `Element() == nullptr` and both standalone
+`SemanticPose.Resolve` nonempty-error observations remain UNPORTED, so the
+original stays partial. Light XML, Element identity, graph attachment,
+rendering and nonfinite parity remain open. Final metadata binding, normal
+protected hook and hosted qualification remain pending.

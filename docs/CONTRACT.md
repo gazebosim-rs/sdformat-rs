@@ -748,3 +748,15 @@ negative quadratic attenuation clamps to zero. Owned setters preserve those
 values in order. Native originals use direct setters and no XML input. Light
 XML, pose, nonfinite scalar parity, Element, rendering and other configuration
 remain separate acceptance work.
+
+## Light owned default values
+
+`Light` now owns native default point type, raw pose and relative frame, on and
+visualize flags, shadow flag, float color channels, attenuation range, direction
+and intensity alongside its scalar clamp fields. These values map the fixed
+`DOMLight.DefaultConstruction` observations with direct owned assignments and
+bounded scalar setters. The case remains partial: native `Element() == nullptr`
+and the two standalone `SemanticPose.Resolve` error observations have no
+corresponding owned API assertion. Cloning the `Pose` observes its raw and
+relative values; it does not resolve a graph. Light XML, Element identity,
+rendering, nonfinite inputs and broader frame semantics remain open.

@@ -398,9 +398,26 @@ pub struct Frame {
     pub source: Source,
 }
 /// Owned light values; XML parsing and rendering remain pending.
+#[derive(Debug, Clone, Copy, Default, PartialEq, Eq)]
+pub enum LightType {
+    #[default]
+    Point,
+    Directional,
+    Spot,
+}
+
 #[derive(Debug, Clone, PartialEq)]
 pub struct Light {
     pub name: String,
+    pub light_type: LightType,
+    pub pose: Pose,
+    pub light_on: bool,
+    pub visualize: bool,
+    pub cast_shadows: bool,
+    /// Native color channels are single-precision values.
+    pub diffuse: [f32; 4],
+    pub specular: [f32; 4],
+    pub attenuation_range: f64,
     pub spot_falloff: f64,
     /// Radians.
     pub spot_inner_angle: f64,
@@ -409,17 +426,29 @@ pub struct Light {
     pub linear_attenuation_factor: f64,
     pub constant_attenuation_factor: f64,
     pub quadratic_attenuation_factor: f64,
+    pub direction: [f64; 3],
+    pub intensity: f64,
 }
 impl Default for Light {
     fn default() -> Self {
         Self {
             name: String::new(),
+            light_type: LightType::Point,
+            pose: Pose::default(),
+            light_on: true,
+            visualize: true,
+            cast_shadows: false,
+            diffuse: [0., 0., 0., 1.],
+            specular: [0., 0., 0., 1.],
+            attenuation_range: 10.,
             spot_falloff: 0.,
             spot_inner_angle: 0.,
             spot_outer_angle: 0.,
             linear_attenuation_factor: 1.,
             constant_attenuation_factor: 1.,
             quadratic_attenuation_factor: 0.,
+            direction: [0., 0., -1.],
+            intensity: 1.,
         }
     }
 }

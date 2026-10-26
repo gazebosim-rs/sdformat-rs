@@ -2,23 +2,21 @@
   "decision": "approved",
   "author": "/root/sdformat_owner_fallback",
   "reviewer": "/root/transport_fallback",
-  "final_freeze": "artifacts/light-clamp-integration/frozen-final.json",
-  "final_freeze_sha256": "fa6bc7b5909bb69333ba29c9fc38fbf09fe4ba75b99373f1c6d412cfa31f1ca4",
-  "parent": "4c39d4b79aa67df83605535d4492c80be666ba62",
-  "pre_receipt_tree": "e40e51eea54fc6f6f56d070ff8a83b003dc1c463",
-  "staged_diff_sha256": "ce55c5f1a2a50129e869bd9fc1a64429bbd1e63032fcdf67fb46d500cc56c763",
-  "protected_digest": "22b536cb05d7d5c6c560c4f2b2958f6cba677439de5ce2283eb2bde5be16deea",
+  "final_freeze": "artifacts/light-default-integration/frozen-final.json",
+  "final_freeze_sha256": "9070c377a4efeee16b117604c8a0db285ccc29d6d73fa28768f794b430435876",
+  "parent": "3a04c865c0c3e1f57318b8e32fa724fcf819f4bd",
+  "pre_receipt_tree": "cd519fec6f33411cd870a9bcfbd6dffad189c85a",
+  "staged_diff_sha256": "6e44facc1010d46a05a4a81688eb2a456b6f938c50e3378214e3170afc8b4a6a",
+  "protected_digest": "64a5b4a2a42f650deb08ce1c582d03b989e68105a59078652f642c009d9c0c84",
   "candidate_paths": [
     "docs/CONTRACT.md",
     "docs/STATUS.md",
     "reference/results.json",
     "reference/traceability.json",
     "src/types.rs",
-    "tests/light_clamp_originals.rs",
-    "tests/link_add_light_original.rs",
-    "tests/link_mutable_originals.rs"
+    "tests/light_default_original.rs"
   ],
-  "source_review_sha256": "540cbe4ec419aa95f0b0a7040c095ca3a266e90dcff355faedcaebb19e19a7c9",
-  "binding": "All eight staged file hashes and 100644 modes match the final freeze; four exact source-reviewed source/test bytes and copied source receipt are unchanged. The 295-file parent retains 288 other blobs; no unstaged changes. Metadata credits only two fixed scalar observable originals and prior Link mutable hosted success, with public Light field/Eq compatibility and XML, nonfinite, Element, rendering and C++ identity limits stated.",
-  "verification": "JSON and staged diff checks pass. Author integrated full gate passed 287 Rust, 16 tools, formatting, Clippy and docs, with 4365/4386 production lines, 7407/7627 regions and 29/29 changed lines; mandatory normal protected hook and hosted qualification remain separate."
+  "source_review_sha256": "dcc9b4803e1a2e6fe923360a2d20de2d14fa5d47d6a20f6bd02511ced2082f03",
+  "binding": "All six staged file hashes and 100644 modes match the final freeze; the two source-reviewed source/test bytes and copied source receipt are unchanged. The 296-file parent retains 291 other blobs; no unstaged changes. Metadata adds one PARTIAL DOMLight.DefaultConstruction row and credits prior hosted Light clamp success. Native Element null and two standalone SemanticPose.Resolve nonempty-error checks remain explicitly unported; Rust Pose clone is only a value observation.",
+  "verification": "JSON and staged diff checks pass. Author integrated full gate passed 288 Rust, 16 tools, formatting, Clippy and docs, with 4375/4396 production lines, 7411/7631 regions and 10/10 changed lines; mandatory normal protected hook and hosted qualification remain separate."
 }

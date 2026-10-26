@@ -9,6 +9,7 @@
 //! references, including the documented stronger inertial-frame policy.
 //! Unsupported schema features are errors.
 mod camera;
+mod frame_xml;
 mod graph;
 mod light_xml;
 pub use camera::*;
@@ -52,4 +53,10 @@ pub fn load_str(
 /// The full SDF document loader does not yet admit Light XML.
 pub fn load_light_str(xml: &str, source: &str) -> Result<Light, Diagnostic> {
     parse::load_light_element(xml, source)
+}
+
+/// Load one bounded standalone `<frame>` element into owned DOM values.
+/// The full SDF loader applies frame graph rules separately.
+pub fn load_frame_str(xml: &str, source: &str) -> Result<Frame, Diagnostic> {
+    parse::load_frame_element(xml, source)
 }

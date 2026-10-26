@@ -1,24 +1,27 @@
 {
   "decision": "approved",
   "author": "/root/sdformat_owner_fallback",
-  "reviewer": "/root/transport_fallback",
-  "final_freeze": "artifacts/light-roundtrip-integration/frozen-final.json",
-  "final_freeze_sha256": "8fda9442456398779dbe98d93704742541b088f1e77149da0578f374aa11a826",
-  "parent": "c70a086beda8a1dd6360ae07455659d871a20abd",
-  "pre_receipt_tree": "6f0691dff8cd0fa33226dec81b19fb96ae044b6b",
-  "staged_diff_sha256": "e9949b09b5b086d6bc13de71fd6ed50290aa3961c570d84293a9b3fe9859fbcd",
-  "protected_digest": "97967b2afbf431956b11ede66abc53b0b5e2b80ca172afd00fc3c4dcef694f00",
+  "reviewer": "/root/transport_owner_v2",
+  "final_freeze": "artifacts/frame-roundtrip-integration/frozen-final.json",
+  "final_freeze_sha256": "7908c66dadebc2b15f22144b51c4b23a9996d7d41292855f7d1acdb8dce41106",
+  "parent": "b3b2f0146946567ecacaa570cc1c5ce4d88292bd",
+  "pre_receipt_tree": "2fca6efb81240ed03b8e6c4216ed06a07797291e",
+  "staged_diff_sha256": "7c633349f0445eb60097a83341f976c131a7d3f146b26095443a6a29d042a6ea",
+  "source_digest": "7da92bb7a03eac2ea1eadbfd6a4d0dd0d9997a488ee87160666565f2c8329295",
+  "protected_digest": "9f897e0323f5b745709a02f5fef6e25cd0fd0f85c4e6ab7b1782f35401f58336",
   "candidate_paths": [
     "docs/CONTRACT.md",
     "docs/STATUS.md",
     "reference/results.json",
     "reference/traceability.json",
+    "src/frame_xml.rs",
     "src/lib.rs",
-    "src/light_xml.rs",
     "src/parse.rs",
-    "tests/light_roundtrip_originals.rs"
+    "tests/frame_roundtrip_originals.rs"
   ],
-  "source_review_sha256": "1ca50fc1706ac1fe0674addf95493fcd526e03cb52cd7f2bca774e80864429b4",
-  "binding": "All eight staged file hashes and 100644 modes match the final freeze; four source-reviewed source/test bytes and the copied V2 source receipt are unchanged. The 298-file parent retains 292 other blobs with no unstaged difference. Metadata adds exactly two PARTIAL fixed-observable DOMLight ToElement rows and credits the prior five Light ownership originals' hosted success. Native Element pointer and redirected console-buffer-empty observations remain explicitly UNPORTED; native XML byte identity, full Light grammar, Link/World loader integration, rendering and general error-vector parity remain outside scope.",
-  "verification": "Exact parent/tree/diff hashes, JSON, staged diff check and source receipt bytes pass. The isolated author V2 gate passed 297 Rust, 16 tools, formatting, Clippy and docs, with 4569/4594 production lines, 7689/7930 regions and 188/192 changed executable lines; ordinary two-job overlap with Root SDK and Msgs Pose has no timing inference. Integrated author gate, mandatory normal protected hook and hosted qualification remain separate."
+  "source_review_sha256": "b360a2153094256795e2d800de90269989eb0bc41153fbd1ffb16b62bc85a97b",
+  "binding": "Independently verified exact parent, index tree, full diff, all eight staged and working file hashes, 100644 modes and no unstaged tracked diff. Four source-reviewed files and unchanged source review receipt match. Exact 300-file parent retains294 other blobs; six edits plus two additions. Source and protected digests independently reproduced. Metadata adds exactly two PARTIAL fixed Frame roundtrip originals, corrects prior Light hosted qualification and describes bounded public APIs; no assertions or fixture pins removed. Native name self-comparison is tautological and loaded-name supplemental; Element pointer, redirected console-buffer-empty, full Errors vectors and general graph/document parity remain unported.",
+  "parent_qualification": "Public parentb3b2f014 independently verified by API; hosted40282673371 completed SUCCESS on that exact parent.",
+  "verification": "Independent private raw-source Rust3/0, pinned native2/0, fresh Rust-emitted XML/native bridge and attachment-loss negative control are bound by source receiptb360a215. Exact author source gate passed300Rust16tools, strict4646/4671lines7788/8029regions75/75changed. Final mandatory normal protected hook and exact hosted qualification remain pending.",
+  "receipt_rule": "This approved receipt may replace excluded reference/review.json; all eight candidate bytes and the protected digest must remain unchanged through mandatory normal hook."
 }

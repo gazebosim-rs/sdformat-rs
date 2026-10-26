@@ -1872,7 +1872,7 @@
       "upstream_fixtures": {},
       "baseline": "Pinned native originals2/0 completed; exact source/binary and fresh GTest report bound by corrected V2 freeze 2a91e8e3fa1f1c4a2455626b207dda0bcdde3e1d36a848c4ca20d4bf1561b838. Private raw-parent Rust4/0 and native load of generated XML against byte-identical library; source-reviewed four hashes.",
       "status": "partial_reviewed",
-      "review": "Independent /root/transport_fallback V2 PARTIAL source/API/assertion approval receipt SHA256 1ca50fc1706ac1fe0674addf95493fcd526e03cb52cd7f2bca774e80864429b4. Native pointer/console side effects explicitly unported. Final metadata binding, normal protected hook and hosted qualification pending."
+      "review": "Independent /root/transport_fallback V2 PARTIAL source/API/assertion approval receipt SHA256 1ca50fc1706ac1fe0674addf95493fcd526e03cb52cd7f2bca774e80864429b4. Native pointer/console side effects explicitly unported. Final metadata binding receipt SHA256 b7d8ba20bc82cb18cd1c37733c415ae97289f78a52119e6e4bd5b776fd68d300, normal protected hook and public b3b2f0146946567ecacaa570cc1c5ce4d88292bd passed exact hosted verify 40282673371 SUCCESS."
     },
     {
       "target": "UNIT_Light_TEST",
@@ -1884,7 +1884,31 @@
       "upstream_fixtures": {},
       "baseline": "Pinned native originals2/0 completed; exact source/binary and fresh GTest report bound by corrected V2 freeze 2a91e8e3fa1f1c4a2455626b207dda0bcdde3e1d36a848c4ca20d4bf1561b838. Private raw-parent Rust4/0 and native load of generated XML against byte-identical library; source-reviewed four hashes.",
       "status": "partial_reviewed",
-      "review": "Independent /root/transport_fallback V2 PARTIAL source/API/assertion approval receipt SHA256 1ca50fc1706ac1fe0674addf95493fcd526e03cb52cd7f2bca774e80864429b4. Native pointer/console side effects explicitly unported. Final metadata binding, normal protected hook and hosted qualification pending."
+      "review": "Independent /root/transport_fallback V2 PARTIAL source/API/assertion approval receipt SHA256 1ca50fc1706ac1fe0674addf95493fcd526e03cb52cd7f2bca774e80864429b4. Native pointer/console side effects explicitly unported. Final metadata binding receipt SHA256 b7d8ba20bc82cb18cd1c37733c415ae97289f78a52119e6e4bd5b776fd68d300, normal protected hook and public b3b2f0146946567ecacaa570cc1c5ce4d88292bd passed exact hosted verify 40282673371 SUCCESS."
+    },
+    {
+      "target": "UNIT_Frame_TEST",
+      "case": "DOMFrame.ToElement",
+      "source": "src/Frame_TEST.cc:77-121",
+      "rust_test": "tests/frame_roundtrip_originals.rs::partial_dom_frame_to_element_values",
+      "assertions": "PARTIAL fixed with/without attached_to values: bounded Frame emit/load preserves attached_to, raw pose and pose-relative-to. Native frame.Name()==frame.Name() is a source tautology; loaded-name Rust assertion supplemental. Native Element non-null pointer observations UNPORTED; Rust quaternion XML differs from native bytes, full graph/document grammar and attachment resolution unclaimed.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Pinned native originals2/0 completed, exact source/binary and fresh GTest report bound by source freeze b03ffc92a2035617f79b17d84dc570f4f844700c0753b65c1de6127960929ff0; private raw-source Rust3/0, native load of both emitted XML variants on byte-identical library, full author300 Rust/16 tools, production4646/4671 lines7788/8029 regions and changed75/75.",
+      "status": "partial_reviewed",
+      "review": "Independent /root/transport_owner_v2 PARTIAL source/API/assertion approval receipt SHA256 b360a2153094256795e2d800de90269989eb0bc41153fbd1ffb16b62bc85a97b; native pointer/console side effects explicitly unported. Final metadata binding, normal protected hook and hosted qualification pending."
+    },
+    {
+      "target": "UNIT_Frame_TEST",
+      "case": "DOMFrame.ToElementErrorOutput",
+      "source": "src/Frame_TEST.cc:122-183",
+      "rust_test": "tests/frame_roundtrip_originals.rs::partial_dom_frame_to_element_error_output_values",
+      "assertions": "PARTIAL fixed with/without attached_to values and successful Result mapping native empty Errors for serialization and load. Native frame.Name()==frame.Name() tautology noted, loaded-name Rust assertion supplemental. Native Element pointer and redirected console-buffer-empty UNPORTED; full native error vector, XML bytes and graph integration unclaimed.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Pinned native originals2/0 completed, exact source/binary and fresh GTest report bound by source freeze b03ffc92a2035617f79b17d84dc570f4f844700c0753b65c1de6127960929ff0; private raw-source Rust3/0, native load of both emitted XML variants on byte-identical library, full author300 Rust/16 tools, production4646/4671 lines7788/8029 regions and changed75/75.",
+      "status": "partial_reviewed",
+      "review": "Independent /root/transport_owner_v2 PARTIAL source/API/assertion approval receipt SHA256 b360a2153094256795e2d800de90269989eb0bc41153fbd1ffb16b62bc85a97b; native pointer/console side effects explicitly unported. Final metadata binding, normal protected hook and hosted qualification pending."
     }
   ]
 }

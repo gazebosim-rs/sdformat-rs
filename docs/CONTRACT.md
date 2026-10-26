@@ -785,3 +785,18 @@ DOM Element identity differ from native `ToElement`. Native Element pointer
 observations and redirected console-buffer-empty behavior are pending. This
 API does not yet connect Light parsing to `Link` or `World` loading, and does
 not claim the full Light grammar, rendering, or native error-vector parity.
+
+## Bounded standalone Frame XML
+
+`Frame::to_xml` emits one SDF 1.12 `<frame>` element, and `load_frame_str`
+reads that standalone element into an owned Frame. Emission validates the pose
+and attribute strings before writing escaped name, optional attached_to and
+quaternion pose values. The fixed `DOMFrame.ToElement` and
+`ToElementErrorOutput` tests map their with/without-attached_to value results
+through this pair. Both emitted variants also load within a pinned native
+SDF 1.12 model whose link targets make the frame graph valid. The native
+originals compare the source name to itself, so a Rust loaded-name check is
+supplemental. Native Element pointer and redirected console-buffer observations
+remain pending. The standalone reader does not build a frame graph, and the
+Rust XML bytes, full document grammar, attachment resolution and native error
+vectors are outside this bounded API claim.

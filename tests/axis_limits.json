@@ -2622,5 +2622,54 @@
       "9218868437227405312",
       "0"
     ]
+  },
+  {
+    "id": "axis_xyz_zero",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>0 0 0</xyz></axis></joint></model></sdf>",
+    "tokens": [
+      "1",
+      "9"
+    ],
+    "rust_error": "InvalidValue"
+  },
+  {
+    "id": "axis_xyz_1e_minus_7",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1e-7 0 0</xyz></axis></joint></model></sdf>",
+    "tokens": [
+      "1",
+      "9"
+    ],
+    "rust_error": "InvalidValue"
+  },
+  {
+    "id": "axis_xyz_float_epsilon",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>9.999999974752427e-7 0 0</xyz></axis></joint></model></sdf>",
+    "tokens": [
+      "1",
+      "9"
+    ],
+    "rust_error": "InvalidValue"
+  },
+  {
+    "id": "axis_xyz_1e_minus_6",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1e-6 0 0</xyz></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "axis_xyz_negative_1e_minus_7",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>-1e-7 0 0</xyz></axis></joint></model></sdf>",
+    "tokens": [
+      "1",
+      "9"
+    ],
+    "rust_error": "InvalidValue"
   }
 ]

@@ -1251,7 +1251,7 @@
       "upstream_fixtures": {},
       "baseline": "Fresh pinned UNIT_JointAxis_TEST exact original native1/0, source/binary hashes and Rust production/test SHA in source freeze 0038eaff7aac5f32d020ab1322bff236ffc7adfa65c4ed525146111c58118c7e. Independent raw-parent Rust original+supplement2/0; isolated full248 Rust/16 tools, 4085/4105 lines7067/7276 regions and changed17/17.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_fallback source/API/assertion APPROVED receipt SHA256 d6ba792fc12e41b6e2d5c26d7ce259de905531f4a566819720f9942480388e15, freeze SHA256 0038eaff7aac5f32d020ab1322bff236ffc7adfa65c4ed525146111c58118c7e; native1/0 and private Rust2/0. Final metadata binding, protected hook and hosted qualification pending."
+      "review": "Independent /root/transport_fallback source/API/assertion APPROVED receipt SHA256 d6ba792fc12e41b6e2d5c26d7ce259de905531f4a566819720f9942480388e15, freeze SHA256 0038eaff7aac5f32d020ab1322bff236ffc7adfa65c4ed525146111c58118c7e; native1/0 and private Rust2/0. Final metadata binding receipt SHA256 60f56ef2, protected hook and hosted verify 40249325866 SUCCESS at public 060cac920d01d6f369c85ed6894334043c80011c."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

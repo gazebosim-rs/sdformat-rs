@@ -2101,6 +2101,26 @@ values on source freeze SHA256 `0038eaff7aac5f32d020ab1322bff236ffc7adfa65c4ed52
 `d6ba792fc12e41b6e2d5c26d7ce259de905531f4a566819720f9942480388e15`). Private pinned native1/0 and raw-parent Rust2/0 passed.
 Isolated author checks passed 248 Rust, sixteen tools, formatting, Clippy and
 docs; production coverage is 4085/4105 lines and 7067/7276 regions with all
-17 changed executable lines covered. Final metadata binding, normal hook and
-hosted qualification are pending. Native error code/full vector/method identity,
+17 changed executable lines covered. Final metadata binding receipt SHA256
+`60f56ef2` and normal protected hook passed; public
+`060cac920d01d6f369c85ed6894334043c80011c` passed exact hosted verify
+`40249325866`. Native error code/full vector/method identity,
 Element/default/`ToElement`, graph and broader numeric behavior remain open.
+
+## JointAxis XML direction boundary correction candidate
+
+The parser now uses the native default float epsilon promoted to `f64` when
+checking the length of a loaded axis XYZ vector. Fresh pinned native proof
+passes 165 corpus rows plus the unchanged `DOMJointAxis.Construction` original
+1/0. All 160 prior rows remain byte-equivalent; five source-hashed boundary
+rows check zero, both signs of `1e-7`, exact float epsilon and decimal `1e-6`.
+The Rust loader rejects the first four and accepts and normalizes decimal
+`1e-6`. The isolated source freeze is SHA256 `cc1c9513`; independent source
+review receipt SHA256 `7f3698a8` approved the scoped three-file correction,
+including a prior-parser negative control. Full native error vectors, Element,
+frame graph and retirement of the partial `DOMJointAxis.Construction` original
+remain outside this packet. Fresh integrated author gate passed 254 Rust tests,
+sixteen tool tests, formatting, Clippy and docs. Production coverage is
+4085/4105 lines and 7067/7276 regions, with the changed executable line
+covered. Independent final binding, normal hook and hosted qualification are
+pending.

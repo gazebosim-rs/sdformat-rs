@@ -1892,7 +1892,8 @@ impl Parser<'_> {
             expressed_in = "__model__".into();
         }
         let length = DVec3::from_array(xyz).length();
-        if length <= f64::MIN_POSITIVE || !length.is_finite() {
+        // Native JointAxis::SetXyz uses sdf::equal's default float epsilon.
+        if length <= f64::from(1e-6_f32) || !length.is_finite() {
             return Err(self.err(axis, ErrorCode::InvalidValue, "invalid joint axis"));
         }
         let mut result = Axis {

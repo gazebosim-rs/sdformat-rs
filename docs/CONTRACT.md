@@ -606,5 +606,14 @@ the previous XYZ when validation fails. A zero-length vector within native
 `SetXyz`'s default float epsilon returns `AxisDirectionError::ZeroLength`, whose
 message matches the pinned original first error. Nonfinite vectors return
 `NonFinite`. This owned value operation does not imply complete native
-`SetXyz` error-vector parity, XML parser threshold parity, Element identity,
+`SetXyz` error-vector parity, Element identity,
 `ToElement` or frame-graph behavior.
+
+## Joint axis XML direction threshold
+
+The XML loader rejects a joint-axis XYZ vector whose length is at or below
+the native default float epsilon promoted to `f64` (`f64::from(1e-6_f32)`).
+Accepted directions are normalized. The pinned native 165-row axis corpus
+checks the exact boundary, including decimal `1e-6`, while preserving all 160
+earlier observations. This is a bounded `JointAxis::Load` correction; the native
+full error vector, Element behavior and frame graph remain separate.

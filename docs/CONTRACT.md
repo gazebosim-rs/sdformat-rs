@@ -200,7 +200,12 @@ XML references are local to the enclosing world or model. Within a model,
 __model__ names its implicit frame; world is only special for joint parent.
 Within a world, world names the world frame. The parser distinguishes these local
 references from its fully scoped internal default edges. A top-level SDF may
-contain one model or worlds, and root-model pose relative_to must be empty.
+contain one model, declared directly or supplied by a nonmerged include, or worlds.
+A literal root model's pose relative_to must be empty. An include pose override
+retains its raw relative_to text; the native standalone root graph instead uses
+its raw pose and placement frame relative to the absolute root. This does not
+expand local XML reference rules in other scopes. Mixed world/model roots remain
+a known Rust subset rejection, although the native loader accepts them.
 Public resolve_name accepts a fully scoped/default query or a world endpoint;
 it does not expand the allowed namespace of XML pose/axis references.
 
@@ -908,8 +913,14 @@ overrides determine `{name}` resolution. Child models do not inherit namespace;
 flattening a merged include leaves its parent's namespace unchanged. Original
 include XML and canonical resource provenance remain available. These values do
 not change frame scopes, pose references, resource lookup or simulator topics.
-Root-level includes, native OriginalVersion access through Rust Model and
-serialization remain unqualified.
+Root-level model includes use the same injected resolver, imported model metadata
+and raw include provenance. Root merge includes remain unsupported after resource
+resolution and validation. Native OriginalVersion access through Rust Model,
+actor/light/URDF includes, world merge and serialization remain unqualified.
+Native child SemanticPose lookup of __root__ or ::__root__ reports error 26 in the
+qualified standalone cases. Global child positions checked through the Rust query
+facade are compositions of independently observed model and child-local poses;
+they do not claim successful native child-root target lookup.
 
 `Model` and `Frame` implement Clone, retaining owned nested DOM values and
 provenance after independent edits and drop. Cloning does not rebuild or rebind

@@ -1,0 +1,3020 @@
+[
+  {
+    "id": "original-empty-namespace",
+    "resource": "<?xml version=\"1.0\" ?>\n<sdf version=\"1.6\">\n\n  <model name=\"test_model\">\n\n    <link name=\"link\">\n\n      <collision name=\"mesh_col\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>my_submesh</name>\n              <center>true</center>\n            </submesh>\n            <scale>0.1 0.2 0.3</scale>\n          </mesh>\n        </geometry>\n      </collision>\n\n      <visual name=\"mesh_vis\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>another_submesh</name>\n              <center>false</center>\n            </submesh>\n            <scale>1.2 2.3 3.4</scale>\n          </mesh>\n        </geometry>\n      </visual>\n\n    </link>\n  </model>\n\n</sdf>\n",
+    "xml": "<sdf version='1.12'><include><uri>@RESOURCE@</uri><namespace></namespace></include></sdf>",
+    "native": {
+      "errors": [],
+      "root_model": {
+        "name": "test_model",
+        "raw": null,
+        "resolved": null,
+        "static": false,
+        "canonical": "",
+        "placement": "",
+        "relative": "",
+        "pose": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "pose_errors": [],
+        "resolved_pose": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "plugins": [],
+        "links_data": [
+          {
+            "name": "link",
+            "semantic": {
+              "default": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "absolute_root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "model": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          }
+        ],
+        "frames_data": [],
+        "original_version": "1.6",
+        "links": 1,
+        "frames": [],
+        "models": []
+      },
+      "worlds": []
+    },
+    "disposition": "supported"
+  },
+  {
+    "id": "outer-1.4",
+    "resource": "<?xml version=\"1.0\" ?>\n<sdf version=\"1.6\">\n\n  <model name=\"test_model\">\n\n    <link name=\"link\">\n\n      <collision name=\"mesh_col\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>my_submesh</name>\n              <center>true</center>\n            </submesh>\n            <scale>0.1 0.2 0.3</scale>\n          </mesh>\n        </geometry>\n      </collision>\n\n      <visual name=\"mesh_vis\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>another_submesh</name>\n              <center>false</center>\n            </submesh>\n            <scale>1.2 2.3 3.4</scale>\n          </mesh>\n        </geometry>\n      </visual>\n\n    </link>\n  </model>\n\n</sdf>\n",
+    "xml": "<sdf version='1.4'><include><uri>@RESOURCE@</uri></include></sdf>",
+    "native": {
+      "errors": [],
+      "root_model": {
+        "name": "test_model",
+        "raw": null,
+        "resolved": null,
+        "static": false,
+        "canonical": "",
+        "placement": "",
+        "relative": "",
+        "pose": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "pose_errors": [],
+        "resolved_pose": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "plugins": [],
+        "links_data": [
+          {
+            "name": "link",
+            "semantic": {
+              "default": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "absolute_root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "model": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          }
+        ],
+        "frames_data": [],
+        "original_version": "1.6",
+        "links": 1,
+        "frames": [],
+        "models": []
+      },
+      "worlds": []
+    },
+    "disposition": "supported"
+  },
+  {
+    "id": "outer-1.5",
+    "resource": "<?xml version=\"1.0\" ?>\n<sdf version=\"1.6\">\n\n  <model name=\"test_model\">\n\n    <link name=\"link\">\n\n      <collision name=\"mesh_col\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>my_submesh</name>\n              <center>true</center>\n            </submesh>\n            <scale>0.1 0.2 0.3</scale>\n          </mesh>\n        </geometry>\n      </collision>\n\n      <visual name=\"mesh_vis\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>another_submesh</name>\n              <center>false</center>\n            </submesh>\n            <scale>1.2 2.3 3.4</scale>\n          </mesh>\n        </geometry>\n      </visual>\n\n    </link>\n  </model>\n\n</sdf>\n",
+    "xml": "<sdf version='1.5'><include><uri>@RESOURCE@</uri></include></sdf>",
+    "native": {
+      "errors": [],
+      "root_model": {
+        "name": "test_model",
+        "raw": null,
+        "resolved": null,
+        "static": false,
+        "canonical": "",
+        "placement": "",
+        "relative": "",
+        "pose": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "pose_errors": [],
+        "resolved_pose": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "plugins": [],
+        "links_data": [
+          {
+            "name": "link",
+            "semantic": {
+              "default": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "absolute_root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "model": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          }
+        ],
+        "frames_data": [],
+        "original_version": "1.6",
+        "links": 1,
+        "frames": [],
+        "models": []
+      },
+      "worlds": []
+    },
+    "disposition": "supported"
+  },
+  {
+    "id": "outer-1.6",
+    "resource": "<?xml version=\"1.0\" ?>\n<sdf version=\"1.6\">\n\n  <model name=\"test_model\">\n\n    <link name=\"link\">\n\n      <collision name=\"mesh_col\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>my_submesh</name>\n              <center>true</center>\n            </submesh>\n            <scale>0.1 0.2 0.3</scale>\n          </mesh>\n        </geometry>\n      </collision>\n\n      <visual name=\"mesh_vis\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>another_submesh</name>\n              <center>false</center>\n            </submesh>\n            <scale>1.2 2.3 3.4</scale>\n          </mesh>\n        </geometry>\n      </visual>\n\n    </link>\n  </model>\n\n</sdf>\n",
+    "xml": "<sdf version='1.6'><include><uri>@RESOURCE@</uri></include></sdf>",
+    "native": {
+      "errors": [],
+      "root_model": {
+        "name": "test_model",
+        "raw": null,
+        "resolved": null,
+        "static": false,
+        "canonical": "",
+        "placement": "",
+        "relative": "",
+        "pose": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "pose_errors": [],
+        "resolved_pose": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "plugins": [],
+        "links_data": [
+          {
+            "name": "link",
+            "semantic": {
+              "default": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "absolute_root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "model": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          }
+        ],
+        "frames_data": [],
+        "original_version": "1.6",
+        "links": 1,
+        "frames": [],
+        "models": []
+      },
+      "worlds": []
+    },
+    "disposition": "supported"
+  },
+  {
+    "id": "outer-1.7",
+    "resource": "<?xml version=\"1.0\" ?>\n<sdf version=\"1.6\">\n\n  <model name=\"test_model\">\n\n    <link name=\"link\">\n\n      <collision name=\"mesh_col\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>my_submesh</name>\n              <center>true</center>\n            </submesh>\n            <scale>0.1 0.2 0.3</scale>\n          </mesh>\n        </geometry>\n      </collision>\n\n      <visual name=\"mesh_vis\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>another_submesh</name>\n              <center>false</center>\n            </submesh>\n            <scale>1.2 2.3 3.4</scale>\n          </mesh>\n        </geometry>\n      </visual>\n\n    </link>\n  </model>\n\n</sdf>\n",
+    "xml": "<sdf version='1.7'><include><uri>@RESOURCE@</uri></include></sdf>",
+    "native": {
+      "errors": [],
+      "root_model": {
+        "name": "test_model",
+        "raw": null,
+        "resolved": null,
+        "static": false,
+        "canonical": "",
+        "placement": "",
+        "relative": "",
+        "pose": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "pose_errors": [],
+        "resolved_pose": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "plugins": [],
+        "links_data": [
+          {
+            "name": "link",
+            "semantic": {
+              "default": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "absolute_root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "model": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          }
+        ],
+        "frames_data": [],
+        "original_version": "1.6",
+        "links": 1,
+        "frames": [],
+        "models": []
+      },
+      "worlds": []
+    },
+    "disposition": "supported"
+  },
+  {
+    "id": "outer-1.8",
+    "resource": "<?xml version=\"1.0\" ?>\n<sdf version=\"1.6\">\n\n  <model name=\"test_model\">\n\n    <link name=\"link\">\n\n      <collision name=\"mesh_col\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>my_submesh</name>\n              <center>true</center>\n            </submesh>\n            <scale>0.1 0.2 0.3</scale>\n          </mesh>\n        </geometry>\n      </collision>\n\n      <visual name=\"mesh_vis\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>another_submesh</name>\n              <center>false</center>\n            </submesh>\n            <scale>1.2 2.3 3.4</scale>\n          </mesh>\n        </geometry>\n      </visual>\n\n    </link>\n  </model>\n\n</sdf>\n",
+    "xml": "<sdf version='1.8'><include><uri>@RESOURCE@</uri></include></sdf>",
+    "native": {
+      "errors": [],
+      "root_model": {
+        "name": "test_model",
+        "raw": null,
+        "resolved": null,
+        "static": false,
+        "canonical": "",
+        "placement": "",
+        "relative": "",
+        "pose": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "pose_errors": [],
+        "resolved_pose": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "plugins": [],
+        "links_data": [
+          {
+            "name": "link",
+            "semantic": {
+              "default": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "absolute_root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "model": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          }
+        ],
+        "frames_data": [],
+        "original_version": "1.6",
+        "links": 1,
+        "frames": [],
+        "models": []
+      },
+      "worlds": []
+    },
+    "disposition": "supported"
+  },
+  {
+    "id": "outer-1.9",
+    "resource": "<?xml version=\"1.0\" ?>\n<sdf version=\"1.6\">\n\n  <model name=\"test_model\">\n\n    <link name=\"link\">\n\n      <collision name=\"mesh_col\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>my_submesh</name>\n              <center>true</center>\n            </submesh>\n            <scale>0.1 0.2 0.3</scale>\n          </mesh>\n        </geometry>\n      </collision>\n\n      <visual name=\"mesh_vis\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>another_submesh</name>\n              <center>false</center>\n            </submesh>\n            <scale>1.2 2.3 3.4</scale>\n          </mesh>\n        </geometry>\n      </visual>\n\n    </link>\n  </model>\n\n</sdf>\n",
+    "xml": "<sdf version='1.9'><include><uri>@RESOURCE@</uri></include></sdf>",
+    "native": {
+      "errors": [],
+      "root_model": {
+        "name": "test_model",
+        "raw": null,
+        "resolved": null,
+        "static": false,
+        "canonical": "",
+        "placement": "",
+        "relative": "",
+        "pose": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "pose_errors": [],
+        "resolved_pose": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "plugins": [],
+        "links_data": [
+          {
+            "name": "link",
+            "semantic": {
+              "default": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "absolute_root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "model": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          }
+        ],
+        "frames_data": [],
+        "original_version": "1.6",
+        "links": 1,
+        "frames": [],
+        "models": []
+      },
+      "worlds": []
+    },
+    "disposition": "supported"
+  },
+  {
+    "id": "outer-1.10",
+    "resource": "<?xml version=\"1.0\" ?>\n<sdf version=\"1.6\">\n\n  <model name=\"test_model\">\n\n    <link name=\"link\">\n\n      <collision name=\"mesh_col\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>my_submesh</name>\n              <center>true</center>\n            </submesh>\n            <scale>0.1 0.2 0.3</scale>\n          </mesh>\n        </geometry>\n      </collision>\n\n      <visual name=\"mesh_vis\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>another_submesh</name>\n              <center>false</center>\n            </submesh>\n            <scale>1.2 2.3 3.4</scale>\n          </mesh>\n        </geometry>\n      </visual>\n\n    </link>\n  </model>\n\n</sdf>\n",
+    "xml": "<sdf version='1.10'><include><uri>@RESOURCE@</uri></include></sdf>",
+    "native": {
+      "errors": [],
+      "root_model": {
+        "name": "test_model",
+        "raw": null,
+        "resolved": null,
+        "static": false,
+        "canonical": "",
+        "placement": "",
+        "relative": "",
+        "pose": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "pose_errors": [],
+        "resolved_pose": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "plugins": [],
+        "links_data": [
+          {
+            "name": "link",
+            "semantic": {
+              "default": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "absolute_root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "model": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          }
+        ],
+        "frames_data": [],
+        "original_version": "1.6",
+        "links": 1,
+        "frames": [],
+        "models": []
+      },
+      "worlds": []
+    },
+    "disposition": "supported"
+  },
+  {
+    "id": "outer-1.11",
+    "resource": "<?xml version=\"1.0\" ?>\n<sdf version=\"1.6\">\n\n  <model name=\"test_model\">\n\n    <link name=\"link\">\n\n      <collision name=\"mesh_col\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>my_submesh</name>\n              <center>true</center>\n            </submesh>\n            <scale>0.1 0.2 0.3</scale>\n          </mesh>\n        </geometry>\n      </collision>\n\n      <visual name=\"mesh_vis\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>another_submesh</name>\n              <center>false</center>\n            </submesh>\n            <scale>1.2 2.3 3.4</scale>\n          </mesh>\n        </geometry>\n      </visual>\n\n    </link>\n  </model>\n\n</sdf>\n",
+    "xml": "<sdf version='1.11'><include><uri>@RESOURCE@</uri></include></sdf>",
+    "native": {
+      "errors": [],
+      "root_model": {
+        "name": "test_model",
+        "raw": null,
+        "resolved": null,
+        "static": false,
+        "canonical": "",
+        "placement": "",
+        "relative": "",
+        "pose": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "pose_errors": [],
+        "resolved_pose": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "plugins": [],
+        "links_data": [
+          {
+            "name": "link",
+            "semantic": {
+              "default": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "absolute_root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "model": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          }
+        ],
+        "frames_data": [],
+        "original_version": "1.6",
+        "links": 1,
+        "frames": [],
+        "models": []
+      },
+      "worlds": []
+    },
+    "disposition": "supported"
+  },
+  {
+    "id": "outer-1.12",
+    "resource": "<?xml version=\"1.0\" ?>\n<sdf version=\"1.6\">\n\n  <model name=\"test_model\">\n\n    <link name=\"link\">\n\n      <collision name=\"mesh_col\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>my_submesh</name>\n              <center>true</center>\n            </submesh>\n            <scale>0.1 0.2 0.3</scale>\n          </mesh>\n        </geometry>\n      </collision>\n\n      <visual name=\"mesh_vis\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>another_submesh</name>\n              <center>false</center>\n            </submesh>\n            <scale>1.2 2.3 3.4</scale>\n          </mesh>\n        </geometry>\n      </visual>\n\n    </link>\n  </model>\n\n</sdf>\n",
+    "xml": "<sdf version='1.12'><include><uri>@RESOURCE@</uri></include></sdf>",
+    "native": {
+      "errors": [],
+      "root_model": {
+        "name": "test_model",
+        "raw": null,
+        "resolved": null,
+        "static": false,
+        "canonical": "",
+        "placement": "",
+        "relative": "",
+        "pose": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "pose_errors": [],
+        "resolved_pose": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "plugins": [],
+        "links_data": [
+          {
+            "name": "link",
+            "semantic": {
+              "default": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "absolute_root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "model": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          }
+        ],
+        "frames_data": [],
+        "original_version": "1.6",
+        "links": 1,
+        "frames": [],
+        "models": []
+      },
+      "worlds": []
+    },
+    "disposition": "supported"
+  },
+  {
+    "id": "name",
+    "resource": "<?xml version=\"1.0\" ?>\n<sdf version=\"1.6\">\n\n  <model name=\"test_model\">\n\n    <link name=\"link\">\n\n      <collision name=\"mesh_col\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>my_submesh</name>\n              <center>true</center>\n            </submesh>\n            <scale>0.1 0.2 0.3</scale>\n          </mesh>\n        </geometry>\n      </collision>\n\n      <visual name=\"mesh_vis\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>another_submesh</name>\n              <center>false</center>\n            </submesh>\n            <scale>1.2 2.3 3.4</scale>\n          </mesh>\n        </geometry>\n      </visual>\n\n    </link>\n  </model>\n\n</sdf>\n",
+    "xml": "<sdf version='1.12'><include><uri>@RESOURCE@</uri><name>renamed</name></include></sdf>",
+    "native": {
+      "errors": [],
+      "root_model": {
+        "name": "renamed",
+        "raw": null,
+        "resolved": null,
+        "static": false,
+        "canonical": "",
+        "placement": "",
+        "relative": "",
+        "pose": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "pose_errors": [],
+        "resolved_pose": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "plugins": [],
+        "links_data": [
+          {
+            "name": "link",
+            "semantic": {
+              "default": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "absolute_root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "model": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          }
+        ],
+        "frames_data": [],
+        "original_version": "1.6",
+        "links": 1,
+        "frames": [],
+        "models": []
+      },
+      "worlds": []
+    },
+    "disposition": "supported"
+  },
+  {
+    "id": "namespace",
+    "resource": "<?xml version=\"1.0\" ?>\n<sdf version=\"1.6\">\n\n  <model name=\"test_model\">\n\n    <link name=\"link\">\n\n      <collision name=\"mesh_col\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>my_submesh</name>\n              <center>true</center>\n            </submesh>\n            <scale>0.1 0.2 0.3</scale>\n          </mesh>\n        </geometry>\n      </collision>\n\n      <visual name=\"mesh_vis\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>another_submesh</name>\n              <center>false</center>\n            </submesh>\n            <scale>1.2 2.3 3.4</scale>\n          </mesh>\n        </geometry>\n      </visual>\n\n    </link>\n  </model>\n\n</sdf>\n",
+    "xml": "<sdf version='1.12'><include><uri>@RESOURCE@</uri><namespace>ns/{name}</namespace></include></sdf>",
+    "native": {
+      "errors": [],
+      "root_model": {
+        "name": "test_model",
+        "raw": "ns/{name}",
+        "resolved": "ns/test_model",
+        "static": false,
+        "canonical": "",
+        "placement": "",
+        "relative": "",
+        "pose": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "pose_errors": [],
+        "resolved_pose": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "plugins": [],
+        "links_data": [
+          {
+            "name": "link",
+            "semantic": {
+              "default": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "absolute_root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "model": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          }
+        ],
+        "frames_data": [],
+        "original_version": "1.6",
+        "links": 1,
+        "frames": [],
+        "models": []
+      },
+      "worlds": []
+    },
+    "disposition": "supported"
+  },
+  {
+    "id": "name-namespace",
+    "resource": "<?xml version=\"1.0\" ?>\n<sdf version=\"1.6\">\n\n  <model name=\"test_model\">\n\n    <link name=\"link\">\n\n      <collision name=\"mesh_col\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>my_submesh</name>\n              <center>true</center>\n            </submesh>\n            <scale>0.1 0.2 0.3</scale>\n          </mesh>\n        </geometry>\n      </collision>\n\n      <visual name=\"mesh_vis\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>another_submesh</name>\n              <center>false</center>\n            </submesh>\n            <scale>1.2 2.3 3.4</scale>\n          </mesh>\n        </geometry>\n      </visual>\n\n    </link>\n  </model>\n\n</sdf>\n",
+    "xml": "<sdf version='1.12'><include><uri>@RESOURCE@</uri><name>renamed</name><namespace>ns/{name}</namespace></include></sdf>",
+    "native": {
+      "errors": [],
+      "root_model": {
+        "name": "renamed",
+        "raw": "ns/{name}",
+        "resolved": "ns/renamed",
+        "static": false,
+        "canonical": "",
+        "placement": "",
+        "relative": "",
+        "pose": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "pose_errors": [],
+        "resolved_pose": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "plugins": [],
+        "links_data": [
+          {
+            "name": "link",
+            "semantic": {
+              "default": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "absolute_root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "model": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          }
+        ],
+        "frames_data": [],
+        "original_version": "1.6",
+        "links": 1,
+        "frames": [],
+        "models": []
+      },
+      "worlds": []
+    },
+    "disposition": "supported"
+  },
+  {
+    "id": "pose",
+    "resource": "<?xml version=\"1.0\" ?>\n<sdf version=\"1.6\">\n\n  <model name=\"test_model\">\n\n    <link name=\"link\">\n\n      <collision name=\"mesh_col\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>my_submesh</name>\n              <center>true</center>\n            </submesh>\n            <scale>0.1 0.2 0.3</scale>\n          </mesh>\n        </geometry>\n      </collision>\n\n      <visual name=\"mesh_vis\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>another_submesh</name>\n              <center>false</center>\n            </submesh>\n            <scale>1.2 2.3 3.4</scale>\n          </mesh>\n        </geometry>\n      </visual>\n\n    </link>\n  </model>\n\n</sdf>\n",
+    "xml": "<sdf version='1.12'><include><uri>@RESOURCE@</uri><pose>1 2 3 0 0 0</pose></include></sdf>",
+    "native": {
+      "errors": [],
+      "root_model": {
+        "name": "test_model",
+        "raw": null,
+        "resolved": null,
+        "static": false,
+        "canonical": "",
+        "placement": "",
+        "relative": "",
+        "pose": [
+          1,
+          2,
+          3,
+          0,
+          0,
+          0,
+          1
+        ],
+        "pose_errors": [],
+        "resolved_pose": [
+          1,
+          2,
+          3,
+          0,
+          0,
+          0,
+          1
+        ],
+        "plugins": [],
+        "links_data": [
+          {
+            "name": "link",
+            "semantic": {
+              "default": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "absolute_root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "model": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          }
+        ],
+        "frames_data": [],
+        "original_version": "1.6",
+        "links": 1,
+        "frames": [],
+        "models": []
+      },
+      "worlds": []
+    },
+    "disposition": "supported"
+  },
+  {
+    "id": "static",
+    "resource": "<?xml version=\"1.0\" ?>\n<sdf version=\"1.6\">\n\n  <model name=\"test_model\">\n\n    <link name=\"link\">\n\n      <collision name=\"mesh_col\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>my_submesh</name>\n              <center>true</center>\n            </submesh>\n            <scale>0.1 0.2 0.3</scale>\n          </mesh>\n        </geometry>\n      </collision>\n\n      <visual name=\"mesh_vis\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>another_submesh</name>\n              <center>false</center>\n            </submesh>\n            <scale>1.2 2.3 3.4</scale>\n          </mesh>\n        </geometry>\n      </visual>\n\n    </link>\n  </model>\n\n</sdf>\n",
+    "xml": "<sdf version='1.12'><include><uri>@RESOURCE@</uri><static>true</static></include></sdf>",
+    "native": {
+      "errors": [],
+      "root_model": {
+        "name": "test_model",
+        "raw": null,
+        "resolved": null,
+        "static": true,
+        "canonical": "",
+        "placement": "",
+        "relative": "",
+        "pose": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "pose_errors": [],
+        "resolved_pose": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "plugins": [],
+        "links_data": [
+          {
+            "name": "link",
+            "semantic": {
+              "default": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "absolute_root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "model": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          }
+        ],
+        "frames_data": [],
+        "original_version": "1.6",
+        "links": 1,
+        "frames": [],
+        "models": []
+      },
+      "worlds": []
+    },
+    "disposition": "supported"
+  },
+  {
+    "id": "placement",
+    "resource": "<?xml version=\"1.0\" ?>\n<sdf version=\"1.6\">\n\n  <model name=\"test_model\">\n\n    <link name=\"link\">\n\n      <collision name=\"mesh_col\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>my_submesh</name>\n              <center>true</center>\n            </submesh>\n            <scale>0.1 0.2 0.3</scale>\n          </mesh>\n        </geometry>\n      </collision>\n\n      <visual name=\"mesh_vis\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>another_submesh</name>\n              <center>false</center>\n            </submesh>\n            <scale>1.2 2.3 3.4</scale>\n          </mesh>\n        </geometry>\n      </visual>\n\n    </link>\n  </model>\n\n</sdf>\n",
+    "xml": "<sdf version='1.12'><include><uri>@RESOURCE@</uri><pose>1 2 3 0 0 0</pose><placement_frame>link</placement_frame></include></sdf>",
+    "native": {
+      "errors": [],
+      "root_model": {
+        "name": "test_model",
+        "raw": null,
+        "resolved": null,
+        "static": false,
+        "canonical": "",
+        "placement": "link",
+        "relative": "",
+        "pose": [
+          1,
+          2,
+          3,
+          0,
+          0,
+          0,
+          1
+        ],
+        "pose_errors": [],
+        "resolved_pose": [
+          1,
+          2,
+          3,
+          0,
+          0,
+          0,
+          1
+        ],
+        "plugins": [],
+        "links_data": [
+          {
+            "name": "link",
+            "semantic": {
+              "default": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "absolute_root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "model": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          }
+        ],
+        "frames_data": [],
+        "original_version": "1.6",
+        "links": 1,
+        "frames": [],
+        "models": []
+      },
+      "worlds": []
+    },
+    "disposition": "supported"
+  },
+  {
+    "id": "plugin",
+    "resource": "<?xml version=\"1.0\" ?>\n<sdf version=\"1.6\">\n\n  <model name=\"test_model\">\n\n    <link name=\"link\">\n\n      <collision name=\"mesh_col\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>my_submesh</name>\n              <center>true</center>\n            </submesh>\n            <scale>0.1 0.2 0.3</scale>\n          </mesh>\n        </geometry>\n      </collision>\n\n      <visual name=\"mesh_vis\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>another_submesh</name>\n              <center>false</center>\n            </submesh>\n            <scale>1.2 2.3 3.4</scale>\n          </mesh>\n        </geometry>\n      </visual>\n\n    </link>\n  </model>\n\n</sdf>\n",
+    "xml": "<sdf version='1.12'><include><uri>@RESOURCE@</uri><plugin name='control' filename='controller'><value>x</value></plugin></include></sdf>",
+    "native": {
+      "errors": [],
+      "root_model": {
+        "name": "test_model",
+        "raw": null,
+        "resolved": null,
+        "static": false,
+        "canonical": "",
+        "placement": "",
+        "relative": "",
+        "pose": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "pose_errors": [],
+        "resolved_pose": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "plugins": [
+          {
+            "name": "control",
+            "filename": "controller"
+          }
+        ],
+        "links_data": [
+          {
+            "name": "link",
+            "semantic": {
+              "default": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "absolute_root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "model": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          }
+        ],
+        "frames_data": [],
+        "original_version": "1.6",
+        "links": 1,
+        "frames": [],
+        "models": []
+      },
+      "worlds": []
+    },
+    "disposition": "supported"
+  },
+  {
+    "id": "root-relative-world",
+    "resource": "<?xml version=\"1.0\" ?>\n<sdf version=\"1.6\">\n\n  <model name=\"test_model\">\n\n    <link name=\"link\">\n\n      <collision name=\"mesh_col\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>my_submesh</name>\n              <center>true</center>\n            </submesh>\n            <scale>0.1 0.2 0.3</scale>\n          </mesh>\n        </geometry>\n      </collision>\n\n      <visual name=\"mesh_vis\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>another_submesh</name>\n              <center>false</center>\n            </submesh>\n            <scale>1.2 2.3 3.4</scale>\n          </mesh>\n        </geometry>\n      </visual>\n\n    </link>\n  </model>\n\n</sdf>\n",
+    "xml": "<sdf version='1.12'><include><uri>@RESOURCE@</uri><pose relative_to='world'>1 2 3 0 0 0</pose></include></sdf>",
+    "native": {
+      "errors": [],
+      "root_model": {
+        "name": "test_model",
+        "raw": null,
+        "resolved": null,
+        "static": false,
+        "canonical": "",
+        "placement": "",
+        "relative": "world",
+        "pose": [
+          1,
+          2,
+          3,
+          0,
+          0,
+          0,
+          1
+        ],
+        "pose_errors": [],
+        "resolved_pose": [
+          1,
+          2,
+          3,
+          0,
+          0,
+          0,
+          1
+        ],
+        "plugins": [],
+        "links_data": [
+          {
+            "name": "link",
+            "semantic": {
+              "default": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "absolute_root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "model": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          }
+        ],
+        "frames_data": [],
+        "original_version": "1.6",
+        "links": 1,
+        "frames": [],
+        "models": []
+      },
+      "worlds": []
+    },
+    "disposition": "supported"
+  },
+  {
+    "id": "root-relative-link",
+    "resource": "<?xml version=\"1.0\" ?>\n<sdf version=\"1.6\">\n\n  <model name=\"test_model\">\n\n    <link name=\"link\">\n\n      <collision name=\"mesh_col\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>my_submesh</name>\n              <center>true</center>\n            </submesh>\n            <scale>0.1 0.2 0.3</scale>\n          </mesh>\n        </geometry>\n      </collision>\n\n      <visual name=\"mesh_vis\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>another_submesh</name>\n              <center>false</center>\n            </submesh>\n            <scale>1.2 2.3 3.4</scale>\n          </mesh>\n        </geometry>\n      </visual>\n\n    </link>\n  </model>\n\n</sdf>\n",
+    "xml": "<sdf version='1.12'><include><uri>@RESOURCE@</uri><pose relative_to='link'>1 2 3 0 0 0</pose></include></sdf>",
+    "native": {
+      "errors": [],
+      "root_model": {
+        "name": "test_model",
+        "raw": null,
+        "resolved": null,
+        "static": false,
+        "canonical": "",
+        "placement": "",
+        "relative": "link",
+        "pose": [
+          1,
+          2,
+          3,
+          0,
+          0,
+          0,
+          1
+        ],
+        "pose_errors": [],
+        "resolved_pose": [
+          1,
+          2,
+          3,
+          0,
+          0,
+          0,
+          1
+        ],
+        "plugins": [],
+        "links_data": [
+          {
+            "name": "link",
+            "semantic": {
+              "default": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "absolute_root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "model": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          }
+        ],
+        "frames_data": [],
+        "original_version": "1.6",
+        "links": 1,
+        "frames": [],
+        "models": []
+      },
+      "worlds": []
+    },
+    "disposition": "supported"
+  },
+  {
+    "id": "root-merge-true",
+    "resource": "<?xml version=\"1.0\" ?>\n<sdf version=\"1.6\">\n\n  <model name=\"test_model\">\n\n    <link name=\"link\">\n\n      <collision name=\"mesh_col\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>my_submesh</name>\n              <center>true</center>\n            </submesh>\n            <scale>0.1 0.2 0.3</scale>\n          </mesh>\n        </geometry>\n      </collision>\n\n      <visual name=\"mesh_vis\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>another_submesh</name>\n              <center>false</center>\n            </submesh>\n            <scale>1.2 2.3 3.4</scale>\n          </mesh>\n        </geometry>\n      </visual>\n\n    </link>\n  </model>\n\n</sdf>\n",
+    "xml": "<sdf version='1.12'><include merge='true'><uri>@RESOURCE@</uri></include></sdf>",
+    "native": {
+      "errors": [
+        33
+      ],
+      "root_model": null,
+      "worlds": []
+    },
+    "disposition": "native_rejection"
+  },
+  {
+    "id": "root-merge-false",
+    "resource": "<?xml version=\"1.0\" ?>\n<sdf version=\"1.6\">\n\n  <model name=\"test_model\">\n\n    <link name=\"link\">\n\n      <collision name=\"mesh_col\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>my_submesh</name>\n              <center>true</center>\n            </submesh>\n            <scale>0.1 0.2 0.3</scale>\n          </mesh>\n        </geometry>\n      </collision>\n\n      <visual name=\"mesh_vis\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>another_submesh</name>\n              <center>false</center>\n            </submesh>\n            <scale>1.2 2.3 3.4</scale>\n          </mesh>\n        </geometry>\n      </visual>\n\n    </link>\n  </model>\n\n</sdf>\n",
+    "xml": "<sdf version='1.12'><include merge='false'><uri>@RESOURCE@</uri></include></sdf>",
+    "native": {
+      "errors": [],
+      "root_model": {
+        "name": "test_model",
+        "raw": null,
+        "resolved": null,
+        "static": false,
+        "canonical": "",
+        "placement": "",
+        "relative": "",
+        "pose": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "pose_errors": [],
+        "resolved_pose": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "plugins": [],
+        "links_data": [
+          {
+            "name": "link",
+            "semantic": {
+              "default": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "absolute_root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "model": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          }
+        ],
+        "frames_data": [],
+        "original_version": "1.6",
+        "links": 1,
+        "frames": [],
+        "models": []
+      },
+      "worlds": []
+    },
+    "disposition": "supported"
+  },
+  {
+    "id": "multiple-includes",
+    "resource": "<?xml version=\"1.0\" ?>\n<sdf version=\"1.6\">\n\n  <model name=\"test_model\">\n\n    <link name=\"link\">\n\n      <collision name=\"mesh_col\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>my_submesh</name>\n              <center>true</center>\n            </submesh>\n            <scale>0.1 0.2 0.3</scale>\n          </mesh>\n        </geometry>\n      </collision>\n\n      <visual name=\"mesh_vis\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>another_submesh</name>\n              <center>false</center>\n            </submesh>\n            <scale>1.2 2.3 3.4</scale>\n          </mesh>\n        </geometry>\n      </visual>\n\n    </link>\n  </model>\n\n</sdf>\n",
+    "xml": "<sdf version='1.12'><include><uri>@RESOURCE@</uri><name>first</name></include><include><uri>@RESOURCE@</uri><name>second</name></include></sdf>",
+    "native": {
+      "errors": [
+        11
+      ],
+      "root_model": {
+        "name": "first",
+        "raw": null,
+        "resolved": null,
+        "static": false,
+        "canonical": "",
+        "placement": "",
+        "relative": "",
+        "pose": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "pose_errors": [],
+        "resolved_pose": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "plugins": [],
+        "links_data": [
+          {
+            "name": "link",
+            "semantic": {
+              "default": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "absolute_root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "model": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          }
+        ],
+        "frames_data": [],
+        "original_version": "1.6",
+        "links": 1,
+        "frames": [],
+        "models": []
+      },
+      "worlds": []
+    },
+    "disposition": "native_rejection"
+  },
+  {
+    "id": "mixed-include-model",
+    "resource": "<?xml version=\"1.0\" ?>\n<sdf version=\"1.6\">\n\n  <model name=\"test_model\">\n\n    <link name=\"link\">\n\n      <collision name=\"mesh_col\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>my_submesh</name>\n              <center>true</center>\n            </submesh>\n            <scale>0.1 0.2 0.3</scale>\n          </mesh>\n        </geometry>\n      </collision>\n\n      <visual name=\"mesh_vis\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>another_submesh</name>\n              <center>false</center>\n            </submesh>\n            <scale>1.2 2.3 3.4</scale>\n          </mesh>\n        </geometry>\n      </visual>\n\n    </link>\n  </model>\n\n</sdf>\n",
+    "xml": "<sdf version='1.12'><include><uri>@RESOURCE@</uri></include><model name='direct'><link name='base'/></model></sdf>",
+    "native": {
+      "errors": [
+        11
+      ],
+      "root_model": {
+        "name": "test_model",
+        "raw": null,
+        "resolved": null,
+        "static": false,
+        "canonical": "",
+        "placement": "",
+        "relative": "",
+        "pose": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "pose_errors": [],
+        "resolved_pose": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "plugins": [],
+        "links_data": [
+          {
+            "name": "link",
+            "semantic": {
+              "default": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "absolute_root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "model": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          }
+        ],
+        "frames_data": [],
+        "original_version": "1.6",
+        "links": 1,
+        "frames": [],
+        "models": []
+      },
+      "worlds": []
+    },
+    "disposition": "native_rejection"
+  },
+  {
+    "id": "mixed-include-world",
+    "resource": "<?xml version=\"1.0\" ?>\n<sdf version=\"1.6\">\n\n  <model name=\"test_model\">\n\n    <link name=\"link\">\n\n      <collision name=\"mesh_col\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>my_submesh</name>\n              <center>true</center>\n            </submesh>\n            <scale>0.1 0.2 0.3</scale>\n          </mesh>\n        </geometry>\n      </collision>\n\n      <visual name=\"mesh_vis\">\n        <geometry>\n          <mesh>\n            <uri>meshes/mesh.dae</uri>\n            <submesh>\n              <name>another_submesh</name>\n              <center>false</center>\n            </submesh>\n            <scale>1.2 2.3 3.4</scale>\n          </mesh>\n        </geometry>\n      </visual>\n\n    </link>\n  </model>\n\n</sdf>\n",
+    "xml": "<sdf version='1.12'><world name='w'/><include><uri>@RESOURCE@</uri></include></sdf>",
+    "native": {
+      "errors": [],
+      "root_model": {
+        "name": "test_model",
+        "raw": null,
+        "resolved": null,
+        "static": false,
+        "canonical": "",
+        "placement": "",
+        "relative": "",
+        "pose": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "pose_errors": [],
+        "resolved_pose": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        "plugins": [],
+        "links_data": [
+          {
+            "name": "link",
+            "semantic": {
+              "default": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "absolute_root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "model": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          }
+        ],
+        "frames_data": [],
+        "original_version": "1.6",
+        "links": 1,
+        "frames": [],
+        "models": []
+      },
+      "worlds": [
+        {
+          "name": "w",
+          "models": []
+        }
+      ]
+    },
+    "disposition": "known_mixed_root_subset_rejection"
+  },
+  {
+    "id": "direct-world",
+    "resource": "<sdf version='1.12'><model name='m'><link name='l'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='m'><pose relative_to='world'>1 2 3 0 0 0</pose><link name='l'/></model></sdf>",
+    "native": {
+      "errors": [
+        5,
+        9,
+        30
+      ],
+      "root_model": null,
+      "worlds": []
+    },
+    "disposition": "native_rejection"
+  },
+  {
+    "id": "include-world",
+    "resource": "<sdf version='1.12'><model name='m'><link name='l'/></model></sdf>",
+    "xml": "<sdf version='1.12'><include><uri>@RESOURCE@</uri><pose relative_to='world'>1 2 3 0 0 0</pose></include></sdf>",
+    "native": {
+      "errors": [],
+      "root_model": {
+        "name": "m",
+        "raw": null,
+        "resolved": null,
+        "static": false,
+        "canonical": "",
+        "placement": "",
+        "relative": "world",
+        "pose": [
+          1,
+          2,
+          3,
+          0,
+          0,
+          0,
+          1
+        ],
+        "pose_errors": [],
+        "resolved_pose": [
+          1,
+          2,
+          3,
+          0,
+          0,
+          0,
+          1
+        ],
+        "plugins": [],
+        "links_data": [
+          {
+            "name": "l",
+            "semantic": {
+              "default": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "absolute_root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "model": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          }
+        ],
+        "frames_data": [],
+        "original_version": "1.12",
+        "links": 1,
+        "frames": [],
+        "models": []
+      },
+      "worlds": []
+    },
+    "disposition": "supported"
+  },
+  {
+    "id": "direct-l",
+    "resource": "<sdf version='1.12'><model name='m'><link name='l'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='m'><pose relative_to='l'>1 2 3 0 0 0</pose><link name='l'/></model></sdf>",
+    "native": {
+      "errors": [
+        5,
+        9,
+        30
+      ],
+      "root_model": null,
+      "worlds": []
+    },
+    "disposition": "native_rejection"
+  },
+  {
+    "id": "include-l",
+    "resource": "<sdf version='1.12'><model name='m'><link name='l'/></model></sdf>",
+    "xml": "<sdf version='1.12'><include><uri>@RESOURCE@</uri><pose relative_to='l'>1 2 3 0 0 0</pose></include></sdf>",
+    "native": {
+      "errors": [],
+      "root_model": {
+        "name": "m",
+        "raw": null,
+        "resolved": null,
+        "static": false,
+        "canonical": "",
+        "placement": "",
+        "relative": "l",
+        "pose": [
+          1,
+          2,
+          3,
+          0,
+          0,
+          0,
+          1
+        ],
+        "pose_errors": [],
+        "resolved_pose": [
+          1,
+          2,
+          3,
+          0,
+          0,
+          0,
+          1
+        ],
+        "plugins": [],
+        "links_data": [
+          {
+            "name": "l",
+            "semantic": {
+              "default": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "absolute_root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "model": {
+                "errors": [],
+                "pose": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          }
+        ],
+        "frames_data": [],
+        "original_version": "1.12",
+        "links": 1,
+        "frames": [],
+        "models": []
+      },
+      "worlds": []
+    },
+    "disposition": "supported"
+  },
+  {
+    "id": "offset-link-relative-world",
+    "resource": "<sdf version='1.12'><model name='m'><link name='l'><pose>4 5 6 0 0 0</pose></link><frame name='f' attached_to='l'><pose>1 0 0 0 0 0</pose></frame></model></sdf>",
+    "xml": "<sdf version='1.12'><include><uri>@RESOURCE@</uri><pose relative_to='world'>1 2 3 0 0 0</pose></include></sdf>",
+    "native": {
+      "errors": [],
+      "root_model": {
+        "name": "m",
+        "raw": null,
+        "resolved": null,
+        "static": false,
+        "canonical": "",
+        "placement": "",
+        "relative": "world",
+        "pose": [
+          1,
+          2,
+          3,
+          0,
+          0,
+          0,
+          1
+        ],
+        "pose_errors": [],
+        "resolved_pose": [
+          1,
+          2,
+          3,
+          0,
+          0,
+          0,
+          1
+        ],
+        "plugins": [],
+        "links_data": [
+          {
+            "name": "l",
+            "semantic": {
+              "default": {
+                "errors": [],
+                "pose": [
+                  4,
+                  5,
+                  6,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "absolute_root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "model": {
+                "errors": [],
+                "pose": [
+                  4,
+                  5,
+                  6,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          }
+        ],
+        "frames_data": [
+          {
+            "name": "f",
+            "semantic": {
+              "default": {
+                "errors": [],
+                "pose": [
+                  5,
+                  5,
+                  6,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "absolute_root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "model": {
+                "errors": [],
+                "pose": [
+                  5,
+                  5,
+                  6,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          }
+        ],
+        "original_version": "1.12",
+        "links": 1,
+        "frames": [
+          "f"
+        ],
+        "models": []
+      },
+      "worlds": []
+    },
+    "disposition": "supported"
+  },
+  {
+    "id": "offset-link-relative-l",
+    "resource": "<sdf version='1.12'><model name='m'><link name='l'><pose>4 5 6 0 0 0</pose></link><frame name='f' attached_to='l'><pose>1 0 0 0 0 0</pose></frame></model></sdf>",
+    "xml": "<sdf version='1.12'><include><uri>@RESOURCE@</uri><pose relative_to='l'>1 2 3 0 0 0</pose></include></sdf>",
+    "native": {
+      "errors": [],
+      "root_model": {
+        "name": "m",
+        "raw": null,
+        "resolved": null,
+        "static": false,
+        "canonical": "",
+        "placement": "",
+        "relative": "l",
+        "pose": [
+          1,
+          2,
+          3,
+          0,
+          0,
+          0,
+          1
+        ],
+        "pose_errors": [],
+        "resolved_pose": [
+          1,
+          2,
+          3,
+          0,
+          0,
+          0,
+          1
+        ],
+        "plugins": [],
+        "links_data": [
+          {
+            "name": "l",
+            "semantic": {
+              "default": {
+                "errors": [],
+                "pose": [
+                  4,
+                  5,
+                  6,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "absolute_root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "model": {
+                "errors": [],
+                "pose": [
+                  4,
+                  5,
+                  6,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          }
+        ],
+        "frames_data": [
+          {
+            "name": "f",
+            "semantic": {
+              "default": {
+                "errors": [],
+                "pose": [
+                  5,
+                  5,
+                  6,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "absolute_root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "model": {
+                "errors": [],
+                "pose": [
+                  5,
+                  5,
+                  6,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          }
+        ],
+        "original_version": "1.12",
+        "links": 1,
+        "frames": [
+          "f"
+        ],
+        "models": []
+      },
+      "worlds": []
+    },
+    "disposition": "supported"
+  },
+  {
+    "id": "offset-link-relative-unknown",
+    "resource": "<sdf version='1.12'><model name='m'><link name='l'><pose>4 5 6 0 0 0</pose></link><frame name='f' attached_to='l'><pose>1 0 0 0 0 0</pose></frame></model></sdf>",
+    "xml": "<sdf version='1.12'><include><uri>@RESOURCE@</uri><pose relative_to='unknown'>1 2 3 0 0 0</pose></include></sdf>",
+    "native": {
+      "errors": [],
+      "root_model": {
+        "name": "m",
+        "raw": null,
+        "resolved": null,
+        "static": false,
+        "canonical": "",
+        "placement": "",
+        "relative": "unknown",
+        "pose": [
+          1,
+          2,
+          3,
+          0,
+          0,
+          0,
+          1
+        ],
+        "pose_errors": [],
+        "resolved_pose": [
+          1,
+          2,
+          3,
+          0,
+          0,
+          0,
+          1
+        ],
+        "plugins": [],
+        "links_data": [
+          {
+            "name": "l",
+            "semantic": {
+              "default": {
+                "errors": [],
+                "pose": [
+                  4,
+                  5,
+                  6,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "absolute_root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "model": {
+                "errors": [],
+                "pose": [
+                  4,
+                  5,
+                  6,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          }
+        ],
+        "frames_data": [
+          {
+            "name": "f",
+            "semantic": {
+              "default": {
+                "errors": [],
+                "pose": [
+                  5,
+                  5,
+                  6,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "absolute_root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "model": {
+                "errors": [],
+                "pose": [
+                  5,
+                  5,
+                  6,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          }
+        ],
+        "original_version": "1.12",
+        "links": 1,
+        "frames": [
+          "f"
+        ],
+        "models": []
+      },
+      "worlds": []
+    },
+    "disposition": "supported"
+  },
+  {
+    "id": "nonzero-root-placement-link",
+    "resource": "<sdf version='1.12'><model name='m'><link name='l'><pose>4 5 6 0 0 0</pose></link><frame name='f' attached_to='l'><pose>1 0 0 0 0 0</pose></frame></model></sdf>",
+    "xml": "<sdf version='1.12'><include><uri>@RESOURCE@</uri><pose>1 2 3 0 0 0</pose><placement_frame>l</placement_frame></include></sdf>",
+    "native": {
+      "errors": [],
+      "root_model": {
+        "name": "m",
+        "raw": null,
+        "resolved": null,
+        "static": false,
+        "canonical": "",
+        "placement": "l",
+        "relative": "",
+        "pose": [
+          1,
+          2,
+          3,
+          0,
+          0,
+          0,
+          1
+        ],
+        "pose_errors": [],
+        "resolved_pose": [
+          -3,
+          -3,
+          -3,
+          0,
+          0,
+          0,
+          1
+        ],
+        "plugins": [],
+        "links_data": [
+          {
+            "name": "l",
+            "semantic": {
+              "default": {
+                "errors": [],
+                "pose": [
+                  4,
+                  5,
+                  6,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "absolute_root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "model": {
+                "errors": [],
+                "pose": [
+                  4,
+                  5,
+                  6,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          }
+        ],
+        "frames_data": [
+          {
+            "name": "f",
+            "semantic": {
+              "default": {
+                "errors": [],
+                "pose": [
+                  5,
+                  5,
+                  6,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "absolute_root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "model": {
+                "errors": [],
+                "pose": [
+                  5,
+                  5,
+                  6,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          }
+        ],
+        "original_version": "1.12",
+        "links": 1,
+        "frames": [
+          "f"
+        ],
+        "models": []
+      },
+      "worlds": []
+    },
+    "disposition": "supported"
+  },
+  {
+    "id": "nonzero-root-placement-frame",
+    "resource": "<sdf version='1.12'><model name='m'><link name='l'><pose>4 5 6 0 0 0</pose></link><frame name='f' attached_to='l'><pose>1 0 0 0 0 0</pose></frame></model></sdf>",
+    "xml": "<sdf version='1.12'><include><uri>@RESOURCE@</uri><pose>1 2 3 0 0 0</pose><placement_frame>f</placement_frame></include></sdf>",
+    "native": {
+      "errors": [],
+      "root_model": {
+        "name": "m",
+        "raw": null,
+        "resolved": null,
+        "static": false,
+        "canonical": "",
+        "placement": "f",
+        "relative": "",
+        "pose": [
+          1,
+          2,
+          3,
+          0,
+          0,
+          0,
+          1
+        ],
+        "pose_errors": [],
+        "resolved_pose": [
+          -4,
+          -3,
+          -3,
+          0,
+          0,
+          0,
+          1
+        ],
+        "plugins": [],
+        "links_data": [
+          {
+            "name": "l",
+            "semantic": {
+              "default": {
+                "errors": [],
+                "pose": [
+                  4,
+                  5,
+                  6,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "absolute_root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "model": {
+                "errors": [],
+                "pose": [
+                  4,
+                  5,
+                  6,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          }
+        ],
+        "frames_data": [
+          {
+            "name": "f",
+            "semantic": {
+              "default": {
+                "errors": [],
+                "pose": [
+                  5,
+                  5,
+                  6,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "absolute_root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "model": {
+                "errors": [],
+                "pose": [
+                  5,
+                  5,
+                  6,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          }
+        ],
+        "original_version": "1.12",
+        "links": 1,
+        "frames": [
+          "f"
+        ],
+        "models": []
+      },
+      "worlds": []
+    },
+    "disposition": "supported"
+  },
+  {
+    "id": "nonzero-root-placement-frame-relative-unknown",
+    "resource": "<sdf version='1.12'><model name='m'><link name='l'><pose>4 5 6 0 0 0</pose></link><frame name='f' attached_to='l'><pose>1 0 0 0 0 0</pose></frame></model></sdf>",
+    "xml": "<sdf version='1.12'><include><uri>@RESOURCE@</uri><pose relative_to='unknown'>1 2 3 0 0 0</pose><placement_frame>f</placement_frame></include></sdf>",
+    "native": {
+      "errors": [],
+      "root_model": {
+        "name": "m",
+        "raw": null,
+        "resolved": null,
+        "static": false,
+        "canonical": "",
+        "placement": "f",
+        "relative": "unknown",
+        "pose": [
+          1,
+          2,
+          3,
+          0,
+          0,
+          0,
+          1
+        ],
+        "pose_errors": [],
+        "resolved_pose": [
+          -4,
+          -3,
+          -3,
+          0,
+          0,
+          0,
+          1
+        ],
+        "plugins": [],
+        "links_data": [
+          {
+            "name": "l",
+            "semantic": {
+              "default": {
+                "errors": [],
+                "pose": [
+                  4,
+                  5,
+                  6,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "absolute_root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "model": {
+                "errors": [],
+                "pose": [
+                  4,
+                  5,
+                  6,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          }
+        ],
+        "frames_data": [
+          {
+            "name": "f",
+            "semantic": {
+              "default": {
+                "errors": [],
+                "pose": [
+                  5,
+                  5,
+                  6,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "absolute_root": {
+                "errors": [
+                  26
+                ],
+                "pose": null
+              },
+              "model": {
+                "errors": [],
+                "pose": [
+                  5,
+                  5,
+                  6,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          }
+        ],
+        "original_version": "1.12",
+        "links": 1,
+        "frames": [
+          "f"
+        ],
+        "models": []
+      },
+      "worlds": []
+    },
+    "disposition": "supported"
+  }
+]

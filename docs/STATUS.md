@@ -2802,3 +2802,44 @@ remains 163 complete and 25 partial. Native OriginalVersion observations remain
 native-only provenance. Root-level include loading, serialization, graph mutation,
 physical runtime and full SDF-02 completion remain unqualified. Final metadata
 binding, mandatory normal hook, public push and exact hosted CI remain pending.
+
+
+## Root-level model include candidate
+
+The namespace XML parent `a912e8ffd58d413f7dd5ce8ae23ce2678508b4b5` passed
+mandatory normal hooks and exact hosted run 40394672288. This follow-on loads a
+single nonmerged model include at the document root through the existing injected
+resolver. It retains namespace/name/static/pose/placement/plugin overrides,
+canonical resource origin and the exact raw include XML.
+
+The unchanged native `IncludesTest.IncludeModelEmptyNamespace` passed 1/0 before
+edits and again independently. Its exact SDF 1.6 mesh fixture and all six predicates
+are preserved in the Rust original: no load error, present root model, exact name,
+absent resolved namespace, absent raw namespace and one link. Mesh submeshes/scales,
+source origin, graph queries and negative cases are separate supplements.
+
+Independent source and native replay retained all 34 observations: 28 supported
+cases, five native rejections and one known mixed world/model subset gap. Literal
+root model pose references remain rejected; include overrides retain their raw
+reference while the native standalone graph uses an absolute root edge. Nonzero
+link/frame local poses and three nonzero root placement cases are verified.
+Child global positions are explicitly inferred by composing the observed model
+and local child poses; native child __root__ target lookup still reports error 26.
+
+The reviewer found that the first zero-offset placement fixture did not detect
+missing root placement math. Three native nonzero placement rows strengthen that
+boundary; ignoring root placement now fails the native numeric predicate. Dropping
+the root dispatcher or restoring the old root-relative graph edge also fails
+semantic assertions. Exact restoration passes six selected tests. Earlier source,
+passing-insensitive control and reviewer setup failures remain retained.
+
+The full author gate passes 373 Rust tests and sixteen tooling tests, formatting,
+Clippy and docs. Unfiltered production coverage is 4809/4833 lines and 7966/8208
+regions, strictly above 95%; all 14 changed executable lines are covered. No
+assertion, fixture, producer pin, coverage threshold or exclusion was weakened.
+Independent source/protected approval is SHA256
+`ddc6db5f2221bf1f87ecb96751e65bae5e3911d4a381babff300ab3ca12d1e59`.
+Final metadata binding, mandatory normal hook, public push and exact hosted
+qualification remain required. The added one-case mapping is a candidate; broad
+Root/Includes, actor/light/URDF, world merge, import/export, physical runtime and
+full SDF-02 completion remain open. Native reference tests remain mandatory.

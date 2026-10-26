@@ -2106,6 +2106,22 @@
       "baseline": "Pinned Construction andfive exact Model ownership originals6/0 before edits and independently replayed. Fresh private319rawblobs/modes/exclusive reviewer target8/0. ProductionClone namespace-loss control fails allthreeclone original presence assertions;twomoves pass. Raw-placeholder resolver control fails rename/placeholder supplement;exactrestored8/0. Full author362Rust/16tools/fmt/Clippy/docs;strict4778/4802lines7924/8166regions,changed6/6,no exclusions. Ordinarycorrectness only.",
       "status": "ported_reviewed",
       "review": "Independent /root source/protected approval SHA256 a2b42c0757723fad9080818aaf7e8669a67e88a3d8c169482ddce6a95bd617e2 binds exact source freeze 74efa0972bf21b578e92a2e2d769555d96b86529ea95083ee6331ee042a2ca30 on hosted-green parent ef3866412bf65490de91955bcf85a472b4228e79, run40369261559. Final metadata binding receipt SHA256 22c659d04ed7ec063b48d69c3ec9d8efeaf2568dc99660ef26cc32638c2d6a9f, mandatory normal hook and public 5306e46c44b8fb6f8db84f442e65e5bb3c439f1f passed exact hosted verify 40378111267 SUCCESS."
+    },
+    {
+      "target": "INTEGRATION_includes",
+      "case": "IncludesTest.IncludeModelEmptyNamespace",
+      "source": "test/integration/includes.cc:380-404",
+      "rust_test": "tests/root_include_original.rs::original_includes_test_include_model_empty_namespace",
+      "assertions": "All six original predicates: no load errors; present root Model; exact name test_model; absent resolved Namespace; absent RawNamespace; one link. The exact pinned SDF 1.6 mesh fixture is retained. Mesh/provenance checks, 34 projections and graph/error checks are supplemental. No whole Root/Includes, serialization or SDF-02 claim.",
+      "fixtures": {
+        "tests/fixtures/root_include_test_model.sdf": "8fbe0949ca7fc95d194d22fb4c0ec7409b70e457aafdb646f27a3f9e802db155"
+      },
+      "upstream_fixtures": {
+        "test/integration/model/test_model/model.sdf": "8fbe0949ca7fc95d194d22fb4c0ec7409b70e457aafdb646f27a3f9e802db155"
+      },
+      "baseline": "The exact unchanged native original passed 1/0 before edits and in fresh independent replay. Independent raw-source export, six private Rust tests and all 34 native observations passed. Dispatcher, root-relative and placement controls fail semantic assertions; exact restoration passes 6/0. The full gate passes 373 Rust and sixteen tooling tests with zero failures or ignored tests; strict coverage is 4809/4833 lines and 7966/8208 regions, with all 14 changed lines covered and no exclusions. The initial zero-offset placement sensitivity finding and reviewer setup failures remain retained.",
+      "status": "ported_reviewed",
+      "review": "Independent Transport source/protected approval SHA256 ddc6db5f2221bf1f87ecb96751e65bae5e3911d4a381babff300ab3ca12d1e59 binds freeze 19224b3b572ba3da130905f9a64f8da783c0a37058475a38648a9bbe0d50040a on accepted parent a912e8ffd58d413f7dd5ce8ae23ce2678508b4b5, exact hosted run 40394672288 SUCCESS. Final metadata binding, mandatory normal hook, public push and exact hosted qualification remain required. The native original remains a mandatory reference."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

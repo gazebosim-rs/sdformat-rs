@@ -123,3 +123,10 @@ optional metadata; `namespace()` replaces literal `{name}` placeholders using
 the current name. Model `namespace` attributes and nonempty include `<namespace>`
 overrides are parsed as metadata. Empty XML attributes are absent; empty include
 overrides keep the resource's value. This does not change frame scopes or topics.
+
+
+A standalone model can also come from a root-level nonmerged `<include>` through
+an injected resource resolver. Namespace, name, static, pose, placement and plugin
+overrides retain imported source and raw include XML. Literal root-model pose
+references remain empty-only. Mixed world/model roots remain an explicit Rust
+subset rejection, even though the native loader accepts that combination.

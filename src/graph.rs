@@ -122,7 +122,13 @@ impl Graphs {
             name,
             Node {
                 scope: parent.into(),
-                pose_parent: reference(&model.pose.relative_to, Reference::Absolute(parent.into())),
+                // Native standalone model graphs use the raw root pose after
+                // include expansion, independently of an override's relative_to.
+                pose_parent: if parent == "::" {
+                    Reference::Absolute(parent.into())
+                } else {
+                    reference(&model.pose.relative_to, Reference::Absolute(parent.into()))
+                },
                 attachment,
                 pose: model.pose.transform,
                 kind: Kind::Model,

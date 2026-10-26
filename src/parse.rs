@@ -31,12 +31,22 @@ pub(crate) fn load(
     parser.check_root(root)?;
     let mut worlds = vec![];
     let mut models = vec![];
-    parser.allowed(root, &["world", "model"], &["version"])?;
+    parser.allowed(root, &["world", "model", "include"], &["version"])?;
     for child in elements(root) {
         if child.has_tag_name("world") {
             worlds.push(parser.world(child)?);
-        } else {
+        } else if child.has_tag_name("model") {
             models.push(parser.model(child, "::", None)?);
+        } else {
+            let (model, merge) = parser.include(child, "::")?;
+            if merge {
+                return Err(parser.err(
+                    child,
+                    ErrorCode::Unsupported,
+                    "merge include requires a model or world parent",
+                ));
+            }
+            models.push(model);
         }
     }
     if worlds.is_empty() && models.is_empty() {

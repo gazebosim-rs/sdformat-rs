@@ -21,6 +21,7 @@ pub use model_config::{
 #[allow(unsafe_code)]
 mod number;
 mod parse;
+mod physics_xml;
 mod types;
 mod xml;
 pub use types::*;

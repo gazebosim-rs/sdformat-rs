@@ -60622,6 +60622,16 @@
     "native": "Fresh pinned Frame ToElement/ToElementErrorOutput2/0 and Light originals2/0 with exact source/binary/GTest hashes; no native numeric XML parity expansion.",
     "rust": "Independent private raw-source12/0; separately rebuilt raw parent reproduces all four emitOk/loadInvalidValue gaps and candidate rejects all four. Eight zero/-zero/minnormal/direction outcomes bit-identical; three guard-removal mutants fail exact rejection assertions. Full author311 Rust/16tools/fmt/Clippy/docs, strict4679/4704lines7818/8059regions, changed18/18. Ordinary Cargo2 correctness only, no timing claim.",
     "scope": "Supplemental validation correction only: reject subnormal Light scalar/color and Light/Frame pose values before XML emit because own loaders reject emitted values. Preserve zero and minimum-normal boundaries plus separate direction vector conversion. No scalar loader, number.rs, FFI, graph, fixture or original assertions changed. All four original XML cases remain partial; no new original credit.",
-    "review": "Independent /root/transport_owner_v2 source/protected approval SHA256 0c04ba1a1ebea27e53cca4885d9010863e54d8e299f015f14711a437f5f2fd52. Final metadata binding, normal protected hook and exact hosted qualification pending."
+    "review": "Independent /root/transport_owner_v2 source/protected approval SHA256 0c04ba1a1ebea27e53cca4885d9010863e54d8e299f015f14711a437f5f2fd52. Final metadata binding receipt SHA256 9eb8dbc101852320df61f83f8b5fbc62e3636b971475bf0a12e633090169fbfe, normal protected hook and public 4a25e2a449b6b6dcea5da80b42af6dc839d405b0 passed exact hosted verify 40295563369 SUCCESS."
+  },
+  "physics_xml_originals": {
+    "parent": "4a25e2a449b6b6dcea5da80b42af6dc839d405b0",
+    "upstream": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "source_freeze_sha256": "9886f7288569df6c814485db6955ba79730f9a46ced0b78f29263d47d12356d7",
+    "source_review_sha256": "a52dce244f240d147b79a6c70c495c8b394c77b05b9a50c0a2d590918224efa9",
+    "native": "Pinned DOMPhysics.ToElement and ToElementErrorOutput passed 2/0 with exact source/binary/GTest hashes. Independently regenerated emitted XML hash16604d90 matches author output; a freshly rebuilt native helper verifies six values plus supplemental update-rate with byte-identical pinned libsdformat hash bcc864bc.",
+    "rust": "Private raw-source selected tests passed 5/0. Contacts-zero mutant fails original 42 equality; subnormal-guard removal fails exact rejection control; reviewed hashes restored. Full author gate passed 316 Rust and 16 tooling tests, formatting, Clippy and docs. Production coverage 4725/4750 lines and 7853/8094 regions; changed executable lines 44/44. Ordinary Cargo 2 correctness only; no timing claim.",
+    "scope": "Both originals PARTIAL: six fixed Physics value observations through to_xml and existing typed world profile load; successful Results map empty owned diagnostics for the second. Native Element pointers and redirected console remain unported. Update-rate, escaping, finite negative metadata, signed contacts and range controls are supplemental. No standalone loader facade, full grammar, byte-identical XML, engine runtime or native error-vector claim.",
+    "review": "Independent /root/transport_owner_v2 PARTIAL source/protected approval SHA256 a52dce244f240d147b79a6c70c495c8b394c77b05b9a50c0a2d590918224efa9. Final metadata binding, normal protected hook and exact hosted qualification remain pending."
   }
 }

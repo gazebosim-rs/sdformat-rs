@@ -1981,6 +1981,30 @@
       "baseline": "Pinned native original1/0 completed with exact source/binary and GTest XML; source freeze ea22edccf4b00a94a157c68fa2ef2a85d84b081428c6d8fdedbc385cf7b8084f on hosted-green public parent d9560becb4ebdc74ef92d1664218b8c717423f55. Private raw-source Rust original1/0 and attachment-fallback-removal mutant red; author full gate, fmt/Clippy/docs and strict production4663/4688 lines7799/8040 regions, changed17/17. Two-job correctness-only overlap with Root REF01 hook; no timing claim.",
       "status": "partial_reviewed",
       "review": "Independent /root/transport_owner_v2 PARTIAL source/API/assertion approval receipt SHA256 7bd74db98f0dc35a2f1b6814d2a8ba3c2c3f0e34c3423175bf5450699cf7fbae; exact frozen two source/test hashes and imported2018 OSRF notice bound. Final metadata binding receipt SHA256 6b0048a1776c1b52d05287e4880d53681e0a5dd383225572009e020850896cf3, normal protected hook and public db702a289ae36cf31f8d0663fa3c145f86801801 passed exact hosted verify 40289925899 SUCCESS."
+    },
+    {
+      "target": "UNIT_Physics_TEST",
+      "case": "DOMPhysics.ToElement",
+      "source": "src/Physics_TEST.cc:111-134",
+      "rust_test": "tests/physics_xml_originals.rs::partial_dom_physics_to_element_values",
+      "assertions": "PARTIAL: Fixed name, default flag, engine type, max-step size, real-time factor and maximum contacts survive Physics::to_xml and the existing typed world profile loader. Exact double bits strengthen native double comparisons. Native Element nonnull pointers remain UNPORTED; redirected console is also UNPORTED for the second original. World wrapper/load setup, update-rate metadata and boundary controls are supplemental. No full grammar, byte-identical XML, engine runtime or native error-vector parity claim.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Pinned native originals 2/0 and private raw-source Rust 5/0. Independently regenerated emitted XML SHA256 16604d90de90c39fbb9f4937a48536e7adfa5646d44998fd33aec85d489592f7 loads with the same six values plus supplemental update-rate in the byte-identical pinned native library. Contacts-loss and subnormal-guard removal controls fail as expected. Full author gate passed 316 Rust tests and 16 tooling tests, formatting, Clippy and docs; coverage 4725/4750 lines, 7853/8094 regions, changed 44/44. Cargo 2 correctness only; no timing claim.",
+      "status": "partial_reviewed",
+      "review": "Independent /root/transport_owner_v2 PARTIAL source/protected approval SHA256 a52dce244f240d147b79a6c70c495c8b394c77b05b9a50c0a2d590918224efa9 binds source freeze 9886f7288569df6c814485db6955ba79730f9a46ced0b78f29263d47d12356d7 on exact hosted-green public parent 4a25e2a449b6b6dcea5da80b42af6dc839d405b0. Final metadata binding, normal protected hook and exact hosted qualification remain pending."
+    },
+    {
+      "target": "UNIT_Physics_TEST",
+      "case": "DOMPhysics.ToElementErrorOutput",
+      "source": "src/Physics_TEST.cc:137-179",
+      "rust_test": "tests/physics_xml_originals.rs::partial_dom_physics_to_element_error_output_values",
+      "assertions": "PARTIAL: Fixed name, default flag, engine type, max-step size, real-time factor and maximum contacts survive Physics::to_xml and the existing typed world profile loader. Exact double bits strengthen native double comparisons. Successful owned Results map empty emit/load diagnostics. Native Element nonnull pointers remain UNPORTED; redirected console is also UNPORTED for the second original. World wrapper/load setup, update-rate metadata and boundary controls are supplemental. No full grammar, byte-identical XML, engine runtime or native error-vector parity claim.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Pinned native originals 2/0 and private raw-source Rust 5/0. Independently regenerated emitted XML SHA256 16604d90de90c39fbb9f4937a48536e7adfa5646d44998fd33aec85d489592f7 loads with the same six values plus supplemental update-rate in the byte-identical pinned native library. Contacts-loss and subnormal-guard removal controls fail as expected. Full author gate passed 316 Rust tests and 16 tooling tests, formatting, Clippy and docs; coverage 4725/4750 lines, 7853/8094 regions, changed 44/44. Cargo 2 correctness only; no timing claim.",
+      "status": "partial_reviewed",
+      "review": "Independent /root/transport_owner_v2 PARTIAL source/protected approval SHA256 a52dce244f240d147b79a6c70c495c8b394c77b05b9a50c0a2d590918224efa9 binds source freeze 9886f7288569df6c814485db6955ba79730f9a46ced0b78f29263d47d12356d7 on exact hosted-green public parent 4a25e2a449b6b6dcea5da80b42af6dc839d405b0. Final metadata binding, normal protected hook and exact hosted qualification remain pending."
     }
   ]
 }

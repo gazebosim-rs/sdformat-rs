@@ -39,3 +39,18 @@ absent original Element maps to absent owned XML on the constructed value. Publi
 field assignments are the Rust value API for those setter observations. Original
 2018 notices remain. Full assertion/scope review, exact staged and hosted gates
 are required before the original mapping is accepted.
+
+
+## Bounded XML output
+
+`Physics::to_xml()` emits one SDF 1.12 physics profile for use in a world. The
+existing world loader reads the same owned fields. Text must survive native
+attribute trimming and XML normalization; empty, reserved or scoped profile
+names reject. Engine type remains metadata. Scalars must be finite and not
+subnormal; finite negative metadata, signed zero and signed i32 contacts remain
+supported. Consumers still validate runtime timesteps and solver settings.
+
+The fixed six value observations in the two native ToElement originals map to
+this roundtrip. The update-rate field and boundary checks are supplemental.
+Element pointers, redirected console, full schema, native XML byte identity,
+engine execution and native error-vector parity remain unported.

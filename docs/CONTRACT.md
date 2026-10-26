@@ -823,3 +823,10 @@ conversion. Zero, signed zero and minimum-normal values remain supported. Light
 direction retains its separate vector conversion. This tightens emission checks;
 it does not alter the audited scalar loader or qualify additional native XML,
 Element, console, graph or original-test semantics.
+
+
+`Physics::to_xml()` emits bounded world profile metadata that the existing world
+loader can read. It preserves the six fixed values in the two Physics ToElement
+originals; update-rate metadata is supplemental. Both originals remain partial
+because Element and console observations are unported. See docs/PHYSICS.md for
+text/numeric limits; this API does not configure an engine.

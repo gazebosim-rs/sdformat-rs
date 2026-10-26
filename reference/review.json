@@ -2,26 +2,32 @@
   "decision": "approved",
   "author": "/root/sdformat_owner_v2",
   "reviewer": "/root/transport_owner_v2",
-  "final_freeze": "artifacts/xml-numeric-integration/final-freeze.json",
-  "final_freeze_sha256": "fd16346fda01d37df886a51b0f61cc4aa3c99d2cedf4866ee1cdc7de760de987",
-  "parent": "750e73298f149b7002e3a2ced469aa8a667296fc",
-  "pre_receipt_tree": "13fb22c32bd7af3f03f647250105b78ea80a4f3e",
-  "staged_diff_sha256": "61edabf089b5ccea39ec54a465759e5214131607f1134a10e3777190414f2ff0",
-  "source_digest": "cdc02e7007a1bfb08900a4c1d223411a906c794985ab0516440c9b56b87474f3",
-  "protected_digest": "76c1ee37b0f5fbaf1f2c83766106f98a30d22faa2f18ca6a86980a2b8503a2f5",
+  "final_freeze": "artifacts/physics-xml-integration/final-freeze.json",
+  "final_freeze_sha256": "031a29ad7dabab1bab0fbf7ba413e8c0788434492fcbcd38946f1202d2d41057",
+  "parent": "4a25e2a449b6b6dcea5da80b42af6dc839d405b0",
+  "pre_receipt_tree": "392b6bc257c2fe261d808dcea06ecb421aba9117",
+  "staged_diff_sha256": "835a7e1e62c2e069ee017ac5606448c931ec543b789f0ab2c8bb598dc13d3b42",
+  "source_digest": "d147f637f05bd3631383352c0d83d547df28f57ce11c6c8d4d6408b88b86ba62",
+  "protected_digest": "95b00414862bf41f1dc3be55c4b04b34950da533e43d6e353720a06631f82f0b",
   "candidate_paths": [
     "docs/CONTRACT.md",
+    "docs/PHYSICS.md",
     "docs/STATUS.md",
     "reference/results.json",
     "reference/traceability.json",
-    "src/frame_xml.rs",
-    "src/light_xml.rs",
-    "tests/xml_numeric_roundtrip.rs"
+    "src/lib.rs",
+    "src/physics_xml.rs",
+    "tests/physics_xml_originals.rs"
   ],
-  "source_review_sha256": "0c04ba1a1ebea27e53cca4885d9010863e54d8e299f015f14711a437f5f2fd52",
-  "binding": "All seven staged+working hashes and100644 modes, exact parent/tree/full diff,no unstaged tracked changes, unchanged three source-reviewed bytes, copied source receipt and source/protected digests independently verified;298/304 parent blobs preserved. Metadata describes only supplemental numeric emission rejection and prior Physics exact hosted success. No original mapping/count changes; four existing XML originals retain all Element/console/graph/native-error gaps and PARTIAL status.",
-  "source_evidence": "Private fresh raw-source12/0,native4/0,separately rebuilt parent/candidate probes reproduce four emit/load corrections,eight unchanged boundary/vector bit patterns,and three single-guard assertion failures. Author full311Rust16tools/fmt/Clippy/docs,strict4679/4704lines7818/8059regions18/18changed reviewed; independent full gate not repeated.",
-  "scope": "Reject subnormal emitted scalar/pose/color values before returning XML while retaining zero/signed-zero/minimum-normal and distinct direction conversion. No loader/number.rs FFI/graph/schema expansion or new original credit.",
-  "parent_qualification": "Public750e732 independently API verified; exact hosted40291717184 completed SUCCESS on that parent.",
-  "qualification": "Replace excluded reference/review.json unchanged and keep seven candidate bytes/protected digest fixed through mandatory normal protected hook. New exact hosted qualification remains pending."
+  "source_review_sha256": "a52dce244f240d147b79a6c70c495c8b394c77b05b9a50c0a2d590918224efa9",
+  "binding": "Exact eight staged+working SHA256s,all100644 modes,parent/tree/full diff,no unstaged tracked changes,three reviewed source bytes,unchanged copied source receipt and independently reproduced source/protected digests verified;299/305 parent blobs preserved. Metadata adds exactly two PARTIAL fixed Physics XML mappings; prior numeric correction actual hook/public/hosted success updated without new original credit for that correction.",
+  "source_evidence": "Independent raw-source Rust5/0,pinned native2/0,fresh Rust-emitted XML and freshly linked pinned native helper verify fixed six values plus supplemental update-rate. Contacts-loss and subnormal-guard controls fail intended assertions; exact source restored. Author full316Rust16tools/fmt/Clippy/docs and strict4725/4750lines7853/8094regions44/44changed reviewed; independent full gate not repeated.",
+  "scope": "Bounded typed profile metadata through Physics::to_xml and existing world loader. Element nonnull and redirected console remain unported; no engine configuration,full grammar,native XML-byte or error-vector parity claim. Native bridge loaded-Element observation remains supplemental.",
+  "parent_hosted": {
+    "headSha": "4a25e2a449b6b6dcea5da80b42af6dc839d405b0",
+    "run": 40295563369,
+    "state": "completed/success",
+    "verification": "Exact public commit and hosted head/result independently API-verified."
+  },
+  "qualification": "Install this receipt unchanged as excluded reference/review.json while eight candidate bytes/protected digest remain fixed,then mandatory normal protected hook and exact new hosted qualification. No redundant manual full gate for metadata-only final edits."
 }

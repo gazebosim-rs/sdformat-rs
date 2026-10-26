@@ -2536,11 +2536,38 @@ Exact three-file source freeze SHA256
 on hosted-green parent `750e73298f149b7002e3a2ced469aa8a667296fc` passed
 independent source/protected review receipt SHA256
 `0c04ba1a1ebea27e53cca4885d9010863e54d8e299f015f14711a437f5f2fd52`.
-Private selected12/0 and fresh native originals4/0 passed; three single-guard
-removal mutants failed their exact rejection controls. Eight boundary/vector observations
-are bit-identical to the parent. Full author checks passed311 Rust/sixteen tools,
-formatting, Clippy and docs, with4679/4704 production lines and7818/8059 regions;
-all18 changed executable lines are covered. Ordinary Cargo2 work overlapped other
-owners' correctness checks; no timing claim. No new original is credited; all
+The private replay passed 12 selected Rust tests, and all four native originals
+passed. Three single-guard removal mutants failed their exact rejection controls.
+Eight boundary/vector observations are bit-identical to the parent. Full author
+checks passed 311 Rust tests, sixteen tooling tests, formatting, Clippy and docs,
+with 4679/4704 production lines and 7818/8059 regions; all 18 changed executable
+lines are covered. Ordinary Cargo 2 work overlapped other owners' correctness
+checks; no timing claim. No new original is credited; all
 four XML originals retain their explicit Element/console gaps and partial status.
-Final metadata binding, normal protected hook and exact hosted remain pending.
+Final metadata binding receipt SHA256 9eb8dbc101852320df61f83f8b5fbc62e3636b971475bf0a12e633090169fbfe, normal protected hook and public 4a25e2a449b6b6dcea5da80b42af6dc839d405b0 passed exact hosted verify 40295563369 SUCCESS.
+
+
+## Bounded Physics XML original values candidate
+
+Pinned `DOMPhysics.ToElement` and `ToElementErrorOutput` pass natively 2/0.
+The three-file source freeze SHA256 `9886f7288569df6c814485db6955ba79730f9a46ced0b78f29263d47d12356d7`
+on exact hosted-green parent `4a25e2a449b6b6dcea5da80b42af6dc839d405b0`
+passed independent PARTIAL source/protected review receipt SHA256
+`a52dce244f240d147b79a6c70c495c8b394c77b05b9a50c0a2d590918224efa9`.
+The private replay passed five selected Rust tests. Independently regenerated
+Rust output loads in the byte-identical pinned native library with the six fixed
+values plus supplemental update-rate metadata. A contacts-zero mutant fails the
+original expected 42, and a removed subnormal guard fails a rejection control.
+Full author checks passed 316 Rust tests, sixteen tooling tests, formatting,
+Clippy and docs; coverage is 4725/4750 lines and 7853/8094 regions, with all 44
+changed executable lines covered. Ordinary Cargo 2 checks overlapped other owners'
+correctness work; no timing claim.
+
+`Physics::to_xml` emits bounded profile metadata. Tests reuse the existing typed
+world profile loader for the owned value load. Both originals preserve name,
+default flag, engine type, step size, real-time factor and maximum contacts.
+Successful Results map empty owned diagnostics for the second original. Native
+Element pointer and redirected console observations remain unported, so both
+originals stay partial. No engine is configured; full grammar, native XML bytes
+and error-vector parity remain open. Final metadata binding, normal protected
+hook and exact hosted qualification remain pending.

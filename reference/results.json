@@ -60562,6 +60562,16 @@
     "native": "Pinned UNIT_Light_TEST DOMLight.DefaultConstruction native1/0, exact source/binary and fresh GTest result, completed with no disabled/skipped/errors. No XML input in native original.",
     "rust": "Exact two reviewed source/test hashes; private raw-parent Rust selected1/0, isolated full288 Rust/16 tools/fmt/Clippy/docs, production4375/4396 lines7411/7631 regions, changed10/10. Two-job correctness-only overlap with Root V6 SDK and Msgs ordinary gate; no timing claim.",
     "scope": "PARTIAL original: fixed default/set/read type, name, raw/relative pose values, flags, float colors, attenuation, direction, spot fields and intensity map through owned Light values. Native Element null and two standalone SemanticPose.Resolve nonempty-error checks remain unported. Rust Pose clone is a raw/relative value observation only. No XML, graph attachment, Element identity, rendering, nonfinite parity or C++ method facade claim.",
-    "review": "Independent /root/transport_fallback source/API/assertion PARTIAL approval receipt SHA256 dcc9b4803e1a2e6fe923360a2d20de2d14fa5d47d6a20f6bd02511ced2082f03; private native1/0 and raw-parent Rust selected1/0. Final metadata binding, normal hook and hosted qualification pending."
+    "review": "Independent /root/transport_fallback source/API/assertion PARTIAL approval receipt SHA256 dcc9b4803e1a2e6fe923360a2d20de2d14fa5d47d6a20f6bd02511ced2082f03; private native1/0 and raw-parent Rust selected1/0. Final metadata binding receipt SHA256 575d7b9b0eb0f5a1985e7b9bd5848bd51e2de5a7b40584cafea1580e49e15a5d, normal protected hook and public b47138eb10f59f3c1dda2804b0bc0d6a8b16eb61 passed exact hosted verify 40278755806 SUCCESS."
+  },
+  "light_ownership_originals": {
+    "parent": "b47138eb10f59f3c1dda2804b0bc0d6a8b16eb61",
+    "upstream": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "source_freeze_sha256": "fb54b2a15edb1637ff0a34af0b1559a593130463ecca4895ea948048f4a3ca98",
+    "source_review_sha256": "5766dfda7a933eefd1e57a0f80f52d3e8b5ac95be3ecf167a4314a4d826a0f6c",
+    "native": "Pinned UNIT_Light_TEST five DOMLight copy/move originals native5/0, exact source/binary and fresh GTest result; no disabled, skipped or errors. Native originals use direct value mutations and no XML input.",
+    "rust": "Single source-reviewed test SHA3e0107d7; private raw-parent Rust originals5/0, isolated full293 Rust/16 tools/fmt/Clippy/docs; unchanged production coverage4375/4396 lines7411/7631 regions, no production lines changed. Two-job correctness-only overlap with Root V6 SDK; no timing claim.",
+    "scope": "Complete fixed observable final values for CopyConstructor, CopyAssignmentOperator, MoveConstructor and MoveAssignment: name/type/raw pose/relative frame/flags/colors/attenuation/direction/spot/intensity. CopyAssignmentAfterMove retains both final names. Rust Clone, clone_from, move and replace map owned values; C++ operator/pointer identity, moved-from internals, Element, Light XML, rendering and general aliasing unported.",
+    "review": "Independent /root/transport_fallback source/API/assertion APPROVED receipt SHA256 5766dfda7a933eefd1e57a0f80f52d3e8b5ac95be3ecf167a4314a4d826a0f6c; pinned native5/0 and private raw-parent Rust5/0. Final metadata binding, normal hook and hosted qualification pending."
   }
 }

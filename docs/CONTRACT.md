@@ -760,3 +760,13 @@ and the two standalone `SemanticPose.Resolve` error observations have no
 corresponding owned API assertion. Cloning the `Pose` observes its raw and
 relative values; it does not resolve a graph. Light XML, Element identity,
 rendering, nonfinite inputs and broader frame semantics remain open.
+
+## Light owned copy and move values
+
+The five fixed `DOMLight` copy, assignment and move originals observe final
+Light values. Rust `Clone`, `clone_from`, ownership transfer and `replace`
+preserve the same name, type, raw pose, relative frame, flags, colors,
+attenuation, direction, spot values and intensity. The swap-like final case
+observes both resulting names. C++ operator or pointer identity, moved-from
+state, Element, Light XML, rendering and general aliasing remain outside these
+fixed value tests. No production behavior changes in this packet.

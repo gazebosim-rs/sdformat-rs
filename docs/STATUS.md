@@ -2462,5 +2462,20 @@ name, raw and relative pose values, flags, colors, attenuation, direction, spot
 values and intensity. Native `Element() == nullptr` and both standalone
 `SemanticPose.Resolve` nonempty-error observations remain UNPORTED, so the
 original stays partial. Light XML, Element identity, graph attachment,
-rendering and nonfinite parity remain open. Final metadata binding, normal
-protected hook and hosted qualification remain pending.
+rendering and nonfinite parity remain open. Final metadata binding receipt SHA256 `575d7b9b0eb0f5a1985e7b9bd5848bd51e2de5a7b40584cafea1580e49e15a5d`, normal protected
+hook and public `b47138eb10f59f3c1dda2804b0bc0d6a8b16eb61` passed exact hosted verify `40278755806` SUCCESS.
+
+## Native DOMLight owned copy and move originals candidate
+
+Pinned `DOMLight.CopyConstructor`, `CopyAssignmentOperator`,
+`MoveConstructor`, `MoveAssignment` and `CopyAssignmentAfterMove` pass
+natively 5/0. The exact one-test source freeze SHA256 `fb54b2a15edb1637ff0a34af0b1559a593130463ecca4895ea948048f4a3ca98` on
+hosted-green parent `b47138eb10f59f3c1dda2804b0bc0d6a8b16eb61` passed independent source/API/assertion
+review receipt SHA256 `5766dfda7a933eefd1e57a0f80f52d3e8b5ac95be3ecf167a4314a4d826a0f6c`. Private raw-parent Rust originals5/0
+and author full293 Rust/sixteen tools/fmt/Clippy/docs pass; production
+coverage remains 4375/4396 lines and 7411/7631 regions. No production lines
+changed. The first four preserve all fixed final destination values, and the
+fifth preserves both final names. Two-job correctness replays overlapped Root
+V6 SDK; no timing claim. Final metadata binding, normal protected hook and
+hosted qualification remain pending. C++ operator/pointer identity,
+moved-from state, Element, Light XML and rendering remain unported.

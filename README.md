@@ -100,3 +100,8 @@ remain intact, and third-party dependencies retain their own licenses.
 
 World atmosphere defaults and explicit Adiabatic temperature/gradient/pressure
 values are owned metadata; see [atmosphere scope and limits](docs/ATMOSPHERE.md).
+
+
+Owned `Geometry` and `Mesh` values support cloning, including nested metadata and
+source locations, without loading resources. See the [ownership contract](docs/CONTRACT.md#owned-geometry-cloning)
+for the fixed Box observations and remaining native Shape/runtime limits.

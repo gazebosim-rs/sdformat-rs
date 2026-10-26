@@ -839,3 +839,16 @@ World struct literals to supply a value, usually Atmosphere::default(). No curre
 Root consumer literal required adjustment. The field carries metadata; runtime
 atmospheric sampling remains separate. See docs/ATMOSPHERE.md for native input
 bounds, six explicit gaps and the scoped seven-original mapping.
+
+
+## Owned geometry cloning
+
+Geometry and Mesh implement Clone and clone_from for their owned metadata,
+including nested URI/source strings, texture/blend records and polyline points.
+The copies survive dropping the original and retain independent mutable data.
+Cloning does not load a resource, alter parser/graph semantics, create a default
+Geometry variant or provide native Shape/runtime methods. Four fixed Box size
+ownership originals are complete; MoveConstructor remains partial for native
+Shape volume/size observations. Native Vector3 equality's component-wise <=1e-3
+bound is retained in tests, with tighter exact-bit checks as supplemental evidence.
+General C++ constructor/operator/storage and moved-from identity are unqualified.

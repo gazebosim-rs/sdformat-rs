@@ -857,7 +857,7 @@ impl Default for VisualProperties {
         }
     }
 }
-#[derive(Debug, PartialEq)]
+#[derive(Debug, Clone, PartialEq)]
 pub enum Geometry {
     Box { size: [f64; 3] },
     Sphere { radius: f64 },
@@ -901,7 +901,7 @@ pub struct Polyline {
     pub source: Source,
 }
 /// Mesh metadata; the URI is retained without performing filesystem or network IO.
-#[derive(Debug, PartialEq)]
+#[derive(Debug, Clone, PartialEq)]
 pub struct Mesh {
     pub uri: String,
     pub scale: [f64; 3],

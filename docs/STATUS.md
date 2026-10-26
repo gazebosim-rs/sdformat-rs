@@ -2507,7 +2507,7 @@ source/binary hashes and a completed GTest result. Exact one-test source freeze
 SHA256 `30bc306c06e98c418c785535a023cd06235fac31cf449095289fd843068327e4` on hosted-green parent
 `db702a289ae36cf31f8d0663fa3c145f86801801` passed independent source/API/assertion
 review receipt SHA256 `9888e2a941f5699a1966e8f444eccf454560b7509cf2a4ee7349a25ddf2ce980`.
-Private raw-source Rust originals passed5/0; a default-instead-of-named
+Private raw-source Rust originals passed 5/0; a default-instead-of-named
 clone_from mutant failed its expected name assertion. Full author checks passed306 Rust,
 sixteen tools, formatting, Clippy and docs; unchanged production coverage is
 4663/4688 lines and7799/8040 regions. No production lines changed. Ordinary
@@ -2617,6 +2617,37 @@ preserves them without a production API change. Positive finite EXPECT_DOUBLE_EQ
 four-ULP bounds are retained; exact bits and previous-value checks are supplemental.
 The original 2022 OSRF notice is preserved with rewrite attribution. General C++
 constructor/operator identity, moved-from state, Element, points, load/serialization
-and runtime polygon validity remain unqualified. The ledger now records 139 complete
-and 24 partial fixed originals. Final metadata binding, mandatory normal hook and
-exact hosted qualification remain pending for this slice.
+and runtime polygon validity remain unqualified. That slice recorded 139 complete
+and 24 partial fixed originals. Final metadata binding receipt SHA256 c9aec7421721f0637ce66ff1cf70cfd1db32fe955f15cd4a3e57516a98f88ea9, mandatory normal hook and public e579d8c9ece09f2df67711e90e40f2c10416008e passed exact hosted verify 40321971461 SUCCESS.
+
+
+## Owned geometry cloning and fixed Box observations
+
+`Geometry` and `Mesh` now implement Clone for owned metadata. No parser, graph,
+resource resolver or numeric boundary changes. Nested URI/source strings,
+heightmap textures/blends and polyline points remain independent after cloning;
+clone_from can replace a different enum variant. All ten variants and Mesh
+optimization/decomposition options are covered by supplemental ownership tests.
+Cloning performs no resource loading and adds no rendering or physical runtime.
+
+Five pinned native Box ownership originals passed 5/0 before production edits.
+Source freeze SHA256 `ac1e24638e6bca56b4f7f9231a4b3cac9148d89ffabb3843ec8aa51260ed00c4`
+on hosted-green parent `e579d8c9ece09f2df67711e90e40f2c10416008e` passed independent
+source/protected review SHA256
+`2aa1fb573214b4f37007440462191a94c159b84164782a113c354d48642b47c9`.
+Fresh private raw-source Rust 6/0 and native Box 5/0 passed; two private production
+Clone loss controls fail retained Box size and supplemental Mesh URI assertions.
+All source bytes were restored and Rust 6/0 passed again. Full author verification
+passed 336 Rust tests, sixteen tooling tests, formatting, Clippy and docs. Production
+coverage is unchanged at 4771/4795 lines and 7915/8157 regions. The two derives add
+no changed instrumented executable lines; no coverage exclusion was introduced.
+These ordinary Cargo2 checks make no performance or timing claim.
+
+Four fixed Box size copy/move originals are complete. The installed native Vector3
+operator== uses per-component absolute <=1e-3; that bound is retained alongside
+supplemental exact bits. MoveConstructor remains partial: its raw size is retained,
+but native Shape().Volume() and Shape().Size() remain unported. General C++
+constructor/operator/storage identity, moved-from state and runtime geometry APIs
+remain unqualified. The ledger records 143 complete and 25 partial originals.
+Final metadata binding, mandatory normal hook and exact hosted qualification
+remain pending for this slice.

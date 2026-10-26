@@ -60652,6 +60652,16 @@
     "native": "Five exact pinned DOMPolyline copy/move originals passed 5/0, with source b8923570 and binary db08082e independently verified. No other Polyline original is credited.",
     "rust": "Fresh private raw-source five tests passed 5/0; private production Clone height-loss mutant fails unchanged native four-ULP predicate before the exact-bit supplement, restored source passes 5/0. Full author gate passed 330 Rust/16 tooling/fmt/Clippy/docs, strict4771/4795 lines7915/8157 regions unchanged. No changed production executable lines; ordinary Cargo2 correctness only.",
     "scope": "Complete fixed final-height observations only: 0.2 after copy/move, then 0.2/0.1 after assignment following a move. Original positive finite EXPECT_DOUBLE_EQ four-ULP bounds retained, exact bits and previous-value check supplemental. Existing owned Polyline Clone/clone_from/move/replacement; no production/API change or general C++ constructor/operator identity, moved-from state, Element, points, load/serialization or polygon/runtime validity claim.",
-    "review": "Independent /root/transport_owner_v2 source/protected approval SHA256 ed526a1a8481559390773b2129debe18666d1f358ca47123989f31bd21faa7b6. Final metadata binding, mandatory normal hook and exact hosted qualification remain pending."
+    "review": "Independent /root/transport_owner_v2 source/protected approval SHA256 ed526a1a8481559390773b2129debe18666d1f358ca47123989f31bd21faa7b6. Final metadata binding receipt SHA256 c9aec7421721f0637ce66ff1cf70cfd1db32fe955f15cd4a3e57516a98f88ea9, mandatory normal hook and public e579d8c9ece09f2df67711e90e40f2c10416008e passed exact hosted verify 40321971461 SUCCESS."
+  },
+  "geometry_ownership": {
+    "parent": "e579d8c9ece09f2df67711e90e40f2c10416008e",
+    "upstream": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "source_freeze_sha256": "ac1e24638e6bca56b4f7f9231a4b3cac9148d89ffabb3843ec8aa51260ed00c4",
+    "source_review_sha256": "2aa1fb573214b4f37007440462191a94c159b84164782a113c354d48642b47c9",
+    "native": "Five pinned Box ownership originals passed 5/0 before production edits and in independent replay. Installed Vector3 operator== uses per-component absolute <=1e-3, explicitly retained. Native Shape volume/size predicates in MoveConstructor are not ported.",
+    "rust": "Independent private raw-source selected6/0; separate production Clone Box-size and Mesh-URI loss controls fail the retained size/supplemental ownership predicates, exact source restored and6/0. Full author gate passed336 Rust/16 tooling/fmt/Clippy/docs; strict4771/4795 lines7915/8157 regions unchanged. The two derives add no changed instrumented executable lines and no exclusion. Ordinary Cargo2 correctness only.",
+    "scope": "Clone for owned Geometry and Mesh metadata. Four complete fixed-size Box originals plus MoveConstructor PARTIAL for Shape volume/size. Exact native1e-3 component bound retained with supplemental bit checks. All ten enum variants, Mesh options/decomposition and nested URI/source/string/vector independence are supplemental, not additional native-original ports. No parser,resource/IO,graph,unsafe,default Geometry,rendering,volume,polygon runtime or general C++ constructor/operator/storage/moved-from facade claim.",
+    "review": "Independent /root/transport_owner_v2 source/protected approval SHA256 2aa1fb573214b4f37007440462191a94c159b84164782a113c354d48642b47c9. Final metadata binding, mandatory normal hook and exact hosted qualification remain pending."
   }
 }

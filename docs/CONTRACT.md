@@ -627,3 +627,13 @@ Accepted directions are normalized. The pinned native 165-row axis corpus
 checks the exact boundary, including decimal `1e-6`, while preserving all 160
 earlier observations. This is a bounded `JointAxis::Load` correction; the native
 full error vector, Element behavior and frame graph remain separate.
+
+## Joint axis expressed-in frames
+
+The fixed `DOMJointAxis.XyzExpressedIn` fixture loads through ordinary model,
+link and joint lookups. `pose_of` and `resolve_axis` retain its raw and resolved
+pose and direction observations. The native omitted axis target is the joint
+child link, named explicitly when calling the owned Rust resolver. Invalid
+`expressed_in` names return the native first typed code 38 and exact message;
+the native second code 26 and complete error vector remain unported. This does
+not imply general graph editing or native method identity.

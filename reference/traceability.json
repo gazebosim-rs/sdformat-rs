@@ -1281,7 +1281,23 @@
       "upstream_fixtures": {},
       "baseline": "Exact685-byte pinned inline SDF; native positive original1/0, source/binary hashes and full source proof bound by freeze9061de64; private raw-parent Rust positive1/0.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_fallback APPROVED exact source/API/assertion and static guard successor scope receipt SHA256 b51f48826c20dceaaf3f55eb205ec3fcc7650a5c8b62e4275f02d86b4ad10125; twelve source hashes, four native originals4/0, private selected Rust6/0, native supplemental controls and 61 static-model rows plus unchanged original1/0. Final metadata binding, protected hook and hosted qualification pending."
+      "review": "Independent /root/transport_fallback APPROVED exact source/API/assertion and static guard successor scope receipt SHA256 b51f48826c20dceaaf3f55eb205ec3fcc7650a5c8b62e4275f02d86b4ad10125; twelve source hashes, four native originals4/0, private selected Rust6/0, native supplemental controls and 61 static-model rows plus unchanged original1/0. Final binding receipt SHA256 5cc480f49c93d1e5308f699a7cf93637c176ee4a55648c2f1767b9c5d504d85d, normal protected hook and public 037a4d20a81a9db3fea24dd139358e85d59d262c passed exact hosted verify 40255611288 SUCCESS."
+    },
+    {
+      "target": "INTEGRATION_joint_axis_dom",
+      "case": "DOMJointAxis.XyzExpressedIn",
+      "source": "test/integration/joint_axis_dom.cc:114-222",
+      "rust_test": "tests/joint_axis_expressed_original.rs::original_dom_joint_axis_xyz_expressed_in",
+      "assertions": "COMPLETE fixed-fixture observable original: successful Root/model, four indexed/named links, raw poses and relative frame, two named revolute joints/axes, expressed-in values, model frames, semantic pose and resolved axis directions. Native omitted target maps to explicit owned joint child frame. No native method identity or general graph editing claim.",
+      "fixtures": {
+        "tests/fixtures/model_joint_axis_expressed_in.sdf": "4dbf369eb3e06c052868e57784acb2fe21ed25201eb93411d8f3c3a7defd3362"
+      },
+      "upstream_fixtures": {
+        "test/sdf/model_joint_axis_expressed_in.sdf": "4dbf369eb3e06c052868e57784acb2fe21ed25201eb93411d8f3c3a7defd3362"
+      },
+      "baseline": "Pinned native original1/0 on unchanged fixture; exact source/binary/fixture hashes and native2/0 packet bound by freeze 54e9c46077a84880275242b5d8de2a729f317a37063abf582aa3879030379a69. Private raw selected Rust2/0; full263 Rust/16 tools.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback APPROVED fixed-fixture observable original receipt SHA256 c6f1e7c3b53906d171a0212062525b1a521ab1f186ea0f3506511e622f2bbfa1; exact nine hashes, private native2/0 and Rust2/0, static guard61+original1/0. Final metadata binding, normal hook and hosted qualification pending."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",
@@ -1472,7 +1488,7 @@
       "upstream_fixtures": {},
       "baseline": "Fresh pinned native original1/0; inline XML reconstructed byte-for-byte; native error vector 2 entries. Exact source/binary/fixture hashes bound by freeze9061de64.",
       "status": "partial_reviewed",
-      "review": "Independent /root/transport_fallback approved first-error-only mapping receipt SHA256 b51f48826c20dceaaf3f55eb205ec3fcc7650a5c8b62e4275f02d86b4ad10125; private selected Rust invalid4/0, pinned three invalid originals3/0, full native vectors explicitly unported. Final metadata binding, protected hook and hosted qualification pending."
+      "review": "Independent /root/transport_fallback approved first-error-only mapping receipt SHA256 b51f48826c20dceaaf3f55eb205ec3fcc7650a5c8b62e4275f02d86b4ad10125; private selected Rust invalid4/0, pinned three invalid originals3/0, full native vectors explicitly unported. Final binding receipt SHA256 5cc480f49c93d1e5308f699a7cf93637c176ee4a55648c2f1767b9c5d504d85d, normal protected hook and public 037a4d20a81a9db3fea24dd139358e85d59d262c passed exact hosted verify 40255611288 SUCCESS."
     },
     {
       "target": "INTEGRATION_joint_axis_dom",
@@ -1486,7 +1502,7 @@
       "upstream_fixtures": {},
       "baseline": "Fresh pinned native original1/0; inline XML reconstructed byte-for-byte; native error vector 2 entries. Exact source/binary/fixture hashes bound by freeze9061de64.",
       "status": "partial_reviewed",
-      "review": "Independent /root/transport_fallback approved first-error-only mapping receipt SHA256 b51f48826c20dceaaf3f55eb205ec3fcc7650a5c8b62e4275f02d86b4ad10125; private selected Rust invalid4/0, pinned three invalid originals3/0, full native vectors explicitly unported. Final metadata binding, protected hook and hosted qualification pending."
+      "review": "Independent /root/transport_fallback approved first-error-only mapping receipt SHA256 b51f48826c20dceaaf3f55eb205ec3fcc7650a5c8b62e4275f02d86b4ad10125; private selected Rust invalid4/0, pinned three invalid originals3/0, full native vectors explicitly unported. Final binding receipt SHA256 5cc480f49c93d1e5308f699a7cf93637c176ee4a55648c2f1767b9c5d504d85d, normal protected hook and public 037a4d20a81a9db3fea24dd139358e85d59d262c passed exact hosted verify 40255611288 SUCCESS."
     },
     {
       "target": "INTEGRATION_joint_axis_dom",
@@ -1500,7 +1516,23 @@
       "upstream_fixtures": {},
       "baseline": "Fresh pinned native original1/0; inline XML reconstructed byte-for-byte; native error vector 4 entries. Exact source/binary/fixture hashes bound by freeze9061de64.",
       "status": "partial_reviewed",
-      "review": "Independent /root/transport_fallback approved first-error-only mapping receipt SHA256 b51f48826c20dceaaf3f55eb205ec3fcc7650a5c8b62e4275f02d86b4ad10125; private selected Rust invalid4/0, pinned three invalid originals3/0, full native vectors explicitly unported. Final metadata binding, protected hook and hosted qualification pending."
+      "review": "Independent /root/transport_fallback approved first-error-only mapping receipt SHA256 b51f48826c20dceaaf3f55eb205ec3fcc7650a5c8b62e4275f02d86b4ad10125; private selected Rust invalid4/0, pinned three invalid originals3/0, full native vectors explicitly unported. Final binding receipt SHA256 5cc480f49c93d1e5308f699a7cf93637c176ee4a55648c2f1767b9c5d504d85d, normal protected hook and public 037a4d20a81a9db3fea24dd139358e85d59d262c passed exact hosted verify 40255611288 SUCCESS."
+    },
+    {
+      "target": "INTEGRATION_joint_axis_dom",
+      "case": "DOMJointAxis.InvalidExpressedIn",
+      "source": "test/integration/joint_axis_dom.cc:223-242",
+      "rust_test": "tests/joint_axis_invalid_expressed_original.rs::invalid_expressed_in_retains_native_first_diagnostic",
+      "assertions": "PARTIAL: invalid axis expressed_in returns native first typed code38 and exact message. Native second code26 and complete two-error vector remain unported.",
+      "fixtures": {
+        "tests/fixtures/joint_axis_invalid_expressed_in.sdf": "c140bf9a47741d8e12b7c4dc1d46eaa989c313bff99f2befc8c0da8f77f897f8"
+      },
+      "upstream_fixtures": {
+        "test/sdf/joint_axis_invalid_expressed_in.sdf": "c140bf9a47741d8e12b7c4dc1d46eaa989c313bff99f2befc8c0da8f77f897f8"
+      },
+      "baseline": "Pinned native original1/0, two errors; fixture/source/binary hashes bound by freeze 54e9c46077a84880275242b5d8de2a729f317a37063abf582aa3879030379a69; four supplemental native first-diagnostic controls.",
+      "status": "partial_reviewed",
+      "review": "Independent /root/transport_fallback APPROVED first-diagnostic-only mapping receipt SHA256 c6f1e7c3b53906d171a0212062525b1a521ab1f186ea0f3506511e622f2bbfa1; private raw Rust2/0, native originals2/0, four supplemental native controls. Full two-error vector unported; final metadata binding, normal hook and hosted qualification pending."
     }
   ]
 }

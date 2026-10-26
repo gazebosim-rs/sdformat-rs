@@ -114,11 +114,11 @@ fn both_joint_axes_keep_omission_defaults_limits_and_scope_validation() {
         ("<xyz>0 0 0</xyz>", ErrorCode::InvalidValue),
         (
             "<xyz expressed_in='missing'>0 1 0</xyz>",
-            ErrorCode::UnknownReference,
+            ErrorCode::JointAxisExpressedInInvalid,
         ),
         (
             "<xyz expressed_in='world'>0 1 0</xyz>",
-            ErrorCode::UnknownReference,
+            ErrorCode::JointAxisExpressedInInvalid,
         ),
     ] {
         assert_eq!(

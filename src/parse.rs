@@ -2870,8 +2870,19 @@ fn validate_model(model: &Model, graphs: &Graphs) -> Result<(), Diagnostic> {
             ));
         }
         for axis in joint.axis.iter().chain(&joint.axis2) {
-            if !axis.expressed_in.is_empty() {
-                graphs.validate_reference(&axis.expressed_in, scope, &joint.source)?;
+            if !axis.expressed_in.is_empty()
+                && graphs
+                    .validate_reference(&axis.expressed_in, scope, &joint.source)
+                    .is_err()
+            {
+                return Err(error(
+                    ErrorCode::JointAxisExpressedInInvalid,
+                    &joint.source,
+                    format!(
+                        "axis xyz expressed-in frame with name[{}] specified by joint with name[{}] not found in model with name[{}].",
+                        axis.expressed_in, joint.name, model.name
+                    ),
+                ));
             }
         }
     }

@@ -43,6 +43,18 @@
           "after": "        dissipation: 1.,\n        mimic: None,\n    };\n    assert_eq!(\n        sdf.resolve_axis(&axis, \"m::joint\", \"::\").unwrap_err().code,",
           "after_sha256": "0af2200b92a645a8c2fa4ebceeb603441314de081f33b7d056eb1b953d5b5a8d",
           "purpose": "Axis mimic optional field in owned test initializer 2; exact state to be independently bound"
+        },
+        {
+          "before": "<axis><xyz expressed_in='no'>1 0 0</xyz></axis></joint>\",\n            ErrorCode::UnknownReference,",
+          "after": "<axis><xyz expressed_in='no'>1 0 0</xyz></axis></joint>\",\n            ErrorCode::JointAxisExpressedInInvalid,",
+          "after_sha256": "0d75bd4adfcaebdbe644f27cf279b03ffc075d7578f8bad5dc3befbf5063be96",
+          "purpose": "Native code38 first diagnostic for unknown no axis frame; two-error vector remains partial"
+        },
+        {
+          "before": "<axis><xyz expressed_in='world'>1 0 0</xyz></axis></joint></model>\",\n            ErrorCode::UnknownReference,",
+          "after": "<axis><xyz expressed_in='world'>1 0 0</xyz></axis></joint></model>\",\n            ErrorCode::JointAxisExpressedInInvalid,",
+          "after_sha256": "a63ca0753523019cc603ab141c62b7e64c9b80439dda631b6693f41b3d589fe0",
+          "purpose": "Native code38 first diagnostic for model-scoped world axis frame; two-error vector remains partial"
         }
       ]
     },

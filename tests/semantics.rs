@@ -563,7 +563,7 @@ fn invalid_documents_fail_atomically() {
         ),
         (
             "<link name='l'/><joint name='j' type='revolute'><parent>world</parent><child>l</child><axis><xyz expressed_in='no'>1 0 0</xyz></axis></joint>",
-            ErrorCode::UnknownReference,
+            ErrorCode::JointAxisExpressedInInvalid,
         ),
         (
             "<include><uri>file://missing</uri></include>",
@@ -962,7 +962,7 @@ fn local_schema_references_cannot_escape_their_model_scope() {
         ),
         (
             "<model name='m'><link name='l'/><joint name='j' type='revolute'><parent>world</parent><child>l</child><axis><xyz expressed_in='world'>1 0 0</xyz></axis></joint></model>",
-            ErrorCode::UnknownReference,
+            ErrorCode::JointAxisExpressedInInvalid,
         ),
     ] {
         assert_eq!(

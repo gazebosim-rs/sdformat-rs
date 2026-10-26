@@ -52,9 +52,10 @@ simulator D23, execute joint limits, change physics static flags or adapt any
 downstream sensor API.
 
 The reference helper now accepts only the exact original post-static test-file
-hashes and two later independently reviewed `tests/semantics.rs` successor
-hashes. It reverses the later camera→RFID→unknown-kind control edits, then
-reverses the original static-model edits and checks the exact original parent
+hashes and six later independently reviewed `tests/semantics.rs` successor
+hashes. It reverses the camera→RFID→unknown-kind controls, two mimic axis
+initializer changes and two axis diagnostic expectation changes, then reverses
+the original static-model edits and checks the exact original parent
 hashes. Any unreviewed mutation to those guarded files or listed unchanged
 inputs fails before native execution. This restores
 replay from both the adopted SDF575 raw export and the current raw export; each

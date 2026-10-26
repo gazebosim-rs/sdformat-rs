@@ -21,6 +21,7 @@ pub enum ErrorCode {
     InvalidValue,
     DuplicateName,
     UnknownReference,
+    JointAxisExpressedInInvalid,
     JointAxisMimicInvalid,
     Cycle,
     Resource,

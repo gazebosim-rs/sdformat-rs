@@ -2179,6 +2179,32 @@ native observations and the unchanged original remain identical, with the
 unreviewed mutation rejection intact. Isolated author checks passed 261 Rust,
 sixteen tools, formatting, Clippy and docs; production coverage is 4166/4186
 lines and 7203/7418 regions, with all 53 changed executable lines covered.
-Final main binding, protected hook and hosted qualification are pending.
+Final main binding receipt SHA256 `5cc480f49c93d1e5308f699a7cf93637c176ee4a55648c2f1767b9c5d504d85d`, normal protected hook and public `037a4d20a81a9db3fea24dd139358e85d59d262c` passed exact hosted verify `40255611288` SUCCESS.
 Constraint execution, URDF import, Element/`ToElement`, general graph edits,
 native warning output and full multi-error diagnostics remain open.
+
+
+## Native DOMJointAxis expressed-in frame originals candidate
+
+Pinned `DOMJointAxis.XyzExpressedIn` and `InvalidExpressedIn` pass natively
+2/0. The unchanged positive and invalid fixtures map model/link/joint lookups,
+raw poses, axis frame declarations and resolved directions through ordinary
+owned Rust APIs. The native omitted axis target is represented explicitly by
+the joint child link. Positive fixed-fixture observable assertions are
+complete. The invalid original maps only the first typed code 38 and exact
+message; native second code 26 and the full error vector remain partial.
+
+Source freeze SHA256 `54e9c46077a84880275242b5d8de2a729f317a37063abf582aa3879030379a69`
+binds nine exact source/test/fixture/guard files on public parent `037a4d20`.
+Independent source/API/assertion review receipt SHA256
+`c6f1e7c3b53906d171a0212062525b1a521ab1f186ea0f3506511e622f2bbfa1`
+approved the fixed-fixture positive and partial invalid scopes. Four earlier
+Rust-only generic reference-error expectations now use the native first code
+38 after four fresh native diagnostic controls. The static-model rewind guard
+adds two exact successor states; all 61 native observations and the unchanged
+original remain identical. Isolated author checks passed 263 Rust, sixteen
+tools, formatting, Clippy and docs; production coverage is 4176/4196 lines
+and 7205/7420 regions, changed executable lines 12/12. Final metadata
+binding, normal protected hook and hosted qualification are pending. Native
+method identity, general graph behavior and second invalid diagnostic remain
+unported.

@@ -588,3 +588,12 @@ copy assignment after move originals observe name and filename values. Rust
 values. The native originals do not inspect moved-from state. Element
 contents, `ToElement`, C++ method identity and general plugin parsing remain
 separate acceptance work.
+
+
+## Joint axis owned copy and move values
+
+The five pinned `DOMJointAxis` copy and move originals observe XYZ values.
+Existing XML axis validation plus ordinary Rust `Clone`, `clone_from`, owned
+move and swap retain the original source/destination X/Y/Z values. Native
+mutable `SetXyz`, default/Element/`ToElement`, frame graph and moved-from
+state require separate evidence.

@@ -2042,7 +2042,7 @@ normal protected hook and exact hosted run 40245442664 succeeded at public
 `Sensor::Load`, Element identity, frame graph and general sensor grammar remain
 separate work.
 
-## Four native DOMPlugin copy and assignment originals candidate
+## Four native DOMPlugin copy and assignment originals
 
 Pinned `DOMPlugin.CopyConstructor`, `CopyAssigmentOperator`,
 `MoveAssignmentConstructor` and `CopyAssignmentAfterMove` pass natively 4/0.
@@ -2057,6 +2057,29 @@ on source freeze SHA256
 Private pinned native and raw-parent Rust selected runs passed 4/0. Isolated
 author checks pass 244 Rust, sixteen tooling tests, formatting, Clippy and
 docs; production coverage is 3998/4017 lines and 6951/7152 regions with no
+production edit. Final binding receipt SHA256
+`59e3fda69cf728169a8a38d53ea189166b451016ceb89a0935967d7ce4f8fe85`,
+normal protected hook and exact hosted verify `40246388649` succeeded at public
+`9d149badfe56f768d75370158fcf3e93b53ecf41`. C++ setter/operator
+identity, Element contents, serialization, moved-from state and general
+Plugin grammar remain separate work.
+
+## Five native DOMJointAxis copy and move XYZ originals candidate
+
+Pinned `DOMJointAxis.CopyConstructor`, `AssignmentOperator`,
+`MoveConstructor`, `MoveAssignmentOperator` and `CopyAssignmentAfterMove`
+pass natively 5/0. One retained test maps all observed X/Y/Z axis XYZ values
+through existing parser validation and ordinary Rust `Clone`, `clone_from`,
+owned move and swap. It preserves the imported 2018 OSRF Apache notice.
+
+Independent /root/transport_fallback approved complete observable values on
+source freeze SHA256
+`dfbb7e95e019e116b7a8debd0fc7e3f435840d6fd1938ec146eb77875ba285c8`
+(receipt SHA256
+`912ad51ecf261639e889d7f6b7ff548a3c00cced2a927a08a958e8e210c0f232`).
+Private pinned native and raw-parent Rust selected runs passed 5/0. Isolated
+author checks passed 251 Rust, sixteen tools, formatting, Clippy and docs;
+production coverage is 4068/4088 lines and 7042/7251 regions with no
 production edit. Final metadata binding, normal hook and hosted qualification
-are pending. C++ setter/operator identity, Element contents, serialization,
-moved-from state and general Plugin grammar remain separate work.
+are pending. Native mutable `SetXyz`, Element/default/`ToElement`, frame graph
+and moved-from state remain separate work.

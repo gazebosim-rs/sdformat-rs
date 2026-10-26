@@ -60379,6 +60379,16 @@
     "original": "Four pinned DOMPlugin CopyConstructor/CopyAssigmentOperator/MoveAssignmentConstructor/CopyAssignmentAfterMove originals fresh native4/0; all observed final and retained source name/filename values.",
     "rust": "Exact reviewed one-test-source SHA51badcb3195c363af52c8c99020ac45ed03734e8426e24370b531ffbb6d6f4f6; selected4/0, isolated full244 Rust/16 tools/fmt/Clippy/docs, production3998/4017 lines6951/7152 regions and no production edit.",
     "scope": "Four complete observable value originals via Clone, clone_from, owned move and swap. Imported 2021 OSRF notice exact; no C++ method/operator identity, Element/Contents/ToElement, moved-from state or general Plugin grammar claim.",
-    "review": "Independent source/API/assertion approval SHA256 43209bcc0e8c98122cf51fe0b0846f04992a576113fa42a60df704ccc8ca583a; exact source freeze 8dc65db6b8bcf271e8ee6f73ed4677d1420acfe5d9275bd09f1e34c881ede73c, private native4/0/raw-parent Rust4/0. Final metadata binding, normal protected hook and hosted qualification pending."
+    "review": "Independent source/API/assertion approval SHA256 43209bcc0e8c98122cf51fe0b0846f04992a576113fa42a60df704ccc8ca583a; exact source freeze 8dc65db6b8bcf271e8ee6f73ed4677d1420acfe5d9275bd09f1e34c881ede73c, private native4/0/raw-parent Rust4/0. Final binding SHA256 59e3fda69cf728169a8a38d53ea189166b451016ceb89a0935967d7ce4f8fe85; normal protected hook and hosted verify 40246388649 SUCCESS at public 9d149badfe56f768d75370158fcf3e93b53ecf41."
+  },
+  "joint_axis_values_originals": {
+    "parent": "9d149badfe56f768d75370158fcf3e93b53ecf41",
+    "upstream": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "source_freeze_sha256": "dfbb7e95e019e116b7a8debd0fc7e3f435840d6fd1938ec146eb77875ba285c8",
+    "source_review_sha256": "912ad51ecf261639e889d7f6b7ff548a3c00cced2a927a08a958e8e210c0f232",
+    "original": "Pinned DOMJointAxis CopyConstructor, AssignmentOperator, MoveConstructor, MoveAssignmentOperator and CopyAssignmentAfterMove native5/0; five final XYZ source/destination value observations.",
+    "rust": "Exact reviewed test SHA8335ec4103ebb87c2f4c3b83ad36dc77867e792a5ad634af1149e5e6391df5bd, isolated selected5/0 and full251 Rust/16 tools/fmt/Clippy/docs, production4068/4088 lines7042/7251 regions with no production edit.",
+    "scope": "Five complete observable XYZ copy/move value originals via existing parsed Axis and ordinary Rust Clone, clone_from, owned move and swap. Native mutable SetXyz, default/Element/ToElement/graph and moved-from internals remain separate.",
+    "review": "Independent /root/transport_fallback source/API/assertion APPROVED receipt SHA256 912ad51ecf261639e889d7f6b7ff548a3c00cced2a927a08a958e8e210c0f232, source freeze SHA256 dfbb7e95e019e116b7a8debd0fc7e3f435840d6fd1938ec146eb77875ba285c8; private native5/0 and raw-parent Rust5/0. Final metadata binding, normal protected hook and hosted qualification pending."
   }
 }

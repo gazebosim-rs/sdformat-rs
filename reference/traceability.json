@@ -1143,7 +1143,7 @@
       "upstream_fixtures": {},
       "baseline": "Fresh exact pinned UNIT_Plugin_TEST four-filter native4/0, no skips, source/binary hashes and test SHA51badcb3195c363af52c8c99020ac45ed03734e8426e24370b531ffbb6d6f4f6 in artifacts/plugin-ownership/source-freeze.json. Independent private raw-parent Rust4/0; author isolated full244 Rust/16 tools/fmt/Clippy/docs and 3998/4017 lines6951/7152 regions, no production edits.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_fallback APPROVED complete observable four-case values, exact source receipt SHA256 43209bcc0e8c98122cf51fe0b0846f04992a576113fa42a60df704ccc8ca583a and freeze SHA256 8dc65db6b8bcf271e8ee6f73ed4677d1420acfe5d9275bd09f1e34c881ede73c. Private native4/0 and Rust4/0; imported 2021 OSRF notice exact. Final metadata binding, protected hook and hosted qualification pending."
+      "review": "Independent /root/transport_fallback APPROVED complete observable four-case values, exact source receipt SHA256 43209bcc0e8c98122cf51fe0b0846f04992a576113fa42a60df704ccc8ca583a and freeze SHA256 8dc65db6b8bcf271e8ee6f73ed4677d1420acfe5d9275bd09f1e34c881ede73c. Private native4/0 and Rust4/0; imported 2021 OSRF notice exact. Final binding SHA256 59e3fda69cf728169a8a38d53ea189166b451016ceb89a0935967d7ce4f8fe85; normal protected hook and hosted verify 40246388649 SUCCESS at public 9d149badfe56f768d75370158fcf3e93b53ecf41."
     },
     {
       "target": "UNIT_Plugin_TEST",
@@ -1155,7 +1155,7 @@
       "upstream_fixtures": {},
       "baseline": "Fresh exact pinned UNIT_Plugin_TEST four-filter native4/0, no skips, source/binary hashes and test SHA51badcb3195c363af52c8c99020ac45ed03734e8426e24370b531ffbb6d6f4f6 in artifacts/plugin-ownership/source-freeze.json. Independent private raw-parent Rust4/0; author isolated full244 Rust/16 tools/fmt/Clippy/docs and 3998/4017 lines6951/7152 regions, no production edits.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_fallback APPROVED complete observable four-case values, exact source receipt SHA256 43209bcc0e8c98122cf51fe0b0846f04992a576113fa42a60df704ccc8ca583a and freeze SHA256 8dc65db6b8bcf271e8ee6f73ed4677d1420acfe5d9275bd09f1e34c881ede73c. Private native4/0 and Rust4/0; imported 2021 OSRF notice exact. Final metadata binding, protected hook and hosted qualification pending."
+      "review": "Independent /root/transport_fallback APPROVED complete observable four-case values, exact source receipt SHA256 43209bcc0e8c98122cf51fe0b0846f04992a576113fa42a60df704ccc8ca583a and freeze SHA256 8dc65db6b8bcf271e8ee6f73ed4677d1420acfe5d9275bd09f1e34c881ede73c. Private native4/0 and Rust4/0; imported 2021 OSRF notice exact. Final binding SHA256 59e3fda69cf728169a8a38d53ea189166b451016ceb89a0935967d7ce4f8fe85; normal protected hook and hosted verify 40246388649 SUCCESS at public 9d149badfe56f768d75370158fcf3e93b53ecf41."
     },
     {
       "target": "UNIT_Plugin_TEST",
@@ -1167,7 +1167,7 @@
       "upstream_fixtures": {},
       "baseline": "Fresh exact pinned UNIT_Plugin_TEST four-filter native4/0, no skips, source/binary hashes and test SHA51badcb3195c363af52c8c99020ac45ed03734e8426e24370b531ffbb6d6f4f6 in artifacts/plugin-ownership/source-freeze.json. Independent private raw-parent Rust4/0; author isolated full244 Rust/16 tools/fmt/Clippy/docs and 3998/4017 lines6951/7152 regions, no production edits.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_fallback APPROVED complete observable four-case values, exact source receipt SHA256 43209bcc0e8c98122cf51fe0b0846f04992a576113fa42a60df704ccc8ca583a and freeze SHA256 8dc65db6b8bcf271e8ee6f73ed4677d1420acfe5d9275bd09f1e34c881ede73c. Private native4/0 and Rust4/0; imported 2021 OSRF notice exact. Final metadata binding, protected hook and hosted qualification pending."
+      "review": "Independent /root/transport_fallback APPROVED complete observable four-case values, exact source receipt SHA256 43209bcc0e8c98122cf51fe0b0846f04992a576113fa42a60df704ccc8ca583a and freeze SHA256 8dc65db6b8bcf271e8ee6f73ed4677d1420acfe5d9275bd09f1e34c881ede73c. Private native4/0 and Rust4/0; imported 2021 OSRF notice exact. Final binding SHA256 59e3fda69cf728169a8a38d53ea189166b451016ceb89a0935967d7ce4f8fe85; normal protected hook and hosted verify 40246388649 SUCCESS at public 9d149badfe56f768d75370158fcf3e93b53ecf41."
     },
     {
       "target": "UNIT_Plugin_TEST",
@@ -1179,7 +1179,67 @@
       "upstream_fixtures": {},
       "baseline": "Fresh exact pinned UNIT_Plugin_TEST four-filter native4/0, no skips, source/binary hashes and test SHA51badcb3195c363af52c8c99020ac45ed03734e8426e24370b531ffbb6d6f4f6 in artifacts/plugin-ownership/source-freeze.json. Independent private raw-parent Rust4/0; author isolated full244 Rust/16 tools/fmt/Clippy/docs and 3998/4017 lines6951/7152 regions, no production edits.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_fallback APPROVED complete observable four-case values, exact source receipt SHA256 43209bcc0e8c98122cf51fe0b0846f04992a576113fa42a60df704ccc8ca583a and freeze SHA256 8dc65db6b8bcf271e8ee6f73ed4677d1420acfe5d9275bd09f1e34c881ede73c. Private native4/0 and Rust4/0; imported 2021 OSRF notice exact. Final metadata binding, protected hook and hosted qualification pending."
+      "review": "Independent /root/transport_fallback APPROVED complete observable four-case values, exact source receipt SHA256 43209bcc0e8c98122cf51fe0b0846f04992a576113fa42a60df704ccc8ca583a and freeze SHA256 8dc65db6b8bcf271e8ee6f73ed4677d1420acfe5d9275bd09f1e34c881ede73c. Private native4/0 and Rust4/0; imported 2021 OSRF notice exact. Final binding SHA256 59e3fda69cf728169a8a38d53ea189166b451016ceb89a0935967d7ce4f8fe85; normal protected hook and hosted verify 40246388649 SUCCESS at public 9d149badfe56f768d75370158fcf3e93b53ecf41."
+    },
+    {
+      "target": "UNIT_JointAxis_TEST",
+      "case": "DOMJointAxis.CopyConstructor",
+      "source": "src/JointAxis_TEST.cc:97-104",
+      "rust_test": "tests/joint_axis_values_original.rs::original_dom_joint_axis_copy_constructor",
+      "assertions": "Complete observable pinned original XYZ value mapping: Clone retains source and copied Y XYZ. Existing parser validates native SetXyz success before the owned value operation. No direct mutable setter, native Element/default/ToElement/graph, moved-from state or C++ method-identity claim.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Fresh pinned UNIT_JointAxis_TEST five filters native5/0; imported 2018 OSRF Apache notice and exact Rust test SHA8335ec4103ebb87c2f4c3b83ad36dc77867e792a5ad634af1149e5e6391df5bd. Isolated full251 Rust/16 tools/fmt/Clippy/docs, production4068/4088 lines7042/7251 regions, no production edit.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback APPROVED exact source receipt SHA256 912ad51ecf261639e889d7f6b7ff548a3c00cced2a927a08a958e8e210c0f232, freeze SHA256 dfbb7e95e019e116b7a8debd0fc7e3f435840d6fd1938ec146eb77875ba285c8, private native5/0 and raw-parent Rust5/0. Final metadata binding, protected hook and hosted qualification pending."
+    },
+    {
+      "target": "UNIT_JointAxis_TEST",
+      "case": "DOMJointAxis.AssignmentOperator",
+      "source": "src/JointAxis_TEST.cc:107-115",
+      "rust_test": "tests/joint_axis_values_original.rs::original_dom_joint_axis_assignment_operator",
+      "assertions": "Complete observable pinned original XYZ value mapping: clone_from retains copied Y XYZ. Existing parser validates native SetXyz success before the owned value operation. No direct mutable setter, native Element/default/ToElement/graph, moved-from state or C++ method-identity claim.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Fresh pinned UNIT_JointAxis_TEST five filters native5/0; imported 2018 OSRF Apache notice and exact Rust test SHA8335ec4103ebb87c2f4c3b83ad36dc77867e792a5ad634af1149e5e6391df5bd. Isolated full251 Rust/16 tools/fmt/Clippy/docs, production4068/4088 lines7042/7251 regions, no production edit.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback APPROVED exact source receipt SHA256 912ad51ecf261639e889d7f6b7ff548a3c00cced2a927a08a958e8e210c0f232, freeze SHA256 dfbb7e95e019e116b7a8debd0fc7e3f435840d6fd1938ec146eb77875ba285c8, private native5/0 and raw-parent Rust5/0. Final metadata binding, protected hook and hosted qualification pending."
+    },
+    {
+      "target": "UNIT_JointAxis_TEST",
+      "case": "DOMJointAxis.MoveConstructor",
+      "source": "src/JointAxis_TEST.cc:118-126",
+      "rust_test": "tests/joint_axis_values_original.rs::original_dom_joint_axis_move_constructor",
+      "assertions": "Complete observable pinned original XYZ value mapping: Owned move retains Y XYZ. Existing parser validates native SetXyz success before the owned value operation. No direct mutable setter, native Element/default/ToElement/graph, moved-from state or C++ method-identity claim.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Fresh pinned UNIT_JointAxis_TEST five filters native5/0; imported 2018 OSRF Apache notice and exact Rust test SHA8335ec4103ebb87c2f4c3b83ad36dc77867e792a5ad634af1149e5e6391df5bd. Isolated full251 Rust/16 tools/fmt/Clippy/docs, production4068/4088 lines7042/7251 regions, no production edit.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback APPROVED exact source receipt SHA256 912ad51ecf261639e889d7f6b7ff548a3c00cced2a927a08a958e8e210c0f232, freeze SHA256 dfbb7e95e019e116b7a8debd0fc7e3f435840d6fd1938ec146eb77875ba285c8, private native5/0 and raw-parent Rust5/0. Final metadata binding, protected hook and hosted qualification pending."
+    },
+    {
+      "target": "UNIT_JointAxis_TEST",
+      "case": "DOMJointAxis.MoveAssignmentOperator",
+      "source": "src/JointAxis_TEST.cc:129-138",
+      "rust_test": "tests/joint_axis_values_original.rs::original_dom_joint_axis_move_assignment_operator",
+      "assertions": "Complete observable pinned original XYZ value mapping: Owned assignment replaces prior Z with Y XYZ. Existing parser validates native SetXyz success before the owned value operation. No direct mutable setter, native Element/default/ToElement/graph, moved-from state or C++ method-identity claim.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Fresh pinned UNIT_JointAxis_TEST five filters native5/0; imported 2018 OSRF Apache notice and exact Rust test SHA8335ec4103ebb87c2f4c3b83ad36dc77867e792a5ad634af1149e5e6391df5bd. Isolated full251 Rust/16 tools/fmt/Clippy/docs, production4068/4088 lines7042/7251 regions, no production edit.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback APPROVED exact source receipt SHA256 912ad51ecf261639e889d7f6b7ff548a3c00cced2a927a08a958e8e210c0f232, freeze SHA256 dfbb7e95e019e116b7a8debd0fc7e3f435840d6fd1938ec146eb77875ba285c8, private native5/0 and raw-parent Rust5/0. Final metadata binding, protected hook and hosted qualification pending."
+    },
+    {
+      "target": "UNIT_JointAxis_TEST",
+      "case": "DOMJointAxis.CopyAssignmentAfterMove",
+      "source": "src/JointAxis_TEST.cc:141-159",
+      "rust_test": "tests/joint_axis_values_original.rs::original_dom_joint_axis_copy_assignment_after_move",
+      "assertions": "Complete observable pinned original XYZ value mapping: Swap retains both X/Y XYZ values. Existing parser validates native SetXyz success before the owned value operation. No direct mutable setter, native Element/default/ToElement/graph, moved-from state or C++ method-identity claim.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Fresh pinned UNIT_JointAxis_TEST five filters native5/0; imported 2018 OSRF Apache notice and exact Rust test SHA8335ec4103ebb87c2f4c3b83ad36dc77867e792a5ad634af1149e5e6391df5bd. Isolated full251 Rust/16 tools/fmt/Clippy/docs, production4068/4088 lines7042/7251 regions, no production edit.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback APPROVED exact source receipt SHA256 912ad51ecf261639e889d7f6b7ff548a3c00cced2a927a08a958e8e210c0f232, freeze SHA256 dfbb7e95e019e116b7a8debd0fc7e3f435840d6fd1938ec146eb77875ba285c8, private native5/0 and raw-parent Rust5/0. Final metadata binding, protected hook and hosted qualification pending."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

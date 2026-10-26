@@ -22,7 +22,7 @@ Nested includes pass the imported parent's URI. Name, pose and static overrides
 apply at the include site. Maximum include and model depth is 64; no IO is implicit.
 Directory/model.config selection and URI/cache policy belong to the resolver.
 
-`World` has name, gravity in m/s², models, frames, plugins and source.
+`World` has name, gravity in m/s², owned atmosphere metadata, models, frames, plugins and source.
 `Model` has raw pose, static flag, canonical-link and placement-frame references, links, joints,
 nested models, frames, plugins, scoped name and source.
 `Link` has pose, inertial, collisions, visuals, sensors, plugins, scoped name and source.
@@ -830,3 +830,12 @@ loader can read. It preserves the six fixed values in the two Physics ToElement
 originals; update-rate metadata is supplemental. Both originals remain partial
 because Element and console observations are unported. See docs/PHYSICS.md for
 text/numeric limits; this API does not configure an engine.
+
+
+`World.atmosphere: Atmosphere` owns Adiabatic configuration, temperature in Kelvin,
+temperature gradient in K/m and pressure in Pa, plus optional original source/XML.
+Implicit defaults are always present. Adding this public field requires exhaustive
+World struct literals to supply a value, usually Atmosphere::default(). No current
+Root consumer literal required adjustment. The field carries metadata; runtime
+atmospheric sampling remains separate. See docs/ATMOSPHERE.md for native input
+bounds, six explicit gaps and the scoped seven-original mapping.

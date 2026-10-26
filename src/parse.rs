@@ -460,7 +460,15 @@ impl Parser<'_> {
     fn world(&mut self, node: Node<'_, '_>) -> Result<World, Diagnostic> {
         self.allowed(
             node,
-            &["model", "include", "frame", "gravity", "plugin", "physics"],
+            &[
+                "model",
+                "include",
+                "frame",
+                "gravity",
+                "plugin",
+                "physics",
+                "atmosphere",
+            ],
             &["name"],
         )?;
         let name = self.name(node)?;
@@ -500,11 +508,36 @@ impl Parser<'_> {
         Ok(World {
             name,
             gravity,
+            atmosphere: child(node, "atmosphere")
+                .map_or(Ok(Atmosphere::default()), |n| self.atmosphere(n))?,
             physics,
             models,
             frames,
             plugins: self.plugins(node)?,
             source: self.source(node),
+        })
+    }
+    fn atmosphere(&self, node: Node<'_, '_>) -> Result<Atmosphere, Diagnostic> {
+        self.allowed(
+            node,
+            &["temperature", "pressure", "temperature_gradient"],
+            &["type"],
+        )?;
+        let kind = node
+            .attribute("type")
+            .map(|value| value.trim_matches([' ', '\t', '\n']))
+            .filter(|value| !value.is_empty())
+            .ok_or_else(|| self.err(node, ErrorCode::Missing, "atmosphere requires type"))?;
+        if kind != "adiabatic" {
+            return Err(self.err(node, ErrorCode::InvalidValue, "unknown atmosphere type"));
+        }
+        Ok(Atmosphere {
+            atmosphere_type: AtmosphereType::Adiabatic,
+            temperature_kelvin: self.scalar(node, "temperature", 288.15)?,
+            temperature_gradient: self.scalar(node, "temperature_gradient", -0.0065)?,
+            pressure: self.scalar(node, "pressure", 101325.)?,
+            source: Some(self.source(node)),
+            xml: Some(self.xml[node.range()].into()),
         })
     }
     fn physics(&self, node: Node<'_, '_>) -> Result<Physics, Diagnostic> {

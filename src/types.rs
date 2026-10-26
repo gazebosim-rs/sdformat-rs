@@ -205,12 +205,44 @@ impl Sdf {
 pub struct World {
     pub name: String,
     pub gravity: [f64; 3],
+    /// Atmosphere metadata, including native defaults when the element is absent.
+    pub atmosphere: Atmosphere,
     /// Physics profiles in declaration order, or the implicit native default.
     pub physics: Vec<Physics>,
     pub models: Vec<Model>,
     pub frames: Vec<Frame>,
     pub plugins: Vec<Plugin>,
     pub source: Source,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum AtmosphereType {
+    Adiabatic,
+}
+
+/// Sea-level atmosphere metadata; no pressure or temperature sampling is implied.
+#[derive(Debug, Clone)]
+pub struct Atmosphere {
+    pub atmosphere_type: AtmosphereType,
+    pub temperature_kelvin: f64,
+    /// Temperature gradient in kelvins per metre of increasing altitude.
+    pub temperature_gradient: f64,
+    /// Sea-level pressure in pascals.
+    pub pressure: f64,
+    pub source: Option<Source>,
+    pub xml: Option<String>,
+}
+impl Default for Atmosphere {
+    fn default() -> Self {
+        Self {
+            atmosphere_type: AtmosphereType::Adiabatic,
+            temperature_kelvin: 288.15,
+            temperature_gradient: -0.0065,
+            pressure: 101325.,
+            source: None,
+            xml: None,
+        }
+    }
 }
 impl World {
     /// First explicitly default profile, otherwise the first profile.

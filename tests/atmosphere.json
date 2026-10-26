@@ -1,0 +1,454 @@
+[
+  {
+    "id": "implicit",
+    "xml": "<sdf version='1.12'><world name='w'></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "adiabatic",
+      "4643776804600309350",
+      "4681699414190850048",
+      "13797516048788403257"
+    ],
+    "native_accepted": true
+  },
+  {
+    "id": "empty",
+    "xml": "<sdf version='1.12'><world name='w'><atmosphere/></world></sdf>",
+    "tokens": [
+      "5",
+      "4",
+      "9",
+      "9",
+      "9",
+      "30"
+    ],
+    "native_accepted": false
+  },
+  {
+    "id": "explicit",
+    "xml": "<sdf version='1.12'><world name='w'><atmosphere type='adiabatic'><temperature>23.1</temperature><pressure>43.1</pressure><temperature_gradient>4.3</temperature_gradient></atmosphere></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "adiabatic",
+      "4627195289644145050",
+      "4631262603057614029",
+      "4616527388026811187"
+    ],
+    "native_accepted": true
+  },
+  {
+    "id": "missing_type",
+    "xml": "<sdf version='1.12'><world name='w'><atmosphere><temperature>123.23</temperature></atmosphere></world></sdf>",
+    "tokens": [
+      "5",
+      "4",
+      "9",
+      "9",
+      "9",
+      "30"
+    ],
+    "native_accepted": false
+  },
+  {
+    "id": "empty_type",
+    "xml": "<sdf version='1.12'><world name='w'><atmosphere type=''/></world></sdf>",
+    "tokens": [
+      "5",
+      "5",
+      "9",
+      "9",
+      "9",
+      "30"
+    ],
+    "native_accepted": false
+  },
+  {
+    "id": "padded_type",
+    "xml": "<sdf version='1.12'><world name='w'><atmosphere type='&#10;adiabatic&#9;'/></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "adiabatic",
+      "4643776804600309350",
+      "4681699414190850048",
+      "13797516048788403257"
+    ],
+    "native_accepted": true
+  },
+  {
+    "id": "upper_type",
+    "xml": "<sdf version='1.12'><world name='w'><atmosphere type='ADIABATIC'/></world></sdf>",
+    "tokens": [
+      "2",
+      "9",
+      "9"
+    ],
+    "native_accepted": false
+  },
+  {
+    "id": "unknown_type",
+    "xml": "<sdf version='1.12'><world name='w'><atmosphere type='unknown'/></world></sdf>",
+    "tokens": [
+      "2",
+      "9",
+      "9"
+    ],
+    "native_accepted": false
+  },
+  {
+    "id": "type_cr",
+    "xml": "<sdf version='1.12'><world name='w'><atmosphere type='adiabatic&#13;'/></world></sdf>",
+    "tokens": [
+      "2",
+      "9",
+      "9"
+    ],
+    "native_accepted": false
+  },
+  {
+    "id": "unknown_attribute",
+    "xml": "<sdf version='1.12'><world name='w'><atmosphere type='adiabatic' extra='1'/></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "adiabatic",
+      "4643776804600309350",
+      "4681699414190850048",
+      "13797516048788403257"
+    ],
+    "native_accepted": true,
+    "gap_code": "Unsupported"
+  },
+  {
+    "id": "unknown_child",
+    "xml": "<sdf version='1.12'><world name='w'><atmosphere type='adiabatic'><extra>1</extra></atmosphere></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "adiabatic",
+      "4643776804600309350",
+      "4681699414190850048",
+      "13797516048788403257"
+    ],
+    "native_accepted": true,
+    "gap_code": "Unsupported"
+  },
+  {
+    "id": "negative",
+    "xml": "<sdf version='1.12'><world name='w'><atmosphere type='adiabatic'><temperature>-10</temperature><pressure>-12</pressure><temperature_gradient>-14</temperature_gradient></atmosphere></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "adiabatic",
+      "13845191154443747328",
+      "13846317054350589952",
+      "13847442954257432576"
+    ],
+    "native_accepted": true
+  },
+  {
+    "id": "signed_zero",
+    "xml": "<sdf version='1.12'><world name='w'><atmosphere type='adiabatic'><temperature>-0</temperature><pressure>-0</pressure><temperature_gradient>-0</temperature_gradient></atmosphere></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "adiabatic",
+      "9223372036854775808",
+      "9223372036854775808",
+      "9223372036854775808"
+    ],
+    "native_accepted": true
+  },
+  {
+    "id": "numeric_prefix",
+    "xml": "<sdf version='1.12'><world name='w'><atmosphere type='adiabatic'><temperature>12trailing</temperature><pressure>42ignored</pressure><temperature_gradient>3suffix</temperature_gradient></atmosphere></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "adiabatic",
+      "4622945017495814144",
+      "4631107791820423168",
+      "4613937818241073152"
+    ],
+    "native_accepted": true
+  },
+  {
+    "id": "empty_temperature",
+    "xml": "<sdf version='1.12'><world name='w'><atmosphere type='adiabatic'><temperature/></atmosphere></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "adiabatic",
+      "4643776804600309350",
+      "4681699414190850048",
+      "13797516048788403257"
+    ],
+    "native_accepted": true
+  },
+  {
+    "id": "bad",
+    "xml": "<sdf version='1.12'><world name='w'><atmosphere type='adiabatic'><pressure>bad</pressure></atmosphere></world></sdf>",
+    "tokens": [
+      "5",
+      "9",
+      "9",
+      "9",
+      "9",
+      "30"
+    ],
+    "native_accepted": false
+  },
+  {
+    "id": "overflow",
+    "xml": "<sdf version='1.12'><world name='w'><atmosphere type='adiabatic'><pressure>1e309</pressure></atmosphere></world></sdf>",
+    "tokens": [
+      "5",
+      "9",
+      "9",
+      "9",
+      "9",
+      "30"
+    ],
+    "native_accepted": false
+  },
+  {
+    "id": "underflow",
+    "xml": "<sdf version='1.12'><world name='w'><atmosphere type='adiabatic'><pressure>1e-310</pressure></atmosphere></world></sdf>",
+    "tokens": [
+      "5",
+      "9",
+      "9",
+      "9",
+      "9",
+      "30"
+    ],
+    "native_accepted": false
+  },
+  {
+    "id": "nan",
+    "xml": "<sdf version='1.12'><world name='w'><atmosphere type='adiabatic'><pressure>nan</pressure></atmosphere></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "adiabatic",
+      "4643776804600309350",
+      "9221120237041090560",
+      "13797516048788403257"
+    ],
+    "native_accepted": true,
+    "gap_code": "InvalidValue"
+  },
+  {
+    "id": "infinity",
+    "xml": "<sdf version='1.12'><world name='w'><atmosphere type='adiabatic'><pressure>inf</pressure></atmosphere></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "adiabatic",
+      "4643776804600309350",
+      "9218868437227405312",
+      "13797516048788403257"
+    ],
+    "native_accepted": true,
+    "gap_code": "InvalidValue"
+  },
+  {
+    "id": "minimum_normal",
+    "xml": "<sdf version='1.12'><world name='w'><atmosphere type='adiabatic'><pressure>2.2250738585072014e-308</pressure></atmosphere></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "adiabatic",
+      "4643776804600309350",
+      "4503599627370496",
+      "13797516048788403257"
+    ],
+    "native_accepted": true
+  },
+  {
+    "id": "duplicate_element",
+    "xml": "<sdf version='1.12'><world name='w'><atmosphere type='adiabatic'><pressure>10</pressure></atmosphere><atmosphere type='adiabatic'><pressure>20</pressure></atmosphere></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "adiabatic",
+      "4643776804600309350",
+      "4621819117588971520",
+      "13797516048788403257"
+    ],
+    "native_accepted": true,
+    "gap_code": "InvalidValue"
+  },
+  {
+    "id": "duplicate_pressure",
+    "xml": "<sdf version='1.12'><world name='w'><atmosphere type='adiabatic'><pressure>10</pressure><pressure>20</pressure></atmosphere></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "adiabatic",
+      "4643776804600309350",
+      "4621819117588971520",
+      "13797516048788403257"
+    ],
+    "native_accepted": true,
+    "gap_code": "InvalidValue"
+  },
+  {
+    "id": "version_1_4",
+    "xml": "<sdf version='1.4'><world name='w'><atmosphere type='adiabatic'><pressure>42</pressure></atmosphere></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "adiabatic",
+      "4643776804600309350",
+      "4631107791820423168",
+      "13797516048788403257"
+    ],
+    "native_accepted": true
+  },
+  {
+    "id": "version_1_5",
+    "xml": "<sdf version='1.5'><world name='w'><atmosphere type='adiabatic'><pressure>42</pressure></atmosphere></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "adiabatic",
+      "4643776804600309350",
+      "4631107791820423168",
+      "13797516048788403257"
+    ],
+    "native_accepted": true
+  },
+  {
+    "id": "version_1_6",
+    "xml": "<sdf version='1.6'><world name='w'><atmosphere type='adiabatic'><pressure>42</pressure></atmosphere></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "adiabatic",
+      "4643776804600309350",
+      "4631107791820423168",
+      "13797516048788403257"
+    ],
+    "native_accepted": true
+  },
+  {
+    "id": "version_1_7",
+    "xml": "<sdf version='1.7'><world name='w'><atmosphere type='adiabatic'><pressure>42</pressure></atmosphere></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "adiabatic",
+      "4643776804600309350",
+      "4631107791820423168",
+      "13797516048788403257"
+    ],
+    "native_accepted": true
+  },
+  {
+    "id": "version_1_8",
+    "xml": "<sdf version='1.8'><world name='w'><atmosphere type='adiabatic'><pressure>42</pressure></atmosphere></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "adiabatic",
+      "4643776804600309350",
+      "4631107791820423168",
+      "13797516048788403257"
+    ],
+    "native_accepted": true
+  },
+  {
+    "id": "version_1_11",
+    "xml": "<sdf version='1.11'><world name='w'><atmosphere type='adiabatic'><pressure>42</pressure></atmosphere></world></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "adiabatic",
+      "4643776804600309350",
+      "4631107791820423168",
+      "13797516048788403257"
+    ],
+    "native_accepted": true
+  },
+  {
+    "id": "missing_type_1_4",
+    "xml": "<sdf version='1.4'><world name='w'><atmosphere/></world></sdf>",
+    "tokens": [
+      "5",
+      "4",
+      "9",
+      "9",
+      "9",
+      "30"
+    ],
+    "native_accepted": false
+  },
+  {
+    "id": "missing_type_1_5",
+    "xml": "<sdf version='1.5'><world name='w'><atmosphere/></world></sdf>",
+    "tokens": [
+      "5",
+      "4",
+      "9",
+      "9",
+      "9",
+      "30"
+    ],
+    "native_accepted": false
+  },
+  {
+    "id": "missing_type_1_6",
+    "xml": "<sdf version='1.6'><world name='w'><atmosphere/></world></sdf>",
+    "tokens": [
+      "5",
+      "4",
+      "9",
+      "9",
+      "9",
+      "30"
+    ],
+    "native_accepted": false
+  },
+  {
+    "id": "missing_type_1_7",
+    "xml": "<sdf version='1.7'><world name='w'><atmosphere/></world></sdf>",
+    "tokens": [
+      "5",
+      "4",
+      "9",
+      "9",
+      "9",
+      "30"
+    ],
+    "native_accepted": false
+  },
+  {
+    "id": "missing_type_1_8",
+    "xml": "<sdf version='1.8'><world name='w'><atmosphere/></world></sdf>",
+    "tokens": [
+      "5",
+      "4",
+      "9",
+      "9",
+      "9",
+      "30"
+    ],
+    "native_accepted": false
+  },
+  {
+    "id": "missing_type_1_11",
+    "xml": "<sdf version='1.11'><world name='w'><atmosphere/></world></sdf>",
+    "tokens": [
+      "5",
+      "4",
+      "9",
+      "9",
+      "9",
+      "30"
+    ],
+    "native_accepted": false
+  }
+]

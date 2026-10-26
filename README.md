@@ -10,7 +10,7 @@ let pose = sdf.pose_of("robot::base", "::")?;
 # Ok::<(), sdformat::Diagnostic>(())
 ```
 
-The supported subset has SDF 1.4–1.12 worlds with owned physics profile metadata,
+The supported subset has SDF 1.4–1.12 worlds with owned physics profile and atmosphere metadata,
 nested and included models,
 links with owned wind/gravity/kinematic/self-collision flags, primitive and mesh
 collision/visual metadata and poses, owned visual/material
@@ -96,3 +96,7 @@ Apache-2.0. Original fixtures/test assertions retain OSRF provenance; see LICENS
 Copyright (C) 2026 Open Source Robotics Foundation. Owned code uses Apache-2.0;
 see [LICENSE](LICENSE) and [NOTICE](NOTICE). Original imported notices and years
 remain intact, and third-party dependencies retain their own licenses.
+
+
+World atmosphere defaults and explicit Adiabatic temperature/gradient/pressure
+values are owned metadata; see [atmosphere scope and limits](docs/ATMOSPHERE.md).

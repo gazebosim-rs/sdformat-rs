@@ -2569,5 +2569,29 @@ default flag, engine type, step size, real-time factor and maximum contacts.
 Successful Results map empty owned diagnostics for the second original. Native
 Element pointer and redirected console observations remain unported, so both
 originals stay partial. No engine is configured; full grammar, native XML bytes
-and error-vector parity remain open. Final metadata binding, normal protected
-hook and exact hosted qualification remain pending.
+and error-vector parity remain open. Final metadata binding receipt SHA256 2f10de8faa493fb4549a5bd58f57a9371030404be0b31e2325e832f3cbe59f28, normal protected hook and public e262de326d4d02409321a8589c81d83981db9173 passed exact hosted verify 40302323810 SUCCESS.
+
+
+## Owned atmosphere metadata candidate
+
+Seven pinned `DOMAtmosphere` construction, set, copy and move originals pass
+natively 7/0. Exact seven-file source freeze SHA256 `33e90b2044da8a30b574ea2dbb8e4dfd97afd22ed52af0959aaf7daa3799afaf`
+on public parent `e262de326d4d02409321a8589c81d83981db9173` passed independent
+source/protected review receipt SHA256
+`590f296ac018294f0be11fbd95b96d64f871f8ada3d8cd44695d8f93cf2e1010`.
+The private replay passed nine selected Rust tests and reproduced 35 native
+observations. Default-temperature and pressure-loss controls fail their intended
+assertions; the exact source was restored. Full author verification passed 325
+Rust tests, sixteen tooling tests, formatting, Clippy and docs; coverage is
+4771/4795 lines and 7915/8157 regions, with all 42 changed executable lines covered.
+Ordinary Cargo 2 work overlapped Root SDK preparation; no performance claim.
+
+`World.atmosphere` now owns implicit defaults or explicit metadata with original
+XML/source provenance. The new public field requires updates to exhaustive World
+struct literals; none were found in the current Root consumer or SDF tests beyond
+the owned parser constructor. Seven fixed originals preserve their values, and
+the two equality observations retain native absolute <=1e-6 in a test helper.
+No public C++ equality or Temperature class facade is claimed. Atmospheric
+sampling and ToElement remain unported. Six native-accepted grammar/numeric gaps
+stay explicit; see docs/ATMOSPHERE.md. Final metadata binding, normal hook and
+exact new hosted qualification remain pending.

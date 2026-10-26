@@ -1674,6 +1674,90 @@
       "baseline": "Pinned native originals5/0 with exact source/binary hashes and completed GTest result; private raw-source Rust originals5/0 and clone_from value-loss mutant red. Source freeze 30bc306c06e98c418c785535a023cd06235fac31cf449095289fd843068327e4 on hosted-green public parent db702a289ae36cf31f8d0663fa3c145f86801801. Full author306 Rust/16 tools/fmt/Clippy/docs; unchanged production4663/4688 lines7799/8040 regions, no production lines changed. Two-job ordinary correctness overlap only, no timing claim.",
       "status": "ported_reviewed",
       "review": "Independent /root/transport_owner_v2 source/API/assertion APPROVED receipt SHA256 9888e2a941f5699a1966e8f444eccf454560b7509cf2a4ee7349a25ddf2ce980; private raw-source Rust5/0, pinned native5/0 and value-loss mutant verified. Final metadata binding receipt SHA256 8054d2ec54a969cb3eacc7e16813e59aa23a6a2c2cfdf60420693c3242813285, normal protected hook and public 750e73298f149b7002e3a2ced469aa8a667296fc passed exact hosted verify 40291717184 SUCCESS."
+    },
+    {
+      "target": "UNIT_Atmosphere_TEST",
+      "case": "DOMAtmosphere.Construction",
+      "source": "src/Atmosphere_TEST.cc:25-33",
+      "rust_test": "tests/atmosphere_originals.rs::original_dom_atmosphere_construction",
+      "assertions": "COMPLETE fixed original observations: Type, Kelvin temperature, temperature gradient and pressure default/set/final values. Direct owned fields, Clone, clone_from, move and replacement preserve these predicates. Fixed EXPECT_DOUBLE_EQ literals are strengthened to exact bits. No public C++ operator/storage identity, runtime atmosphere sampling, Temperature class facade or ToElement claim.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Pinned native seven originals passed 7/0; native corpus retains 35 observations and six explicit accepted-input gaps. Private raw-source Rust 9/0 and value-loss controls verified, source hashes restored. Full author gate passed 325 Rust tests, 16 tooling tests, formatting, Clippy and docs; coverage 4771/4795 lines, 7915/8157 regions, changed 42/42. Ordinary Cargo 2 correctness only.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_owner_v2 source/protected approval SHA256 590f296ac018294f0be11fbd95b96d64f871f8ada3d8cd44695d8f93cf2e1010 binds frozen source 33e90b2044da8a30b574ea2dbb8e4dfd97afd22ed52af0959aaf7daa3799afaf on public parent e262de326d4d02409321a8589c81d83981db9173 with passing exact hosted run 40302323810. Final metadata binding, normal hook and exact new hosted qualification remain pending."
+    },
+    {
+      "target": "UNIT_Atmosphere_TEST",
+      "case": "DOMAtmosphere.Set",
+      "source": "src/Atmosphere_TEST.cc:35-50",
+      "rust_test": "tests/atmosphere_originals.rs::original_dom_atmosphere_set",
+      "assertions": "COMPLETE fixed original observations: Type, Kelvin temperature, temperature gradient and pressure default/set/final values. Direct owned fields, Clone, clone_from, move and replacement preserve these predicates. Fixed EXPECT_DOUBLE_EQ literals are strengthened to exact bits. No public C++ operator/storage identity, runtime atmosphere sampling, Temperature class facade or ToElement claim.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Pinned native seven originals passed 7/0; native corpus retains 35 observations and six explicit accepted-input gaps. Private raw-source Rust 9/0 and value-loss controls verified, source hashes restored. Full author gate passed 325 Rust tests, 16 tooling tests, formatting, Clippy and docs; coverage 4771/4795 lines, 7915/8157 regions, changed 42/42. Ordinary Cargo 2 correctness only.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_owner_v2 source/protected approval SHA256 590f296ac018294f0be11fbd95b96d64f871f8ada3d8cd44695d8f93cf2e1010 binds frozen source 33e90b2044da8a30b574ea2dbb8e4dfd97afd22ed52af0959aaf7daa3799afaf on public parent e262de326d4d02409321a8589c81d83981db9173 with passing exact hosted run 40302323810. Final metadata binding, normal hook and exact new hosted qualification remain pending."
+    },
+    {
+      "target": "UNIT_Atmosphere_TEST",
+      "case": "DOMAtmosphere.MoveConstructor",
+      "source": "src/Atmosphere_TEST.cc:52-65",
+      "rust_test": "tests/atmosphere_originals.rs::original_dom_atmosphere_move_constructor",
+      "assertions": "COMPLETE fixed original observations: Type, Kelvin temperature, temperature gradient and pressure default/set/final values. Direct owned fields, Clone, clone_from, move and replacement preserve these predicates. Fixed EXPECT_DOUBLE_EQ literals are strengthened to exact bits. No public C++ operator/storage identity, runtime atmosphere sampling, Temperature class facade or ToElement claim.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Pinned native seven originals passed 7/0; native corpus retains 35 observations and six explicit accepted-input gaps. Private raw-source Rust 9/0 and value-loss controls verified, source hashes restored. Full author gate passed 325 Rust tests, 16 tooling tests, formatting, Clippy and docs; coverage 4771/4795 lines, 7915/8157 regions, changed 42/42. Ordinary Cargo 2 correctness only.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_owner_v2 source/protected approval SHA256 590f296ac018294f0be11fbd95b96d64f871f8ada3d8cd44695d8f93cf2e1010 binds frozen source 33e90b2044da8a30b574ea2dbb8e4dfd97afd22ed52af0959aaf7daa3799afaf on public parent e262de326d4d02409321a8589c81d83981db9173 with passing exact hosted run 40302323810. Final metadata binding, normal hook and exact new hosted qualification remain pending."
+    },
+    {
+      "target": "UNIT_Atmosphere_TEST",
+      "case": "DOMAtmosphere.CopyConstructor",
+      "source": "src/Atmosphere_TEST.cc:67-82",
+      "rust_test": "tests/atmosphere_originals.rs::original_dom_atmosphere_copy_constructor",
+      "assertions": "COMPLETE fixed original observations: Type, Kelvin temperature, temperature gradient and pressure default/set/final values. The original true equality observation uses native absolute <=1e-6 for all three numeric properties in a test-only helper. Direct owned fields, Clone, clone_from, move and replacement preserve these predicates. Fixed EXPECT_DOUBLE_EQ literals are strengthened to exact bits. No public C++ operator/storage identity, runtime atmosphere sampling, Temperature class facade or ToElement claim.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Pinned native seven originals passed 7/0; native corpus retains 35 observations and six explicit accepted-input gaps. Private raw-source Rust 9/0 and value-loss controls verified, source hashes restored. Full author gate passed 325 Rust tests, 16 tooling tests, formatting, Clippy and docs; coverage 4771/4795 lines, 7915/8157 regions, changed 42/42. Ordinary Cargo 2 correctness only.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_owner_v2 source/protected approval SHA256 590f296ac018294f0be11fbd95b96d64f871f8ada3d8cd44695d8f93cf2e1010 binds frozen source 33e90b2044da8a30b574ea2dbb8e4dfd97afd22ed52af0959aaf7daa3799afaf on public parent e262de326d4d02409321a8589c81d83981db9173 with passing exact hosted run 40302323810. Final metadata binding, normal hook and exact new hosted qualification remain pending."
+    },
+    {
+      "target": "UNIT_Atmosphere_TEST",
+      "case": "DOMAtmosphere.MoveAssignment",
+      "source": "src/Atmosphere_TEST.cc:84-98",
+      "rust_test": "tests/atmosphere_originals.rs::original_dom_atmosphere_move_assignment",
+      "assertions": "COMPLETE fixed original observations: Type, Kelvin temperature, temperature gradient and pressure default/set/final values. Direct owned fields, Clone, clone_from, move and replacement preserve these predicates. Fixed EXPECT_DOUBLE_EQ literals are strengthened to exact bits. No public C++ operator/storage identity, runtime atmosphere sampling, Temperature class facade or ToElement claim.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Pinned native seven originals passed 7/0; native corpus retains 35 observations and six explicit accepted-input gaps. Private raw-source Rust 9/0 and value-loss controls verified, source hashes restored. Full author gate passed 325 Rust tests, 16 tooling tests, formatting, Clippy and docs; coverage 4771/4795 lines, 7915/8157 regions, changed 42/42. Ordinary Cargo 2 correctness only.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_owner_v2 source/protected approval SHA256 590f296ac018294f0be11fbd95b96d64f871f8ada3d8cd44695d8f93cf2e1010 binds frozen source 33e90b2044da8a30b574ea2dbb8e4dfd97afd22ed52af0959aaf7daa3799afaf on public parent e262de326d4d02409321a8589c81d83981db9173 with passing exact hosted run 40302323810. Final metadata binding, normal hook and exact new hosted qualification remain pending."
+    },
+    {
+      "target": "UNIT_Atmosphere_TEST",
+      "case": "DOMAtmosphere.CopyAssignment",
+      "source": "src/Atmosphere_TEST.cc:100-116",
+      "rust_test": "tests/atmosphere_originals.rs::original_dom_atmosphere_copy_assignment",
+      "assertions": "COMPLETE fixed original observations: Type, Kelvin temperature, temperature gradient and pressure default/set/final values. The original true equality observation uses native absolute <=1e-6 for all three numeric properties in a test-only helper. Direct owned fields, Clone, clone_from, move and replacement preserve these predicates. Fixed EXPECT_DOUBLE_EQ literals are strengthened to exact bits. No public C++ operator/storage identity, runtime atmosphere sampling, Temperature class facade or ToElement claim.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Pinned native seven originals passed 7/0; native corpus retains 35 observations and six explicit accepted-input gaps. Private raw-source Rust 9/0 and value-loss controls verified, source hashes restored. Full author gate passed 325 Rust tests, 16 tooling tests, formatting, Clippy and docs; coverage 4771/4795 lines, 7915/8157 regions, changed 42/42. Ordinary Cargo 2 correctness only.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_owner_v2 source/protected approval SHA256 590f296ac018294f0be11fbd95b96d64f871f8ada3d8cd44695d8f93cf2e1010 binds frozen source 33e90b2044da8a30b574ea2dbb8e4dfd97afd22ed52af0959aaf7daa3799afaf on public parent e262de326d4d02409321a8589c81d83981db9173 with passing exact hosted run 40302323810. Final metadata binding, normal hook and exact new hosted qualification remain pending."
+    },
+    {
+      "target": "UNIT_Atmosphere_TEST",
+      "case": "DOMAtmosphere.CopyAssignmentAfterMove",
+      "source": "src/Atmosphere_TEST.cc:118-135",
+      "rust_test": "tests/atmosphere_originals.rs::original_dom_atmosphere_copy_assignment_after_move",
+      "assertions": "COMPLETE fixed original observations: The two final Kelvin values 200 and 100 after the swap-like move/copy sequence. Direct owned fields, Clone, clone_from, move and replacement preserve these predicates. Fixed EXPECT_DOUBLE_EQ literals are strengthened to exact bits. No public C++ operator/storage identity, runtime atmosphere sampling, Temperature class facade or ToElement claim.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Pinned native seven originals passed 7/0; native corpus retains 35 observations and six explicit accepted-input gaps. Private raw-source Rust 9/0 and value-loss controls verified, source hashes restored. Full author gate passed 325 Rust tests, 16 tooling tests, formatting, Clippy and docs; coverage 4771/4795 lines, 7915/8157 regions, changed 42/42. Ordinary Cargo 2 correctness only.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_owner_v2 source/protected approval SHA256 590f296ac018294f0be11fbd95b96d64f871f8ada3d8cd44695d8f93cf2e1010 binds frozen source 33e90b2044da8a30b574ea2dbb8e4dfd97afd22ed52af0959aaf7daa3799afaf on public parent e262de326d4d02409321a8589c81d83981db9173 with passing exact hosted run 40302323810. Final metadata binding, normal hook and exact new hosted qualification remain pending."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",
@@ -1992,7 +2076,7 @@
       "upstream_fixtures": {},
       "baseline": "Pinned native originals 2/0 and private raw-source Rust 5/0. Independently regenerated emitted XML SHA256 16604d90de90c39fbb9f4937a48536e7adfa5646d44998fd33aec85d489592f7 loads with the same six values plus supplemental update-rate in the byte-identical pinned native library. Contacts-loss and subnormal-guard removal controls fail as expected. Full author gate passed 316 Rust tests and 16 tooling tests, formatting, Clippy and docs; coverage 4725/4750 lines, 7853/8094 regions, changed 44/44. Cargo 2 correctness only; no timing claim.",
       "status": "partial_reviewed",
-      "review": "Independent /root/transport_owner_v2 PARTIAL source/protected approval SHA256 a52dce244f240d147b79a6c70c495c8b394c77b05b9a50c0a2d590918224efa9 binds source freeze 9886f7288569df6c814485db6955ba79730f9a46ced0b78f29263d47d12356d7 on exact hosted-green public parent 4a25e2a449b6b6dcea5da80b42af6dc839d405b0. Final metadata binding, normal protected hook and exact hosted qualification remain pending."
+      "review": "Independent /root/transport_owner_v2 PARTIAL source/protected approval SHA256 a52dce244f240d147b79a6c70c495c8b394c77b05b9a50c0a2d590918224efa9 binds source freeze 9886f7288569df6c814485db6955ba79730f9a46ced0b78f29263d47d12356d7 on exact hosted-green public parent 4a25e2a449b6b6dcea5da80b42af6dc839d405b0. Final metadata binding receipt SHA256 2f10de8faa493fb4549a5bd58f57a9371030404be0b31e2325e832f3cbe59f28, normal protected hook and public e262de326d4d02409321a8589c81d83981db9173 passed exact hosted verify 40302323810 SUCCESS."
     },
     {
       "target": "UNIT_Physics_TEST",
@@ -2004,7 +2088,7 @@
       "upstream_fixtures": {},
       "baseline": "Pinned native originals 2/0 and private raw-source Rust 5/0. Independently regenerated emitted XML SHA256 16604d90de90c39fbb9f4937a48536e7adfa5646d44998fd33aec85d489592f7 loads with the same six values plus supplemental update-rate in the byte-identical pinned native library. Contacts-loss and subnormal-guard removal controls fail as expected. Full author gate passed 316 Rust tests and 16 tooling tests, formatting, Clippy and docs; coverage 4725/4750 lines, 7853/8094 regions, changed 44/44. Cargo 2 correctness only; no timing claim.",
       "status": "partial_reviewed",
-      "review": "Independent /root/transport_owner_v2 PARTIAL source/protected approval SHA256 a52dce244f240d147b79a6c70c495c8b394c77b05b9a50c0a2d590918224efa9 binds source freeze 9886f7288569df6c814485db6955ba79730f9a46ced0b78f29263d47d12356d7 on exact hosted-green public parent 4a25e2a449b6b6dcea5da80b42af6dc839d405b0. Final metadata binding, normal protected hook and exact hosted qualification remain pending."
+      "review": "Independent /root/transport_owner_v2 PARTIAL source/protected approval SHA256 a52dce244f240d147b79a6c70c495c8b394c77b05b9a50c0a2d590918224efa9 binds source freeze 9886f7288569df6c814485db6955ba79730f9a46ced0b78f29263d47d12356d7 on exact hosted-green public parent 4a25e2a449b6b6dcea5da80b42af6dc839d405b0. Final metadata binding receipt SHA256 2f10de8faa493fb4549a5bd58f57a9371030404be0b31e2325e832f3cbe59f28, normal protected hook and public e262de326d4d02409321a8589c81d83981db9173 passed exact hosted verify 40302323810 SUCCESS."
     }
   ]
 }

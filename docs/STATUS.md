@@ -2253,7 +2253,26 @@ receipt SHA256 `c8e4148567d80b0e189db5ffb410cc204fb436883868cb5c3cd1c24c833c9998
 Private raw-parent selected Rust5/0 and pinned native originals5/0 passed.
 Isolated author checks passed 270 Rust, sixteen tools, formatting, Clippy
 and docs; production coverage remains 4205/4226 lines and 7235/7455
-regions. There is no changed executable production line. Final metadata
-binding, protected hook and hosted qualification are pending. Native C++
+regions. There is no changed executable production line. Final metadata binding receipt SHA256 `307b8d09690f76a76c173665879d1a4ab3fba73a534a3fd3634302fab9cd74d6`, normal protected hook and public `1e743e41bfb53eaf39ba61fd29c095841a47c9ce` passed exact hosted verify `40262118782` SUCCESS. Native C++
 operator identity, moved-from state, mutable Element pointers, serialization
 and broad joint graph semantics remain unported.
+
+
+## Native DOMJoint mutable sensor name originals candidate
+
+Pinned `DOMJoint.MutableByIndex` and `MutableByName` pass natively 2/0.
+A unique parsed IMU sensor added to owned `Joint.sensors` maps native
+`AddSensor` success; mutable index and name borrows retain `sensor1`, and
+rename then relookup returns `sensor2`. The extra Rust empty and length
+assertions are supplemental; the native originals do not assert SensorCount.
+
+Exact test-only source freeze SHA256 `b6d8067123da6cf8bd8168bb16fe7e92715f1c77a9b0525fa8e1189df5242928`
+on public parent `1e743e4` passed independent source/API/assertion review,
+receipt SHA256 `6a9ea39d079a7ca1ee00bcd5cdd34c751be10987766f4c8604a8b27786e0a0f9`.
+Private raw-parent Rust2/0 and pinned native2/0 passed. Isolated author
+checks passed 272 Rust, sixteen tools, formatting, Clippy and docs;
+production coverage remains 4205/4226 lines and 7235/7455 regions.
+There is no executable production delta. Final metadata binding, normal
+protected hook and hosted qualification are pending. Native C++ pointer and
+method identity, default Sensor construction, generic duplicate insertion
+policy and broader sensor grammar remain unported.

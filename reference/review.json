@@ -5,32 +5,32 @@
     "docs/STATUS.md",
     "reference/results.json",
     "reference/traceability.json",
-    "tests/joint_ownership_original.rs"
+    "tests/joint_mutable_sensor_original.rs"
   ],
   "decision": "approved",
   "files_sha256": {
-    "docs/CONTRACT.md": "49c1bc5ccc082f0b33402715c5065e62f1cbc27469bdb22b6c93f35b4f798601",
-    "docs/STATUS.md": "099c30ad8fac34ec904df96f1707204a8c64dafef89f26442d57757d6444d773",
-    "reference/results.json": "1cb1c1b8b547ae68fb32481a107b6d57340fe29a267ec25e4399c21a0cc1e71e",
-    "reference/traceability.json": "9c72b03e1e00d511868f3fc2e23ea54c270994b2f36a5f484b8136ef7322ef5e",
-    "tests/joint_ownership_original.rs": "85d3e13d6d7ed6bd9e0bc17de0a0fc94492fd857c69963c33db35a8d1ff1f46f"
+    "docs/CONTRACT.md": "8c49fec0db9b3b82b009768a3117468e695ae04ea3a2b418a21983d6c83a4c3b",
+    "docs/STATUS.md": "f84aa52aae94a6942b7456752cbc7d733d4ebf7bad042d9aa61bb8570187f48e",
+    "reference/results.json": "bc7c574f35548da8cf4a05f2859e40ff57a28001c45b0ed6b9ec139a5ebfcb0b",
+    "reference/traceability.json": "487bacd285f8bcc14ccc69c19a96d082e1a27443862d6e7a493392ab86e029f1",
+    "tests/joint_mutable_sensor_original.rs": "c5c0891577f7b2f6340440ff1cfacd4c4abec632e70e2f3d8e798c77e3c9fff2"
   },
-  "final_freeze": "artifacts/joint-ownership-integration/frozen-final.json",
-  "final_freeze_sha256": "9ddc7cad794b0782403218df82ade9cbcceba562636a607f88ecd14ce7585975",
-  "limits": "Receipt may be added as separate publication-envelope file only if all five candidate hashes remain unchanged. C++ operator identity, moved-from state, Element pointers, serialization and broad joint graph behavior remain unported. Normal protected hook and hosted CI are separate gates.",
-  "parent": "b8348d8a49229ebf7b21fa7e4fed5fbbf0e2eca6",
-  "pre_receipt_tree": "d7f475bdc0b6ba75ddf8596ad1c03d1e7463b0e4",
-  "protected_digest": "845d1103f976aa8502d2744e7c55a5eafa66da29cb86f6070afbeab601a15344",
+  "final_freeze": "artifacts/joint-mutable-integration/frozen-final.json",
+  "final_freeze_sha256": "25b0a1409391e617ddf5d964bd808ec6241cb258169947604f499e8104e78cdd",
+  "limits": "Receipt may be added as separate publication-envelope file only if all five candidate hashes remain unchanged. C++ pointer/method identity, native default Sensor construction, generic duplicate insertion policy and broader grammar remain unported. Normal protected hook and hosted CI are separate gates.",
+  "parent": "1e743e41bfb53eaf39ba61fd29c095841a47c9ce",
+  "pre_receipt_tree": "d39001f7ceb8046e5cd54d54033419f935ef6b8f",
+  "protected_digest": "597e9e7c976a14833aa017c715ee900fe6f2eb2a820d664c8e5e5a394ec3c027",
   "reviewer": "/root/transport_fallback",
-  "source_digest": "61db41c27fcc8074b0f3e0e171caf8c219f2de5cd5f7221b8ce03e5fbac12f2f",
-  "source_freeze_sha256": "108b4a2958c1ee4ff4eb19276659e25843538d5da516ab5c6f43657b9811f630",
-  "source_review_sha256": "c8e4148567d80b0e189db5ffb410cc204fb436883868cb5c3cd1c24c833c9998",
-  "staged_diff_sha256": "c5d978736a76be6905bb56f37db1de579371beb44b1fde190d520de5419a6b90",
+  "source_digest": "64c291f4063754cc763dcb50cce8f97450662ca65249542a4b70f4d71edec4d5",
+  "source_freeze_sha256": "b6d8067123da6cf8bd8168bb16fe7e92715f1c77a9b0525fa8e1189df5242928",
+  "source_review_sha256": "6a9ea39d079a7ca1ee00bcd5cdd34c751be10987766f4c8604a8b27786e0a0f9",
+  "staged_diff_sha256": "926c5b65fbe3ba10c80a2bb4f8eef46372da091aa556f08742cc20684acfe571",
   "verification": {
-    "author_gate": "270 Rust, 16 tools, fmt/Clippy/docs; production4205/4226 lines and7235/7455 regions, no changed executable production lines; exact log SHA256 ecca65530fc92e30a90ab030eb1fcabbee23d04db9f72955e1516bc1077e04bd",
+    "author_gate": "272 Rust, 16 tools, fmt/Clippy/docs; production4205/4226 lines and7235/7455 regions, no changed executable production lines; exact log SHA256 61d3b8d3e91e3416b09d3f32ef89885ecfa1a1682b441c773aa018c6d1fad825",
     "index": "Exact five candidate hashes and 100644 modes match staged bytes; no unstaged diff; pre-receipt tree and binary diff match freeze.",
-    "metadata": "Scoped CONTRACT, STATUS, results and traceability add five complete final-value originals and correct prior Complete hosted state; native operator/moved-from/Element limits stay explicit.",
-    "parent_overlap": "HEAD equals hosted-green public parent; 286 tracked parent blobs, four edited and one new candidate file; 282 other parent blobs preserved.",
-    "source": "Reviewed one-test SHA85d3e13d and copied source receipt SHAc8e41485 remain unchanged."
+    "metadata": "CONTRACT, STATUS, results and traceability add only two complete fixed-value originals, distinguish Rust-only empty/count checks, and correct prior five ownership public/hosted status.",
+    "parent_overlap": "HEAD equals hosted-green public parent; 287 tracked parent blobs, four edited and one new candidate file; 283 other parent blobs preserved.",
+    "source": "Reviewed one-test SHAc5c08915 and copied source receipt SHA6a9ea39d remain unchanged."
   }
 }

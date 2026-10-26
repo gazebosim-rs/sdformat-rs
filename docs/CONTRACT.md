@@ -647,3 +647,14 @@ child link, named explicitly when calling the owned Rust resolver. Invalid
 `expressed_in` names return the native first typed code 38 and exact message;
 the native second code 26 and complete error vector remain unported. This does
 not imply general graph editing or native method identity.
+
+
+## Joint sensor owned mutation
+
+For an owned `Joint`, a caller can mutably borrow a `Sensor` from the ordered
+`sensors` vector by index or by a name search, rename it, then find its new
+name. The two pinned DOMJoint mutable originals establish those fixed value
+observations after one unique insertion. The Rust empty/count checks are
+supplemental. Native default Sensor construction, pointer identity, native
+method identity, duplicate insertion policy and broader sensor grammar are
+separate acceptance work.

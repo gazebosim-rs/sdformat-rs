@@ -1325,7 +1325,7 @@
       "upstream_fixtures": {},
       "baseline": "Fresh pinned UNIT_Joint_TEST five filters native5/0; exact source/binary hashes and one Rust test SHA85d3e13d bound by freeze 108b4a2958c1ee4ff4eb19276659e25843538d5da516ab5c6f43657b9811f630; private raw-parent selected Rust5/0, isolated full270 Rust/16 tools.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_fallback APPROVED source/API/assertion receipt SHA256 c8e4148567d80b0e189db5ffb410cc204fb436883868cb5c3cd1c24c833c9998; Git-free native5/0 and Rust5/0, exact values and 2018 imported notice checked. Final metadata binding, normal hook and hosted qualification pending."
+      "review": "Independent /root/transport_fallback APPROVED source/API/assertion receipt SHA256 c8e4148567d80b0e189db5ffb410cc204fb436883868cb5c3cd1c24c833c9998; Git-free native5/0 and Rust5/0, exact values and 2018 imported notice checked. Final metadata binding receipt SHA256 307b8d09690f76a76c173665879d1a4ab3fba73a534a3fd3634302fab9cd74d6, normal protected hook and public 1e743e41bfb53eaf39ba61fd29c095841a47c9ce passed exact hosted verify 40262118782 SUCCESS."
     },
     {
       "target": "UNIT_Joint_TEST",
@@ -1337,7 +1337,7 @@
       "upstream_fixtures": {},
       "baseline": "Fresh pinned UNIT_Joint_TEST five filters native5/0; exact source/binary hashes and one Rust test SHA85d3e13d bound by freeze 108b4a2958c1ee4ff4eb19276659e25843538d5da516ab5c6f43657b9811f630; private raw-parent selected Rust5/0, isolated full270 Rust/16 tools.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_fallback APPROVED source/API/assertion receipt SHA256 c8e4148567d80b0e189db5ffb410cc204fb436883868cb5c3cd1c24c833c9998; Git-free native5/0 and Rust5/0, exact values and 2018 imported notice checked. Final metadata binding, normal hook and hosted qualification pending."
+      "review": "Independent /root/transport_fallback APPROVED source/API/assertion receipt SHA256 c8e4148567d80b0e189db5ffb410cc204fb436883868cb5c3cd1c24c833c9998; Git-free native5/0 and Rust5/0, exact values and 2018 imported notice checked. Final metadata binding receipt SHA256 307b8d09690f76a76c173665879d1a4ab3fba73a534a3fd3634302fab9cd74d6, normal protected hook and public 1e743e41bfb53eaf39ba61fd29c095841a47c9ce passed exact hosted verify 40262118782 SUCCESS."
     },
     {
       "target": "UNIT_Joint_TEST",
@@ -1349,7 +1349,7 @@
       "upstream_fixtures": {},
       "baseline": "Fresh pinned UNIT_Joint_TEST five filters native5/0; exact source/binary hashes and one Rust test SHA85d3e13d bound by freeze 108b4a2958c1ee4ff4eb19276659e25843538d5da516ab5c6f43657b9811f630; private raw-parent selected Rust5/0, isolated full270 Rust/16 tools.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_fallback APPROVED source/API/assertion receipt SHA256 c8e4148567d80b0e189db5ffb410cc204fb436883868cb5c3cd1c24c833c9998; Git-free native5/0 and Rust5/0, exact values and 2018 imported notice checked. Final metadata binding, normal hook and hosted qualification pending."
+      "review": "Independent /root/transport_fallback APPROVED source/API/assertion receipt SHA256 c8e4148567d80b0e189db5ffb410cc204fb436883868cb5c3cd1c24c833c9998; Git-free native5/0 and Rust5/0, exact values and 2018 imported notice checked. Final metadata binding receipt SHA256 307b8d09690f76a76c173665879d1a4ab3fba73a534a3fd3634302fab9cd74d6, normal protected hook and public 1e743e41bfb53eaf39ba61fd29c095841a47c9ce passed exact hosted verify 40262118782 SUCCESS."
     },
     {
       "target": "UNIT_Joint_TEST",
@@ -1361,7 +1361,7 @@
       "upstream_fixtures": {},
       "baseline": "Fresh pinned UNIT_Joint_TEST five filters native5/0; exact source/binary hashes and one Rust test SHA85d3e13d bound by freeze 108b4a2958c1ee4ff4eb19276659e25843538d5da516ab5c6f43657b9811f630; private raw-parent selected Rust5/0, isolated full270 Rust/16 tools.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_fallback APPROVED source/API/assertion receipt SHA256 c8e4148567d80b0e189db5ffb410cc204fb436883868cb5c3cd1c24c833c9998; Git-free native5/0 and Rust5/0, exact values and 2018 imported notice checked. Final metadata binding, normal hook and hosted qualification pending."
+      "review": "Independent /root/transport_fallback APPROVED source/API/assertion receipt SHA256 c8e4148567d80b0e189db5ffb410cc204fb436883868cb5c3cd1c24c833c9998; Git-free native5/0 and Rust5/0, exact values and 2018 imported notice checked. Final metadata binding receipt SHA256 307b8d09690f76a76c173665879d1a4ab3fba73a534a3fd3634302fab9cd74d6, normal protected hook and public 1e743e41bfb53eaf39ba61fd29c095841a47c9ce passed exact hosted verify 40262118782 SUCCESS."
     },
     {
       "target": "UNIT_Joint_TEST",
@@ -1373,7 +1373,31 @@
       "upstream_fixtures": {},
       "baseline": "Fresh pinned UNIT_Joint_TEST five filters native5/0; exact source/binary hashes and one Rust test SHA85d3e13d bound by freeze 108b4a2958c1ee4ff4eb19276659e25843538d5da516ab5c6f43657b9811f630; private raw-parent selected Rust5/0, isolated full270 Rust/16 tools.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_fallback APPROVED source/API/assertion receipt SHA256 c8e4148567d80b0e189db5ffb410cc204fb436883868cb5c3cd1c24c833c9998; Git-free native5/0 and Rust5/0, exact values and 2018 imported notice checked. Final metadata binding, normal hook and hosted qualification pending."
+      "review": "Independent /root/transport_fallback APPROVED source/API/assertion receipt SHA256 c8e4148567d80b0e189db5ffb410cc204fb436883868cb5c3cd1c24c833c9998; Git-free native5/0 and Rust5/0, exact values and 2018 imported notice checked. Final metadata binding receipt SHA256 307b8d09690f76a76c173665879d1a4ab3fba73a534a3fd3634302fab9cd74d6, normal protected hook and public 1e743e41bfb53eaf39ba61fd29c095841a47c9ce passed exact hosted verify 40262118782 SUCCESS."
+    },
+    {
+      "target": "UNIT_Joint_TEST",
+      "case": "DOMJoint.MutableByIndex",
+      "source": "src/Joint_TEST.cc:330-345",
+      "rust_test": "tests/joint_mutable_sensor_original.rs::original_dom_joint_mutable_by_index",
+      "assertions": "Unique AddSensor success, mutable index 0 borrow, sensor1 read, rename and index 0 relookup of sensor2 map exactly through owned Joint.sensors Vec. Rust empty/count checks supplemental; native original does not assert SensorCount. C++ pointer/method identity, default Sensor construction, duplicate insertion and wider grammar unclaimed.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Pinned native originals2/0 and private raw-parent Rust2/0, exact source/binary/inline XML and reviewed test SHAc5c08915 bound by source freeze b6d80671; isolated full272 Rust/16 tools, production4205/4226 lines7235/7455 regions.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback source/API/assertion APPROVED receipt SHA256 6a9ea39d079a7ca1ee00bcd5cdd34c751be10987766f4c8604a8b27786e0a0f9; exact test and native assertions checked. Final metadata binding, normal hook and hosted qualification pending."
+    },
+    {
+      "target": "UNIT_Joint_TEST",
+      "case": "DOMJoint.MutableByName",
+      "source": "src/Joint_TEST.cc:347-363",
+      "rust_test": "tests/joint_mutable_sensor_original.rs::original_dom_joint_mutable_by_name",
+      "assertions": "Unique AddSensor success, mutable name search for sensor1, sensor1 read, rename and name relookup of sensor2 map exactly through owned Joint.sensors Vec. Rust empty/count checks supplemental; native original does not assert SensorCount. C++ pointer/method identity, default Sensor construction, duplicate insertion and wider grammar unclaimed.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Pinned native originals2/0 and private raw-parent Rust2/0, exact source/binary/inline XML and reviewed test SHAc5c08915 bound by source freeze b6d80671; isolated full272 Rust/16 tools, production4205/4226 lines7235/7455 regions.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback source/API/assertion APPROVED receipt SHA256 6a9ea39d079a7ca1ee00bcd5cdd34c751be10987766f4c8604a8b27786e0a0f9; exact test and native assertions checked. Final metadata binding, normal hook and hosted qualification pending."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

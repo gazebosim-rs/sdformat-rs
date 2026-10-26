@@ -2316,7 +2316,27 @@ author checks passed 276 Rust, sixteen tools, formatting, Clippy and docs;
 production coverage is 4252/4273 lines and 7291/7511 regions with all
 17 changed executable lines covered. The first strict gate caught two
 untested duplicate branches at 15/17; additive controls corrected that
-without altering original assertions. Final metadata binding, normal
-protected hook and hosted qualification remain pending. Native C++ pointer
+without altering original assertions. Final metadata binding receipt SHA256
+`e22ec4deb692d5ca42efa52931c05fff670ad4a890c7e2f86d9a4767f67395a7`, normal
+protected hook and public `99a24791be4e4d275629c950f377411a2e1b54f7`
+passed exact hosted verify `40266028541` SUCCESS. Native C++ pointer
 and method identity, general scoped/cross-kind name mutation, Element and
 prebuilt frame graph updates remain unported.
+
+
+## Native DOMModel frame insertion and rename original candidate
+
+Pinned `DOMModel.AddModifyFrame` passes natively 1/0. Owned frame insertion
+retains initial count, duplicate rejection, clear, reinsert, index presence
+and name, then mutable rename and old/new name relookup. A valid parsed
+model and frame substitute native default objects. Exact two-file source
+freeze SHA256 `44597f6e4555b537fc9bef5f6a284c31a7f833fa79b5f8ae384a064ae4a0c587`
+on hosted-green parent `99a2479` passed independent source/API/assertion
+review receipt SHA256 `21125852b55d4ae1909e3b7705e2ae4fe82703e0bddf05c3a63b8344b475bcf2`.
+Private raw-parent native1/0 and Rust1/0 passed. Isolated author checks
+passed 277 Rust, sixteen tools, formatting, Clippy and docs; production
+coverage is 4255/4276 lines and 7295/7515 regions with all three changed
+executable lines covered. Final metadata binding, normal protected hook
+and hosted qualification are pending. Native C++ pointer or method identity,
+default construction, Element, graph mutation and general name policy
+remain unported.

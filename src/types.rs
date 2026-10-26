@@ -323,6 +323,9 @@ impl Model {
         self.frames.push(frame);
         true
     }
+    pub fn clear_frames(&mut self) {
+        self.frames.clear();
+    }
     /// Borrow a nested model by an explicitly scoped relative name.
     /// A descendant's unqualified name does not search through other models.
     pub fn model_by_name(&self, name: &str) -> Option<&Model> {

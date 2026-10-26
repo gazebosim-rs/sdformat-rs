@@ -682,3 +682,10 @@ lookup before and after rename; `link_by_name`, `joint_by_name`,
 already built semantic frame graph is unchanged by these edits. Native
 mutable pointer or method identity, generic scoped/cross-kind uniqueness
 and Element serialization are separate acceptance work.
+
+`Model::clear_frames` removes owned frame members. Together with
+`add_frame_unique`, mutable `frames` borrowing and `frame_by_name`, it
+preserves the fixed add, duplicate, clear, reinsert and rename/relookup
+observations in `DOMModel.AddModifyFrame`. Edits do not update an already
+built semantic frame graph. C++ pointer or method identity and arbitrary
+scoped name policy remain separate acceptance work.

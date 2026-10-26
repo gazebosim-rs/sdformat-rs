@@ -1685,7 +1685,7 @@
       "upstream_fixtures": {},
       "baseline": "Pinned native seven originals passed 7/0; native corpus retains 35 observations and six explicit accepted-input gaps. Private raw-source Rust 9/0 and value-loss controls verified, source hashes restored. Full author gate passed 325 Rust tests, 16 tooling tests, formatting, Clippy and docs; coverage 4771/4795 lines, 7915/8157 regions, changed 42/42. Ordinary Cargo 2 correctness only.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_owner_v2 source/protected approval SHA256 590f296ac018294f0be11fbd95b96d64f871f8ada3d8cd44695d8f93cf2e1010 binds frozen source 33e90b2044da8a30b574ea2dbb8e4dfd97afd22ed52af0959aaf7daa3799afaf on public parent e262de326d4d02409321a8589c81d83981db9173 with passing exact hosted run 40302323810. Final metadata binding, normal hook and exact new hosted qualification remain pending."
+      "review": "Independent /root/transport_owner_v2 source/protected approval SHA256 590f296ac018294f0be11fbd95b96d64f871f8ada3d8cd44695d8f93cf2e1010 binds frozen source 33e90b2044da8a30b574ea2dbb8e4dfd97afd22ed52af0959aaf7daa3799afaf on public parent e262de326d4d02409321a8589c81d83981db9173 with passing exact hosted run 40302323810. Final metadata binding receipt SHA256 9002a94cd0daebb56e60d05adc189c35809fcab3a8b19c6977c82e7fa20296e5, normal protected hook and public 7e37677a7a12149a991649c3cab12eb7e4286200 passed exact hosted verify 40316110451 SUCCESS."
     },
     {
       "target": "UNIT_Atmosphere_TEST",
@@ -1697,7 +1697,7 @@
       "upstream_fixtures": {},
       "baseline": "Pinned native seven originals passed 7/0; native corpus retains 35 observations and six explicit accepted-input gaps. Private raw-source Rust 9/0 and value-loss controls verified, source hashes restored. Full author gate passed 325 Rust tests, 16 tooling tests, formatting, Clippy and docs; coverage 4771/4795 lines, 7915/8157 regions, changed 42/42. Ordinary Cargo 2 correctness only.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_owner_v2 source/protected approval SHA256 590f296ac018294f0be11fbd95b96d64f871f8ada3d8cd44695d8f93cf2e1010 binds frozen source 33e90b2044da8a30b574ea2dbb8e4dfd97afd22ed52af0959aaf7daa3799afaf on public parent e262de326d4d02409321a8589c81d83981db9173 with passing exact hosted run 40302323810. Final metadata binding, normal hook and exact new hosted qualification remain pending."
+      "review": "Independent /root/transport_owner_v2 source/protected approval SHA256 590f296ac018294f0be11fbd95b96d64f871f8ada3d8cd44695d8f93cf2e1010 binds frozen source 33e90b2044da8a30b574ea2dbb8e4dfd97afd22ed52af0959aaf7daa3799afaf on public parent e262de326d4d02409321a8589c81d83981db9173 with passing exact hosted run 40302323810. Final metadata binding receipt SHA256 9002a94cd0daebb56e60d05adc189c35809fcab3a8b19c6977c82e7fa20296e5, normal protected hook and public 7e37677a7a12149a991649c3cab12eb7e4286200 passed exact hosted verify 40316110451 SUCCESS."
     },
     {
       "target": "UNIT_Atmosphere_TEST",
@@ -1709,7 +1709,7 @@
       "upstream_fixtures": {},
       "baseline": "Pinned native seven originals passed 7/0; native corpus retains 35 observations and six explicit accepted-input gaps. Private raw-source Rust 9/0 and value-loss controls verified, source hashes restored. Full author gate passed 325 Rust tests, 16 tooling tests, formatting, Clippy and docs; coverage 4771/4795 lines, 7915/8157 regions, changed 42/42. Ordinary Cargo 2 correctness only.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_owner_v2 source/protected approval SHA256 590f296ac018294f0be11fbd95b96d64f871f8ada3d8cd44695d8f93cf2e1010 binds frozen source 33e90b2044da8a30b574ea2dbb8e4dfd97afd22ed52af0959aaf7daa3799afaf on public parent e262de326d4d02409321a8589c81d83981db9173 with passing exact hosted run 40302323810. Final metadata binding, normal hook and exact new hosted qualification remain pending."
+      "review": "Independent /root/transport_owner_v2 source/protected approval SHA256 590f296ac018294f0be11fbd95b96d64f871f8ada3d8cd44695d8f93cf2e1010 binds frozen source 33e90b2044da8a30b574ea2dbb8e4dfd97afd22ed52af0959aaf7daa3799afaf on public parent e262de326d4d02409321a8589c81d83981db9173 with passing exact hosted run 40302323810. Final metadata binding receipt SHA256 9002a94cd0daebb56e60d05adc189c35809fcab3a8b19c6977c82e7fa20296e5, normal protected hook and public 7e37677a7a12149a991649c3cab12eb7e4286200 passed exact hosted verify 40316110451 SUCCESS."
     },
     {
       "target": "UNIT_Atmosphere_TEST",
@@ -1721,7 +1721,7 @@
       "upstream_fixtures": {},
       "baseline": "Pinned native seven originals passed 7/0; native corpus retains 35 observations and six explicit accepted-input gaps. Private raw-source Rust 9/0 and value-loss controls verified, source hashes restored. Full author gate passed 325 Rust tests, 16 tooling tests, formatting, Clippy and docs; coverage 4771/4795 lines, 7915/8157 regions, changed 42/42. Ordinary Cargo 2 correctness only.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_owner_v2 source/protected approval SHA256 590f296ac018294f0be11fbd95b96d64f871f8ada3d8cd44695d8f93cf2e1010 binds frozen source 33e90b2044da8a30b574ea2dbb8e4dfd97afd22ed52af0959aaf7daa3799afaf on public parent e262de326d4d02409321a8589c81d83981db9173 with passing exact hosted run 40302323810. Final metadata binding, normal hook and exact new hosted qualification remain pending."
+      "review": "Independent /root/transport_owner_v2 source/protected approval SHA256 590f296ac018294f0be11fbd95b96d64f871f8ada3d8cd44695d8f93cf2e1010 binds frozen source 33e90b2044da8a30b574ea2dbb8e4dfd97afd22ed52af0959aaf7daa3799afaf on public parent e262de326d4d02409321a8589c81d83981db9173 with passing exact hosted run 40302323810. Final metadata binding receipt SHA256 9002a94cd0daebb56e60d05adc189c35809fcab3a8b19c6977c82e7fa20296e5, normal protected hook and public 7e37677a7a12149a991649c3cab12eb7e4286200 passed exact hosted verify 40316110451 SUCCESS."
     },
     {
       "target": "UNIT_Atmosphere_TEST",
@@ -1733,7 +1733,7 @@
       "upstream_fixtures": {},
       "baseline": "Pinned native seven originals passed 7/0; native corpus retains 35 observations and six explicit accepted-input gaps. Private raw-source Rust 9/0 and value-loss controls verified, source hashes restored. Full author gate passed 325 Rust tests, 16 tooling tests, formatting, Clippy and docs; coverage 4771/4795 lines, 7915/8157 regions, changed 42/42. Ordinary Cargo 2 correctness only.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_owner_v2 source/protected approval SHA256 590f296ac018294f0be11fbd95b96d64f871f8ada3d8cd44695d8f93cf2e1010 binds frozen source 33e90b2044da8a30b574ea2dbb8e4dfd97afd22ed52af0959aaf7daa3799afaf on public parent e262de326d4d02409321a8589c81d83981db9173 with passing exact hosted run 40302323810. Final metadata binding, normal hook and exact new hosted qualification remain pending."
+      "review": "Independent /root/transport_owner_v2 source/protected approval SHA256 590f296ac018294f0be11fbd95b96d64f871f8ada3d8cd44695d8f93cf2e1010 binds frozen source 33e90b2044da8a30b574ea2dbb8e4dfd97afd22ed52af0959aaf7daa3799afaf on public parent e262de326d4d02409321a8589c81d83981db9173 with passing exact hosted run 40302323810. Final metadata binding receipt SHA256 9002a94cd0daebb56e60d05adc189c35809fcab3a8b19c6977c82e7fa20296e5, normal protected hook and public 7e37677a7a12149a991649c3cab12eb7e4286200 passed exact hosted verify 40316110451 SUCCESS."
     },
     {
       "target": "UNIT_Atmosphere_TEST",
@@ -1745,7 +1745,7 @@
       "upstream_fixtures": {},
       "baseline": "Pinned native seven originals passed 7/0; native corpus retains 35 observations and six explicit accepted-input gaps. Private raw-source Rust 9/0 and value-loss controls verified, source hashes restored. Full author gate passed 325 Rust tests, 16 tooling tests, formatting, Clippy and docs; coverage 4771/4795 lines, 7915/8157 regions, changed 42/42. Ordinary Cargo 2 correctness only.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_owner_v2 source/protected approval SHA256 590f296ac018294f0be11fbd95b96d64f871f8ada3d8cd44695d8f93cf2e1010 binds frozen source 33e90b2044da8a30b574ea2dbb8e4dfd97afd22ed52af0959aaf7daa3799afaf on public parent e262de326d4d02409321a8589c81d83981db9173 with passing exact hosted run 40302323810. Final metadata binding, normal hook and exact new hosted qualification remain pending."
+      "review": "Independent /root/transport_owner_v2 source/protected approval SHA256 590f296ac018294f0be11fbd95b96d64f871f8ada3d8cd44695d8f93cf2e1010 binds frozen source 33e90b2044da8a30b574ea2dbb8e4dfd97afd22ed52af0959aaf7daa3799afaf on public parent e262de326d4d02409321a8589c81d83981db9173 with passing exact hosted run 40302323810. Final metadata binding receipt SHA256 9002a94cd0daebb56e60d05adc189c35809fcab3a8b19c6977c82e7fa20296e5, normal protected hook and public 7e37677a7a12149a991649c3cab12eb7e4286200 passed exact hosted verify 40316110451 SUCCESS."
     },
     {
       "target": "UNIT_Atmosphere_TEST",
@@ -1757,7 +1757,67 @@
       "upstream_fixtures": {},
       "baseline": "Pinned native seven originals passed 7/0; native corpus retains 35 observations and six explicit accepted-input gaps. Private raw-source Rust 9/0 and value-loss controls verified, source hashes restored. Full author gate passed 325 Rust tests, 16 tooling tests, formatting, Clippy and docs; coverage 4771/4795 lines, 7915/8157 regions, changed 42/42. Ordinary Cargo 2 correctness only.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_owner_v2 source/protected approval SHA256 590f296ac018294f0be11fbd95b96d64f871f8ada3d8cd44695d8f93cf2e1010 binds frozen source 33e90b2044da8a30b574ea2dbb8e4dfd97afd22ed52af0959aaf7daa3799afaf on public parent e262de326d4d02409321a8589c81d83981db9173 with passing exact hosted run 40302323810. Final metadata binding, normal hook and exact new hosted qualification remain pending."
+      "review": "Independent /root/transport_owner_v2 source/protected approval SHA256 590f296ac018294f0be11fbd95b96d64f871f8ada3d8cd44695d8f93cf2e1010 binds frozen source 33e90b2044da8a30b574ea2dbb8e4dfd97afd22ed52af0959aaf7daa3799afaf on public parent e262de326d4d02409321a8589c81d83981db9173 with passing exact hosted run 40302323810. Final metadata binding receipt SHA256 9002a94cd0daebb56e60d05adc189c35809fcab3a8b19c6977c82e7fa20296e5, normal protected hook and public 7e37677a7a12149a991649c3cab12eb7e4286200 passed exact hosted verify 40316110451 SUCCESS."
+    },
+    {
+      "target": "UNIT_Polyline_TEST",
+      "case": "DOMPolyline.MoveConstructor",
+      "source": "src/Polyline_TEST.cc:34-41",
+      "rust_test": "tests/polyline_ownership_originals.rs::original_dom_polyline_move_constructor",
+      "assertions": "COMPLETE fixed original predicate: Final height 0.2 after ownership move. Native positive finite EXPECT_DOUBLE_EQ four-ULP bound retained; exact bits are a stricter supplement. No general C++ operator/storage identity, moved-from state, Element, points or serialization claim.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Exact pinned native five originals 5/0; fresh private raw-source Rust5/0 and production Clone height-loss control verified, reviewed source restored. Full author330 Rust/16 tooling/fmt/Clippy/docs; unchanged4771/4795 lines7915/8157 regions, no changed production lines. Ordinary Cargo2 correctness only.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_owner_v2 source/protected approval SHA256 ed526a1a8481559390773b2129debe18666d1f358ca47123989f31bd21faa7b6 binds exact one-file source freeze 5cdcd169116463ea4ede6f460fab34f9f10d17b3cebf0ab84ea08ac6e95681fc on hosted-green public parent 7e37677a7a12149a991649c3cab12eb7e4286200, run40316110451. Final metadata binding, mandatory normal hook and exact new hosted qualification remain pending."
+    },
+    {
+      "target": "UNIT_Polyline_TEST",
+      "case": "DOMPolyline.CopyConstructor",
+      "source": "src/Polyline_TEST.cc:44-51",
+      "rust_test": "tests/polyline_ownership_originals.rs::original_dom_polyline_copy_constructor",
+      "assertions": "COMPLETE fixed original predicate: Final height 0.2 after Clone. Native positive finite EXPECT_DOUBLE_EQ four-ULP bound retained; exact bits are a stricter supplement. No general C++ operator/storage identity, moved-from state, Element, points or serialization claim.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Exact pinned native five originals 5/0; fresh private raw-source Rust5/0 and production Clone height-loss control verified, reviewed source restored. Full author330 Rust/16 tooling/fmt/Clippy/docs; unchanged4771/4795 lines7915/8157 regions, no changed production lines. Ordinary Cargo2 correctness only.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_owner_v2 source/protected approval SHA256 ed526a1a8481559390773b2129debe18666d1f358ca47123989f31bd21faa7b6 binds exact one-file source freeze 5cdcd169116463ea4ede6f460fab34f9f10d17b3cebf0ab84ea08ac6e95681fc on hosted-green public parent 7e37677a7a12149a991649c3cab12eb7e4286200, run40316110451. Final metadata binding, mandatory normal hook and exact new hosted qualification remain pending."
+    },
+    {
+      "target": "UNIT_Polyline_TEST",
+      "case": "DOMPolyline.CopyAssignmentOperator",
+      "source": "src/Polyline_TEST.cc:54-62",
+      "rust_test": "tests/polyline_ownership_originals.rs::original_dom_polyline_copy_assignment_operator",
+      "assertions": "COMPLETE fixed original predicate: Final height 0.2 after clone_from replaces initial height 1.0. Native positive finite EXPECT_DOUBLE_EQ four-ULP bound retained; exact bits are a stricter supplement. No general C++ operator/storage identity, moved-from state, Element, points or serialization claim.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Exact pinned native five originals 5/0; fresh private raw-source Rust5/0 and production Clone height-loss control verified, reviewed source restored. Full author330 Rust/16 tooling/fmt/Clippy/docs; unchanged4771/4795 lines7915/8157 regions, no changed production lines. Ordinary Cargo2 correctness only.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_owner_v2 source/protected approval SHA256 ed526a1a8481559390773b2129debe18666d1f358ca47123989f31bd21faa7b6 binds exact one-file source freeze 5cdcd169116463ea4ede6f460fab34f9f10d17b3cebf0ab84ea08ac6e95681fc on hosted-green public parent 7e37677a7a12149a991649c3cab12eb7e4286200, run40316110451. Final metadata binding, mandatory normal hook and exact new hosted qualification remain pending."
+    },
+    {
+      "target": "UNIT_Polyline_TEST",
+      "case": "DOMPolyline.MoveAssignmentOperator",
+      "source": "src/Polyline_TEST.cc:65-73",
+      "rust_test": "tests/polyline_ownership_originals.rs::original_dom_polyline_move_assignment_operator",
+      "assertions": "COMPLETE fixed original predicate: Final height 0.2 after ownership replacement; previous-height check supplemental. Native positive finite EXPECT_DOUBLE_EQ four-ULP bound retained; exact bits are a stricter supplement. No general C++ operator/storage identity, moved-from state, Element, points or serialization claim.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Exact pinned native five originals 5/0; fresh private raw-source Rust5/0 and production Clone height-loss control verified, reviewed source restored. Full author330 Rust/16 tooling/fmt/Clippy/docs; unchanged4771/4795 lines7915/8157 regions, no changed production lines. Ordinary Cargo2 correctness only.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_owner_v2 source/protected approval SHA256 ed526a1a8481559390773b2129debe18666d1f358ca47123989f31bd21faa7b6 binds exact one-file source freeze 5cdcd169116463ea4ede6f460fab34f9f10d17b3cebf0ab84ea08ac6e95681fc on hosted-green public parent 7e37677a7a12149a991649c3cab12eb7e4286200, run40316110451. Final metadata binding, mandatory normal hook and exact new hosted qualification remain pending."
+    },
+    {
+      "target": "UNIT_Polyline_TEST",
+      "case": "DOMPolyline.CopyAssignmentAfterMove",
+      "source": "src/Polyline_TEST.cc:76-92",
+      "rust_test": "tests/polyline_ownership_originals.rs::original_dom_polyline_copy_assignment_after_move",
+      "assertions": "COMPLETE fixed original predicate: Final first height 0.2 and second height 0.1 after move then two clones. Native positive finite EXPECT_DOUBLE_EQ four-ULP bound retained; exact bits are a stricter supplement. No general C++ operator/storage identity, moved-from state, Element, points or serialization claim.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Exact pinned native five originals 5/0; fresh private raw-source Rust5/0 and production Clone height-loss control verified, reviewed source restored. Full author330 Rust/16 tooling/fmt/Clippy/docs; unchanged4771/4795 lines7915/8157 regions, no changed production lines. Ordinary Cargo2 correctness only.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_owner_v2 source/protected approval SHA256 ed526a1a8481559390773b2129debe18666d1f358ca47123989f31bd21faa7b6 binds exact one-file source freeze 5cdcd169116463ea4ede6f460fab34f9f10d17b3cebf0ab84ea08ac6e95681fc on hosted-green public parent 7e37677a7a12149a991649c3cab12eb7e4286200, run40316110451. Final metadata binding, mandatory normal hook and exact new hosted qualification remain pending."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

@@ -2572,7 +2572,7 @@ originals stay partial. No engine is configured; full grammar, native XML bytes
 and error-vector parity remain open. Final metadata binding receipt SHA256 2f10de8faa493fb4549a5bd58f57a9371030404be0b31e2325e832f3cbe59f28, normal protected hook and public e262de326d4d02409321a8589c81d83981db9173 passed exact hosted verify 40302323810 SUCCESS.
 
 
-## Owned atmosphere metadata candidate
+## Owned atmosphere metadata
 
 Seven pinned `DOMAtmosphere` construction, set, copy and move originals pass
 natively 7/0. Exact seven-file source freeze SHA256 `33e90b2044da8a30b574ea2dbb8e4dfd97afd22ed52af0959aaf7daa3799afaf`
@@ -2593,5 +2593,30 @@ the owned parser constructor. Seven fixed originals preserve their values, and
 the two equality observations retain native absolute <=1e-6 in a test helper.
 No public C++ equality or Temperature class facade is claimed. Atmospheric
 sampling and ToElement remain unported. Six native-accepted grammar/numeric gaps
-stay explicit; see docs/ATMOSPHERE.md. Final metadata binding, normal hook and
-exact new hosted qualification remain pending.
+stay explicit; see docs/ATMOSPHERE.md. Final metadata binding receipt SHA256 9002a94cd0daebb56e60d05adc189c35809fcab3a8b19c6977c82e7fa20296e5, normal protected hook and public 7e37677a7a12149a991649c3cab12eb7e4286200 passed exact hosted verify 40316110451 SUCCESS.
+
+
+## Fixed Polyline ownership observations
+
+Five pinned `DOMPolyline` copy/move originals passed natively 5/0. The one-file
+source freeze SHA256 `5cdcd169116463ea4ede6f460fab34f9f10d17b3cebf0ab84ea08ac6e95681fc`
+on hosted-green parent `7e37677a7a12149a991649c3cab12eb7e4286200` passed independent
+source/protected review SHA256
+`ed526a1a8481559390773b2129debe18666d1f358ca47123989f31bd21faa7b6`.
+Fresh raw-source Rust tests passed 5/0. A private production Clone height-loss
+mutation fails the unchanged native four-ULP assertion before the supplemental
+exact-bit check; all source bytes were restored and the five tests passed again.
+Full author verification passed 330 Rust tests, sixteen tooling tests, formatting,
+Clippy and docs. Production coverage remains 4771/4795 lines and 7915/8157 regions;
+there are no changed production executable lines. These ordinary Cargo2 checks
+make no timing or performance claim.
+
+The fixed originals observe final heights 0.2 after copy/move and 0.2/0.1 after
+assignment following a move. Existing owned Clone/clone_from/move/replacement
+preserves them without a production API change. Positive finite EXPECT_DOUBLE_EQ
+four-ULP bounds are retained; exact bits and previous-value checks are supplemental.
+The original 2022 OSRF notice is preserved with rewrite attribution. General C++
+constructor/operator identity, moved-from state, Element, points, load/serialization
+and runtime polygon validity remain unqualified. The ledger now records 139 complete
+and 24 partial fixed originals. Final metadata binding, mandatory normal hook and
+exact hosted qualification remain pending for this slice.

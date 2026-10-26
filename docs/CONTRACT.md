@@ -800,3 +800,11 @@ supplemental. Native Element pointer and redirected console-buffer observations
 remain pending. The standalone reader does not build a frame graph, and the
 Rust XML bytes, full document grammar, attachment resolution and native error
 vectors are outside this bounded API claim.
+
+`Frame::default()` supplies the fixed standalone empty name, attachment and
+identity pose values. `Frame::semantic_relative_to()` returns an explicit pose
+relative_to when present, otherwise the attachment, matching the native
+`SemanticPose.RelativeTo` fallback. It returns a borrowed value and does not
+construct a graph-backed SemanticPose. The native standalone resolver failures,
+separate SemanticPose raw-pose observations and Element pointer remain outside
+this bounded value API.

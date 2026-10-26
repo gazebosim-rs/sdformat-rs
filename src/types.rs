@@ -397,6 +397,30 @@ pub struct Frame {
     pub pose: Pose,
     pub source: Source,
 }
+impl Default for Frame {
+    fn default() -> Self {
+        Self {
+            name: String::new(),
+            attached_to: String::new(),
+            pose: Pose::default(),
+            source: Source {
+                uri: String::new(),
+                line: 0,
+                column: 0,
+            },
+        }
+    }
+}
+impl Frame {
+    /// A frame pose without an explicit relative_to uses its attachment.
+    pub fn semantic_relative_to(&self) -> &str {
+        if self.pose.relative_to.is_empty() {
+            &self.attached_to
+        } else {
+            &self.pose.relative_to
+        }
+    }
+}
 /// Owned light values; XML parsing and rendering remain pending.
 #[derive(Debug, Clone, Copy, Default, PartialEq, Eq)]
 pub enum LightType {

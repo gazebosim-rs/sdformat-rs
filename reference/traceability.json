@@ -1896,7 +1896,7 @@
       "upstream_fixtures": {},
       "baseline": "Pinned native originals2/0 completed, exact source/binary and fresh GTest report bound by source freeze b03ffc92a2035617f79b17d84dc570f4f844700c0753b65c1de6127960929ff0; private raw-source Rust3/0, native load of both emitted XML variants on byte-identical library, full author300 Rust/16 tools, production4646/4671 lines7788/8029 regions and changed75/75.",
       "status": "partial_reviewed",
-      "review": "Independent /root/transport_owner_v2 PARTIAL source/API/assertion approval receipt SHA256 b360a2153094256795e2d800de90269989eb0bc41153fbd1ffb16b62bc85a97b; native pointer/console side effects explicitly unported. Final metadata binding, normal protected hook and hosted qualification pending."
+      "review": "Independent /root/transport_owner_v2 PARTIAL source/API/assertion approval receipt SHA256 b360a2153094256795e2d800de90269989eb0bc41153fbd1ffb16b62bc85a97b; native pointer/console side effects explicitly unported. Final metadata binding SHA256 b53d564e2158fc912adb1c4e18ff6972e1b073dd6b6e62464e178ad1f500af40, normal protected hook and public d9560becb4ebdc74ef92d1664218b8c717423f55 passed exact hosted verify 40286173293 SUCCESS."
     },
     {
       "target": "UNIT_Frame_TEST",
@@ -1908,7 +1908,19 @@
       "upstream_fixtures": {},
       "baseline": "Pinned native originals2/0 completed, exact source/binary and fresh GTest report bound by source freeze b03ffc92a2035617f79b17d84dc570f4f844700c0753b65c1de6127960929ff0; private raw-source Rust3/0, native load of both emitted XML variants on byte-identical library, full author300 Rust/16 tools, production4646/4671 lines7788/8029 regions and changed75/75.",
       "status": "partial_reviewed",
-      "review": "Independent /root/transport_owner_v2 PARTIAL source/API/assertion approval receipt SHA256 b360a2153094256795e2d800de90269989eb0bc41153fbd1ffb16b62bc85a97b; native pointer/console side effects explicitly unported. Final metadata binding, normal protected hook and hosted qualification pending."
+      "review": "Independent /root/transport_owner_v2 PARTIAL source/API/assertion approval receipt SHA256 b360a2153094256795e2d800de90269989eb0bc41153fbd1ffb16b62bc85a97b; native pointer/console side effects explicitly unported. Final metadata binding SHA256 b53d564e2158fc912adb1c4e18ff6972e1b073dd6b6e62464e178ad1f500af40, normal protected hook and public d9560becb4ebdc74ef92d1664218b8c717423f55 passed exact hosted verify 40286173293 SUCCESS."
+    },
+    {
+      "target": "UNIT_Frame_TEST",
+      "case": "DOMframe.Construction",
+      "source": "src/Frame_TEST.cc:24-75",
+      "rust_test": "tests/frame_default_original.rs::partial_dom_frame_construction_values",
+      "assertions": "PARTIAL fixed default/set/read Frame name, attachment, raw translation/rotation and SemanticPose.RelativeTo fallback values through owned Frame::default and semantic_relative_to. Separate native SemanticPose.RawPose object/API and its repeated observations, Element null, all three standalone Resolve errors, and ResolveAttachedToBody body/error remain UNPORTED. No complete original or graph/error-vector claim.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Pinned native original1/0 completed with exact source/binary and GTest XML; source freeze ea22edccf4b00a94a157c68fa2ef2a85d84b081428c6d8fdedbc385cf7b8084f on hosted-green public parent d9560becb4ebdc74ef92d1664218b8c717423f55. Private raw-source Rust original1/0 and attachment-fallback-removal mutant red; author full gate, fmt/Clippy/docs and strict production4663/4688 lines7799/8040 regions, changed17/17. Two-job correctness-only overlap with Root REF01 hook; no timing claim.",
+      "status": "partial_reviewed",
+      "review": "Independent /root/transport_owner_v2 PARTIAL source/API/assertion approval receipt SHA256 7bd74db98f0dc35a2f1b6814d2a8ba3c2c3f0e34c3423175bf5450699cf7fbae; exact frozen two source/test hashes and imported2018 OSRF notice bound. Final metadata binding, normal protected hook and hosted qualification pending."
     }
   ]
 }

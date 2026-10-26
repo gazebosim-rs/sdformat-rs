@@ -2205,6 +2205,35 @@ adds two exact successor states; all 61 native observations and the unchanged
 original remain identical. Isolated author checks passed 263 Rust, sixteen
 tools, formatting, Clippy and docs; production coverage is 4176/4196 lines
 and 7205/7420 regions, changed executable lines 12/12. Final metadata
-binding, normal protected hook and hosted qualification are pending. Native
+binding receipt SHA256 `e69f12cfc3a4eacc9c144776ab062a407f6cda8cc0e991963e1b4eadbcd0736c`, normal protected hook and public
+`e74ff3e782ec44d5876889efdcb8007b31ab179e` passed exact hosted verify `40258508412` SUCCESS. Native
 method identity, general graph behavior and second invalid diagnostic remain
+unported.
+
+
+## Native DOMJointAxis complete joint fixture candidate
+
+Pinned `DOMJointAxis.Complete` passes natively 1/0 on the unchanged SDF 1.6
+`joint_complete.sdf` fixture. The reviewed Rust test retains Root/model load,
+nine ordered joint types, first joint and both axes, expressed-in strings,
+and every native limit/dynamics scalar assertion. Parsed `Joint.source` and
+present `Axis` values are the owned equivalents of this original's non-null
+Element checks; native pointer identity and Element contents are not claimed.
+
+Source freeze SHA256 `b1a62c643f71ba09fd218c1c18d75694f78a9732bb0884131e94641ad440c1dd`
+binds six exact source/test/fixture/guard files on public parent `e74ff3e`.
+Independent source/API/assertion review receipt SHA256
+`f4af91988cea2db8ac876f069e630a6924b8ba0a67e05999662ea399f5a2a828`
+approved the complete fixed-fixture observable original. Fresh native probes
+confirm default and legacy screw pitch conversion, modern pitch precedence,
+and code 22 for the older equal-parent/child `ball` negative. The prior
+Rust-only `Unsupported` expectation is corrected to typed `InvalidValue`
+without dropping rejection. The static-model guard adds one exact successor
+state; native 61 observations and unchanged original remain intact. Isolated
+author checks passed 265 Rust, sixteen tools, formatting, Clippy and docs;
+production coverage is 4205/4226 lines and 7235/7455 regions, changed
+executable lines 31/31. Final metadata binding, protected hook and hosted
+qualification are pending. Raw joint physics XML is retained without engine
+interpretation or nested schema validation; legacy axis warning output,
+Element contents, general parser grammar and runtime joint physics remain
 unported.

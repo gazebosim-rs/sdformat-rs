@@ -627,6 +627,9 @@ pub struct ConvexDecomposition {
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum JointKind {
     Fixed,
+    Ball,
+    Gearbox,
+    Screw,
     Revolute,
     Prismatic,
     Continuous,
@@ -642,6 +645,10 @@ pub struct Joint {
     pub pose: Pose,
     pub axis: Option<Axis>,
     pub axis2: Option<Axis>,
+    /// Meters per revolution. Legacy `<thread_pitch>` is converted at load.
+    pub screw_thread_pitch: f64,
+    /// Known joint physics payload retained verbatim; engine interpretation is separate.
+    pub physics_xml: Option<String>,
     /// Owned sensor envelopes; their default pose frame is this joint.
     pub sensors: Vec<Sensor>,
     pub source: Source,

@@ -34,6 +34,12 @@ or empty geometry preserves native EMPTY as None. Visual names are unique within
 a link, independently of collision and sensor names. Owned visual properties and optional material data preserve the metadata described
 in docs/MATERIALS.md. PBR and renderer effects remain outside this loader.
 `Joint` has kind, parent/child references, pose, optional axis/axis2 and source.
+Ball, gearbox and screw are typed kinds. Screw pitch is stored in metres per
+revolution; legacy `<thread_pitch>` converts to that unit, and modern
+`<screw_thread_pitch>` takes precedence. Known joint physics XML is retained
+verbatim as `physics_xml`; its engine interpretation and nested schema
+validation are outside this loader. Native warning output for a legacy
+`<initial_position>` axis child is not reproduced.
 Joint, JointKind and Axis implement Clone so consumers can retain owned typed
 configuration after dropping the document; clones share no mutable strings.
 Universal and revolute2 types retain both axes; native axis2 is also preserved

@@ -55,6 +55,12 @@
           "after": "<axis><xyz expressed_in='world'>1 0 0</xyz></axis></joint></model>\",\n            ErrorCode::JointAxisExpressedInInvalid,",
           "after_sha256": "a63ca0753523019cc603ab141c62b7e64c9b80439dda631b6693f41b3d589fe0",
           "purpose": "Native code38 first diagnostic for model-scoped world axis frame; two-error vector remains partial"
+        },
+        {
+          "before": "            \"<link name='l'/><joint name='j' type='ball'><parent>l</parent><child>l</child></joint>\",\n            ErrorCode::Unsupported,\n",
+          "after": "            \"<link name='l'/><joint name='j' type='ball'><parent>l</parent><child>l</child></joint>\",\n            // Native accepts ball and then rejects the same parent/child pair.\n            ErrorCode::InvalidValue,\n",
+          "after_sha256": "6e357dd193f60081dcea5abf778f415bd8d69d3bd5c002688b6413a2cb6f46ae",
+          "purpose": "Native recognizes ball joint type, then emits code22 for equal parent/child; old Rust-only Unsupported expectation corrected without weakening rejection."
         }
       ]
     },

@@ -1824,11 +1824,24 @@ impl Parser<'_> {
     fn joint(&self, node: Node<'_, '_>, model_frame_default: bool) -> Result<Joint, Diagnostic> {
         self.allowed(
             node,
-            &["parent", "child", "pose", "axis", "axis2", "sensor"],
+            &[
+                "parent",
+                "child",
+                "pose",
+                "axis",
+                "axis2",
+                "sensor",
+                "physics",
+                "thread_pitch",
+                "screw_thread_pitch",
+            ],
             &["name", "type"],
         )?;
         let kind = match self.attr(node, "type")?.as_str() {
             "fixed" => JointKind::Fixed,
+            "ball" => JointKind::Ball,
+            "gearbox" => JointKind::Gearbox,
+            "screw" => JointKind::Screw,
             "revolute" => JointKind::Revolute,
             "prismatic" => JointKind::Prismatic,
             "continuous" => JointKind::Continuous,
@@ -1842,6 +1855,14 @@ impl Parser<'_> {
         let axis2 = child(node, "axis2")
             .map(|n| self.axis(n, model_frame_default))
             .transpose()?;
+        let screw_thread_pitch = if child(node, "screw_thread_pitch").is_some() {
+            self.scalar(node, "screw_thread_pitch", 1.)?
+        } else if child(node, "thread_pitch").is_some() {
+            -2. * std::f64::consts::PI / self.scalar(node, "thread_pitch", 1.)?
+        } else {
+            1.
+        };
+        let physics_xml = child(node, "physics").map(|n| self.xml[n.range()].into());
         let child = self.text(node, "child")?;
         if child == "world" {
             return Err(self.err(node, ErrorCode::InvalidValue, "joint child cannot be world"));
@@ -1854,6 +1875,8 @@ impl Parser<'_> {
             pose: self.pose(node)?,
             axis,
             axis2,
+            screw_thread_pitch,
+            physics_xml,
             sensors: {
                 let sensors = elements(node)
                     .filter(|value| value.has_tag_name("sensor"))
@@ -1881,7 +1904,15 @@ impl Parser<'_> {
         self.allowed(
             axis,
             if is_pre17(axis) {
-                &["xyz", "limit", "dynamics", "use_parent_model_frame"]
+                &[
+                    "xyz",
+                    "limit",
+                    "dynamics",
+                    "use_parent_model_frame",
+                    // Native retains this legacy unknown child with a warning;
+                    // JointAxis DOM does not expose its value.
+                    "initial_position",
+                ]
             } else if supports_axis_mimic(axis) {
                 &["xyz", "limit", "dynamics", "mimic"]
             } else {

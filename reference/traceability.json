@@ -1297,7 +1297,23 @@
       },
       "baseline": "Pinned native original1/0 on unchanged fixture; exact source/binary/fixture hashes and native2/0 packet bound by freeze 54e9c46077a84880275242b5d8de2a729f317a37063abf582aa3879030379a69. Private raw selected Rust2/0; full263 Rust/16 tools.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_fallback APPROVED fixed-fixture observable original receipt SHA256 c6f1e7c3b53906d171a0212062525b1a521ab1f186ea0f3506511e622f2bbfa1; exact nine hashes, private native2/0 and Rust2/0, static guard61+original1/0. Final metadata binding, normal hook and hosted qualification pending."
+      "review": "Independent /root/transport_fallback APPROVED fixed-fixture observable original receipt SHA256 c6f1e7c3b53906d171a0212062525b1a521ab1f186ea0f3506511e622f2bbfa1; exact nine hashes, private native2/0 and Rust2/0, static guard61+original1/0. Final binding receipt SHA256 e69f12cfc3a4eacc9c144776ab062a407f6cda8cc0e991963e1b4eadbcd0736c, normal protected hook and public e74ff3e782ec44d5876889efdcb8007b31ab179e passed exact hosted verify 40258508412 SUCCESS."
+    },
+    {
+      "target": "INTEGRATION_joint_axis_dom",
+      "case": "DOMJointAxis.Complete",
+      "source": "test/integration/joint_axis_dom.cc:34-113",
+      "rust_test": "tests/joint_axis_complete_original.rs::original_dom_joint_axis_complete",
+      "assertions": "COMPLETE fixed-fixture observable original: Root load, model presence, nine ordered joint types, first joint/axis/axis2 presence, unit XYZ, expressed-in strings and exact 16 axis limit/dynamics scalar values. Native non-null Joint/Axis Element assertions map parsed Joint Source and Axis Option presence; pointer identity/content unported. No broad grammar, physics execution or warning claim.",
+      "fixtures": {
+        "tests/fixtures/joint_complete.sdf": "534f4ed2c93dae3257068989e72912f0327fef6a93dcd10c77bc951519bd754d"
+      },
+      "upstream_fixtures": {
+        "test/sdf/joint_complete.sdf": "534f4ed2c93dae3257068989e72912f0327fef6a93dcd10c77bc951519bd754d"
+      },
+      "baseline": "Pinned native original1/0 on unchanged fixture, source/binary/fixture hashes and supplemental native pitch/ball controls bound by freeze b1a62c643f71ba09fd218c1c18d75694f78a9732bb0884131e94641ad440c1dd; isolated selected Rust original+supplement2/0, full265 Rust/16 tools.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback APPROVED fixed-fixture observable original receipt SHA256 f4af91988cea2db8ac876f069e630a6924b8ba0a67e05999662ea399f5a2a828; six exact source hashes, private Rust2/0, native original1/0, pitch/ball controls, static61+original and guard unit. Final metadata binding, normal hook and hosted qualification pending."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",
@@ -1532,7 +1548,7 @@
       },
       "baseline": "Pinned native original1/0, two errors; fixture/source/binary hashes bound by freeze 54e9c46077a84880275242b5d8de2a729f317a37063abf582aa3879030379a69; four supplemental native first-diagnostic controls.",
       "status": "partial_reviewed",
-      "review": "Independent /root/transport_fallback APPROVED first-diagnostic-only mapping receipt SHA256 c6f1e7c3b53906d171a0212062525b1a521ab1f186ea0f3506511e622f2bbfa1; private raw Rust2/0, native originals2/0, four supplemental native controls. Full two-error vector unported; final metadata binding, normal hook and hosted qualification pending."
+      "review": "Independent /root/transport_fallback APPROVED first-diagnostic-only mapping receipt SHA256 c6f1e7c3b53906d171a0212062525b1a521ab1f186ea0f3506511e622f2bbfa1; private raw Rust2/0, native originals2/0, four supplemental native controls. Full two-error vector unported; Final binding receipt SHA256 e69f12cfc3a4eacc9c144776ab062a407f6cda8cc0e991963e1b4eadbcd0736c, normal protected hook and public e74ff3e782ec44d5876889efdcb8007b31ab179e passed exact hosted verify 40258508412 SUCCESS."
     }
   ]
 }

@@ -535,7 +535,8 @@ fn invalid_documents_fail_atomically() {
         ),
         (
             "<link name='l'/><joint name='j' type='ball'><parent>l</parent><child>l</child></joint>",
-            ErrorCode::Unsupported,
+            // Native accepts ball and then rejects the same parent/child pair.
+            ErrorCode::InvalidValue,
         ),
         (
             "<link name='l'/><joint name='j' type='revolute'><parent>l</parent><child>l</child></joint>",

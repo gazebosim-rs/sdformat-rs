@@ -2,22 +2,76 @@
   "decision": "approved",
   "author": "/root/sdformat_owner_v3",
   "reviewer": "/root",
-  "protected_digest": "df8ce0f72e159711ceb560fc76725f8b6dd8fadb57ed83e3320b9e0413f227ad",
-  "source_digest": "11e877b377cf0bdba4da2ee35653cfbde5a5b48f79ec85a41f9049ee624f7b96",
-  "parent": "ef3866412bf65490de91955bcf85a472b4228e79",
-  "pre_receipt_tree": "012bd77a9adb35c35a5d98eb75b39516d9d1971d",
-  "final_freeze_sha256": "c9640523d005dd55972dbbbb9eaf0f02713d14180e57de76247116462a5f0a8d",
+  "pre_receipt_tree": "8055b62e24dece7639ba130a9c969135859aba9e",
+  "source_digest": "170557722fa0402bc4956d1c06e6b30368356f068944b72190575b4a6ca8f5b2",
+  "protected_digest": "dfd02da6e1e16eac01dd7368ee2b5da237294deea14f04937f11b45751a71af3",
+  "final_freeze_sha256": "c1492aa846305ce794afee9c7243721676ace0e10e2928be3f29641c6031c38d",
+  "semantic_source_review_sha256": "6baaeefdc4e34c83b53b12ba1dd75b26c077120e7826d3c266406cb04a081d15",
+  "helper_review_sha256": "24c0986c473d05128a7d994f6c6fa7d33961f14eca657721ad34bdd9e5474e97",
   "files_sha256": {
-    "README.md": "b5ccd6d5692f0c6a0fd93b6100cfe27248baafa8e722420de11fe37a8167ff52",
-    "docs/CONTRACT.md": "0424aa9cdfad6086593dbaec2bfdb6be8add963544daa6f90cd4ce699e7adfd2",
-    "docs/STATUS.md": "174694a23ff46c7f9c113987af98279a8b11bde2b8c42535770e309612abfc6c",
-    "reference/results.json": "e249017b814c01a82491e1ae088011010c992dcf4b80f61d94f4783b3dc169f0",
-    "reference/traceability.json": "b05a0bb66cfb22fe3eb2ad23192c7b0b3b70ec6deebaaa20db61a974c0952585",
-    "src/parse.rs": "97a53241d616dfbc398ab42ef39e3c6248dbeae31c3ee97fafa7f4b1d3da0cae",
-    "src/types.rs": "73af8b161f26ff7c0400e369e7d0c6c246b8af563103ded780764f078b4951cd",
-    "tests/model_ownership_originals.rs": "e38eafb3fa50c8a3ab7b666a5f1f99fc63fe8d06a3d5a733343aba6cc8fc0c5a"
+    "README.md": "4817e529db2baeb3186b8ba39e68f8beac010414cb90192024afce2e2e3b04d0",
+    "docs/CONTRACT.md": "fb5312647a59039cdf6e9d442bd5019cab23140f897e048442dd2ab8c66dd13a",
+    "docs/STATUS.md": "cbd362b0b938edbd88546d826b363fc14ee2498ae70345a2392cfa8a5e173810",
+    "reference/results.json": "2f81ef339ece1d1ff6482bb11db8a1527bfc7280912b54200af8fef5d8ade92e",
+    "reference/traceability.json": "be82b740d49a8f3a00205a9aa8ad3a43e36cab06707913193630e74a58d19a65",
+    "src/parse.rs": "31de29d18447c5945d07d8ed230ba0f6a8b942020ce07d3f0c9cf0d684528dd0",
+    "src/types.rs": "0d7c849c0d49eb5963d697136cfe9c1f15567f2d6661afda75a71fe8e6290996",
+    "tests/model_namespace_reference.cc": "8c33e4977bda2632b1a0c5d4fdd066fd8848253a5ee51a4ed4af75a44b93f095",
+    "tests/model_namespace_xml.json": "aa9d930964e6ae652f2b72b1d8cdbcf8fd51f88b9f041751920da1105dd7974d",
+    "tests/model_namespace_xml.rs": "7dc2c3ca8ceb5b6917df90f34710c31c7095241d4fd6e4552a57ad52499138e2",
+    "tests/model_ownership_originals.rs": "d5efcbdbaa3787f626cd59173d5556fbd4806f6dabdb40753c66bd18555b21af",
+    "tools/model_namespace_reference.py": "ebb0aa3538d6b7a940ef91b5fba4dc7a339a9ed53165e0ded28c638554b77576"
   },
-  "source_review_sha256": "a2b42c0757723fad9080818aaf7e8669a67e88a3d8c169482ddce6a95bd617e2",
-  "evidence": "Exact8staged/worktree blobs+modes, source3 unchanged. Sixretainedauthorproofs exact; rawunfilteredcoverage recomputed4778/4802lines7924/8166regions and6/6changed strict;362Rust0failedignored/16tools. Allpriorports unchangedexceptpreviousfiveLinkreviewchronology, exactlyfiveModelname+namespaceoriginalsappend. No oldassertion/fixture/threshold/pin/policy/exclusion/retirement changes.",
-  "limits": "Ownednamespace/Model+FrameClone only. XMLnamespace/include/version/merge explicitlyunsupported; no wholeConstruction or extraFramecase/graph/physics claim. Mandatorynormal/public/exacthosted remain."
+  "evidence_sha256": {
+    "artifacts/core/evidence.json": "e2b351b909831dd73ee7d1f27259fa7c5d4d6afcb859d557a50bc95fb7508c90",
+    "artifacts/core/coverage.json": "3e6a38c9ae3a83f14de56ba9e488f7474d135b5e4e5d57a7c0b3868c3650361a",
+    "artifacts/core/coverage.lcov": "036a318c6cf676aff898eb7ce4dd61c63d5d69ffd3847551f1c297a2a5f5ed50",
+    "artifacts/core/tests.log": "7fe111ddc4c0a276f03a261d2f5ad6194b84db184d7532b5eafa52f552353518",
+    "artifacts/model-namespace-xml/author-gate.log": "575d5769fbca4caf25f0c7642678dc7b8e40dde0eb9449b42b66527a50f48799",
+    "artifacts/model-namespace-xml/author-result.json": "cdbc2b30e0262525906f8842b3dbb07df138fcc5f5a08b68e87da5067620b352",
+    "artifacts/model-namespace-xml/native-v4/report.json": "7c7231864592a3cefb20fea8ac3efc740f0332d97ca5c51c1522dcd429b8627e"
+  },
+  "coverage": {
+    "lines": [
+      4799,
+      4823
+    ],
+    "regions": [
+      7945,
+      8187
+    ]
+  },
+  "rust_tests": 367,
+  "tooling_tests": 16,
+  "changed_lines": [
+    21,
+    21
+  ],
+  "ledger": [
+    163,
+    25
+  ],
+  "chronology_only_rows": [
+    [
+      "UNIT_Model_TEST",
+      "DOMModel.CopyConstructor"
+    ],
+    [
+      "UNIT_Model_TEST",
+      "DOMModel.CopyAssignmentOperator"
+    ],
+    [
+      "UNIT_Model_TEST",
+      "DOMModel.MoveConstructor"
+    ],
+    [
+      "UNIT_Model_TEST",
+      "DOMModel.MoveAssignmentOperator"
+    ],
+    [
+      "UNIT_Model_TEST",
+      "DOMModel.CopyAssignmentAfterMove"
+    ]
+  ],
+  "scope": "Exact12-path final metadata binding. Seven source files unchanged from independently qualified final helper/parser freeze; no assertion, fixture, tolerance, original mapping, pin, gate, exclusion or license change. Five prior Model review strings record already verified public5306/exactCI40378111267. Native98+NBSP and independent13/two source controls remain separately bound. Full required normal hook/public/exact new CI still pending. No original retirement, RootInclude/OriginalVersion facade, graph/runtime/serialization/SDF02 or performance acceptance."
 }

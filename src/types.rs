@@ -287,7 +287,7 @@ impl Default for Physics {
 pub struct Model {
     pub name: String,
     pub scoped_name: String,
-    /// Owned namespace metadata. XML namespace loading is not supported yet.
+    /// Owned namespace metadata; empty XML values are absent, unlike owned Some("").
     pub raw_namespace: Option<String>,
     pub pose: Pose,
     pub is_static: bool,

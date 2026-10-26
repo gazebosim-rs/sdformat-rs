@@ -120,4 +120,6 @@ cloning does not rebuild frame graphs or perform resource or physics work.
 
 Owned `Model` and `Frame` values support cloning. Model `raw_namespace` retains
 optional metadata; `namespace()` replaces literal `{name}` placeholders using
-the current name. XML model/include namespace loading remains unsupported.
+the current name. Model `namespace` attributes and nonempty include `<namespace>`
+overrides are parsed as metadata. Empty XML attributes are absent; empty include
+overrides keep the resource's value. This does not change frame scopes or topics.

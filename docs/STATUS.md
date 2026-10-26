@@ -2753,9 +2753,52 @@ cloning preserves owned metadata. Optional raw namespaces resolve literal
 Construction namespace observations, nonrecursive placeholders, name edits,
 nested ownership/drop and explicit Unsupported XML checks are supplemental.
 Whole Construction, extra Frame originals, mutable Element, C++ operator/storage
-or moved-from identity and graph rebuilding remain unqualified. XML model and
-include namespace loading stays explicitly unsupported; real version/include/
-merge characterization is the next slice. The reviewed candidate ledger has
-163 complete and 25 partial originals; final metadata binding, mandatory normal
-hook, public push and exact hosted qualification remain pending. SDF-02 remains
-in progress.
+or moved-from identity and graph rebuilding remain unqualified. XML namespace
+loading was outside this owned-value slice; the bounded parser increment is
+described below. The candidate ledger had 163 complete and 25 partial originals.
+Final metadata binding receipt SHA256 22c659d04ed7ec063b48d69c3ec9d8efeaf2568dc99660ef26cc32638c2d6a9f, mandatory normal hook and public 5306e46c44b8fb6f8db84f442e65e5bb3c439f1f passed exact hosted verify 40378111267 SUCCESS. SDF-02 remains in progress.
+
+
+## Model and include namespace XML metadata
+
+The seven-file source freeze SHA256 `22a4549d3f2d424840181e7e9f0e8a6dd1ffc19f22394eb62fb2a73100ef516b`
+on public parent `5306e46c44b8fb6f8db84f442e65e5bb3c439f1f` passed independent semantic source
+review SHA256 `6baaeefdc4e34c83b53b12ba1dd75b26c077120e7826d3c266406cb04a081d15`
+with its scoped portable-helper and canonical gate supplement SHA256 `24c0986c473d05128a7d994f6c6fa7d33961f14eca657721ad34bdd9e5474e97`.
+Independent source/capture review and a fresh native replay verified 98 namespace
+projections: 36 direct cases across SDF 1.4–1.12, 56 include override/rename cases,
+and six nested/merge cases. The new reproducible native helper matched all 98,
+including the same native executable and libraries in independent replay. A
+separate native NBSP boundary check confirms the non-Unicode trim rule. The final
+helper uses the selected pkg-config library directory, rejects an empty or relative
+directory, and omits empty library-search entries. Independent replay verifies all
+98 projections, the same executable and all eleven canonical library hashes.
+
+Model `namespace` attributes now retain nonempty raw values, trimming only native
+space/tab/newline characters. Empty XML values remain absent. Nonempty include
+`<namespace>` overrides replace the resource value; empty, self-closing and
+whitespace-only overrides leave it intact. CDATA trimming and name substitution
+match the retained native observations. Nested models do not inherit namespace;
+merged includes leave the parent namespace unchanged. Raw include XML and source
+provenance remain available. Namespace metadata changes neither graph scope nor
+pose references or simulator topics.
+
+Fresh private Rust selected checks passed 13/0. Production controls that ignore
+include overrides or apply Unicode trimming fail semantic assertions; exact
+restoration passes 13/0. All five original Model ownership bodies are byte-identical.
+The former Unsupported namespace supplement changed only because the feature is
+implemented, and now checks XML-empty versus explicitly empty owned API values.
+Malformed namespace attributes, children and duplicate elements remain tested.
+Full author checks passed 367 Rust tests and sixteen tooling tests, formatting,
+Clippy and docs. Strict unfiltered coverage is 4799/4823 lines and 7945/8187 regions;
+all 21 changed executable lines are covered, with no exclusions or timing claim.
+
+The first independent semantic receipt omitted required gate-schema fields, so
+its initial author preflight failed before Cargo/native execution. That failure
+is retained separately; the independent canonical supplement enabled the unchanged
+gate. Reviewer export/control-selector setup failures are also retained uncredited.
+Native projections and supplementary checks add no original retirement: the ledger
+remains 163 complete and 25 partial. Native OriginalVersion observations remain
+native-only provenance. Root-level include loading, serialization, graph mutation,
+physical runtime and full SDF-02 completion remain unqualified. Final metadata
+binding, mandatory normal hook, public push and exact hosted CI remain pending.

@@ -732,7 +732,7 @@ impl Parser<'_> {
             &[
                 "pose", "static", "link", "model", "include", "frame", "joint", "plugin",
             ],
-            &["name", "canonical_link", "placement_frame"],
+            &["name", "namespace", "canonical_link", "placement_frame"],
         )?;
         let name = rename.map_or_else(|| self.name(node), |n| Ok(n.into()))?;
         let scoped_name = join(scope, &name);
@@ -852,7 +852,11 @@ impl Parser<'_> {
         Ok(Model {
             name,
             scoped_name: scoped_name.clone(),
-            raw_namespace: None,
+            raw_namespace: node
+                .attribute("namespace")
+                .map(|value| value.trim_matches([' ', '\t', '\n']))
+                .filter(|value| !value.is_empty())
+                .map(str::to_owned),
             pose,
             is_static: self.boolean(node, "static", false)?,
             canonical_link: node.attribute("canonical_link").unwrap_or("").into(),
@@ -870,7 +874,15 @@ impl Parser<'_> {
     fn include(&mut self, node: Node<'_, '_>, scope: &str) -> Result<(Model, bool), Diagnostic> {
         self.allowed(
             node,
-            &["uri", "name", "pose", "static", "placement_frame", "plugin"],
+            &[
+                "uri",
+                "name",
+                "namespace",
+                "pose",
+                "static",
+                "placement_frame",
+                "plugin",
+            ],
             &["merge"],
         )?;
         let merge = self.merge_attribute(node)?;
@@ -949,6 +961,13 @@ impl Parser<'_> {
             ));
         }
         let mut model = imported.model(all[0], scope, rename.as_deref())?;
+        // Native empty namespace overrides leave the resource's value intact.
+        if let Some(namespace) = self
+            .optional_text(node, "namespace")?
+            .filter(|value| !value.is_empty())
+        {
+            model.raw_namespace = Some(namespace);
+        }
         let pose = child(node, "pose").map(|_| self.pose(node)).transpose()?;
         let placement_frame = if let Some(placement) = child(node, "placement_frame") {
             if pose.is_none() {

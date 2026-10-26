@@ -898,9 +898,18 @@ supplemental and do not claim an additional native original or inertia solver.
 with the current public model name without recursively expanding inserted text.
 Direct name edits therefore update the next namespace observation. Namespace
 metadata does not change `scoped_name`, frame references or resource lookup.
-The parser initializes None and still explicitly rejects model `namespace`
-attributes and include namespace children. XML version conversion, include
-namespace overrides and merged namespace behavior remain pending native evidence.
+The parser retains model `namespace` attributes as optional raw metadata. Native
+space, tab and newline trimming applies; an empty XML value is absent, unlike an
+explicitly empty value assigned through the owned API. Direct namespace cases
+were checked across SDF 1.4–1.12. A nonempty include `<namespace>` overrides the
+resource's value; empty, self-closing or whitespace-only overrides leave it
+unchanged. Text and CDATA use the retained native parameter rules. Include name
+overrides determine `{name}` resolution. Child models do not inherit namespace;
+flattening a merged include leaves its parent's namespace unchanged. Original
+include XML and canonical resource provenance remain available. These values do
+not change frame scopes, pose references, resource lookup or simulator topics.
+Root-level includes, native OriginalVersion access through Rust Model and
+serialization remain unqualified.
 
 `Model` and `Frame` implement Clone, retaining owned nested DOM values and
 provenance after independent edits and drop. Cloning does not rebuild or rebind

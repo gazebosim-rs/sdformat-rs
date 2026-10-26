@@ -18,7 +18,7 @@
 // Copyright (C) 2026 Open Source Robotics Foundation
 // SPDX-License-Identifier: Apache-2.0
 // Observable member rename/relookup values from two DOMModel originals.
-use sdformat::{ErrorCode, Frame, Model, NoResources, Pose, Source, load_str};
+use sdformat::{Frame, Model, NoResources, Pose, Source, load_str};
 
 fn model(name: &str, namespace: Option<&str>) -> Model {
     Model {
@@ -180,13 +180,15 @@ fn nested_model_and_frame_clones_survive_independent_edits_and_drop() {
 }
 
 #[test]
-fn xml_namespace_paths_remain_explicitly_unsupported() {
-    for xml in [
-        "<sdf version='1.12'><model name='robot' namespace='ns'><link name='base'/></model></sdf>",
-        "<sdf version='1.12'><model name='holder'><include><uri>model://robot</uri><namespace>ns</namespace></include></model></sdf>",
-    ] {
-        let error = load_str(xml, "namespace-unsupported.sdf", &NoResources).unwrap_err();
-        assert_eq!(error.code, ErrorCode::Unsupported);
-        assert!(error.message.contains("namespace"), "{error}");
-    }
+fn xml_empty_namespace_is_absent_while_owned_empty_is_present() {
+    let xml =
+        "<sdf version='1.12'><model name='robot' namespace=''><link name='base'/></model></sdf>";
+    let mut parsed = load_str(xml, "namespace-empty.sdf", &NoResources)
+        .unwrap()
+        .models
+        .remove(0);
+    assert!(parsed.raw_namespace.is_none());
+    assert!(parsed.namespace().is_none());
+    parsed.raw_namespace = Some(String::new());
+    assert_eq!(parsed.namespace().as_deref(), Some(""));
 }

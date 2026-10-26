@@ -1,0 +1,1872 @@
+[
+  {
+    "id": "direct-1.4-absent",
+    "xml": "<sdf version='1.4'><model name='robot'><link name='base'/></model></sdf>",
+    "expected": {
+      "name": "robot",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 1,
+      "frames": [],
+      "models": []
+    },
+    "native_original_versions": "312e34"
+  },
+  {
+    "id": "direct-1.4-empty",
+    "xml": "<sdf version='1.4'><model name='robot' namespace=''><link name='base'/></model></sdf>",
+    "expected": {
+      "name": "robot",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 1,
+      "frames": [],
+      "models": []
+    },
+    "native_original_versions": "312e34"
+  },
+  {
+    "id": "direct-1.4-literal",
+    "xml": "<sdf version='1.4'><model name='robot' namespace='robot_ns'><link name='base'/></model></sdf>",
+    "expected": {
+      "name": "robot",
+      "raw_namespace": "robot_ns",
+      "namespace": "robot_ns",
+      "links": 1,
+      "frames": [],
+      "models": []
+    },
+    "native_original_versions": "312e34"
+  },
+  {
+    "id": "direct-1.4-template",
+    "xml": "<sdf version='1.4'><model name='robot' namespace='ns/{name}/{name}'><link name='base'/></model></sdf>",
+    "expected": {
+      "name": "robot",
+      "raw_namespace": "ns/{name}/{name}",
+      "namespace": "ns/robot/robot",
+      "links": 1,
+      "frames": [],
+      "models": []
+    },
+    "native_original_versions": "312e34"
+  },
+  {
+    "id": "direct-1.5-absent",
+    "xml": "<sdf version='1.5'><model name='robot'><link name='base'/></model></sdf>",
+    "expected": {
+      "name": "robot",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 1,
+      "frames": [],
+      "models": []
+    },
+    "native_original_versions": "312e35"
+  },
+  {
+    "id": "direct-1.5-empty",
+    "xml": "<sdf version='1.5'><model name='robot' namespace=''><link name='base'/></model></sdf>",
+    "expected": {
+      "name": "robot",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 1,
+      "frames": [],
+      "models": []
+    },
+    "native_original_versions": "312e35"
+  },
+  {
+    "id": "direct-1.5-literal",
+    "xml": "<sdf version='1.5'><model name='robot' namespace='robot_ns'><link name='base'/></model></sdf>",
+    "expected": {
+      "name": "robot",
+      "raw_namespace": "robot_ns",
+      "namespace": "robot_ns",
+      "links": 1,
+      "frames": [],
+      "models": []
+    },
+    "native_original_versions": "312e35"
+  },
+  {
+    "id": "direct-1.5-template",
+    "xml": "<sdf version='1.5'><model name='robot' namespace='ns/{name}/{name}'><link name='base'/></model></sdf>",
+    "expected": {
+      "name": "robot",
+      "raw_namespace": "ns/{name}/{name}",
+      "namespace": "ns/robot/robot",
+      "links": 1,
+      "frames": [],
+      "models": []
+    },
+    "native_original_versions": "312e35"
+  },
+  {
+    "id": "direct-1.6-absent",
+    "xml": "<sdf version='1.6'><model name='robot'><link name='base'/></model></sdf>",
+    "expected": {
+      "name": "robot",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 1,
+      "frames": [],
+      "models": []
+    },
+    "native_original_versions": "312e36"
+  },
+  {
+    "id": "direct-1.6-empty",
+    "xml": "<sdf version='1.6'><model name='robot' namespace=''><link name='base'/></model></sdf>",
+    "expected": {
+      "name": "robot",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 1,
+      "frames": [],
+      "models": []
+    },
+    "native_original_versions": "312e36"
+  },
+  {
+    "id": "direct-1.6-literal",
+    "xml": "<sdf version='1.6'><model name='robot' namespace='robot_ns'><link name='base'/></model></sdf>",
+    "expected": {
+      "name": "robot",
+      "raw_namespace": "robot_ns",
+      "namespace": "robot_ns",
+      "links": 1,
+      "frames": [],
+      "models": []
+    },
+    "native_original_versions": "312e36"
+  },
+  {
+    "id": "direct-1.6-template",
+    "xml": "<sdf version='1.6'><model name='robot' namespace='ns/{name}/{name}'><link name='base'/></model></sdf>",
+    "expected": {
+      "name": "robot",
+      "raw_namespace": "ns/{name}/{name}",
+      "namespace": "ns/robot/robot",
+      "links": 1,
+      "frames": [],
+      "models": []
+    },
+    "native_original_versions": "312e36"
+  },
+  {
+    "id": "direct-1.7-absent",
+    "xml": "<sdf version='1.7'><model name='robot'><link name='base'/></model></sdf>",
+    "expected": {
+      "name": "robot",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 1,
+      "frames": [],
+      "models": []
+    },
+    "native_original_versions": "312e37"
+  },
+  {
+    "id": "direct-1.7-empty",
+    "xml": "<sdf version='1.7'><model name='robot' namespace=''><link name='base'/></model></sdf>",
+    "expected": {
+      "name": "robot",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 1,
+      "frames": [],
+      "models": []
+    },
+    "native_original_versions": "312e37"
+  },
+  {
+    "id": "direct-1.7-literal",
+    "xml": "<sdf version='1.7'><model name='robot' namespace='robot_ns'><link name='base'/></model></sdf>",
+    "expected": {
+      "name": "robot",
+      "raw_namespace": "robot_ns",
+      "namespace": "robot_ns",
+      "links": 1,
+      "frames": [],
+      "models": []
+    },
+    "native_original_versions": "312e37"
+  },
+  {
+    "id": "direct-1.7-template",
+    "xml": "<sdf version='1.7'><model name='robot' namespace='ns/{name}/{name}'><link name='base'/></model></sdf>",
+    "expected": {
+      "name": "robot",
+      "raw_namespace": "ns/{name}/{name}",
+      "namespace": "ns/robot/robot",
+      "links": 1,
+      "frames": [],
+      "models": []
+    },
+    "native_original_versions": "312e37"
+  },
+  {
+    "id": "direct-1.8-absent",
+    "xml": "<sdf version='1.8'><model name='robot'><link name='base'/></model></sdf>",
+    "expected": {
+      "name": "robot",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 1,
+      "frames": [],
+      "models": []
+    },
+    "native_original_versions": "312e38"
+  },
+  {
+    "id": "direct-1.8-empty",
+    "xml": "<sdf version='1.8'><model name='robot' namespace=''><link name='base'/></model></sdf>",
+    "expected": {
+      "name": "robot",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 1,
+      "frames": [],
+      "models": []
+    },
+    "native_original_versions": "312e38"
+  },
+  {
+    "id": "direct-1.8-literal",
+    "xml": "<sdf version='1.8'><model name='robot' namespace='robot_ns'><link name='base'/></model></sdf>",
+    "expected": {
+      "name": "robot",
+      "raw_namespace": "robot_ns",
+      "namespace": "robot_ns",
+      "links": 1,
+      "frames": [],
+      "models": []
+    },
+    "native_original_versions": "312e38"
+  },
+  {
+    "id": "direct-1.8-template",
+    "xml": "<sdf version='1.8'><model name='robot' namespace='ns/{name}/{name}'><link name='base'/></model></sdf>",
+    "expected": {
+      "name": "robot",
+      "raw_namespace": "ns/{name}/{name}",
+      "namespace": "ns/robot/robot",
+      "links": 1,
+      "frames": [],
+      "models": []
+    },
+    "native_original_versions": "312e38"
+  },
+  {
+    "id": "direct-1.9-absent",
+    "xml": "<sdf version='1.9'><model name='robot'><link name='base'/></model></sdf>",
+    "expected": {
+      "name": "robot",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 1,
+      "frames": [],
+      "models": []
+    },
+    "native_original_versions": "312e39"
+  },
+  {
+    "id": "direct-1.9-empty",
+    "xml": "<sdf version='1.9'><model name='robot' namespace=''><link name='base'/></model></sdf>",
+    "expected": {
+      "name": "robot",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 1,
+      "frames": [],
+      "models": []
+    },
+    "native_original_versions": "312e39"
+  },
+  {
+    "id": "direct-1.9-literal",
+    "xml": "<sdf version='1.9'><model name='robot' namespace='robot_ns'><link name='base'/></model></sdf>",
+    "expected": {
+      "name": "robot",
+      "raw_namespace": "robot_ns",
+      "namespace": "robot_ns",
+      "links": 1,
+      "frames": [],
+      "models": []
+    },
+    "native_original_versions": "312e39"
+  },
+  {
+    "id": "direct-1.9-template",
+    "xml": "<sdf version='1.9'><model name='robot' namespace='ns/{name}/{name}'><link name='base'/></model></sdf>",
+    "expected": {
+      "name": "robot",
+      "raw_namespace": "ns/{name}/{name}",
+      "namespace": "ns/robot/robot",
+      "links": 1,
+      "frames": [],
+      "models": []
+    },
+    "native_original_versions": "312e39"
+  },
+  {
+    "id": "direct-1.10-absent",
+    "xml": "<sdf version='1.10'><model name='robot'><link name='base'/></model></sdf>",
+    "expected": {
+      "name": "robot",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 1,
+      "frames": [],
+      "models": []
+    },
+    "native_original_versions": "312e3130"
+  },
+  {
+    "id": "direct-1.10-empty",
+    "xml": "<sdf version='1.10'><model name='robot' namespace=''><link name='base'/></model></sdf>",
+    "expected": {
+      "name": "robot",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 1,
+      "frames": [],
+      "models": []
+    },
+    "native_original_versions": "312e3130"
+  },
+  {
+    "id": "direct-1.10-literal",
+    "xml": "<sdf version='1.10'><model name='robot' namespace='robot_ns'><link name='base'/></model></sdf>",
+    "expected": {
+      "name": "robot",
+      "raw_namespace": "robot_ns",
+      "namespace": "robot_ns",
+      "links": 1,
+      "frames": [],
+      "models": []
+    },
+    "native_original_versions": "312e3130"
+  },
+  {
+    "id": "direct-1.10-template",
+    "xml": "<sdf version='1.10'><model name='robot' namespace='ns/{name}/{name}'><link name='base'/></model></sdf>",
+    "expected": {
+      "name": "robot",
+      "raw_namespace": "ns/{name}/{name}",
+      "namespace": "ns/robot/robot",
+      "links": 1,
+      "frames": [],
+      "models": []
+    },
+    "native_original_versions": "312e3130"
+  },
+  {
+    "id": "direct-1.11-absent",
+    "xml": "<sdf version='1.11'><model name='robot'><link name='base'/></model></sdf>",
+    "expected": {
+      "name": "robot",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 1,
+      "frames": [],
+      "models": []
+    },
+    "native_original_versions": "312e3131"
+  },
+  {
+    "id": "direct-1.11-empty",
+    "xml": "<sdf version='1.11'><model name='robot' namespace=''><link name='base'/></model></sdf>",
+    "expected": {
+      "name": "robot",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 1,
+      "frames": [],
+      "models": []
+    },
+    "native_original_versions": "312e3131"
+  },
+  {
+    "id": "direct-1.11-literal",
+    "xml": "<sdf version='1.11'><model name='robot' namespace='robot_ns'><link name='base'/></model></sdf>",
+    "expected": {
+      "name": "robot",
+      "raw_namespace": "robot_ns",
+      "namespace": "robot_ns",
+      "links": 1,
+      "frames": [],
+      "models": []
+    },
+    "native_original_versions": "312e3131"
+  },
+  {
+    "id": "direct-1.11-template",
+    "xml": "<sdf version='1.11'><model name='robot' namespace='ns/{name}/{name}'><link name='base'/></model></sdf>",
+    "expected": {
+      "name": "robot",
+      "raw_namespace": "ns/{name}/{name}",
+      "namespace": "ns/robot/robot",
+      "links": 1,
+      "frames": [],
+      "models": []
+    },
+    "native_original_versions": "312e3131"
+  },
+  {
+    "id": "direct-1.12-absent",
+    "xml": "<sdf version='1.12'><model name='robot'><link name='base'/></model></sdf>",
+    "expected": {
+      "name": "robot",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 1,
+      "frames": [],
+      "models": []
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "direct-1.12-empty",
+    "xml": "<sdf version='1.12'><model name='robot' namespace=''><link name='base'/></model></sdf>",
+    "expected": {
+      "name": "robot",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 1,
+      "frames": [],
+      "models": []
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "direct-1.12-literal",
+    "xml": "<sdf version='1.12'><model name='robot' namespace='robot_ns'><link name='base'/></model></sdf>",
+    "expected": {
+      "name": "robot",
+      "raw_namespace": "robot_ns",
+      "namespace": "robot_ns",
+      "links": 1,
+      "frames": [],
+      "models": []
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "direct-1.12-template",
+    "xml": "<sdf version='1.12'><model name='robot' namespace='ns/{name}/{name}'><link name='base'/></model></sdf>",
+    "expected": {
+      "name": "robot",
+      "raw_namespace": "ns/{name}/{name}",
+      "namespace": "ns/robot/robot",
+      "links": 1,
+      "frames": [],
+      "models": []
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-absent-absent-rename0",
+    "resource": "<sdf version='1.12'><model name='source'><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "source",
+          "raw_namespace": null,
+          "namespace": null,
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-absent-absent-rename1",
+    "resource": "<sdf version='1.12'><model name='source'><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><name>renamed</name></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "renamed",
+          "raw_namespace": null,
+          "namespace": null,
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-absent-empty-rename0",
+    "resource": "<sdf version='1.12'><model name='source'><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><namespace></namespace></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "source",
+          "raw_namespace": null,
+          "namespace": null,
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-absent-empty-rename1",
+    "resource": "<sdf version='1.12'><model name='source'><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><name>renamed</name><namespace></namespace></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "renamed",
+          "raw_namespace": null,
+          "namespace": null,
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-absent-selfclosing-rename0",
+    "resource": "<sdf version='1.12'><model name='source'><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><namespace/></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "source",
+          "raw_namespace": null,
+          "namespace": null,
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-absent-selfclosing-rename1",
+    "resource": "<sdf version='1.12'><model name='source'><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><name>renamed</name><namespace/></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "renamed",
+          "raw_namespace": null,
+          "namespace": null,
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-absent-literal-rename0",
+    "resource": "<sdf version='1.12'><model name='source'><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><namespace>override_ns</namespace></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "source",
+          "raw_namespace": "override_ns",
+          "namespace": "override_ns",
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-absent-literal-rename1",
+    "resource": "<sdf version='1.12'><model name='source'><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><name>renamed</name><namespace>override_ns</namespace></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "renamed",
+          "raw_namespace": "override_ns",
+          "namespace": "override_ns",
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-absent-template-rename0",
+    "resource": "<sdf version='1.12'><model name='source'><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><namespace>new/{name}</namespace></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "source",
+          "raw_namespace": "new/{name}",
+          "namespace": "new/source",
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-absent-template-rename1",
+    "resource": "<sdf version='1.12'><model name='source'><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><name>renamed</name><namespace>new/{name}</namespace></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "renamed",
+          "raw_namespace": "new/{name}",
+          "namespace": "new/renamed",
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-absent-whitespace-rename0",
+    "resource": "<sdf version='1.12'><model name='source'><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><namespace>  </namespace></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "source",
+          "raw_namespace": null,
+          "namespace": null,
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-absent-whitespace-rename1",
+    "resource": "<sdf version='1.12'><model name='source'><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><name>renamed</name><namespace>  </namespace></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "renamed",
+          "raw_namespace": null,
+          "namespace": null,
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-absent-cdata-rename0",
+    "resource": "<sdf version='1.12'><model name='source'><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><namespace><![CDATA[ new/{name} ]]></namespace></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "source",
+          "raw_namespace": "new/{name}",
+          "namespace": "new/source",
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-absent-cdata-rename1",
+    "resource": "<sdf version='1.12'><model name='source'><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><name>renamed</name><namespace><![CDATA[ new/{name} ]]></namespace></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "renamed",
+          "raw_namespace": "new/{name}",
+          "namespace": "new/renamed",
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-empty-absent-rename0",
+    "resource": "<sdf version='1.12'><model name='source' namespace=''><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "source",
+          "raw_namespace": null,
+          "namespace": null,
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-empty-absent-rename1",
+    "resource": "<sdf version='1.12'><model name='source' namespace=''><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><name>renamed</name></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "renamed",
+          "raw_namespace": null,
+          "namespace": null,
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-empty-empty-rename0",
+    "resource": "<sdf version='1.12'><model name='source' namespace=''><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><namespace></namespace></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "source",
+          "raw_namespace": null,
+          "namespace": null,
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-empty-empty-rename1",
+    "resource": "<sdf version='1.12'><model name='source' namespace=''><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><name>renamed</name><namespace></namespace></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "renamed",
+          "raw_namespace": null,
+          "namespace": null,
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-empty-selfclosing-rename0",
+    "resource": "<sdf version='1.12'><model name='source' namespace=''><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><namespace/></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "source",
+          "raw_namespace": null,
+          "namespace": null,
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-empty-selfclosing-rename1",
+    "resource": "<sdf version='1.12'><model name='source' namespace=''><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><name>renamed</name><namespace/></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "renamed",
+          "raw_namespace": null,
+          "namespace": null,
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-empty-literal-rename0",
+    "resource": "<sdf version='1.12'><model name='source' namespace=''><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><namespace>override_ns</namespace></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "source",
+          "raw_namespace": "override_ns",
+          "namespace": "override_ns",
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-empty-literal-rename1",
+    "resource": "<sdf version='1.12'><model name='source' namespace=''><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><name>renamed</name><namespace>override_ns</namespace></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "renamed",
+          "raw_namespace": "override_ns",
+          "namespace": "override_ns",
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-empty-template-rename0",
+    "resource": "<sdf version='1.12'><model name='source' namespace=''><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><namespace>new/{name}</namespace></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "source",
+          "raw_namespace": "new/{name}",
+          "namespace": "new/source",
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-empty-template-rename1",
+    "resource": "<sdf version='1.12'><model name='source' namespace=''><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><name>renamed</name><namespace>new/{name}</namespace></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "renamed",
+          "raw_namespace": "new/{name}",
+          "namespace": "new/renamed",
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-empty-whitespace-rename0",
+    "resource": "<sdf version='1.12'><model name='source' namespace=''><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><namespace>  </namespace></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "source",
+          "raw_namespace": null,
+          "namespace": null,
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-empty-whitespace-rename1",
+    "resource": "<sdf version='1.12'><model name='source' namespace=''><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><name>renamed</name><namespace>  </namespace></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "renamed",
+          "raw_namespace": null,
+          "namespace": null,
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-empty-cdata-rename0",
+    "resource": "<sdf version='1.12'><model name='source' namespace=''><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><namespace><![CDATA[ new/{name} ]]></namespace></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "source",
+          "raw_namespace": "new/{name}",
+          "namespace": "new/source",
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-empty-cdata-rename1",
+    "resource": "<sdf version='1.12'><model name='source' namespace=''><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><name>renamed</name><namespace><![CDATA[ new/{name} ]]></namespace></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "renamed",
+          "raw_namespace": "new/{name}",
+          "namespace": "new/renamed",
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-literal-absent-rename0",
+    "resource": "<sdf version='1.12'><model name='source' namespace='source_ns'><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "source",
+          "raw_namespace": "source_ns",
+          "namespace": "source_ns",
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-literal-absent-rename1",
+    "resource": "<sdf version='1.12'><model name='source' namespace='source_ns'><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><name>renamed</name></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "renamed",
+          "raw_namespace": "source_ns",
+          "namespace": "source_ns",
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-literal-empty-rename0",
+    "resource": "<sdf version='1.12'><model name='source' namespace='source_ns'><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><namespace></namespace></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "source",
+          "raw_namespace": "source_ns",
+          "namespace": "source_ns",
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-literal-empty-rename1",
+    "resource": "<sdf version='1.12'><model name='source' namespace='source_ns'><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><name>renamed</name><namespace></namespace></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "renamed",
+          "raw_namespace": "source_ns",
+          "namespace": "source_ns",
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-literal-selfclosing-rename0",
+    "resource": "<sdf version='1.12'><model name='source' namespace='source_ns'><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><namespace/></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "source",
+          "raw_namespace": "source_ns",
+          "namespace": "source_ns",
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-literal-selfclosing-rename1",
+    "resource": "<sdf version='1.12'><model name='source' namespace='source_ns'><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><name>renamed</name><namespace/></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "renamed",
+          "raw_namespace": "source_ns",
+          "namespace": "source_ns",
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-literal-literal-rename0",
+    "resource": "<sdf version='1.12'><model name='source' namespace='source_ns'><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><namespace>override_ns</namespace></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "source",
+          "raw_namespace": "override_ns",
+          "namespace": "override_ns",
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-literal-literal-rename1",
+    "resource": "<sdf version='1.12'><model name='source' namespace='source_ns'><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><name>renamed</name><namespace>override_ns</namespace></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "renamed",
+          "raw_namespace": "override_ns",
+          "namespace": "override_ns",
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-literal-template-rename0",
+    "resource": "<sdf version='1.12'><model name='source' namespace='source_ns'><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><namespace>new/{name}</namespace></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "source",
+          "raw_namespace": "new/{name}",
+          "namespace": "new/source",
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-literal-template-rename1",
+    "resource": "<sdf version='1.12'><model name='source' namespace='source_ns'><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><name>renamed</name><namespace>new/{name}</namespace></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "renamed",
+          "raw_namespace": "new/{name}",
+          "namespace": "new/renamed",
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-literal-whitespace-rename0",
+    "resource": "<sdf version='1.12'><model name='source' namespace='source_ns'><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><namespace>  </namespace></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "source",
+          "raw_namespace": "source_ns",
+          "namespace": "source_ns",
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-literal-whitespace-rename1",
+    "resource": "<sdf version='1.12'><model name='source' namespace='source_ns'><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><name>renamed</name><namespace>  </namespace></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "renamed",
+          "raw_namespace": "source_ns",
+          "namespace": "source_ns",
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-literal-cdata-rename0",
+    "resource": "<sdf version='1.12'><model name='source' namespace='source_ns'><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><namespace><![CDATA[ new/{name} ]]></namespace></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "source",
+          "raw_namespace": "new/{name}",
+          "namespace": "new/source",
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-literal-cdata-rename1",
+    "resource": "<sdf version='1.12'><model name='source' namespace='source_ns'><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><name>renamed</name><namespace><![CDATA[ new/{name} ]]></namespace></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "renamed",
+          "raw_namespace": "new/{name}",
+          "namespace": "new/renamed",
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-template-absent-rename0",
+    "resource": "<sdf version='1.12'><model name='source' namespace='source/{name}'><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "source",
+          "raw_namespace": "source/{name}",
+          "namespace": "source/source",
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-template-absent-rename1",
+    "resource": "<sdf version='1.12'><model name='source' namespace='source/{name}'><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><name>renamed</name></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "renamed",
+          "raw_namespace": "source/{name}",
+          "namespace": "source/renamed",
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-template-empty-rename0",
+    "resource": "<sdf version='1.12'><model name='source' namespace='source/{name}'><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><namespace></namespace></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "source",
+          "raw_namespace": "source/{name}",
+          "namespace": "source/source",
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-template-empty-rename1",
+    "resource": "<sdf version='1.12'><model name='source' namespace='source/{name}'><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><name>renamed</name><namespace></namespace></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "renamed",
+          "raw_namespace": "source/{name}",
+          "namespace": "source/renamed",
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-template-selfclosing-rename0",
+    "resource": "<sdf version='1.12'><model name='source' namespace='source/{name}'><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><namespace/></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "source",
+          "raw_namespace": "source/{name}",
+          "namespace": "source/source",
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-template-selfclosing-rename1",
+    "resource": "<sdf version='1.12'><model name='source' namespace='source/{name}'><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><name>renamed</name><namespace/></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "renamed",
+          "raw_namespace": "source/{name}",
+          "namespace": "source/renamed",
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-template-literal-rename0",
+    "resource": "<sdf version='1.12'><model name='source' namespace='source/{name}'><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><namespace>override_ns</namespace></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "source",
+          "raw_namespace": "override_ns",
+          "namespace": "override_ns",
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-template-literal-rename1",
+    "resource": "<sdf version='1.12'><model name='source' namespace='source/{name}'><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><name>renamed</name><namespace>override_ns</namespace></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "renamed",
+          "raw_namespace": "override_ns",
+          "namespace": "override_ns",
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-template-template-rename0",
+    "resource": "<sdf version='1.12'><model name='source' namespace='source/{name}'><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><namespace>new/{name}</namespace></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "source",
+          "raw_namespace": "new/{name}",
+          "namespace": "new/source",
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-template-template-rename1",
+    "resource": "<sdf version='1.12'><model name='source' namespace='source/{name}'><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><name>renamed</name><namespace>new/{name}</namespace></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "renamed",
+          "raw_namespace": "new/{name}",
+          "namespace": "new/renamed",
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-template-whitespace-rename0",
+    "resource": "<sdf version='1.12'><model name='source' namespace='source/{name}'><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><namespace>  </namespace></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "source",
+          "raw_namespace": "source/{name}",
+          "namespace": "source/source",
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-template-whitespace-rename1",
+    "resource": "<sdf version='1.12'><model name='source' namespace='source/{name}'><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><name>renamed</name><namespace>  </namespace></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "renamed",
+          "raw_namespace": "source/{name}",
+          "namespace": "source/renamed",
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-template-cdata-rename0",
+    "resource": "<sdf version='1.12'><model name='source' namespace='source/{name}'><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><namespace><![CDATA[ new/{name} ]]></namespace></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "source",
+          "raw_namespace": "new/{name}",
+          "namespace": "new/source",
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "include-template-cdata-rename1",
+    "resource": "<sdf version='1.12'><model name='source' namespace='source/{name}'><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='holder'><include><uri>@RESOURCE@</uri><name>renamed</name><namespace><![CDATA[ new/{name} ]]></namespace></include></model></sdf>",
+    "expected": {
+      "name": "holder",
+      "raw_namespace": null,
+      "namespace": null,
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "renamed",
+          "raw_namespace": "new/{name}",
+          "namespace": "new/renamed",
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "nested-absent",
+    "xml": "<sdf version='1.12'><model name='parent' namespace='parent/{name}'><model name='child'><link name='base'/></model></model></sdf>",
+    "expected": {
+      "name": "parent",
+      "raw_namespace": "parent/{name}",
+      "namespace": "parent/parent",
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "child",
+          "raw_namespace": null,
+          "namespace": null,
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "merge-absent",
+    "resource": "<sdf version='1.12'><model name='child'><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='parent' namespace='parent/{name}'><include merge='true'><uri>@RESOURCE@</uri><name>renamed</name><namespace>override/{name}</namespace></include></model></sdf>",
+    "expected": {
+      "name": "parent",
+      "raw_namespace": "parent/{name}",
+      "namespace": "parent/parent",
+      "links": 1,
+      "frames": [
+        "_merged__renamed__model__"
+      ],
+      "models": []
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "nested-empty",
+    "xml": "<sdf version='1.12'><model name='parent' namespace='parent/{name}'><model name='child' namespace=''><link name='base'/></model></model></sdf>",
+    "expected": {
+      "name": "parent",
+      "raw_namespace": "parent/{name}",
+      "namespace": "parent/parent",
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "child",
+          "raw_namespace": null,
+          "namespace": null,
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "merge-empty",
+    "resource": "<sdf version='1.12'><model name='child' namespace=''><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='parent' namespace='parent/{name}'><include merge='true'><uri>@RESOURCE@</uri><name>renamed</name><namespace>override/{name}</namespace></include></model></sdf>",
+    "expected": {
+      "name": "parent",
+      "raw_namespace": "parent/{name}",
+      "namespace": "parent/parent",
+      "links": 1,
+      "frames": [
+        "_merged__renamed__model__"
+      ],
+      "models": []
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "nested-template",
+    "xml": "<sdf version='1.12'><model name='parent' namespace='parent/{name}'><model name='child' namespace='child/{name}'><link name='base'/></model></model></sdf>",
+    "expected": {
+      "name": "parent",
+      "raw_namespace": "parent/{name}",
+      "namespace": "parent/parent",
+      "links": 0,
+      "frames": [],
+      "models": [
+        {
+          "name": "child",
+          "raw_namespace": "child/{name}",
+          "namespace": "child/child",
+          "links": 1,
+          "frames": [],
+          "models": []
+        }
+      ]
+    },
+    "native_original_versions": "312e3132"
+  },
+  {
+    "id": "merge-template",
+    "resource": "<sdf version='1.12'><model name='child' namespace='child/{name}'><link name='base'/></model></sdf>",
+    "xml": "<sdf version='1.12'><model name='parent' namespace='parent/{name}'><include merge='true'><uri>@RESOURCE@</uri><name>renamed</name><namespace>override/{name}</namespace></include></model></sdf>",
+    "expected": {
+      "name": "parent",
+      "raw_namespace": "parent/{name}",
+      "namespace": "parent/parent",
+      "links": 1,
+      "frames": [
+        "_merged__renamed__model__"
+      ],
+      "models": []
+    },
+    "native_original_versions": "312e3132"
+  }
+]

@@ -27,11 +27,11 @@ class StaticModelDispositionTest(unittest.TestCase):
 
             path = snapshot / 'tests/semantics.rs'
             edits = disposition['files']['tests/semantics.rs']['successor_edits']
-            current = path.read_text()
-            path.write_text(current.replace(edits[1]['after'], edits[1]['before'], 1))
-            check_disposition(snapshot, disposition)
-            path.write_text(path.read_text().replace(edits[0]['after'], edits[0]['before'], 1))
-            check_disposition(snapshot, disposition)
+            for edit in reversed(edits):
+                current = path.read_text()
+                assert current.count(edit['after']) == 1
+                path.write_text(current.replace(edit['after'], edit['before'], 1))
+                check_disposition(snapshot, disposition)
 
             path.write_text(path.read_text().replace('m::__model__', '::', 1))
             with self.assertRaises(AssertionError):

@@ -767,6 +767,7 @@ impl Parser<'_> {
                 _ => {}
             }
         }
+        self.validate_axis_mimics(&name, &joints)?;
         Ok(Model {
             name,
             scoped_name: scoped_name.clone(),
@@ -1881,6 +1882,8 @@ impl Parser<'_> {
             axis,
             if is_pre17(axis) {
                 &["xyz", "limit", "dynamics", "use_parent_model_frame"]
+            } else if supports_axis_mimic(axis) {
+                &["xyz", "limit", "dynamics", "mimic"]
             } else {
                 &["xyz", "limit", "dynamics"]
             },
@@ -1957,6 +1960,9 @@ impl Parser<'_> {
             },
             stiffness: 1e8,
             dissipation: 1.,
+            mimic: child(axis, "mimic")
+                .map(|node| self.axis_mimic(node))
+                .transpose()?,
         };
         if let Some(limit) = child(axis, "limit") {
             self.allowed(
@@ -1985,6 +1991,57 @@ impl Parser<'_> {
             }
         }
         Ok(result)
+    }
+    fn axis_mimic(&self, node: Node<'_, '_>) -> Result<AxisMimic, Diagnostic> {
+        // Native loading retains known values while unknown mimic content is
+        // advisory; its warning side effect is outside this owned DOM subset.
+        Ok(AxisMimic {
+            joint: self.attr(node, "joint")?,
+            axis: node.attribute("axis").unwrap_or("axis").into(),
+            multiplier: self.scalar(node, "multiplier", 1.)?,
+            offset: self.scalar(node, "offset", 0.)?,
+            reference: self.scalar(node, "reference", 0.)?,
+        })
+    }
+    fn validate_axis_mimics(&self, model: &str, joints: &[Joint]) -> Result<(), Diagnostic> {
+        for joint in joints {
+            for (follower_name, follower) in [("axis", joint.axis(0)), ("axis2", joint.axis(1))] {
+                let Some(mimic) = follower.and_then(|axis| axis.mimic.as_ref()) else {
+                    continue;
+                };
+                let invalid =
+                    |message| error(ErrorCode::JointAxisMimicInvalid, &joint.source, message);
+                if mimic.joint == joint.name && mimic.axis == follower_name {
+                    return Err(invalid(format!(
+                        "Axis with name [{follower_name}] in joint with name [{}] cannot mimic itself.",
+                        joint.name
+                    )));
+                }
+                if !matches!(mimic.axis.as_str(), "axis" | "axis2") {
+                    return Err(invalid(format!(
+                        "Axis with name [{follower_name}] in joint with name [{}] specified an invalid leader axis name [{}].",
+                        joint.name, mimic.axis
+                    )));
+                }
+                let Some(leader) = joints
+                    .iter()
+                    .find(|candidate| candidate.name == mimic.joint)
+                else {
+                    return Err(invalid(format!(
+                        "A joint with name[{}] specified by an axis mimic in joint with name[{}] not found in model with name[{model}].",
+                        mimic.joint, joint.name
+                    )));
+                };
+                let leader_index = usize::from(mimic.axis == "axis2");
+                if leader.axis(leader_index).is_none() {
+                    return Err(invalid(format!(
+                        "Axis with name [{follower_name}] in joint with name [{}] specified a leader axis name [{}] that is not found in the leader joint with name [{}].",
+                        joint.name, mimic.axis, mimic.joint
+                    )));
+                }
+            }
+        }
+        Ok(())
     }
     fn imu(&self, sensor: Node<'_, '_>) -> Result<Imu, Diagnostic> {
         let Some(node) = child(sensor, "imu") else {
@@ -2783,6 +2840,12 @@ fn is_pre17(node: Node<'_, '_>) -> bool {
     matches!(
         node.document().root_element().attribute("version"),
         Some("1.4" | "1.5" | "1.6")
+    )
+}
+fn supports_axis_mimic(node: Node<'_, '_>) -> bool {
+    matches!(
+        node.document().root_element().attribute("version"),
+        Some("1.11" | "1.12")
     )
 }
 fn pose_attributes(node: Node<'_, '_>) -> &'static [&'static str] {

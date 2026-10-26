@@ -31,6 +31,18 @@
           "before": "            \"<link name='l'><sensor name='s' type='rfid'/></link>\",\n",
           "after": "            \"<link name='l'><sensor name='s' type='bogus_sensor_type'/></link>\",\n",
           "after_sha256": "373edcb4c70008d3ff1eae1af703339b3cb089f156d4c60a2a307bbc3c9ba4d7"
+        },
+        {
+          "before": "        dissipation: 1.,\n    };\n    assert_eq!(sdf.resolve_axis(&axis, \"m::j\", \"m\").unwrap(), [0., 1., 0.]);",
+          "after": "        dissipation: 1.,\n        mimic: None,\n    };\n    assert_eq!(sdf.resolve_axis(&axis, \"m::j\", \"m\").unwrap(), [0., 1., 0.]);",
+          "after_sha256": "b5dba73d49230a30a36095b9a67d63b3c376fbaf5365bfa7826c2b7fdf282471",
+          "purpose": "Axis mimic optional field in owned test initializer 1; exact state to be independently bound"
+        },
+        {
+          "before": "        dissipation: 1.,\n    };\n    assert_eq!(\n        sdf.resolve_axis(&axis, \"m::joint\", \"::\").unwrap_err().code,",
+          "after": "        dissipation: 1.,\n        mimic: None,\n    };\n    assert_eq!(\n        sdf.resolve_axis(&axis, \"m::joint\", \"::\").unwrap_err().code,",
+          "after_sha256": "0af2200b92a645a8c2fa4ebceeb603441314de081f33b7d056eb1b953d5b5a8d",
+          "purpose": "Axis mimic optional field in owned test initializer 2; exact state to be independently bound"
         }
       ]
     },

@@ -60422,6 +60422,16 @@
     "native_corpus": "223 exact native status/value-bit rows, unchanged DOMJointAxis.Construction original1/0, proof SHA256 6b4da3e2fdae99ee073e762bffe24f2f94acf560ed435f8bcf0423273e540678. Old165 XML/tokens unchanged; two old Rust-only nonfinite gaps now positive with 58 additive rows.",
     "rust": "Reviewed parser/corpus/test/fixture hashes, selected3/0; isolated full255 Rust/16 tools/fmt/Clippy/docs, production4110/4130 lines7111/7321 regions and changed28/28. Raw public-parent test/fixture overlay fails first explicit -inf conversion.",
     "scope": "Complete fixed-fixture observable original and scoped joint-limit nonfinite matrix. Only four joint-limit fields admit tested explicit infinity and signed NaN; generic audited scalar converter unchanged. Native method/Element/ToElement, arbitrary numeric token grammar, backend limit execution and broad SDF parity unclaimed.",
-    "review": "Independent /root/transport_fallback source/API/assertion and two-gap disposition APPROVED receipt SHA256 5d212afa3ef78868b11d3430a976489c3c43dbc7e05fe64a3e588685aff11fd8, source freeze e31f48da. Private raw-parent selected3/0, pinned original1/0 and all223 native rows exact. Final main binding, normal hook and hosted qualification pending."
+    "review": "Independent /root/transport_fallback source/API/assertion and two-gap disposition APPROVED receipt SHA256 5d212afa3ef78868b11d3430a976489c3c43dbc7e05fe64a3e588685aff11fd8, source freeze e31f48da. Private raw-parent selected3/0, pinned original1/0 and all223 native rows exact. Final main binding receipt SHA256 ae6da1ba3905c3407c62e1a09c7a5da5c75aa543ed658ee4e013b3022e6b5ec5 and normal protected hook passed; public 71358795c5b9582213232948f742e4aac1789673 passed exact hosted verify 40252871143."
+  },
+  "joint_axis_mimic_originals": {
+    "parent": "71358795c5b9582213232948f742e4aac1789673",
+    "upstream": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "source_freeze_sha256": "9061de6473c25e643e297f0d88977ca2b425d56134976aba6b556e27f3558925",
+    "source_review_sha256": "b51f48826c20dceaaf3f55eb205ec3fcc7650a5c8b62e4275f02d86b4ad10125",
+    "native": "Pinned INTEGRATION_joint_axis_dom ParseMimic native1/0 and three invalid originals native3/0; positive inline XML exact685 bytes; invalid native error vectors2/2/4. Supplemental freshly built probe confirms absent leader axis code41 first diagnostic and native-positive unknown child/extra attribute (with warning side effect).",
+    "rust": "Reviewed twelve exact hashes; isolated selected positive1/0, invalid4/0 and extensions1/0; full261 Rust/16 tools/fmt/Clippy/docs, production4166/4186 lines7203/7418 regions, changed53/53. Fresh static-model proof61 rows plus unchanged original1/0 and exact successor-rewind mutation control.",
+    "scope": "ParseMimic complete observable fixed-inline values via Axis.mimic. Invalid self/leader-joint/leader-axis originals partial first typed error/message only; full multi-error vectors and native console warning unported. Version1.11/1.12 recognized values only; no mimic constraint execution, URDF import, Element/ToElement or general graph edits.",
+    "review": "Independent /root/transport_fallback APPROVED source/API/assertion and static-model guard successor disposition receipt SHA256 b51f48826c20dceaaf3f55eb205ec3fcc7650a5c8b62e4275f02d86b4ad10125; source freeze9061de64. Private raw-parent Rust6/0 and pinned native originals4/0, exact inline XML and static reversal/mutation checked. Final main metadata binding, normal hook and hosted qualification pending."
   }
 }

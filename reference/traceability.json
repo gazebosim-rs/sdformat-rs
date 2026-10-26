@@ -1267,7 +1267,21 @@
       },
       "baseline": "Fresh pinned native original1/0 and exact fixture/source/binary hashes in e31f48da freeze; native axis corpus223/0 plus unchanged Construction original1/0; private raw public-parent with exact test/fixture fails first explicit -inf.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_fallback APPROVED source/API/assertion and two old-gap disposition receipt SHA256 5d212afa3ef78868b11d3430a976489c3c43dbc7e05fe64a3e588685aff11fd8, freeze e31f48da, private selected Rust3/0 and all223 native rows. Isolated full255 Rust/16 tools, production4110/4130 lines7111/7321 regions changed28/28. Final metadata binding, protected hook and hosted qualification pending."
+      "review": "Independent /root/transport_fallback APPROVED source/API/assertion and two old-gap disposition receipt SHA256 5d212afa3ef78868b11d3430a976489c3c43dbc7e05fe64a3e588685aff11fd8, freeze e31f48da, private selected Rust3/0 and all223 native rows. Isolated full255 Rust/16 tools, production4110/4130 lines7111/7321 regions changed28/28. Final binding receipt SHA256 ae6da1ba3905c3407c62e1a09c7a5da5c75aa543ed658ee4e013b3022e6b5ec5 and normal protected hook passed; public 71358795c5b9582213232948f742e4aac1789673 passed exact hosted verify 40252871143."
+    },
+    {
+      "target": "INTEGRATION_joint_axis_dom",
+      "case": "DOMJointAxis.ParseMimic",
+      "source": "test/integration/joint_axis_dom.cc:360-413",
+      "rust_test": "tests/joint_axis_mimic_original.rs::original_dom_joint_axis_parse_mimic",
+      "assertions": "Complete fixed-inline observable original: Root load succeeds, model and named follower joint, axis and mimic exist; leader joint source_joint, default leader axis axis, multiplier4, offset2 and reference3 match exactly. No constraint execution, URDF import, Element/ToElement, broad graph or mutable DOM claim.",
+      "fixtures": {
+        "tests/fixtures/joint_axis_mimic.sdf": "8b8feac91069e0c13cfe27966881e00e6a8604b4421185b23bc332ee84a6ad4a"
+      },
+      "upstream_fixtures": {},
+      "baseline": "Exact685-byte pinned inline SDF; native positive original1/0, source/binary hashes and full source proof bound by freeze9061de64; private raw-parent Rust positive1/0.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback APPROVED exact source/API/assertion and static guard successor scope receipt SHA256 b51f48826c20dceaaf3f55eb205ec3fcc7650a5c8b62e4275f02d86b4ad10125; twelve source hashes, four native originals4/0, private selected Rust6/0, native supplemental controls and 61 static-model rows plus unchanged original1/0. Final metadata binding, protected hook and hosted qualification pending."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",
@@ -1445,6 +1459,48 @@
       "baseline": "Exact native original one run, zero failures/skips; artifacts/nested-world-bodies/original.xml; pinned upstream 1249805d.",
       "status": "partial_reviewed",
       "review": "Independent /root/transport_fallback approved corrected frozen source digest 9d6bd23e0575cc3fa8f8f2e18bb2c68f311bacdc84be9e4b815f7ebcb4dec4b5 after native1/0, private selected1/full187 Rust replay, exact fixture and 2019 notice checks. Reviewer source receipt SHA256 e85fa4a7c32de943a752257a298f1d317af675be1036806b0fd4ee3854d56fed. ModelGraph world rejection and graph internals/native error details are explicitly unported; final public-parent binding and staged/hosted gates pending."
+    },
+    {
+      "target": "INTEGRATION_joint_axis_dom",
+      "case": "DOMJointAxis.ParseInvalidSelfMimic",
+      "source": "test/integration/joint_axis_dom.cc:414-457",
+      "rust_test": "tests/joint_axis_mimic_invalid.rs::self_mimic_rejects_the_first_axis",
+      "assertions": "PARTIAL: two native errors; Rust preserves first typed code41 and exact axis self-mimic message only. Native remaining error vector, ordering beyond first, and extra diagnostic formatting remain unported.",
+      "fixtures": {
+        "tests/fixtures/joint_axis_mimic_self.sdf": "4ed44a52e1264b8d28003bffc54f1fef4b0eedd7769c98306a29e36be05e48d6"
+      },
+      "upstream_fixtures": {},
+      "baseline": "Fresh pinned native original1/0; inline XML reconstructed byte-for-byte; native error vector 2 entries. Exact source/binary/fixture hashes bound by freeze9061de64.",
+      "status": "partial_reviewed",
+      "review": "Independent /root/transport_fallback approved first-error-only mapping receipt SHA256 b51f48826c20dceaaf3f55eb205ec3fcc7650a5c8b62e4275f02d86b4ad10125; private selected Rust invalid4/0, pinned three invalid originals3/0, full native vectors explicitly unported. Final metadata binding, protected hook and hosted qualification pending."
+    },
+    {
+      "target": "INTEGRATION_joint_axis_dom",
+      "case": "DOMJointAxis.ParseMimicInvalidLeaderJointName",
+      "source": "test/integration/joint_axis_dom.cc:458-504",
+      "rust_test": "tests/joint_axis_mimic_invalid.rs::missing_leader_joint_rejects_the_first_axis",
+      "assertions": "PARTIAL: two native errors; Rust preserves first typed code41 and exact missing leader joint message only. Native remaining error vector, ordering beyond first, and extra diagnostic formatting remain unported.",
+      "fixtures": {
+        "tests/fixtures/joint_axis_mimic_missing_joint.sdf": "3b0d65acba3ecceae1c0fbef4d5166974c154c8ea297e77f43ea14488b9d4f91"
+      },
+      "upstream_fixtures": {},
+      "baseline": "Fresh pinned native original1/0; inline XML reconstructed byte-for-byte; native error vector 2 entries. Exact source/binary/fixture hashes bound by freeze9061de64.",
+      "status": "partial_reviewed",
+      "review": "Independent /root/transport_fallback approved first-error-only mapping receipt SHA256 b51f48826c20dceaaf3f55eb205ec3fcc7650a5c8b62e4275f02d86b4ad10125; private selected Rust invalid4/0, pinned three invalid originals3/0, full native vectors explicitly unported. Final metadata binding, protected hook and hosted qualification pending."
+    },
+    {
+      "target": "INTEGRATION_joint_axis_dom",
+      "case": "DOMJointAxis.ParseMimicInvalidLeaderAxis",
+      "source": "test/integration/joint_axis_dom.cc:505-563",
+      "rust_test": "tests/joint_axis_mimic_invalid.rs::invalid_leader_axis_rejects_the_first_axis",
+      "assertions": "PARTIAL: four native errors; Rust preserves first typed code41 and exact invalid leader axis message only. Native remaining error vector, ordering beyond first, and extra diagnostic formatting remain unported.",
+      "fixtures": {
+        "tests/fixtures/joint_axis_mimic_invalid_axis.sdf": "9e1c4a3fa3cd6faa3cc039c693272abb9b39d361b2f21dd832282b855a3e4874"
+      },
+      "upstream_fixtures": {},
+      "baseline": "Fresh pinned native original1/0; inline XML reconstructed byte-for-byte; native error vector 4 entries. Exact source/binary/fixture hashes bound by freeze9061de64.",
+      "status": "partial_reviewed",
+      "review": "Independent /root/transport_fallback approved first-error-only mapping receipt SHA256 b51f48826c20dceaaf3f55eb205ec3fcc7650a5c8b62e4275f02d86b4ad10125; private selected Rust invalid4/0, pinned three invalid originals3/0, full native vectors explicitly unported. Final metadata binding, protected hook and hosted qualification pending."
     }
   ]
 }

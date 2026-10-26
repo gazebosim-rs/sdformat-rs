@@ -21,6 +21,7 @@ pub enum ErrorCode {
     InvalidValue,
     DuplicateName,
     UnknownReference,
+    JointAxisMimicInvalid,
     Cycle,
     Resource,
     Unsupported,
@@ -667,6 +668,17 @@ pub struct Axis {
     /// Joint-stop stiffness, independently of the spring stiffness in dynamics.
     pub stiffness: f64,
     pub dissipation: f64,
+    /// Optional leader joint/axis and linear position relationship.
+    pub mimic: Option<AxisMimic>,
+}
+
+#[derive(Debug, Clone, PartialEq)]
+pub struct AxisMimic {
+    pub joint: String,
+    pub axis: String,
+    pub multiplier: f64,
+    pub offset: f64,
+    pub reference: f64,
 }
 impl Axis {
     /// Normalize a finite direction, preserving the prior value on failure.

@@ -666,6 +666,7 @@ fn axis_resolution_rotates_vectors_and_resolves_joint_bodies() {
         dynamics: sdformat::AxisDynamics::default(),
         stiffness: 1e8,
         dissipation: 1.,
+        mimic: None,
     };
     assert_eq!(sdf.resolve_axis(&axis, "m::j", "m").unwrap(), [0., 1., 0.]);
     assert_eq!(
@@ -1001,6 +1002,7 @@ fn local_schema_references_cannot_escape_their_model_scope() {
         dynamics: sdformat::AxisDynamics::default(),
         stiffness: 1e8,
         dissipation: 1.,
+        mimic: None,
     };
     assert_eq!(
         sdf.resolve_axis(&axis, "m::joint", "::").unwrap_err().code,

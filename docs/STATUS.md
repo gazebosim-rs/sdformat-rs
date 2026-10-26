@@ -2152,4 +2152,33 @@ Rust/16 tools, formatting, Clippy and docs, with 4110/4130 production lines,
 7111/7321 regions and all 28 changed executable lines covered. The audited
 generic scalar converter is unchanged. Arbitrary numeric prefixes, Element,
 `ToElement`, backend limit execution and broad SDF parity remain open. Final
-main binding, normal hook and hosted qualification are pending.
+main binding receipt SHA256 `ae6da1ba3905c3407c62e1a09c7a5da5c75aa543ed658ee4e013b3022e6b5ec5`,
+normal protected hook and public `71358795c5b9582213232948f742e4aac1789673`
+passed exact hosted verify `40252871143`.
+
+## Native DOMJointAxis mimic parsing candidate
+
+The pinned SDF 1.11 inline `DOMJointAxis.ParseMimic` original passes natively
+1/0. Its exact 685-byte XML, successful model and named-joint lookups, present
+axis/mimic value, default leader axis and five mimic fields map to the owned
+`Axis.mimic` test. The three invalid native originals pass 3/0 with two, two
+and four errors. Rust maps only each first typed code and exact message; the
+remaining native error vectors stay partial. A supplemental native probe checks
+an absent leader axis, an unknown mimic child and an extra attribute; Rust
+retains the recognized values, but native warning output is unported.
+
+The reviewed source freeze SHA256 `9061de6473c25e643e297f0d88977ca2b425d56134976aba6b556e27f3558925`
+binds twelve exact source, test, fixture and static-model guard files.
+Independent source/API/assertion receipt SHA256
+`b51f48826c20dceaaf3f55eb205ec3fcc7650a5c8b62e4275f02d86b4ad10125`
+approved the positive original as complete observable fixed-fixture values
+and the invalid originals as partial first diagnostics only. Private raw-parent
+Rust selected tests passed 6/0 and pinned native originals 4/0. The static
+model disposition adds two exact `Axis` initializer successor states; all 61
+native observations and the unchanged original remain identical, with the
+unreviewed mutation rejection intact. Isolated author checks passed 261 Rust,
+sixteen tools, formatting, Clippy and docs; production coverage is 4166/4186
+lines and 7203/7418 regions, with all 53 changed executable lines covered.
+Final main binding, protected hook and hosted qualification are pending.
+Constraint execution, URDF import, Element/`ToElement`, general graph edits,
+native warning output and full multi-error diagnostics remain open.

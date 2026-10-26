@@ -38,7 +38,14 @@ Joint, JointKind and Axis implement Clone so consumers can retain owned typed
 configuration after dropping the document; clones share no mutable strings.
 Universal and revolute2 types retain both axes; native axis2 is also preserved
 when present on another supported joint kind.
-`Axis` has normalized xyz, expressed_in, position limits, effort and velocity.
+`Axis` has normalized xyz, expressed_in, position limits, effort, velocity and
+optional owned mimic metadata. In SDF 1.11–1.12, `<mimic>` retains the leader
+joint and axis plus multiplier, offset and reference; an omitted axis defaults
+to `axis`. Loading checks the leader joint and axis within the model and
+rejects a self mimic. `load_str` returns the first native mimic diagnostic for
+the three reviewed invalid fixtures. Native multi-error vectors, warning side
+effects for unknown mimic content, constraint execution, URDF import,
+`ToElement` and general graph mutation remain unported.
 Negative effort/velocity sentinels become positive infinity. Axis resolution
 rotates into the requested frame without translation. Joint endpoint frames may
 be aliases, but must resolve to different bodies; the child cannot be world.

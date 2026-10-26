@@ -1409,7 +1409,7 @@
       "upstream_fixtures": {},
       "baseline": "Pinned native original filters2/0 and private raw-parent Rust2/0, exact source/binary/XML and two reviewed source hashes bound by freeze 42a916bb; isolated full274 Rust/16 tools, production4233/4254 lines7267/7487 regions, changed26/26.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_fallback source/API/assertion APPROVED receipt SHA256 f8e1bd1d283af6d33e306da143bdc97803a962f27f078a6714b0863f6b342472; private native2/0 and Rust2/0, all original observable groups mapped. Final metadata binding, normal hook and hosted qualification pending."
+      "review": "Independent /root/transport_fallback source/API/assertion APPROVED receipt SHA256 f8e1bd1d283af6d33e306da143bdc97803a962f27f078a6714b0863f6b342472; private native2/0 and Rust2/0, all original observable groups mapped. Final metadata binding receipt SHA256 3d889119953cb7ed96cdc8c1a66329bec9a94c6734950191e749e2186cb8386f, normal protected hook and public 3c9d36f8c384d42f975fe31b3cb291fa20dd5d3f passed exact hosted verify 40264242627 SUCCESS."
     },
     {
       "target": "UNIT_Model_TEST",
@@ -1421,7 +1421,31 @@
       "upstream_fixtures": {},
       "baseline": "Pinned native original filters2/0 and private raw-parent Rust2/0, exact source/binary/XML and two reviewed source hashes bound by freeze 42a916bb; isolated full274 Rust/16 tools, production4233/4254 lines7267/7487 regions, changed26/26.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_fallback source/API/assertion APPROVED receipt SHA256 f8e1bd1d283af6d33e306da143bdc97803a962f27f078a6714b0863f6b342472; private native2/0 and Rust2/0, all original observable groups mapped. Final metadata binding, normal hook and hosted qualification pending."
+      "review": "Independent /root/transport_fallback source/API/assertion APPROVED receipt SHA256 f8e1bd1d283af6d33e306da143bdc97803a962f27f078a6714b0863f6b342472; private native2/0 and Rust2/0, all original observable groups mapped. Final metadata binding receipt SHA256 3d889119953cb7ed96cdc8c1a66329bec9a94c6734950191e749e2186cb8386f, normal protected hook and public 3c9d36f8c384d42f975fe31b3cb291fa20dd5d3f passed exact hosted verify 40264242627 SUCCESS."
+    },
+    {
+      "target": "UNIT_Model_TEST",
+      "case": "DOMModel.MutableByIndex",
+      "source": "src/Model_TEST.cc:606-645",
+      "rust_test": "tests/model_mutable_original.rs::original_dom_model_mutable_by_index",
+      "assertions": "COMPLETE fixed observable mutable link, joint and nested model names before rename and index/name relookup after rename; name existence for old/new values retained in name case. Valid parsed owned setup and add_*_unique success substitute native default-object insertion. Two Rust link/frame duplicate insertion controls supplemental. Native C++ pointer/method identity, arbitrary scoped/cross-kind name mutation, Element and prebuilt graph update unclaimed.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Pinned native original filters2/0 and private raw-parent Rust2/0, exact source/binary/XML and two reviewed source hashes bound by freeze114fb73a; isolated full276 Rust/16 tools, production4252/4273 lines7291/7511 regions, changed17/17.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback source/API/assertion APPROVED receipt SHA256 92fe2f72decb24574ee29300ecd8d3529f8a7f4fad791d42ac4217303e3c2927; private native2/0 and Rust2/0, all fixed original observable groups mapped. Final metadata binding, normal hook and hosted qualification pending."
+    },
+    {
+      "target": "UNIT_Model_TEST",
+      "case": "DOMModel.MutableByName",
+      "source": "src/Model_TEST.cc:647-701",
+      "rust_test": "tests/model_mutable_original.rs::original_dom_model_mutable_by_name",
+      "assertions": "COMPLETE fixed observable mutable link, joint, nested model and frame names before rename and index/name relookup after rename; name existence for old/new values retained in name case. Valid parsed owned setup and add_*_unique success substitute native default-object insertion. Two Rust link/frame duplicate insertion controls supplemental. Native C++ pointer/method identity, arbitrary scoped/cross-kind name mutation, Element and prebuilt graph update unclaimed.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Pinned native original filters2/0 and private raw-parent Rust2/0, exact source/binary/XML and two reviewed source hashes bound by freeze114fb73a; isolated full276 Rust/16 tools, production4252/4273 lines7291/7511 regions, changed17/17.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback source/API/assertion APPROVED receipt SHA256 92fe2f72decb24574ee29300ecd8d3529f8a7f4fad791d42ac4217303e3c2927; private native2/0 and Rust2/0, all fixed original observable groups mapped. Final metadata binding, normal hook and hosted qualification pending."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

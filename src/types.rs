@@ -271,6 +271,14 @@ pub struct Model {
     pub source: Source,
 }
 impl Model {
+    /// Insert a link with a unique direct name; an existing frame graph is unchanged.
+    pub fn add_link_unique(&mut self, link: Link) -> bool {
+        if self.links.iter().any(|existing| existing.name == link.name) {
+            return false;
+        }
+        self.links.push(link);
+        true
+    }
     /// Insert a joint with a unique direct name.
     /// This edits owned DOM data; an already built frame graph is unchanged.
     pub fn add_joint_unique(&mut self, joint: Joint) -> bool {
@@ -302,6 +310,18 @@ impl Model {
     }
     pub fn clear_models(&mut self) {
         self.models.clear();
+    }
+    /// Insert a frame with a unique direct name; an existing frame graph is unchanged.
+    pub fn add_frame_unique(&mut self, frame: Frame) -> bool {
+        if self
+            .frames
+            .iter()
+            .any(|existing| existing.name == frame.name)
+        {
+            return false;
+        }
+        self.frames.push(frame);
+        true
     }
     /// Borrow a nested model by an explicitly scoped relative name.
     /// A descendant's unqualified name does not search through other models.

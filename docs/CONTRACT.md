@@ -669,3 +669,16 @@ fixed count, duplicate rejection, clear, reinsert and index-name values.
 These mutations do not update an already built semantic frame graph. Native
 default-object state, C++ method/pointer identity, arbitrary scoped-name or
 cross-kind uniqueness, Element serialization and graph editing remain separate.
+
+
+## Model owned member rename
+
+`Model::add_link_unique` and `add_frame_unique` add direct members with
+unique names and return whether insertion occurred. Alongside joint and
+nested-model insertions, ordinary mutable vector borrows can rename those
+owned members. The pinned DOMModel mutable originals observe index/name
+lookup before and after rename; `link_by_name`, `joint_by_name`,
+`model_by_name` and `frame_by_name` reflect current member names. An
+already built semantic frame graph is unchanged by these edits. Native
+mutable pointer or method identity, generic scoped/cross-kind uniqueness
+and Element serialization are separate acceptance work.

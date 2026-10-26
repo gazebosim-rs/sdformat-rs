@@ -60482,6 +60482,16 @@
     "native": "Pinned UNIT_Model_TEST DOMModel.AddJoint and AddModel native2/0, exact source/binary and fresh XML proof; no skips.",
     "rust": "Exact two reviewed source hashes; private raw-parent Rust2/0 and isolated full274 Rust/16 tools/fmt/Clippy/docs, production4233/4254 lines7267/7487 regions, changed26/26.",
     "scope": "Complete fixed observable collection originals: initial zero count, unique insert, duplicate false/unchanged count, clear, reinsert and index0 name. Parsed static empty Model and valid parsed Joint/nested Model substitute native default objects. Owned methods consume values and do not update a prebuilt semantic graph. Native C++ method/pointer identity, arbitrary scoped-name/cross-kind uniqueness, Element and graph mutation unported.",
-    "review": "Independent /root/transport_fallback source/API/assertion APPROVED receipt SHA256 f8e1bd1d283af6d33e306da143bdc97803a962f27f078a6714b0863f6b342472; private Git-free native2/0 and Rust2/0. Final metadata binding, normal hook and hosted qualification pending."
+    "review": "Independent /root/transport_fallback source/API/assertion APPROVED receipt SHA256 f8e1bd1d283af6d33e306da143bdc97803a962f27f078a6714b0863f6b342472; private Git-free native2/0 and Rust2/0. Final metadata binding receipt SHA256 3d889119953cb7ed96cdc8c1a66329bec9a94c6734950191e749e2186cb8386f, normal protected hook and public 3c9d36f8c384d42f975fe31b3cb291fa20dd5d3f passed exact hosted verify 40264242627 SUCCESS."
+  },
+  "model_mutable_originals": {
+    "parent": "3c9d36f8c384d42f975fe31b3cb291fa20dd5d3f",
+    "upstream": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "source_freeze_sha256": "114fb73af35aeaa8fbdd6074ac0f73c79273d78116381ba7e55a53b8420589b2",
+    "source_review_sha256": "92fe2f72decb24574ee29300ecd8d3529f8a7f4fad791d42ac4217303e3c2927",
+    "native": "Pinned UNIT_Model_TEST DOMModel.MutableByIndex and MutableByName native2/0, exact source/binary and fresh XML proof; no skips.",
+    "rust": "Exact two reviewed src/test hashes; private raw-parent Rust2/0 and isolated full276 Rust/16 tools/fmt/Clippy/docs, production4252/4273 lines7291/7511 regions, changed17/17.",
+    "scope": "Complete fixed observable link/joint/nested-model/frame rename and index/name relookup after successful owned insertion from valid parsed values. Two Rust link/frame duplicate controls supplemental to native mutable originals. Native C++ pointer/method identity, arbitrary scoped/cross-kind uniqueness, Element and prebuilt graph mutation unported.",
+    "review": "Independent /root/transport_fallback source/API/assertion APPROVED receipt SHA256 92fe2f72decb24574ee29300ecd8d3529f8a7f4fad791d42ac4217303e3c2927; private native2/0 and Rust2/0. Final metadata binding, normal hook and hosted qualification pending."
   }
 }

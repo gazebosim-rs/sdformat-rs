@@ -2294,7 +2294,29 @@ author checks passed 274 Rust, sixteen tools, formatting, Clippy and docs;
 production coverage is 4233/4254 lines and 7267/7487 regions with all
 26 changed executable lines covered. Initial parsed dynamic-empty setup
 failure and large-Result Clippy failure are retained; both were corrected
-without dropping original observations. Final metadata binding, normal
-protected hook and hosted qualification remain pending. Native C++ method
+without dropping original observations. Final metadata binding receipt SHA256 `3d889119953cb7ed96cdc8c1a66329bec9a94c6734950191e749e2186cb8386f`, normal protected hook and public `3c9d36f8c384d42f975fe31b3cb291fa20dd5d3f` passed exact hosted verify `40264242627` SUCCESS. Native C++ method
 and pointer identity, arbitrary scoped-name uniqueness, Element and graph
 mutation remain unported.
+
+
+## Native DOMModel mutable member originals candidate
+
+Pinned `DOMModel.MutableByIndex` and `MutableByName` pass natively 2/0.
+Owned mutable borrows retain link, joint, nested model and frame names before
+rename and expose their new names by index or name lookup. A valid parsed
+model with those members substitutes native default objects; successful
+unique insertions are checked through owned collection methods. Two duplicate
+insertion checks are supplemental Rust controls for the new link/frame methods.
+
+Exact two-file source freeze SHA256 `114fb73af35aeaa8fbdd6074ac0f73c79273d78116381ba7e55a53b8420589b2`
+on hosted-green parent `3c9d36f` passed independent source/API/assertion
+review receipt SHA256 `92fe2f72decb24574ee29300ecd8d3529f8a7f4fad791d42ac4217303e3c2927`.
+Fresh pinned native2/0 and private raw-parent Rust2/0 passed. Isolated
+author checks passed 276 Rust, sixteen tools, formatting, Clippy and docs;
+production coverage is 4252/4273 lines and 7291/7511 regions with all
+17 changed executable lines covered. The first strict gate caught two
+untested duplicate branches at 15/17; additive controls corrected that
+without altering original assertions. Final metadata binding, normal
+protected hook and hosted qualification remain pending. Native C++ pointer
+and method identity, general scoped/cross-kind name mutation, Element and
+prebuilt frame graph updates remain unported.

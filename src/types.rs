@@ -410,6 +410,24 @@ pub struct Link {
     pub plugins: Vec<Plugin>,
     pub source: Source,
 }
+impl Link {
+    /// Insert a sensor with a unique direct name.
+    pub fn add_sensor_unique(&mut self, sensor: Sensor) -> bool {
+        if self
+            .sensors
+            .iter()
+            .any(|existing| existing.name == sensor.name)
+        {
+            return false;
+        }
+        self.sensors.push(sensor);
+        true
+    }
+
+    pub fn clear_sensors(&mut self) {
+        self.sensors.clear();
+    }
+}
 /// Link flags retained as data; consumers implement or reject their physical use.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct LinkProperties {

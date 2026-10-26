@@ -2336,7 +2336,27 @@ review receipt SHA256 `21125852b55d4ae1909e3b7705e2ae4fe82703e0bddf05c3a63b8344b
 Private raw-parent native1/0 and Rust1/0 passed. Isolated author checks
 passed 277 Rust, sixteen tools, formatting, Clippy and docs; production
 coverage is 4255/4276 lines and 7295/7515 regions with all three changed
-executable lines covered. Final metadata binding, normal protected hook
-and hosted qualification are pending. Native C++ pointer or method identity,
+executable lines covered. Final metadata binding receipt SHA256
+`8a78ec6d79115812d1174b138abb86ecefcf6705a544a6b9c6d42d61a5d05467`, normal
+protected hook and public `66a5eee35e750355b0845e3e8dc30fa6f1480b1b`
+passed exact hosted verify `40268905409` SUCCESS. Native C++ pointer or method identity,
 default construction, Element, graph mutation and general name policy
 remain unported.
+
+
+## Native DOMLink owned sensor insertion original candidate
+
+Pinned `DOMLink.AddSensor` passes natively 1/0. A valid parsed typed IMU
+sensor supplies the owned value; add, duplicate rejection, clear, reinsert,
+count and index-name values match the fixed native observations. Exact
+two-file source freeze SHA256 `2698aade6376798dff0ed4de5d7b028b5780755fdde57077e11d01e5475ba2f3`
+on hosted-green parent `66a5eee` passed independent source/API/assertion
+review receipt SHA256 `725c28eb5bc2ce861de7f22a9e3bee2f3ead301615270739f7ea31a9bee44712`.
+Fresh pinned native1/0 and private raw-parent Rust1/0 passed; the latter
+overlapped an ordinary two-job SDK build and is correctness-only evidence.
+Isolated author checks passed 278 Rust, sixteen tools, formatting, Clippy
+and docs; production coverage is 4269/4290 lines and 7311/7531 regions
+with all thirteen changed executable lines covered. Final metadata binding,
+normal protected hook and hosted qualification remain pending. Native
+untyped default Sensor state, C++ pointer/method identity, arbitrary name
+policy, Element, graph mutation and broad sensor grammar remain unported.

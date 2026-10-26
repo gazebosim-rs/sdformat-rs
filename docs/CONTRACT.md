@@ -689,3 +689,14 @@ preserves the fixed add, duplicate, clear, reinsert and rename/relookup
 observations in `DOMModel.AddModifyFrame`. Edits do not update an already
 built semantic frame graph. C++ pointer or method identity and arbitrary
 scoped name policy remain separate acceptance work.
+
+
+## Link owned sensor collection
+
+`Link::add_sensor_unique` accepts a sensor only when no direct sensor has its
+name, and `clear_sensors` removes the owned sensor collection. The fixed
+`DOMLink.AddSensor` original observes count, insertion, duplicate rejection,
+clear, reinsert and index-name results. The Rust test uses a valid parsed
+typed IMU sensor as its owned value. Native untyped default Sensor state,
+C++ pointer or method identity, arbitrary name policy and broader sensor
+grammar remain separate acceptance work.

@@ -1457,7 +1457,19 @@
       "upstream_fixtures": {},
       "baseline": "Pinned native original1/0 and private raw-parent Rust1/0, exact source/binary/XML and two reviewed source hashes bound by freeze44597f6e; isolated full277 Rust/16 tools, production4255/4276 lines7295/7515 regions, changed3/3.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_fallback source/API/assertion APPROVED receipt SHA256 21125852b55d4ae1909e3b7705e2ae4fe82703e0bddf05c3a63b8344b475bcf2; private native1/0 and Rust1/0, all fixed original observable groups mapped. Final metadata binding, normal hook and hosted qualification pending."
+      "review": "Independent /root/transport_fallback source/API/assertion APPROVED receipt SHA256 21125852b55d4ae1909e3b7705e2ae4fe82703e0bddf05c3a63b8344b475bcf2; private native1/0 and Rust1/0, all fixed original observable groups mapped. Final metadata binding receipt SHA256 8a78ec6d79115812d1174b138abb86ecefcf6705a544a6b9c6d42d61a5d05467, normal protected hook and public 66a5eee35e750355b0845e3e8dc30fa6f1480b1b passed exact hosted verify 40268905409 SUCCESS."
+    },
+    {
+      "target": "UNIT_Link_TEST",
+      "case": "DOMLink.AddSensor",
+      "source": "src/Link_TEST.cc:1177-1197",
+      "rust_test": "tests/link_add_sensor_original.rs::original_dom_link_add_sensor",
+      "assertions": "COMPLETE fixed observable initial zero count, successful unique direct-name insert/count one, duplicate false/count unchanged, clear/count zero, reinsert true/count one and index0 non-null/exact sensor1 name. Parsed valid typed IMU Sensor substitutes native untyped default only for these observations. Native default untyped state, C++ pointer/method identity, arbitrary name policy, Element, graph mutation and broader sensor grammar unclaimed.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Pinned native original1/0 and private raw-parent Rust1/0, exact source/binary/XML and two reviewed source hashes bound by freeze2698aade; isolated full278 Rust/16 tools, production4269/4290 lines7311/7531 regions, changed13/13. Private Rust replay overlapped ordinary two-job SDK build; correctness only.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback source/API/assertion APPROVED receipt SHA256 725c28eb5bc2ce861de7f22a9e3bee2f3ead301615270739f7ea31a9bee44712; private native1/0 and Rust1/0, all fixed original observable groups mapped. Final metadata binding, normal hook and hosted qualification pending."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

@@ -1464,6 +1464,35 @@ impl Parser<'_> {
         }
         self.scalar(node, name, default)
     }
+    fn joint_limit_scalar(
+        &self,
+        limit: Node<'_, '_>,
+        name: &str,
+        default: f64,
+        required: bool,
+    ) -> Result<f64, Diagnostic> {
+        let Some(value) = child(limit, name) else {
+            return Ok(default);
+        };
+        self.allowed(value, &[], &[])?;
+        let text = param_text(value);
+        if text.is_empty() {
+            return if required {
+                Err(self.err(value, ErrorCode::Missing, format!("missing {name}")))
+            } else {
+                Ok(default)
+            };
+        }
+        // Native axis limits retain these Param double values, including NaN.
+        let special = match text.to_ascii_lowercase().as_str() {
+            "inf" | "infinity" | "+inf" | "+infinity" => Some(f64::INFINITY),
+            "-inf" | "-infinity" => Some(f64::NEG_INFINITY),
+            "nan" | "+nan" => Some(f64::NAN),
+            "-nan" => Some(-f64::NAN),
+            _ => None,
+        };
+        special.map_or_else(|| self.number(value, default), Ok)
+    }
     fn unsigned(&self, node: Node<'_, '_>, name: &str, default: u32) -> Result<u32, Diagnostic> {
         let Some(value) = child(node, name) else {
             return Ok(default);
@@ -1942,10 +1971,10 @@ impl Parser<'_> {
                 ],
                 &[],
             )?;
-            result.lower = self.required_scalar(limit, "lower", result.lower)?;
-            result.upper = self.required_scalar(limit, "upper", result.upper)?;
-            result.effort = self.scalar(limit, "effort", result.effort)?;
-            result.velocity = self.scalar(limit, "velocity", result.velocity)?;
+            result.lower = self.joint_limit_scalar(limit, "lower", result.lower, true)?;
+            result.upper = self.joint_limit_scalar(limit, "upper", result.upper, true)?;
+            result.effort = self.joint_limit_scalar(limit, "effort", result.effort, false)?;
+            result.velocity = self.joint_limit_scalar(limit, "velocity", result.velocity, false)?;
             result.stiffness = self.scalar(limit, "stiffness", result.stiffness)?;
             result.dissipation = self.scalar(limit, "dissipation", result.dissipation)?;
             if result.effort < 0. {

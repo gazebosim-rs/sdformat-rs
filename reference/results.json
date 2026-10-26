@@ -60411,6 +60411,17 @@
     "native": "Fresh exact 165-row axis corpus proof SHA256 982d2858 and unchanged DOMJointAxis.Construction original1/0; old160 rows preserved.",
     "rust": "Reviewed three source hashes parse3d9540de/corpus c44f12aa/new supplemental test56473e04; isolated selected3/0/full252 Rust/16 tools/fmt/Clippy/docs and changed1/1. Fresh integrated author gate254 Rust/16 tools/fmt/Clippy/docs, production4085/4105 lines7067/7276 regions and changed1/1.",
     "scope": "Bounded JointAxis XML XYZ near-zero threshold parity using native default f32 epsilon promoted to f64. Native rejects zero, +/-1e-7 and exact float epsilon; decimal1e-6 loads and normalizes UnitX. No original retirement; native full error vector/Element/graph and broader grammar remain unported.",
-    "review": "Independent /root/transport_fallback APPROVED exact source receipt SHA256 7f3698a866bd2bc9596bd8a415c928a023435522e5328086ccb15612d4387562, source freeze cc1c9513; rebuilt byte-identical native corpus, private raw-parent Rust3/0 and prior-parser negative. Fresh integrated author gate passed; independent final main binding, normal hook and hosted qualification pending."
+    "review": "Independent /root/transport_fallback APPROVED exact source receipt SHA256 7f3698a866bd2bc9596bd8a415c928a023435522e5328086ccb15612d4387562, source freeze cc1c9513; rebuilt byte-identical native corpus, private raw-parent Rust3/0 and prior-parser negative. Fresh integrated author gate passed; final binding receipt SHA256 7514dd4d, normal protected hook and hosted verify 40251157552 SUCCESS at public f07c4021426b9e256b0b387dd026deef18cc3dcb."
+  },
+  "joint_axis_infinite_limits_original": {
+    "parent": "f07c4021426b9e256b0b387dd026deef18cc3dcb",
+    "upstream": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "source_freeze_sha256": "e31f48da194e707843f734d31d9f1a81bc9ff4b2cbce57f759fa709d71259c14",
+    "source_review_sha256": "5d212afa3ef78868b11d3430a976489c3c43dbc7e05fe64a3e588685aff11fd8",
+    "original": "Pinned INTEGRATION_joint_axis_dom DOMJointAxis.InfiniteLimits native1/0 on unchanged joint_axis_infinite_limits.sdf; no Root load errors, model name, four named joints/axes and all sixteen lower/upper/effort/velocity values.",
+    "native_corpus": "223 exact native status/value-bit rows, unchanged DOMJointAxis.Construction original1/0, proof SHA256 6b4da3e2fdae99ee073e762bffe24f2f94acf560ed435f8bcf0423273e540678. Old165 XML/tokens unchanged; two old Rust-only nonfinite gaps now positive with 58 additive rows.",
+    "rust": "Reviewed parser/corpus/test/fixture hashes, selected3/0; isolated full255 Rust/16 tools/fmt/Clippy/docs, production4110/4130 lines7111/7321 regions and changed28/28. Raw public-parent test/fixture overlay fails first explicit -inf conversion.",
+    "scope": "Complete fixed-fixture observable original and scoped joint-limit nonfinite matrix. Only four joint-limit fields admit tested explicit infinity and signed NaN; generic audited scalar converter unchanged. Native method/Element/ToElement, arbitrary numeric token grammar, backend limit execution and broad SDF parity unclaimed.",
+    "review": "Independent /root/transport_fallback source/API/assertion and two-gap disposition APPROVED receipt SHA256 5d212afa3ef78868b11d3430a976489c3c43dbc7e05fe64a3e588685aff11fd8, source freeze e31f48da. Private raw-parent selected3/0, pinned original1/0 and all223 native rows exact. Final main binding, normal hook and hosted qualification pending."
   }
 }

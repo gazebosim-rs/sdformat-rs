@@ -987,21 +987,26 @@ unrelated assertion bytes are proven unchanged. No limit execution, normalizatio
 or backend joint admissibility is added. The earlier AXIS_DYNAMICS parsed-default
 prose is corrected; its twelve-value partial mapping remains unchanged.
 
-All 142 Rust checks, 13 tools, fmt/clippy, 160 native rows and the unchanged full
-Construction baseline pass. Two explicit nonfinite-input gaps remain; implicit
+At that checkpoint, all 142 Rust checks, 13 tools, fmt/clippy, 160 native rows and the unchanged full
+Construction baseline passed. Two explicit nonfinite-input gaps remained then;
+the later reviewed InfiniteLimits packet below maps both to positive native
+values. Implicit
 unbounded defaults are separately accepted native metadata. Coverage is 3092/3112
 lines, 5395/5510 regions and 2/2 changed executable lines. Runtime embedded-schema
 bytes and pinned generator framing are verified. Initial old-guard/default and
-provenance-setup failures are retained. Independent source/disposition review and
-normal staged/hosted gates remain required; no new original retirement.
+provenance-setup failures are retained. This paragraph records the earlier
+bounded packet; its review and normal staged/hosted gates subsequently passed.
+It retired no original case.
 
 Independent /root/transport_recovery approved the bounded correction and explicit
 obsolete-test disposition after fresh 142 Rust checks, 160 native rows and the
 complete unchanged Construction baseline passed with entire proof equality.
 Exact old XML/helper wrappers and restored unrelated assertion bytes match the
 public parent. Runtime embedded schema framing is verified; implicit unlimited
-metadata and explicit nonfinite gaps stay separate. Source/assertions/native inputs
-are unchanged by this metadata update. Normal staged/hosted gates remain required.
+metadata and the then-open explicit nonfinite gaps were kept separate. The later
+InfiniteLimits packet below maps the explicit joint-limit values. Source,
+assertion and native inputs were unchanged by that metadata update; its normal
+staged and hosted gates subsequently passed.
 
 
 ## Owned joint configuration cloning candidate
@@ -2122,5 +2127,29 @@ frame graph and retirement of the partial `DOMJointAxis.Construction` original
 remain outside this packet. Fresh integrated author gate passed 254 Rust tests,
 sixteen tool tests, formatting, Clippy and docs. Production coverage is
 4085/4105 lines and 7067/7276 regions, with the changed executable line
-covered. Independent final binding, normal hook and hosted qualification are
-pending.
+covered. Independent final binding receipt SHA256 `7514dd4d`, normal
+protected hook and public `f07c4021426b9e256b0b387dd026deef18cc3dcb`
+passed exact hosted verify `40251157552`. The parser correction does not retire
+the partial `DOMJointAxis.Construction` original.
+
+## Native DOMJointAxis infinite limits original candidate
+
+The unchanged upstream SDF 1.6 fixture loads natively without errors. Its
+model name, four joint lookups, four present axes and all sixteen
+lower/upper/effort/velocity observations map to the reviewed Rust test. The
+fixed-fixture original passes natively 1/0 and Rust selected1/0. A raw public
+parent with that exact test and fixture fails at the first explicit `-inf`
+limit, while the scoped joint-limit parser correction passes.
+
+The native axis corpus now passes all 223 rows plus the unchanged
+`DOMJointAxis.Construction` original1/0. The prior 165 XML/expected-bit rows
+remain intact; the two earlier Rust-only nonfinite gaps become positive
+native-bit assertions, and 58 source-hashed rows cover explicit infinity,
+signed NaN and empty optional bounds. Independent /root/transport_fallback
+approved the five-file source freeze SHA256 `e31f48da` and the two-gap
+disposition in receipt SHA256 `5d212afa`. Isolated author checks passed 255
+Rust/16 tools, formatting, Clippy and docs, with 4110/4130 production lines,
+7111/7321 regions and all 28 changed executable lines covered. The audited
+generic scalar converter is unchanged. Arbitrary numeric prefixes, Element,
+`ToElement`, backend limit execution and broad SDF parity remain open. Final
+main binding, normal hook and hosted qualification are pending.

@@ -1,6 +1,6 @@
 # Root-loaded axis limit metadata
 
-The loader preserves finite lower/upper values without imposing an ordering rule.
+The loader preserves lower/upper values without imposing an ordering rule.
 Native Root accepts inverted and equal bounds on both axes; parser acceptance does
 not execute or normalize those bounds, or decide a backend's joint policy.
 Signed zero and large finite values retain their actual bits. Existing native
@@ -9,9 +9,10 @@ negative effort/velocity handling is unchanged.
 Native Root loads the converted current schema. Omitted bounds therefore use
 negative/positive infinity across source versions 1.4–1.12, including absent/empty
 limit groups and one-sided bounds. Explicit empty lower/upper children reject;
-existing required-scalar handling distinguishes absence from empty input. Explicit
-nonfinite tokens remain a separate documented unsupported scalar observation,
-while implicit unbounded defaults are permitted metadata. Native constructed-axis
+existing required-scalar handling distinguishes absence from empty input. The
+four joint-limit fields now retain the exact native `inf`, `infinity` and `nan`
+values with the tested signs and case, while the generic scalar path remains
+finite. Native constructed-axis
 and Root-load paths are checked independently; no claim covers unconverted legacy
 Element schemas or a general mutable JointAxis constructor facade.
 
@@ -24,12 +25,18 @@ reinserting only those two tuples. Independent review must explicitly approve
 this disposition. Initial positive regression failures against the old ordering
 guard and the subsequent ±1e16/default mismatch are retained in ignored logs.
 
-The 160-row native corpus has 158 matching outcomes and two explicitly identified
-nonfinite-input gaps. It covers four joint kinds, both axes, all supported source
+The original 160-row native corpus remains intact in XML and expected bits.
+Five near-zero direction rows and 58 explicit nonfinite/empty limit controls
+bring the corpus to 223 native-matched outcomes. The two formerly unsupported
+`nonfinite_lower_inf` and `nonfinite_upper_nan` observations now assert the
+native positive value bits. The corpus covers four joint kinds, both axes, all supported source
 versions, inversion/equality/signed-zero/extreme finite values, decimal/hex numeric
 prefixes, absent/empty/one-sided bounds, whitespace/CDATA and malformed/range
 errors. The exact native Construction baseline still passes; its existing
-12-value partial mapping is unchanged, and no additional original case is retired.
+12-value partial mapping is unchanged. The separate unchanged
+`DOMJointAxis.InfiniteLimits` fixed-fixture original is completely mapped for
+its model, four joint lookups and 16 limit values. Element, `ToElement`,
+arbitrary numeric prefixes and backend limit execution remain unqualified.
 
 Proof binds parser/Root/JointAxis/Param source, all nine joint schemas, installed
 headers and linked libraries. The actual runtime SDF::EmbeddedSpec joint bytes
@@ -39,10 +46,11 @@ share-path location and unframed embedding were rejected and their logs retained
 no mismatched schema proof is accepted. Existing SDK/build evidence remains
 qualified rather than a reproducible-reference-image claim.
 
-Author checks: all 142 Rust tests, 13 tooling tests, fmt/clippy, 160 native rows
-and the unchanged original baseline pass. Coverage is 3092/3112 lines and
-5395/5510 regions, with 2/2 changed executable lines. Deleting the ordering guard
-corrects measured native load behavior; it is not a coverage-driven removal.
-No dependency, unsafe, threshold or exclusion changes. Independent source and
-obsolete-assertion disposition review, exact normal staged hook and hosted gate
-remain required. Backend joint execution and complete joint capability stay open.
+The new isolated packet passed 255 Rust and 16 tooling tests, fmt, Clippy and
+docs, plus all 223 native rows and both exact native originals. Production
+coverage is 4110/4130 lines and 7111/7321 regions, with all 28 changed
+executable lines covered. Independent source/API/assertion and the two-gap
+disposition review approved the five frozen source/fixture files; final main
+binding, normal protected hook and hosted qualification remain pending.
+No dependency, unsafe, general scalar, threshold or exclusion change was made.
+Backend joint execution and complete joint capability stay open.

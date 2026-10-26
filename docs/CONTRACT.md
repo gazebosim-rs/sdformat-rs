@@ -483,8 +483,11 @@ Axis lower/upper limits preserve finite native values without requiring lower<=u
 Native Root-loaded omitted bounds are negative/positive infinity after conversion
 to the current schema, including supported older source versions. An omitted or
 empty limit group uses these defaults; an explicitly empty bound child rejects.
-Explicit nonfinite input remains a documented scalar parity gap, distinct from
-implicit unlimited metadata. Parser acceptance does not execute, normalize or
+Explicit `inf`, `infinity`, `nan` and signed forms in the four joint-axis
+limit fields follow the pinned native DOM values; negative effort and velocity
+still read as positive infinity. This local path leaves the general finite
+scalar converter unchanged. Arbitrary numeric token prefixes remain outside
+the qualified matrix. Parser acceptance does not execute, normalize or
 approve limits for any backend; consumers must handle their own admissibility.
 See AXIS_LIMITS.md for native controls and obsolete Rust-only rejection disposition.
 

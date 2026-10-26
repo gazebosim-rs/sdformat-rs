@@ -1563,8 +1563,7 @@
       "9218868437227405312",
       "9218868437227405312",
       "9218868437227405312"
-    ],
-    "gap": "nonfinite scalar DOM acceptance remains explicitly unsupported"
+    ]
   },
   {
     "id": "nonfinite_upper_nan",
@@ -1581,8 +1580,7 @@
       "9221120237041090560",
       "9218868437227405312",
       "9218868437227405312"
-    ],
-    "gap": "nonfinite scalar DOM acceptance remains explicitly unsupported"
+    ]
   },
   {
     "id": "1.4_absent",
@@ -2671,5 +2669,759 @@
       "9"
     ],
     "rust_error": "InvalidValue"
+  },
+  {
+    "id": "special_1_6_lower_inf",
+    "xml": "<sdf version='1.6'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><lower>inf</lower></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_6_lower_minus_inf",
+    "xml": "<sdf version='1.6'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><lower>-inf</lower></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_6_lower_Infinity",
+    "xml": "<sdf version='1.6'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><lower>Infinity</lower></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_6_lower_minus_Infinity",
+    "xml": "<sdf version='1.6'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><lower>-Infinity</lower></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_6_lower_nan",
+    "xml": "<sdf version='1.6'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><lower>nan</lower></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "9221120237041090560",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_6_lower_minus_nan",
+    "xml": "<sdf version='1.6'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><lower>-nan</lower></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18444492273895866368",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_6_lower_minus_1",
+    "xml": "<sdf version='1.6'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><lower>-1</lower></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "13830554455654793216",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_6_upper_inf",
+    "xml": "<sdf version='1.6'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><upper>inf</upper></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_6_upper_minus_inf",
+    "xml": "<sdf version='1.6'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><upper>-inf</upper></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "18442240474082181120",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_6_upper_Infinity",
+    "xml": "<sdf version='1.6'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><upper>Infinity</upper></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_6_upper_minus_Infinity",
+    "xml": "<sdf version='1.6'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><upper>-Infinity</upper></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "18442240474082181120",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_6_upper_nan",
+    "xml": "<sdf version='1.6'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><upper>nan</upper></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "9221120237041090560",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_6_upper_minus_nan",
+    "xml": "<sdf version='1.6'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><upper>-nan</upper></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "18444492273895866368",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_6_upper_minus_1",
+    "xml": "<sdf version='1.6'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><upper>-1</upper></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "13830554455654793216",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_6_effort_inf",
+    "xml": "<sdf version='1.6'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><effort>inf</effort></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_6_effort_minus_inf",
+    "xml": "<sdf version='1.6'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><effort>-inf</effort></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_6_effort_Infinity",
+    "xml": "<sdf version='1.6'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><effort>Infinity</effort></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_6_effort_minus_Infinity",
+    "xml": "<sdf version='1.6'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><effort>-Infinity</effort></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_6_effort_nan",
+    "xml": "<sdf version='1.6'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><effort>nan</effort></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "9218868437227405312",
+      "9221120237041090560",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_6_effort_minus_nan",
+    "xml": "<sdf version='1.6'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><effort>-nan</effort></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "9218868437227405312",
+      "18444492273895866368",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_6_effort_minus_1",
+    "xml": "<sdf version='1.6'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><effort>-1</effort></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_6_velocity_inf",
+    "xml": "<sdf version='1.6'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><velocity>inf</velocity></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_6_velocity_minus_inf",
+    "xml": "<sdf version='1.6'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><velocity>-inf</velocity></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_6_velocity_Infinity",
+    "xml": "<sdf version='1.6'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><velocity>Infinity</velocity></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_6_velocity_minus_Infinity",
+    "xml": "<sdf version='1.6'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><velocity>-Infinity</velocity></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_6_velocity_nan",
+    "xml": "<sdf version='1.6'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><velocity>nan</velocity></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9221120237041090560",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_6_velocity_minus_nan",
+    "xml": "<sdf version='1.6'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><velocity>-nan</velocity></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "9218868437227405312",
+      "9218868437227405312",
+      "18444492273895866368",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_6_velocity_minus_1",
+    "xml": "<sdf version='1.6'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><velocity>-1</velocity></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_12_lower_inf",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><lower>inf</lower></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_12_lower_minus_inf",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><lower>-inf</lower></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_12_lower_Infinity",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><lower>Infinity</lower></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_12_lower_minus_Infinity",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><lower>-Infinity</lower></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_12_lower_nan",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><lower>nan</lower></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "9221120237041090560",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_12_lower_minus_nan",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><lower>-nan</lower></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18444492273895866368",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_12_lower_minus_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><lower>-1</lower></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "13830554455654793216",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_12_upper_inf",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><upper>inf</upper></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_12_upper_minus_inf",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><upper>-inf</upper></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "18442240474082181120",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_12_upper_Infinity",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><upper>Infinity</upper></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_12_upper_minus_Infinity",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><upper>-Infinity</upper></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "18442240474082181120",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_12_upper_nan",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><upper>nan</upper></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "9221120237041090560",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_12_upper_minus_nan",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><upper>-nan</upper></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "18444492273895866368",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_12_upper_minus_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><upper>-1</upper></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "13830554455654793216",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_12_effort_inf",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><effort>inf</effort></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_12_effort_minus_inf",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><effort>-inf</effort></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_12_effort_Infinity",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><effort>Infinity</effort></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_12_effort_minus_Infinity",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><effort>-Infinity</effort></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_12_effort_nan",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><effort>nan</effort></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "9218868437227405312",
+      "9221120237041090560",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_12_effort_minus_nan",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><effort>-nan</effort></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "9218868437227405312",
+      "18444492273895866368",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_12_effort_minus_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><effort>-1</effort></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_12_velocity_inf",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><velocity>inf</velocity></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_12_velocity_minus_inf",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><velocity>-inf</velocity></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_12_velocity_Infinity",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><velocity>Infinity</velocity></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_12_velocity_minus_Infinity",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><velocity>-Infinity</velocity></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_12_velocity_nan",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><velocity>nan</velocity></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9221120237041090560",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_12_velocity_minus_nan",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><velocity>-nan</velocity></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "9218868437227405312",
+      "9218868437227405312",
+      "18444492273895866368",
+      "0"
+    ]
+  },
+  {
+    "id": "special_1_12_velocity_minus_1",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><velocity>-1</velocity></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "explicit_empty_effort",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><effort/></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
+  },
+  {
+    "id": "explicit_empty_velocity",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><xyz>1 0 0</xyz><limit><velocity/></limit></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "1",
+      "18442240474082181120",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "0"
+    ]
   }
 ]

@@ -9,12 +9,6 @@ fn native_axis_limits_preserve_loaded_values_without_ordering_policy() {
         let id = row["id"].as_str().unwrap();
         let parsed = load_str(row["xml"].as_str().unwrap(), "limits.sdf", &NoResources);
         let tokens = row["tokens"].as_array().unwrap();
-        if row.get("gap").is_some() {
-            assert!(matches!(id, "nonfinite_lower_inf" | "nonfinite_upper_nan"));
-            assert_eq!(tokens[0], "0");
-            assert_eq!(parsed.unwrap_err().code, ErrorCode::InvalidValue);
-            continue;
-        }
         if tokens[0] != "0" {
             let code = if row["rust_error"] == "Missing" {
                 ErrorCode::Missing

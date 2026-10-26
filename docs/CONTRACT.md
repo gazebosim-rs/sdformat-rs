@@ -852,3 +852,15 @@ ownership originals are complete; MoveConstructor remains partial for native
 Shape volume/size observations. Native Vector3 equality's component-wise <=1e-3
 bound is retained in tests, with tighter exact-bit checks as supplemental evidence.
 General C++ constructor/operator/storage and moved-from identity are unqualified.
+
+## Owned Visual cloning
+
+`Visual` implements Clone for its owned pose, optional geometry/material, visual
+properties, plugins and source provenance. Clones retain independent nested
+strings, vectors and boxed metadata after the source is dropped. Cloning performs
+no resource IO or rendering. Five fixed native copy/move originals observe names,
+shadows, transparency, pose, relative frame, material ambient and visibility flags.
+Native positive f32 four-ULP transparency, component-wise pose <=1e-3 without
+quaternion sign relaxation, and ambient RGBA <=1e-6 bounds are retained; exact
+retention checks are supplemental. C++ constructor/operator/storage identity,
+moved-from state, Element and geometry-pointer APIs remain unqualified.

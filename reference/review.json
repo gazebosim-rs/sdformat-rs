@@ -1,42 +1,58 @@
 {
   "decision": "approved",
-  "author": "/root/sdformat_owner_v2",
-  "reviewer": "/root/transport_owner_v2",
-  "reviewed_at": "2026-10-26T13:13:17.347636+00:00",
-  "final_freeze_sha256": "f249f037221cbd35afacb07ef99b85b8e76ad4c6de4cdb09409dbaa4cef8b403",
-  "parent": "e579d8c9ece09f2df67711e90e40f2c10416008e",
-  "pre_receipt_tree": "4b91927944f34c969336e781dfff67ec0c3254d4",
-  "source_tree": "9c6710e5c259bd14d079ac22b4d9620c8f22dfec",
-  "source_digest": "a9edcbaeb49e7499c8edf4ed5883249a9d5c061f3adbc2f9fdb33e3f1f40c441",
-  "protected_digest": "01539f55f5ad4c44c1e4672c7fc3aea5a8dde505ff1725054d8494ce59f0181d",
-  "source_review_sha256": "2aa1fb573214b4f37007440462191a94c159b84164782a113c354d48642b47c9",
+  "author": "/root/sdformat_owner_v3",
+  "reviewer": "/root/transport_owner_v3",
+  "reviewed_at": "2026-10-26T15:17:04.545645+00:00",
+  "final_freeze_sha256": "59d606ed9aacc0f8cd73ad393e3b384000af64b6b3adfb208a6478156feff6f1",
+  "parent": "fa399d81a02d5fec02968e6d8ed8836c7ff04c34",
+  "pre_receipt_tree": "ce04acf793060092657614354d313468c31d5c70",
+  "source_tree": "34378a045eaefa6e7f53271344f8865e70303ee2",
+  "source_digest": "15a5948160c51691f8bdf5fd601c718b034871f8f2833fbe0530e10dcb4bd690",
+  "protected_digest": "aaa7f6e0c49d4d0b7a211320a422238868307787201592f23eb0807180784bcc",
+  "source_review_sha256": "8daa9e674c6024a332fe0e5f44176ade5b1fe65b2ae37510b63e40953be7b22d",
   "files_sha256": {
-    "README.md": "2d99ea1937404217af3cdbca10798deba8d9c96fd1ab75d6a12b716b00dedd98",
-    "docs/CONTRACT.md": "c3f19babc5af6623645ea138e5bfadcb37666c551ae01a706105cc00cac57926",
-    "docs/STATUS.md": "43dd14f263698c26bade287ce1e38bbd90a9483d4464792ffde89a8ea5229327",
-    "reference/results.json": "3f56412e9f9257d9d3698108f994169aa075d70c31c3e99946565ec04204be53",
-    "reference/traceability.json": "076a1299b379d1a94d9a653de26e2257c6ec99e17b95d0a056a3a4c3897dda6f",
-    "src/types.rs": "a44f016ad1c021f39b9d6886e47316675aefb5ba0f118e1d2d665d6486cd9f67",
-    "tests/geometry_ownership_originals.rs": "fbb825e6b0e7fc3244b8037e87df9147ffd1fbb99cc6c5962d981edb1d353592"
+    "README.md": "2cba121cc0ed8e805ccb58d10e270b2bf60745f58d7bec8c8f6c7df2145d15f7",
+    "docs/CONTRACT.md": "2a08a4ffa23c6979bc67f9dff0992d206e2e85ca6aa5dd3ed11d31176cb8f3e2",
+    "docs/STATUS.md": "48b95e10764d184bceb9b5e668fe1db355509cc9093ce20c6b8cd0d1f656a849",
+    "reference/results.json": "c4def27873f1e71ca846e55c3576259c8776d4a37127224a6cda4fa08b6f0081",
+    "reference/traceability.json": "2aa7e4e346ff144211a0b7088040f275a18665463b76484ae9eb2f230e38fcd8",
+    "src/types.rs": "14bc6a9693428c339f68e418ac125b4b6148c3df64a3caa7dbc1bf7e9df1da5b",
+    "tests/visual_ownership_originals.rs": "76611ff1cf1c0e97d48c5f070f30118d424cc95d7235420e47b826823562eeaa"
   },
   "all_modes": "100644",
-  "no_unstaged_tracked_diff": true,
-  "parent_tracked_paths": 314,
-  "preserved_other_parent_blobs": 308,
-  "binding_checks": [
-    "All seven staged and working hashes,modes,parent,tree,diff and no-unstaged checked. Two reviewed source hashes and copied source receipt unchanged; remaining parent blobs preserved.",
-    "Author full gate log and evidence hashes verified,336 Rust/16 tooling,strict4771/4795 lines7915/8157 regions,zero changed instrumented executable lines. Evidence source digest matches the reviewed two-file source freeze; final source/protected digests independently recomputed.",
-    "Exactly four complete fixed Box mappings and one PARTIAL MoveConstructor mapping appended;139 prior complete and24 partial preserved. Only five prior Polyline review histories and its result review update actual e579 publication/CI chronology. One preexisting STATUS whitespace cleanup is prose-only.",
-    "Native component-wise <=1e-3 and supplemental exact-bit predicates retained;MoveConstructor Shape volume/size gaps explicit. Owned Geometry/Mesh Clone metadata has no resource,parser,graph,default-variant,unsafe or runtime effect. General C++ storage/operator/moved-from identity unqualified.",
-    "Initial static audit expected the wrong existing result key spelling and stopped before receipt;actual polyline_ownership_originals key verified and entire audit rerun. No semantic check was relaxed."
-  ],
-  "parent_hosted": {
-    "run": 40321971461,
-    "head_sha": "e579d8c9ece09f2df67711e90e40f2c10416008e",
-    "status": "completed",
-    "conclusion": "success",
-    "independently_verified": true
+  "binding": "Exact seven-file pre-receipt index/tree/diff/hash/modes and no unstaged delta verified. Both approved source files unchanged;source receipt retainedbyteforbyte. All other parent blobs and modes preserved,including restored parent reference/review.json before final receipt. Only five metadata paths follow approved source.",
+  "traceability": "Exactly five fixed Visual originals appended as complete;148complete25partial candidate mappings. All earlier rows/source/fixtures/pins unchanged except five Box review strings correcting alreadyverifiedpublicfa399d81/exacthosted40329549257 chronology;BoxMoveConstructor staysPARTIAL. Results retain all prior keys and immutable data,only geometry reviewchronology and newVisual packet added.",
+  "scope": "Five fixed copy/move observations retain nativepositivef32fourULP,Pose3 percomponent<=1e-3 without sign relaxation,ColorRGBA<=1e-6,presence/names/shadows/relativeframe/flags. Supplemental exactbit/ownedpose/nestedclone/lifetime checks remain distinct. No broader native C++ facade/Element/geometrypointer/parser/graph/rendering claim.",
+  "author_gate": {
+    "log_sha256": "143fe871fc33c1ef1a30a7669d63e1bf546ca9692b9a1a2ed7429cf919dcb6de",
+    "evidence_sha256": "06db50422de5750d433352ed8753cb31e21a93416861b24903864b89891a1706",
+    "source_digest": "cbad27106d671dbcaeb6534774a0a45435b22d44606ec32d9c8ee8018454445f",
+    "rust": 342,
+    "tools": 16,
+    "lines": [
+      4771,
+      4795
+    ],
+    "regions": [
+      7915,
+      8157
+    ],
+    "changed": {
+      "count": 0,
+      "covered": 0
+    },
+    "qualification": "Author exact source evidence hashes verified;no independent full gate replay for metadata changes.",
+    "actual_rust_totals": {
+      "passed": 342,
+      "failed": 0,
+      "ignored": 0
+    },
+    "raw_test_log_sha256": "bf4a0e6240730a5a73e802fcab18c870dc911c11c6ba06630592a0cfe3dadfda"
   },
-  "receipt_envelope": "Only reference/review.json may be replaced with this exact receipt after the pre-receipt freeze; excluded from source/protected digest. Recheck all seven frozen hashes and state before normal hook.",
-  "remaining": "Mandatory normal protected hook,public push and exact hosted candidate result remain required; no claim they ran."
+  "independent_evidence": "Sourceapproval8daa9e67 binds316raw/private6Rust/native5,productionmaterial-losscontrol3fail/3pass and restored6/0;allraw/digests/pins/nativeequalityheader/sourcehashes preserved. No new tests/builds/native run during this filesystem-only final review while Rootquiet37094 active.",
+  "remaining": [
+    "Install this final protected-review receipt,then mandatory normal protected hook on final tree",
+    "Public push and exact new hosted success beforeacceptedprogress",
+    "Broader retained SDF and performance remain open"
+  ]
 }

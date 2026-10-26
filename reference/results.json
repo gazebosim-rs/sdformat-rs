@@ -60662,6 +60662,16 @@
     "native": "Five pinned Box ownership originals passed 5/0 before production edits and in independent replay. Installed Vector3 operator== uses per-component absolute <=1e-3, explicitly retained. Native Shape volume/size predicates in MoveConstructor are not ported.",
     "rust": "Independent private raw-source selected6/0; separate production Clone Box-size and Mesh-URI loss controls fail the retained size/supplemental ownership predicates, exact source restored and6/0. Full author gate passed336 Rust/16 tooling/fmt/Clippy/docs; strict4771/4795 lines7915/8157 regions unchanged. The two derives add no changed instrumented executable lines and no exclusion. Ordinary Cargo2 correctness only.",
     "scope": "Clone for owned Geometry and Mesh metadata. Four complete fixed-size Box originals plus MoveConstructor PARTIAL for Shape volume/size. Exact native1e-3 component bound retained with supplemental bit checks. All ten enum variants, Mesh options/decomposition and nested URI/source/string/vector independence are supplemental, not additional native-original ports. No parser,resource/IO,graph,unsafe,default Geometry,rendering,volume,polygon runtime or general C++ constructor/operator/storage/moved-from facade claim.",
-    "review": "Independent /root/transport_owner_v2 source/protected approval SHA256 2aa1fb573214b4f37007440462191a94c159b84164782a113c354d48642b47c9. Final metadata binding, mandatory normal hook and exact hosted qualification remain pending."
+    "review": "Independent /root/transport_owner_v2 source/protected approval SHA256 2aa1fb573214b4f37007440462191a94c159b84164782a113c354d48642b47c9. Final metadata binding receipt SHA256 11d2991b8f35fc99de3abac278866ea9c9615740801be96c5008f415483bcc6b, mandatory normal hook and public fa399d81a02d5fec02968e6d8ed8836c7ff04c34 passed exact hosted verify 40329549257 SUCCESS."
+  },
+  "visual_ownership": {
+    "parent": "fa399d81a02d5fec02968e6d8ed8836c7ff04c34",
+    "upstream": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "source_freeze_sha256": "9f2f68369fd2a76904c51a5595a8425591a636c844ca0f8ba44c86466bda4b29",
+    "source_review_sha256": "8daa9e674c6024a332fe0e5f44176ade5b1fe65b2ae37510b63e40953be7b22d",
+    "native": "Pinned five Visual originals5/0 before production edits and independent replay; exact native equality headers/source retained.",
+    "rust": "Pinned exact five Visual ownership originals5/0; independent316raw-source Rust6/0/native5/0, material-loss Clone control fails two original material-presence assertions plus supplemental ownership check, restored6/0. Full author342 Rust/16 tooling/fmt/Clippy/docs; unchanged4771/4795 lines7915/8157 regions,zero changed instrumented lines,no exclusions. Ordinary Cargo2 correctness only.",
+    "scope": "Only owned Visual Clone derive. Five complete fixed copy/move observations retain every original predicate and exact native tolerances. Nested Mesh/material/script/plugin/source/laser metadata clone independence and lifetime are supplemental. No parser,graph,resource,unsafe,rendering,Element,geometrypointer or general C++ facade behavior.",
+    "review": "Independent /root/transport_owner_v3 source/protected approval SHA256 8daa9e674c6024a332fe0e5f44176ade5b1fe65b2ae37510b63e40953be7b22d binds exact source freeze9f2f68369fd2a76904c51a5595a8425591a636c844ca0f8ba44c86466bda4b29 on hosted-green parentfa399d81a02d5fec02968e6d8ed8836c7ff04c34,run40329549257. Final metadata binding, mandatory normal hook and exact new hosted qualification remain pending."
   }
 }

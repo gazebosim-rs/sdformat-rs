@@ -1829,7 +1829,7 @@
       "upstream_fixtures": {},
       "baseline": "Pinned native five Box originals5/0; independent raw-source Rust6/0 and separate production Clone Box-size/Mesh-URI loss controls verified, exact source restored. Full author336 Rust/16 tooling/fmt/Clippy/docs; unchanged4771/4795 lines7915/8157 regions,zero changed instrumented executable lines for derives,no exclusions. Ordinary Cargo2 correctness only.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_owner_v2 source/protected approval SHA256 2aa1fb573214b4f37007440462191a94c159b84164782a113c354d48642b47c9 binds exact source freeze ac1e24638e6bca56b4f7f9231a4b3cac9148d89ffabb3843ec8aa51260ed00c4 on hosted-green parent e579d8c9ece09f2df67711e90e40f2c10416008e, run40321971461. Final metadata binding, mandatory normal hook and exact new hosted qualification remain pending."
+      "review": "Independent /root/transport_owner_v2 source/protected approval SHA256 2aa1fb573214b4f37007440462191a94c159b84164782a113c354d48642b47c9 binds exact source freeze ac1e24638e6bca56b4f7f9231a4b3cac9148d89ffabb3843ec8aa51260ed00c4 on hosted-green parent e579d8c9ece09f2df67711e90e40f2c10416008e, run40321971461. Final metadata binding receipt SHA256 11d2991b8f35fc99de3abac278866ea9c9615740801be96c5008f415483bcc6b, mandatory normal hook and public fa399d81a02d5fec02968e6d8ed8836c7ff04c34 passed exact hosted verify 40329549257 SUCCESS."
     },
     {
       "target": "UNIT_Box_TEST",
@@ -1841,7 +1841,7 @@
       "upstream_fixtures": {},
       "baseline": "Pinned native five Box originals5/0; independent raw-source Rust6/0 and separate production Clone Box-size/Mesh-URI loss controls verified, exact source restored. Full author336 Rust/16 tooling/fmt/Clippy/docs; unchanged4771/4795 lines7915/8157 regions,zero changed instrumented executable lines for derives,no exclusions. Ordinary Cargo2 correctness only.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_owner_v2 source/protected approval SHA256 2aa1fb573214b4f37007440462191a94c159b84164782a113c354d48642b47c9 binds exact source freeze ac1e24638e6bca56b4f7f9231a4b3cac9148d89ffabb3843ec8aa51260ed00c4 on hosted-green parent e579d8c9ece09f2df67711e90e40f2c10416008e, run40321971461. Final metadata binding, mandatory normal hook and exact new hosted qualification remain pending."
+      "review": "Independent /root/transport_owner_v2 source/protected approval SHA256 2aa1fb573214b4f37007440462191a94c159b84164782a113c354d48642b47c9 binds exact source freeze ac1e24638e6bca56b4f7f9231a4b3cac9148d89ffabb3843ec8aa51260ed00c4 on hosted-green parent e579d8c9ece09f2df67711e90e40f2c10416008e, run40321971461. Final metadata binding receipt SHA256 11d2991b8f35fc99de3abac278866ea9c9615740801be96c5008f415483bcc6b, mandatory normal hook and public fa399d81a02d5fec02968e6d8ed8836c7ff04c34 passed exact hosted verify 40329549257 SUCCESS."
     },
     {
       "target": "UNIT_Box_TEST",
@@ -1853,7 +1853,7 @@
       "upstream_fixtures": {},
       "baseline": "Pinned native five Box originals5/0; independent raw-source Rust6/0 and separate production Clone Box-size/Mesh-URI loss controls verified, exact source restored. Full author336 Rust/16 tooling/fmt/Clippy/docs; unchanged4771/4795 lines7915/8157 regions,zero changed instrumented executable lines for derives,no exclusions. Ordinary Cargo2 correctness only.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_owner_v2 source/protected approval SHA256 2aa1fb573214b4f37007440462191a94c159b84164782a113c354d48642b47c9 binds exact source freeze ac1e24638e6bca56b4f7f9231a4b3cac9148d89ffabb3843ec8aa51260ed00c4 on hosted-green parent e579d8c9ece09f2df67711e90e40f2c10416008e, run40321971461. Final metadata binding, mandatory normal hook and exact new hosted qualification remain pending."
+      "review": "Independent /root/transport_owner_v2 source/protected approval SHA256 2aa1fb573214b4f37007440462191a94c159b84164782a113c354d48642b47c9 binds exact source freeze ac1e24638e6bca56b4f7f9231a4b3cac9148d89ffabb3843ec8aa51260ed00c4 on hosted-green parent e579d8c9ece09f2df67711e90e40f2c10416008e, run40321971461. Final metadata binding receipt SHA256 11d2991b8f35fc99de3abac278866ea9c9615740801be96c5008f415483bcc6b, mandatory normal hook and public fa399d81a02d5fec02968e6d8ed8836c7ff04c34 passed exact hosted verify 40329549257 SUCCESS."
     },
     {
       "target": "UNIT_Box_TEST",
@@ -1865,7 +1865,67 @@
       "upstream_fixtures": {},
       "baseline": "Pinned native five Box originals5/0; independent raw-source Rust6/0 and separate production Clone Box-size/Mesh-URI loss controls verified, exact source restored. Full author336 Rust/16 tooling/fmt/Clippy/docs; unchanged4771/4795 lines7915/8157 regions,zero changed instrumented executable lines for derives,no exclusions. Ordinary Cargo2 correctness only.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_owner_v2 source/protected approval SHA256 2aa1fb573214b4f37007440462191a94c159b84164782a113c354d48642b47c9 binds exact source freeze ac1e24638e6bca56b4f7f9231a4b3cac9148d89ffabb3843ec8aa51260ed00c4 on hosted-green parent e579d8c9ece09f2df67711e90e40f2c10416008e, run40321971461. Final metadata binding, mandatory normal hook and exact new hosted qualification remain pending."
+      "review": "Independent /root/transport_owner_v2 source/protected approval SHA256 2aa1fb573214b4f37007440462191a94c159b84164782a113c354d48642b47c9 binds exact source freeze ac1e24638e6bca56b4f7f9231a4b3cac9148d89ffabb3843ec8aa51260ed00c4 on hosted-green parent e579d8c9ece09f2df67711e90e40f2c10416008e, run40321971461. Final metadata binding receipt SHA256 11d2991b8f35fc99de3abac278866ea9c9615740801be96c5008f415483bcc6b, mandatory normal hook and public fa399d81a02d5fec02968e6d8ed8836c7ff04c34 passed exact hosted verify 40329549257 SUCCESS."
+    },
+    {
+      "target": "UNIT_Visual_TEST",
+      "case": "DOMVisual.CopyConstructor",
+      "source": "src/Visual_TEST.cc:86-122",
+      "rust_test": "tests/visual_ownership_originals.rs::original_dom_visual_copy_constructor",
+      "assertions": "Both source and copied destination retain Name test_visual,cast_shadows false,transparency0.345f32 within native four ULP,position[0,-20,30]/quaternion[0.5,-0.5,0.5,-0.5] each within native absolute<=1e-3 without sign relaxation,relative_to link,nonnull material ambient RGBA[0.1,0.1,0.1,1] within native absolute<=1e-6,and visibility_flags2. Exact-bit/owned-pose checks supplemental. No general C++ constructor/operator/storage/moved-from identity,Element,geometrypointer,parser,graph or rendering claim.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Pinned exact five Visual ownership originals5/0; independent316raw-source Rust6/0/native5/0, material-loss Clone control fails two original material-presence assertions plus supplemental ownership check, restored6/0. Full author342 Rust/16 tooling/fmt/Clippy/docs; unchanged4771/4795 lines7915/8157 regions,zero changed instrumented lines,no exclusions. Ordinary Cargo2 correctness only.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_owner_v3 source/protected approval SHA256 8daa9e674c6024a332fe0e5f44176ade5b1fe65b2ae37510b63e40953be7b22d binds exact source freeze9f2f68369fd2a76904c51a5595a8425591a636c844ca0f8ba44c86466bda4b29 on hosted-green parentfa399d81a02d5fec02968e6d8ed8836c7ff04c34,run40329549257. Final metadata binding, mandatory normal hook and exact new hosted qualification remain pending."
+    },
+    {
+      "target": "UNIT_Visual_TEST",
+      "case": "DOMVisual.CopyAssignmentOperator",
+      "source": "src/Visual_TEST.cc:125-162",
+      "rust_test": "tests/visual_ownership_originals.rs::original_dom_visual_copy_assignment_operator",
+      "assertions": "Both source and assigned destination retain Name test_visual,cast_shadows false,transparency0.345f32 within native four ULP,position[0,-20,30]/quaternion[0.5,-0.5,0.5,-0.5] each within native absolute<=1e-3 without sign relaxation,relative_to link,nonnull material ambient RGBA[0.1,0.1,0.1,1] within native absolute<=1e-6,and visibility_flags2. Exact-bit/owned-pose checks supplemental. No general C++ constructor/operator/storage/moved-from identity,Element,geometrypointer,parser,graph or rendering claim.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Pinned exact five Visual ownership originals5/0; independent316raw-source Rust6/0/native5/0, material-loss Clone control fails two original material-presence assertions plus supplemental ownership check, restored6/0. Full author342 Rust/16 tooling/fmt/Clippy/docs; unchanged4771/4795 lines7915/8157 regions,zero changed instrumented lines,no exclusions. Ordinary Cargo2 correctness only.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_owner_v3 source/protected approval SHA256 8daa9e674c6024a332fe0e5f44176ade5b1fe65b2ae37510b63e40953be7b22d binds exact source freeze9f2f68369fd2a76904c51a5595a8425591a636c844ca0f8ba44c86466bda4b29 on hosted-green parentfa399d81a02d5fec02968e6d8ed8836c7ff04c34,run40329549257. Final metadata binding, mandatory normal hook and exact new hosted qualification remain pending."
+    },
+    {
+      "target": "UNIT_Visual_TEST",
+      "case": "DOMVisual.MoveConstructor",
+      "source": "src/Visual_TEST.cc:165-191",
+      "rust_test": "tests/visual_ownership_originals.rs::original_dom_visual_move_constructor",
+      "assertions": "Moved destination retains Name test_visual,cast_shadows false,transparency0.345f32 within native four ULP,position[0,-20,30]/quaternion[0.5,-0.5,0.5,-0.5] each within native absolute<=1e-3 without sign relaxation,relative_to link,nonnull material ambient RGBA[0.1,0.1,0.1,1] within native absolute<=1e-6,and visibility_flags2. Exact-bit/owned-pose checks supplemental. No general C++ constructor/operator/storage/moved-from identity,Element,geometrypointer,parser,graph or rendering claim.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Pinned exact five Visual ownership originals5/0; independent316raw-source Rust6/0/native5/0, material-loss Clone control fails two original material-presence assertions plus supplemental ownership check, restored6/0. Full author342 Rust/16 tooling/fmt/Clippy/docs; unchanged4771/4795 lines7915/8157 regions,zero changed instrumented lines,no exclusions. Ordinary Cargo2 correctness only.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_owner_v3 source/protected approval SHA256 8daa9e674c6024a332fe0e5f44176ade5b1fe65b2ae37510b63e40953be7b22d binds exact source freeze9f2f68369fd2a76904c51a5595a8425591a636c844ca0f8ba44c86466bda4b29 on hosted-green parentfa399d81a02d5fec02968e6d8ed8836c7ff04c34,run40329549257. Final metadata binding, mandatory normal hook and exact new hosted qualification remain pending."
+    },
+    {
+      "target": "UNIT_Visual_TEST",
+      "case": "DOMVisual.MoveAssignmentOperator",
+      "source": "src/Visual_TEST.cc:194-221",
+      "rust_test": "tests/visual_ownership_originals.rs::original_dom_visual_move_assignment_operator",
+      "assertions": "Replaced destination retains Name test_visual,cast_shadows false,transparency0.345f32 within native four ULP,position[0,-20,30]/quaternion[0.5,-0.5,0.5,-0.5] each within native absolute<=1e-3 without sign relaxation,relative_to link,nonnull material ambient RGBA[0.1,0.1,0.1,1] within native absolute<=1e-6,and visibility_flags2. Exact-bit/owned-pose checks supplemental. No general C++ constructor/operator/storage/moved-from identity,Element,geometrypointer,parser,graph or rendering claim.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Pinned exact five Visual ownership originals5/0; independent316raw-source Rust6/0/native5/0, material-loss Clone control fails two original material-presence assertions plus supplemental ownership check, restored6/0. Full author342 Rust/16 tooling/fmt/Clippy/docs; unchanged4771/4795 lines7915/8157 regions,zero changed instrumented lines,no exclusions. Ordinary Cargo2 correctness only.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_owner_v3 source/protected approval SHA256 8daa9e674c6024a332fe0e5f44176ade5b1fe65b2ae37510b63e40953be7b22d binds exact source freeze9f2f68369fd2a76904c51a5595a8425591a636c844ca0f8ba44c86466bda4b29 on hosted-green parentfa399d81a02d5fec02968e6d8ed8836c7ff04c34,run40329549257. Final metadata binding, mandatory normal hook and exact new hosted qualification remain pending."
+    },
+    {
+      "target": "UNIT_Visual_TEST",
+      "case": "DOMVisual.CopyAssignmentAfterMove",
+      "source": "src/Visual_TEST.cc:224-242",
+      "rust_test": "tests/visual_ownership_originals.rs::original_dom_visual_copy_assignment_after_move",
+      "assertions": "Final first name visual2 and second name visual1 after move and two copies. No general C++ constructor/operator/storage/moved-from identity claim.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Pinned exact five Visual ownership originals5/0; independent316raw-source Rust6/0/native5/0, material-loss Clone control fails two original material-presence assertions plus supplemental ownership check, restored6/0. Full author342 Rust/16 tooling/fmt/Clippy/docs; unchanged4771/4795 lines7915/8157 regions,zero changed instrumented lines,no exclusions. Ordinary Cargo2 correctness only.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_owner_v3 source/protected approval SHA256 8daa9e674c6024a332fe0e5f44176ade5b1fe65b2ae37510b63e40953be7b22d binds exact source freeze9f2f68369fd2a76904c51a5595a8425591a636c844ca0f8ba44c86466bda4b29 on hosted-green parentfa399d81a02d5fec02968e6d8ed8836c7ff04c34,run40329549257. Final metadata binding, mandatory normal hook and exact new hosted qualification remain pending."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",
@@ -2208,7 +2268,7 @@
       "upstream_fixtures": {},
       "baseline": "Pinned native five Box originals5/0; independent raw-source Rust6/0 and separate production Clone Box-size/Mesh-URI loss controls verified, exact source restored. Full author336 Rust/16 tooling/fmt/Clippy/docs; unchanged4771/4795 lines7915/8157 regions,zero changed instrumented executable lines for derives,no exclusions. Ordinary Cargo2 correctness only.",
       "status": "partial_reviewed",
-      "review": "Independent /root/transport_owner_v2 source/protected approval SHA256 2aa1fb573214b4f37007440462191a94c159b84164782a113c354d48642b47c9 binds exact source freeze ac1e24638e6bca56b4f7f9231a4b3cac9148d89ffabb3843ec8aa51260ed00c4 on hosted-green parent e579d8c9ece09f2df67711e90e40f2c10416008e, run40321971461. Final metadata binding, mandatory normal hook and exact new hosted qualification remain pending."
+      "review": "Independent /root/transport_owner_v2 source/protected approval SHA256 2aa1fb573214b4f37007440462191a94c159b84164782a113c354d48642b47c9 binds exact source freeze ac1e24638e6bca56b4f7f9231a4b3cac9148d89ffabb3843ec8aa51260ed00c4 on hosted-green parent e579d8c9ece09f2df67711e90e40f2c10416008e, run40321971461. Final metadata binding receipt SHA256 11d2991b8f35fc99de3abac278866ea9c9615740801be96c5008f415483bcc6b, mandatory normal hook and public fa399d81a02d5fec02968e6d8ed8836c7ff04c34 passed exact hosted verify 40329549257 SUCCESS."
     }
   ]
 }

@@ -2649,5 +2649,32 @@ supplemental exact bits. MoveConstructor remains partial: its raw size is retain
 but native Shape().Volume() and Shape().Size() remain unported. General C++
 constructor/operator/storage identity, moved-from state and runtime geometry APIs
 remain unqualified. The ledger records 143 complete and 25 partial originals.
-Final metadata binding, mandatory normal hook and exact hosted qualification
-remain pending for this slice.
+Final metadata binding receipt SHA256 11d2991b8f35fc99de3abac278866ea9c9615740801be96c5008f415483bcc6b, mandatory normal hook and public fa399d81a02d5fec02968e6d8ed8836c7ff04c34 passed exact hosted verify 40329549257 SUCCESS.
+
+
+## Owned Visual cloning and fixed ownership observations
+
+`Visual` now implements Clone for owned metadata. Five pinned native Visual
+copy/move originals passed 5/0 before production edits and in independent replay.
+Source freeze SHA256 `9f2f68369fd2a76904c51a5595a8425591a636c844ca0f8ba44c86466bda4b29`
+on hosted-green parent `fa399d81a02d5fec02968e6d8ed8836c7ff04c34` passed independent
+source/protected review SHA256
+`8daa9e674c6024a332fe0e5f44176ade5b1fe65b2ae37510b63e40953be7b22d`.
+Fresh private raw-source Rust 6/0 and native 5/0 passed. A private production Clone
+material-loss control fails the two original material-presence assertions and a
+supplemental ownership test; exact source was restored and Rust 6/0 passed again.
+Full author verification passed 342 Rust tests, sixteen tooling tests, formatting,
+Clippy and docs. Coverage remains 4771/4795 lines and 7915/8157 regions; the derive
+adds no changed instrumented executable lines or exclusions. Ordinary Cargo2
+correctness checks make no performance or timing claim.
+
+The fixed name, shadows, transparency, pose, relative frame, material ambient and
+visibility observations preserve native positive f32 four-ULP transparency,
+per-component pose absolute <=1e-3 without quaternion sign relaxation, and ambient
+RGBA absolute <=1e-6. Exact bits/owned-pose predicates and nested Mesh/material/
+script/plugin/source/laser metadata independence are supplemental. The original
+2018 OSRF notice is preserved with rewrite attribution. General C++ constructor/
+operator/storage identity, moved-from state, Element, geometry pointer, parser, graph
+and rendering remain unqualified. The reviewed candidate ledger has 148 complete
+and 25 partial originals. Final metadata binding, mandatory normal hook, public
+push and exact hosted qualification remain pending for this candidate.

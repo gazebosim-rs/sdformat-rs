@@ -794,7 +794,7 @@ impl Default for TorsionalFriction {
         }
     }
 }
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Visual {
     pub name: String,
     pub pose: Pose,

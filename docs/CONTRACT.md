@@ -700,3 +700,14 @@ clear, reinsert and index-name results. The Rust test uses a valid parsed
 typed IMU sensor as its owned value. Native untyped default Sensor state,
 C++ pointer or method identity, arbitrary name policy and broader sensor
 grammar remain separate acceptance work.
+
+## Link owned collision and visual collections
+
+`Link::add_collision_unique` and `Link::add_visual_unique` accept a value only
+when no direct collection member has its name. `clear_collisions` and
+`clear_visuals` remove those owned values. The fixed `DOMLink.AddCollision`
+and `DOMLink.AddVisual` originals observe count, insertion, duplicate
+rejection, clear, reinsert and index-name results. Rust parses valid collision
+and visual values as setup; native originals use default objects and do not
+load XML. Untested default state, C++ pointer or method identity, Element
+serialization and broader geometry grammar remain separate acceptance work.

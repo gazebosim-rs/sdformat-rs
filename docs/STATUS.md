@@ -2357,6 +2357,27 @@ overlapped an ordinary two-job SDK build and is correctness-only evidence.
 Isolated author checks passed 278 Rust, sixteen tools, formatting, Clippy
 and docs; production coverage is 4269/4290 lines and 7311/7531 regions
 with all thirteen changed executable lines covered. Final metadata binding,
-normal protected hook and hosted qualification remain pending. Native
+normal protected hook and public `06d32aa2351c5f6dc2501a4ae624681f4efc4ea4`
+passed exact hosted verify `40270710475` SUCCESS. Native
 untyped default Sensor state, C++ pointer/method identity, arbitrary name
 policy, Element, graph mutation and broad sensor grammar remain unported.
+
+## Native DOMLink owned collision and visual insertion originals candidate
+
+Pinned `DOMLink.AddCollision` and `DOMLink.AddVisual` pass natively 2/0.
+Owned collision and visual vectors preserve each original's initial count,
+unique insertion, duplicate rejection, clear, reinsert, count and index-name
+observations. Exact two-file source freeze SHA256
+`f96068250206f4097de85d660004585ff042eeacd902c359b44021e2001ced89`
+on hosted-green parent `06d32aa` passed independent source/API/assertion
+review receipt SHA256
+`4958a542b15b517e3ce1e24bc503f6db66b0bd6626a5a01ab1a40cc9397f24e9`.
+Private raw-parent native2/0 and Rust2/0 passed; the latter overlapped an
+ordinary two-job SDK build and is correctness-only evidence. Isolated author
+checks passed 280 Rust, sixteen tools, formatting, Clippy and docs;
+production coverage is 4297/4318 lines and 7343/7563 regions with all 26
+changed executable lines covered. Final metadata binding, normal protected
+hook and hosted qualification remain pending. Parsed valid collision and
+visual values substitute native default objects only for these fixed
+observations. Default object state, C++ pointer/method identity, Element
+serialization and broader geometry grammar remain unported.

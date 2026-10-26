@@ -447,6 +447,41 @@ impl Default for LinkProperties {
         }
     }
 }
+impl Link {
+    /// Insert a collision with a unique direct name.
+    pub fn add_collision_unique(&mut self, collision: Collision) -> bool {
+        if self
+            .collisions
+            .iter()
+            .any(|existing| existing.name == collision.name)
+        {
+            return false;
+        }
+        self.collisions.push(collision);
+        true
+    }
+
+    pub fn clear_collisions(&mut self) {
+        self.collisions.clear();
+    }
+
+    /// Insert a visual with a unique direct name.
+    pub fn add_visual_unique(&mut self, visual: Visual) -> bool {
+        if self
+            .visuals
+            .iter()
+            .any(|existing| existing.name == visual.name)
+        {
+            return false;
+        }
+        self.visuals.push(visual);
+        true
+    }
+
+    pub fn clear_visuals(&mut self) {
+        self.visuals.clear();
+    }
+}
 #[derive(Debug)]
 pub struct Inertial {
     pub mass: f64,

@@ -30,6 +30,14 @@ impl Frame {
             || !safe_attribute(&self.name)
             || !safe_attribute(&self.attached_to)
             || !safe_attribute(&self.pose.relative_to)
+            // The pose reader rejects decimal subnormals with native ERANGE.
+            || self
+                .pose
+                .transform
+                .translation
+                .iter()
+                .chain(&self.pose.transform.rotation)
+                .any(|v| v.is_subnormal())
         {
             return Err(Diagnostic {
                 code: ErrorCode::InvalidValue,

@@ -35,21 +35,29 @@ impl Light {
         ];
         let reserved_name = self.name == "world"
             || (self.name.len() >= 4 && self.name.starts_with("__") && self.name.ends_with("__"));
+        // Shortest decimal subnormals trigger native scalar/pose ERANGE, even
+        // though the caller's stored value is finite.
+        let pose_subnormal = self
+            .pose
+            .transform
+            .translation
+            .iter()
+            .chain(&self.pose.transform.rotation)
+            .any(|v| v.is_subnormal());
         if self.name.is_empty()
             || self.name.trim() != self.name
             || self.name.contains("::")
             || reserved_name
             || !safe_attribute(&self.name)
             || !safe_attribute(&self.pose.relative_to)
-            || scalars
-                .iter()
-                .chain(&self.direction)
-                .any(|v| !v.is_finite())
+            || pose_subnormal
+            || scalars.iter().any(|v| !v.is_finite() || v.is_subnormal())
+            || self.direction.iter().any(|v| !v.is_finite())
             || self
                 .diffuse
                 .iter()
                 .chain(&self.specular)
-                .any(|v| !v.is_finite() || !(0. ..=1.).contains(v))
+                .any(|v| !v.is_finite() || v.is_subnormal() || !(0. ..=1.).contains(v))
             || self.attenuation_range < 0.
             || !(0. ..=1.).contains(&self.linear_attenuation_factor)
             || !(0. ..=1.).contains(&self.constant_attenuation_factor)

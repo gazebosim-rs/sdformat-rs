@@ -60612,6 +60612,16 @@
     "native": "Pinned UNIT_Physics_TEST five DOMPhysics copy/move originals5/0, completed with no disabled/skipped/errors; exact source/binary/GTest XML/log hashes retained. Native MoveConstructor actually copies.",
     "rust": "Exact single source-reviewed test; private raw-source originals5/0 and name-loss control red. Full author306 Rust/16tools/fmt/Clippy/docs; unchanged production4663/4688lines7799/8040regions, no changed production lines. Ordinary two-job correctness overlap with Root/Msgs gates; no timing claim.",
     "scope": "Complete fixed final-name originals only. Physics Clone/clone_from/move/replacement retain test_physics and physics1/physics2 final predicates. C++ constructor/operator identity,moved-from state, Element and physics-engine runtime remain unported.",
-    "review": "Independent /root/transport_owner_v2 source/API/assertion approval receipt SHA256 9888e2a941f5699a1966e8f444eccf454560b7509cf2a4ee7349a25ddf2ce980; private native/Rust5/0 and one-line default-instead-of-named clone_from control. Final metadata binding, normal protected hook and exact hosted qualification pending."
+    "review": "Independent /root/transport_owner_v2 source/API/assertion approval receipt SHA256 9888e2a941f5699a1966e8f444eccf454560b7509cf2a4ee7349a25ddf2ce980; private native/Rust5/0 and one-line default-instead-of-named clone_from control. Final metadata binding receipt SHA256 8054d2ec54a969cb3eacc7e16813e59aa23a6a2c2cfdf60420693c3242813285, normal protected hook and public 750e73298f149b7002e3a2ced469aa8a667296fc passed exact hosted verify 40291717184 SUCCESS."
+  },
+  "xml_numeric_roundtrip": {
+    "parent": "750e73298f149b7002e3a2ced469aa8a667296fc",
+    "upstream": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "source_freeze_sha256": "0edddf7249a1fd52c35a80bc133650ac6546250e8ea93e76f72a3ba0cbfc7896",
+    "source_review_sha256": "0c04ba1a1ebea27e53cca4885d9010863e54d8e299f015f14711a437f5f2fd52",
+    "native": "Fresh pinned Frame ToElement/ToElementErrorOutput2/0 and Light originals2/0 with exact source/binary/GTest hashes; no native numeric XML parity expansion.",
+    "rust": "Independent private raw-source12/0; separately rebuilt raw parent reproduces all four emitOk/loadInvalidValue gaps and candidate rejects all four. Eight zero/-zero/minnormal/direction outcomes bit-identical; three guard-removal mutants fail exact rejection assertions. Full author311 Rust/16tools/fmt/Clippy/docs, strict4679/4704lines7818/8059regions, changed18/18. Ordinary Cargo2 correctness only, no timing claim.",
+    "scope": "Supplemental validation correction only: reject subnormal Light scalar/color and Light/Frame pose values before XML emit because own loaders reject emitted values. Preserve zero and minimum-normal boundaries plus separate direction vector conversion. No scalar loader, number.rs, FFI, graph, fixture or original assertions changed. All four original XML cases remain partial; no new original credit.",
+    "review": "Independent /root/transport_owner_v2 source/protected approval SHA256 0c04ba1a1ebea27e53cca4885d9010863e54d8e299f015f14711a437f5f2fd52. Final metadata binding, normal protected hook and exact hosted qualification pending."
   }
 }

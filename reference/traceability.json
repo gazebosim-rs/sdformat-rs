@@ -1625,7 +1625,7 @@
       "upstream_fixtures": {},
       "baseline": "Pinned native originals5/0 with exact source/binary hashes and completed GTest result; private raw-source Rust originals5/0 and clone_from value-loss mutant red. Source freeze 30bc306c06e98c418c785535a023cd06235fac31cf449095289fd843068327e4 on hosted-green public parent db702a289ae36cf31f8d0663fa3c145f86801801. Full author306 Rust/16 tools/fmt/Clippy/docs; unchanged production4663/4688 lines7799/8040 regions, no production lines changed. Two-job ordinary correctness overlap only, no timing claim.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_owner_v2 source/API/assertion APPROVED receipt SHA256 9888e2a941f5699a1966e8f444eccf454560b7509cf2a4ee7349a25ddf2ce980; private raw-source Rust5/0, pinned native5/0 and value-loss mutant verified. Final metadata binding, normal protected hook and exact hosted qualification pending."
+      "review": "Independent /root/transport_owner_v2 source/API/assertion APPROVED receipt SHA256 9888e2a941f5699a1966e8f444eccf454560b7509cf2a4ee7349a25ddf2ce980; private raw-source Rust5/0, pinned native5/0 and value-loss mutant verified. Final metadata binding receipt SHA256 8054d2ec54a969cb3eacc7e16813e59aa23a6a2c2cfdf60420693c3242813285, normal protected hook and public 750e73298f149b7002e3a2ced469aa8a667296fc passed exact hosted verify 40291717184 SUCCESS."
     },
     {
       "target": "UNIT_Physics_TEST",
@@ -1637,7 +1637,7 @@
       "upstream_fixtures": {},
       "baseline": "Pinned native originals5/0 with exact source/binary hashes and completed GTest result; private raw-source Rust originals5/0 and clone_from value-loss mutant red. Source freeze 30bc306c06e98c418c785535a023cd06235fac31cf449095289fd843068327e4 on hosted-green public parent db702a289ae36cf31f8d0663fa3c145f86801801. Full author306 Rust/16 tools/fmt/Clippy/docs; unchanged production4663/4688 lines7799/8040 regions, no production lines changed. Two-job ordinary correctness overlap only, no timing claim.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_owner_v2 source/API/assertion APPROVED receipt SHA256 9888e2a941f5699a1966e8f444eccf454560b7509cf2a4ee7349a25ddf2ce980; private raw-source Rust5/0, pinned native5/0 and value-loss mutant verified. Final metadata binding, normal protected hook and exact hosted qualification pending."
+      "review": "Independent /root/transport_owner_v2 source/API/assertion APPROVED receipt SHA256 9888e2a941f5699a1966e8f444eccf454560b7509cf2a4ee7349a25ddf2ce980; private raw-source Rust5/0, pinned native5/0 and value-loss mutant verified. Final metadata binding receipt SHA256 8054d2ec54a969cb3eacc7e16813e59aa23a6a2c2cfdf60420693c3242813285, normal protected hook and public 750e73298f149b7002e3a2ced469aa8a667296fc passed exact hosted verify 40291717184 SUCCESS."
     },
     {
       "target": "UNIT_Physics_TEST",
@@ -1649,7 +1649,7 @@
       "upstream_fixtures": {},
       "baseline": "Pinned native originals5/0 with exact source/binary hashes and completed GTest result; private raw-source Rust originals5/0 and clone_from value-loss mutant red. Source freeze 30bc306c06e98c418c785535a023cd06235fac31cf449095289fd843068327e4 on hosted-green public parent db702a289ae36cf31f8d0663fa3c145f86801801. Full author306 Rust/16 tools/fmt/Clippy/docs; unchanged production4663/4688 lines7799/8040 regions, no production lines changed. Two-job ordinary correctness overlap only, no timing claim.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_owner_v2 source/API/assertion APPROVED receipt SHA256 9888e2a941f5699a1966e8f444eccf454560b7509cf2a4ee7349a25ddf2ce980; private raw-source Rust5/0, pinned native5/0 and value-loss mutant verified. Final metadata binding, normal protected hook and exact hosted qualification pending."
+      "review": "Independent /root/transport_owner_v2 source/API/assertion APPROVED receipt SHA256 9888e2a941f5699a1966e8f444eccf454560b7509cf2a4ee7349a25ddf2ce980; private raw-source Rust5/0, pinned native5/0 and value-loss mutant verified. Final metadata binding receipt SHA256 8054d2ec54a969cb3eacc7e16813e59aa23a6a2c2cfdf60420693c3242813285, normal protected hook and public 750e73298f149b7002e3a2ced469aa8a667296fc passed exact hosted verify 40291717184 SUCCESS."
     },
     {
       "target": "UNIT_Physics_TEST",
@@ -1661,7 +1661,7 @@
       "upstream_fixtures": {},
       "baseline": "Pinned native originals5/0 with exact source/binary hashes and completed GTest result; private raw-source Rust originals5/0 and clone_from value-loss mutant red. Source freeze 30bc306c06e98c418c785535a023cd06235fac31cf449095289fd843068327e4 on hosted-green public parent db702a289ae36cf31f8d0663fa3c145f86801801. Full author306 Rust/16 tools/fmt/Clippy/docs; unchanged production4663/4688 lines7799/8040 regions, no production lines changed. Two-job ordinary correctness overlap only, no timing claim.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_owner_v2 source/API/assertion APPROVED receipt SHA256 9888e2a941f5699a1966e8f444eccf454560b7509cf2a4ee7349a25ddf2ce980; private raw-source Rust5/0, pinned native5/0 and value-loss mutant verified. Final metadata binding, normal protected hook and exact hosted qualification pending."
+      "review": "Independent /root/transport_owner_v2 source/API/assertion APPROVED receipt SHA256 9888e2a941f5699a1966e8f444eccf454560b7509cf2a4ee7349a25ddf2ce980; private raw-source Rust5/0, pinned native5/0 and value-loss mutant verified. Final metadata binding receipt SHA256 8054d2ec54a969cb3eacc7e16813e59aa23a6a2c2cfdf60420693c3242813285, normal protected hook and public 750e73298f149b7002e3a2ced469aa8a667296fc passed exact hosted verify 40291717184 SUCCESS."
     },
     {
       "target": "UNIT_Physics_TEST",
@@ -1673,7 +1673,7 @@
       "upstream_fixtures": {},
       "baseline": "Pinned native originals5/0 with exact source/binary hashes and completed GTest result; private raw-source Rust originals5/0 and clone_from value-loss mutant red. Source freeze 30bc306c06e98c418c785535a023cd06235fac31cf449095289fd843068327e4 on hosted-green public parent db702a289ae36cf31f8d0663fa3c145f86801801. Full author306 Rust/16 tools/fmt/Clippy/docs; unchanged production4663/4688 lines7799/8040 regions, no production lines changed. Two-job ordinary correctness overlap only, no timing claim.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_owner_v2 source/API/assertion APPROVED receipt SHA256 9888e2a941f5699a1966e8f444eccf454560b7509cf2a4ee7349a25ddf2ce980; private raw-source Rust5/0, pinned native5/0 and value-loss mutant verified. Final metadata binding, normal protected hook and exact hosted qualification pending."
+      "review": "Independent /root/transport_owner_v2 source/API/assertion APPROVED receipt SHA256 9888e2a941f5699a1966e8f444eccf454560b7509cf2a4ee7349a25ddf2ce980; private raw-source Rust5/0, pinned native5/0 and value-loss mutant verified. Final metadata binding receipt SHA256 8054d2ec54a969cb3eacc7e16813e59aa23a6a2c2cfdf60420693c3242813285, normal protected hook and public 750e73298f149b7002e3a2ced469aa8a667296fc passed exact hosted verify 40291717184 SUCCESS."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

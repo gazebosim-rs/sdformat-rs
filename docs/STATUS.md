@@ -2518,5 +2518,29 @@ physics2/physics1 names. The native case named MoveConstructor actually invokes
 copy-construction syntax; the Rust test preserves it with clone. Rust owned
 Clone, clone_from, move and replacement map the fixed value observations.
 C++ constructor/operator identity, moved-from state, Element and physics-engine
-runtime are unported. Final metadata binding, normal protected hook and exact
-hosted qualification remain pending.
+runtime are unported. Final metadata binding receipt SHA256 8054d2ec54a969cb3eacc7e16813e59aa23a6a2c2cfdf60420693c3242813285, normal protected hook and public 750e73298f149b7002e3a2ced469aa8a667296fc passed exact hosted verify 40291717184 SUCCESS.
+
+
+## XML numeric roundtrip validation correction candidate
+
+A bounded cached probe found successful Light scalar/color and Light/Frame pose
+XML output that their owned readers reject for subnormal values. Independently
+rebuilt raw parent and candidate probes confirm all four gaps and corrections.
+The emitters now reject subnormal scalar/pose/color values before returning XML;
+zero, signed zero and minimum-normal boundaries remain supported. Direction
+retains its distinct vector conversion and a subnormal direction still roundtrips.
+The scalar reader, audited number.rs FFI boundary and graph code are unchanged.
+
+Exact three-file source freeze SHA256
+`0edddf7249a1fd52c35a80bc133650ac6546250e8ea93e76f72a3ba0cbfc7896`
+on hosted-green parent `750e73298f149b7002e3a2ced469aa8a667296fc` passed
+independent source/protected review receipt SHA256
+`0c04ba1a1ebea27e53cca4885d9010863e54d8e299f015f14711a437f5f2fd52`.
+Private selected12/0 and fresh native originals4/0 passed; three single-guard
+removal mutants failed their exact rejection controls. Eight boundary/vector observations
+are bit-identical to the parent. Full author checks passed311 Rust/sixteen tools,
+formatting, Clippy and docs, with4679/4704 production lines and7818/8059 regions;
+all18 changed executable lines are covered. Ordinary Cargo2 work overlapped other
+owners' correctness checks; no timing claim. No new original is credited; all
+four XML originals retain their explicit Element/console gaps and partial status.
+Final metadata binding, normal protected hook and exact hosted remain pending.

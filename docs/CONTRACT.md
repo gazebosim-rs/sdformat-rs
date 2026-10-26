@@ -815,3 +815,11 @@ observations through owned `Physics` Clone, clone_from, move and replacement.
 The native case named MoveConstructor invokes copy construction, retained as a
 clone in its Rust port. These observations do not qualify C++ constructor/operator
 identity, moved-from state, Element or physics-engine runtime.
+
+
+Bounded Light/Frame XML output rejects nonzero subnormal pose components and
+Light scalar/color components that their readers would reject at numeric range
+conversion. Zero, signed zero and minimum-normal values remain supported. Light
+direction retains its separate vector conversion. This tightens emission checks;
+it does not alter the audited scalar loader or qualify additional native XML,
+Element, console, graph or original-test semantics.

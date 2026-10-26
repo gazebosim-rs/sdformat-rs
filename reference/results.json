@@ -1005,7 +1005,7 @@
       {
         "id": "sdf16_pose_nbsp",
         "accepted": false,
-        "errors": "Error Code 26: Msg: relative_to name[ f ] specified by link with name[l] does not match a nested model, link, joint, or frame name in model with name[m].\nError Code 28: Msg: PoseRelativeToGraph error, Vertex with name [m::l] is disconnected; it should have 1 incoming edge in MODEL relative_to graph.\nError Code 28: Msg: PoseRelativeToGraph unable to find path to source vertex when starting from vertex with id [3].\n"
+        "errors": "Error Code 26: Msg: relative_to name[\u00a0f\u00a0] specified by link with name[l] does not match a nested model, link, joint, or frame name in model with name[m].\nError Code 28: Msg: PoseRelativeToGraph error, Vertex with name [m::l] is disconnected; it should have 1 incoming edge in MODEL relative_to graph.\nError Code 28: Msg: PoseRelativeToGraph unable to find path to source vertex when starting from vertex with id [3].\n"
       },
       {
         "id": "sdf16_pose_ref_cr",
@@ -2047,7 +2047,7 @@
       {
         "id": "v15_sdf16_pose_nbsp",
         "accepted": false,
-        "errors": "Error Code 26: Msg: relative_to name[ f ] specified by link with name[l] does not match a nested model, link, joint, or frame name in model with name[m].\nError Code 28: Msg: PoseRelativeToGraph error, Vertex with name [m::l] is disconnected; it should have 1 incoming edge in MODEL relative_to graph.\nError Code 28: Msg: PoseRelativeToGraph unable to find path to source vertex when starting from vertex with id [3].\n"
+        "errors": "Error Code 26: Msg: relative_to name[\u00a0f\u00a0] specified by link with name[l] does not match a nested model, link, joint, or frame name in model with name[m].\nError Code 28: Msg: PoseRelativeToGraph error, Vertex with name [m::l] is disconnected; it should have 1 incoming edge in MODEL relative_to graph.\nError Code 28: Msg: PoseRelativeToGraph unable to find path to source vertex when starting from vertex with id [3].\n"
       },
       {
         "id": "v15_sdf16_pose_ref_cr",
@@ -6164,7 +6164,7 @@
       {
         "id": "v15_sdf16_pose_nbsp",
         "accepted": false,
-        "errors": "Error Code 26: Msg: relative_to name[ f ] specified by link with name[l] does not match a nested model, link, joint, or frame name in model with name[m].\nError Code 28: Msg: PoseRelativeToGraph error, Vertex with name [m::l] is disconnected; it should have 1 incoming edge in MODEL relative_to graph.\nError Code 28: Msg: PoseRelativeToGraph unable to find path to source vertex when starting from vertex with id [3].\n"
+        "errors": "Error Code 26: Msg: relative_to name[\u00a0f\u00a0] specified by link with name[l] does not match a nested model, link, joint, or frame name in model with name[m].\nError Code 28: Msg: PoseRelativeToGraph error, Vertex with name [m::l] is disconnected; it should have 1 incoming edge in MODEL relative_to graph.\nError Code 28: Msg: PoseRelativeToGraph unable to find path to source vertex when starting from vertex with id [3].\n"
       },
       {
         "id": "v15_sdf16_pose_ref_cr",
@@ -39699,7 +39699,7 @@
   "axis_limit_disposition": {
     "author": "/root/sdformat",
     "coordinator": "/root",
-    "scope": "Finite lower/upper ordering is preserved as native data; missing bounds use native Root converted-schema ±Inf defaults; explicit empty bound children reject. Only two obsolete Rust-only negative tuples are replaced by exact native-backed positive XML/value regressions. All unrelated assertion bytes reconstruct the public parent exactly. Explicit independent disposition review required.",
+    "scope": "Finite lower/upper ordering is preserved as native data; missing bounds use native Root converted-schema \u00b1Inf defaults; explicit empty bound children reject. Only two obsolete Rust-only negative tuples are replaced by exact native-backed positive XML/value regressions. All unrelated assertion bytes reconstruct the public parent exactly. Explicit independent disposition review required.",
     "changes": [
       {
         "path": "tests/semantics.rs",
@@ -39731,7 +39731,7 @@
       }
     ],
     "additional_production_changes": [
-      "Axis initial lower/upper default changes from ±1e16 to ±Inf after actual Root probes across every supported source version.",
+      "Axis initial lower/upper default changes from \u00b11e16 to \u00b1Inf after actual Root probes across every supported source version.",
       "Existing required_scalar helper rejects explicit empty lower/upper while absent children retain defaults.",
       "Explicit nonfinite input remains an independently documented rejection gap; implicit unbounded defaults are permitted metadata."
     ],
@@ -60283,7 +60283,7 @@
     "source_digest": "b356f1ad5463d605b72702aaaced34580e4ba40d92d7642e55b2407b0a4e20c5",
     "original": "NestedFrameSemantics.ModelWithoutLinksWithNestedStaticModel unchanged original1/0 and exact 61 native static-model observations; no new case credit.",
     "rust": "New tools/test_static_model_reference.py unit verifies original static post-state, both reviewed later full-file-hash states and rejection of an unrelated static assertion mutation. Full isolated227 Rust/16 tools.",
-    "scope": "Helper-only provenance repair. Exact hashed camera→RFID→bogus_sensor_type successor states are reversed before original static edits and exact original parent SHA check. Git-free raw SDF575 and public67d exports each pass fresh native61 rows and original1/0. No production/parser/native fixture or D23/simulator policy change.",
+    "scope": "Helper-only provenance repair. Exact hashed camera\u2192RFID\u2192bogus_sensor_type successor states are reversed before original static edits and exact original parent SHA check. Git-free raw SDF575 and public67d exports each pass fresh native61 rows and original1/0. No production/parser/native fixture or D23/simulator policy change.",
     "review": "Independent /root/transport_fallback APPROVED exact three-source-file helper/provenance source, receipt SHA256 b0f2104d7a4475e131971462fa0b00b93188519a59d670f93bd5831c71d83589. Private raw-parent native proof byte-identical SHA0232d6e6dbf211b8d7481bcf3acb19d8f28e6b4cefdac42331ab17f04907a5cc. Final metadata binding, normal protected hook and hosted qualification pending. Final metadata binding receipt SHA256 57b849447b0699de9e2b102e6394e722b70ebd8dc7084226bb725d61065061bb, normal protected hook and exact hosted verify run40236633573 passed at public 7e13dfae9ab440113f2f141e0d248cd8f3ae2d34; staged executable lines3773/3785, no changed production."
   },
   "custom_sensor_link_fragment": {
@@ -60602,6 +60602,16 @@
     "native": "Pinned UNIT_Frame_TEST DOMframe.Construction native1/0, exact source/binary and fresh completed GTest XML; no disabled, errors or skips.",
     "rust": "Two exact source-reviewed files; private raw-source Rust original1/0 and attachment-fallback mutant red; isolated full author gate/fmt/Clippy/docs, production4663/4688 lines7799/8040 regions, changed17/17. CARGO_BUILD_JOBS=2 correctness-only overlap with Root REF01 normal hook, no timing claim.",
     "scope": "PARTIAL original: owned Frame default/set/read name, attached_to, raw pose and SemanticPose.RelativeTo fallback values. A separate SemanticPose.RawPose object/API and repeated observations, Element null, three standalone Resolve nonempty-error checks and ResolveAttachedToBody error/body remain unported. No full graph, native method/Element identity or error-vector parity.",
-    "review": "Independent /root/transport_owner_v2 PARTIAL source/API/assertion approval receipt SHA256 7bd74db98f0dc35a2f1b6814d2a8ba3c2c3f0e34c3423175bf5450699cf7fbae; private native/Rust1/0 and exact attachment-fallback mutant. Final metadata binding, normal protected hook and hosted qualification pending."
+    "review": "Independent /root/transport_owner_v2 PARTIAL source/API/assertion approval receipt SHA256 7bd74db98f0dc35a2f1b6814d2a8ba3c2c3f0e34c3423175bf5450699cf7fbae; private native/Rust1/0 and exact attachment-fallback mutant. Final metadata binding receipt SHA256 6b0048a1776c1b52d05287e4880d53681e0a5dd383225572009e020850896cf3, normal protected hook and public db702a289ae36cf31f8d0663fa3c145f86801801 passed exact hosted verify 40289925899 SUCCESS."
+  },
+  "physics_ownership_originals": {
+    "parent": "db702a289ae36cf31f8d0663fa3c145f86801801",
+    "upstream": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "source_freeze_sha256": "30bc306c06e98c418c785535a023cd06235fac31cf449095289fd843068327e4",
+    "source_review_sha256": "9888e2a941f5699a1966e8f444eccf454560b7509cf2a4ee7349a25ddf2ce980",
+    "native": "Pinned UNIT_Physics_TEST five DOMPhysics copy/move originals5/0, completed with no disabled/skipped/errors; exact source/binary/GTest XML/log hashes retained. Native MoveConstructor actually copies.",
+    "rust": "Exact single source-reviewed test; private raw-source originals5/0 and name-loss control red. Full author306 Rust/16tools/fmt/Clippy/docs; unchanged production4663/4688lines7799/8040regions, no changed production lines. Ordinary two-job correctness overlap with Root/Msgs gates; no timing claim.",
+    "scope": "Complete fixed final-name originals only. Physics Clone/clone_from/move/replacement retain test_physics and physics1/physics2 final predicates. C++ constructor/operator identity,moved-from state, Element and physics-engine runtime remain unported.",
+    "review": "Independent /root/transport_owner_v2 source/API/assertion approval receipt SHA256 9888e2a941f5699a1966e8f444eccf454560b7509cf2a4ee7349a25ddf2ce980; private native/Rust5/0 and one-line default-instead-of-named clone_from control. Final metadata binding, normal protected hook and exact hosted qualification pending."
   }
 }

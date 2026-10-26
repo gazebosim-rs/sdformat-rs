@@ -2496,4 +2496,27 @@ The public `Frame::to_xml` and `load_frame_str` support one bounded standalone F
 
 Pinned `DOMframe.Construction` passes natively 1/0 with exact source/binary and a fresh completed GTest result. Its two-file source freeze SHA256 `ea22edccf4b00a94a157c68fa2ef2a85d84b081428c6d8fdedbc385cf7b8084f` on hosted-green parent `d9560becb4ebdc74ef92d1664218b8c717423f55` passed independent PARTIAL source/API/assertion review receipt SHA256 `7bd74db98f0dc35a2f1b6814d2a8ba3c2c3f0e34c3423175bf5450699cf7fbae`. Private raw-source Rust original1/0 and an attachment-fallback removal mutant failed its expected original value. Isolated author checks passed formatting, Clippy, docs and all Rust/tool gates; production coverage was 4663/4688 lines and 7799/8040 regions, with 17/17 changed executable lines covered. Two-job correctness checks overlapped only Root's ordinary REF01 hook; no timing claim.
 
-The fixed native defaults and set/read name, attachment, raw translation/rotation and relative-frame values map to owned `Frame::default()` and `semantic_relative_to()`. A separate SemanticPose raw-pose object/API, native Element null, all three standalone Resolve error observations and ResolveAttachedToBody error/body observations remain UNPORTED. The original stays partial; full graph and native error-vector parity are not claimed. Final metadata binding, normal protected hook and hosted qualification remain pending.
+The fixed native defaults and set/read name, attachment, raw translation/rotation and relative-frame values map to owned `Frame::default()` and `semantic_relative_to()`. A separate SemanticPose raw-pose object/API, native Element null, all three standalone Resolve error observations and ResolveAttachedToBody error/body observations remain UNPORTED. The original stays partial; full graph and native error-vector parity are not claimed. Final metadata binding receipt SHA256 6b0048a1776c1b52d05287e4880d53681e0a5dd383225572009e020850896cf3, normal protected hook and public db702a289ae36cf31f8d0663fa3c145f86801801 passed exact hosted verify 40289925899 SUCCESS.
+
+
+## Native DOMPhysics owned copy and move originals candidate
+
+Pinned `DOMPhysics.CopyConstructor`, `CopyAssignmentOperator`, `MoveConstructor`,
+`MoveAssignmentOperator` and `CopyAssignmentAfterMove` pass natively 5/0 with
+source/binary hashes and a completed GTest result. Exact one-test source freeze
+SHA256 `30bc306c06e98c418c785535a023cd06235fac31cf449095289fd843068327e4` on hosted-green parent
+`db702a289ae36cf31f8d0663fa3c145f86801801` passed independent source/API/assertion
+review receipt SHA256 `9888e2a941f5699a1966e8f444eccf454560b7509cf2a4ee7349a25ddf2ce980`.
+Private raw-source Rust originals passed5/0; a default-instead-of-named
+clone_from mutant failed its expected name assertion. Full author checks passed306 Rust,
+sixteen tools, formatting, Clippy and docs; unchanged production coverage is
+4663/4688 lines and7799/8040 regions. No production lines changed. Ordinary
+Cargo2 correctness work overlapped Root and Msgs gates; no timing claim.
+
+The first four retain the final test_physics name, and the fifth retains both
+physics2/physics1 names. The native case named MoveConstructor actually invokes
+copy-construction syntax; the Rust test preserves it with clone. Rust owned
+Clone, clone_from, move and replacement map the fixed value observations.
+C++ constructor/operator identity, moved-from state, Element and physics-engine
+runtime are unported. Final metadata binding, normal protected hook and exact
+hosted qualification remain pending.

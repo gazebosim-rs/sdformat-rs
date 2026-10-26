@@ -808,3 +808,10 @@ relative_to when present, otherwise the attachment, matching the native
 construct a graph-backed SemanticPose. The native standalone resolver failures,
 separate SemanticPose raw-pose observations and Element pointer remain outside
 this bounded value API.
+
+
+Five pinned `DOMPhysics` copy and move originals preserve their fixed final name
+observations through owned `Physics` Clone, clone_from, move and replacement.
+The native case named MoveConstructor invokes copy construction, retained as a
+clone in its Rust port. These observations do not qualify C++ constructor/operator
+identity, moved-from state, Element or physics-engine runtime.

@@ -1,25 +1,25 @@
 {
   "decision": "approved",
-  "author": "/root/sdformat_owner_fallback",
+  "author": "/root/sdformat_owner_v2",
   "reviewer": "/root/transport_owner_v2",
-  "final_freeze": "artifacts/frame-default-integration/final-freeze.json",
-  "final_freeze_sha256": "797de696d7eb69fffe173e9759b6a797756c91dade5726d166ee700f7e5af41e",
-  "parent": "d9560becb4ebdc74ef92d1664218b8c717423f55",
-  "pre_receipt_tree": "9da8cb34ebc3875fea26b96ef2fd591e7945e6ee",
-  "staged_diff_sha256": "3356f3f97763d4e314662e31cb0d26f9368c6935f9cbd3a08f6f63e7f34a0b13",
-  "source_digest": "3c2c1d2e43c161bb184e245363694e015e4e7330244227d7ef528f299f6aa5f4",
-  "protected_digest": "5de0a31ba71613344b8a07bc3ea567824a968e927b64a26058268bd6670cd1ee",
+  "final_freeze": "artifacts/physics-ownership-integration/final-freeze.json",
+  "final_freeze_sha256": "4356b60b9843f9ea26b4b7899bfa92593d7183e25a948dad9d4644e2a79a48f6",
+  "parent": "db702a289ae36cf31f8d0663fa3c145f86801801",
+  "pre_receipt_tree": "f147c496a68f2050812fcba51e8181fb7c1b3411",
+  "staged_diff_sha256": "c87e8dac47b072133632d0cb25cac58aa133a9f4434e146255c820189fa159e4",
+  "source_digest": "c76e0e920b541c663bb0a692a3d7d2cb9bf20f095235fa3583ae140ce0c1e66f",
+  "protected_digest": "0404e0231b850a64df7111a851204aa11e5bf531466cd198a90d752ed66e124f",
   "candidate_paths": [
     "docs/CONTRACT.md",
     "docs/STATUS.md",
     "reference/results.json",
     "reference/traceability.json",
-    "src/types.rs",
-    "tests/frame_default_original.rs"
+    "tests/physics_ownership_originals.rs"
   ],
-  "source_review_sha256": "7bd74db98f0dc35a2f1b6814d2a8ba3c2c3f0e34c3423175bf5450699cf7fbae",
-  "binding": "Exact parent, index tree, full diff, all six staged and working hashes, 100644 modes, no unstaged tracked differences and source/protected digests independently verified. Both source-reviewed bytes and unchanged source receipt match; 297 of302 parent blobs preserved. Metadata adds one explicitly PARTIAL DOMframe.Construction mapping, bounded contract and status, and corrects exact hosted success for prior Frame XML slice. Separate SemanticPose.RawPose object/API/repeated observations, Element null, three Resolve errors and ResolveAttachedToBody body/error remain UNPORTED.",
-  "source_evidence": "Independent private raw-source Rust1/0, exact pinned native1/0 and attachment-fallback-loss failing control are bound by source receipt7bd74db9. Exact author source gate passed strict4663/4688lines7799/8040regions17/17changed; independent reviewer did not repeat full suite/coverage.",
-  "parent_qualification": "Public parentd9560bec independently API verified; prior Frame hosted40286173293 exact-success must remain linked to parent, not new candidate.",
-  "qualification": "Final normal protected hook and exact new hosted qualification remain pending. This receipt may replace excluded reference/review.json only with all six candidate bytes/protected digest unchanged."
+  "source_review_sha256": "9888e2a941f5699a1966e8f444eccf454560b7509cf2a4ee7349a25ddf2ce980",
+  "binding": "Exact parent/index tree/full diff, all five staged+working SHA256s,100644 modes,no unstaged tracked diff and source/protected digests independently verified. Reviewed test and unchanged source receipt match;299/303 parent blobs preserved. Metadata adds exactly five fixed-observable Physics final-name mappings and corrects prior Frame Construction binding/hook/hosted success while retaining all its partial gaps. Three unrelated JSON Unicode escape spellings preserve their decoded existing review values; no assertions,pins or fixtures removed.",
+  "source_evidence": "Independent private raw-source Rust5/0 and exact pinned native5/0; default-value clone_from mutant fails original final-name assertion. Author exact full gate306Rust16tools/fmt/Clippy/docs, unchanged4663/4688lines7799/8040regions, zero production source edits.",
+  "scope": "Five original final-name predicates only. Native MoveConstructor actually copies and Rust clone preserves it; C++ constructor/operator identity,moved-from state,Element and physics-engine execution unclaimed.",
+  "parent_qualification": "Public parentdb702a2 independently API verified; exact hosted40289925899 completed SUCCESS on that parent.",
+  "qualification": "Replace excluded reference/review.json with this receipt only while five candidate bytes/protected digest remain unchanged. Mandatory normal protected hook and new exact hosted qualification remain pending."
 }

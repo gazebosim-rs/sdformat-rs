@@ -639,7 +639,7 @@
       },
       "baseline": "Existing pinned native original freshly rerun: exactly one actual test, zero failures/errors/skips; source/fixture/header/library/binary hashes recorded.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_fallback compared every original assertion in joint_dom.cc:205–254/278–341, approved the exact valid-fixture Root collection/index/name and graph-body relative-name translation, and component-wise native Pose3 tolerance <=1e-3. Fresh private 153 Rust/13 tools/fmt/Clippy and all three unchanged native originals 1/0/no skips pass; entire proof equals author. No production delta or generic mutable ResolveParent/Child error-vector API claim."
+      "review": "Independent /root/transport_fallback compared every original assertion in joint_dom.cc:205\u2013254/278\u2013341, approved the exact valid-fixture Root collection/index/name and graph-body relative-name translation, and component-wise native Pose3 tolerance <=1e-3. Fresh private 153 Rust/13 tools/fmt/Clippy and all three unchanged native originals 1/0/no skips pass; entire proof equals author. No production delta or generic mutable ResolveParent/Child error-vector API claim."
     },
     {
       "target": "INTEGRATION_joint_dom",
@@ -655,7 +655,7 @@
       },
       "baseline": "Existing pinned native original freshly rerun: exactly one actual test, zero failures/errors/skips; source/fixture/header/library/binary hashes recorded.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_fallback compared every original assertion in joint_dom.cc:205–254/278–341, approved the exact valid-fixture Root collection/index/name and graph-body relative-name translation, and component-wise native Pose3 tolerance <=1e-3. Fresh private 153 Rust/13 tools/fmt/Clippy and all three unchanged native originals 1/0/no skips pass; entire proof equals author. No production delta or generic mutable ResolveParent/Child error-vector API claim."
+      "review": "Independent /root/transport_fallback compared every original assertion in joint_dom.cc:205\u2013254/278\u2013341, approved the exact valid-fixture Root collection/index/name and graph-body relative-name translation, and component-wise native Pose3 tolerance <=1e-3. Fresh private 153 Rust/13 tools/fmt/Clippy and all three unchanged native originals 1/0/no skips pass; entire proof equals author. No production delta or generic mutable ResolveParent/Child error-vector API claim."
     },
     {
       "target": "INTEGRATION_joint_dom",
@@ -671,7 +671,7 @@
       },
       "baseline": "Existing pinned native original freshly rerun: exactly one actual test, zero failures/errors/skips; source/fixture/header/library/binary hashes recorded.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_fallback compared every original assertion in joint_dom.cc:205–254/278–341, approved the exact valid-fixture Root collection/index/name and graph-body relative-name translation, and component-wise native Pose3 tolerance <=1e-3. Fresh private 153 Rust/13 tools/fmt/Clippy and all three unchanged native originals 1/0/no skips pass; entire proof equals author. No production delta or generic mutable ResolveParent/Child error-vector API claim."
+      "review": "Independent /root/transport_fallback compared every original assertion in joint_dom.cc:205\u2013254/278\u2013341, approved the exact valid-fixture Root collection/index/name and graph-body relative-name translation, and component-wise native Pose3 tolerance <=1e-3. Fresh private 153 Rust/13 tools/fmt/Clippy and all three unchanged native originals 1/0/no skips pass; entire proof equals author. No production delta or generic mutable ResolveParent/Child error-vector API claim."
     },
     {
       "target": "INTEGRATION_joint_dom",
@@ -1614,6 +1614,66 @@
       "baseline": "Pinned native original1/0 and private raw-parent Rust original1/0; source/binary/GTest result and exact reviewed test hash bound by freeze fb54b2a15edb1637ff0a34af0b1559a593130463ecca4895ea948048f4a3ca98. Isolated full293 Rust/16 tools, unchanged production4375/4396 lines7411/7631 regions, no production changed. Two-job Root V6 SDK overlap correctness-only.",
       "status": "ported_reviewed",
       "review": "Independent /root/transport_fallback source/API/assertion APPROVED receipt SHA256 5766dfda7a933eefd1e57a0f80f52d3e8b5ac95be3ecf167a4314a4d826a0f6c; private pinned native1/0 and raw-parent Rust1/0. Final metadata binding receipt SHA256 efca13a07d7add2307caf6e990934acc81976cf0d2fffe72e0cc611a29d62492, normal protected hook and public c70a086beda8a1dd6360ae07455659d871a20abd passed exact hosted verify 40280010042 SUCCESS."
+    },
+    {
+      "target": "UNIT_Physics_TEST",
+      "case": "DOMPhysics.CopyConstructor",
+      "source": "src/Physics_TEST.cc:50-59",
+      "rust_test": "tests/physics_ownership_originals.rs::original_dom_physics_copy_constructor",
+      "assertions": "COMPLETE fixed observable original: Final destination name test_physics. Owned Physics Clone/clone_from/move/replacement preserve those value predicates; supplemental previous-default equality is not credited as native. C++ constructor/operator identity, moved-from state, Element and physics-engine behavior unclaimed.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Pinned native originals5/0 with exact source/binary hashes and completed GTest result; private raw-source Rust originals5/0 and clone_from value-loss mutant red. Source freeze 30bc306c06e98c418c785535a023cd06235fac31cf449095289fd843068327e4 on hosted-green public parent db702a289ae36cf31f8d0663fa3c145f86801801. Full author306 Rust/16 tools/fmt/Clippy/docs; unchanged production4663/4688 lines7799/8040 regions, no production lines changed. Two-job ordinary correctness overlap only, no timing claim.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_owner_v2 source/API/assertion APPROVED receipt SHA256 9888e2a941f5699a1966e8f444eccf454560b7509cf2a4ee7349a25ddf2ce980; private raw-source Rust5/0, pinned native5/0 and value-loss mutant verified. Final metadata binding, normal protected hook and exact hosted qualification pending."
+    },
+    {
+      "target": "UNIT_Physics_TEST",
+      "case": "DOMPhysics.CopyAssignmentOperator",
+      "source": "src/Physics_TEST.cc:60-70",
+      "rust_test": "tests/physics_ownership_originals.rs::original_dom_physics_copy_assignment_operator",
+      "assertions": "COMPLETE fixed observable original: Final destination name test_physics. Owned Physics Clone/clone_from/move/replacement preserve those value predicates; supplemental previous-default equality is not credited as native. C++ constructor/operator identity, moved-from state, Element and physics-engine behavior unclaimed.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Pinned native originals5/0 with exact source/binary hashes and completed GTest result; private raw-source Rust originals5/0 and clone_from value-loss mutant red. Source freeze 30bc306c06e98c418c785535a023cd06235fac31cf449095289fd843068327e4 on hosted-green public parent db702a289ae36cf31f8d0663fa3c145f86801801. Full author306 Rust/16 tools/fmt/Clippy/docs; unchanged production4663/4688 lines7799/8040 regions, no production lines changed. Two-job ordinary correctness overlap only, no timing claim.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_owner_v2 source/API/assertion APPROVED receipt SHA256 9888e2a941f5699a1966e8f444eccf454560b7509cf2a4ee7349a25ddf2ce980; private raw-source Rust5/0, pinned native5/0 and value-loss mutant verified. Final metadata binding, normal protected hook and exact hosted qualification pending."
+    },
+    {
+      "target": "UNIT_Physics_TEST",
+      "case": "DOMPhysics.MoveConstructor",
+      "source": "src/Physics_TEST.cc:71-80",
+      "rust_test": "tests/physics_ownership_originals.rs::original_dom_physics_move_constructor",
+      "assertions": "COMPLETE fixed observable original: Final destination name test_physics. The native test named MoveConstructor uses copy-construction syntax; Rust faithfully uses clone. Owned Physics Clone/clone_from/move/replacement preserve those value predicates; supplemental previous-default equality is not credited as native. C++ constructor/operator identity, moved-from state, Element and physics-engine behavior unclaimed.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Pinned native originals5/0 with exact source/binary hashes and completed GTest result; private raw-source Rust originals5/0 and clone_from value-loss mutant red. Source freeze 30bc306c06e98c418c785535a023cd06235fac31cf449095289fd843068327e4 on hosted-green public parent db702a289ae36cf31f8d0663fa3c145f86801801. Full author306 Rust/16 tools/fmt/Clippy/docs; unchanged production4663/4688 lines7799/8040 regions, no production lines changed. Two-job ordinary correctness overlap only, no timing claim.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_owner_v2 source/API/assertion APPROVED receipt SHA256 9888e2a941f5699a1966e8f444eccf454560b7509cf2a4ee7349a25ddf2ce980; private raw-source Rust5/0, pinned native5/0 and value-loss mutant verified. Final metadata binding, normal protected hook and exact hosted qualification pending."
+    },
+    {
+      "target": "UNIT_Physics_TEST",
+      "case": "DOMPhysics.MoveAssignmentOperator",
+      "source": "src/Physics_TEST.cc:81-91",
+      "rust_test": "tests/physics_ownership_originals.rs::original_dom_physics_move_assignment_operator",
+      "assertions": "COMPLETE fixed observable original: Final destination name test_physics. Owned Physics Clone/clone_from/move/replacement preserve those value predicates; supplemental previous-default equality is not credited as native. C++ constructor/operator identity, moved-from state, Element and physics-engine behavior unclaimed.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Pinned native originals5/0 with exact source/binary hashes and completed GTest result; private raw-source Rust originals5/0 and clone_from value-loss mutant red. Source freeze 30bc306c06e98c418c785535a023cd06235fac31cf449095289fd843068327e4 on hosted-green public parent db702a289ae36cf31f8d0663fa3c145f86801801. Full author306 Rust/16 tools/fmt/Clippy/docs; unchanged production4663/4688 lines7799/8040 regions, no production lines changed. Two-job ordinary correctness overlap only, no timing claim.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_owner_v2 source/API/assertion APPROVED receipt SHA256 9888e2a941f5699a1966e8f444eccf454560b7509cf2a4ee7349a25ddf2ce980; private raw-source Rust5/0, pinned native5/0 and value-loss mutant verified. Final metadata binding, normal protected hook and exact hosted qualification pending."
+    },
+    {
+      "target": "UNIT_Physics_TEST",
+      "case": "DOMPhysics.CopyAssignmentAfterMove",
+      "source": "src/Physics_TEST.cc:92-109",
+      "rust_test": "tests/physics_ownership_originals.rs::original_dom_physics_copy_assignment_after_move",
+      "assertions": "COMPLETE fixed observable original: Both final names physics2 and physics1 after the original swap-like move/copy sequence. Owned Physics Clone/clone_from/move/replacement preserve those value predicates; supplemental previous-default equality is not credited as native. C++ constructor/operator identity, moved-from state, Element and physics-engine behavior unclaimed.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Pinned native originals5/0 with exact source/binary hashes and completed GTest result; private raw-source Rust originals5/0 and clone_from value-loss mutant red. Source freeze 30bc306c06e98c418c785535a023cd06235fac31cf449095289fd843068327e4 on hosted-green public parent db702a289ae36cf31f8d0663fa3c145f86801801. Full author306 Rust/16 tools/fmt/Clippy/docs; unchanged production4663/4688 lines7799/8040 regions, no production lines changed. Two-job ordinary correctness overlap only, no timing claim.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_owner_v2 source/API/assertion APPROVED receipt SHA256 9888e2a941f5699a1966e8f444eccf454560b7509cf2a4ee7349a25ddf2ce980; private raw-source Rust5/0, pinned native5/0 and value-loss mutant verified. Final metadata binding, normal protected hook and exact hosted qualification pending."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",
@@ -1920,7 +1980,7 @@
       "upstream_fixtures": {},
       "baseline": "Pinned native original1/0 completed with exact source/binary and GTest XML; source freeze ea22edccf4b00a94a157c68fa2ef2a85d84b081428c6d8fdedbc385cf7b8084f on hosted-green public parent d9560becb4ebdc74ef92d1664218b8c717423f55. Private raw-source Rust original1/0 and attachment-fallback-removal mutant red; author full gate, fmt/Clippy/docs and strict production4663/4688 lines7799/8040 regions, changed17/17. Two-job correctness-only overlap with Root REF01 hook; no timing claim.",
       "status": "partial_reviewed",
-      "review": "Independent /root/transport_owner_v2 PARTIAL source/API/assertion approval receipt SHA256 7bd74db98f0dc35a2f1b6814d2a8ba3c2c3f0e34c3423175bf5450699cf7fbae; exact frozen two source/test hashes and imported2018 OSRF notice bound. Final metadata binding, normal protected hook and hosted qualification pending."
+      "review": "Independent /root/transport_owner_v2 PARTIAL source/API/assertion approval receipt SHA256 7bd74db98f0dc35a2f1b6814d2a8ba3c2c3f0e34c3423175bf5450699cf7fbae; exact frozen two source/test hashes and imported2018 OSRF notice bound. Final metadata binding receipt SHA256 6b0048a1776c1b52d05287e4880d53681e0a5dd383225572009e020850896cf3, normal protected hook and public db702a289ae36cf31f8d0663fa3c145f86801801 passed exact hosted verify 40289925899 SUCCESS."
     }
   ]
 }

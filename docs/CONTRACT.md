@@ -44,6 +44,10 @@ Joint, JointKind and Axis implement Clone so consumers can retain owned typed
 configuration after dropping the document; clones share no mutable strings.
 Universal and revolute2 types retain both axes; native axis2 is also preserved
 when present on another supported joint kind.
+Five pinned `DOMJoint` copy and move originals retain the final name and both
+axis XYZ values through owned Rust move, `Clone`, `clone_from` and replacement.
+Native C++ operator identity, moved-from state and mutable Element pointers
+are outside those value observations.
 `Axis` has normalized xyz, expressed_in, position limits, effort, velocity and
 optional owned mimic metadata. In SDF 1.11–1.12, `<mimic>` retains the leader
 joint and axis plus multiplier, offset and reference; an omitted axis defaults

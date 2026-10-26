@@ -2232,8 +2232,28 @@ without dropping rejection. The static-model guard adds one exact successor
 state; native 61 observations and unchanged original remain intact. Isolated
 author checks passed 265 Rust, sixteen tools, formatting, Clippy and docs;
 production coverage is 4205/4226 lines and 7235/7455 regions, changed
-executable lines 31/31. Final metadata binding, protected hook and hosted
-qualification are pending. Raw joint physics XML is retained without engine
+executable lines 31/31. Final metadata binding receipt SHA256 `4dcbad0919abafb38cb15832e7fcc49146db2cbde4ef2fb7e1390d84ebcb7aec`, normal protected hook and
+public `b8348d8a49229ebf7b21fa7e4fed5fbbf0e2eca6` passed exact hosted verify `40260037701` SUCCESS. Raw joint physics XML is retained without engine
 interpretation or nested schema validation; legacy axis warning output,
 Element contents, general parser grammar and runtime joint physics remain
 unported.
+
+
+## Five native DOMJoint copy and move value originals candidate
+
+Pinned `DOMJoint.MoveConstructor`, `CopyConstructor`, `MoveAssignment`,
+`CopyAssignment` and `CopyAssignmentAfterMove` pass natively 5/0. Their final
+source and destination names, non-null axis0/axis1, and exact XYZ vectors map
+to owned Rust move, `Clone`, `clone_from` and replacement with valid parsed
+axis setup. No native moved-from state or pointer identity is asserted.
+
+Exact test-only source freeze SHA256 `108b4a2958c1ee4ff4eb19276659e25843538d5da516ab5c6f43657b9811f630`
+on public parent `b8348d8` passed independent source/API/assertion review,
+receipt SHA256 `c8e4148567d80b0e189db5ffb410cc204fb436883868cb5c3cd1c24c833c9998`.
+Private raw-parent selected Rust5/0 and pinned native originals5/0 passed.
+Isolated author checks passed 270 Rust, sixteen tools, formatting, Clippy
+and docs; production coverage remains 4205/4226 lines and 7235/7455
+regions. There is no changed executable production line. Final metadata
+binding, protected hook and hosted qualification are pending. Native C++
+operator identity, moved-from state, mutable Element pointers, serialization
+and broad joint graph semantics remain unported.

@@ -1038,6 +1038,7 @@ impl Parser<'_> {
             inertial: self.inertial(node)?,
             collisions,
             visuals,
+            lights: Vec::new(),
             sensors,
             properties: LinkProperties {
                 enable_wind: self.boolean(node, "enable_wind", false)?,

@@ -397,6 +397,11 @@ pub struct Frame {
     pub pose: Pose,
     pub source: Source,
 }
+/// Owned light identity; light configuration and XML parsing remain pending.
+#[derive(Debug, Clone, Default, PartialEq, Eq)]
+pub struct Light {
+    pub name: String,
+}
 #[derive(Debug)]
 pub struct Link {
     pub name: String,
@@ -405,12 +410,30 @@ pub struct Link {
     pub inertial: Inertial,
     pub collisions: Vec<Collision>,
     pub visuals: Vec<Visual>,
+    pub lights: Vec<Light>,
     pub sensors: Vec<Sensor>,
     pub properties: LinkProperties,
     pub plugins: Vec<Plugin>,
     pub source: Source,
 }
 impl Link {
+    /// Insert a light with a unique direct name.
+    pub fn add_light_unique(&mut self, light: Light) -> bool {
+        if self
+            .lights
+            .iter()
+            .any(|existing| existing.name == light.name)
+        {
+            return false;
+        }
+        self.lights.push(light);
+        true
+    }
+
+    pub fn clear_lights(&mut self) {
+        self.lights.clear();
+    }
+
     /// Insert a sensor with a unique direct name.
     pub fn add_sensor_unique(&mut self, sensor: Sensor) -> bool {
         if self

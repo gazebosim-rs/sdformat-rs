@@ -60522,6 +60522,16 @@
     "native": "Pinned UNIT_Link_TEST DOMLink.AddCollision and DOMLink.AddVisual native2/0, exact source/binary and fresh GTest result report; no disabled, errors or skips. Native originals construct default objects and load no XML fixture.",
     "rust": "Exact two reviewed src/test hashes; private raw-parent Rust2/0 and isolated full280 Rust/16 tools/fmt/Clippy/docs, production4297/4318 lines7343/7563 regions, changed26/26. Reviewer private Rust replay overlapped ordinary two-job SDK build; no timing claim.",
     "scope": "Complete fixed observable initial zero count, direct-name insertion/count one, duplicate rejection/count unchanged, clear/count zero, reinsert/count one and index0 non-null/exact name for each of collision and visual. Parsed valid owned values substitute native default objects only for fixed name/count outcomes. Untested default state, C++ pointer/method identity, Element serialization and broader geometry grammar unported.",
-    "review": "Independent /root/transport_fallback source/API/assertion APPROVED receipt SHA256 4958a542b15b517e3ce1e24bc503f6db66b0bd6626a5a01ab1a40cc9397f24e9; private native2/0 and Rust2/0. Final metadata binding, normal hook and hosted qualification pending."
+    "review": "Independent /root/transport_fallback source/API/assertion APPROVED receipt SHA256 4958a542b15b517e3ce1e24bc503f6db66b0bd6626a5a01ab1a40cc9397f24e9; private native2/0 and Rust2/0. Final metadata binding receipt SHA256 defe824b7e1d38a8e529ba12ed30166625ef018ae3a1bd8783fd05c65997e805, normal protected hook and public 18f0c68104f7870e9ddb7ada0d144887294dc8e1 passed exact hosted verify 40273080173 SUCCESS."
+  },
+  "link_add_light_original": {
+    "parent": "18f0c68104f7870e9ddb7ada0d144887294dc8e1",
+    "upstream": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "source_freeze_sha256": "976c07659e3d3bb20bd09a7511e660b0deaab4ee68fa915144e3dee31d69466d",
+    "source_review_sha256": "687c4d15f2213488e37c373d984e941ee2a1edf8712cf32ee9f72127f7ec1880",
+    "native": "Pinned UNIT_Link_TEST DOMLink.AddLight native1/0, exact source/binary and fresh GTest result report; no disabled, errors or skips. Native original constructs a default Light and loads no XML fixture.",
+    "rust": "Exact three reviewed source/test hashes; private raw-parent Rust1/0 and isolated full281 Rust/16 tools/fmt/Clippy/docs, production4312/4333 lines7360/7580 regions, changed14/14. First Clippy test-initializer failure retained, corrected and full rerun passed. Reviewer selected Rust replay overlapped ordinary two-job SDK build; no timing claim.",
+    "scope": "Complete fixed observable initial zero count, direct-name insertion/count one, duplicate rejection/count unchanged, clear/count zero, reinsert/count one and index0 non-null/exact name. Native default Light SetName maps Rust direct name initializer; parsed Link is setup only. Untested Light configuration/default fields, pose, XML parsing, Element, C++ pointer/method identity and broader mutable Link cases unported.",
+    "review": "Independent /root/transport_fallback source/API/assertion APPROVED receipt SHA256 687c4d15f2213488e37c373d984e941ee2a1edf8712cf32ee9f72127f7ec1880; private native1/0 and Rust1/0. Final metadata binding, normal hook and hosted qualification pending."
   }
 }

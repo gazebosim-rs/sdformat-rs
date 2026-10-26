@@ -1481,7 +1481,7 @@
       "upstream_fixtures": {},
       "baseline": "Pinned native original1/0 and private raw-parent Rust1/0, exact native source/binary/GTest result report and two reviewed source hashes bound by freeze f96068250206f4097de85d660004585ff042eeacd902c359b44021e2001ced89; isolated full280 Rust/16 tools, production4297/4318 lines7343/7563 regions, changed26/26. Private selected replay overlapped Root two-job SDK build; correctness only.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_fallback source/API/assertion APPROVED receipt SHA256 4958a542b15b517e3ce1e24bc503f6db66b0bd6626a5a01ab1a40cc9397f24e9; private pinned native1/0 and raw-parent Rust1/0 for this original. Final metadata binding, normal hook and hosted qualification pending."
+      "review": "Independent /root/transport_fallback source/API/assertion APPROVED receipt SHA256 4958a542b15b517e3ce1e24bc503f6db66b0bd6626a5a01ab1a40cc9397f24e9; private pinned native1/0 and raw-parent Rust1/0 for this original. Final metadata binding receipt SHA256 defe824b7e1d38a8e529ba12ed30166625ef018ae3a1bd8783fd05c65997e805, normal protected hook and public 18f0c68104f7870e9ddb7ada0d144887294dc8e1 passed exact hosted verify 40273080173 SUCCESS."
     },
     {
       "target": "UNIT_Link_TEST",
@@ -1493,7 +1493,19 @@
       "upstream_fixtures": {},
       "baseline": "Pinned native original1/0 and private raw-parent Rust1/0, exact native source/binary/GTest result report and two reviewed source hashes bound by freeze f96068250206f4097de85d660004585ff042eeacd902c359b44021e2001ced89; isolated full280 Rust/16 tools, production4297/4318 lines7343/7563 regions, changed26/26. Private selected replay overlapped Root two-job SDK build; correctness only.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_fallback source/API/assertion APPROVED receipt SHA256 4958a542b15b517e3ce1e24bc503f6db66b0bd6626a5a01ab1a40cc9397f24e9; private pinned native1/0 and raw-parent Rust1/0 for this original. Final metadata binding, normal hook and hosted qualification pending."
+      "review": "Independent /root/transport_fallback source/API/assertion APPROVED receipt SHA256 4958a542b15b517e3ce1e24bc503f6db66b0bd6626a5a01ab1a40cc9397f24e9; private pinned native1/0 and raw-parent Rust1/0 for this original. Final metadata binding receipt SHA256 defe824b7e1d38a8e529ba12ed30166625ef018ae3a1bd8783fd05c65997e805, normal protected hook and public 18f0c68104f7870e9ddb7ada0d144887294dc8e1 passed exact hosted verify 40273080173 SUCCESS."
+    },
+    {
+      "target": "UNIT_Link_TEST",
+      "case": "DOMLink.AddLight",
+      "source": "src/Link_TEST.cc:1154-1176",
+      "rust_test": "tests/link_add_light_original.rs::original_dom_link_add_light",
+      "assertions": "COMPLETE fixed observable initial zero LightCount, unique direct-name insertion true/count one, duplicate false/count unchanged, clear/count zero, reinsert true/count one and index0 non-null/exact light name. Native default Light SetName maps owned Rust Light direct name initializer; Rust parsed Link is setup only. Untested native Light configuration/default fields, pose, XML parsing, Element, C++ pointer/method identity and broader mutable Link cases unclaimed.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Pinned native original1/0 and private raw-parent Rust1/0, exact native source/binary/GTest result report and three reviewed source hashes bound by freeze 976c07659e3d3bb20bd09a7511e660b0deaab4ee68fa915144e3dee31d69466d; isolated full281 Rust/16 tools, production4312/4333 lines7360/7580 regions, changed14/14. First Clippy test-initializer failure retained, corrected and full rerun passed. Private selected replay overlapped Root two-job SDK build; correctness only.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback source/API/assertion APPROVED receipt SHA256 687c4d15f2213488e37c373d984e941ee2a1edf8712cf32ee9f72127f7ec1880; private pinned native1/0 and raw-parent Rust1/0. Final metadata binding, normal hook and hosted qualification pending."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

@@ -711,3 +711,14 @@ rejection, clear, reinsert and index-name results. Rust parses valid collision
 and visual values as setup; native originals use default objects and do not
 load XML. Untested default state, C++ pointer or method identity, Element
 serialization and broader geometry grammar remain separate acceptance work.
+
+## Link owned light collection
+
+`Light` currently owns only its direct name; `Link.lights` starts empty.
+`Link::add_light_unique` admits a light only when no direct light has its
+name, and `clear_lights` removes the collection. The fixed `DOMLink.AddLight`
+original observes count, insertion, duplicate rejection, clear, reinsert
+and index-name results. Native uses a default Light with a set name; Rust
+initializes that name directly and parses only the enclosing Link as setup.
+Light configuration, pose, XML grammar, untested default fields, Element and
+C++ pointer or method identity remain separate acceptance work.

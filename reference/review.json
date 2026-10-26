@@ -2,37 +2,39 @@
   "decision": "approved",
   "author": "/root/sdformat_owner_fallback",
   "reviewer": "/root/transport_fallback",
-  "final_freeze": "artifacts/link-geometry-add-integration/frozen-final.json",
-  "final_freeze_sha256": "1010d01889b9b7ed5f00ad0e5b23f595a38dc7c417853bd1d3d743e86579ae04",
-  "parent": "06d32aa2351c5f6dc2501a4ae624681f4efc4ea4",
-  "pre_receipt_tree": "5907948ba87395dee9d027f1c468015a41742780",
-  "staged_diff_sha256": "fd7898060a3106bdeff5a0ca770f10c8c10b449ffadbaece297eb19404c2943e",
+  "final_freeze": "artifacts/link-add-light-integration/frozen-final.json",
+  "final_freeze_sha256": "c36891c1746088680977d5325ba3a5d999340fa34c51e4517a54b97472ab0cf1",
+  "parent": "18f0c68104f7870e9ddb7ada0d144887294dc8e1",
+  "pre_receipt_tree": "0939efd51aeba6c7214f69b722ae76ee3964630a",
+  "staged_diff_sha256": "25eaa9598fc6eebf2b9b87f720259a0c4dcde48051f805a26a0af59be873dee7",
   "candidate_paths": [
     "docs/CONTRACT.md",
     "docs/STATUS.md",
     "reference/results.json",
     "reference/traceability.json",
+    "src/parse.rs",
     "src/types.rs",
-    "tests/link_geometry_add_original.rs"
+    "tests/link_add_light_original.rs"
   ],
   "files_sha256": {
-    "docs/CONTRACT.md": "9883869f5274d0f8a7caa3b74cf833c43bc523da74b9092f14ed9c664c9af564",
-    "docs/STATUS.md": "985f6864953c87c672bb4524d80dd692162a9fd3c64bf04c2c7532ca8acc3e19",
-    "reference/results.json": "bf3476d8565e80e5b10caefa6bd5f48716285d17f4ddc4f7b6a01d336ebcec34",
-    "reference/traceability.json": "79b29f07a1d933e75f94d34ae4510226343b9afaae8cffb5ee44d09f51f31c5d",
-    "src/types.rs": "56689601efc9514cbcbf822d495ab6819df26dc7ff837847598cd97018d16a8d",
-    "tests/link_geometry_add_original.rs": "d98532e4ecdbc48b734458ceedb3c02fc96ef62f26e3f02488de13168ad2ed39"
+    "docs/CONTRACT.md": "9ba4c760b354f34430407d5e522396f8b59127a28d5784ca8b43c9346a69f0e6",
+    "docs/STATUS.md": "cd48166d611dfa3a83077e90f5ce9cadde7727910148f2cd3aa06f15390c116e",
+    "reference/results.json": "d73c1e18828f0095b5286b40b117a5212618b0155cbed28fbc9d5687a9f9164e",
+    "reference/traceability.json": "d4a19c950ffaf3c911328d6b80f1f78ecc4619a6f016f07456ece747c14d3b2b",
+    "src/parse.rs": "ee954e45ff64e04807a1415f485421ce4b73fa614ec4fdc8eba6afc286548f66",
+    "src/types.rs": "894547a3c31b1f6f7bbed24dbba49d2cfea76680c978a442671ac843b5ae3d2d",
+    "tests/link_add_light_original.rs": "d7090fd15d909ee7e92934297e3a9051ec26ac5dc1aa458a91f4f21352c70132"
   },
-  "source_freeze_sha256": "f96068250206f4097de85d660004585ff042eeacd902c359b44021e2001ced89",
-  "source_review_sha256": "4958a542b15b517e3ce1e24bc503f6db66b0bd6626a5a01ab1a40cc9397f24e9",
-  "source_digest": "910355615d48a1319e815032bac9b7341f13f93a34be5553d3193b6034aa86f4",
-  "protected_digest": "2b1b2b662560e6c5fb6e1c83c4d5383ac9f636c11dd37c6349ac612d62141074",
+  "source_freeze_sha256": "976c07659e3d3bb20bd09a7511e660b0deaab4ee68fa915144e3dee31d69466d",
+  "source_review_sha256": "687c4d15f2213488e37c373d984e941ee2a1edf8712cf32ee9f72127f7ec1880",
+  "source_digest": "b9ceb77781bb79c1cb5d350a570cdc9627b1d6053aa2911e46e884b98badefeb",
+  "protected_digest": "825d48a0901f8f8b4659749c68c91e2c40051bb9a04f56ffb81d1e150a737fbc",
   "verification": {
-    "index": "All six exact candidate hashes and 100644 modes match staged bytes; pre-receipt tree and binary diff match freeze, with no unstaged tracked change.",
-    "parent_overlap": "HEAD equals public hosted-green parent; 292 tracked parent blobs, five edited and one new candidate file; 287 other parent blobs preserved.",
-    "source": "Reviewed src/types.rs and tests/link_geometry_add_original.rs retain exact approved hashes; copied source receipt and freeze remain unchanged.",
-    "metadata": "CONTRACT, STATUS, results and traceability add two complete fixed observable DOMLink.AddCollision/AddVisual rows and correct prior Link.AddSensor hosted state. Native originals construct default objects and load no XML; Rust parsed XML is setup. Default state, C++ identity, Element and broad grammar remain unclaimed.",
-    "author_gate": "280 Rust, 16 tools, fmt/Clippy/docs; production4297/4318 lines,7343/7563 regions,26/26 changed; source log SHA256 31a7f1beeeafa9325f5df6bcd00f88d3e07d3aa6b2f2e0c43c86ae3c4e19d084."
+    "index": "All seven candidate hashes and 100644 modes match staged bytes; pre-receipt tree and binary diff match freeze, with no unstaged tracked change.",
+    "parent_overlap": "HEAD equals public hosted-green parent; 293 tracked parent blobs, six edited and one new candidate file; 287 other parent blobs preserved.",
+    "source": "Reviewed src/parse.rs, src/types.rs and tests/link_add_light_original.rs retain exact approved hashes; copied source receipt and freeze remain unchanged.",
+    "metadata": "CONTRACT, STATUS, results and traceability add one complete fixed observable DOMLink.AddLight row and correct prior geometry hosted state. Native default Light loads no XML; Rust parsed Link is setup. Light configuration/pose/XML grammar/default fields/Element/C++ identity remain unclaimed.",
+    "author_gate": "281 Rust, 16 tools, fmt/Clippy/docs; production4312/4333 lines,7360/7580 regions,14/14 changed; source log SHA256 998a5d22ddbacbb681753abd668e8b2c27b25d0f0cd40197e4ec28d408de3c2e. Correctness-only overlap with Root two-job SDK build, no timing claim."
   },
-  "limits": "Receipt may be added as a separate publication-envelope file only if all six candidate hashes remain unchanged. Normal protected hook and hosted CI are separate gates."
+  "limits": "Receipt may be added as a separate publication-envelope file only if all seven candidate hashes remain unchanged. Normal protected hook and hosted CI are separate gates."
 }

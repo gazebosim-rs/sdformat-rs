@@ -2376,8 +2376,30 @@ Private raw-parent native2/0 and Rust2/0 passed; the latter overlapped an
 ordinary two-job SDK build and is correctness-only evidence. Isolated author
 checks passed 280 Rust, sixteen tools, formatting, Clippy and docs;
 production coverage is 4297/4318 lines and 7343/7563 regions with all 26
-changed executable lines covered. Final metadata binding, normal protected
-hook and hosted qualification remain pending. Parsed valid collision and
+changed executable lines covered. Final metadata binding receipt SHA256
+`defe824b7e1d38a8e529ba12ed30166625ef018ae3a1bd8783fd05c65997e805`
+and normal protected hook passed; public
+`18f0c68104f7870e9ddb7ada0d144887294dc8e1` passed exact hosted verify
+`40273080173` SUCCESS. Parsed valid collision and
 visual values substitute native default objects only for these fixed
 observations. Default object state, C++ pointer/method identity, Element
 serialization and broader geometry grammar remain unported.
+
+## Native DOMLink owned light insertion original candidate
+
+Pinned `DOMLink.AddLight` passes natively 1/0. An owned light name value and
+`Link.lights` vector preserve initial count, insertion, duplicate rejection,
+clear, reinsert, count and index-name observations. Exact three-file source
+freeze SHA256
+`976c07659e3d3bb20bd09a7511e660b0deaab4ee68fa915144e3dee31d69466d`
+on hosted-green parent `18f0c68` passed independent source/API/assertion
+review receipt SHA256
+`687c4d15f2213488e37c373d984e941ee2a1edf8712cf32ee9f72127f7ec1880`.
+Fresh pinned native1/0 and private raw-parent Rust1/0 passed; the latter
+overlapped an ordinary two-job SDK build and is correctness-only evidence.
+Isolated author checks passed 281 Rust, sixteen tools, formatting, Clippy and
+docs; production coverage is 4312/4333 lines and 7360/7580 regions with all
+14 changed executable lines covered. Final metadata binding, normal hook and
+hosted qualification remain pending. Native defaults load no XML; Rust parses
+only a Link as test setup. Light configuration, pose, XML grammar, untested
+default fields, Element and C++ pointer/method identity remain unported.

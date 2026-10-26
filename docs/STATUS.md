@@ -2399,7 +2399,31 @@ Fresh pinned native1/0 and private raw-parent Rust1/0 passed; the latter
 overlapped an ordinary two-job SDK build and is correctness-only evidence.
 Isolated author checks passed 281 Rust, sixteen tools, formatting, Clippy and
 docs; production coverage is 4312/4333 lines and 7360/7580 regions with all
-14 changed executable lines covered. Final metadata binding, normal hook and
-hosted qualification remain pending. Native defaults load no XML; Rust parses
+14 changed executable lines covered. Final metadata binding receipt SHA256
+`e9bf0433343546e83dab5ab3f34ad4e1ae8985fe517c0b11cbf044f6c953b6d0`
+and normal protected hook passed; public
+`552b14424beabcbad246de7d772c8b242cdeb0da` passed exact hosted verify
+`40274174790` SUCCESS. Native defaults load no XML; Rust parses
 only a Link as test setup. Light configuration, pose, XML grammar, untested
 default fields, Element and C++ pointer/method identity remain unported.
+
+## Native DOMLink mutable collection originals candidate
+
+Pinned `DOMLink.MutableByIndex` and `DOMLink.MutableByName` pass natively
+2/0. Owned Visual, Collision, Light, Sensor, ParticleEmitter and Projector
+collections preserve all six Add success, mutable lookup, initial name,
+rename and index/name relookup observations. Exact three-file source freeze
+SHA256 `55a602787c356e3cb483752e1f172b216fe50bf79615e7ba69dc5b882a8c0285`
+on hosted-green parent `552b144` passed independent source/API/assertion
+review receipt SHA256
+`b1eb36e5027cedfddeaed0b7827eb71a1b1c5d58329749277fbbd86cb5c9e4bb`.
+Private raw-parent native2/0, Rust originals2/0 and one supplemental
+duplicate-name control passed. The Rust replay overlapped Root's network-bound
+V6 dependency build and Msgs' ordinary protected hook at two jobs; it is
+correctness-only evidence. Isolated author checks passed 284 Rust, sixteen
+tools, formatting, Clippy and docs; production coverage is 4336/4357 lines
+and 7386/7606 regions with all 22 changed executable lines covered. Final
+metadata binding, normal hook and hosted qualification remain pending.
+ParticleEmitter and Projector own only direct names; their XML/configuration,
+other untested native default fields, Element, C++ pointer/method identity
+and general mutation policy remain unported.

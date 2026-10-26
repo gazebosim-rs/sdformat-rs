@@ -2,11 +2,12 @@
   "decision": "approved",
   "author": "/root/sdformat_owner_fallback",
   "reviewer": "/root/transport_fallback",
-  "final_freeze": "artifacts/link-add-light-integration/frozen-final.json",
-  "final_freeze_sha256": "c36891c1746088680977d5325ba3a5d999340fa34c51e4517a54b97472ab0cf1",
-  "parent": "18f0c68104f7870e9ddb7ada0d144887294dc8e1",
-  "pre_receipt_tree": "0939efd51aeba6c7214f69b722ae76ee3964630a",
-  "staged_diff_sha256": "25eaa9598fc6eebf2b9b87f720259a0c4dcde48051f805a26a0af59be873dee7",
+  "final_freeze": "artifacts/link-mutable-integration/frozen-final.json",
+  "final_freeze_sha256": "7426552a49adf50926cc07388ffdf8e9a18c35334bb30ed23e02e032df5d9799",
+  "parent": "552b14424beabcbad246de7d772c8b242cdeb0da",
+  "pre_receipt_tree": "85f32e5eb3bb07d69f0c49cacbf5f26fc0b66d00",
+  "staged_diff_sha256": "542c915be092441676911f239ff6d2d67911c3d580554fbd8077f451f4a24ee6",
+  "protected_digest": "70bb7df85bd82def1097c2b4433f4cbef34da9899abc2a4963a350ca74d8a72d",
   "candidate_paths": [
     "docs/CONTRACT.md",
     "docs/STATUS.md",
@@ -14,27 +15,9 @@
     "reference/traceability.json",
     "src/parse.rs",
     "src/types.rs",
-    "tests/link_add_light_original.rs"
+    "tests/link_mutable_originals.rs"
   ],
-  "files_sha256": {
-    "docs/CONTRACT.md": "9ba4c760b354f34430407d5e522396f8b59127a28d5784ca8b43c9346a69f0e6",
-    "docs/STATUS.md": "cd48166d611dfa3a83077e90f5ce9cadde7727910148f2cd3aa06f15390c116e",
-    "reference/results.json": "d73c1e18828f0095b5286b40b117a5212618b0155cbed28fbc9d5687a9f9164e",
-    "reference/traceability.json": "d4a19c950ffaf3c911328d6b80f1f78ecc4619a6f016f07456ece747c14d3b2b",
-    "src/parse.rs": "ee954e45ff64e04807a1415f485421ce4b73fa614ec4fdc8eba6afc286548f66",
-    "src/types.rs": "894547a3c31b1f6f7bbed24dbba49d2cfea76680c978a442671ac843b5ae3d2d",
-    "tests/link_add_light_original.rs": "d7090fd15d909ee7e92934297e3a9051ec26ac5dc1aa458a91f4f21352c70132"
-  },
-  "source_freeze_sha256": "976c07659e3d3bb20bd09a7511e660b0deaab4ee68fa915144e3dee31d69466d",
-  "source_review_sha256": "687c4d15f2213488e37c373d984e941ee2a1edf8712cf32ee9f72127f7ec1880",
-  "source_digest": "b9ceb77781bb79c1cb5d350a570cdc9627b1d6053aa2911e46e884b98badefeb",
-  "protected_digest": "825d48a0901f8f8b4659749c68c91e2c40051bb9a04f56ffb81d1e150a737fbc",
-  "verification": {
-    "index": "All seven candidate hashes and 100644 modes match staged bytes; pre-receipt tree and binary diff match freeze, with no unstaged tracked change.",
-    "parent_overlap": "HEAD equals public hosted-green parent; 293 tracked parent blobs, six edited and one new candidate file; 287 other parent blobs preserved.",
-    "source": "Reviewed src/parse.rs, src/types.rs and tests/link_add_light_original.rs retain exact approved hashes; copied source receipt and freeze remain unchanged.",
-    "metadata": "CONTRACT, STATUS, results and traceability add one complete fixed observable DOMLink.AddLight row and correct prior geometry hosted state. Native default Light loads no XML; Rust parsed Link is setup. Light configuration/pose/XML grammar/default fields/Element/C++ identity remain unclaimed.",
-    "author_gate": "281 Rust, 16 tools, fmt/Clippy/docs; production4312/4333 lines,7360/7580 regions,14/14 changed; source log SHA256 998a5d22ddbacbb681753abd668e8b2c27b25d0f0cd40197e4ec28d408de3c2e. Correctness-only overlap with Root two-job SDK build, no timing claim."
-  },
-  "limits": "Receipt may be added as a separate publication-envelope file only if all seven candidate hashes remain unchanged. Normal protected hook and hosted CI are separate gates."
+  "source_review_sha256": "b1eb36e5027cedfddeaed0b7827eb71a1b1c5d58329749277fbbd86cb5c9e4bb",
+  "binding": "All seven staged file hashes and 100644 modes match the final freeze; exact source-reviewed parser, types and test bytes and copied source receipt are unchanged. The 294-file parent retains 288 other blobs; no unstaged changes. Metadata adds only two complete fixed-observable originals, credits prior AddLight hosted success, and preserves native default versus parsed Rust setup and XML, Element, configuration, pointer and method limits.",
+  "verification": "JSON and staged diff checks pass. Author integrated full gate passed 284 Rust, 16 tools, formatting, Clippy and docs, with 4336/4357 production lines, 7386/7606 regions and 22/22 changed lines; mandatory normal protected hook and hosted qualification remain separate."
 }

@@ -402,6 +402,16 @@ pub struct Frame {
 pub struct Light {
     pub name: String,
 }
+/// Owned particle emitter identity; configuration and XML parsing remain pending.
+#[derive(Debug, Clone, Default, PartialEq, Eq)]
+pub struct ParticleEmitter {
+    pub name: String,
+}
+/// Owned projector identity; configuration and XML parsing remain pending.
+#[derive(Debug, Clone, Default, PartialEq, Eq)]
+pub struct Projector {
+    pub name: String,
+}
 #[derive(Debug)]
 pub struct Link {
     pub name: String,
@@ -411,12 +421,40 @@ pub struct Link {
     pub collisions: Vec<Collision>,
     pub visuals: Vec<Visual>,
     pub lights: Vec<Light>,
+    pub particle_emitters: Vec<ParticleEmitter>,
+    pub projectors: Vec<Projector>,
     pub sensors: Vec<Sensor>,
     pub properties: LinkProperties,
     pub plugins: Vec<Plugin>,
     pub source: Source,
 }
 impl Link {
+    /// Insert a particle emitter with a unique direct name.
+    pub fn add_particle_emitter_unique(&mut self, emitter: ParticleEmitter) -> bool {
+        if self
+            .particle_emitters
+            .iter()
+            .any(|existing| existing.name == emitter.name)
+        {
+            return false;
+        }
+        self.particle_emitters.push(emitter);
+        true
+    }
+
+    /// Insert a projector with a unique direct name.
+    pub fn add_projector_unique(&mut self, projector: Projector) -> bool {
+        if self
+            .projectors
+            .iter()
+            .any(|existing| existing.name == projector.name)
+        {
+            return false;
+        }
+        self.projectors.push(projector);
+        true
+    }
+
     /// Insert a light with a unique direct name.
     pub fn add_light_unique(&mut self, light: Light) -> bool {
         if self

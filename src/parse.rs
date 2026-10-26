@@ -1039,6 +1039,8 @@ impl Parser<'_> {
             collisions,
             visuals,
             lights: Vec::new(),
+            particle_emitters: Vec::new(),
+            projectors: Vec::new(),
             sensors,
             properties: LinkProperties {
                 enable_wind: self.boolean(node, "enable_wind", false)?,

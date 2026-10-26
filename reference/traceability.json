@@ -1505,7 +1505,31 @@
       "upstream_fixtures": {},
       "baseline": "Pinned native original1/0 and private raw-parent Rust1/0, exact native source/binary/GTest result report and three reviewed source hashes bound by freeze 976c07659e3d3bb20bd09a7511e660b0deaab4ee68fa915144e3dee31d69466d; isolated full281 Rust/16 tools, production4312/4333 lines7360/7580 regions, changed14/14. First Clippy test-initializer failure retained, corrected and full rerun passed. Private selected replay overlapped Root two-job SDK build; correctness only.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_fallback source/API/assertion APPROVED receipt SHA256 687c4d15f2213488e37c373d984e941ee2a1edf8712cf32ee9f72127f7ec1880; private pinned native1/0 and raw-parent Rust1/0. Final metadata binding, normal hook and hosted qualification pending."
+      "review": "Independent /root/transport_fallback source/API/assertion APPROVED receipt SHA256 687c4d15f2213488e37c373d984e941ee2a1edf8712cf32ee9f72127f7ec1880; private pinned native1/0 and raw-parent Rust1/0. Final metadata binding receipt SHA256 e9bf0433343546e83dab5ab3f34ad4e1ae8985fe517c0b11cbf044f6c953b6d0, normal protected hook and public 552b14424beabcbad246de7d772c8b242cdeb0da passed exact hosted verify 40274174790 SUCCESS."
+    },
+    {
+      "target": "UNIT_Link_TEST",
+      "case": "DOMLink.MutableByIndex",
+      "source": "src/Link_TEST.cc:1360-1430",
+      "rust_test": "tests/link_mutable_originals.rs::original_dom_link_mutable_by_index",
+      "assertions": "COMPLETE fixed observable six successful Add operations, mutable index lookup/non-null, initial exact Visual/Collision/Light/Sensor/ParticleEmitter/Projector names, direct rename and current index relookup/name-exists values. Rust Vec borrowing/current-name search maps native fixed values; parsed Link/Visual/Collision/typed IMU Sensor are setup only and other owned identities are name-only. Native untested default family state, XML/configuration, Element, C++ pointer/method identity and general mutation policy unclaimed.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Pinned native original1/0 and private raw-parent Rust original1/0, exact native source/binary/GTest result report and three reviewed source hashes bound by freeze 55a602787c356e3cb483752e1f172b216fe50bf79615e7ba69dc5b882a8c0285; isolated full284 Rust/16 tools, production4336/4357 lines7386/7606 regions, changed22/22. Reviewer private selected replay overlapped Root network-bound V6 dependency build and Msgs ordinary hook; correctness only.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback source/API/assertion APPROVED receipt SHA256 b1eb36e5027cedfddeaed0b7827eb71a1b1c5d58329749277fbbd86cb5c9e4bb; private pinned native1/0 and raw-parent Rust original1/0 plus supplemental duplicate1/0. Final metadata binding, normal hook and hosted qualification pending."
+    },
+    {
+      "target": "UNIT_Link_TEST",
+      "case": "DOMLink.MutableByName",
+      "source": "src/Link_TEST.cc:1433-1509",
+      "rust_test": "tests/link_mutable_originals.rs::original_dom_link_mutable_by_name",
+      "assertions": "COMPLETE fixed observable six successful Add operations, mutable name lookup/non-null, initial exact Visual/Collision/Light/Sensor/ParticleEmitter/Projector names, direct rename and current name relookup/name-exists values. Rust Vec borrowing/current-name search maps native fixed values; parsed Link/Visual/Collision/typed IMU Sensor are setup only and other owned identities are name-only. Native untested default family state, XML/configuration, Element, C++ pointer/method identity and general mutation policy unclaimed.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Pinned native original1/0 and private raw-parent Rust original1/0, exact native source/binary/GTest result report and three reviewed source hashes bound by freeze 55a602787c356e3cb483752e1f172b216fe50bf79615e7ba69dc5b882a8c0285; isolated full284 Rust/16 tools, production4336/4357 lines7386/7606 regions, changed22/22. Reviewer private selected replay overlapped Root network-bound V6 dependency build and Msgs ordinary hook; correctness only.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback source/API/assertion APPROVED receipt SHA256 b1eb36e5027cedfddeaed0b7827eb71a1b1c5d58329749277fbbd86cb5c9e4bb; private pinned native1/0 and raw-parent Rust original1/0 plus supplemental duplicate1/0. Final metadata binding, normal hook and hosted qualification pending."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

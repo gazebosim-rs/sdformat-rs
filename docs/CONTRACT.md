@@ -722,3 +722,17 @@ and index-name results. Native uses a default Light with a set name; Rust
 initializes that name directly and parses only the enclosing Link as setup.
 Light configuration, pose, XML grammar, untested default fields, Element and
 C++ pointer or method identity remain separate acceptance work.
+
+## Link owned mutable name collections
+
+`ParticleEmitter` and `Projector` currently own only direct names. Their Link
+vectors start empty, and `add_particle_emitter_unique` and
+`add_projector_unique` reject duplicate direct names. The fixed native
+`DOMLink.MutableByIndex` and `DOMLink.MutableByName` originals observe Add
+success and mutable lookup, rename, and relookup across six owned families:
+Visual, Collision, Light, Sensor, ParticleEmitter and Projector. Rust uses
+vector borrowing and current-name search; parsed Visual, Collision, typed
+IMU Sensor and the Link are test setup, while the remaining names are built
+directly. Native default family configuration, XML grammar for Light,
+ParticleEmitter and Projector, Element, C++ pointer/method identity and
+general mutation policy remain separate acceptance work.

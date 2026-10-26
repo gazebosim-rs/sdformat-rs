@@ -111,6 +111,30 @@ pub(crate) fn load_sensor_element_into(
     Ok(())
 }
 
+pub(crate) fn load_light_element(xml: &str, uri: &str) -> Result<Light, Diagnostic> {
+    let resolver = NoResources;
+    let parser = Parser {
+        uri,
+        xml,
+        resolver: &resolver,
+        includes: vec![uri.into()],
+    };
+    let doc = Document::parse(xml).map_err(|e| Diagnostic {
+        code: e.code,
+        source: Source {
+            uri: uri.into(),
+            line: e.pos().row,
+            column: e.pos().col,
+        },
+        message: e.to_string(),
+    })?;
+    let root = doc.root_element();
+    if !root.has_tag_name("light") {
+        return Err(parser.err(root, ErrorCode::Xml, "root element must be light"));
+    }
+    parser.light(root)
+}
+
 struct Parser<'a> {
     uri: &'a str,
     xml: &'a str,
@@ -1051,6 +1075,72 @@ impl Parser<'_> {
             plugins: self.plugins(node)?,
             source: self.source(node),
         })
+    }
+    fn light(&self, node: Node<'_, '_>) -> Result<Light, Diagnostic> {
+        self.allowed(
+            node,
+            &[
+                "pose",
+                "light_on",
+                "visualize",
+                "cast_shadows",
+                "intensity",
+                "diffuse",
+                "specular",
+                "attenuation",
+                "direction",
+                "spot",
+            ],
+            &["name", "type"],
+        )?;
+        let light_type = match node.attribute("type").unwrap_or("point") {
+            "point" => LightType::Point,
+            "directional" => LightType::Directional,
+            "spot" => LightType::Spot,
+            _ => return Err(self.err(node, ErrorCode::InvalidValue, "invalid light type")),
+        };
+        let mut light = Light {
+            name: self.name(node)?,
+            light_type,
+            pose: self.pose(node)?,
+            light_on: self.boolean(node, "light_on", true)?,
+            visualize: self.boolean(node, "visualize", true)?,
+            cast_shadows: self.boolean(node, "cast_shadows", false)?,
+            diffuse: self.color(node, "diffuse")?,
+            specular: self.color(node, "specular")?,
+            intensity: self.scalar(node, "intensity", 1.)?,
+            ..Light::default()
+        };
+        if let Some(attenuation) = child(node, "attenuation") {
+            self.allowed(
+                attenuation,
+                &["range", "linear", "constant", "quadratic"],
+                &[],
+            )?;
+            let range = child(attenuation, "range").ok_or_else(|| {
+                self.err(
+                    attenuation,
+                    ErrorCode::Missing,
+                    "attenuation requires range",
+                )
+            })?;
+            light.attenuation_range = self.number(range, 10.)?.max(0.);
+            light.set_linear_attenuation_factor(self.scalar(attenuation, "linear", 1.)?);
+            light.set_constant_attenuation_factor(self.scalar(attenuation, "constant", 1.)?);
+            light.set_quadratic_attenuation_factor(self.scalar(attenuation, "quadratic", 0.)?);
+        }
+        if let Some(direction) = child(node, "direction") {
+            light.direction = self.values::<3>(direction)?;
+        } else if light_type != LightType::Point {
+            return Err(self.err(node, ErrorCode::Missing, "light direction is required"));
+        }
+        if let Some(spot) = child(node, "spot") {
+            self.allowed(spot, &["inner_angle", "outer_angle", "falloff"], &[])?;
+            light.set_spot_inner_angle(self.scalar(spot, "inner_angle", 0.)?);
+            light.set_spot_outer_angle(self.scalar(spot, "outer_angle", 0.)?);
+            light.set_spot_falloff(self.scalar(spot, "falloff", 0.)?);
+        }
+        Ok(light)
     }
     fn inertial(&self, link: Node<'_, '_>) -> Result<Inertial, Diagnostic> {
         let Some(node) = child(link, "inertial") else {

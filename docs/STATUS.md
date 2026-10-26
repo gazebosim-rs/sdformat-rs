@@ -2476,6 +2476,12 @@ and author full293 Rust/sixteen tools/fmt/Clippy/docs pass; production
 coverage remains 4375/4396 lines and 7411/7631 regions. No production lines
 changed. The first four preserve all fixed final destination values, and the
 fifth preserves both final names. Two-job correctness replays overlapped Root
-V6 SDK; no timing claim. Final metadata binding, normal protected hook and
-hosted qualification remain pending. C++ operator/pointer identity,
-moved-from state, Element, Light XML and rendering remain unported.
+V6 SDK; no timing claim. Final metadata binding receipt SHA256 `efca13a07d7add2307caf6e990934acc81976cf0d2fffe72e0cc611a29d62492`, normal protected hook and public `c70a086beda8a1dd6360ae07455659d871a20abd` passed exact hosted verify `40280010042` SUCCESS. C++ operator/pointer identity,
+moved-from state, Element, Light XML and rendering remain unported for these fixed copy/move originals.
+
+## Native DOMLight bounded XML roundtrip originals candidate
+
+Pinned `DOMLight.ToElement` and `ToElementErrorOutput` pass natively 2/0.
+Corrected four-file source freeze SHA256 `2a91e8e3fa1f1c4a2455626b207dda0bcdde3e1d36a848c4ca20d4bf1561b838` on hosted-green parent `c70a086beda8a1dd6360ae07455659d871a20abd` passed independent PARTIAL source/API/assertion review receipt SHA256 `1ca50fc1706ac1fe0674addf95493fcd526e03cb52cd7f2bca774e80864429b4`. The first freeze was unapproved after a public `to_xml` roundtrip consistency finding; V2 rejects bounded public values the owned loader would reject or clamp. Private raw-parent native2/0 and Rust4/0, and an emitted-Light XML native SDF1.12 world load against the byte-identical pinned library passed. A color-guard removal mutant fails the new invalid-value control. Isolated full V2 checks passed 297 Rust, sixteen tools, formatting, Clippy and docs; production coverage was 4569/4594 lines and 7689/7930 regions, with 188/192 changed executable lines covered. Two-job correctness checks overlapped Root V6 SDK and Msgs Pose ordinary gate; no timing claim.
+
+The public `Light::to_xml` and `load_light_str` support a bounded standalone Light value roundtrip. The fixed name, Spot type, pose, relative frame, shadows, colors, attenuation, direction, spot values and intensity survive emit/load; a later shadow change also survives. `Result::Ok` represents an empty owned diagnostic. Native Element null/non-null pointer observations and redirected console-buffer-empty observation remain UNPORTED, so both originals stay partial. Rust emits valid quaternion pose and explicit light-on/visualize fields; it does not claim native byte-identical XML, full Light grammar, Link/World loader integration, rendering, or native error-vector parity. Final metadata binding, normal protected hook and hosted qualification remain pending.

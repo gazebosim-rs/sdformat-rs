@@ -770,3 +770,18 @@ attenuation, direction, spot values and intensity. The swap-like final case
 observes both resulting names. C++ operator or pointer identity, moved-from
 state, Element, Light XML, rendering and general aliasing remain outside these
 fixed value tests. No production behavior changes in this packet.
+
+## Bounded standalone Light XML
+
+`Light::to_xml` emits one SDF 1.12 `<light>` element, and `load_light_str`
+reads that standalone element into an owned Light. Successful emission is
+validated against the owned reader's supported names, pose, finite colors,
+attenuation and spot ranges so accepted values do not get clamped or rejected
+on re-read. The fixed `DOMLight.ToElement` and `ToElementErrorOutput` value
+roundtrips map through this pair, including a shadow flag update. A generated
+element also loads in the pinned native SDF 1.12 world library. The Rust XML
+uses quaternion pose text and explicit light-on/visualize fields; its bytes and
+DOM Element identity differ from native `ToElement`. Native Element pointer
+observations and redirected console-buffer-empty behavior are pending. This
+API does not yet connect Light parsing to `Link` or `World` loading, and does
+not claim the full Light grammar, rendering, or native error-vector parity.

@@ -2,20 +2,23 @@
   "decision": "approved",
   "author": "/root/sdformat_owner_fallback",
   "reviewer": "/root/transport_fallback",
-  "final_freeze": "artifacts/light-ownership-integration/frozen-final.json",
-  "final_freeze_sha256": "978d6cba09a1621fa338302092a63436d3cdec67d567feee701fa926a69d0853",
-  "parent": "b47138eb10f59f3c1dda2804b0bc0d6a8b16eb61",
-  "pre_receipt_tree": "361f96561c78b74b64c253ddaa26e126389dccba",
-  "staged_diff_sha256": "bea2538094a9629df4728d8c612b521127bf2b000b4cca337e8542549aad7071",
-  "protected_digest": "9806ff4c306d7cb0adf3b50643b6f77c45666f5ed7c8d93bfe7581a02e7820d1",
+  "final_freeze": "artifacts/light-roundtrip-integration/frozen-final.json",
+  "final_freeze_sha256": "8fda9442456398779dbe98d93704742541b088f1e77149da0578f374aa11a826",
+  "parent": "c70a086beda8a1dd6360ae07455659d871a20abd",
+  "pre_receipt_tree": "6f0691dff8cd0fa33226dec81b19fb96ae044b6b",
+  "staged_diff_sha256": "e9949b09b5b086d6bc13de71fd6ed50290aa3961c570d84293a9b3fe9859fbcd",
+  "protected_digest": "97967b2afbf431956b11ede66abc53b0b5e2b80ca172afd00fc3c4dcef694f00",
   "candidate_paths": [
     "docs/CONTRACT.md",
     "docs/STATUS.md",
     "reference/results.json",
     "reference/traceability.json",
-    "tests/light_ownership_originals.rs"
+    "src/lib.rs",
+    "src/light_xml.rs",
+    "src/parse.rs",
+    "tests/light_roundtrip_originals.rs"
   ],
-  "source_review_sha256": "5766dfda7a933eefd1e57a0f80f52d3e8b5ac95be3ecf167a4314a4d826a0f6c",
-  "binding": "All five staged file hashes and 100644 modes match the final freeze; the source-reviewed test SHA3e0107d7 and copied source receipt are unchanged. The 297-file parent retains 293 other blobs, with no unstaged changes. Metadata adds five COMPLETE fixed observable DOMLight copy/move rows and credits prior hosted Light default success; that preceding original remains PARTIAL. C++ operator or pointer identity, moved-from internals, Element, XML, rendering and general aliasing remain outside this value mapping.",
-  "verification": "Staged diff hash, JSON and exact parent/tree checks pass. Author integrated gate passed 293 Rust, 16 tools, formatting, Clippy and docs, with unchanged production coverage 4375/4396 lines and 7411/7631 regions; no production source changed. Two-job correctness checks overlapped Root V6 SDK, without timing inference. Mandatory normal protected hook and hosted qualification remain separate."
+  "source_review_sha256": "1ca50fc1706ac1fe0674addf95493fcd526e03cb52cd7f2bca774e80864429b4",
+  "binding": "All eight staged file hashes and 100644 modes match the final freeze; four source-reviewed source/test bytes and the copied V2 source receipt are unchanged. The 298-file parent retains 292 other blobs with no unstaged difference. Metadata adds exactly two PARTIAL fixed-observable DOMLight ToElement rows and credits the prior five Light ownership originals' hosted success. Native Element pointer and redirected console-buffer-empty observations remain explicitly UNPORTED; native XML byte identity, full Light grammar, Link/World loader integration, rendering and general error-vector parity remain outside scope.",
+  "verification": "Exact parent/tree/diff hashes, JSON, staged diff check and source receipt bytes pass. The isolated author V2 gate passed 297 Rust, 16 tools, formatting, Clippy and docs, with 4569/4594 production lines, 7689/7930 regions and 188/192 changed executable lines; ordinary two-job overlap with Root SDK and Msgs Pose has no timing inference. Integrated author gate, mandatory normal protected hook and hosted qualification remain separate."
 }

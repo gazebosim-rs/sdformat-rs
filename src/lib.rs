@@ -10,6 +10,7 @@
 //! Unsupported schema features are errors.
 mod camera;
 mod graph;
+mod light_xml;
 pub use camera::*;
 mod model_config;
 pub use model_config::{
@@ -45,4 +46,10 @@ pub fn load_str(
     resolver: &dyn ResourceResolver,
 ) -> Result<Sdf, Diagnostic> {
     parse::load(xml, source, resolver)
+}
+
+/// Load one bounded standalone `<light>` element into owned DOM values.
+/// The full SDF document loader does not yet admit Light XML.
+pub fn load_light_str(xml: &str, source: &str) -> Result<Light, Diagnostic> {
+    parse::load_light_element(xml, source)
 }

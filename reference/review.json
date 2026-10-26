@@ -2,21 +2,21 @@
   "decision": "approved",
   "author": "/root/sdformat_owner_v3",
   "reviewer": "/root",
-  "protected_digest": "877231bc391fe18c3352c30c6f6e46111c8f1e3d49037ebf8bbdce8c1937be83",
-  "source_digest": "cf99d2737408f8b46a8e89efb8fce8cbd68bdd0f925cdced2a2d05fc9b3df450",
-  "pre_receipt_tree": "2468dc7720b948129f52105293024286b60eae01",
-  "parent": "bccc97287c2c2f3ce3ea405a0a0a27ed29dffdce",
-  "final_freeze_sha256": "bd26a298be7058c4b7a852cb5d90df9a48e908c1a894fbc7277c141fc3220e7f",
-  "source_review_sha256": "eb81a694a46ad3e8c05b5942111bb53c77fb4cc4205f0b1a1918895a19100468",
+  "protected_digest": "933096651ec2ea30c3facb88149646bbbab0273a35f7ed566db59a16e06aa9ae",
+  "source_digest": "c6ecc4d863161adbd15ae0d47338671bb58536b308edb801ad17eb2a09dc36f1",
+  "pre_receipt_tree": "199fa397c1669f4f4722a7c833ffe9877bd47c81",
+  "parent": "685ff8d9c6b264eb046fd2d0e8de1e84a3d088e8",
+  "final_freeze_sha256": "7c8cf30a31c562f5557dc2a659db7d8c7e0b841758742d4f2961a679c7e6a9e8",
+  "source_review_sha256": "32e8877aef4b19b584ec5b7d2447bbdf0011367975e55c552e3377f731624e1d",
   "files_sha256": {
-    "README.md": "9f4900d90486dd5d509c069a7d66274b7c4cc81a3cb281106b5b1592c05e3ca2",
-    "docs/CONTRACT.md": "8e4424e1f6d9592c839a66b8a568cf349d1d770820b12696e6d26905d328fb06",
-    "docs/STATUS.md": "b125fd3a9aee5b68122e4b2f2a8b1de81e6ade5a72729cc2de05fb881976ab99",
-    "reference/results.json": "e312d4ccc07da66a41d55fc88d2028423c18453fc7bef7cba9072bef9a06d050",
-    "reference/traceability.json": "a36d19280a1e4bb3a0777e9d71e08df41dc5cda5047ef3357312aae00f40b507",
-    "src/types.rs": "619bfeacbbc0b28b163d16642e3fd5a8299995a0d814b800e705d30ccd5a21ea",
-    "tests/collision_ownership_originals.rs": "625b911ad318183e425c9aa8c3cd2bcc992ffdcc195adb9ed33913add6ce4218"
+    "README.md": "020123928cb6bdc84cfba2eaead574fdf50e857cb92c83deba9d17c2d46418b9",
+    "docs/CONTRACT.md": "8619703794e228705ecffb15236fba5ec67d7649d44baa1fd3d16361c8a7e78f",
+    "docs/STATUS.md": "d51153f32d00f62c25b376e08b787b95eace90c98887d0b52bba9de5c774f451",
+    "reference/results.json": "bda048a6affc18b6d7cafdc502dae39268610869f7e2aedd3fb9dac984a640bd",
+    "reference/traceability.json": "be9e22847b4187643daf3fed870e74faa4649a4cb92a015518d95e1353a93ba7",
+    "src/types.rs": "78c77a6ca9e7040453fd6674513363c18eac8bdcc7bcb5092c5fdf095c192910",
+    "tests/link_ownership_originals.rs": "e2220ee2528f2d03799a417fc0cc87a7693c96fdb941c8e249a3ea7e0beadd4c"
   },
-  "evidence": "Exact staged/worktree seven paths and modes verified; source2 bytes unchanged, prior ports unchanged except Visual accepted publication chronology, exactlyfive reviewed originals appended. Author348Rust/16tools0failed/ignored; raw unfiltered production coverage recomputed4771/4795lines7915/8157regions strict>95,changed0. Sourcegate d874 source identity remains premetadata; final cf99 metadata identity separately bound. Existing pins/policy/fixtures and unrelated blobs unchanged.",
-  "limits": "Bounded final binding only; normal protected hook, publication and exact hosted qualification remain mandatory. No broad repository/P0/P2 or default EMPTY/Element/runtime acceptance."
+  "evidence": "Exact staged/worktree seven paths and modes verified; source2 bytes unchanged, prior ports unchanged except Collision accepted publication chronology, exactlyfive reviewed originals appended. Author354Rust/16tools0failed/ignored; raw unfiltered production coverage recomputed4771/4795lines7915/8157regions strict>95,changed0. Exact source-gate digest remains premetadata; final metadata digest separately recomputed and bound. Existing pins/policy/fixtures and unrelated blobs unchanged.",
+  "limits": "Bounded final binding only; normal protected hook, publication and exact hosted qualification remain mandatory. No broad repository/P0/P2 or default fields/Element/graph/runtime acceptance."
 }

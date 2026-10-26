@@ -543,7 +543,7 @@ pub struct ParticleEmitter {
 pub struct Projector {
     pub name: String,
 }
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Link {
     pub name: String,
     pub scoped_name: String,
@@ -674,7 +674,7 @@ impl Link {
         self.visuals.clear();
     }
 }
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Inertial {
     pub mass: f64,
     /// ixx, iyy, izz, ixy, ixz, iyz in the inertial frame.

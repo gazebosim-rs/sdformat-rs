@@ -113,3 +113,7 @@ rendering and mutable Element identity remain outside this value contract.
 Owned `Collision` metadata supports independent cloning of pose, geometry,
 surface and source provenance. Five fixed native pose ownership observations
 are retained; cloning performs no resource loading or physical execution.
+
+Owned `Link` and `Inertial` metadata support independent cloning, including nested
+geometry, visual, sensor and provenance data. Raw scoped references are retained;
+cloning does not rebuild frame graphs or perform resource or physics work.

@@ -876,3 +876,17 @@ Native signed quaternion and translation components use absolute <=1e-3 without
 quaternion sign relaxation; exact owned retention checks are supplemental. Native
 default EMPTY geometry, mutable Element, C++ constructor/operator/storage identity
 and moved-from APIs remain unqualified.
+
+## Owned Link and Inertial cloning
+
+`Link` and `Inertial` implement Clone for owned metadata. Nested strings, vectors,
+boxed fluid-added-mass values, collision/visual/sensor records and provenance
+remain independent after the source is dropped. Raw scoped names and pose-frame
+references retain their values; cloning does not rebuild or rebind a document's
+frame graphs, load resources or execute physics.
+
+Five fixed native Link originals observe only final names. The native case named
+MoveConstructor actually invokes a copy; its Rust test retains that operation.
+Default constructor values, mutable Element, C++ constructor/operator/storage
+identity and moved-from APIs remain unqualified. Inertial ownership checks are
+supplemental and do not claim an additional native original or inertia solver.

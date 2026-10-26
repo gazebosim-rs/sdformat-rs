@@ -2702,5 +2702,31 @@ Mesh/surface/contact/friction/source clone independence are supplemental. The
 2018 OSRF notice is preserved with rewrite attribution. Default EMPTY geometry,
 Element, general C++ constructor/operator/storage identity, moved-from APIs,
 parser/resource loading and physical runtime remain unqualified. The reviewed
-candidate ledger has 153 complete and 25 partial originals. Final metadata binding,
-mandatory normal hook, public push and exact hosted qualification remain pending.
+candidate ledger has 153 complete and 25 partial originals. Final metadata binding receipt SHA256 29c10ff04a920a726801eb011e588ec2893b0367f9412ce6db887cd68c95c78c, mandatory normal hook and public 685ff8d9c6b264eb046fd2d0e8de1e84a3d088e8 passed exact hosted verify 40358636368 SUCCESS.
+
+
+## Owned Link and Inertial cloning
+
+`Link` and `Inertial` now implement Clone for owned metadata. Five pinned native
+Link copy/move originals passed 5/0 before source edits and in independent replay.
+The frozen source SHA256 `eb8186d71d6aa02f081a3757215c56fb430eec60c277becd0082534220d6f617` on public
+parent `685ff8d9c6b264eb046fd2d0e8de1e84a3d088e8` passed independent source/protected
+review SHA256 `32e8877aef4b19b584ec5b7d2447bbdf0011367975e55c552e3377f731624e1d`.
+Fresh private raw source, exclusive reviewer target and native replay passed 6/0
+and 5/0. A production-only Link Clone empty-name control fails the four clone-route
+originals and supplemental name assertion, while actual move assignment passes;
+exact restored source passes 6/0. Full author verification passed 354 Rust tests,
+sixteen tooling tests, formatting, Clippy and docs. Strict coverage remains
+4771/4795 lines and 7915/8157 regions, with zero changed instrumented executable
+lines and no exclusions. No performance or timing claim is made.
+
+The fixed final-name observations preserve test_link and swapped link2/link1.
+The native MoveConstructor case actually copies through link2(link); its Rust
+test preserves that source operation. Nested inertial pose/fluid matrix, mesh,
+surface, visual, sensor, plugin, scoped-name and source independence and lifetime
+checks are supplemental. Original 2018 OSRF notices remain with rewrite attribution.
+Default constructor fields, mutable Element, C++ constructor/operator/storage
+identity, moved-from APIs, frame-graph rebuilding and resource/physics execution
+remain unqualified. The reviewed candidate ledger has 158 complete and 25 partial
+originals; final metadata binding, mandatory normal hook, public push and exact
+hosted qualification remain pending.

@@ -694,7 +694,7 @@ impl Default for Inertial {
         }
     }
 }
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Collision {
     pub name: String,
     pub pose: Pose,

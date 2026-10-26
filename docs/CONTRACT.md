@@ -864,3 +864,15 @@ Native positive f32 four-ULP transparency, component-wise pose <=1e-3 without
 quaternion sign relaxation, and ambient RGBA <=1e-6 bounds are retained; exact
 retention checks are supplemental. C++ constructor/operator/storage identity,
 moved-from state, Element and geometry-pointer APIs remain unqualified.
+
+## Owned Collision cloning
+
+`Collision` implements Clone for its owned pose, geometry, surface and source
+provenance. Nested strings, Mesh metadata and optional surface group provenance
+remain independent after the source is dropped. Cloning performs no resource IO
+or physical execution. Five fixed native copy/move originals observe only final
+pose values, including two final translations after swapping through a move.
+Native signed quaternion and translation components use absolute <=1e-3 without
+quaternion sign relaxation; exact owned retention checks are supplemental. Native
+default EMPTY geometry, mutable Element, C++ constructor/operator/storage identity
+and moved-from APIs remain unqualified.

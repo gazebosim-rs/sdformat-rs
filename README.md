@@ -109,3 +109,7 @@ for the fixed Box observations and remaining native Shape/runtime limits.
 Owned `Visual` metadata supports independent cloning of its pose, geometry, material,
 plugins and provenance. Five fixed native copy/move observations are retained;
 rendering and mutable Element identity remain outside this value contract.
+
+Owned `Collision` metadata supports independent cloning of pose, geometry,
+surface and source provenance. Five fixed native pose ownership observations
+are retained; cloning performs no resource loading or physical execution.

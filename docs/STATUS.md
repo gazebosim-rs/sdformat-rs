@@ -2676,5 +2676,31 @@ script/plugin/source/laser metadata independence are supplemental. The original
 2018 OSRF notice is preserved with rewrite attribution. General C++ constructor/
 operator/storage identity, moved-from state, Element, geometry pointer, parser, graph
 and rendering remain unqualified. The reviewed candidate ledger has 148 complete
-and 25 partial originals. Final metadata binding, mandatory normal hook, public
-push and exact hosted qualification remain pending for this candidate.
+and 25 partial originals. Final metadata binding receipt SHA256 81307a38297b18cd07dd050aa95f171013a8c6c2be536c9afbcfee260a1bc538, mandatory normal hook and public bccc97287c2c2f3ce3ea405a0a0a27ed29dffdce passed exact hosted verify 40348739829 SUCCESS.
+
+
+## Owned Collision cloning and fixed pose observations
+
+`Collision` now implements Clone for owned pose, geometry, surface and provenance.
+Five pinned native Collision copy/move originals passed 5/0 before source edits
+and in independent replay. Source freeze SHA256 `382d22a0dbee96bbb48037a1f9ce6b96ffc5c4a6273d1caa8515f0a87fbd51a3`
+on hosted-green parent `bccc97287c2c2f3ce3ea405a0a0a27ed29dffdce` passed independent source
+semantics review `eb81a694a46ad3e8c05b5942111bb53c77fb4cc4205f0b1a1918895a19100468` and protected
+supplement `786a9f956bd3119b1af4c7db30e8410f06595810b838c3ca0d575448ad95e9f4`. Fresh private
+reviewer source and exclusive target passed Rust 6/0 and native 5/0. Private
+zero-translation and negative-quaternion countercontrols fail all five original
+pose predicates; exact restored source passes 6/0. An earlier shared-target run
+remains uncredited. Full author verification passed 348 Rust tests, sixteen tooling
+tests, formatting, Clippy and docs. Strict coverage remains 4771/4795 lines and
+7915/8157 regions; the derive adds no changed instrumented executable lines or
+exclusions. Ordinary correctness checks make no performance or timing claim.
+
+The originals retain translation [-10,-20,-30] and swapped [-20,-30,-40] values
+with RPY [pi,pi,pi]. Signed quaternion and translation component bounds remain
+absolute <=1e-3 with no quaternion sign relaxation. Exact retention and nested
+Mesh/surface/contact/friction/source clone independence are supplemental. The
+2018 OSRF notice is preserved with rewrite attribution. Default EMPTY geometry,
+Element, general C++ constructor/operator/storage identity, moved-from APIs,
+parser/resource loading and physical runtime remain unqualified. The reviewed
+candidate ledger has 153 complete and 25 partial originals. Final metadata binding,
+mandatory normal hook, public push and exact hosted qualification remain pending.

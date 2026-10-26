@@ -2064,7 +2064,7 @@ normal protected hook and exact hosted verify `40246388649` succeeded at public
 identity, Element contents, serialization, moved-from state and general
 Plugin grammar remain separate work.
 
-## Five native DOMJointAxis copy and move XYZ originals candidate
+## Five native DOMJointAxis copy and move XYZ originals
 
 Pinned `DOMJointAxis.CopyConstructor`, `AssignmentOperator`,
 `MoveConstructor`, `MoveAssignmentOperator` and `CopyAssignmentAfterMove`
@@ -2080,6 +2080,27 @@ source freeze SHA256
 Private pinned native and raw-parent Rust selected runs passed 5/0. Isolated
 author checks passed 251 Rust, sixteen tools, formatting, Clippy and docs;
 production coverage is 4068/4088 lines and 7042/7251 regions with no
-production edit. Final metadata binding, normal hook and hosted qualification
-are pending. Native mutable `SetXyz`, Element/default/`ToElement`, frame graph
-and moved-from state remain separate work.
+production edit. Final binding receipt SHA256
+`c4c5190f7ac78c4b61d02e110471e992c224304053dcaf93eca63f390b57c565`,
+normal protected hook and exact hosted verify `40247801561` succeeded at public
+`9fbe47446bc396c868336b4f6eb3a516a7e5a8c7`. Native mutable `SetXyz`, Element/default/`ToElement`, frame graph
+and moved-from state remained separate for that slice.
+
+
+## Native DOMJointAxis zero-norm direction original candidate
+
+Pinned `DOMJointAxis.ZeroNormVectorReturnsError` passes natively 1/0. The
+reviewed owned `Axis::try_set_xyz` normalizes a valid direction, rejects zero
+with the exact first native message, and leaves the old direction intact on
+error. Native `sdf::equal` uses its default float epsilon; nonfinite rejection
+is an explicit stronger Rust guard. The existing XML axis parser and fixtures
+are unchanged in this bounded setter slice.
+
+Independent /root/transport_fallback approved complete observable original
+values on source freeze SHA256 `0038eaff7aac5f32d020ab1322bff236ffc7adfa65c4ed525146111c58118c7e` (receipt SHA256
+`d6ba792fc12e41b6e2d5c26d7ce259de905531f4a566819720f9942480388e15`). Private pinned native1/0 and raw-parent Rust2/0 passed.
+Isolated author checks passed 248 Rust, sixteen tools, formatting, Clippy and
+docs; production coverage is 4085/4105 lines and 7067/7276 regions with all
+17 changed executable lines covered. Final metadata binding, normal hook and
+hosted qualification are pending. Native error code/full vector/method identity,
+Element/default/`ToElement`, graph and broader numeric behavior remain open.

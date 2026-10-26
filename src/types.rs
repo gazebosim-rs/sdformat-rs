@@ -668,6 +668,39 @@ pub struct Axis {
     pub stiffness: f64,
     pub dissipation: f64,
 }
+impl Axis {
+    /// Normalize a finite direction, preserving the prior value on failure.
+    pub fn try_set_xyz(&mut self, xyz: [f64; 3]) -> Result<(), AxisDirectionError> {
+        let vector = DVec3::from_array(xyz);
+        let length = vector.length();
+        if !length.is_finite() {
+            return Err(AxisDirectionError::NonFinite);
+        }
+        // The native SetXyz zero check uses sdf::equal's default float epsilon.
+        if length <= f64::from(1e-6_f32) {
+            return Err(AxisDirectionError::ZeroLength);
+        }
+        self.xyz = (vector / length).to_array();
+        Ok(())
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum AxisDirectionError {
+    ZeroLength,
+    NonFinite,
+}
+
+impl std::fmt::Display for AxisDirectionError {
+    fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            Self::ZeroLength => formatter.write_str("The norm of the xyz vector cannot be zero"),
+            Self::NonFinite => formatter.write_str("The xyz vector must be finite"),
+        }
+    }
+}
+
+impl std::error::Error for AxisDirectionError {}
 /// Native axis dynamics metadata; no damping, friction or spring is simulated here.
 #[derive(Debug, Default, Clone, PartialEq)]
 pub struct AxisDynamics {

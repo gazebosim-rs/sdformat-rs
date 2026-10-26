@@ -597,3 +597,14 @@ Existing XML axis validation plus ordinary Rust `Clone`, `clone_from`, owned
 move and swap retain the original source/destination X/Y/Z values. Native
 mutable `SetXyz`, default/Element/`ToElement`, frame graph and moved-from
 state require separate evidence.
+
+
+## Joint axis direction mutation
+
+`Axis::try_set_xyz` accepts a finite direction, normalizes it, and preserves
+the previous XYZ when validation fails. A zero-length vector within native
+`SetXyz`'s default float epsilon returns `AxisDirectionError::ZeroLength`, whose
+message matches the pinned original first error. Nonfinite vectors return
+`NonFinite`. This owned value operation does not imply complete native
+`SetXyz` error-vector parity, XML parser threshold parity, Element identity,
+`ToElement` or frame-graph behavior.

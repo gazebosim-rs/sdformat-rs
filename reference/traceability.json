@@ -1191,7 +1191,7 @@
       "upstream_fixtures": {},
       "baseline": "Fresh pinned UNIT_JointAxis_TEST five filters native5/0; imported 2018 OSRF Apache notice and exact Rust test SHA8335ec4103ebb87c2f4c3b83ad36dc77867e792a5ad634af1149e5e6391df5bd. Isolated full251 Rust/16 tools/fmt/Clippy/docs, production4068/4088 lines7042/7251 regions, no production edit.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_fallback APPROVED exact source receipt SHA256 912ad51ecf261639e889d7f6b7ff548a3c00cced2a927a08a958e8e210c0f232, freeze SHA256 dfbb7e95e019e116b7a8debd0fc7e3f435840d6fd1938ec146eb77875ba285c8, private native5/0 and raw-parent Rust5/0. Final metadata binding, protected hook and hosted qualification pending."
+      "review": "Independent /root/transport_fallback APPROVED exact source receipt SHA256 912ad51ecf261639e889d7f6b7ff548a3c00cced2a927a08a958e8e210c0f232, freeze SHA256 dfbb7e95e019e116b7a8debd0fc7e3f435840d6fd1938ec146eb77875ba285c8, private native5/0 and raw-parent Rust5/0. Final binding SHA256 c4c5190f7ac78c4b61d02e110471e992c224304053dcaf93eca63f390b57c565; normal protected hook and hosted verify 40247801561 SUCCESS at public 9fbe47446bc396c868336b4f6eb3a516a7e5a8c7."
     },
     {
       "target": "UNIT_JointAxis_TEST",
@@ -1203,7 +1203,7 @@
       "upstream_fixtures": {},
       "baseline": "Fresh pinned UNIT_JointAxis_TEST five filters native5/0; imported 2018 OSRF Apache notice and exact Rust test SHA8335ec4103ebb87c2f4c3b83ad36dc77867e792a5ad634af1149e5e6391df5bd. Isolated full251 Rust/16 tools/fmt/Clippy/docs, production4068/4088 lines7042/7251 regions, no production edit.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_fallback APPROVED exact source receipt SHA256 912ad51ecf261639e889d7f6b7ff548a3c00cced2a927a08a958e8e210c0f232, freeze SHA256 dfbb7e95e019e116b7a8debd0fc7e3f435840d6fd1938ec146eb77875ba285c8, private native5/0 and raw-parent Rust5/0. Final metadata binding, protected hook and hosted qualification pending."
+      "review": "Independent /root/transport_fallback APPROVED exact source receipt SHA256 912ad51ecf261639e889d7f6b7ff548a3c00cced2a927a08a958e8e210c0f232, freeze SHA256 dfbb7e95e019e116b7a8debd0fc7e3f435840d6fd1938ec146eb77875ba285c8, private native5/0 and raw-parent Rust5/0. Final binding SHA256 c4c5190f7ac78c4b61d02e110471e992c224304053dcaf93eca63f390b57c565; normal protected hook and hosted verify 40247801561 SUCCESS at public 9fbe47446bc396c868336b4f6eb3a516a7e5a8c7."
     },
     {
       "target": "UNIT_JointAxis_TEST",
@@ -1215,7 +1215,7 @@
       "upstream_fixtures": {},
       "baseline": "Fresh pinned UNIT_JointAxis_TEST five filters native5/0; imported 2018 OSRF Apache notice and exact Rust test SHA8335ec4103ebb87c2f4c3b83ad36dc77867e792a5ad634af1149e5e6391df5bd. Isolated full251 Rust/16 tools/fmt/Clippy/docs, production4068/4088 lines7042/7251 regions, no production edit.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_fallback APPROVED exact source receipt SHA256 912ad51ecf261639e889d7f6b7ff548a3c00cced2a927a08a958e8e210c0f232, freeze SHA256 dfbb7e95e019e116b7a8debd0fc7e3f435840d6fd1938ec146eb77875ba285c8, private native5/0 and raw-parent Rust5/0. Final metadata binding, protected hook and hosted qualification pending."
+      "review": "Independent /root/transport_fallback APPROVED exact source receipt SHA256 912ad51ecf261639e889d7f6b7ff548a3c00cced2a927a08a958e8e210c0f232, freeze SHA256 dfbb7e95e019e116b7a8debd0fc7e3f435840d6fd1938ec146eb77875ba285c8, private native5/0 and raw-parent Rust5/0. Final binding SHA256 c4c5190f7ac78c4b61d02e110471e992c224304053dcaf93eca63f390b57c565; normal protected hook and hosted verify 40247801561 SUCCESS at public 9fbe47446bc396c868336b4f6eb3a516a7e5a8c7."
     },
     {
       "target": "UNIT_JointAxis_TEST",
@@ -1227,7 +1227,7 @@
       "upstream_fixtures": {},
       "baseline": "Fresh pinned UNIT_JointAxis_TEST five filters native5/0; imported 2018 OSRF Apache notice and exact Rust test SHA8335ec4103ebb87c2f4c3b83ad36dc77867e792a5ad634af1149e5e6391df5bd. Isolated full251 Rust/16 tools/fmt/Clippy/docs, production4068/4088 lines7042/7251 regions, no production edit.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_fallback APPROVED exact source receipt SHA256 912ad51ecf261639e889d7f6b7ff548a3c00cced2a927a08a958e8e210c0f232, freeze SHA256 dfbb7e95e019e116b7a8debd0fc7e3f435840d6fd1938ec146eb77875ba285c8, private native5/0 and raw-parent Rust5/0. Final metadata binding, protected hook and hosted qualification pending."
+      "review": "Independent /root/transport_fallback APPROVED exact source receipt SHA256 912ad51ecf261639e889d7f6b7ff548a3c00cced2a927a08a958e8e210c0f232, freeze SHA256 dfbb7e95e019e116b7a8debd0fc7e3f435840d6fd1938ec146eb77875ba285c8, private native5/0 and raw-parent Rust5/0. Final binding SHA256 c4c5190f7ac78c4b61d02e110471e992c224304053dcaf93eca63f390b57c565; normal protected hook and hosted verify 40247801561 SUCCESS at public 9fbe47446bc396c868336b4f6eb3a516a7e5a8c7."
     },
     {
       "target": "UNIT_JointAxis_TEST",
@@ -1239,7 +1239,19 @@
       "upstream_fixtures": {},
       "baseline": "Fresh pinned UNIT_JointAxis_TEST five filters native5/0; imported 2018 OSRF Apache notice and exact Rust test SHA8335ec4103ebb87c2f4c3b83ad36dc77867e792a5ad634af1149e5e6391df5bd. Isolated full251 Rust/16 tools/fmt/Clippy/docs, production4068/4088 lines7042/7251 regions, no production edit.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_fallback APPROVED exact source receipt SHA256 912ad51ecf261639e889d7f6b7ff548a3c00cced2a927a08a958e8e210c0f232, freeze SHA256 dfbb7e95e019e116b7a8debd0fc7e3f435840d6fd1938ec146eb77875ba285c8, private native5/0 and raw-parent Rust5/0. Final metadata binding, protected hook and hosted qualification pending."
+      "review": "Independent /root/transport_fallback APPROVED exact source receipt SHA256 912ad51ecf261639e889d7f6b7ff548a3c00cced2a927a08a958e8e210c0f232, freeze SHA256 dfbb7e95e019e116b7a8debd0fc7e3f435840d6fd1938ec146eb77875ba285c8, private native5/0 and raw-parent Rust5/0. Final binding SHA256 c4c5190f7ac78c4b61d02e110471e992c224304053dcaf93eca63f390b57c565; normal protected hook and hosted verify 40247801561 SUCCESS at public 9fbe47446bc396c868336b4f6eb3a516a7e5a8c7."
+    },
+    {
+      "target": "UNIT_JointAxis_TEST",
+      "case": "DOMJointAxis.ZeroNormVectorReturnsError",
+      "source": "src/JointAxis_TEST.cc:162-170",
+      "rust_test": "tests/joint_axis_direction_original.rs::original_dom_joint_axis_zero_norm_vector_returns_error",
+      "assertions": "Complete observable pinned original: valid UnitX setter returns success; zero direction returns error with exact first message The norm of the xyz vector cannot be zero. Owned Axis::try_set_xyz returns typed ZeroLength and Display message, retaining prior value. Native float-epsilon threshold and finite guard are supplemental; native full error vector/code, method identity, Element/default/ToElement/graph and broader numeric behavior remain outside this original.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Fresh pinned UNIT_JointAxis_TEST exact original native1/0, source/binary hashes and Rust production/test SHA in source freeze 0038eaff7aac5f32d020ab1322bff236ffc7adfa65c4ed525146111c58118c7e. Independent raw-parent Rust original+supplement2/0; isolated full248 Rust/16 tools, 4085/4105 lines7067/7276 regions and changed17/17.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback source/API/assertion APPROVED receipt SHA256 d6ba792fc12e41b6e2d5c26d7ce259de905531f4a566819720f9942480388e15, freeze SHA256 0038eaff7aac5f32d020ab1322bff236ffc7adfa65c4ed525146111c58118c7e; native1/0 and private Rust2/0. Final metadata binding, protected hook and hosted qualification pending."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

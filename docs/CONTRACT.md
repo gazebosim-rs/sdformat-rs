@@ -714,14 +714,16 @@ serialization and broader geometry grammar remain separate acceptance work.
 
 ## Link owned light collection
 
-`Light` currently owns only its direct name; `Link.lights` starts empty.
+`Light` owns its direct name and six spot/attenuation scalars; `Link.lights` starts empty.
 `Link::add_light_unique` admits a light only when no direct light has its
 name, and `clear_lights` removes the collection. The fixed `DOMLink.AddLight`
 original observes count, insertion, duplicate rejection, clear, reinsert
 and index-name results. Native uses a default Light with a set name; Rust
 initializes that name directly and parses only the enclosing Link as setup.
-Light configuration, pose, XML grammar, untested default fields, Element and
-C++ pointer or method identity remain separate acceptance work.
+Light XML, pose, configuration beyond the six scalars, nonfinite scalar parity,
+Element, rendering and C++ pointer or method identity remain separate work.
+Public `Light` gained scalar fields and no longer implements `Eq`; consumers
+using exhaustive struct literals or `Eq` bounds must adapt.
 
 ## Link owned mutable name collections
 
@@ -736,3 +738,13 @@ IMU Sensor and the Link are test setup, while the remaining names are built
 directly. Native default family configuration, XML grammar for Light,
 ParticleEmitter and Projector, Element, C++ pointer/method identity and
 general mutation policy remain separate acceptance work.
+
+## Light scalar setter bounds
+
+The fixed `DOMLight.SpotLightNegativeValues` and `DOMLight.AttenuationClamp`
+originals observe negative spot falloff and angles clamp to zero, negative
+linear and constant attenuation clamp to zero, values 20 clamp to one, and
+negative quadratic attenuation clamps to zero. Owned setters preserve those
+values in order. Native originals use direct setters and no XML input. Light
+XML, pose, nonfinite scalar parity, Element, rendering and other configuration
+remain separate acceptance work.

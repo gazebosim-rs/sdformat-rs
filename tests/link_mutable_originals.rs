@@ -39,6 +39,7 @@ fn populated_link() -> Link {
     assert!(link.add_collision_unique(collision));
     assert!(link.add_light_unique(Light {
         name: "light1".into(),
+        ..Light::default()
     }));
     assert!(link.add_sensor_unique(sensor));
     assert!(link.add_particle_emitter_unique(ParticleEmitter { name: "pe1".into() }));

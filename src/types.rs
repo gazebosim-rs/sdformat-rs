@@ -397,10 +397,56 @@ pub struct Frame {
     pub pose: Pose,
     pub source: Source,
 }
-/// Owned light identity; light configuration and XML parsing remain pending.
-#[derive(Debug, Clone, Default, PartialEq, Eq)]
+/// Owned light values; XML parsing and rendering remain pending.
+#[derive(Debug, Clone, PartialEq)]
 pub struct Light {
     pub name: String,
+    pub spot_falloff: f64,
+    /// Radians.
+    pub spot_inner_angle: f64,
+    /// Radians.
+    pub spot_outer_angle: f64,
+    pub linear_attenuation_factor: f64,
+    pub constant_attenuation_factor: f64,
+    pub quadratic_attenuation_factor: f64,
+}
+impl Default for Light {
+    fn default() -> Self {
+        Self {
+            name: String::new(),
+            spot_falloff: 0.,
+            spot_inner_angle: 0.,
+            spot_outer_angle: 0.,
+            linear_attenuation_factor: 1.,
+            constant_attenuation_factor: 1.,
+            quadratic_attenuation_factor: 0.,
+        }
+    }
+}
+impl Light {
+    pub fn set_spot_falloff(&mut self, value: f64) {
+        self.spot_falloff = value.max(0.);
+    }
+
+    pub fn set_spot_inner_angle(&mut self, radians: f64) {
+        self.spot_inner_angle = radians.max(0.);
+    }
+
+    pub fn set_spot_outer_angle(&mut self, radians: f64) {
+        self.spot_outer_angle = radians.max(0.);
+    }
+
+    pub fn set_linear_attenuation_factor(&mut self, value: f64) {
+        self.linear_attenuation_factor = value.clamp(0., 1.);
+    }
+
+    pub fn set_constant_attenuation_factor(&mut self, value: f64) {
+        self.constant_attenuation_factor = value.clamp(0., 1.);
+    }
+
+    pub fn set_quadratic_attenuation_factor(&mut self, value: f64) {
+        self.quadratic_attenuation_factor = value.max(0.);
+    }
 }
 /// Owned particle emitter identity; configuration and XML parsing remain pending.
 #[derive(Debug, Clone, Default, PartialEq, Eq)]

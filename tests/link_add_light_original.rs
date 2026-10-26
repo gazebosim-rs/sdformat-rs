@@ -36,6 +36,7 @@ fn original_dom_link_add_light() {
 
     let light = Light {
         name: "light1".into(),
+        ..Light::default()
     };
     assert!(link.add_light_unique(light.clone()));
     assert_eq!(link.lights.len(), 1);

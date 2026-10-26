@@ -2422,8 +2422,27 @@ duplicate-name control passed. The Rust replay overlapped Root's network-bound
 V6 dependency build and Msgs' ordinary protected hook at two jobs; it is
 correctness-only evidence. Isolated author checks passed 284 Rust, sixteen
 tools, formatting, Clippy and docs; production coverage is 4336/4357 lines
-and 7386/7606 regions with all 22 changed executable lines covered. Final
-metadata binding, normal hook and hosted qualification remain pending.
+and 7386/7606 regions with all 22 changed executable lines covered. Final metadata binding receipt SHA256
+`01a85e4dcedf02268aa8b16b4ee9c1f3a1af917794d5ebb84c59931565601d63`,
+normal protected hook and public `4c39d4b79aa67df83605535d4492c80be666ba62`
+passed exact hosted verify `40276339156` SUCCESS.
 ParticleEmitter and Projector own only direct names; their XML/configuration,
 other untested native default fields, Element, C++ pointer/method identity
 and general mutation policy remain unported.
+
+## Native DOMLight scalar clamp originals candidate
+
+Pinned `DOMLight.SpotLightNegativeValues` and `DOMLight.AttenuationClamp`
+pass natively 2/0 with source/binary hashes and a fresh GTest result. The
+four-file source freeze SHA256 `6b6eb2e287126e414e4c1e42a0b49153406ba123137f397f2df5608be5b14204` on hosted-green parent `4c39d4b79aa67df83605535d4492c80be666ba62`
+passed independent source/API/assertion review receipt SHA256 `540cbe4ec419aa95f0b0a7040c095ca3a266e90dcff355faedcaebb19e19a7c9`.
+Private raw-parent Rust originals2/0 and supplemental1/0 passed; author full
+checks passed 287 Rust, sixteen tools, formatting, Clippy and docs. Production
+coverage is 4365/4386 lines and 7407/7627 regions with all 29 changed
+executable lines covered. Two-job correctness checks overlapped Root V6
+dependency download; no timing claim. Final metadata binding, normal protected
+hook and hosted qualification remain pending. Scope is the exact fixed scalar
+observations only. Light XML, pose, nonfinite scalar parity, Element, rendering,
+other configuration and C++ method identity remain unported. The public Light
+struct gains six scalar fields and drops `Eq`; exhaustive literal and `Eq`
+consumers may need adaptation.

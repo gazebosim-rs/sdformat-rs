@@ -1517,7 +1517,7 @@
       "upstream_fixtures": {},
       "baseline": "Pinned native original1/0 and private raw-parent Rust original1/0, exact native source/binary/GTest result report and three reviewed source hashes bound by freeze 55a602787c356e3cb483752e1f172b216fe50bf79615e7ba69dc5b882a8c0285; isolated full284 Rust/16 tools, production4336/4357 lines7386/7606 regions, changed22/22. Reviewer private selected replay overlapped Root network-bound V6 dependency build and Msgs ordinary hook; correctness only.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_fallback source/API/assertion APPROVED receipt SHA256 b1eb36e5027cedfddeaed0b7827eb71a1b1c5d58329749277fbbd86cb5c9e4bb; private pinned native1/0 and raw-parent Rust original1/0 plus supplemental duplicate1/0. Final metadata binding, normal hook and hosted qualification pending."
+      "review": "Independent /root/transport_fallback source/API/assertion APPROVED receipt SHA256 b1eb36e5027cedfddeaed0b7827eb71a1b1c5d58329749277fbbd86cb5c9e4bb; private pinned native1/0 and raw-parent Rust original1/0 plus supplemental duplicate1/0. Final metadata binding receipt SHA256 01a85e4dcedf02268aa8b16b4ee9c1f3a1af917794d5ebb84c59931565601d63, normal protected hook and public 4c39d4b79aa67df83605535d4492c80be666ba62 passed exact hosted verify 40276339156 SUCCESS."
     },
     {
       "target": "UNIT_Link_TEST",
@@ -1529,7 +1529,31 @@
       "upstream_fixtures": {},
       "baseline": "Pinned native original1/0 and private raw-parent Rust original1/0, exact native source/binary/GTest result report and three reviewed source hashes bound by freeze 55a602787c356e3cb483752e1f172b216fe50bf79615e7ba69dc5b882a8c0285; isolated full284 Rust/16 tools, production4336/4357 lines7386/7606 regions, changed22/22. Reviewer private selected replay overlapped Root network-bound V6 dependency build and Msgs ordinary hook; correctness only.",
       "status": "ported_reviewed",
-      "review": "Independent /root/transport_fallback source/API/assertion APPROVED receipt SHA256 b1eb36e5027cedfddeaed0b7827eb71a1b1c5d58329749277fbbd86cb5c9e4bb; private pinned native1/0 and raw-parent Rust original1/0 plus supplemental duplicate1/0. Final metadata binding, normal hook and hosted qualification pending."
+      "review": "Independent /root/transport_fallback source/API/assertion APPROVED receipt SHA256 b1eb36e5027cedfddeaed0b7827eb71a1b1c5d58329749277fbbd86cb5c9e4bb; private pinned native1/0 and raw-parent Rust original1/0 plus supplemental duplicate1/0. Final metadata binding receipt SHA256 01a85e4dcedf02268aa8b16b4ee9c1f3a1af917794d5ebb84c59931565601d63, normal protected hook and public 4c39d4b79aa67df83605535d4492c80be666ba62 passed exact hosted verify 40276339156 SUCCESS."
+    },
+    {
+      "target": "UNIT_Light_TEST",
+      "case": "DOMLight.SpotLightNegativeValues",
+      "source": "src/Light_TEST.cc:314-327",
+      "rust_test": "tests/light_clamp_originals.rs::original_dom_light_spot_light_negative_values",
+      "assertions": "COMPLETE fixed observable scalar setter/read sequence: spot falloff -1, inner angle -1 radian, outer angle -2 radian each clamp to zero. Native direct setter values map owned Rust setters; no native XML input. XML, pose, other Light configuration, nonfinite scalar parity, Element, rendering and C++ method identity unclaimed.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Pinned native original1/0 and private raw-parent Rust original1/0, exact native source/binary/GTest result report and four reviewed source hashes bound by freeze 6b6eb2e287126e414e4c1e42a0b49153406ba123137f397f2df5608be5b14204; isolated full287 Rust/16 tools, production4365/4386 lines7407/7627 regions, changed29/29. Two-job correctness overlap with Root V6 dependency download; no timing claim.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback source/API/assertion APPROVED receipt SHA256 540cbe4ec419aa95f0b0a7040c095ca3a266e90dcff355faedcaebb19e19a7c9; private pinned native1/0 and raw-parent Rust original1/0. Final metadata binding, normal hook and hosted qualification pending."
+    },
+    {
+      "target": "UNIT_Light_TEST",
+      "case": "DOMLight.AttenuationClamp",
+      "source": "src/Light_TEST.cc:328-348",
+      "rust_test": "tests/light_clamp_originals.rs::original_dom_light_attenuation_clamp",
+      "assertions": "COMPLETE fixed observable scalar setter/read sequence: linear/constant -1 clamp to zero and 20 clamp to one, quadratic -1 clamps to zero. Native direct setter values map owned Rust setters; no native XML input. XML, pose, other Light configuration, nonfinite scalar parity, Element, rendering and C++ method identity unclaimed.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Pinned native original1/0 and private raw-parent Rust original1/0, exact native source/binary/GTest result report and four reviewed source hashes bound by freeze 6b6eb2e287126e414e4c1e42a0b49153406ba123137f397f2df5608be5b14204; isolated full287 Rust/16 tools, production4365/4386 lines7407/7627 regions, changed29/29. Two-job correctness overlap with Root V6 dependency download; no timing claim.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/transport_fallback source/API/assertion APPROVED receipt SHA256 540cbe4ec419aa95f0b0a7040c095ca3a266e90dcff355faedcaebb19e19a7c9; private pinned native1/0 and raw-parent Rust original1/0. Final metadata binding, normal hook and hosted qualification pending."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

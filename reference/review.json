@@ -1,165 +1,56 @@
 {
   "decision": "approved",
-  "author": "/root/sdformat_owner_v3",
-  "reviewer": "/root/msgs_owner_astra",
-  "reviewed_at": "2026-10-27T03:29:31.849802+00:00",
-  "source_digest": "54ebde9d2424bdca5f4f8096b457ba5329006a2fbab1f3cef02997cb34499f5c",
-  "protected_digest": "1a211bd1894fda34a2e3397e7458d4fc31793c7ba10baf046a4897750b71312d",
-  "final_tree_before_receipt_installation": "43c8ce95653beb08f17620e3008f7eb5c43947fb",
-  "parent": "b94017ec5c87ee321ab2519f16bf3047f39914c5",
-  "final_freeze_sha256": "792e2b26d84daa5cc6160ac7a42e275c7c21741589abc077132588465eccdd9f",
-  "source_tree": "6c74c3ee5889a8ab9e59b9a95d7bcf69ae4b364c",
-  "source_gate_tree": "5308c6dafcd10b63cafb1be0246d9a1f43d42c76",
-  "source_freeze_sha256": "5f0fa53ea472701b1421d117e51a94a71007f77bef874adea80be62877545d34",
-  "prior_source_review_sha256": "20727a55578e8304a1f48f484ac8a1089c831a6b2556ea7738d426432e22065b",
-  "full_evidence_proof_sha256": "33f72c67b18546012f1ecf4c3855ec138f6a666409866396cf9266fba32abb60",
-  "binding_driver_sha256": "21ce83572c5d9159de152262309a751bb3f826fc7a963e703e7995f381b4964c",
-  "files_sha256": {
-    "README.md": "f7234c49fa3e7c6bd216b40f73545373499dc13a3e0d2c4d80949c833a7f8326",
-    "docs/CONTRACT.md": "d9d6dbc45b3e1cf8a04fc98273cca232a272d4cd580f7d8827e5cc11a88c4db7",
-    "docs/MERGE_INCLUDES.md": "1e78f2a0bfa1f01019ab77e6f5f22d985d1df341d30c8da923a8360af0113bed",
-    "docs/STATUS.md": "d910c60c441fd82d427caffad8171bd18f26daf89789bf331ccf40a9e50aea45",
-    "reference/results.json": "d2e1e0499d0356d25a357aa553be77ed8b4f7be01cf35612579e9567f6407b6e",
-    "reference/traceability.json": "d51284b97a767a064aa5b2699e10ba074e2224d01783eaae045876c88612af8c",
-    "src/graph.rs": "9aa803882ea37e1cb6c89651e6135453deee7ddddc242ad20c6b5e8e113a65e2",
-    "src/parse.rs": "9002aac80af04dc5f77aec2d9fd054ab16fad6c1cd37ef89daa430c596fd2a07",
-    "src/types.rs": "1f551d082459c4e27aa0ba5ab6eec7e06f0c3536a282d167254ac3e94f2bac37",
-    "tests/fixtures/model_for_world_merge_include.sdf": "f686cd6a352d952e55e64ff8eded8b6d311c4a33caaca5114d16c63a71fb836b",
-    "tests/fixtures/world_merge_include.sdf": "df2a2929e1052b11c8df91c56c7ff9ae515d50546211a5a0f0d07dd34f8479e6",
-    "tests/merge.rs": "9577e847a0a3a1a48aa00da369b4b9559730548b15a4d4ecb1686f9505c557d1",
-    "tests/world_merge_cases.json": "fbc7a922a1c09ea81e255cf6fe7d47b692c2f74fdd672dbdc713dd1750fd974b",
-    "tests/world_merge_cases.rs": "6f7a2ba600ecff8205801fcc9e76fdef613bcd6325e7274fb1c74a6c7b861223",
-    "tests/world_merge_originals.rs": "423990cd1c001ed39a5bb3488e0ceb507a55424a2e015c3d68bbccf0b765a370",
-    "tests/world_merge_reference.cc": "dbe2a22c71a04c855186bfe33367cafad258219d2a32371e7fb21f05e088569f",
-    "tools/world_merge_reference.py": "3f4039ccbbebfa133c52a54fae805ac7d9bf0baa76da3a74cca19cd2a75a796d"
-  },
-  "modes": {
-    "README.md": "100644",
-    "docs/CONTRACT.md": "100644",
-    "docs/MERGE_INCLUDES.md": "100644",
-    "docs/STATUS.md": "100644",
-    "reference/results.json": "100644",
-    "reference/traceability.json": "100644",
-    "src/graph.rs": "100644",
-    "src/parse.rs": "100644",
-    "src/types.rs": "100644",
-    "tests/fixtures/model_for_world_merge_include.sdf": "100644",
-    "tests/fixtures/world_merge_include.sdf": "100644",
-    "tests/merge.rs": "100644",
-    "tests/world_merge_cases.json": "100644",
-    "tests/world_merge_cases.rs": "100644",
-    "tests/world_merge_originals.rs": "100644",
-    "tests/world_merge_reference.cc": "100644",
-    "tools/world_merge_reference.py": "100755"
-  },
-  "receipt_installation": "Only reference/review.json may be replaced with this exact receipt; all other frozen paths/modes and independently computed source/protected digests must remain unchanged. This replaces the old source receipt for the required hook; prior receipt hash and all raw proof remain bound.",
-  "raw_binding": {
-    "final_files": 336,
-    "gate_files": 336,
-    "unchanged_parent_blobs": 318,
-    "unchanged_semantic_test_native_helper_paths": [
-      "src/graph.rs",
-      "src/parse.rs",
-      "src/types.rs",
-      "tests/merge.rs",
-      "tests/fixtures/model_for_world_merge_include.sdf",
-      "tests/fixtures/world_merge_include.sdf",
-      "tests/world_merge_cases.json",
-      "tests/world_merge_cases.rs",
-      "tests/world_merge_originals.rs",
-      "tests/world_merge_reference.cc",
-      "tools/world_merge_reference.py"
-    ],
-    "changed_after_source_gate": [
-      "README.md",
-      "docs/CONTRACT.md",
-      "docs/MERGE_INCLUDES.md",
-      "docs/STATUS.md",
-      "reference/results.json",
-      "reference/traceability.json"
-    ],
-    "no_unstaged_delta": true
-  },
-  "full_gate": {
-    "state": "passed",
-    "result_sha256": "b8a3cda779e784912bfbd98c042979c80d181fee035342e6bcff6e65c2a7d7c4",
-    "retained_files_sha256": {
-      "tests.log": "4a5afe185155858bf18904f5c7950a22b4ab3b6cf425c36fa9d928c01c2fcf16",
-      "coverage.json": "515c3574e1ea9a54922c6f07fbea43c41f4e65c2f763561ff57d66bf6e661da9",
-      "coverage.lcov": "7071072b5ce020d857303bbce28eb176c30155d8114048ea4f13feb1b2c6661c",
-      "evidence.json": "410f4abdc022e938683d6e77bf636b9889bc890b8b40e004f9d1704e67082eb2",
-      "merged.profdata": "1bd5fdd439d8696bcf698b073e55e68fdff52d329593d64df1ba167c33686afc"
+  "author": "sdformat_owner_v3",
+  "reviewer": "msgs_owner_astra",
+  "source_digest": "fa9c350621eac1b3a6385e128e5ce644850e79d3a6479a9965f5588586f36eb2",
+  "protected_digest": "66a780fa85c9a12c2c1b0605f9cdb42f927f0aad252ec141687e190547077865",
+  "final_tree": "f32e7b8007414bbd7284b00c145c445633a33b70",
+  "parent": "efa4a3e698031135cad332b5addc2c5e3928d219",
+  "final_freeze_sha256": "a6f8e56d94936c3d9cc80eaa7551cb2abdb2387cf236be3c71a75020ff2d3068",
+  "source_tree": "fb5fa1f61190e18ce4182b5e12674c4276497145",
+  "source_review_sha256": "f752fc8d520732e22dac2a80940cddf29ee3dee312dc9103b826e4a0cf1ad383",
+  "full_gate_tree": "4c54ec88fe495e9cb7a643de45e2a8bd7ae4663b",
+  "full_review_sha256": "ba9fe0b192679f5e65fa995ccdd96faefe0ae2a3fec70057b9791b46a7ab45b5",
+  "independent_proof_sha256": "05cb93c9d477efc2fb0d90ab822dda685ff3696110dda4b4851e01279099435e",
+  "independent_executor_sha256": "e9b27dd33708c87348f5377bf0f43235297b375ab26c96c99a5a7fcb535a0b7f",
+  "coverage": {
+    "lines": {
+      "count": 4965,
+      "covered": 4941
     },
-    "raw_profiles_rehashed": 136,
-    "rust_tests": [
-      377,
-      0,
-      0
-    ],
-    "tooling_tests_passed": 16,
-    "coverage": {
-      "lines": {
-        "count": 4877,
-        "covered": 4853
-      },
-      "regions": {
-        "count": 8295,
-        "covered": 8052
-      }
-    },
-    "changed_executable_lines": [
-      96,
-      96
-    ],
-    "policy": "Unchanged parent tools/verify.py/check_report on complete unfiltered JSON, private filesystem-root rebinding only. Independently reconstructed exact parent-to-gate Git added lines equal canonical changed_lines; full retained LCOV supplies executable denominator. No profile override, exclusion, zero-denominator waiver, runtime rerun or filtering.",
-    "source_full_digest": "4510f189b01e8c032aae7e6192b02511291c3ab61ac8e29025bb520bd4eddefa",
-    "source_full_protected_digest": "f78df245a3e2ffe6910c96f7ee750b3adb571572d66c8042e35cc32f85fe4bf0"
+    "regions": {
+      "count": 8421,
+      "covered": 8178
+    }
   },
-  "semantic_and_assertion_binding": {
-    "prior_review_sha256": "20727a55578e8304a1f48f484ac8a1089c831a6b2556ea7738d426432e22065b",
-    "native_actual_review_sha256": "64581558bb31f1cba64f598a2b76b497e8ddd40dbb199fd319f086c1b8805f67",
-    "public_helper_binding_sha256": "7dcea801e49d694f7b5c292fb7e958bf3531ecb4732e76b52b92d53a38a82176",
-    "fresh_positive_restored": [
-      8,
-      8
-    ],
-    "effective_production_controls": [
-      {
-        "mutation": "Omit only world imported joints",
-        "assertion": "Original JointByName(J1) != nullptr fails"
-      },
-      {
-        "mutation": "Bypass placement adjustment",
-        "assertion": "Native projected pose comparison fails:0 != -10"
-      },
-      {
-        "mutation": "Attach proxy to parent frame rather than canonical link",
-        "assertion": "Raw attached_to assertion fails:world != M1::link"
-      },
-      {
-        "mutation": "Omit world joint sensor validation",
-        "assertion": "Deferred invalid sensor unwrap_err sees Ok and fails"
-      }
-    ],
-    "all_eleven_source_files_unchanged": true,
-    "protected_assertions": "Both original fixed observable predicate sets preserved, all existing tests/fixtures unchanged except reviewed prior unsupported-world guard now asserts successful supported behavior. V3 provenance API mapping explicit; every other V1 test byte reconstructed. All controls mutate production only; tests untouched."
+  "changed_lines": {
+    "count": 84,
+    "covered": 84
   },
-  "metadata_review": {
-    "candidate_complete": 166,
-    "candidate_partial": 25,
-    "new_originals": [
-      "IncludesTest.WorldMergeInclude",
-      "IncludesTest.WorldMergeIncludeInvalidElements"
-    ],
-    "old_mappings": "All164 prior ports and25 partials preserved; only prior IncludeModelEmptyNamespace review prose records accepted b940/exact404198 chronology. Assertions/fixtures/source mappings unchanged.",
-    "historical_results": "Exact old results retained; one native baseline command appended and one new world_merge section added.",
-    "documents": "README/CONTRACT/MERGE_INCLUDES/STATUS accurately describe model-only world merge, global joint metadata, direct-link error33, deferred sensor checks, breaking exhaustive World literal fields and bounded provenance/error limitations. Full source pass is distinguished from normal/public/hosted acceptance."
+  "rust_tests": {
+    "passed": 385,
+    "failed": 0,
+    "ignored": 0
   },
-  "limits": [
-    "Rust atomic first diagnostic does not reproduce native later error vectors or partial DOM.",
-    "Native direct Element.FilePath empty maps explicitly to owned caller Source; imported canonical identities compare directly. Projected nonmessage fields and error codes/nulls coexist with full raw diagnostic messages.",
-    "No Element/OriginalVersion facade, serialization, arbitrary resolver/model.config/search-path equivalence, physical runtime or full SDF-02 acceptance.",
-    "No duplicate runtime replay in this binding. Mandatory normal hook, public push and exact new hosted success remain required."
+  "tooling_tests": 16,
+  "captured_raw_profiles_previously_rehashed": 139,
+  "checks": [
+    "All exact final raw Git blobs/modes and sixteen owned paths checked; ten reviewed source/test/fixture files unchanged from source/full gate",
+    "Only five scoped prose/ledger/results paths differ after full gate; old166 complete/25partial rows preserved except two append-only accepted WorldMerge chronology suffixes",
+    "Exactly one proposed complete PlacementFrame and one explicitly partial MergeInclude row appended; old results preserved except accepted WorldMerge chronology, exact original command append and new scoped section",
+    "Canonical source/protected digests and ledger recomputed; unchanged policy/hooks/license/dependencies/old tests/fixtures remain bound; all five canonical/retained source evidence hashes reverified",
+    "Full evidence approval retains unfiltered4941/4965 lines8178/8421 regions and84/84 changed,385Rust16tools; no duplicate runtime or filtered evidence"
   ],
-  "failures": "Earlier author helper expectation/compile issues and reviewer static reconstruction setup stop retained. Fresh exact private runtime had no unexpected failure; four production-control failures are intended and restored. This full/final binding completed without setup or evidence failures."
+  "scope": "Final metadata/protected binding only. MergeInclude generic Element/FindElement/HasElement absence remains explicitly partial. Metadata is owned XML and boolean declarations, not runtime physics/GUI/serializer/Element equivalence. Native existing-build, known schema/world custom/repeated scalar/legacy collision limits remain; no full SDF02/performance. Earlier86564/22040 failures and nine ELF proofs remain retained, no tolerance/lint/fixture waiver.",
+  "proposed_ledger": {
+    "complete": 167,
+    "partial": 26,
+    "accepted_before_remaining_gates": false
+  },
+  "permitted_followup": "Replace only reference/review.json with this exact canonical receipt; source/protected digests exclude the receipt itself. No other source/metadata edits without renewed review.",
+  "required_remaining": [
+    "mandatory normal protected hook",
+    "independent normal actual binding",
+    "public exact commit and hosted CI"
+  ]
 }

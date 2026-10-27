@@ -121,6 +121,12 @@
       "sha256": "d5a5f7030bbf6be8d2c7ab238f7e040b24e25e2860cd0d0d3e0d99521e992ada",
       "args": "--gtest_filter=IncludesTest.WorldMergeInclude:IncludesTest.WorldMergeIncludeInvalidElements",
       "result": "Passed both unchanged originals before edits, zero failures/skips/errors; native input16 source/actual independently replayed. Existing qualified native build, not a fresh immutable rebuild."
+    },
+    {
+      "binary": "INTEGRATION_includes",
+      "sha256": "d5a5f7030bbf6be8d2c7ab238f7e040b24e25e2860cd0d0d3e0d99521e992ada",
+      "args": "--gtest_filter=IncludesTest.MergeInclude:IncludesTest.MergeIncludePlacementFrame",
+      "result": "passed2/0; exact originalPlacement predicates complete candidate, MergeInclude explicitlypartial Element/API gaps; source/native qualification bound c22a93ed/ea1dd368/cdf4b3f8, finalnormal/public/hosted still separate."
     }
   ],
   "corpus": {
@@ -60787,6 +60793,71 @@
     "scope": "World merge flattens nested models, frames, joints and plugins through an injected resolver. Proxy pose/canonical attachment/placement and raw include/imported source provenance remain available. World joints use child-default pose and deferred non-frame sensor validation. Both fixed original observable predicate sets retained; full Includes/World/Root/SDF02, serialization, actor/light/URDF and physical runtime are not qualified.",
     "projection": "Projected fixture retains every nonmessage field plus error-code vectors/nulls; full raw reports retain diagnostic messages. Direct native LoadSdfString Element.FilePath is empty and explicitly maps to Rust caller Source; imported canonical resource identities compare directly. No Element/OriginalVersion API or resolver model.config/search-path equivalence.",
     "errors": "Imported direct links produce native first MERGE_INCLUDE_UNSUPPORTED33, represented by explicit ErrorCode::MergeIncludeUnsupported. Rust loading is atomic and returns the first diagnostic; native subsequent vectors and partial DOM are not reproduced.",
-    "review": "Source/runtime approval20727; final metadata/protected binding, mandatory normal hook, public push and exact hosted success remain required. No new public acceptance from source verification alone."
+    "review": "Source/runtime approval20727; final metadata/protected binding, mandatory normal hook, public push and exact hosted success remain required. No new public acceptance from source verification alone. Final metadata binding8107721f8256579d1c25d38b4ec252fcdcf1c06361bcb9b83e6359118e9b9b96, normal actualbindingd1c9f7f5344e399a065726af31bbc8db9b83681cf4c27a1666581ea3fce832a5 and publicefa4a3e698031135cad332b5addc2c5e3928d219 passed exact hosted40446995007 SUCCESS."
+  },
+  "model_merge_extensions": {
+    "parent": "efa4a3e698031135cad332b5addc2c5e3928d219",
+    "upstream": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "source_tree": "fb5fa1f61190e18ce4182b5e12674c4276497145",
+    "source_freeze_sha256": "518e0b88c13b98d8d7245454d2310aa088ad5aa7efa3796d2e99c3f4a7aa6e3f",
+    "source_review_sha256": "f752fc8d520732e22dac2a80940cddf29ee3dee312dc9103b826e4a0cf1ad383",
+    "native_baseline_report_sha256": "c22a93edf0beeb3316efe70e79e4eaddd15377d098208cb2238706a7026f3ac7",
+    "native_model_report_sha256": "061d1a548e9d66b3664af06e990ccfc0db79f9d209bdd6714b38ad09d302c9f7",
+    "native_model_actual_review_sha256": "ea1dd36865c5436413e1a676e3f19c7ccebe4a82e217c3abfc2895deb1439b2e",
+    "native_sensor_report_sha256": "c8fa25d7521d0e44b0c16ccb9b8c8cf1c2a6ea32a20442cb12d3d1a48b6a220d",
+    "native_sensor_actual_review_sha256": "cdf4b3f89e510f772b2cc7a68d58f7a3b00af460b4ed167ce1bcb2fe49b9bdf6",
+    "author_selected_result_sha256": "eae2b3fe84958174b45a05210e04831ee785e0adf6bbd67a66a8b915a2ce5990",
+    "author_full_result_sha256": "374c44bfceb3911eb67297b32b6f7aaa669f12268ef5c605b34974f616178275",
+    "independent_full_review_sha256": "ba9fe0b192679f5e65fa995ccdd96faefe0ae2a3fec70057b9791b46a7ab45b5",
+    "source_gate": {
+      "rust_tests": 385,
+      "tooling_tests": 16,
+      "failed": 0,
+      "ignored": 0,
+      "coverage": {
+        "lines": {
+          "count": 4965,
+          "covered": 4941
+        },
+        "regions": {
+          "count": 8421,
+          "covered": 8178
+        }
+      },
+      "changed_lines": {
+        "count": 84,
+        "covered": 84
+      },
+      "evidence_sha256": {
+        "tests.log": "d97cf82e1268d22526cf61ae02f2c0a9a5ed51e5b1b20f7b586e7f16d64d3def",
+        "coverage.json": "9dd9ec68381e631f455e129d6f68104ff277c927537a86d68a5db54582d358fd",
+        "coverage.lcov": "acd4969371d6bb79f3c8281a32568b6f2427f938846137aa9493335e8e662ea3",
+        "evidence.json": "19a841b196781c013b5fde076c05b5b315e67f47b3ceca4d86713f24b554da35",
+        "merged.profdata": "4a25ed68850445f1232f3f4a41b13936610d0084ca8dce9b3e2aa8b335009204"
+      },
+      "raw_profile_count_actually_captured": 139
+    },
+    "native": "Pinned unchanged original2/0 plus20Model and12sensor Element observations, independently reproduced byte-exact after exact known output-root plain/hex aliases. Existingnativebuild/source/headers/compiler/loadedlibraries qualified; not an immutable native rebuild. All rawerrors/partialDOM/serializedElement output retained as observations. Generic Element boolqueries are not typedSensor/runtime APIs.",
+    "rust": "Fresh independent20/0/0; five production controls fail intended assertions, exactrestored20 andfiveELF identities match. Authorselected20+Clippy andcanonical full385/16 pass, unfiltered4941/4965lines8178/8421regions,84/84 changed. No coverage filtering/exclusion/threshold change.",
+    "scope": "Model enable_wind independentofLinkgetter; owned ExtensionMetadata lexicaltag/XML-decoded orderedattrs/exactoriginalXML/source. Ordinaryincludes retain metadata; modelmerge copiescolon tags withoutrewriting opaquecontents, omits importedwind/unqualifiedunknown. Parentflags retained. Known self_collide/allow_auto_disable/gripper/model_state declarations remain Unsupported. Sensor canonicalvisualize bool and onlyliteralalwaysOn opaque XML, neveraliascanonicalalways_on. OtherunknownSensorchildren stay Unsupported.",
+    "existing_corpus": "All153oldnative observations/first68 retained byte-exact. custom_named_extension/unknown_unnamed/enable_wind former-schema dispositions now require nativeadmission+alloldtyped projections. legacy_prior_frame_collision andlegacy_imported_frame_collision remain Unsupported. No full20or12Rustcrossproduct claim.",
+    "originals": "PlacementFrame complete predicate set candidate; MergeInclude explicitlyPARTIAL Element/FindElement pointer andgenericHasElementabsence gaps. Proposedledger167complete/26partial is not publicacceptance before finalbinding/normal/exacthosted.",
+    "controls": "Modelwind forcedfalse, omittedcolontransfer, alwaysOn alias, ignoredvisualize andemptyopaqueXML each fail required assertions. Exactsource restored; no source/test weakening.",
+    "failures_preserved": {
+      "initial_selected": "86564 overallFAILED:oldmerge4+newmetadata4passed, both exactoriginalfixture tests failbeforepredicates atUnsupportedalwaysOn; ownership/ClippyUNRUN.",
+      "repaired_selected": "22040 overallFAILED despite20RustPASS: Clippy approx_constant on intentionallynative -1.5707.",
+      "final_selected": "63345PASS20+Clippy aftersameIEEE754 oracle represented as -15707.0/10000.0, no PI/2/lintallow/predicate/tolerance/fixture change. Both earlierfailedresults/source/logs/nineELFs immutable; ownwarmcache reuse explicit."
+    },
+    "limits": [
+      "native genericElement/Param/lifetime/serialization API",
+      "physicalWind/GUI/sensor runtime",
+      "warning-policy/nondefaultParserConfig API",
+      "nativeerrorvector/partialDOM equivalence",
+      "worldcustommerge andnativefirst repeatedknownscalar behavior",
+      "knownschema4 andlegacycollision gaps",
+      "resource search/model.config generic equivalence",
+      "fullSDF02/performance"
+    ],
+    "review": "Independent Msgs source/protected/runtime approval f752fc8d520732e22dac2a80940cddf29ee3dee312dc9103b826e4a0cf1ad383 and full-evidence binding ba9fe0b192679f5e65fa995ccdd96faefe0ae2a3fec70057b9791b46a7ab45b5; fresh private twenty tests, five effective production controls and exact restored twenty. Final metadata/protected binding, mandatory normal hook, public push and exact new hosted success remain required; no new public acceptance from source gate alone."
   }
 }

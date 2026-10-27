@@ -27,6 +27,8 @@ fn model(name: &str, namespace: Option<&str>) -> Model {
         raw_namespace: namespace.map(str::to_owned),
         pose: Pose::default(),
         is_static: false,
+        enable_wind: false,
+        extensions: Vec::new(),
         canonical_link: String::new(),
         placement_frame: String::new(),
         include: None,

@@ -308,6 +308,10 @@ pub struct Model {
     pub raw_namespace: Option<String>,
     pub pose: Pose,
     pub is_static: bool,
+    /// Model wind metadata is independent of each Link wind getter.
+    pub enable_wind: bool,
+    /// Opaque non-schema children, with original XML and resource provenance.
+    pub extensions: Vec<ExtensionMetadata>,
     pub canonical_link: String,
     pub placement_frame: String,
     /// Original include metadata; absent for a model declared directly in XML.
@@ -1065,6 +1069,11 @@ pub struct Sensor {
     pub pose: Pose,
     pub update_rate: f64,
     pub always_on: bool,
+    /// Canonical GUI-visualization metadata; this does not run a visualizer.
+    pub visualize: bool,
+    /// Qualified opaque sensor children; currently only the unknown `alwaysOn` tag.
+    /// This is independent of the canonical `always_on` boolean.
+    pub extensions: Vec<ExtensionMetadata>,
     pub enable_metrics: bool,
     pub config: SensorConfig,
     /// Plugins in declaration or insertion order.
@@ -1087,6 +1096,8 @@ impl Default for Sensor {
             pose: Pose::default(),
             update_rate: 0.0,
             always_on: false,
+            visualize: false,
+            extensions: Vec::new(),
             enable_metrics: false,
             config: SensorConfig::Unconfigured,
             plugins: Vec::new(),
@@ -1582,6 +1593,25 @@ pub struct MergedInclude {
     pub include: Box<Include>,
     pub model_source: Source,
     pub proxy_frame: String,
+}
+
+/// Owned opaque XML metadata; this is not the native mutable Element API.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct ExtensionMetadata {
+    pub tag: String,
+    /// XML-decoded attributes in declaration order; no Param conversion is applied.
+    pub attributes: Vec<(String, String)>,
+    /// Exact original source span, not an expanded or converted serialization.
+    pub xml: String,
+    pub source: Source,
+}
+impl ExtensionMetadata {
+    pub fn attribute(&self, name: &str) -> Option<&str> {
+        self.attributes
+            .iter()
+            .find(|(key, _)| key == name)
+            .map(|(_, value)| value.as_str())
+    }
 }
 
 /// Original include values, independently of the resolved model/resource state.

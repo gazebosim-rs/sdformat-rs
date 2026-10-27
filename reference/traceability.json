@@ -2135,7 +2135,7 @@
       },
       "baseline": "Pinned native originals2/0 before edits and independent full16 observations645815. Author selected8/0; independent fresh8/0 and four effective production-only controls, exact restored8/0. Full canonical source gate377Rust/16tools0failed0ignored; strict4853/4877lines8052/8295regions,changed96/96, no exclusions. Raw JSON/LCOV/profiles/profdata/test logs retained.",
       "status": "ported_reviewed",
-      "review": "Independent /root/msgs_owner_astra source/runtime/protected approval SHA256 20727a55578e8304a1f48f484ac8a1089c831a6b2556ea7738d426432e22065b binds exact source freeze5f0fa53e/source6c74 on hosted-green parentb940, run40419834584. Final metadata binding, mandatory normal hook, public push and exact hosted qualification remain required. These ledger mappings do not accept the increment alone.",
+      "review": "Independent /root/msgs_owner_astra source/runtime/protected approval SHA256 20727a55578e8304a1f48f484ac8a1089c831a6b2556ea7738d426432e22065b binds exact source freeze5f0fa53e/source6c74 on hosted-green parentb940, run40419834584. Final metadata binding, mandatory normal hook, public push and exact hosted qualification remain required. These ledger mappings do not accept the increment alone. Final metadata binding8107721f8256579d1c25d38b4ec252fcdcf1c06361bcb9b83e6359118e9b9b96, normal bindingd1c9f7f5344e399a065726af31bbc8db9b83681cf4c27a1666581ea3fce832a5 and publicefa4a3e698031135cad332b5addc2c5e3928d219 passed exact hosted40446995007 SUCCESS.",
       "upstream_fixtures": {
         "test/sdf/world_merge_include.sdf": "df2a2929e1052b11c8df91c56c7ff9ae515d50546211a5a0f0d07dd34f8479e6",
         "test/integration/model/model_for_world_merge_include.sdf": "f686cd6a352d952e55e64ff8eded8b6d311c4a33caaca5114d16c63a71fb836b"
@@ -2152,10 +2152,30 @@
       },
       "baseline": "Pinned native originals2/0 before edits and independent full16 observations645815. Author selected8/0; independent fresh8/0 and four effective production-only controls, exact restored8/0. Full canonical source gate377Rust/16tools0failed0ignored; strict4853/4877lines8052/8295regions,changed96/96, no exclusions. Raw JSON/LCOV/profiles/profdata/test logs retained.",
       "status": "ported_reviewed",
-      "review": "Independent /root/msgs_owner_astra source/runtime/protected approval SHA256 20727a55578e8304a1f48f484ac8a1089c831a6b2556ea7738d426432e22065b binds exact source freeze5f0fa53e/source6c74 on hosted-green parentb940, run40419834584. Final metadata binding, mandatory normal hook, public push and exact hosted qualification remain required. These ledger mappings do not accept the increment alone.",
+      "review": "Independent /root/msgs_owner_astra source/runtime/protected approval SHA256 20727a55578e8304a1f48f484ac8a1089c831a6b2556ea7738d426432e22065b binds exact source freeze5f0fa53e/source6c74 on hosted-green parentb940, run40419834584. Final metadata binding, mandatory normal hook, public push and exact hosted qualification remain required. These ledger mappings do not accept the increment alone. Final metadata binding8107721f8256579d1c25d38b4ec252fcdcf1c06361bcb9b83e6359118e9b9b96, normal bindingd1c9f7f5344e399a065726af31bbc8db9b83681cf4c27a1666581ea3fce832a5 and publicefa4a3e698031135cad332b5addc2c5e3928d219 passed exact hosted40446995007 SUCCESS.",
       "upstream_fixtures": {
         "test/integration/model/test_model/model.sdf": "8fbe0949ca7fc95d194d22fb4c0ec7409b70e457aafdb646f27a3f9e802db155"
       }
+    },
+    {
+      "target": "INTEGRATION_includes",
+      "fixtures": {
+        "tests/fixtures/merge_include_model_original.sdf": "ee964d9927bfc5b7bd87ce9c3ba5e5d61a01a8c853c2f4f8a2203019ecdb4008",
+        "tests/fixtures/merge_robot_original.sdf": "ee6f761fbcf3b3fc90f4a144db8a92309b8fbf5de122ced0d4f30c758e298093",
+        "tests/fixtures/merge_robot_original.config": "60f5995884faab77ea403454c1499ff3b79cdb6d97cfd130d4caea32386bb2e1"
+      },
+      "upstream_fixtures": {
+        "test/integration/merge_include_model.sdf": "ee964d9927bfc5b7bd87ce9c3ba5e5d61a01a8c853c2f4f8a2203019ecdb4008",
+        "test/integration/model/merge_robot/model.sdf": "ee6f761fbcf3b3fc90f4a144db8a92309b8fbf5de122ced0d4f30c758e298093",
+        "test/integration/model/merge_robot/model.config": "60f5995884faab77ea403454c1499ff3b79cdb6d97cfd130d4caea32386bb2e1"
+      },
+      "baseline": "Two unchanged pinned native originals2/0, report SHA256 c22a93edf0beeb3316efe70e79e4eaddd15377d098208cb2238706a7026f3ac7; existingnativebuild qualified. Independent source/fresh20/control/restore and author full385Rust/16tools; strict4941/4965lines8178/8421regions,changed84/84. No performance claim.",
+      "review": "Independent Msgs source/protected/runtime approval f752fc8d520732e22dac2a80940cddf29ee3dee312dc9103b826e4a0cf1ad383 and full-evidence binding ba9fe0b192679f5e65fa995ccdd96faefe0ae2a3fec70057b9791b46a7ab45b5; fresh private twenty tests, five effective production controls and exact restored twenty. Final metadata/protected binding, mandatory normal hook, public push and exact new hosted success remain required; no new public acceptance from source gate alone.",
+      "case": "IncludesTest.MergeIncludePlacementFrame",
+      "source": "test/integration/includes.cc:659-684",
+      "rust_test": "tests/model_merge_originals.rs::original_includes_test_merge_include_placement_frame",
+      "assertions": "All original successfulload/worldpresence/modelname robot2/7links/6joints/toplinkpresence/Resolveempty andpose(0,0,2,0,0,0) predicates with exact original fixtures. Pinned component-wise Pose3/Quaternion <=1e-3 equality and direct quaternion signs preserved; injected resolver returns the unchanged resource. No generic Element or physical runtime claim.",
+      "status": "ported_reviewed"
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",
@@ -2499,6 +2519,26 @@
       "baseline": "Pinned native five Box originals5/0; independent raw-source Rust6/0 and separate production Clone Box-size/Mesh-URI loss controls verified, exact source restored. Full author336 Rust/16 tooling/fmt/Clippy/docs; unchanged4771/4795 lines7915/8157 regions,zero changed instrumented executable lines for derives,no exclusions. Ordinary Cargo2 correctness only.",
       "status": "partial_reviewed",
       "review": "Independent /root/transport_owner_v2 source/protected approval SHA256 2aa1fb573214b4f37007440462191a94c159b84164782a113c354d48642b47c9 binds exact source freeze ac1e24638e6bca56b4f7f9231a4b3cac9148d89ffabb3843ec8aa51260ed00c4 on hosted-green parent e579d8c9ece09f2df67711e90e40f2c10416008e, run40321971461. Final metadata binding receipt SHA256 11d2991b8f35fc99de3abac278866ea9c9615740801be96c5008f415483bcc6b, mandatory normal hook and public fa399d81a02d5fec02968e6d8ed8836c7ff04c34 passed exact hosted verify 40329549257 SUCCESS."
+    },
+    {
+      "target": "INTEGRATION_includes",
+      "fixtures": {
+        "tests/fixtures/merge_include_model_original.sdf": "ee964d9927bfc5b7bd87ce9c3ba5e5d61a01a8c853c2f4f8a2203019ecdb4008",
+        "tests/fixtures/merge_robot_original.sdf": "ee6f761fbcf3b3fc90f4a144db8a92309b8fbf5de122ced0d4f30c758e298093",
+        "tests/fixtures/merge_robot_original.config": "60f5995884faab77ea403454c1499ff3b79cdb6d97cfd130d4caea32386bb2e1"
+      },
+      "upstream_fixtures": {
+        "test/integration/merge_include_model.sdf": "ee964d9927bfc5b7bd87ce9c3ba5e5d61a01a8c853c2f4f8a2203019ecdb4008",
+        "test/integration/model/merge_robot/model.sdf": "ee6f761fbcf3b3fc90f4a144db8a92309b8fbf5de122ced0d4f30c758e298093",
+        "test/integration/model/merge_robot/model.config": "60f5995884faab77ea403454c1499ff3b79cdb6d97cfd130d4caea32386bb2e1"
+      },
+      "baseline": "Two unchanged pinned native originals2/0, report SHA256 c22a93edf0beeb3316efe70e79e4eaddd15377d098208cb2238706a7026f3ac7; existingnativebuild qualified. Independent source/fresh20/control/restore and author full385Rust/16tools; strict4941/4965lines8178/8421regions,changed84/84. No performance claim.",
+      "review": "Independent Msgs source/protected/runtime approval f752fc8d520732e22dac2a80940cddf29ee3dee312dc9103b826e4a0cf1ad383 and full-evidence binding ba9fe0b192679f5e65fa995ccdd96faefe0ae2a3fec70057b9791b46a7ab45b5; fresh private twenty tests, five effective production controls and exact restored twenty. Final metadata/protected binding, mandatory normal hook, public push and exact new hosted success remain required; no new public acceptance from source gate alone.",
+      "case": "IncludesTest.MergeInclude",
+      "source": "test/integration/includes.cc:428-591",
+      "rust_test": "tests/model_merge_originals.rs::partial_original_includes_test_merge_include",
+      "assertions": "PARTIAL: Original load/world/modelname/counts and canonical-link nonnull/realpointeralias, separatelyloaded includedmodelname/proxy, chassis/top/rightjoint/frame rawreferences andresolvedposes, leftaxis, modelparent/modelchild names plus plugin/customvalue and unknown-extension absence metadata. Pose/Quaternion andVector3 component-wise <=1e-3 with directsigns, exactnative -1.5707 binary64 oracle (ratio -15707/10000), fixtures unchanged. Native Model.Element/FindElement pointer API and generic HasElement enable_wind/static absence remain UNPORTED; DTO false is never substituted for XMLabsence. No complete original retirement.",
+      "status": "partial_reviewed"
     }
   ]
 }

@@ -136,3 +136,10 @@ joints and plugins. A generated proxy preserves placement and canonical-body
 attachment, while `World.merged_includes` retains the original include/source.
 Imported direct links return `MergeIncludeUnsupported`; world-joint sensor poses
 remain deferred until `validate_non_frame_poses`. See [MERGE_INCLUDES.md](docs/MERGE_INCLUDES.md).
+
+Model wind and opaque XML child metadata are retained with owned resource
+provenance. Model merge copies colon-prefixed extensions without rewriting their
+contents; imported model wind and unqualified unknown children are omitted.
+Sensor `visualize` is canonical boolean metadata, while legacy `alwaysOn` remains
+opaque XML distinct from `always_on`. See [MODEL_METADATA.md](docs/MODEL_METADATA.md)
+for the qualified subset and remaining Element, runtime and schema limits.

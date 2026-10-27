@@ -18,12 +18,21 @@ impl ResourceResolver for Resolver<'_> {
         })
     }
 }
+// The three former schema/custom gaps now require native parity. Keep only
+// the independently recorded legacy collision gaps explicit; all rows stay intact.
+fn legacy_merge_gap(row: &serde_json::Value) -> bool {
+    matches!(
+        row["id"].as_str(),
+        Some("legacy_prior_frame_collision" | "legacy_imported_frame_collision")
+    )
+}
 #[test]
 fn native_model_merge_acceptance() {
     let cases: serde_json::Value = serde_json::from_str(include_str!("merge.json")).unwrap();
     for row in cases.as_array().unwrap() {
         let result = load_str(row["xml"].as_str().unwrap(), "root.sdf", &Resolver(row));
-        if row.get("gap").is_some() {
+        if legacy_merge_gap(row) {
+            assert!(row.get("gap").is_some());
             assert!(row["accepted"].as_bool().unwrap());
             assert_eq!(result.unwrap_err().code, ErrorCode::Unsupported);
             continue;
@@ -118,7 +127,7 @@ fn native_merge_frames_poses_axes_and_canonical_names() {
         .as_array()
         .unwrap()
         .iter()
-        .filter(|row| row["accepted"] == true && row.get("gap").is_none())
+        .filter(|row| row["accepted"] == true && !legacy_merge_gap(row))
     {
         let sdf = load_str(row["xml"].as_str().unwrap(), "root.sdf", &Resolver(row)).unwrap();
         compare(

@@ -32,20 +32,22 @@ case-insensitive true words and validated numeric one merge; surrounding whitesp
 on true words produces ordinary nesting. Raw source XML preserves that distinction.
 Ordinary includes, including explicit merge=false, retain the existing contract.
 
-World merge supports the model-only member subset described below. Unknown/custom model extensions and enable_wind
-retain the parser's explicit Unsupported policy. Legacy parent/import name
-collisions also remain Unsupported until native declaration-order renaming is
-qualified. The native corpus records these five accepted-input gaps separately:
-three schema-extension rows and two legacy-collision rows. All existing supported
-version and normal-include semantics remain in place.
+World merge supports the model-only member subset described below. Model wind
+and opaque extension metadata are qualified in [MODEL_METADATA.md](MODEL_METADATA.md).
+The historical three schema-extension corpus rows now require native admission
+and their existing typed projections. Imported custom metadata in world-scope
+merge and the two legacy parent/import frame-name collision rows remain explicit
+unsupported subsets. The original native corpus data is unchanged.
 
 The supplementary native corpus covers versions 1.5–1.12, literal attribute edges,
 canonical aliases/static/empty/nested models, placement, scoped references and
 axes, plugin order, nested merges and retained non-frame behavior. The exact native
-MergeInclude and MergeIncludePlacementFrame originals run successfully, but their
-full unmodified resource uses unsupported extension fields. No new original case
-is retired by this bounded slice. Full merge/schema/export qualification remains
-SDF-02 work; no simulation or performance acceptance is claimed.
+MergeInclude and MergeIncludePlacementFrame originals run successfully. Their
+full unmodified resource now loads with opaque custom/wind and sensor metadata.
+The PlacementFrame predicate set is retained; MergeInclude remains explicitly
+partial for native Element/FindElement and generic HasElement absence APIs. Full
+merge/schema/export qualification remains SDF-02 work; no simulation or performance
+acceptance is claimed.
 
 ## World scope
 

@@ -531,6 +531,15 @@ impl Parser<'_> {
                                 "world merge include cannot contain direct links",
                             ));
                         }
+                        // World extension metadata is not yet characterized.
+                        // Retain an explicit subset error instead of losing data.
+                        if imported.extensions.iter().any(|e| e.tag.contains(':')) {
+                            return Err(self.err(
+                                member,
+                                ErrorCode::Unsupported,
+                                "world merge custom extensions are not implemented",
+                            ));
+                        }
                         frame_elements
                             .extend(std::iter::repeat_n(member, 1 + imported.frames.len()));
                         frames.push(proxy);
@@ -761,12 +770,47 @@ impl Parser<'_> {
                 "model nesting limit (64) exceeded",
             ));
         }
-        self.allowed(
+        // The canonical model schema distinguishes unimplemented declarations
+        // from unknown XML. Default native policy retains unknown children.
+        // Never hide a known schema feature inside opaque extension metadata.
+        let extension_names: Vec<_> = elements(node)
+            .map(|member| member.tag_name().name())
+            .filter(|name| {
+                !matches!(
+                    *name,
+                    "pose"
+                        | "static"
+                        | "enable_wind"
+                        | "link"
+                        | "model"
+                        | "include"
+                        | "frame"
+                        | "joint"
+                        | "plugin"
+                        | "self_collide"
+                        | "allow_auto_disable"
+                        | "gripper"
+                        | "model_state"
+                )
+            })
+            .collect();
+        let mut children = vec![
+            "pose",
+            "static",
+            "enable_wind",
+            "link",
+            "model",
+            "include",
+            "frame",
+            "joint",
+            "plugin",
+        ];
+        children.extend(extension_names.iter().copied());
+        self.allowed_repeated(
             node,
-            &[
-                "pose", "static", "link", "model", "include", "frame", "joint", "plugin",
-            ],
+            &children,
             &["name", "namespace", "canonical_link", "placement_frame"],
+            &extension_names,
         )?;
         let name = rename.map_or_else(|| self.name(node), |n| Ok(n.into()))?;
         let scoped_name = join(scope, &name);
@@ -783,6 +827,7 @@ impl Parser<'_> {
         let mut models = Vec::new();
         let mut frames = Vec::new();
         let mut plugins = Vec::new();
+        let mut extensions = Vec::new();
         let mut merged_includes = Vec::new();
         let mut names = BTreeSet::new();
         let mut typed_names = BTreeSet::new();
@@ -863,6 +908,14 @@ impl Parser<'_> {
                         frames.extend(imported.frames);
                         models.extend(imported.models);
                         plugins.extend(imported.plugins);
+                        // Native merge copies namespace-qualified extension tags,
+                        // regardless of a name attribute. Other unknowns stay local.
+                        extensions.extend(
+                            imported
+                                .extensions
+                                .into_iter()
+                                .filter(|e| e.tag.contains(':')),
+                        );
                         merged_includes.push(provenance);
                         merged_includes.extend(imported.merged_includes);
                         continue;
@@ -879,6 +932,9 @@ impl Parser<'_> {
                     models.push(nested);
                 }
                 "plugin" => plugins.push(self.plugin(member)?),
+                _ if extension_names.contains(&member.tag_name().name()) => {
+                    extensions.push(self.extension_metadata(member));
+                }
                 _ => {}
             }
         }
@@ -893,6 +949,8 @@ impl Parser<'_> {
                 .map(str::to_owned),
             pose,
             is_static: self.boolean(node, "static", false)?,
+            enable_wind: self.boolean(node, "enable_wind", false)?,
+            extensions,
             canonical_link: node.attribute("canonical_link").unwrap_or("").into(),
             placement_frame: node.attribute("placement_frame").unwrap_or("").into(),
             include: None,
@@ -904,6 +962,25 @@ impl Parser<'_> {
             plugins,
             source: self.source(node),
         })
+    }
+    fn extension_metadata(&self, node: Node<'_, '_>) -> ExtensionMetadata {
+        ExtensionMetadata {
+            tag: node.tag_name().name().into(),
+            attributes: node
+                .attributes()
+                .map(|attribute| {
+                    let name = attribute.name();
+                    (
+                        name.into(),
+                        node.attribute(name)
+                            .expect("attribute enumerated by this node")
+                            .into(),
+                    )
+                })
+                .collect(),
+            xml: self.xml[node.range()].into(),
+            source: self.source(node),
+        }
     }
     fn include(&mut self, node: Node<'_, '_>, scope: &str) -> Result<(Model, bool), Diagnostic> {
         self.allowed(
@@ -2841,6 +2918,8 @@ impl Parser<'_> {
             "pose",
             "update_rate",
             "always_on",
+            "alwaysOn",
+            "visualize",
             "enable_metrics",
             "topic",
             "frame_id",
@@ -2862,7 +2941,8 @@ impl Parser<'_> {
         if let Some(extension) = custom_element {
             allowed_children.push(extension.tag_name().name());
         }
-        self.allowed(node, &allowed_children, &["name", "type"])?;
+        // The unknown legacy spelling is copied as opaque XML, never a boolean alias.
+        self.allowed_repeated(node, &allowed_children, &["name", "type"], &["alwaysOn"])?;
         if !matches!(
             kind.as_str(),
             "imu"
@@ -3038,6 +3118,11 @@ impl Parser<'_> {
             pose,
             update_rate,
             always_on,
+            visualize: self.boolean(node, "visualize", false)?,
+            extensions: elements(node)
+                .filter(|child| child.tag_name().name() == "alwaysOn")
+                .map(|child| self.extension_metadata(child))
+                .collect(),
             enable_metrics,
             config,
             plugins: self.plugins(node)?,

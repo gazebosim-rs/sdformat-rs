@@ -1,7 +1,7 @@
 // Copyright (C) 2026 Open Source Robotics Foundation
 // SPDX-License-Identifier: Apache-2.0
 
-use crate::{Diagnostic, ErrorCode, Frame, Model, Pose, Source, Transform, World};
+use crate::{Diagnostic, ErrorCode, Frame, Joint, Model, Pose, Source, Transform, World};
 use petgraph::{
     algo::{astar, toposort},
     graph::{DiGraph, NodeIndex},
@@ -72,6 +72,7 @@ impl Graphs {
                 },
             )?;
             result.frames(&world.frames, &world.name)?;
+            result.joints(&world.joints, &world.name)?;
             for model in &world.models {
                 result.model(model, &world.name)?;
             }
@@ -156,11 +157,18 @@ impl Graphs {
                 .insert(name.clone(), model.placement_frame.clone());
         }
         self.frames(&model.frames, name)?;
-        for joint in &model.joints {
+        self.joints(&model.joints, name)?;
+        for nested in &model.models {
+            self.model(nested, name)?;
+        }
+        Ok(())
+    }
+    fn joints(&mut self, joints: &[Joint], scope: &str) -> Result<(), Diagnostic> {
+        for joint in joints {
             self.insert(
-                &join(name, &joint.name),
+                &join(scope, &joint.name),
                 Node {
-                    scope: name.clone(),
+                    scope: scope.into(),
                     pose_parent: reference(
                         &joint.pose.relative_to,
                         Reference::Scoped(joint.child.clone()),
@@ -171,9 +179,6 @@ impl Graphs {
                     source: joint.source.clone(),
                 },
             )?;
-        }
-        for nested in &model.models {
-            self.model(nested, name)?;
         }
         Ok(())
     }

@@ -115,6 +115,12 @@
       "sha256": "d5a5f7030bbf6be8d2c7ab238f7e040b24e25e2860cd0d0d3e0d99521e992ada",
       "args": "--gtest_filter=IncludesTest.IncludeModelEmptyNamespace",
       "result": "Passed one unchanged original with zero failures or skips, then freshly replayed independently. All six predicates and the exact SDF 1.6 mesh fixture are retained. No whole Root/Includes retirement is claimed."
+    },
+    {
+      "binary": "INTEGRATION_includes",
+      "sha256": "d5a5f7030bbf6be8d2c7ab238f7e040b24e25e2860cd0d0d3e0d99521e992ada",
+      "args": "--gtest_filter=IncludesTest.WorldMergeInclude:IncludesTest.WorldMergeIncludeInvalidElements",
+      "result": "Passed both unchanged originals before edits, zero failures/skips/errors; native input16 source/actual independently replayed. Existing qualified native build, not a fresh immutable rebuild."
     }
   ],
   "corpus": {
@@ -60739,5 +60745,48 @@
     "controls": "Losing the dispatcher fails the original load assertion; the old root-relative edge fails the raw-reference corpus. Skipping root placement initially passed the zero-offset case; that sensitivity finding is retained. Three added native nonzero fixtures now make missing placement fail the numeric predicate 1 != -3. Exact restoration passes six tests. The reviewer Cargo-order validator failure is retained and corrected by explicitly invoking the original target.",
     "scope": "A single nonmerged root model include through the existing injected resolver. All six IncludesTest.IncludeModelEmptyNamespace predicates and the exact SDF 1.6 mesh fixture are preserved. Raw include XML, canonical origin, namespace, name, static, pose, placement and plugins remain available. Direct literal root pose validation stays unchanged; include override raw references are retained while the root pose edge uses absolute root and placement as native. Model and child-local poses are observed; global child positions are explicitly composed inferences, with native child __root__ error 26 retained. Mixed-root parity, world merge, actor/light/URDF, serialization, a native OriginalVersion facade, physical runtime and full SDF-02 remain unqualified.",
     "review": "Independent source/protected review ddc6 binds V2, preserving all 31 earlier rows and both production files, the original assertion body, fixture and native probe. Final metadata binding, mandatory normal hook, public push and exact hosted qualification remain required. Source full verification alone does not accept the increment."
+  },
+  "world_merge": {
+    "parent": "b94017ec5c87ee321ab2519f16bf3047f39914c5",
+    "upstream": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+    "source_tree": "6c74c3ee5889a8ab9e59b9a95d7bcf69ae4b364c",
+    "source_freeze_sha256": "5f0fa53ea472701b1421d117e51a94a71007f77bef874adea80be62877545d34",
+    "source_review_sha256": "20727a55578e8304a1f48f484ac8a1089c831a6b2556ea7738d426432e22065b",
+    "native_actual_review_sha256": "64581558bb31f1cba64f598a2b76b497e8ddd40dbb199fd319f086c1b8805f67",
+    "native_helper_report_sha256": "4c719917a351d27a3bb231a53b97bde7e53e5b4a533da61ccae1906ea9f1e50c",
+    "author_full_result_sha256": "b8a3cda779e784912bfbd98c042979c80d181fee035342e6bcff6e65c2a7d7c4",
+    "source_gate": {
+      "rust_tests": 377,
+      "tooling_tests": 16,
+      "failed": 0,
+      "ignored": 0,
+      "coverage": {
+        "lines": {
+          "count": 4877,
+          "covered": 4853
+        },
+        "regions": {
+          "count": 8295,
+          "covered": 8052
+        }
+      },
+      "changed_lines": {
+        "count": 96,
+        "covered": 96
+      },
+      "evidence_sha256": {
+        "tests.log": "4a5afe185155858bf18904f5c7950a22b4ab3b6cf425c36fa9d928c01c2fcf16",
+        "coverage.json": "515c3574e1ea9a54922c6f07fbea43c41f4e65c2f763561ff57d66bf6e661da9",
+        "coverage.lcov": "7071072b5ce020d857303bbce28eb176c30155d8114048ea4f13feb1b2c6661c",
+        "evidence.json": "410f4abdc022e938683d6e77bf636b9889bc890b8b40e004f9d1704e67082eb2",
+        "merged.profdata": "1bd5fdd439d8696bcf698b073e55e68fdff52d329593d64df1ba167c33686afc"
+      }
+    },
+    "native": "Both exact originals passed2/0 before edits. Author and independent full16 capture matched after exact generated input/resource path aliases:11 successful roots and5 native error observations. Eleven loaded library identities and all raw errors retained. Public helper16 matched the same observations/libraries; its renamed C++ source produced a distinct recorded ELF, not relabeled as the earlier probe.",
+    "controls": "Fresh private eight positive tests pass. Omitting imported world joints fails original J1 presence; bypassing placement fails native0!=-10; wrong canonical attachment fails world!=M1::link; omitting world-joint sensor validation wrongly succeeds. All source bytes restored and eight tests pass.",
+    "scope": "World merge flattens nested models, frames, joints and plugins through an injected resolver. Proxy pose/canonical attachment/placement and raw include/imported source provenance remain available. World joints use child-default pose and deferred non-frame sensor validation. Both fixed original observable predicate sets retained; full Includes/World/Root/SDF02, serialization, actor/light/URDF and physical runtime are not qualified.",
+    "projection": "Projected fixture retains every nonmessage field plus error-code vectors/nulls; full raw reports retain diagnostic messages. Direct native LoadSdfString Element.FilePath is empty and explicitly maps to Rust caller Source; imported canonical resource identities compare directly. No Element/OriginalVersion API or resolver model.config/search-path equivalence.",
+    "errors": "Imported direct links produce native first MERGE_INCLUDE_UNSUPPORTED33, represented by explicit ErrorCode::MergeIncludeUnsupported. Rust loading is atomic and returns the first diagnostic; native subsequent vectors and partial DOM are not reproduced.",
+    "review": "Source/runtime approval20727; final metadata/protected binding, mandatory normal hook, public push and exact hosted success remain required. No new public acceptance from source verification alone."
   }
 }

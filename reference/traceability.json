@@ -2121,7 +2121,41 @@
       },
       "baseline": "The exact unchanged native original passed 1/0 before edits and in fresh independent replay. Independent raw-source export, six private Rust tests and all 34 native observations passed. Dispatcher, root-relative and placement controls fail semantic assertions; exact restoration passes 6/0. The full gate passes 373 Rust and sixteen tooling tests with zero failures or ignored tests; strict coverage is 4809/4833 lines and 7966/8208 regions, with all 14 changed lines covered and no exclusions. The initial zero-offset placement sensitivity finding and reviewer setup failures remain retained.",
       "status": "ported_reviewed",
-      "review": "Independent Transport source/protected approval SHA256 ddc6db5f2221bf1f87ecb96751e65bae5e3911d4a381babff300ab3ca12d1e59 binds freeze 19224b3b572ba3da130905f9a64f8da783c0a37058475a38648a9bbe0d50040a on accepted parent a912e8ffd58d413f7dd5ce8ae23ce2678508b4b5, exact hosted run 40394672288 SUCCESS. Final metadata binding, mandatory normal hook, public push and exact hosted qualification remain required. The native original remains a mandatory reference."
+      "review": "Independent Transport source/protected approval SHA256 ddc6db5f2221bf1f87ecb96751e65bae5e3911d4a381babff300ab3ca12d1e59 binds the retained source. Final metadata binding SHA256 dc08f534612b53eeac279b53bfca7b52ff83dfab9b0a15c84fa3d95271dc0f9a, mandatory normal hook and public b94017ec5c87ee321ab2519f16bf3047f39914c5 passed exact hosted verify40419834584 SUCCESS. Native reference and all six predicates remain mandatory."
+    },
+    {
+      "target": "INTEGRATION_includes",
+      "case": "IncludesTest.WorldMergeInclude",
+      "source": "test/integration/includes.cc:593-635",
+      "rust_test": "tests/world_merge_originals.rs::original_includes_test_world_merge_include",
+      "assertions": "Successful load; world0 present; proxy present and exact Pose3d(100,0,0,0,0,0); exactly2 models and both present with pose relative_to proxy; F1 present and attached_to proxy; J1 present.",
+      "fixtures": {
+        "tests/fixtures/world_merge_include.sdf": "df2a2929e1052b11c8df91c56c7ff9ae515d50546211a5a0f0d07dd34f8479e6",
+        "tests/fixtures/model_for_world_merge_include.sdf": "f686cd6a352d952e55e64ff8eded8b6d311c4a33caaca5114d16c63a71fb836b"
+      },
+      "baseline": "Pinned native originals2/0 before edits and independent full16 observations645815. Author selected8/0; independent fresh8/0 and four effective production-only controls, exact restored8/0. Full canonical source gate377Rust/16tools0failed0ignored; strict4853/4877lines8052/8295regions,changed96/96, no exclusions. Raw JSON/LCOV/profiles/profdata/test logs retained.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/msgs_owner_astra source/runtime/protected approval SHA256 20727a55578e8304a1f48f484ac8a1089c831a6b2556ea7738d426432e22065b binds exact source freeze5f0fa53e/source6c74 on hosted-green parentb940, run40419834584. Final metadata binding, mandatory normal hook, public push and exact hosted qualification remain required. These ledger mappings do not accept the increment alone.",
+      "upstream_fixtures": {
+        "test/sdf/world_merge_include.sdf": "df2a2929e1052b11c8df91c56c7ff9ae515d50546211a5a0f0d07dd34f8479e6",
+        "test/integration/model/model_for_world_merge_include.sdf": "f686cd6a352d952e55e64ff8eded8b6d311c4a33caaca5114d16c63a71fb836b"
+      }
+    },
+    {
+      "target": "INTEGRATION_includes",
+      "case": "IncludesTest.WorldMergeIncludeInvalidElements",
+      "source": "test/integration/includes.cc:638-656",
+      "rust_test": "tests/world_merge_originals.rs::original_includes_test_world_merge_include_invalid_elements",
+      "assertions": "Unsuccessful load/errors nonempty and first category MERGE_INCLUDE_UNSUPPORTED, represented by explicit Rust ErrorCode::MergeIncludeUnsupported. Atomic Result has no subsequent native error vector or partial DOM.",
+      "fixtures": {
+        "tests/fixtures/root_include_test_model.sdf": "8fbe0949ca7fc95d194d22fb4c0ec7409b70e457aafdb646f27a3f9e802db155"
+      },
+      "baseline": "Pinned native originals2/0 before edits and independent full16 observations645815. Author selected8/0; independent fresh8/0 and four effective production-only controls, exact restored8/0. Full canonical source gate377Rust/16tools0failed0ignored; strict4853/4877lines8052/8295regions,changed96/96, no exclusions. Raw JSON/LCOV/profiles/profdata/test logs retained.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/msgs_owner_astra source/runtime/protected approval SHA256 20727a55578e8304a1f48f484ac8a1089c831a6b2556ea7738d426432e22065b binds exact source freeze5f0fa53e/source6c74 on hosted-green parentb940, run40419834584. Final metadata binding, mandatory normal hook, public push and exact hosted qualification remain required. These ledger mappings do not accept the increment alone.",
+      "upstream_fixtures": {
+        "test/integration/model/test_model/model.sdf": "8fbe0949ca7fc95d194d22fb4c0ec7409b70e457aafdb646f27a3f9e802db155"
+      }
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

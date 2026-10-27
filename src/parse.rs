@@ -67,6 +67,9 @@ pub(crate) fn load(
         ));
     }
     let graphs = Graphs::build(&worlds, &models, &parser.source(root))?;
+    for world in &worlds {
+        validate_joints(&world.joints, &world.name, &world.name, "world", &graphs)?;
+    }
     for model in models.iter().chain(worlds.iter().flat_map(|w| &w.models)) {
         validate_model(model, &graphs)?;
     }
@@ -474,6 +477,7 @@ impl Parser<'_> {
                 "model",
                 "include",
                 "frame",
+                "joint",
                 "gravity",
                 "plugin",
                 "physics",
@@ -501,20 +505,64 @@ impl Parser<'_> {
                 ..Physics::default()
             });
         }
-        let models = self.models(node, &name)?;
-        let mut frames = self.frames(node)?;
+        let mut models = Vec::new();
+        let mut frames = Vec::new();
+        let mut frame_elements = Vec::new();
+        let mut joints = Vec::new();
+        let mut plugins = Vec::new();
+        let mut merged_includes = Vec::new();
+        for member in elements(node) {
+            match member.tag_name().name() {
+                "model" | "include" => {
+                    let (model, merge) = if member.has_tag_name("model") {
+                        (self.model(member, &name, None)?, false)
+                    } else {
+                        self.include(member, &name)?
+                    };
+                    if merge {
+                        let (imported, proxy, provenance) =
+                            self.merge_model(model, &name, "world")?;
+                        // World has no direct links. Fail atomically with the
+                        // native first-error category, before building world graphs.
+                        if !imported.links.is_empty() {
+                            return Err(self.err(
+                                member,
+                                ErrorCode::MergeIncludeUnsupported,
+                                "world merge include cannot contain direct links",
+                            ));
+                        }
+                        frame_elements
+                            .extend(std::iter::repeat_n(member, 1 + imported.frames.len()));
+                        frames.push(proxy);
+                        frames.extend(imported.frames);
+                        joints.extend(imported.joints);
+                        models.extend(imported.models);
+                        plugins.extend(imported.plugins);
+                        merged_includes.push(provenance);
+                        merged_includes.extend(imported.merged_includes);
+                    } else {
+                        models.push(model);
+                    }
+                }
+                "frame" => {
+                    frames.push(self.frame(member)?);
+                    frame_elements.push(member);
+                }
+                "joint" => joints.push(self.joint(member, false)?),
+                "plugin" => plugins.push(self.plugin(member)?),
+                _ => {}
+            }
+        }
         if is_pre17(node) {
-            // World loads models before frames, regardless of declaration order.
+            // World reserves every model name before renaming legacy frames.
             let mut names = models.iter().map(|model| model.name.clone()).collect();
             let mut typed_names = BTreeSet::new();
-            for (frame, element) in frames
-                .iter_mut()
-                .zip(elements(node).filter(|n| n.has_tag_name("frame")))
-            {
+            for (frame, element) in frames.iter_mut().zip(frame_elements) {
                 frame.name =
                     self.legacy_name(element, "frame", &frame.name, &mut names, &mut typed_names)?;
             }
         }
+        self.validate_axis_mimics(&name, &joints)?;
         Ok(World {
             name,
             gravity,
@@ -522,8 +570,10 @@ impl Parser<'_> {
                 .map_or(Ok(Atmosphere::default()), |n| self.atmosphere(n))?,
             physics,
             models,
+            joints,
             frames,
-            plugins: self.plugins(node)?,
+            merged_includes,
+            plugins,
             source: self.source(node),
         })
     }
@@ -662,12 +712,6 @@ impl Parser<'_> {
             .and_then(|n| i32::try_from(n * sign).ok())
             .ok_or_else(|| self.err(value, ErrorCode::InvalidValue, "expected signed integer"))
     }
-    fn frames(&self, node: Node<'_, '_>) -> Result<Vec<Frame>, Diagnostic> {
-        elements(node)
-            .filter(|n| n.has_tag_name("frame"))
-            .map(|n| self.frame(n))
-            .collect()
-    }
     fn frame(&self, node: Node<'_, '_>) -> Result<Frame, Diagnostic> {
         self.allowed(node, &["pose"], &["name", "attached_to"])?;
         Ok(Frame {
@@ -703,26 +747,6 @@ impl Parser<'_> {
         }
         names.insert(name.clone());
         Ok(name)
-    }
-    fn models(&mut self, node: Node<'_, '_>, scope: &str) -> Result<Vec<Model>, Diagnostic> {
-        elements(node)
-            .filter(|n| n.has_tag_name("model") || n.has_tag_name("include"))
-            .map(|n| {
-                if n.has_tag_name("model") {
-                    self.model(n, scope, None)
-                } else {
-                    let (model, merge) = self.include(n, scope)?;
-                    if merge {
-                        return Err(self.err(
-                            n,
-                            ErrorCode::Unsupported,
-                            "world merge includes are not implemented",
-                        ));
-                    }
-                    Ok(model)
-                }
-            })
-            .collect()
     }
     fn model(
         &mut self,
@@ -814,7 +838,7 @@ impl Parser<'_> {
                     };
                     if merge {
                         let (imported, proxy, provenance) =
-                            self.merge_model(nested, &scoped_name)?;
+                            self.merge_model(nested, &scoped_name, "__model__")?;
                         if is_pre17(node) {
                             for (kind, name) in std::iter::once(("frame", &proxy.name))
                                 .chain(imported.links.iter().map(|v| ("link", &v.name)))
@@ -1036,6 +1060,7 @@ impl Parser<'_> {
         &self,
         mut model: Model,
         scope: &str,
+        parent_frame: &str,
     ) -> Result<(Model, Frame, MergedInclude), Diagnostic> {
         let pose = std::mem::take(&mut model.pose);
         let placement = std::mem::take(&mut model.placement_frame);
@@ -1060,7 +1085,7 @@ impl Parser<'_> {
             pose: Pose {
                 transform,
                 relative_to: if pose.relative_to.is_empty() {
-                    "__model__".into()
+                    parent_frame.into()
                 } else {
                     pose.relative_to
                 },
@@ -3067,8 +3092,26 @@ fn pose_attributes(node: Node<'_, '_>) -> &'static [&'static str] {
     }
 }
 fn validate_model(model: &Model, graphs: &Graphs) -> Result<(), Diagnostic> {
-    let scope = &model.scoped_name;
-    for joint in &model.joints {
+    validate_joints(
+        &model.joints,
+        &model.scoped_name,
+        &model.name,
+        "model",
+        graphs,
+    )?;
+    for nested in &model.models {
+        validate_model(nested, graphs)?;
+    }
+    Ok(())
+}
+fn validate_joints(
+    joints: &[Joint],
+    scope: &str,
+    name: &str,
+    container: &str,
+    graphs: &Graphs,
+) -> Result<(), Diagnostic> {
+    for joint in joints {
         let parent = graphs.joint_parent(&joint.parent, scope, &joint.source)?;
         let child = graphs.validate_reference(&joint.child, scope, &joint.source)?;
         let parent_body = graphs.attached_body(&parent)?;
@@ -3090,15 +3133,12 @@ fn validate_model(model: &Model, graphs: &Graphs) -> Result<(), Diagnostic> {
                     ErrorCode::JointAxisExpressedInInvalid,
                     &joint.source,
                     format!(
-                        "axis xyz expressed-in frame with name[{}] specified by joint with name[{}] not found in model with name[{}].",
-                        axis.expressed_in, joint.name, model.name
+                        "axis xyz expressed-in frame with name[{}] specified by joint with name[{}] not found in {container} with name[{}].",
+                        axis.expressed_in, joint.name, name
                     ),
                 ));
             }
         }
-    }
-    for nested in &model.models {
-        validate_model(nested, graphs)?;
     }
     Ok(())
 }

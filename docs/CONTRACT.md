@@ -22,7 +22,7 @@ Nested includes pass the imported parent's URI. Name, pose and static overrides
 apply at the include site. Maximum include and model depth is 64; no IO is implicit.
 Directory/model.config selection and URI/cache policy belong to the resolver.
 
-`World` has name, gravity in m/s², owned atmosphere metadata, models, frames, plugins and source.
+`World` has name, gravity in m/s², owned atmosphere metadata, models, frames, joints, plugins, merged-include provenance and source.
 `Model` has raw pose, static flag, canonical-link and placement-frame references, links, joints,
 nested models, frames, plugins, scoped name and source.
 `Link` has pose, inertial, collisions, visuals, sensors, plugins, scoped name and source.
@@ -181,7 +181,7 @@ models before applying the same frame renaming, independent of XML order.
 Same-kind raw duplicates reject, and reference strings are not rewritten.
 Modern shared names reject. Flattened names remain Unsupported; 1.3 and older
 conversions remain unavailable. Full schema/version-aware
-validation, serialization, rendering effects, mesh resource loading, world merge and legacy merge collisions, automatic inertia, URDF, other sensor families and most other
+validation, serialization, rendering effects, mesh resource loading, legacy merge collisions, automatic inertia, URDF, other sensor families and most other
 SDF features remain pending. Unknown schema features error; opaque plugin XML is the stated exception.
 XML names are lexical, matching upstream TinyXML: extension prefixes need not
 be declared. Plugin XML retains original bytes/ranges, including references,
@@ -444,7 +444,7 @@ mutation and serialization remain pending.
 Model-scope merge includes flatten imported members through the native generated
 proxy frame, retaining Model.merged_includes provenance snapshots. Imported scope
 validation occurs before flattening. See MERGE_INCLUDES.md for exact reference,
-boolean-attribute, deferred-error and unsupported-schema/legacy/world boundaries.
+boolean-attribute, deferred-error and unsupported-schema/legacy boundaries, plus the world-scope rules.
 No new IO or simulator dependency is introduced.
 
 Pure model.config selection is available through select_model_config, returning
@@ -916,7 +916,7 @@ not change frame scopes, pose references, resource lookup or simulator topics.
 Root-level model includes use the same injected resolver, imported model metadata
 and raw include provenance. Root merge includes remain unsupported after resource
 resolution and validation. Native OriginalVersion access through Rust Model,
-actor/light/URDF includes, world merge and serialization remain unqualified.
+actor/light/URDF includes and serialization remain unqualified.
 Native child SemanticPose lookup of __root__ or ::__root__ reports error 26 in the
 qualified standalone cases. Global child positions checked through the Rust query
 facade are compositions of independently observed model and child-local poses;
@@ -929,3 +929,19 @@ optional namespace presence/value observations. Construction namespace checks,
 placeholder/rename cases and nested lifetime checks are supplemental; whole
 Construction, extra Frame originals, mutable Element, C++ operator/storage or
 moved-from identity and physical runtime remain unqualified.
+
+## World merged includes and joint metadata
+
+`World.joints` owns global joint values; `World.merged_includes` owns ordered raw
+include snapshots, imported model Source and generated proxy names. These new
+public fields require updates to exhaustive `World` struct literals. A merged
+world include imports nested models, frames, joints and plugins; imported direct
+links return `ErrorCode::MergeIncludeUnsupported` (native first category 33).
+
+The proxy preserves placement-adjusted pose and canonical-body attachment.
+Imported scopes validate before flattening; world-joint endpoints, axes and poses
+resolve in world scope, with pose defaulting to the child. World-joint sensor
+poses remain deferred to `validate_non_frame_poses`. Loading returns the first
+diagnostic atomically; native later error vectors and partial DOM are not exposed.
+See MERGE_INCLUDES.md for provenance and remaining boundaries. No physics
+constraints, resource search policy or downstream producer pins change.

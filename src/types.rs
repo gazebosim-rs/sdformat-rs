@@ -26,6 +26,8 @@ pub enum ErrorCode {
     Cycle,
     Resource,
     Unsupported,
+    /// A merge include would introduce an element forbidden by its parent.
+    MergeIncludeUnsupported,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -135,16 +137,27 @@ impl Sdf {
                     sdf.resolve_pose(pose, &model.scoped_name, &link.scoped_name, "::")?;
                 }
             }
-            for joint in &model.joints {
-                let frame = format!("{}::{}", model.scoped_name, joint.name);
-                for sensor in &joint.sensors {
-                    sdf.resolve_pose(&sensor.pose, &model.scoped_name, &frame, "::")?;
-                }
-            }
+            validate_joint_sensors(sdf, &model.joints, &model.scoped_name)?;
             for nested in &model.models {
                 validate(sdf, nested)?;
             }
             Ok(())
+        }
+        fn validate_joint_sensors(
+            sdf: &Sdf,
+            joints: &[Joint],
+            scope: &str,
+        ) -> Result<(), Diagnostic> {
+            for joint in joints {
+                let frame = format!("{scope}::{}", joint.name);
+                for sensor in &joint.sensors {
+                    sdf.resolve_pose(&sensor.pose, scope, &frame, "::")?;
+                }
+            }
+            Ok(())
+        }
+        for world in &self.worlds {
+            validate_joint_sensors(self, &world.joints, &world.name)?;
         }
         for model in self
             .models
@@ -210,7 +223,11 @@ pub struct World {
     /// Physics profiles in declaration order, or the implicit native default.
     pub physics: Vec<Physics>,
     pub models: Vec<Model>,
+    /// Joints connecting bodies in this world, including flattened includes.
+    pub joints: Vec<Joint>,
     pub frames: Vec<Frame>,
+    /// Includes flattened into this world; imported source identity is retained.
+    pub merged_includes: Vec<MergedInclude>,
     pub plugins: Vec<Plugin>,
     pub source: Source,
 }
@@ -1559,7 +1576,7 @@ impl Sensor {
     }
 }
 
-/// Provenance of a model-scope merge after its model node has been flattened.
+/// Provenance of a model or world merge after its model node has been flattened.
 #[derive(Debug, Clone)]
 pub struct MergedInclude {
     pub include: Box<Include>,

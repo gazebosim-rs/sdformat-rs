@@ -1,4 +1,4 @@
-# Model-scope merged includes
+# Merged includes
 
 A model include with effective merge=true flattens its links, joints, frames,
 nested models and plugins into the parent. The imported model node disappears.
@@ -32,7 +32,7 @@ case-insensitive true words and validated numeric one merge; surrounding whitesp
 on true words produces ordinary nesting. Raw source XML preserves that distinction.
 Ordinary includes, including explicit merge=false, retain the existing contract.
 
-World merge remains Unsupported. Unknown/custom model extensions and enable_wind
+World merge supports the model-only member subset described below. Unknown/custom model extensions and enable_wind
 retain the parser's explicit Unsupported policy. Legacy parent/import name
 collisions also remain Unsupported until native declaration-order renaming is
 qualified. The native corpus records these five accepted-input gaps separately:
@@ -46,3 +46,28 @@ MergeInclude and MergeIncludePlacementFrame originals run successfully, but thei
 full unmodified resource uses unsupported extension fields. No new original case
 is retired by this bounded slice. Full merge/schema/export qualification remains
 SDF-02 work; no simulation or performance acceptance is claimed.
+
+## World scope
+
+A world include with effective `merge=true` flattens the resource model's nested
+models, frames, joints and plugins. It creates the same generated proxy frame,
+with placement correction and attachment to the imported canonical link. The
+proxy's empty pose reference uses the world frame. `World.merged_includes` keeps
+the ordered original include XML/source, imported model Source and proxy name.
+
+A direct imported link cannot become a world child and returns
+`MergeIncludeUnsupported`, corresponding to native first error 33. Joint endpoints
+and axes resolve in world scope; a joint's default pose frame is its child.
+Imported joint sensor poses retain deferred validation. This parses semantic
+metadata and does not instantiate physics constraints.
+
+Both exact WorldMergeInclude originals preserve their fixed predicates. Sixteen
+supplemental observations cover proxy/canonical attachment, placement, nonzero and
+rotated poses, global joints, plugins, provenance and native errors. Projected
+fixtures retain all nonmessage fields and error-code vectors/nulls; full raw
+reports retain messages. Rust returns the first diagnostic atomically rather
+than exposing native later error vectors or partial DOM. Native direct
+LoadSdfString Element.FilePath is empty, explicitly mapped to owned caller Source;
+imported canonical identities compare directly. Mutable Element, OriginalVersion,
+serialization, resolver/model.config/search-path equivalence and full SDF-02
+qualification remain outside this increment.

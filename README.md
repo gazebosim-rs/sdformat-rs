@@ -130,3 +130,9 @@ an injected resource resolver. Namespace, name, static, pose, placement and plug
 overrides retain imported source and raw include XML. Literal root-model pose
 references remain empty-only. Mixed world/model roots remain an explicit Rust
 subset rejection, even though the native loader accepts that combination.
+
+World-scope merged includes can flatten an imported model's nested models, frames,
+joints and plugins. A generated proxy preserves placement and canonical-body
+attachment, while `World.merged_includes` retains the original include/source.
+Imported direct links return `MergeIncludeUnsupported`; world-joint sensor poses
+remain deferred until `validate_non_frame_poses`. See [MERGE_INCLUDES.md](docs/MERGE_INCLUDES.md).

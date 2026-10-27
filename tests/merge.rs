@@ -166,7 +166,7 @@ fn merged_include_provenance_is_owned_and_preserves_nested_sources() {
 }
 
 #[test]
-fn merged_nonframe_errors_stay_deferred_and_world_scope_stays_unsupported() {
+fn merged_nonframe_errors_stay_deferred_with_world_scope_expansion() {
     let cases: serde_json::Value = serde_json::from_str(include_str!("merge.json")).unwrap();
     let row = cases
         .as_array()
@@ -197,7 +197,7 @@ fn merged_nonframe_errors_stay_deferred_and_world_scope_stays_unsupported() {
         .iter()
         .find(|row| row["id"] == "nested_only")
         .unwrap();
-    let error=load_str("<sdf version='1.12'><world name='w'><include merge='true'><uri>model://child</uri></include></world></sdf>","world.sdf",&Resolver(row)).unwrap_err();
-    assert_eq!(error.code, ErrorCode::Unsupported);
-    assert!(error.message.contains("world merge"));
+    let world=load_str("<sdf version='1.12'><world name='w'><include merge='true'><uri>model://child</uri></include></world></sdf>","world.sdf",&Resolver(row)).unwrap();
+    assert_eq!(world.worlds[0].models.len(), 1);
+    assert_eq!(world.worlds[0].merged_includes.len(), 1);
 }

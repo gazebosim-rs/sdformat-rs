@@ -2843,3 +2843,30 @@ Final metadata binding, mandatory normal hook, public push and exact hosted
 qualification remain required. The added one-case mapping is a candidate; broad
 Root/Includes, actor/light/URDF, world merge, import/export, physical runtime and
 full SDF-02 completion remain open. Native reference tests remain mandatory.
+
+
+## World model-only merge candidate
+
+On accepted b94017ec5c87ee321ab2519f16bf3047f39914c5, the model-only world merge
+source is independently approved by Msgs receipt SHA256
+20727a55578e8304a1f48f484ac8a1089c831a6b2556ea7738d426432e22065b.
+The exact two native originals passed before edits; independent sixteen-case
+source/actual review 645815 and private eight positive/restored tests plus four
+effective production controls preserve proxy/placement/canonical attachment,
+global joints, plugins and provenance. All original predicates remain intact.
+
+The canonical source gate passes 377 Rust tests and sixteen tooling tests with
+zero failures or ignored tests, formatting, Clippy and docs. Strict unfiltered
+coverage is 4853/4877 lines and 8052/8295 regions; all 96 changed executable lines
+are covered. Raw profiles, JSON, LCOV, profdata and test logs remain retained.
+Two reviewed mappings are appended (166 complete, 25 partial in this candidate);
+final metadata binding, mandatory normal hook, public push and exact hosted
+success remain required before public acceptance.
+
+Imported direct links return explicit MergeIncludeUnsupported/native first 33.
+Rust's atomic first diagnostic does not reproduce native later errors or partial
+DOM. Direct native Element.FilePath emptiness is explicitly mapped to caller
+Source; imported canonical identities remain direct. Projection retains all
+nonmessage fields plus error codes/nulls, while full raw retains messages.
+Element/OriginalVersion, resource search/model.config, serialization, full
+Includes/World/Root/SDF02 and physical runtime remain unqualified.

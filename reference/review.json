@@ -2,16 +2,16 @@
   "decision": "approved",
   "author": "sdformat_owner",
   "reviewer": "integration_reviewer",
-  "source_digest": "97c8007161f329096c5c3652901ed8a230cf36c0f7e036b27dad0b89b79e08c2",
-  "protected_digest": "c130e6878abac59c381b7461b34e39545496d11daa1aa370cfb33c22e9ecdffb",
-  "scope": "Bounded Altimeter configuration and matching standalone Sensor XML; two exact original mappings with approved constructor-only input-origin interpretation.",
+  "source_digest": "61c6ee3f324f1597b1f6fab40f21266df1e2811b7aeb712b0b2d087e46c969d0",
+  "protected_digest": "836a641fd2a921224686b08315d29710956e4d7893404df5b80702b89bd01325",
+  "scope": "Bounded AirPressure metadata and matching standalone Sensor XML, preserving exact two original assertion mappings and constructor-only input origin.",
   "checks": [
-    "Fresh independent source and target passed 26 relevant Altimeter, force/torque, IMU and Joint Rust checks.",
-    "Fresh native helper reproduced all 16 outcomes and exact generated fixture; 14 actual Rust XML exchanges and both unchanged originals passed with empty original stderr.",
-    "Compared exact original assertions, all seven Noise values and signed-zero bits, explicit payload errors and unchanged shared writers. Final reviewed metadata remains accurate."
+    "Fresh independent source/target passed 31 relevant AirPressure, Altimeter, force/torque, IMU and Joint Rust tests.",
+    "Fresh helper replay passed all 17 native outcomes, exact generated fixture, 15 actual Rust XML exchanges and both unchanged originals with empty stderr, including final direct-reference helper cleanup.",
+    "Compared original five positive finite noise scalar fields, altitude/edit four-ULP bounds, actual quiet behavior and approved constructor-only SourceNone scope. Final reviewed metadata is accurate."
   ],
   "remaining": [
-    "Single normal strict staged hook and exact hosted CI.",
-    "No measurement, graph, generic Element identity, advanced sensor or Joint-family admission claim."
+    "One normal strict staged hook and exact hosted CI.",
+    "No atmosphere/measurement, loaded Element identity, generic ownership or Joint-family admission claim."
   ]
 }

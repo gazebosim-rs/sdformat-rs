@@ -1,0 +1,37 @@
+{
+  "upstream_sha": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+  "native_sources": {
+    "include/sdf/AirPressure.hh": "b4865eb392de54e435656ae1f57c8358e0a159ccdbac2393beea07b3290c00af",
+    "include/sdf/Sensor.hh": "67b9a581845924841512c6b09c64a84196a0b392ba82b5637a6ef7b3db6cf29a",
+    "src/AirPressure.cc": "66d5dd715054333fd5d9e8d32129164e9e2c83d0d6840653c9a86087e1ff6028",
+    "src/Noise.cc": "e0d6a93b1374128ccb73fcb09d814bd92518dc051b42a0e61bee329d31c2536b",
+    "src/Sensor.cc": "5fbab175624338e03264f1655a15863a5a29180573cbc898591429fa8f3856ba",
+    "src/Param.cc": "487407a4a2301617b262ccb782312fe9c1d3d099e715aa42f3bb3cb713b29dce",
+    "sdf/1.12/noise.sdf": "0be9a5a383d8227918461536a89f32f598f6009aef1403f13caa1221e8999a27",
+    "sdf/1.12/sensor.sdf": "2f2dc839a5121b3b33fe985c978e530565b093d310ebd03fc781a6cbce0b3efc",
+    "src/AirPressure_TEST.cc": "e1d87af0e63b1a81ace7d8eef9239db495ea78020d72e5fddb27710b385cce1b",
+    "sdf/1.12/air_pressure.sdf": "484def66978ec340d603052d752c2ef7b0df0d0820a0cb7ef3ed6a0dba115d54"
+  },
+  "libraries": {
+    "libsdformat.so.17.0.0~pre2": "bcc864bcee56b49c13081e29722051e26c036260e3dd037e7736aa2b8620358f",
+    "libstdc++.so.6.0.33": "1fd75fe70354a416d75aef22bcae68c47bd25d20e2d0568c30b1a9838cf62f11",
+    "libgcc_s.so.1": "d93224d2b0dab4247598be683adca02f5cf00586f99c187579cd7e92058fb7cb",
+    "libc.so.6": "3a15d66867d83762c7f2f1e37359cb8f6c5743edb369c65285cb0b1c4f7498bf",
+    "libgz-math.so.10.0.0~pre2": "288c6f52fac45359f5de67d97e0069b7f37420f5f78888e61406b8f565656c4f",
+    "libgz-utils.so.5.0.0~pre2": "2e91419fd59b6995ee8fada80e106dac5644d3d44cd2e8bc6655547433e51ae6",
+    "libtinyxml2.so.10.0.0": "f9e01d87fb78af744a426af8c992e94abf8cd3810a256e117bcc94cd84d2be6d",
+    "liburdfdom_model.so.4.0": "b36c6a9cedb0c31ec2adb3075a13dd623edc41cc9b6ea4add0cf5b572ee37d8a",
+    "libm.so.6": "fce00b6f25f459cf4ae0b7fae4257909a1a8a86f9149e7c029a5d617baf1ccd0",
+    "libconsole_bridge.so.1.0": "bb9ced68ce1209c48b55ddcebe913542197dc745c71febd65205ff0a4d833651"
+  },
+  "fixture_sha256": "9c53c1533ed60488c13bb8284745b953d5236fd5bf8b88941b3f9bc714375692",
+  "generator": "tests/air_pressure_xml_reference.cc --emit-original",
+  "verify_command": "python3 tools/air_pressure_xml_reference.py /path/to/pinned/sdformat",
+  "regenerate_command": "Compile tests/air_pressure_xml_reference.cc against the pinned SDK, then use --emit-original",
+  "scope": "Complete pressure Noise and reference altitude plus matching standalone Sensor envelope. No atmospheric calculation or Joint sensor admission; exact original mappings require independent review.",
+  "math_upstream_sha": "1316ed334f4d5bda7be59aae07cd6e8ff31cfe13",
+  "math_sources": {
+    "include/gz/math/Vector3.hh": "b4e8d01584139efba180bf530c95e18101aee4fb070aa93b8ddfe7cc38282a38",
+    "include/gz/math/Helpers.hh": "24aeb75ca8b1ee502c654f045901d39befcbd84dfce4bd7fd93c8e2ca1e439f5"
+  }
+}

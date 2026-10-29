@@ -2392,6 +2392,34 @@
       "baseline": "Both unchanged native originals pass with empty stderr. Sixteen actual native outcomes, exact generated fixture and fourteen actual Rust-to-native XML exchanges pass. Full author 446 Rust tests, format and Clippy pass. Shared helpers pass all 32 force/torque and 24 IMU native cases and all six/four prior exports remain byte-identical. Provenance reference/altimeter-xml.json.",
       "status": "ported_reviewed",
       "review": "Independent /root/integration_reviewer approved source and complete mappings for these exact originals. Fresh separate source/target passed 26 relevant Rust checks, all 16 native outcomes, byte-identical fixture generation, fourteen actual Rust-to-native exchanges and both unchanged native originals with empty stderr. All seven Noise fields, signed-zero bits, unchanged node policy and coordinator-approved constructed-source interpretation checked; no loaded identity or runtime claim. Normal strict staged hook and exact hosted CI remain required before acceptance."
+    },
+    {
+      "target": "UNIT_AirPressure_TEST",
+      "case": "DOMAirPressure.ToElement",
+      "source": "src/AirPressure_TEST.cc:98-134",
+      "rust_test": "tests/air_pressure_xml_original.rs::original_air_pressure_to_element",
+      "assertions": "All five configured Noise scalar EXPECT_DOUBLE_EQ assertions, altitude 10.2 and edited 111 retain positive finite <=4 ULP bounds. Successful nonempty XML plus typed reload translates returned Element presence; successful Results translate empty emit/load diagnostics. Coordinator-approved constructor-only source=None observation after immutable emission maps no fabricated loaded input declaration at 114/168, not loaded identity or mutation.",
+      "fixtures": {
+        "tests/fixtures/air_pressure_to_element_native.xml": "9c53c1533ed60488c13bb8284745b953d5236fd5bf8b88941b3f9bc714375692"
+      },
+      "upstream_fixtures": {},
+      "baseline": "Seventeen actual native outcomes, fifteen actual Rust-to-native exchanges, exact generated fixture and both unchanged native originals pass with empty original stderr. Author 451 Rust tests, formatting and Clippy pass. Shared helpers replay all 32 force/torque, 24 IMU and 16 Altimeter native cases; all six/four/fourteen prior XML exports remain byte-identical. Provenance reference/air-pressure-xml.json.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/integration_reviewer approved source and exact complete original mappings after 31 relevant Rust checks in fresh source/target, all seventeen native cases, byte-identical fixture, fifteen actual Rust-to-native exchanges and both unchanged originals with empty stderr. Final direct-reference helper cleanup independently replayed. Compared five native Noise EXPECT_DOUBLE_EQ fields and altitude/edit four-ULP assertions, actual quiet checks and scoped constructed-source interpretation. No loaded identity/runtime/Joint expansion. Normal strict staged and exact hosted gates remain required before acceptance."
+    },
+    {
+      "target": "UNIT_AirPressure_TEST",
+      "case": "DOMAirPressure.ToElementErrorOutput",
+      "source": "src/AirPressure_TEST.cc:137-195",
+      "rust_test": "tests/air_pressure_xml_original.rs::original_air_pressure_to_element_error_output",
+      "assertions": "All five configured Noise scalar EXPECT_DOUBLE_EQ assertions, altitude 10.2 and edited 111 retain positive finite <=4 ULP bounds. Successful nonempty XML plus typed reload translates returned Element presence; successful Results translate empty emit/load diagnostics. Coordinator-approved constructor-only source=None observation after immutable emission maps no fabricated loaded input declaration at 114/168, not loaded identity or mutation. Actual ErrorOutput child requires empty stderr and only successful libtest stdout protocol.",
+      "fixtures": {
+        "tests/fixtures/air_pressure_to_element_native.xml": "9c53c1533ed60488c13bb8284745b953d5236fd5bf8b88941b3f9bc714375692"
+      },
+      "upstream_fixtures": {},
+      "baseline": "Seventeen actual native outcomes, fifteen actual Rust-to-native exchanges, exact generated fixture and both unchanged native originals pass with empty original stderr. Author 451 Rust tests, formatting and Clippy pass. Shared helpers replay all 32 force/torque, 24 IMU and 16 Altimeter native cases; all six/four/fourteen prior XML exports remain byte-identical. Provenance reference/air-pressure-xml.json.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/integration_reviewer approved source and exact complete original mappings after 31 relevant Rust checks in fresh source/target, all seventeen native cases, byte-identical fixture, fifteen actual Rust-to-native exchanges and both unchanged originals with empty stderr. Final direct-reference helper cleanup independently replayed. Compared five native Noise EXPECT_DOUBLE_EQ fields and altitude/edit four-ULP assertions, actual quiet checks and scoped constructed-source interpretation. No loaded identity/runtime/Joint expansion. Normal strict staged and exact hosted gates remain required before acceptance."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

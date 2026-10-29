@@ -1,0 +1,14 @@
+<air_pressure>
+  <reference_altitude>10.199999999999999</reference_altitude>
+  <pressure>
+    <noise type='gaussian'>
+      <mean>1.2</mean>
+      <stddev>2.2999999999999998</stddev>
+      <bias_mean>4.5</bias_mean>
+      <bias_stddev>6.7000000000000002</bias_stddev>
+      <dynamic_bias_stddev>0</dynamic_bias_stddev>
+      <dynamic_bias_correlation_time>0</dynamic_bias_correlation_time>
+      <precision>8.9000000000000004</precision>
+    </noise>
+  </pressure>
+</air_pressure>

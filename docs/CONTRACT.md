@@ -1016,3 +1016,11 @@ Altimeter::to_xml/load_altimeter_str preserve both complete Noise records;
 matching standalone Sensor output retains current envelope metadata. Existing
 finite-noise and rate policies apply. Joint XML stays force_torque-only; no
 measurement or runtime admission is implied. See [ALTIMETER_XML.md](ALTIMETER_XML.md).
+
+
+## AirPressure XML
+
+AirPressure::to_xml/load_air_pressure_str preserve complete pressure Noise and
+reference-altitude metadata; matching standalone Sensor output uses existing
+envelope and numeric policies. Joint XML remains force_torque-only; no atmosphere
+or measurement is computed. See [AIR_PRESSURE_XML.md](AIR_PRESSURE_XML.md).

@@ -1,0 +1,321 @@
+[
+  {
+    "id": "original",
+    "mode": "config",
+    "xml": "<air_pressure>\n  <reference_altitude>10.199999999999999</reference_altitude>\n  <pressure>\n    <noise type='gaussian'>\n      <mean>1.2</mean>\n      <stddev>2.2999999999999998</stddev>\n      <bias_mean>4.5</bias_mean>\n      <bias_stddev>6.7000000000000002</bias_stddev>\n      <dynamic_bias_stddev>0</dynamic_bias_stddev>\n      <dynamic_bias_correlation_time>0</dynamic_bias_correlation_time>\n      <precision>8.9000000000000004</precision>\n    </noise>\n  </pressure>\n</air_pressure>\n",
+    "tokens": [
+      "OK",
+      "1",
+      "4608083138725491507",
+      "4612361558371493478",
+      "4616752568008179712",
+      "4619229547803233485",
+      "0",
+      "0",
+      "4621199872640208077",
+      "4621931707579655782"
+    ]
+  },
+  {
+    "id": "omitted_fields",
+    "mode": "config",
+    "xml": "<air_pressure/>",
+    "tokens": [
+      "OK",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "empty_pressure",
+    "mode": "config",
+    "xml": "<air_pressure><pressure></pressure></air_pressure>",
+    "tokens": [
+      "OK",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "explicit_defaults",
+    "mode": "config",
+    "xml": "<air_pressure><pressure><noise type=\"none\"></noise></pressure><reference_altitude>0</reference_altitude></air_pressure>",
+    "tokens": [
+      "OK",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "none",
+    "mode": "config",
+    "xml": "<air_pressure><pressure><noise type=\"none\"><mean>1.2</mean><stddev>2.3</stddev><bias_mean>-4.5</bias_mean><bias_stddev>6.7</bias_stddev><dynamic_bias_stddev>0.25</dynamic_bias_stddev><dynamic_bias_correlation_time>-8.75</dynamic_bias_correlation_time><precision>8.9</precision></noise></pressure><reference_altitude>12.3</reference_altitude></air_pressure>",
+    "tokens": [
+      "OK",
+      "0",
+      "4608083138725491507",
+      "4612361558371493478",
+      "13840124604862955520",
+      "4619229547803233485",
+      "4598175219545276416",
+      "13844487467001970688",
+      "4621199872640208077",
+      "4623113902481840538"
+    ]
+  },
+  {
+    "id": "gaussian",
+    "mode": "config",
+    "xml": "<air_pressure><pressure><noise type=\"gaussian\"><mean>1.2</mean><stddev>2.3</stddev><bias_mean>-4.5</bias_mean><bias_stddev>6.7</bias_stddev><dynamic_bias_stddev>0.25</dynamic_bias_stddev><dynamic_bias_correlation_time>-8.75</dynamic_bias_correlation_time><precision>8.9</precision></noise></pressure><reference_altitude>12.3</reference_altitude></air_pressure>",
+    "tokens": [
+      "OK",
+      "1",
+      "4608083138725491507",
+      "4612361558371493478",
+      "13840124604862955520",
+      "4619229547803233485",
+      "4598175219545276416",
+      "13844487467001970688",
+      "4621199872640208077",
+      "4623113902481840538"
+    ]
+  },
+  {
+    "id": "gaussian_quantized",
+    "mode": "config",
+    "xml": "<air_pressure><pressure><noise type=\"gaussian_quantized\"><mean>1.2</mean><stddev>2.3</stddev><bias_mean>-4.5</bias_mean><bias_stddev>6.7</bias_stddev><dynamic_bias_stddev>0.25</dynamic_bias_stddev><dynamic_bias_correlation_time>-8.75</dynamic_bias_correlation_time><precision>8.9</precision></noise></pressure><reference_altitude>12.3</reference_altitude></air_pressure>",
+    "tokens": [
+      "OK",
+      "2",
+      "4608083138725491507",
+      "4612361558371493478",
+      "13840124604862955520",
+      "4619229547803233485",
+      "4598175219545276416",
+      "13844487467001970688",
+      "4621199872640208077",
+      "4623113902481840538"
+    ]
+  },
+  {
+    "id": "signed_zeros",
+    "mode": "config",
+    "xml": "<air_pressure><pressure><noise type=\"gaussian\"><mean>-0</mean><stddev>-0</stddev><bias_mean>-0</bias_mean><bias_stddev>-0</bias_stddev><dynamic_bias_stddev>-0</dynamic_bias_stddev><dynamic_bias_correlation_time>-0</dynamic_bias_correlation_time><precision>-0</precision></noise></pressure><reference_altitude>-0</reference_altitude></air_pressure>",
+    "tokens": [
+      "OK",
+      "1",
+      "9223372036854775808",
+      "9223372036854775808",
+      "9223372036854775808",
+      "9223372036854775808",
+      "9223372036854775808",
+      "9223372036854775808",
+      "9223372036854775808",
+      "9223372036854775808"
+    ]
+  },
+  {
+    "id": "negative_altitude",
+    "mode": "config",
+    "xml": "<air_pressure><pressure><noise type=\"gaussian\"><mean>-1.5</mean><precision>-0.25</precision></noise></pressure><reference_altitude>-500.25</reference_altitude></air_pressure>",
+    "tokens": [
+      "OK",
+      "1",
+      "13832806255468478464",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "13821547256400052224",
+      "13870880144115105792"
+    ]
+  },
+  {
+    "id": "normal_extremes",
+    "mode": "config",
+    "xml": "<air_pressure><pressure><noise type=\"gaussian\"><mean>1e300</mean><stddev>1e-200</stddev><bias_mean>-1e300</bias_mean><precision>1e-200</precision></noise></pressure><reference_altitude>1e300</reference_altitude></air_pressure>",
+    "tokens": [
+      "OK",
+      "1",
+      "9094988921128908188",
+      "1614679632300144556",
+      "18318360957983683996",
+      "0",
+      "0",
+      "0",
+      "1614679632300144556",
+      "9094988921128908188"
+    ]
+  },
+  {
+    "id": "noise_only",
+    "mode": "config",
+    "xml": "<air_pressure><pressure><noise type=\"gaussian\"><mean>3.5</mean></noise></pressure></air_pressure>",
+    "tokens": [
+      "OK",
+      "1",
+      "4615063718147915776",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "altitude_only",
+    "mode": "config",
+    "xml": "<air_pressure><reference_altitude>-1e-200</reference_altitude></air_pressure>",
+    "tokens": [
+      "OK",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "10838051669154920364"
+    ]
+  },
+  {
+    "id": "bad_noise",
+    "mode": "config",
+    "xml": "<air_pressure><pressure><noise type=\"gaussian\"><mean>oops</mean></noise></pressure></air_pressure>",
+    "tokens": [
+      "REJECT"
+    ]
+  },
+  {
+    "id": "bad_altitude",
+    "mode": "config",
+    "xml": "<air_pressure><pressure></pressure><reference_altitude>bad</reference_altitude></air_pressure>",
+    "tokens": [
+      "REJECT"
+    ]
+  },
+  {
+    "id": "sensor_defaults",
+    "mode": "sensor",
+    "xml": "<sensor name='air' type='air_pressure'/>",
+    "tokens": [
+      "OK",
+      "616972",
+      "6169725f7072657373757265",
+      "-",
+      "-",
+      "-",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "sensor_flags",
+    "mode": "sensor",
+    "xml": "<sensor name='air' type='air_pressure'><update_rate>-5</update_rate><always_on>true</always_on><visualize>true</visualize><enable_metrics>true</enable_metrics><air_pressure><pressure><noise type=\"gaussian\"><mean>1</mean></noise></pressure><reference_altitude>9</reference_altitude></air_pressure></sensor>",
+    "tokens": [
+      "OK",
+      "616972",
+      "6169725f7072657373757265",
+      "-",
+      "-",
+      "-",
+      "13840687554816376832",
+      "1",
+      "1",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408",
+      "1",
+      "4607182418800017408",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4621256167635550208"
+    ]
+  },
+  {
+    "id": "sensor_escaped",
+    "mode": "sensor",
+    "xml": "<sensor name='a&amp;b' type='air_pressure'><frame_id>f&lt;x</frame_id><topic>/a&amp;b</topic><pose relative_to='f&amp;b' rotation_format='quat_xyzw'>1 -2 3 0 0 0 -1</pose><update_rate>125</update_rate><air_pressure><pressure><noise type=\"gaussian_quantized\"><precision>0.1</precision></noise></pressure><reference_altitude>-12.5</reference_altitude></air_pressure></sensor>",
+    "tokens": [
+      "OK",
+      "612662",
+      "6169725f7072657373757265",
+      "663c78",
+      "2f612662",
+      "662662",
+      "4638496509959077888",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408",
+      "13835058055282163712",
+      "4613937818241073152",
+      "0",
+      "0",
+      "0",
+      "13830554455654793216",
+      "2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4591870180066957722",
+      "13846598529327300608"
+    ]
+  }
+]

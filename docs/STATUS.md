@@ -3082,3 +3082,20 @@ qualification remain pending; constructor input absence is translated only for
 those two cases. Candidate ledger is 178 complete /28 partial. All six prior FT
 and four prior IMU XML exports remain byte-identical after successful native helper replays. Accepted
 ledger remains 176 complete /28 partial. See ALTIMETER_XML.md for scope.
+
+
+## Candidate AirPressure XML
+
+Typed pressure-noise/reference-altitude XML and matching standalone Sensor output
+reuse existing node parsing and Noise/XML helpers. Author 451 Rust tests,
+formatting and Clippy pass. Native helper replays seventeen actual outcomes,
+fifteen actual exports, exact fixture and both unchanged originals with empty
+stderr. Shared force/torque, IMU and Altimeter helper replays pass; all 24 prior
+XML exports remain byte-identical.
+
+Independent review approved both exact original mappings after 31 relevant Rust
+checks in fresh source/target, all seventeen native outcomes, fifteen exports,
+exact fixture and both unchanged originals. Constructor input absence is
+translated only for those two cases. Strict staged and exact hosted qualification
+remain pending: candidate 180 complete /28 partial, accepted 178/28.
+See AIR_PRESSURE_XML.md for scope.

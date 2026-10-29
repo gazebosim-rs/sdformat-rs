@@ -29,6 +29,7 @@ pub(crate) fn validate(sensor: &Sensor) -> Result<(), Diagnostic> {
         ("force_torque", SensorConfig::ForceTorque(_))
             | ("imu", SensorConfig::Imu(_))
             | ("altimeter", SensorConfig::Altimeter(_))
+            | ("air_pressure", SensorConfig::AirPressure(_))
     ) || !sensor.plugins.is_empty()
         || !sensor.extensions.is_empty()
         || sensor.gz_frame_id.is_some()
@@ -79,6 +80,7 @@ pub(crate) fn validate(sensor: &Sensor) -> Result<(), Diagnostic> {
         SensorConfig::ForceTorque(config) => crate::force_torque_xml::validate_config(config),
         SensorConfig::Imu(config) => crate::imu_xml::validate_config(config),
         SensorConfig::Altimeter(config) => crate::altimeter_xml::validate_config(config),
+        SensorConfig::AirPressure(config) => crate::air_pressure_xml::validate_config(config),
         _ => Err(error(
             ErrorCode::Unsupported,
             "unsupported sensor configuration",
@@ -86,7 +88,7 @@ pub(crate) fn validate(sensor: &Sensor) -> Result<(), Diagnostic> {
     }
 }
 impl Sensor {
-    /// Emit a supported IMU, force/torque or altimeter sensor with current values.
+    /// Emit a supported typed sensor with its current envelope and configuration.
     /// Other families, plugins and opaque extensions return Unsupported.
     pub fn to_xml(&self) -> Result<String, Diagnostic> {
         validate(self)?;
@@ -94,6 +96,7 @@ impl Sensor {
             SensorConfig::ForceTorque(value) => value.to_xml()?,
             SensorConfig::Imu(value) => value.to_xml()?,
             SensorConfig::Altimeter(value) => value.to_xml()?,
+            SensorConfig::AirPressure(value) => value.to_xml()?,
             _ => {
                 return Err(error(
                     ErrorCode::Unsupported,

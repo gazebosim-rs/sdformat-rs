@@ -3134,3 +3134,18 @@ rejection and canonical navsat with legacy payload are covered. Constructor inpu
 absence is translated only for this exact case. Normal strict staged and exact
 hosted gates remain pending: candidate 182 complete /28 partial, accepted 181/28.
 See NAVSAT_XML.md for scope.
+
+
+## Candidate AirSpeed XML
+
+Pressure Noise XML and matching standalone AirSpeed Sensor output reuse existing
+node parsing and Noise/XML helpers. Author 463 Rust tests, formatting and Clippy
+pass. Fourteen native outcomes, twelve actual exports, exact fixture and unchanged
+original pass; all six prior family helper replays and 71 prior byte comparisons
+pass in author checks.
+
+Independent review approved the exact original mapping after 43 relevant Rust
+checks, fourteen native outcomes, twelve exchanges, exact fixture and original.
+Default/configured/edited Noise, no-Errors ABI and scoped constructor input absence
+are retained. Normal strict staged and exact hosted gates remain pending:
+candidate 183 complete /28 partial, accepted 182/28. See AIR_SPEED_XML.md for scope.

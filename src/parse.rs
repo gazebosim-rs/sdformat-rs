@@ -271,6 +271,30 @@ pub(crate) fn load_altimeter_element(xml: &str, uri: &str) -> Result<Altimeter, 
     parser.altimeter_node(root)
 }
 
+pub(crate) fn load_air_speed_element(xml: &str, uri: &str) -> Result<AirSpeed, Diagnostic> {
+    let resolver = NoResources;
+    let parser = Parser {
+        uri,
+        xml,
+        resolver: &resolver,
+        includes: vec![uri.into()],
+    };
+    let document = Document::parse(xml).map_err(|error| Diagnostic {
+        code: error.code,
+        source: Source {
+            uri: uri.into(),
+            line: error.pos().row,
+            column: error.pos().col,
+        },
+        message: error.to_string(),
+    })?;
+    let root = document.root_element();
+    if !root.has_tag_name("air_speed") {
+        return Err(parser.err(root, ErrorCode::Xml, "root element must be air_speed"));
+    }
+    parser.air_speed_node(root)
+}
+
 pub(crate) fn load_navsat_element(xml: &str, uri: &str) -> Result<NavSat, Diagnostic> {
     let resolver = NoResources;
     let parser = Parser {
@@ -3072,6 +3096,9 @@ impl Parser<'_> {
         let Some(node) = child(sensor, "air_speed") else {
             return Ok(AirSpeed::default());
         };
+        self.air_speed_node(node)
+    }
+    fn air_speed_node(&self, node: Node<'_, '_>) -> Result<AirSpeed, Diagnostic> {
         self.allowed(node, &["pressure"], &[])?;
         let pressure = child(node, "pressure")
             .map(|component| {

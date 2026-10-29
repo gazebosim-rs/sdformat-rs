@@ -1041,3 +1041,11 @@ standalone Sensor output admits canonical navsat. Existing gps document parsing
 is unchanged; raw gps kind output and standalone gps roots remain unsupported.
 Joint stays force_torque-only and no navigation measurement is computed.
 See [NAVSAT_XML.md](NAVSAT_XML.md).
+
+
+## AirSpeed XML
+
+AirSpeed::to_xml/load_air_speed_str preserve complete pressure Noise using existing
+node and numeric rules; matching standalone air_speed Sensor output retains its
+envelope. Joint remains force_torque-only, and no pressure-to-speed, wind or
+atmospheric calculation is performed. See [AIR_SPEED_XML.md](AIR_SPEED_XML.md).

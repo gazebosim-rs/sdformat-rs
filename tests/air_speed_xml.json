@@ -1,0 +1,258 @@
+[
+  {
+    "id": "original",
+    "mode": "config",
+    "xml": "<air_speed>\n  <pressure>\n    <noise type='gaussian'>\n      <mean>1.2</mean>\n      <stddev>2.2999999999999998</stddev>\n      <bias_mean>4.5</bias_mean>\n      <bias_stddev>6.7000000000000002</bias_stddev>\n      <dynamic_bias_stddev>0</dynamic_bias_stddev>\n      <dynamic_bias_correlation_time>0</dynamic_bias_correlation_time>\n      <precision>8.9000000000000004</precision>\n    </noise>\n  </pressure>\n</air_speed>\n",
+    "tokens": [
+      "OK",
+      "1",
+      "4608083138725491507",
+      "4612361558371493478",
+      "4616752568008179712",
+      "4619229547803233485",
+      "0",
+      "0",
+      "4621199872640208077"
+    ]
+  },
+  {
+    "id": "omitted_pressure",
+    "mode": "config",
+    "xml": "<air_speed/>",
+    "tokens": [
+      "OK",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "empty_pressure",
+    "mode": "config",
+    "xml": "<air_speed><pressure></pressure></air_speed>",
+    "tokens": [
+      "OK",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "explicit_defaults",
+    "mode": "config",
+    "xml": "<air_speed><pressure><noise type=\"none\"></noise></pressure></air_speed>",
+    "tokens": [
+      "OK",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "none",
+    "mode": "config",
+    "xml": "<air_speed><pressure><noise type=\"none\"><mean>-1.2</mean><stddev>2.3</stddev><bias_mean>-4.5</bias_mean><bias_stddev>6.7</bias_stddev><dynamic_bias_stddev>0.25</dynamic_bias_stddev><dynamic_bias_correlation_time>-8.75</dynamic_bias_correlation_time><precision>-8.9</precision></noise></pressure></air_speed>",
+    "tokens": [
+      "OK",
+      "0",
+      "13831455175580267315",
+      "4612361558371493478",
+      "13840124604862955520",
+      "4619229547803233485",
+      "4598175219545276416",
+      "13844487467001970688",
+      "13844571909494983885"
+    ]
+  },
+  {
+    "id": "gaussian",
+    "mode": "config",
+    "xml": "<air_speed><pressure><noise type=\"gaussian\"><mean>-1.2</mean><stddev>2.3</stddev><bias_mean>-4.5</bias_mean><bias_stddev>6.7</bias_stddev><dynamic_bias_stddev>0.25</dynamic_bias_stddev><dynamic_bias_correlation_time>-8.75</dynamic_bias_correlation_time><precision>-8.9</precision></noise></pressure></air_speed>",
+    "tokens": [
+      "OK",
+      "1",
+      "13831455175580267315",
+      "4612361558371493478",
+      "13840124604862955520",
+      "4619229547803233485",
+      "4598175219545276416",
+      "13844487467001970688",
+      "13844571909494983885"
+    ]
+  },
+  {
+    "id": "gaussian_quantized",
+    "mode": "config",
+    "xml": "<air_speed><pressure><noise type=\"gaussian_quantized\"><mean>-1.2</mean><stddev>2.3</stddev><bias_mean>-4.5</bias_mean><bias_stddev>6.7</bias_stddev><dynamic_bias_stddev>0.25</dynamic_bias_stddev><dynamic_bias_correlation_time>-8.75</dynamic_bias_correlation_time><precision>-8.9</precision></noise></pressure></air_speed>",
+    "tokens": [
+      "OK",
+      "2",
+      "13831455175580267315",
+      "4612361558371493478",
+      "13840124604862955520",
+      "4619229547803233485",
+      "4598175219545276416",
+      "13844487467001970688",
+      "13844571909494983885"
+    ]
+  },
+  {
+    "id": "signed_zeros",
+    "mode": "config",
+    "xml": "<air_speed><pressure><noise type=\"gaussian\"><mean>-0</mean><stddev>-0</stddev><bias_mean>-0</bias_mean><bias_stddev>-0</bias_stddev><dynamic_bias_stddev>-0</dynamic_bias_stddev><dynamic_bias_correlation_time>-0</dynamic_bias_correlation_time><precision>-0</precision></noise></pressure></air_speed>",
+    "tokens": [
+      "OK",
+      "1",
+      "9223372036854775808",
+      "9223372036854775808",
+      "9223372036854775808",
+      "9223372036854775808",
+      "9223372036854775808",
+      "9223372036854775808",
+      "9223372036854775808"
+    ]
+  },
+  {
+    "id": "normal_extremes",
+    "mode": "config",
+    "xml": "<air_speed><pressure><noise type=\"gaussian\"><mean>1e300</mean><stddev>1e-200</stddev><bias_mean>-1e300</bias_mean><precision>1e-200</precision></noise></pressure></air_speed>",
+    "tokens": [
+      "OK",
+      "1",
+      "9094988921128908188",
+      "1614679632300144556",
+      "18318360957983683996",
+      "0",
+      "0",
+      "0",
+      "1614679632300144556"
+    ]
+  },
+  {
+    "id": "bad_mean",
+    "mode": "config",
+    "xml": "<air_speed><pressure><noise type=\"gaussian\"><mean>bad</mean></noise></pressure></air_speed>",
+    "tokens": [
+      "REJECT"
+    ]
+  },
+  {
+    "id": "bad_stddev",
+    "mode": "config",
+    "xml": "<air_speed><pressure><noise type=\"gaussian\"><stddev>bad</stddev></noise></pressure></air_speed>",
+    "tokens": [
+      "REJECT"
+    ]
+  },
+  {
+    "id": "sensor_defaults",
+    "mode": "sensor",
+    "xml": "<sensor name='air' type='air_speed'/>",
+    "tokens": [
+      "OK",
+      "616972",
+      "6169725f7370656564",
+      "-",
+      "-",
+      "-",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "sensor_flags",
+    "mode": "sensor",
+    "xml": "<sensor name='air' type='air_speed'><update_rate>-5</update_rate><always_on>true</always_on><visualize>true</visualize><enable_metrics>true</enable_metrics><air_speed><pressure><noise type=\"gaussian\"><mean>1</mean></noise></pressure></air_speed></sensor>",
+    "tokens": [
+      "OK",
+      "616972",
+      "6169725f7370656564",
+      "-",
+      "-",
+      "-",
+      "13840687554816376832",
+      "1",
+      "1",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408",
+      "1",
+      "4607182418800017408",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "sensor_escaped",
+    "mode": "sensor",
+    "xml": "<sensor name='a&amp;b' type='air_speed'><frame_id>f&lt;x</frame_id><topic>/a&amp;b</topic><pose relative_to='f&amp;b' rotation_format='quat_xyzw'>1 -2 3 0 0 0 -1</pose><update_rate>125</update_rate><air_speed><pressure><noise type=\"gaussian_quantized\"><precision>0.1</precision></noise></pressure></air_speed></sensor>",
+    "tokens": [
+      "OK",
+      "612662",
+      "6169725f7370656564",
+      "663c78",
+      "2f612662",
+      "662662",
+      "4638496509959077888",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408",
+      "13835058055282163712",
+      "4613937818241073152",
+      "0",
+      "0",
+      "0",
+      "13830554455654793216",
+      "2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4591870180066957722"
+    ]
+  }
+]

@@ -2448,6 +2448,20 @@
       "baseline": "Nineteen actual native outcomes, seventeen actual Rust-to-native exchanges, exact generated fixture and unchanged original pass with empty original stderr. Author 459 Rust tests, formatting and Clippy pass. Shared FT/IMU/Altimeter/AirPressure/Magnetometer helpers replay and all 54 prior XML exports remain byte-identical. Provenance reference/navsat-xml.json.",
       "status": "ported_reviewed",
       "review": "Independent /root/integration_reviewer approved exact source/original mapping after 39 relevant Rust checks in fresh source/target, all nineteen native cases, exact fixture, seventeen actual exchanges and unchanged original. Existing config-tag/legacy gps parsing preserved; raw gps writer rejection and canonical navsat with legacy payload covered. Four distinct complete Noise values, nonempty output/reload and scoped constructor-only SourceNone interpretation preserve all selected assertions; no loaded identity/console/runtime claim. All 54 prior export-byte comparisons remain author evidence. Normal strict staged and exact hosted gates remain required before acceptance."
+    },
+    {
+      "target": "UNIT_Airspeed_TEST",
+      "case": "DOMAirSpeed.ToElement",
+      "source": "src/Airspeed_TEST.cc:97-130",
+      "rust_test": "tests/air_speed_xml_original.rs::original_air_speed_to_element",
+      "assertions": "Default pressure Noise, complete configured Noise, successful nonempty output and typed reload, edited mean 2.3 retained. Exact finite equality strengthens native component-wise <=1e-6. Constructor-only source=None after immutable emission is approved under standing coordinator guidance and independent exact-case review to map no fabricated loaded input declaration at 114; no loaded identity/console/mutation/runtime claim. Native no-Errors ToElement ABI preserved in oracle.",
+      "fixtures": {
+        "tests/fixtures/air_speed_to_element_native.xml": "c60d6825341e8bfef9193f44d2ea511128ce005e3b8c0670b5e9fa6e89abe6b3"
+      },
+      "upstream_fixtures": {},
+      "baseline": "Fourteen actual native outcomes, twelve actual Rust-to-native exchanges, exact generated fixture and unchanged original pass with empty original stderr. Author 463 Rust tests, formatting and Clippy pass. All six prior family helpers replay and all 71 prior XML exports remain byte-identical. Provenance reference/air-speed-xml.json.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/integration_reviewer approved exact source/original mapping after 43 relevant Rust checks in fresh source/target, all fourteen native outcomes, exact fixture, twelve actual exchanges and unchanged original. Compared default/configured/edited Noise, returned nonempty/reload and ctor-only sourceNone114; no invented Errors/console assertion. Node extraction/shared writer policy preserved; no loaded identity/runtime/Joint claim. All 71 prior export-byte comparisons remain author evidence. Normal strict staged and exact hosted gates remain required before acceptance."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

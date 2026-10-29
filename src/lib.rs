@@ -9,6 +9,7 @@
 //! references, including the documented stronger inertial-frame policy.
 //! Unsupported schema features are errors.
 mod air_pressure_xml;
+mod air_speed_xml;
 mod altimeter_xml;
 mod axis_xml;
 mod camera;
@@ -121,6 +122,12 @@ pub fn load_magnetometer_str(xml: &str, source: &str) -> Result<Magnetometer, Di
 /// Legacy `<gps>` remains supported by document parsing, outside this root API.
 pub fn load_navsat_str(xml: &str, source: &str) -> Result<NavSat, Diagnostic> {
     parse::load_navsat_element(xml, source)
+}
+
+/// Load unattached AirSpeed pressure Noise with existing finite-noise rules.
+/// No pressure-to-speed conversion or atmosphere is evaluated.
+pub fn load_air_speed_str(xml: &str, source: &str) -> Result<AirSpeed, Diagnostic> {
+    parse::load_air_speed_element(xml, source)
 }
 
 /// Load bounded current-schema base-camera XML. Unsupported advanced payloads

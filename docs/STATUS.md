@@ -2938,3 +2938,18 @@ runs pass. All 402 Rust tests and Clippy pass. Independent source/assertion revi
 and fresh Rust/native replay passed. No production API, parser or physics
 capability changed. Strict staged/hosted checks remain required; accepted mappings
 remain 171 complete and 25 partial. See [JOINT_POSES.md](JOINT_POSES.md).
+
+
+## Standalone axis XML in development
+
+Typed current-schema axis XML now preserves direction/frame, dynamics, limits,
+stops and mimic metadata while leaving graph validation to the model loader.
+Native output regenerates byte for byte, and actual Rust output loads in native
+JointAxis with the original field values. Seventeen native cases retain sixteen
+exact matching outcomes and one explicitly recorded XYZ normalization difference
+at magnitude 1e-6; the existing Rust UnitX policy and protected assertion are
+unchanged. The original ToElement fields and empty-console observation have a
+Rust port. All 409 Rust tests and Clippy pass. Independent source/error-boundary
+review and fresh Rust/native/XML exchange replay passed. Strict staged/hosted
+checks remain required; accepted mappings remain 172 complete and 25 partial.
+See [AXIS_XML.md](AXIS_XML.md).

@@ -1117,18 +1117,22 @@ pub struct AxisMimic {
 impl Axis {
     /// Normalize a finite direction, preserving the prior value on failure.
     pub fn try_set_xyz(&mut self, xyz: [f64; 3]) -> Result<(), AxisDirectionError> {
-        let vector = DVec3::from_array(xyz);
-        let length = vector.length();
-        if !length.is_finite() {
-            return Err(AxisDirectionError::NonFinite);
-        }
-        // The native SetXyz zero check uses sdf::equal's default float epsilon.
-        if length <= f64::from(1e-6_f32) {
-            return Err(AxisDirectionError::ZeroLength);
-        }
-        self.xyz = (vector / length).to_array();
+        self.xyz = normalized_axis_direction(xyz)?;
         Ok(())
     }
+}
+
+pub(crate) fn normalized_axis_direction(xyz: [f64; 3]) -> Result<[f64; 3], AxisDirectionError> {
+    let vector = DVec3::from_array(xyz);
+    let length = vector.length();
+    if !length.is_finite() {
+        return Err(AxisDirectionError::NonFinite);
+    }
+    // Native SetXyz uses sdf::equal's default float epsilon for zero length.
+    if length <= f64::from(1e-6_f32) {
+        return Err(AxisDirectionError::ZeroLength);
+    }
+    Ok((vector / length).to_array())
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]

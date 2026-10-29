@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 use crate::graph::{Graphs, error, join};
+use crate::types::normalized_axis_direction;
 use crate::xml::{Document, Node, legacy_whitespace};
 use crate::*;
 use glam::{DQuat, DVec3, EulerRot};
@@ -170,6 +171,37 @@ pub(crate) fn load_frame_element(xml: &str, uri: &str) -> Result<Frame, Diagnost
         return Err(parser.err(root, ErrorCode::Xml, "root element must be frame"));
     }
     parser.frame(root)
+}
+
+pub(crate) fn load_axis_element(xml: &str, uri: &str) -> Result<Axis, Diagnostic> {
+    let resolver = NoResources;
+    let parser = Parser {
+        uri,
+        xml,
+        resolver: &resolver,
+        includes: vec![uri.into()],
+    };
+    let doc = Document::parse(xml).map_err(|e| Diagnostic {
+        code: e.code,
+        source: Source {
+            uri: uri.into(),
+            line: e.pos().row,
+            column: e.pos().col,
+        },
+        message: e.to_string(),
+    })?;
+    let root = doc.root_element();
+    if !root.has_tag_name("axis") {
+        return Err(parser.err(root, ErrorCode::Xml, "root element must be axis"));
+    }
+    let mut axis = parser.axis(root, false, true)?;
+    // Native string Params trim padding; unattached names are not graph queries.
+    axis.expressed_in = axis.expressed_in.trim_matches([' ', '\t', '\n']).into();
+    if let Some(mimic) = &mut axis.mimic {
+        mimic.joint = mimic.joint.trim_matches([' ', '\t', '\n']).into();
+        mimic.axis = mimic.axis.trim_matches([' ', '\t', '\n']).into();
+    }
+    Ok(axis)
 }
 
 struct Parser<'a> {
@@ -2323,10 +2355,10 @@ impl Parser<'_> {
             _ => return Err(self.err(node, ErrorCode::Unsupported, "unsupported joint type")),
         };
         let axis = child(node, "axis")
-            .map(|n| self.axis(n, model_frame_default))
+            .map(|n| self.axis(n, model_frame_default, supports_axis_mimic(n)))
             .transpose()?;
         let axis2 = child(node, "axis2")
-            .map(|n| self.axis(n, model_frame_default))
+            .map(|n| self.axis(n, model_frame_default, supports_axis_mimic(n)))
             .transpose()?;
         let screw_thread_pitch = if child(node, "screw_thread_pitch").is_some() {
             self.scalar(node, "screw_thread_pitch", 1.)?
@@ -2373,7 +2405,12 @@ impl Parser<'_> {
             source: self.source(node),
         })
     }
-    fn axis(&self, axis: Node<'_, '_>, model_frame_default: bool) -> Result<Axis, Diagnostic> {
+    fn axis(
+        &self,
+        axis: Node<'_, '_>,
+        model_frame_default: bool,
+        allow_mimic: bool,
+    ) -> Result<Axis, Diagnostic> {
         self.allowed(
             axis,
             if is_pre17(axis) {
@@ -2386,7 +2423,7 @@ impl Parser<'_> {
                     // JointAxis DOM does not expose its value.
                     "initial_position",
                 ]
-            } else if supports_axis_mimic(axis) {
+            } else if allow_mimic {
                 &["xyz", "limit", "dynamics", "mimic"]
             } else {
                 &["xyz", "limit", "dynamics"]
@@ -2427,13 +2464,10 @@ impl Parser<'_> {
         if parent_model {
             expressed_in = "__model__".into();
         }
-        let length = DVec3::from_array(xyz).length();
-        // Native JointAxis::SetXyz uses sdf::equal's default float epsilon.
-        if length <= f64::from(1e-6_f32) || !length.is_finite() {
-            return Err(self.err(axis, ErrorCode::InvalidValue, "invalid joint axis"));
-        }
+        let xyz = normalized_axis_direction(xyz)
+            .map_err(|_| self.err(axis, ErrorCode::InvalidValue, "invalid joint axis"))?;
         let mut result = Axis {
-            xyz: (DVec3::from_array(xyz) / length).to_array(),
+            xyz,
             expressed_in,
             // Native Root loads the converted current schema's unbounded defaults.
             lower: f64::NEG_INFINITY,

@@ -1,17 +1,17 @@
 {
   "decision": "approved",
   "author": "sdformat_owner",
-  "reviewer": "root",
-  "source_digest": "003a8b02923a6f94334f6aa3c2ab3a32e48ed913fb794009a810515c6025d312",
-  "protected_digest": "07ff51e03debca7b43ad5e8b9f400fc28f833d492b3e31e7e5a583bafae2279e",
-  "scope": "Faithful DOMJoint.Complete port for existing parsing and exact loaded screw-joint source identity. No generic Element facade, constructor/lifetime contract or physics capability changes.",
+  "reviewer": "integration_reviewer",
+  "source_digest": "127cd31626874efa7c1133acb8dbab3a394edb46afb8795cc5c704083d90e28d",
+  "protected_digest": "5dd80d7c695bfb23b857a37c94f9eba9344c31eddcabe4028155f167975d375b",
+  "scope": "Standalone Axis XML and selected DOMJointAxis.ToElement port only; existing UnitX normalization policy retained.",
   "checks": [
-    "Compared complete native source assertions and existing byte-identical joint_complete.sdf fixture; independently replayed Rust port and unchanged native original.",
-    "Retained all nine indexed raw translation/quaternion poses at native direct component-wise 1e-3 bounds, named screw presence and classic pitch20 at four ULP.",
-    "Reviewed existing glam expected-pose conversion, unchanged imported original notices and precise mapping of loaded Element presence to same explicitly named joint child.",
-    "Reviewed final single-case ledger disposition and documentation; no production, policy, fixture or tolerance changes."
+    "Independent separate source/target: eight focused Rust tests passed, including protected direction threshold.",
+    "Final native helper: seventeen actual outcomes, byte-identical native fixture, both new Rust targets, actual Rust-to-native XML and unchanged native original passed.",
+    "Reviewed XML/numeric bounds, graph validation separation, original assertions and final metadata; sixteen exact outcomes plus one explicit existing-policy XYZ difference."
   ],
   "remaining": [
-    "Mandatory strict staged hook and exact hosted CI before acceptance."
+    "Mandatory staged coverage gate and exact hosted CI.",
+    "Constructor/general Element contracts and broader SDF acceptance remain open."
   ]
 }

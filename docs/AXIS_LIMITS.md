@@ -54,3 +54,9 @@ disposition review approved the five frozen source/fixture files; final main
 binding, normal protected hook and hosted qualification remain pending.
 No dependency, unsafe, general scalar, threshold or exclusion change was made.
 Backend joint execution and complete joint capability stay open.
+
+
+Standalone current-schema axis XML roundtrips are described in
+[AXIS_XML.md](AXIS_XML.md). That boundary keeps model graph validation separate
+and records the native float/double normalization discrepancy at magnitude 1e-6.
+The existing normalized UnitX assertion is unchanged.

@@ -53,6 +53,10 @@ and runtime behavior remain pending. A bounded custom-sensor extension retains
 one vendor element name, its direct text parameters and exact raw subtree;
 full mutable Element and extension grammar remain pending.
 
+Standalone current-schema axis XML preserves direction/frame, dynamics, limits
+and mimic metadata without resolving a model graph. See
+[the axis XML contract](docs/AXIS_XML.md).
+
 Scalar and pose-component conversion is qualified for Linux GNU/glibc using an
 owned C locale and native range/prefix semantics. One reviewed FFI module is the
 only production unsafe exception; other platforms return Unsupported for these

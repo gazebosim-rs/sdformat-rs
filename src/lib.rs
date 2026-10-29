@@ -8,6 +8,7 @@
 //! Before instantiation, call [`Sdf::validate_non_frame_poses`] to validate those
 //! references, including the documented stronger inertial-frame policy.
 //! Unsupported schema features are errors.
+mod axis_xml;
 mod camera;
 mod frame_xml;
 mod graph;
@@ -60,4 +61,11 @@ pub fn load_light_str(xml: &str, source: &str) -> Result<Light, Diagnostic> {
 /// The full SDF loader applies frame graph rules separately.
 pub fn load_frame_str(xml: &str, source: &str) -> Result<Frame, Diagnostic> {
     parse::load_frame_element(xml, source)
+}
+
+/// Load current-schema standalone axis metadata without resolving graph references.
+/// Model loading validates frame and mimic references separately. XML axis2 roots
+/// and legacy conversion directives are outside this standalone interface.
+pub fn load_axis_str(xml: &str, source: &str) -> Result<Axis, Diagnostic> {
+    parse::load_axis_element(xml, source)
 }

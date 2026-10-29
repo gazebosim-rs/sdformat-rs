@@ -2260,6 +2260,20 @@
       "baseline": "The unchanged native DOMJoint.Complete and faithful Rust port both pass on the existing fixture. The native run emitted its expected unknown/deprecated-element warnings. Strict staged verification and hosted CI remain pending.",
       "status": "ported_reviewed",
       "review": "Independent Root review compared every original assertion and replayed the fresh Rust port and unchanged native original. Fixture bytes match exactly. Nine indexed poses retain direct component-wise 1e-3 comparisons; classic pitch20 retains four ULPs. The loaded Element-presence translation is limited to the exact matching named joint child in the existing immutable model snapshot, not generic constructor/Element behavior. Strict staged verification and hosted CI remain required before public acceptance."
+    },
+    {
+      "target": "UNIT_JointAxis_TEST",
+      "case": "DOMJointAxis.ToElement",
+      "source": "src/JointAxis_TEST.cc:173-332",
+      "rust_test": "tests/axis_xml_original.rs::original_dom_joint_axis_to_element",
+      "assertions": "Preserves successful direction setting, expressed-in frame, output child presence, all dynamics/limit/stop/mimic field values and successful typed results for native empty Errors. Native vector component <=1e-3 and four-ULP scalar comparisons are retained. The native stale-errors assertion after SetXyzExpressedIn remains. A captured child process checks no library stdout/stderr beyond libtest protocol, rehosting empty redirected console. Standalone current-schema metadata uses existing typed Axis values; no generic Element/constructor or model graph contract is implied.",
+      "fixtures": {
+        "tests/fixtures/axis_to_element_native.xml": "9a553ff3ee96428f0cd6a8a9fdb2754ded1009d9bda994bf4924338ca7cbee70"
+      },
+      "upstream_fixtures": {},
+      "baseline": "Unchanged native DOMJointAxis.ToElement passes. Its generated XML fixture regenerates byte for byte from checked-in C++ source, command, library hashes and source provenance. Native XML loads in Rust; actual Rust XML loads in native JointAxis. Seventeen native outcomes retain sixteen exact matches and one named XYZ difference under the existing Rust normalization policy. No old assertion or tolerance changed. All 409 Rust tests and Clippy pass; strict staged and hosted checks remain pending.",
+      "status": "ported_reviewed",
+      "review": "Independent integration reviewer approved the source, XML/numeric error boundaries, graph-admission separation and original assertion mapping. Fresh reviewer source/target passed eight focused Rust tests, including the unchanged threshold assertion. Final helper replay reproduced seventeen native outcomes, byte-identical native XML, direct Rust loading of that fixture, actual Rust-to-native XML and the unchanged native original. Sixteen outcomes match exactly; one named XYZ difference retains the already-published Rust UnitX policy and actual native tiny-vector oracle. Constructor/general Element contracts and all previous assertions remain unchanged. Strict staged verification and hosted CI remain required before public acceptance."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

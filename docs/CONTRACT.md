@@ -949,3 +949,14 @@ poses remain deferred to `validate_non_frame_poses`. Loading returns the first
 diagnostic atomically; native later error vectors and partial DOM are not exposed.
 See MERGE_INCLUDES.md for provenance and remaining boundaries. No physics
 constraints, resource search policy or downstream producer pins change.
+
+
+## Unattached axis XML
+
+`load_axis_str` parses current-schema standalone `<axis>` metadata; `Axis::to_xml`
+emits its direction/frame, dynamics, limits/stops and optional mimic values.
+Unattached metadata does not resolve frame or mimic references. Model loading
+keeps its graph checks and existing version gates. The bounded writer uses native
+unbounded sentinels and rejects values its XML encoding cannot preserve. The
+published normalized-direction policy remains in force, including its explicit
+1e-6 native difference. See [AXIS_XML.md](AXIS_XML.md) for the precise contract.

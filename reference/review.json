@@ -2,17 +2,16 @@
   "decision": "approved",
   "author": "sdformat_owner",
   "reviewer": "integration_reviewer",
-  "source_digest": "63966c6f59a8c39b092c20bf20bf5cc37fe3f8efc6fd8112888c55fec4ada82a",
-  "protected_digest": "36c6df4c6e9eb8701d31ccd47bee606cd145eba642a1ed0a8af41af6c56bf25e",
-  "scope": "Seven exact XML original assertion mappings, precise constructor input-origin interpretation and shared quiet-output checks; no production changes.",
+  "source_digest": "97c8007161f329096c5c3652901ed8a230cf36c0f7e036b27dad0b89b79e08c2",
+  "protected_digest": "c130e6878abac59c381b7461b34e39545496d11daa1aa370cfb33c22e9ecdffb",
+  "scope": "Bounded Altimeter configuration and matching standalone Sensor XML; two exact original mappings with approved constructor-only input-origin interpretation.",
   "checks": [
-    "Fresh independent source and target passed 15 relevant repository Rust tests.",
-    "Nine unchanged native originals passed with empty stderr.",
-    "Two private adversarial controls proved successful children emitting stdout or stderr fail quiet validation.",
-    "Reviewed exact native returned-output, quaternion-component and narrow FT/Camera constructor mappings; remaining IMU, Light and Joint residues retained."
+    "Fresh independent source and target passed 26 relevant Altimeter, force/torque, IMU and Joint Rust checks.",
+    "Fresh native helper reproduced all 16 outcomes and exact generated fixture; 14 actual Rust XML exchanges and both unchanged originals passed with empty original stderr.",
+    "Compared exact original assertions, all seven Noise values and signed-zero bits, explicit payload errors and unchanged shared writers. Final reviewed metadata remains accurate."
   ],
   "remaining": [
     "Single normal strict staged hook and exact hosted CI.",
-    "Generic Element identity, ownership and mutation plus the documented IMU, Light and Joint residual assertions remain unqualified."
+    "No measurement, graph, generic Element identity, advanced sensor or Joint-family admission claim."
   ]
 }

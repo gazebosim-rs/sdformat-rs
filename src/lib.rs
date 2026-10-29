@@ -8,6 +8,7 @@
 //! Before instantiation, call [`Sdf::validate_non_frame_poses`] to validate those
 //! references, including the documented stronger inertial-frame policy.
 //! Unsupported schema features are errors.
+mod altimeter_xml;
 mod axis_xml;
 mod camera;
 mod camera_xml;
@@ -93,6 +94,12 @@ pub fn load_force_torque_str(xml: &str, source: &str) -> Result<ForceTorque, Dia
 /// Existing finite-noise admission remains in force.
 pub fn load_imu_str(xml: &str, source: &str) -> Result<Imu, Diagnostic> {
     parse::load_imu_element(xml, source)
+}
+
+/// Load unattached altimeter noise configuration using existing finite-noise rules.
+/// No height, velocity or sensor graph is computed.
+pub fn load_altimeter_str(xml: &str, source: &str) -> Result<Altimeter, Diagnostic> {
+    parse::load_altimeter_element(xml, source)
 }
 
 /// Load bounded current-schema base-camera XML. Unsupported advanced payloads

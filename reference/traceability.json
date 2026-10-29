@@ -2364,6 +2364,34 @@
       "baseline": "Unchanged native Camera.ToElement passed with empty stderr. 34 actual native cases project all 68 fields including advanced defaults; 26 actual Rust-to-native exchanges and byte-identical generated fixture pass. Provenance in reference/camera-base-xml.json. Residual assertion audit reran all nine unchanged Frame/Physics/ForceTorque/Camera/Light originals with empty stderr; all 15 corresponding Rust tests pass. Existing XML exchange proofs retained. See docs/XML_ASSERTION_MAPPINGS.md.",
       "status": "ported_reviewed",
       "review": "Independent /root/integration_reviewer approved this exact complete assertion mapping, with 15 focused Rust tests from fresh source/target and all nine unchanged native originals passing with empty stderr. Two private adversarial controls confirm added child stdout/stderr is rejected. Native signed quaternion bounds retained beside prior dot checks; constructed-source mapping applies only to the coordinator-approved FT/Camera cases. No general Element equivalence, loaded identity, ownership or runtime claim. Normal strict staged hook and exact hosted CI required before public acceptance."
+    },
+    {
+      "target": "UNIT_Altimeter_TEST",
+      "case": "DOMAltimeter.ToElement",
+      "source": "src/Altimeter_TEST.cc:106-142",
+      "rust_test": "tests/altimeter_xml_original.rs::original_altimeter_to_element",
+      "assertions": "All default Noise observations before edits, both complete configured Noise records, successful nonempty output and typed reload, and edited position-noise result retained. Exact finite Noise equality strengthens native component-wise <=1e-6. Coordinator-approved constructor-only translation observes source=None after immutable output: no loaded input declaration was fabricated, mapping only constructed Element-null at 125/179. No loaded identity/mutation claim.",
+      "fixtures": {
+        "tests/fixtures/altimeter_to_element_native.xml": "c2089b531c8fd9ac92a1511cf30d1d8b6c79d4e279eaf7e78b69bbc4c71df52d"
+      },
+      "upstream_fixtures": {},
+      "baseline": "Both unchanged native originals pass with empty stderr. Sixteen actual native outcomes, exact generated fixture and fourteen actual Rust-to-native XML exchanges pass. Full author 446 Rust tests, format and Clippy pass. Shared helpers pass all 32 force/torque and 24 IMU native cases and all six/four prior exports remain byte-identical. Provenance reference/altimeter-xml.json.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/integration_reviewer approved source and complete mappings for these exact originals. Fresh separate source/target passed 26 relevant Rust checks, all 16 native outcomes, byte-identical fixture generation, fourteen actual Rust-to-native exchanges and both unchanged native originals with empty stderr. All seven Noise fields, signed-zero bits, unchanged node policy and coordinator-approved constructed-source interpretation checked; no loaded identity or runtime claim. Normal strict staged hook and exact hosted CI remain required before acceptance."
+    },
+    {
+      "target": "UNIT_Altimeter_TEST",
+      "case": "DOMAltimeter.ToElementErrorOutput",
+      "source": "src/Altimeter_TEST.cc:145-202",
+      "rust_test": "tests/altimeter_xml_original.rs::original_altimeter_to_element_error_output",
+      "assertions": "All default Noise observations before edits, both complete configured Noise records, successful nonempty output and typed reload, and edited position-noise result retained. Exact finite Noise equality strengthens native component-wise <=1e-6. Coordinator-approved constructor-only translation observes source=None after immutable output: no loaded input declaration was fabricated, mapping only constructed Element-null at 125/179. No loaded identity/mutation claim. ErrorOutput uses actual child capture with empty stderr and stdout limited to successful libtest protocol.",
+      "fixtures": {
+        "tests/fixtures/altimeter_to_element_native.xml": "c2089b531c8fd9ac92a1511cf30d1d8b6c79d4e279eaf7e78b69bbc4c71df52d"
+      },
+      "upstream_fixtures": {},
+      "baseline": "Both unchanged native originals pass with empty stderr. Sixteen actual native outcomes, exact generated fixture and fourteen actual Rust-to-native XML exchanges pass. Full author 446 Rust tests, format and Clippy pass. Shared helpers pass all 32 force/torque and 24 IMU native cases and all six/four prior exports remain byte-identical. Provenance reference/altimeter-xml.json.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/integration_reviewer approved source and complete mappings for these exact originals. Fresh separate source/target passed 26 relevant Rust checks, all 16 native outcomes, byte-identical fixture generation, fourteen actual Rust-to-native exchanges and both unchanged native originals with empty stderr. All seven Noise fields, signed-zero bits, unchanged node policy and coordinator-approved constructed-source interpretation checked; no loaded identity or runtime claim. Normal strict staged hook and exact hosted CI remain required before acceptance."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

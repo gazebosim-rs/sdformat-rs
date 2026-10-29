@@ -1008,3 +1008,11 @@ and reject nondefault advanced retained optics instead of dropping fields. Nativ
 pixel aliases, anti-aliasing and parsed presence/name/save defaults are supported.
 Constructor values and old assertions remain unchanged; Camera Sensor/Joint output
 and rendering stay unqualified. See [CAMERA_BASE_XML.md](CAMERA_BASE_XML.md).
+
+
+## Altimeter XML
+
+Altimeter::to_xml/load_altimeter_str preserve both complete Noise records;
+matching standalone Sensor output retains current envelope metadata. Existing
+finite-noise and rate policies apply. Joint XML stays force_torque-only; no
+measurement or runtime admission is implied. See [ALTIMETER_XML.md](ALTIMETER_XML.md).

@@ -247,6 +247,30 @@ pub(crate) fn load_imu_element(xml: &str, uri: &str) -> Result<Imu, Diagnostic> 
     parser.imu_node(root)
 }
 
+pub(crate) fn load_altimeter_element(xml: &str, uri: &str) -> Result<Altimeter, Diagnostic> {
+    let resolver = NoResources;
+    let parser = Parser {
+        uri,
+        xml,
+        resolver: &resolver,
+        includes: vec![uri.into()],
+    };
+    let document = Document::parse(xml).map_err(|error| Diagnostic {
+        code: error.code,
+        source: Source {
+            uri: uri.into(),
+            line: error.pos().row,
+            column: error.pos().col,
+        },
+        message: error.to_string(),
+    })?;
+    let root = document.root_element();
+    if !root.has_tag_name("altimeter") {
+        return Err(parser.err(root, ErrorCode::Xml, "root element must be altimeter"));
+    }
+    parser.altimeter_node(root)
+}
+
 pub(crate) fn load_camera_element(xml: &str, uri: &str) -> Result<Camera, Diagnostic> {
     let resolver = NoResources;
     let parser = Parser {
@@ -2934,6 +2958,9 @@ impl Parser<'_> {
         let Some(node) = child(sensor, "altimeter") else {
             return Ok(Altimeter::default());
         };
+        self.altimeter_node(node)
+    }
+    fn altimeter_node(&self, node: Node<'_, '_>) -> Result<Altimeter, Diagnostic> {
         self.allowed(node, &["vertical_position", "vertical_velocity"], &[])?;
         Ok(Altimeter {
             vertical_position: self.altimeter_noise(node, "vertical_position")?,

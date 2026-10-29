@@ -3066,3 +3066,19 @@ stdout/stderr failure controls. Normal strict staged/hosted gates are pending.
 Candidate ledger is 176 complete /28 partial; accepted remains 169/35 until gates
 pass. IMU/Light input-origin and Joint type-none sensor assertions remain partial.
 See XML_ASSERTION_MAPPINGS.md for exact case-specific mappings.
+
+
+## Candidate Altimeter XML
+
+Typed Altimeter configuration and matching standalone Sensor output reuse the
+existing node parser and shared Noise/XML helpers. Five new tests preserve the
+exact two ToElement originals, numeric/source/payload boundaries and actual
+quiet output. Author 446 Rust tests, formatting and Clippy pass. Native helper
+replays sixteen actual cases, fourteen actual Rust-to-native exports, exact
+fixture generation and both unchanged originals with empty stderr. Independent
+review approved both exact original mappings after 26 relevant Rust checks in fresh source/target, all sixteen native outcomes, fourteen exchanges,
+exact fixture and both unchanged originals. Strict staged and exact hosted
+qualification remain pending; constructor input absence is translated only for
+those two cases. Candidate ledger is 178 complete /28 partial. All six prior FT
+and four prior IMU XML exports remain byte-identical after successful native helper replays. Accepted
+ledger remains 176 complete /28 partial. See ALTIMETER_XML.md for scope.

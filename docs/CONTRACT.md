@@ -1049,3 +1049,12 @@ AirSpeed::to_xml/load_air_speed_str preserve complete pressure Noise using exist
 node and numeric rules; matching standalone air_speed Sensor output retains its
 envelope. Joint remains force_torque-only, and no pressure-to-speed, wind or
 atmospheric calculation is performed. See [AIR_SPEED_XML.md](AIR_SPEED_XML.md).
+
+
+## Lidar XML
+
+Lidar::to_xml/load_lidar_str preserve current scan/range/visibility and simple
+Noise metadata through existing reader rules. Omitted advanced Noise fields must
+have exact +0 bits. Canonical lidar/gpu_lidar Sensor output is supported; legacy
+kind/root output and unsupported payloads reject without changing old parsing.
+No ray allocation, ordering or runtime policy is added. See [LIDAR_XML.md](LIDAR_XML.md).

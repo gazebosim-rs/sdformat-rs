@@ -3149,3 +3149,19 @@ checks, fourteen native outcomes, twelve exchanges, exact fixture and original.
 Default/configured/edited Noise, no-Errors ABI and scoped constructor input absence
 are retained. Normal strict staged and exact hosted gates remain pending:
 candidate 183 complete /28 partial, accepted 182/28. See AIR_SPEED_XML.md for scope.
+
+
+## Candidate Lidar XML
+
+Scan/range/visibility/simple Noise XML and canonical CPU/GPU Lidar Sensor output
+reuse existing node parsing. Author 468 Rust tests, formatting and Clippy pass.
+Thirty-four native outcomes, thirty-one actual exports, exact fixture and original
+pass; seven prior helper replays and all 83 prior XML comparisons pass in author
+checks.
+
+Independent review approved the exact original mapping after 48 relevant Rust
+checks, thirty-four native outcomes, thirty-one exchanges, exact fixture and
+original. Original inverted bounds/large resolution, five advanced +0-bit guards,
+emitted signed-zero/finite policy and canonical/legacy boundaries are retained.
+Normal strict staged and exact hosted gates remain pending: candidate 184 complete
+/28 partial, accepted 183/28. See LIDAR_XML.md for scope.

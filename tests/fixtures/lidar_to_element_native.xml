@@ -1,0 +1,27 @@
+<lidar>
+  <scan>
+    <horizontal>
+      <samples>123</samples>
+      <resolution>0.45000000000000001</resolution>
+      <min_angle>0.67000000000000004</min_angle>
+      <max_angle>0.89000000000000001</max_angle>
+    </horizontal>
+    <vertical>
+      <samples>98</samples>
+      <min_angle>0.54000000000000004</min_angle>
+      <max_angle>0.32100000000000001</max_angle>
+      <resolution>0.76000000000000001</resolution>
+    </vertical>
+  </scan>
+  <range>
+    <min>1.2</min>
+    <max>3.3999999999999999</max>
+    <resolution>5.5999999999999996</resolution>
+  </range>
+  <noise>
+    <type>none</type>
+    <mean>6.5</mean>
+    <stddev>3.79</stddev>
+  </noise>
+  <visibility_mask>123</visibility_mask>
+</lidar>

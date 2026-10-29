@@ -2,17 +2,17 @@
   "decision": "approved",
   "author": "sdformat_owner",
   "reviewer": "integration_reviewer",
-  "source_digest": "3588f69f0c039192a589fe390b263194ad9866029c05e6c2e4a55a74020e1ba9",
-  "protected_digest": "56ad36d1ceefa432d0079693982142e6e1805acc584f21fc33bf8dbeed91d6e3",
-  "scope": "Bounded AirSpeed pressure Noise and matching standalone Sensor XML with exact single original mapping.",
+  "source_digest": "cd10a69f2ea13162980d7fb5e42f53e267f4ae6da94bde197b6ecf8c486c0238",
+  "protected_digest": "a536dc66121a73ef2583f16385062ae1fdf74c05c9f70d6598f69b603edbcede",
+  "scope": "Bounded Lidar scan/range/noise metadata and canonical CPU/GPU Sensor XML with exact original mapping.",
   "checks": [
-    "Fresh independent source/target passed 43 relevant Rust checks.",
-    "Fresh helper passed 14 native outcomes, exact generated fixture, 12 actual XML exchanges and unchanged DOMAirSpeed.ToElement.",
-    "Compared actual Airspeed_TEST.cc default/configured/edited Noise and successful output/reload, scoped constructor-only SourceNone114; no nonexistent Errors or console assertion added.",
-    "Node extraction/shared writer boundaries and final reviewed metadata preserve old policies and separate author-only byte comparisons."
+    "Fresh independent source/target passed 48 relevant Rust checks.",
+    "Fresh helper passed 34 native outcomes, exact fixture, 31 actual XML exchanges and unchanged DOMLidar.ToElement.",
+    "Compared exact native sample/visibility/Noise, all nine four-ULP scalar observations, inverted metadata, edited 111 and constructor-only SourceNone151.",
+    "Reviewed five advanced exact-positive-zero guards, all emitted finite/signed-zero policy, node extraction and canonical/legacy boundaries; final metadata separates author-only prior-byte evidence."
   ],
   "remaining": [
     "One normal strict staged hook and exact hosted CI.",
-    "No loaded Element identity, air-speed/atmosphere measurement or Joint-family expansion."
+    "No ray generation/runtime ordering, loaded Element identity, console original or legacy kind normalization."
   ]
 }

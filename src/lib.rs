@@ -19,6 +19,7 @@ mod frame_xml;
 mod graph;
 mod imu_xml;
 mod joint_xml;
+mod lidar_xml;
 mod light_xml;
 mod magnetometer_xml;
 mod navsat_xml;
@@ -128,6 +129,12 @@ pub fn load_navsat_str(xml: &str, source: &str) -> Result<NavSat, Diagnostic> {
 /// No pressure-to-speed conversion or atmosphere is evaluated.
 pub fn load_air_speed_str(xml: &str, source: &str) -> Result<AirSpeed, Diagnostic> {
     parse::load_air_speed_element(xml, source)
+}
+
+/// Load canonical unattached `<lidar>` metadata using existing scan/noise rules.
+/// Legacy roots remain supported by document parsing, outside this root API.
+pub fn load_lidar_str(xml: &str, source: &str) -> Result<Lidar, Diagnostic> {
+    parse::load_lidar_element(xml, source)
 }
 
 /// Load bounded current-schema base-camera XML. Unsupported advanced payloads

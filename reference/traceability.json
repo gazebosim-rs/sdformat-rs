@@ -2462,6 +2462,20 @@
       "baseline": "Fourteen actual native outcomes, twelve actual Rust-to-native exchanges, exact generated fixture and unchanged original pass with empty original stderr. Author 463 Rust tests, formatting and Clippy pass. All six prior family helpers replay and all 71 prior XML exports remain byte-identical. Provenance reference/air-speed-xml.json.",
       "status": "ported_reviewed",
       "review": "Independent /root/integration_reviewer approved exact source/original mapping after 43 relevant Rust checks in fresh source/target, all fourteen native outcomes, exact fixture, twelve actual exchanges and unchanged original. Compared default/configured/edited Noise, returned nonempty/reload and ctor-only sourceNone114; no invented Errors/console assertion. Node extraction/shared writer policy preserved; no loaded identity/runtime/Joint claim. All 71 prior export-byte comparisons remain author evidence. Normal strict staged and exact hosted gates remain required before acceptance."
+    },
+    {
+      "target": "UNIT_Lidar_TEST",
+      "case": "DOMLidar.ToElement",
+      "source": "src/Lidar_TEST.cc:127-178",
+      "rust_test": "tests/lidar_xml_original.rs::original_lidar_to_element",
+      "assertions": "Both scans, all nine positive finite scalar EXPECT_DOUBLE_EQ assertions (<=4 ULP), visibility, complete fixed Noise observation and edited horizontal samples 111 retained. Inverted vertical min/max and range resolution larger than span preserved without runtime restrictions. Successful nonempty output and typed reload translate returned Element presence. Constructor-only source=None after immutable emission approved under coordinator guidance and independent exact-case review to map no fabricated loaded declaration at 151; no loaded identity/console/mutation/runtime claim.",
+      "fixtures": {
+        "tests/fixtures/lidar_to_element_native.xml": "5d91a66ee279727ff036c05d29260fbb308537240fcf0d94fd82947900b56cbf"
+      },
+      "upstream_fixtures": {},
+      "baseline": "Thirty-four actual native outcomes, thirty-one actual Rust-to-native exchanges, exact generated fixture and unchanged original pass with empty original stderr. Author 468 Rust tests, formatting and Clippy pass. All seven prior family helpers replay and all 83 prior XML exports remain byte-identical. Provenance reference/lidar-xml.json.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/integration_reviewer approved exact source/original mapping after 48 relevant Rust checks in fresh source/target, all thirty-four native outcomes, exact fixture, thirty-one actual exchanges and unchanged original. Compared nine scalar four-ULP assertions, samples/visibility/Noise, inverted metadata and edited 111, plus constructor-only source mapping at line 151. Five advanced +0-bit guards, emitted signed-zero/finite policy and canonical CPU/GPU versus old raw legacy parsing/rejected output reviewed. No ordering/ray/identity/console claim. All 83 prior byte comparisons remain author evidence. Normal strict staged and exact hosted gates remain required before acceptance."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

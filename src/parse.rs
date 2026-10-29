@@ -271,6 +271,30 @@ pub(crate) fn load_altimeter_element(xml: &str, uri: &str) -> Result<Altimeter, 
     parser.altimeter_node(root)
 }
 
+pub(crate) fn load_lidar_element(xml: &str, uri: &str) -> Result<Lidar, Diagnostic> {
+    let resolver = NoResources;
+    let parser = Parser {
+        uri,
+        xml,
+        resolver: &resolver,
+        includes: vec![uri.into()],
+    };
+    let document = Document::parse(xml).map_err(|error| Diagnostic {
+        code: error.code,
+        source: Source {
+            uri: uri.into(),
+            line: error.pos().row,
+            column: error.pos().col,
+        },
+        message: error.to_string(),
+    })?;
+    let root = document.root_element();
+    if !root.has_tag_name("lidar") {
+        return Err(parser.err(root, ErrorCode::Xml, "root element must be lidar"));
+    }
+    parser.lidar_node(root)
+}
+
 pub(crate) fn load_air_speed_element(xml: &str, uri: &str) -> Result<AirSpeed, Diagnostic> {
     let resolver = NoResources;
     let parser = Parser {
@@ -3192,6 +3216,9 @@ impl Parser<'_> {
         let Some(node) = child(sensor, tag) else {
             return Ok(Lidar::default());
         };
+        self.lidar_node(node)
+    }
+    fn lidar_node(&self, node: Node<'_, '_>) -> Result<Lidar, Diagnostic> {
         self.allowed(node, &["scan", "range", "noise", "visibility_mask"], &[])?;
         let scan = child(node, "scan")
             .ok_or_else(|| self.err(node, ErrorCode::Missing, "missing lidar scan"))?;

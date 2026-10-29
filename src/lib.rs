@@ -20,6 +20,7 @@ mod imu_xml;
 mod joint_xml;
 mod light_xml;
 mod magnetometer_xml;
+mod navsat_xml;
 mod noise_xml;
 pub use camera::*;
 mod model_config;
@@ -114,6 +115,12 @@ pub fn load_air_pressure_str(xml: &str, source: &str) -> Result<AirPressure, Dia
 /// No magnetic field or sensor graph is computed.
 pub fn load_magnetometer_str(xml: &str, source: &str) -> Result<Magnetometer, Diagnostic> {
     parse::load_magnetometer_element(xml, source)
+}
+
+/// Load canonical unattached `<navsat>` Noise configuration using existing rules.
+/// Legacy `<gps>` remains supported by document parsing, outside this root API.
+pub fn load_navsat_str(xml: &str, source: &str) -> Result<NavSat, Diagnostic> {
+    parse::load_navsat_element(xml, source)
 }
 
 /// Load bounded current-schema base-camera XML. Unsupported advanced payloads

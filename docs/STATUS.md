@@ -3117,3 +3117,20 @@ XYZ, edited-X bias and native approximate inequality remain explicit; constructo
 input absence is translated only for this exact case. Normal strict staged and
 exact hosted gates remain pending: candidate 181 complete /28 partial, accepted
 180/28. See MAGNETOMETER_XML.md for scope.
+
+
+## Candidate NavSat XML
+
+Four-channel position/velocity Noise XML and canonical NavSat Sensor output reuse
+existing node parsing and Noise/XML helpers. Author 459 Rust tests, formatting
+and Clippy pass. Nineteen native outcomes, seventeen actual exports, exact fixture
+and unchanged original pass; author shared-family replays and all 54 prior XML
+byte comparisons pass.
+
+Independent review approved the exact original mapping after 39 relevant Rust
+checks, nineteen native outcomes, seventeen exchanges, exact fixture and original.
+Existing legacy gps parsing and public kind are unchanged; raw gps writer/root
+rejection and canonical navsat with legacy payload are covered. Constructor input
+absence is translated only for this exact case. Normal strict staged and exact
+hosted gates remain pending: candidate 182 complete /28 partial, accepted 181/28.
+See NAVSAT_XML.md for scope.

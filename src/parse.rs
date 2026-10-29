@@ -271,6 +271,30 @@ pub(crate) fn load_altimeter_element(xml: &str, uri: &str) -> Result<Altimeter, 
     parser.altimeter_node(root)
 }
 
+pub(crate) fn load_navsat_element(xml: &str, uri: &str) -> Result<NavSat, Diagnostic> {
+    let resolver = NoResources;
+    let parser = Parser {
+        uri,
+        xml,
+        resolver: &resolver,
+        includes: vec![uri.into()],
+    };
+    let document = Document::parse(xml).map_err(|error| Diagnostic {
+        code: error.code,
+        source: Source {
+            uri: uri.into(),
+            line: error.pos().row,
+            column: error.pos().col,
+        },
+        message: error.to_string(),
+    })?;
+    let root = document.root_element();
+    if !root.has_tag_name("navsat") {
+        return Err(parser.err(root, ErrorCode::Xml, "root element must be navsat"));
+    }
+    parser.navsat_node(root)
+}
+
 pub(crate) fn load_magnetometer_element(xml: &str, uri: &str) -> Result<Magnetometer, Diagnostic> {
     let resolver = NoResources;
     let parser = Parser {
@@ -3087,6 +3111,9 @@ impl Parser<'_> {
         let Some(node) = child(sensor, tag) else {
             return Ok(NavSat::default());
         };
+        self.navsat_node(node)
+    }
+    fn navsat_node(&self, node: Node<'_, '_>) -> Result<NavSat, Diagnostic> {
         self.allowed(node, &["position_sensing", "velocity_sensing"], &[])?;
         Ok(NavSat {
             horizontal_position: self.navsat_noise(node, "position_sensing", "horizontal")?,

@@ -31,6 +31,7 @@ pub(crate) fn validate(sensor: &Sensor) -> Result<(), Diagnostic> {
             | ("altimeter", SensorConfig::Altimeter(_))
             | ("air_pressure", SensorConfig::AirPressure(_))
             | ("magnetometer", SensorConfig::Magnetometer(_))
+            | ("navsat", SensorConfig::NavSat(_))
     ) || !sensor.plugins.is_empty()
         || !sensor.extensions.is_empty()
         || sensor.gz_frame_id.is_some()
@@ -83,6 +84,7 @@ pub(crate) fn validate(sensor: &Sensor) -> Result<(), Diagnostic> {
         SensorConfig::Altimeter(config) => crate::altimeter_xml::validate_config(config),
         SensorConfig::AirPressure(config) => crate::air_pressure_xml::validate_config(config),
         SensorConfig::Magnetometer(config) => crate::magnetometer_xml::validate_config(config),
+        SensorConfig::NavSat(config) => crate::navsat_xml::validate_config(config),
         _ => Err(error(
             ErrorCode::Unsupported,
             "unsupported sensor configuration",
@@ -100,6 +102,7 @@ impl Sensor {
             SensorConfig::Altimeter(value) => value.to_xml()?,
             SensorConfig::AirPressure(value) => value.to_xml()?,
             SensorConfig::Magnetometer(value) => value.to_xml()?,
+            SensorConfig::NavSat(value) => value.to_xml()?,
             _ => {
                 return Err(error(
                     ErrorCode::Unsupported,

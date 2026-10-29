@@ -2434,6 +2434,20 @@
       "baseline": "Seventeen actual native outcomes, fifteen actual Rust-to-native exchanges, exact generated fixture and unchanged original pass with empty original stderr. Author 455 Rust tests, formatting and Clippy pass. Shared FT/IMU/Altimeter/AirPressure native helpers replay and all six/four/fourteen/fifteen prior XML outputs remain byte-identical. Provenance reference/magnetometer-xml.json.",
       "status": "ported_reviewed",
       "review": "Independent /root/integration_reviewer approved exact source/original mapping after 35 relevant Rust checks in fresh source/target, all seventeen native cases, exact fixture, fifteen actual exchanges and unchanged original. Shared XYZ extraction compared against old logic and independently replayed all 24 IMU/four exchanges and 32 FT/six exchanges plus unchanged originals. Constructed-source mapping and original-X >1e-6 inequality reviewed; no loaded identity/console/runtime claim. All 39 prior export-byte comparisons remain author evidence. Normal strict staged and exact hosted gates remain required before acceptance."
+    },
+    {
+      "target": "UNIT_NavSat_TEST",
+      "case": "DOMNavSat.ToElement",
+      "source": "src/NavSat_TEST.cc:118-155",
+      "rust_test": "tests/navsat_xml_original.rs::original_navsat_to_element",
+      "assertions": "All four configured complete Noise observations with distinct horizontal/vertical position/velocity means, successful nonempty output and typed reload retained. Exact finite Noise equality strengthens native component-wise <=1e-6. Constructor-only source=None after immutable emission is approved under standing coordinator guidance and independent exact-case review to map no fabricated loaded input declaration at 144; no loaded identity/console/mutation/runtime claim.",
+      "fixtures": {
+        "tests/fixtures/navsat_to_element_native.xml": "c9a5f7183a2f88c0b863aab85272a26c23650c27d5c848346869e77865dfa264"
+      },
+      "upstream_fixtures": {},
+      "baseline": "Nineteen actual native outcomes, seventeen actual Rust-to-native exchanges, exact generated fixture and unchanged original pass with empty original stderr. Author 459 Rust tests, formatting and Clippy pass. Shared FT/IMU/Altimeter/AirPressure/Magnetometer helpers replay and all 54 prior XML exports remain byte-identical. Provenance reference/navsat-xml.json.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/integration_reviewer approved exact source/original mapping after 39 relevant Rust checks in fresh source/target, all nineteen native cases, exact fixture, seventeen actual exchanges and unchanged original. Existing config-tag/legacy gps parsing preserved; raw gps writer rejection and canonical navsat with legacy payload covered. Four distinct complete Noise values, nonempty output/reload and scoped constructor-only SourceNone interpretation preserve all selected assertions; no loaded identity/console/runtime claim. All 54 prior export-byte comparisons remain author evidence. Normal strict staged and exact hosted gates remain required before acceptance."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

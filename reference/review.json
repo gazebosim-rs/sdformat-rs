@@ -2,17 +2,17 @@
   "decision": "approved",
   "author": "sdformat_owner",
   "reviewer": "integration_reviewer",
-  "source_digest": "43cc3b2ee23cd9cd7c78abf10af30b05ada1ed560ea72d646145f38d8f6a59b4",
-  "protected_digest": "a60b8721ecf05f94005f956a17355a9e50c50f42cf5f076198a1d6ccfa44662f",
-  "scope": "Bounded Magnetometer XYZ Noise and matching standalone Sensor XML; shared noise-vector node extraction and exact original mapping.",
+  "source_digest": "eabe2af5813b18dbb4b4777710dc247c9437728016d0c7efcbc4bab324d63a6f",
+  "protected_digest": "a2837c2365f23111fdb91e2dd2e2c8996aaaa62e3224d006325bb8d9b8ee0064",
+  "scope": "Bounded NavSat four-Noise metadata and canonical standalone Sensor XML with preserved legacy GPS parsing and exact original mapping.",
   "checks": [
-    "Fresh independent source/target passed 35 relevant Rust checks.",
-    "Fresh helper passed 17 native outcomes, exact fixture, 15 actual XML exchanges and unchanged original.",
-    "Shared XYZ extraction independently passed 24 IMU/four exchanges and 32 force/torque/six exchanges with their unchanged originals.",
-    "Compared exact original constructor-only input-origin, all three Noise values, edited X bias and approximate-inequality intent; final metadata accurately separates author-only byte comparisons."
+    "Fresh independent source/target passed 39 relevant Rust checks.",
+    "Fresh helper passed 19 native outcomes, exact generated fixture, 17 actual XML exchanges and unchanged original.",
+    "Compared all four distinct configured Noise values, output/reload and exact constructor-only SourceNone translation.",
+    "Reviewed config-tag extraction, canonical navsat with legacy gps payload, unchanged raw gps public kind and explicit writer rejection; final metadata separates author-only byte comparisons."
   ],
   "remaining": [
     "One normal strict staged hook and exact hosted CI.",
-    "No loaded Element identity, console original, magnetic-field measurement or Joint-family admission claim."
+    "No loaded Element identity, console original, GPS/navigation measurement or Joint-family expansion."
   ]
 }

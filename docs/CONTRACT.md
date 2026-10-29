@@ -1032,3 +1032,12 @@ Magnetometer::to_xml/load_magnetometer_str preserve all three complete Noise
 records through existing XYZ parsing and numeric rules. Matching standalone
 Sensor output retains envelope metadata; Joint remains force_torque-only, with
 no magnetic-field or runtime claim. See [MAGNETOMETER_XML.md](MAGNETOMETER_XML.md).
+
+
+## NavSat XML
+
+NavSat::to_xml/load_navsat_str preserve four complete Noise records; matching
+standalone Sensor output admits canonical navsat. Existing gps document parsing
+is unchanged; raw gps kind output and standalone gps roots remain unsupported.
+Joint stays force_torque-only and no navigation measurement is computed.
+See [NAVSAT_XML.md](NAVSAT_XML.md).

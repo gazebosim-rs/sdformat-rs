@@ -34,6 +34,7 @@ pub(crate) fn validate(sensor: &Sensor) -> Result<(), Diagnostic> {
             | ("magnetometer", SensorConfig::Magnetometer(_))
             | ("navsat", SensorConfig::NavSat(_))
             | ("lidar" | "gpu_lidar", SensorConfig::Lidar(_))
+            | ("camera", SensorConfig::Camera(_))
     ) || !sensor.plugins.is_empty()
         || !sensor.extensions.is_empty()
         || sensor.gz_frame_id.is_some()
@@ -89,6 +90,7 @@ pub(crate) fn validate(sensor: &Sensor) -> Result<(), Diagnostic> {
         SensorConfig::Magnetometer(config) => crate::magnetometer_xml::validate_config(config),
         SensorConfig::NavSat(config) => crate::navsat_xml::validate_config(config),
         SensorConfig::Lidar(config) => crate::lidar_xml::validate_config(config),
+        SensorConfig::Camera(config) => crate::camera_xml::validate(config),
         _ => Err(error(
             ErrorCode::Unsupported,
             "unsupported sensor configuration",
@@ -109,6 +111,7 @@ impl Sensor {
             SensorConfig::Magnetometer(value) => value.to_xml()?,
             SensorConfig::NavSat(value) => value.to_xml()?,
             SensorConfig::Lidar(value) => value.to_xml()?,
+            SensorConfig::Camera(value) => value.to_xml()?,
             _ => {
                 return Err(error(
                     ErrorCode::Unsupported,

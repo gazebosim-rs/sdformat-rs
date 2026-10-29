@@ -3165,3 +3165,23 @@ original. Original inverted bounds/large resolution, five advanced +0-bit guards
 emitted signed-zero/finite policy and canonical/legacy boundaries are retained.
 Normal strict staged and exact hosted gates remain pending: candidate 184 complete
 /28 partial, accepted 183/28. See LIDAR_XML.md for scope.
+
+
+## Candidate Camera Sensor XML
+
+Canonical camera Sensor output reuses the accepted bounded Camera writer. Author
+472 Rust tests, formatting and Clippy pass; 38 native inputs, 32 actual exports
+and unchanged original pass. The base helper replays 34 cases/26 exchanges and
+exact fixture. Eight prior family helpers replay, all 114 older outputs and all
+26 base-camera outputs remain byte-identical in author checks.
+
+Independent narrow review approved the temporary Rust-only Unsupported boundary
+transition before edit: exact full input/constructor/presence checks retained,
+complete 84-field native positive and output/reload added. Genuine upstream
+assertions and advanced/name/plugin/Joint guards remain. Existing generic Sensor
+read policy stays explicit for eight native Camera schema-rejected states.
+Final independent review passed 23 Rust checks in fresh source/target, all
+38 native inputs, 32 outputs and unchanged original with empty stderr. Exact
+helper/transition/read-output scope verified; prior bytes remain author evidence.
+Normal strict staged/hosted gates remain pending, no extra original credit: accepted ledger stays 184/28.
+See CAMERA_SENSOR_XML.md and reference/camera-sensor-xml.json for the disposition.

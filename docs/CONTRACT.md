@@ -1058,3 +1058,12 @@ Noise metadata through existing reader rules. Omitted advanced Noise fields must
 have exact +0 bits. Canonical lidar/gpu_lidar Sensor output is supported; legacy
 kind/root output and unsupported payloads reject without changing old parsing.
 No ray allocation, ordering or runtime policy is added. See [LIDAR_XML.md](LIDAR_XML.md).
+
+
+## Bounded Camera Sensor output
+
+Canonical camera Sensor output delegates the accepted bounded Camera writer,
+retaining both poses and the existing optics/name/precision guards. Other camera
+kinds and plugin/Joint payloads remain unsupported; parser/public constructor
+values stay unchanged. See [CAMERA_SENSOR_XML.md](CAMERA_SENSOR_XML.md). No extra
+upstream-original credit or rendering/runtime parity is implied.

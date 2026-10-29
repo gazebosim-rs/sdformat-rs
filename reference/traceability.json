@@ -2687,6 +2687,20 @@
       "baseline": "Both unchanged ToElement originals passed with empty stderr. 24 native outcomes, byte-identical fixture and four real Rust-to-native exchanges pass; shared Noise extraction also retains all 32 FT outcomes, six FT exchanges and byte-identical accepted FT output.",
       "status": "partial_reviewed",
       "review": "Independent /root/integration_reviewer approved source, boundaries and original assertions. Fresh reviewer source/target passed 33 relevant Rust checks, all 24 IMU native outcomes, exact fixture and four actual exchanges plus both unchanged originals with empty stderr. Shared-noise regression passed all 32 FT outcomes, six exchanges and both originals; all six generated FT exports independently match prior accepted review output byte for byte. Generic Element/null identity remains explicitly unported; old IMU joint/payload assertions unchanged. Normal staged and exact hosted checks remain required."
+    },
+    {
+      "target": "UNIT_Camera_TEST",
+      "case": "DOMCamera.ToElement",
+      "source": "src/Camera_TEST.cc:257-307",
+      "rust_test": "tests/camera_base_xml_original.rs::original_camera_to_element_base_values_subset",
+      "assertions": "PARTIAL: constructed name, nonempty successful output, loaded HFOV/image dimensions/format/clip/visibility/pose-relative/save/path/info/trigger topics/triggered flag, and edited near-clip roundtrip. Original positive finite EXPECT_DOUBLE_EQ comparisons retain <=4 ULP. Generic constructor Element/null identity remains unported; source=None is supplemental owned provenance only. No original assertion retired.",
+      "fixtures": {
+        "tests/fixtures/camera_to_element_native.xml": "efe77e8a291a2511a8ebc47ec815e4554e3006576f3dfe8efb4a3cba5bb48e4c"
+      },
+      "upstream_fixtures": {},
+      "baseline": "Unchanged native Camera.ToElement passed with empty stderr. 34 actual native cases project all 68 fields including advanced defaults; 26 actual Rust-to-native exchanges and byte-identical generated fixture pass. Provenance in reference/camera-base-xml.json.",
+      "status": "partial_reviewed",
+      "review": "Independent /root/integration_reviewer approved source/parser/original assertions after fresh separate source/target passed 22 relevant repository Rust tests plus both private regressions, all 34 native outcomes, exact generated fixture, 26 actual exchanges and unchanged original. Rechecked all fourteen omitted-zero guards, emitted zero signs, always-validating save paths, parsed presence/default corrections and exact schema cutoff policy; constructors and old assertions retained. Generic Element identity remains open; normal staged/hosted gates required."
     }
   ]
 }

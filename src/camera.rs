@@ -3,6 +3,11 @@
 
 use crate::{Noise, Pose, Source};
 
+// Exact SDF camera.sdf default for a present lens without cutoff_angle.
+// It intentionally differs from the constructor's FRAC_PI_2.
+#[allow(clippy::approx_constant)]
+pub(crate) const SCHEMA_LENS_CUTOFF: f64 = 1.5707;
+
 /// Pixel formats observed by the retained camera construction original.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 pub enum CameraPixelFormat {

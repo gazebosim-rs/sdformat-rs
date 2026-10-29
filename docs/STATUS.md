@@ -3034,3 +3034,19 @@ exports matched accepted output byte for byte. Normal strict staged checks
 and exact hosted CI remain required. Constructor Element identity stays partial
 and joint XML remains force_torque-only. Accepted counts remain 169 complete and
 32 partial; this candidate adds two partial mappings. See [IMU_XML.md](IMU_XML.md).
+
+
+## Base camera XML in development
+
+The bounded Camera.ToElement surface now reads/writes identity, pose/frame, image
+size/format/anti-aliasing, clipping, visibility, saving and trigger/info values.
+Actual native controls corrected shared parser aliases and presence/name/save/lens
+defaults; public constructor values and all old assertions remain unchanged.
+All 441 Rust tests and Clippy pass, with 34 native cases, exact generated fixture,
+26 actual XML exchanges and unchanged native Camera.ToElement. Advanced retained
+optics reject, Sensor/Joint camera output stays Unsupported, and generic Element
+identity remains partial. Independent review passed 22 focused repository tests
+plus two private regressions, all native outcomes and actual exchanges, including
+signed-zero and disabled-path corrections. Strict staged/hosted checks remain
+required. Accepted counts stay 169 complete/34 partial; candidate adds one partial.
+See [CAMERA_BASE_XML.md](CAMERA_BASE_XML.md).

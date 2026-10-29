@@ -2,17 +2,17 @@
   "decision": "approved",
   "author": "sdformat_owner",
   "reviewer": "integration_reviewer",
-  "source_digest": "4cc63d998f60ee069a1d5650340c15ff1453fcb1970e8aff089cfd428347e1eb",
-  "protected_digest": "4930ca65e331163505a34dcecdae08f8e6361aff33a2fb326152e08672153708",
-  "scope": "Typed IMU configuration and matching standalone Sensor XML; shared Noise emission preserves accepted force/torque output. Generic Element identity remains partial.",
+  "source_digest": "a5167fe5decf5c1138d8bb7075c04775cfd598d90b49ac869980fe75695e3025",
+  "protected_digest": "38ad36e314e98cb311a0db3b3fd71b727e52ab4e8a7011d84bf921269ba0274b",
+  "scope": "Bounded base Camera XML and native-backed shared parser corrections, with partial original ToElement credit only.",
   "checks": [
-    "Fresh independent source/target passed 33 relevant Rust checks, including old IMU joint rejection and force/torque payload boundaries.",
-    "Replayed all 24 native IMU outcomes, byte-identical native fixture, four real Rust-to-native exchanges and both unchanged native originals with empty stderr.",
-    "Replayed all 32 force/torque native outcomes, six exchanges and both unchanged originals; all six generated force/torque XML exports are byte-identical to accepted reviewer output.",
-    "Reviewed raw zero/non-unit vectors, all six complete Noise records, original direct vector tolerances and typed sensor-family admission without decoder or runtime policy changes."
+    "Fresh independent source/target passed 22 relevant repository Rust tests plus both concrete private regressions after fixes.",
+    "Reproduced all 34 native outcomes, exact native-generated fixture, 26 real Rust-to-native exchanges and unchanged Camera.ToElement with empty stderr.",
+    "Verified all fourteen omitted signed-zero guards, emitted signed-zero preservation, disabled/enabled save-path shape validation in standalone/full loaders, retained constructors and schema1.5707 versus constructor PI/2.",
+    "Reviewed original positive finite four-ULP comparisons, strict advanced payload rejection and unchanged Camera Sensor/Joint rejection; no rendering or runtime claim."
   ],
   "remaining": [
-    "Mandatory single normal staged gate, strict coverage and exact hosted CI.",
-    "Generic Element/null identity and broader sensor/XML support remain unported."
+    "Mandatory single normal Main staged gate, strict coverage and exact hosted CI.",
+    "Generic Element/null identity and advanced camera/XML/runtime support remain open."
   ]
 }

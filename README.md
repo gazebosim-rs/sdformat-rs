@@ -64,6 +64,9 @@ errors. See [the force/torque XML contract](docs/FORCE_TORQUE_XML.md).
 Standalone IMU configuration and matching sensor XML retain six noise records,
 raw reference vectors and orientation metadata; joint XML remains force_torque-only.
 See [the IMU XML contract](docs/IMU_XML.md).
+Bounded base-camera XML covers image/clip/save/trigger values, with explicit
+errors for advanced retained optics and no rendering or image IO. See
+[the base-camera contract](docs/CAMERA_BASE_XML.md).
 `Sdf::joint_pose` resolves loaded joint identities with native child-frame default
 and local target scoping. See [its contract](docs/JOINT_SEMANTIC_POSE.md).
 

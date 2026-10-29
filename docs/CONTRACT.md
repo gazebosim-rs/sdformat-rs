@@ -997,3 +997,12 @@ and raw custom/gravity vectors and parent-frame strings. Matching standalone
 Sensor output supports imu without changing finite/noise/negative-rate policies.
 Joint XML remains force_torque-only; generic Element and runtime behavior remain
 unqualified. See [IMU_XML.md](IMU_XML.md).
+
+
+## Base camera XML
+
+Camera::to_xml/load_camera_str preserve the bounded Camera.ToElement surface
+and reject nondefault advanced retained optics instead of dropping fields. Native
+pixel aliases, anti-aliasing and parsed presence/name/save defaults are supported.
+Constructor values and old assertions remain unchanged; Camera Sensor/Joint output
+and rendering stay unqualified. See [CAMERA_BASE_XML.md](CAMERA_BASE_XML.md).

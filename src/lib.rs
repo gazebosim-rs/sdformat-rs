@@ -10,6 +10,7 @@
 //! Unsupported schema features are errors.
 mod axis_xml;
 mod camera;
+mod camera_xml;
 mod force_torque_xml;
 mod frame_xml;
 mod graph;
@@ -92,4 +93,10 @@ pub fn load_force_torque_str(xml: &str, source: &str) -> Result<ForceTorque, Dia
 /// Existing finite-noise admission remains in force.
 pub fn load_imu_str(xml: &str, source: &str) -> Result<Imu, Diagnostic> {
     parse::load_imu_element(xml, source)
+}
+
+/// Load bounded current-schema base-camera XML. Unsupported advanced payloads
+/// return explicit errors; no sensor, graph or renderer is created.
+pub fn load_camera_str(xml: &str, source: &str) -> Result<Camera, Diagnostic> {
+    parse::load_camera_element(xml, source)
 }

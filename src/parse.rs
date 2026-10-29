@@ -247,6 +247,35 @@ pub(crate) fn load_imu_element(xml: &str, uri: &str) -> Result<Imu, Diagnostic> 
     parser.imu_node(root)
 }
 
+pub(crate) fn load_camera_element(xml: &str, uri: &str) -> Result<Camera, Diagnostic> {
+    let resolver = NoResources;
+    let parser = Parser {
+        uri,
+        xml,
+        resolver: &resolver,
+        includes: vec![uri.into()],
+    };
+    let document = Document::parse(xml).map_err(|error| Diagnostic {
+        code: error.code,
+        source: Source {
+            uri: uri.into(),
+            line: error.pos().row,
+            column: error.pos().col,
+        },
+        message: error.to_string(),
+    })?;
+    let root = document.root_element();
+    if !root.has_tag_name("camera") {
+        return Err(parser.err(root, ErrorCode::Xml, "root element must be camera"));
+    }
+    let camera = parser.camera_node(root)?;
+    crate::camera_xml::validate(&camera).map_err(|mut error| {
+        error.source = parser.source(root);
+        error
+    })?;
+    Ok(camera)
+}
+
 fn trim_axis_parameters(axis: &mut Axis) {
     // Native string Params trim padding; unattached names are not graph queries.
     axis.expressed_in = axis.expressed_in.trim_matches([' ', '\t', '\n']).into();
@@ -3077,6 +3106,9 @@ impl Parser<'_> {
         let Some(node) = child(sensor, "camera") else {
             return Ok(Camera::default());
         };
+        self.camera_node(node)
+    }
+    fn camera_node(&self, node: Node<'_, '_>) -> Result<Camera, Diagnostic> {
         self.allowed(
             node,
             &[
@@ -3098,7 +3130,12 @@ impl Parser<'_> {
             &["name"],
         )?;
         let mut camera = Camera {
-            name: node.attribute("name").unwrap_or_default().into(),
+            name: node
+                .attribute("name")
+                .map(|name| name.trim_matches([' ', '\t', '\n']))
+                .filter(|name| !name.is_empty())
+                .unwrap_or("__default__")
+                .into(),
             pose: self.pose(node)?,
             source: Some(self.source(node)),
             ..Camera::default()
@@ -3121,13 +3158,14 @@ impl Parser<'_> {
         }
         let image = child(node, "image")
             .ok_or_else(|| self.err(node, ErrorCode::Missing, "camera image is missing"))?;
-        self.allowed(image, &["width", "height", "format"], &[])?;
+        self.allowed(image, &["width", "height", "format", "anti_aliasing"], &[])?;
         camera.image_width = self.unsigned(image, "width", camera.image_width)?;
         camera.image_height = self.unsigned(image, "height", camera.image_height)?;
+        camera.anti_aliasing = self.unsigned(image, "anti_aliasing", camera.anti_aliasing)?;
         if let Some(format) = self.optional_text(image, "format")? {
             camera.pixel_format = match format.as_str() {
-                "R8G8B8" => CameraPixelFormat::RgbInt8,
-                "L8" => CameraPixelFormat::LInt8,
+                "R8G8B8" | "RGB_INT8" => CameraPixelFormat::RgbInt8,
+                "L8" | "L_INT8" => CameraPixelFormat::LInt8,
                 _ => {
                     return Err(self.err(
                         image,
@@ -3155,7 +3193,12 @@ impl Parser<'_> {
                     ));
                 }
             };
-            camera.save_frames_path = self.optional_text(save, "path")?.unwrap_or_default();
+            let path = self.optional_text(save, "path")?.unwrap_or_default();
+            camera.save_frames_path = if camera.save_frames {
+                path
+            } else {
+                String::new()
+            };
         }
         if let Some(noise) = child(node, "noise") {
             camera.image_noise = self.camera_noise(noise)?;
@@ -3171,6 +3214,10 @@ impl Parser<'_> {
                 camera.distortion.center = self.values::<2>(center)?;
             }
         }
+        camera.lens.has_intrinsics =
+            child(node, "lens").is_some_and(|lens| child(lens, "intrinsics").is_some());
+        camera.lens.has_projection =
+            child(node, "lens").is_some_and(|lens| child(lens, "projection").is_some());
         if let Some(lens) = child(node, "lens") {
             self.allowed(
                 lens,
@@ -3200,8 +3247,9 @@ impl Parser<'_> {
                     .optional_text(custom, "fun")?
                     .unwrap_or(camera.lens.function);
             }
+            // A present lens uses its schema cutoff; no lens keeps constructor PI/2.
             camera.lens.cutoff_angle =
-                self.scalar(lens, "cutoff_angle", camera.lens.cutoff_angle)?;
+                self.scalar(lens, "cutoff_angle", crate::camera::SCHEMA_LENS_CUTOFF)?;
             camera.lens.environment_texture_size = self.unsigned(
                 lens,
                 "env_texture_size",

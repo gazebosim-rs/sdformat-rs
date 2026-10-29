@@ -1,0 +1,40 @@
+<camera name='my_camera'>
+  <pose relative_to='/frame'>0 0 0 0 0 0</pose>
+  <horizontal_fov>1.45</horizontal_fov>
+  <image>
+    <width>123</width>
+    <height>125</height>
+    <format>L_INT8</format>
+    <anti_aliasing>4</anti_aliasing>
+  </image>
+  <camera_info_topic>/camera_info_test</camera_info_topic>
+  <trigger_topic>/trigger_topic_test</trigger_topic>
+  <triggered>true</triggered>
+  <clip>
+    <near>0.20000000000000001</near>
+    <far>200.19999999999999</far>
+  </clip>
+  <save enabled='true'>
+    <path>/tmp</path>
+  </save>
+  <visibility_mask>123</visibility_mask>
+  <noise>
+    <type>none</type>
+    <mean>0</mean>
+    <stddev>0</stddev>
+  </noise>
+  <distortion>
+    <k1>0</k1>
+    <k2>0</k2>
+    <k3>0</k3>
+    <p1>0</p1>
+    <p2>0</p2>
+    <center>0.5 0.5</center>
+  </distortion>
+  <lens>
+    <type>stereographic</type>
+    <scale_to_hfov>true</scale_to_hfov>
+    <cutoff_angle>1.5707963267948966</cutoff_angle>
+    <env_texture_size>256</env_texture_size>
+  </lens>
+</camera>

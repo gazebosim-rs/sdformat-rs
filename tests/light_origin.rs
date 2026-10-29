@@ -23,14 +23,28 @@ fn standalone_input_origin_survives_edits_and_output() {
     assert!(reloaded.cast_shadows);
 }
 #[test]
-fn document_light_admission_remains_explicitly_unsupported() {
-    for xml in [
-        "<sdf version='1.12'><world name='w'><light name='l'/></world></sdf>",
-        "<sdf version='1.12'><model name='m'><link name='l'><light name='light'/></link></model></sdf>",
+fn document_lights_require_explicit_type() {
+    for (xml, column) in [
+        (
+            "<sdf version='1.12'><world name='w'><light name='l'/></world></sdf>",
+            37,
+        ),
+        (
+            "<sdf version='1.12'><model name='m'><link name='l'><light name='light'/></link></model></sdf>",
+            52,
+        ),
     ] {
         let error = load_str(xml, "document-light.sdf", &NoResources).unwrap_err();
-        assert_eq!(error.code, ErrorCode::Unsupported);
+        assert_eq!(error.code, ErrorCode::Missing);
         assert_eq!(error.source.uri, "document-light.sdf");
+        assert_eq!(
+            error.source,
+            Source {
+                uri: "document-light.sdf".into(),
+                line: 1,
+                column
+            }
+        );
     }
 }
 #[test]

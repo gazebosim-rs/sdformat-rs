@@ -3249,3 +3249,19 @@ both originals with empty stderr. Private stdout/stderr injections correctly fai
 the actual quiet wrapper; restored source passes. Both exact mappings are reviewed
 complete. Normal strict staged/hosted gates remain pending: candidate 188 complete /24 partial, accepted 186 complete /26 partial.
 See LIGHT_ORIGIN.md.
+
+
+## Candidate direct document lights
+
+World/Link light metadata is stored through an explicit private document-schema
+context that preserves standalone Missing/default/setter behavior. Native proof
+passes 42 full-field cases, eleven document controls, raw/schema profiles and
+byte-identical full-versus-projected observations, plus unchanged LoadLights.
+The projected fixture retains all asserted light/model/frame ancestry without
+appending fields; seven new Rust tests pass; all 492 Rust tests, formatting and Clippy pass. Exact old missing-type inputs remain failures; independent
+narrow review approved the precise Missing/full literal Source refinement before
+protected edits. No type was added to those inputs. Final independent review passed 41 relevant Rust checks, all native controls and
+full/projection streams/unchanged original; explicit Spot type predicate corrected,
+all original bounds/context/error mappings reviewed complete. Prior 211 exports/
+Spot bytes remain author evidence. Strict local/hosted gates remain pending; candidate 189 complete /24 partial,
+accepted 188 complete /24 partial. See DOCUMENT_LIGHTS.md.

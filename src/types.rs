@@ -134,6 +134,7 @@ impl Sdf {
                     .chain(link.collisions.iter().map(|c| &c.pose))
                     .chain(link.sensors.iter().map(|s| &s.pose))
                     .chain(link.visuals.iter().map(|v| &v.pose))
+                    .chain(link.lights.iter().map(|v| &v.pose))
                 {
                     sdf.resolve_pose(pose, &model.scoped_name, &link.scoped_name, "::")?;
                 }
@@ -158,6 +159,9 @@ impl Sdf {
             Ok(())
         }
         for world in &self.worlds {
+            for light in &world.lights {
+                self.resolve_pose(&light.pose, &world.name, &world.name, "::")?;
+            }
             validate_joint_sensors(self, &world.joints, &world.name)?;
         }
         for model in self
@@ -230,6 +234,8 @@ pub struct World {
     /// Physics profiles in declaration order, or the implicit native default.
     pub physics: Vec<Physics>,
     pub models: Vec<Model>,
+    /// Direct lights in declaration order.
+    pub lights: Vec<Light>,
     /// Joints connecting bodies in this world, including flattened includes.
     pub joints: Vec<Joint>,
     pub frames: Vec<Frame>,
@@ -541,7 +547,7 @@ impl Frame {
         }
     }
 }
-/// Owned light values; XML parsing and rendering remain pending.
+/// Owned light metadata; runtime rendering is separate.
 #[derive(Debug, Clone, Copy, Default, PartialEq, Eq)]
 pub enum LightType {
     #[default]

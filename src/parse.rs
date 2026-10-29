@@ -8,6 +8,12 @@ use crate::*;
 use glam::{DQuat, DVec3, EulerRot};
 use std::{borrow::Cow, collections::BTreeSet, sync::Arc};
 
+#[derive(Clone, Copy, PartialEq, Eq)]
+enum LightContext {
+    Standalone,
+    Document,
+}
+
 pub(crate) fn load(
     xml: &str,
     uri: &str,
@@ -589,6 +595,7 @@ impl Parser<'_> {
             "collision",
             "visual",
             "sensor",
+            "light",
             "plugin",
             "physics",
             "polyline",
@@ -812,6 +819,7 @@ impl Parser<'_> {
             node,
             &[
                 "model",
+                "light",
                 "include",
                 "frame",
                 "joint",
@@ -843,6 +851,7 @@ impl Parser<'_> {
             });
         }
         let mut models = Vec::new();
+        let mut lights = Vec::new();
         let mut frames = Vec::new();
         let mut frame_elements = Vec::new();
         let mut joints = Vec::new();
@@ -890,6 +899,7 @@ impl Parser<'_> {
                         models.push(model);
                     }
                 }
+                "light" => lights.push(self.light_in(member, LightContext::Document)?),
                 "frame" => {
                     frames.push(self.frame(member)?);
                     frame_elements.push(member);
@@ -908,6 +918,15 @@ impl Parser<'_> {
                     self.legacy_name(element, "frame", &frame.name, &mut names, &mut typed_names)?;
             }
         }
+        if lights
+            .iter()
+            .map(|v| &v.name)
+            .collect::<BTreeSet<_>>()
+            .len()
+            != lights.len()
+        {
+            return Err(self.err(node, ErrorCode::DuplicateName, "duplicate light name"));
+        }
         self.validate_axis_mimics(&name, &joints)?;
         Ok(World {
             name,
@@ -916,6 +935,7 @@ impl Parser<'_> {
                 .map_or(Ok(Atmosphere::default()), |n| self.atmosphere(n))?,
             physics,
             models,
+            lights,
             joints,
             frames,
             merged_includes,
@@ -1598,6 +1618,7 @@ impl Parser<'_> {
                 "collision",
                 "visual",
                 "sensor",
+                "light",
                 "plugin",
                 "enable_wind",
                 "gravity",
@@ -1619,6 +1640,19 @@ impl Parser<'_> {
             .filter(|n| n.has_tag_name("sensor"))
             .map(|n| self.sensor(n))
             .collect::<Result<Vec<_>, _>>()?;
+        let lights = elements(node)
+            .filter(|n| n.has_tag_name("light"))
+            .map(|n| self.light_in(n, LightContext::Document))
+            .collect::<Result<Vec<_>, _>>()?;
+        if lights
+            .iter()
+            .map(|v| &v.name)
+            .collect::<BTreeSet<_>>()
+            .len()
+            != lights.len()
+        {
+            return Err(self.err(node, ErrorCode::DuplicateName, "duplicate light name"));
+        }
         for names in [
             collisions.iter().map(|c| &c.name).collect::<Vec<_>>(),
             sensors.iter().map(|s| &s.name).collect(),
@@ -1639,7 +1673,7 @@ impl Parser<'_> {
             inertial: self.inertial(node)?,
             collisions,
             visuals,
-            lights: Vec::new(),
+            lights,
             particle_emitters: Vec::new(),
             projectors: Vec::new(),
             sensors,
@@ -1654,6 +1688,44 @@ impl Parser<'_> {
         })
     }
     fn light(&self, node: Node<'_, '_>) -> Result<Light, Diagnostic> {
+        self.light_in(node, LightContext::Standalone)
+    }
+    fn light_color(
+        &self,
+        node: Node<'_, '_>,
+        name: &str,
+        schema_default: [f32; 4],
+        context: LightContext,
+    ) -> Result<[f32; 4], Diagnostic> {
+        let value = self.color(node, name)?;
+        if context == LightContext::Document
+            && child(node, name).is_none_or(|n| param_text(n).is_empty())
+        {
+            Ok(schema_default)
+        } else {
+            Ok(value)
+        }
+    }
+    fn light_required_scalar(
+        &self,
+        node: Node<'_, '_>,
+        name: &str,
+        default: f64,
+        context: LightContext,
+    ) -> Result<f64, Diagnostic> {
+        let value = self.scalar(node, name, default)?;
+        if context == LightContext::Document
+            && let Some(n) = child(node, name).filter(|n| param_text(*n).is_empty())
+        {
+            return Err(self.err(
+                n,
+                ErrorCode::Missing,
+                format!("light {name} requires a value"),
+            ));
+        }
+        Ok(value)
+    }
+    fn light_in(&self, node: Node<'_, '_>, context: LightContext) -> Result<Light, Diagnostic> {
         self.allowed(
             node,
             &[
@@ -1670,7 +1742,11 @@ impl Parser<'_> {
             ],
             &["name", "type"],
         )?;
-        let light_type = match node.attribute("type").unwrap_or("point") {
+        let kind = node.attribute("type");
+        if context == LightContext::Document && kind.is_none() {
+            return Err(self.err(node, ErrorCode::Missing, "light type is required"));
+        }
+        let light_type = match kind.unwrap_or("point") {
             "point" => LightType::Point,
             "directional" => LightType::Directional,
             "spot" => LightType::Spot,
@@ -1684,8 +1760,8 @@ impl Parser<'_> {
             light_on: self.boolean(node, "light_on", true)?,
             visualize: self.boolean(node, "visualize", true)?,
             cast_shadows: self.boolean(node, "cast_shadows", false)?,
-            diffuse: self.color(node, "diffuse")?,
-            specular: self.color(node, "specular")?,
+            diffuse: self.light_color(node, "diffuse", [1.; 4], context)?,
+            specular: self.light_color(node, "specular", [0.1, 0.1, 0.1, 1.], context)?,
             intensity: self.scalar(node, "intensity", 1.)?,
             ..Light::default()
         };
@@ -1695,28 +1771,52 @@ impl Parser<'_> {
                 &["range", "linear", "constant", "quadratic"],
                 &[],
             )?;
-            let range = child(attenuation, "range").ok_or_else(|| {
-                self.err(
+            if context == LightContext::Standalone && child(attenuation, "range").is_none() {
+                return Err(self.err(
                     attenuation,
                     ErrorCode::Missing,
                     "attenuation requires range",
-                )
-            })?;
-            light.attenuation_range = self.number(range, 10.)?.max(0.);
+                ));
+            }
+            light.attenuation_range = self
+                .light_required_scalar(attenuation, "range", 10., context)?
+                .max(0.);
             light.set_linear_attenuation_factor(self.scalar(attenuation, "linear", 1.)?);
             light.set_constant_attenuation_factor(self.scalar(attenuation, "constant", 1.)?);
             light.set_quadratic_attenuation_factor(self.scalar(attenuation, "quadratic", 0.)?);
         }
         if let Some(direction) = child(node, "direction") {
-            light.direction = self.values::<3>(direction)?;
-        } else if light_type != LightType::Point {
+            let value = self.values::<3>(direction)?;
+            if context == LightContext::Standalone || light_type != LightType::Point {
+                light.direction = value;
+            }
+        } else if context == LightContext::Standalone && light_type != LightType::Point {
             return Err(self.err(node, ErrorCode::Missing, "light direction is required"));
         }
         if let Some(spot) = child(node, "spot") {
             self.allowed(spot, &["inner_angle", "outer_angle", "falloff"], &[])?;
-            light.set_spot_inner_angle(self.scalar(spot, "inner_angle", 0.)?);
-            light.set_spot_outer_angle(self.scalar(spot, "outer_angle", 0.)?);
-            light.set_spot_falloff(self.scalar(spot, "falloff", 0.)?);
+            let inner = self.light_required_scalar(spot, "inner_angle", 0., context)?;
+            let outer = self.light_required_scalar(spot, "outer_angle", 0., context)?;
+            let falloff = self.light_required_scalar(spot, "falloff", 0., context)?;
+            if context == LightContext::Standalone || light_type == LightType::Spot {
+                light.set_spot_inner_angle(inner);
+                light.set_spot_outer_angle(outer);
+                light.set_spot_falloff(falloff);
+            }
+        }
+        if context == LightContext::Document {
+            // Native std::max(0, value) selects +0; the linear/constant clamps retain -0.
+            for value in [
+                &mut light.attenuation_range,
+                &mut light.quadratic_attenuation_factor,
+                &mut light.spot_inner_angle,
+                &mut light.spot_outer_angle,
+                &mut light.spot_falloff,
+            ] {
+                if *value == 0. {
+                    *value = 0.;
+                }
+            }
         }
         Ok(light)
     }

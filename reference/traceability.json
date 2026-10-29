@@ -2476,6 +2476,22 @@
       "baseline": "Thirty-four actual native outcomes, thirty-one actual Rust-to-native exchanges, exact generated fixture and unchanged original pass with empty original stderr. Author 468 Rust tests, formatting and Clippy pass. All seven prior family helpers replay and all 83 prior XML exports remain byte-identical. Provenance reference/lidar-xml.json.",
       "status": "ported_reviewed",
       "review": "Independent /root/integration_reviewer approved exact source/original mapping after 48 relevant Rust checks in fresh source/target, all thirty-four native outcomes, exact fixture, thirty-one actual exchanges and unchanged original. Compared nine scalar four-ULP assertions, samples/visibility/Noise, inverted metadata and edited 111, plus constructor-only source mapping at line 151. Five advanced +0-bit guards, emitted signed-zero/finite policy and canonical CPU/GPU versus old raw legacy parsing/rejected output reviewed. No ordering/ray/identity/console claim. All 83 prior byte comparisons remain author evidence. Normal strict staged and exact hosted gates remain required before acceptance."
+    },
+    {
+      "target": "INTEGRATION_light_dom",
+      "case": "DOMWorld.LoadLights",
+      "source": "test/integration/light_dom.cc:33-115",
+      "rust_test": "tests/document_lights_original.rs::original_dom_world_load_lights",
+      "assertions": "All World/Light/Model/Link presence and indexed-getter assertions; point/spot/directional names/types, shadows, raw poses and frame references, attenuation/spot/intensity doubles, all eleven explicit/default semantic resolutions including model/frame ancestry. Direct signed Pose3 components <=1e-3 and finite positive EXPECT_DOUBLE_EQ four-ULP bounds retained. New Rust API resolves with explicit scope/host/fully-scoped target; default Link target is separately checked with nonzero offsets, not a model/global shortcut. No original assertion retired.",
+      "fixtures": {
+        "tests/fixtures/light_documents_original.sdf": "230814329908800ede84cef97104e7b32206a802df9382f7f475e2634089de54"
+      },
+      "upstream_fixtures": {
+        "test/sdf/world_complete.sdf": "c555ca24e892172ac39114a4638cd597282acf8b94cefff7f860a7591af6e56a"
+      },
+      "baseline": "Unchanged native original passes on full world_complete.sdf with empty stderr. Fresh native full/projection streams are byte-identical: all 33 fields per four lights, model metadata, eleven original semantic queries plus two unknown targets. Raw/schema profiles and42 complete schema cases/eleven document controls pass. Projection retains exact original light/ancestor/frame subtrees and adds no fields.",
+      "status": "ported_reviewed",
+      "review": "Independent integration_reviewer approved complete original/source/error mapping after adding the missing explicit Spot type predicate. Fresh final source/owned target passed 41 relevant Rust checks, all 42 native schema cases/eleven document controls/raw profiles, byte-identical full/projection observation streams and genuine unchanged LoadLights. Every original presence/index/type/name/shadow/value/default-frame assertion audited against source/math; direct signed 1e-3 poses and four-ULP doubles retained. Document-only defaults/getters/zero ties preserve standalone behavior, validate unused/empty payloads, retain local scope and explicit consumer checks. Prior 211 family outputs/Spot bytes are author evidence. Normal strict staged/hosted qualification pending."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

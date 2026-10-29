@@ -4,13 +4,13 @@
 # Light input origin and quiet output
 
 Light::source records the supplied URI and exact line/column of a successfully
-loaded standalone declaration. Constructed values have None. Cloning, typed edits
+loaded explicit declaration. Constructed values have None. Cloning, typed edits
 and immutable XML emission preserve origin; loading emitted XML records the new
 input. The writer remains unchanged and does not use provenance to choose output.
 
 This is explicit declaration metadata. It is not a native Element pointer or an
-identity, ownership or mutation interface. Full SDF World/Link light parsing
-remains Unsupported; existing programmatic Link light APIs are separate.
+identity, ownership or mutation interface. Direct document Light schema admission is documented separately in
+DOCUMENT_LIGHTS.md; origin metadata does not imply generic Element semantics.
 
 ## Exact original mapping
 

@@ -1107,5 +1107,15 @@ Light::source records the actual standalone declaration URI/line/column. Default
 construction has None; immutable emission and typed edits preserve origin. The
 exact constructed-null/loaded-presence translations are limited to no fabricated
 input and actual explicit declaration presence, with no pointer identity API.
-Full-document World/Link light admission remains Unsupported. See
+Document-schema Light admission is documented separately. See
 [LIGHT_ORIGIN.md](LIGHT_ORIGIN.md) for quiet-output and original mapping scope.
+
+
+## Direct document lights
+
+World and Link lights retain declaration order and actual source metadata. The
+explicit private schema context supplies native document defaults and type-specific
+getters without changing standalone Light admission or setters. Existing frame
+math resolves poses with explicit scope/host/fully scoped target; unresolved
+references remain deferred until query or consumer validation. Other unimplemented
+World/Link payloads remain Unsupported. See [DOCUMENT_LIGHTS.md](DOCUMENT_LIGHTS.md).

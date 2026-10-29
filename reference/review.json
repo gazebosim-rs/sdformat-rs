@@ -2,17 +2,18 @@
   "decision": "approved",
   "author": "sdformat_owner",
   "reviewer": "integration_reviewer",
-  "source_digest": "eeee3bec1334565bd9af952d0ea996f97e10f319151532d65057ca0ab5193ed3",
-  "protected_digest": "a2e88131bb89c62c2897a66ab8fb2b78ee4885b2946744ca2afe946753b4c96e",
-  "scope": "Explicit Light input origin and actual quiet output, with coordinator-approved exact constructor-null and loaded-declaration-presence mappings only.",
+  "source_digest": "909038445891a5788652f02eb5698a64d944a0ccc453b19b3ff3c989c6b530f4",
+  "protected_digest": "096b54f60acdff064b99e3cb4e8dcd20264a87260a8d67ac650b3b445778d5bb",
+  "scope": "Direct World/Link Light collections and document-schema metadata with one complete LoadLights assertion mapping; exact missing-type failures retained with approved precise classification.",
   "checks": [
-    "Fresh final independent source/owned target passed seven relevant Rust checks, native origin lifecycle and both genuine originals with empty stderr and matching source/library provenance.",
-    "Two reviewer-only injected stdout/stderr controls independently failed the actual quiet wrapper; restored exact author source passed again.",
-    "Audited genuine originals: no further pointer behavior; every old value/direct quaternion/dot bound/edit assertion preserved. Literal URI/root1:1 binds successful explicit input declaration presence.",
-    "Writer is unchanged and document World/Link lights remain Unsupported; prior 211-family and Spot-byte/native-peer comparisons remain author evidence."
+    "Fresh final source and reviewer-owned target passed 41 relevant Rust checks: seven new document/original/projection checks and 34 existing Light, pose-graph and semantic checks.",
+    "Independently replayed 42 native schema cases, eleven document controls, raw/schema profiles, exact full-versus-projected getter/query streams and the genuine unchanged LoadLights original with matching source/SDK/library identities.",
+    "Audited every original predicate against pinned source and math. The omitted explicit Spot type assertion was added and freshly replayed; signed 1e-3 pose components and four-ULP configured doubles remain.",
+    "Document-only defaults/getters/zero ties preserve standalone behavior. Known unused/empty payloads remain validated; local scoping, deferred pose errors and explicit consumer checks are retained. Exact old XML/URI failures now assert Missing and literal Source 1:37/1:52 after prior narrow approval.",
+    "Prior twelve native family helpers, 211 family XML exports and configured Spot-byte comparisons remain author evidence, not independent replay claims."
   ],
   "remaining": [
-    "One normal strict staged hook and exact hosted CI; candidate 188 complete/24 partial is not accepted yet.",
-    "No general Element pointer identity, mutation, ownership, omitted-group equivalence, native producer-byte or rendering qualification."
+    "One normal strict staged hook and exact hosted qualification; candidate 189 complete/24 partial is separate from accepted 188/24.",
+    "No scene, GUI, wind, projector, rendering, generic DOM/pointer identity, broader light-include or native diagnostic-count parity is claimed."
   ]
 }

@@ -19,6 +19,7 @@ mod graph;
 mod imu_xml;
 mod joint_xml;
 mod light_xml;
+mod magnetometer_xml;
 mod noise_xml;
 pub use camera::*;
 mod model_config;
@@ -107,6 +108,12 @@ pub fn load_altimeter_str(xml: &str, source: &str) -> Result<Altimeter, Diagnost
 /// Existing finite-noise rules apply; no atmosphere or sensor graph is evaluated.
 pub fn load_air_pressure_str(xml: &str, source: &str) -> Result<AirPressure, Diagnostic> {
     parse::load_air_pressure_element(xml, source)
+}
+
+/// Load unattached magnetometer Noise metadata with existing finite-noise rules.
+/// No magnetic field or sensor graph is computed.
+pub fn load_magnetometer_str(xml: &str, source: &str) -> Result<Magnetometer, Diagnostic> {
+    parse::load_magnetometer_element(xml, source)
 }
 
 /// Load bounded current-schema base-camera XML. Unsupported advanced payloads

@@ -30,6 +30,7 @@ pub(crate) fn validate(sensor: &Sensor) -> Result<(), Diagnostic> {
             | ("imu", SensorConfig::Imu(_))
             | ("altimeter", SensorConfig::Altimeter(_))
             | ("air_pressure", SensorConfig::AirPressure(_))
+            | ("magnetometer", SensorConfig::Magnetometer(_))
     ) || !sensor.plugins.is_empty()
         || !sensor.extensions.is_empty()
         || sensor.gz_frame_id.is_some()
@@ -81,6 +82,7 @@ pub(crate) fn validate(sensor: &Sensor) -> Result<(), Diagnostic> {
         SensorConfig::Imu(config) => crate::imu_xml::validate_config(config),
         SensorConfig::Altimeter(config) => crate::altimeter_xml::validate_config(config),
         SensorConfig::AirPressure(config) => crate::air_pressure_xml::validate_config(config),
+        SensorConfig::Magnetometer(config) => crate::magnetometer_xml::validate_config(config),
         _ => Err(error(
             ErrorCode::Unsupported,
             "unsupported sensor configuration",
@@ -97,6 +99,7 @@ impl Sensor {
             SensorConfig::Imu(value) => value.to_xml()?,
             SensorConfig::Altimeter(value) => value.to_xml()?,
             SensorConfig::AirPressure(value) => value.to_xml()?,
+            SensorConfig::Magnetometer(value) => value.to_xml()?,
             _ => {
                 return Err(error(
                     ErrorCode::Unsupported,

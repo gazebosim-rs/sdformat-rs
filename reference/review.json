@@ -2,16 +2,17 @@
   "decision": "approved",
   "author": "sdformat_owner",
   "reviewer": "integration_reviewer",
-  "source_digest": "61c6ee3f324f1597b1f6fab40f21266df1e2811b7aeb712b0b2d087e46c969d0",
-  "protected_digest": "836a641fd2a921224686b08315d29710956e4d7893404df5b80702b89bd01325",
-  "scope": "Bounded AirPressure metadata and matching standalone Sensor XML, preserving exact two original assertion mappings and constructor-only input origin.",
+  "source_digest": "43cc3b2ee23cd9cd7c78abf10af30b05ada1ed560ea72d646145f38d8f6a59b4",
+  "protected_digest": "a60b8721ecf05f94005f956a17355a9e50c50f42cf5f076198a1d6ccfa44662f",
+  "scope": "Bounded Magnetometer XYZ Noise and matching standalone Sensor XML; shared noise-vector node extraction and exact original mapping.",
   "checks": [
-    "Fresh independent source/target passed 31 relevant AirPressure, Altimeter, force/torque, IMU and Joint Rust tests.",
-    "Fresh helper replay passed all 17 native outcomes, exact generated fixture, 15 actual Rust XML exchanges and both unchanged originals with empty stderr, including final direct-reference helper cleanup.",
-    "Compared original five positive finite noise scalar fields, altitude/edit four-ULP bounds, actual quiet behavior and approved constructor-only SourceNone scope. Final reviewed metadata is accurate."
+    "Fresh independent source/target passed 35 relevant Rust checks.",
+    "Fresh helper passed 17 native outcomes, exact fixture, 15 actual XML exchanges and unchanged original.",
+    "Shared XYZ extraction independently passed 24 IMU/four exchanges and 32 force/torque/six exchanges with their unchanged originals.",
+    "Compared exact original constructor-only input-origin, all three Noise values, edited X bias and approximate-inequality intent; final metadata accurately separates author-only byte comparisons."
   ],
   "remaining": [
     "One normal strict staged hook and exact hosted CI.",
-    "No atmosphere/measurement, loaded Element identity, generic ownership or Joint-family admission claim."
+    "No loaded Element identity, console original, magnetic-field measurement or Joint-family admission claim."
   ]
 }

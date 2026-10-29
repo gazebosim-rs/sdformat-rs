@@ -271,6 +271,30 @@ pub(crate) fn load_altimeter_element(xml: &str, uri: &str) -> Result<Altimeter, 
     parser.altimeter_node(root)
 }
 
+pub(crate) fn load_magnetometer_element(xml: &str, uri: &str) -> Result<Magnetometer, Diagnostic> {
+    let resolver = NoResources;
+    let parser = Parser {
+        uri,
+        xml,
+        resolver: &resolver,
+        includes: vec![uri.into()],
+    };
+    let document = Document::parse(xml).map_err(|error| Diagnostic {
+        code: error.code,
+        source: Source {
+            uri: uri.into(),
+            line: error.pos().row,
+            column: error.pos().col,
+        },
+        message: error.to_string(),
+    })?;
+    let root = document.root_element();
+    if !root.has_tag_name("magnetometer") {
+        return Err(parser.err(root, ErrorCode::Xml, "root element must be magnetometer"));
+    }
+    parser.magnetometer_node(root)
+}
+
 pub(crate) fn load_air_pressure_element(xml: &str, uri: &str) -> Result<AirPressure, Diagnostic> {
     let resolver = NoResources;
     let parser = Parser {
@@ -2817,15 +2841,19 @@ impl Parser<'_> {
         Ok(imu)
     }
     fn noise_vector(&self, node: Node<'_, '_>, name: &str) -> Result<[Noise; 3], Diagnostic> {
+        match child(node, name) {
+            Some(vector) => self.noise_vector_node(vector),
+            None => Ok(std::array::from_fn(|_| Noise::default())),
+        }
+    }
+    fn noise_vector_node(&self, vector: Node<'_, '_>) -> Result<[Noise; 3], Diagnostic> {
         let mut noises = std::array::from_fn(|_| Noise::default());
-        if let Some(vector) = child(node, name) {
-            self.allowed(vector, &["x", "y", "z"], &[])?;
-            for (index, component) in ["x", "y", "z"].iter().enumerate() {
-                if let Some(axis) = child(vector, component) {
-                    self.allowed(axis, &["noise"], &[])?;
-                    if let Some(noise) = child(axis, "noise") {
-                        noises[index] = self.noise(noise)?;
-                    }
+        self.allowed(vector, &["x", "y", "z"], &[])?;
+        for (index, component) in ["x", "y", "z"].iter().enumerate() {
+            if let Some(axis) = child(vector, component) {
+                self.allowed(axis, &["noise"], &[])?;
+                if let Some(noise) = child(axis, "noise") {
+                    noises[index] = self.noise(noise)?;
                 }
             }
         }
@@ -3346,9 +3374,15 @@ impl Parser<'_> {
         Ok(camera)
     }
     fn magnetometer(&self, sensor: Node<'_, '_>) -> Result<Magnetometer, Diagnostic> {
+        let Some(node) = child(sensor, "magnetometer") else {
+            return Ok(Magnetometer::default());
+        };
+        self.magnetometer_node(node)
+    }
+    fn magnetometer_node(&self, node: Node<'_, '_>) -> Result<Magnetometer, Diagnostic> {
         Ok(Magnetometer {
-            noise: self.noise_vector(sensor, "magnetometer")?,
-            source: child(sensor, "magnetometer").map(|node| self.source(node)),
+            noise: self.noise_vector_node(node)?,
+            source: Some(self.source(node)),
         })
     }
     fn sensor(&self, node: Node<'_, '_>) -> Result<Sensor, Diagnostic> {

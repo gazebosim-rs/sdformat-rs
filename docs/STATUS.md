@@ -3099,3 +3099,21 @@ exact fixture and both unchanged originals. Constructor input absence is
 translated only for those two cases. Strict staged and exact hosted qualification
 remain pending: candidate 180 complete /28 partial, accepted 178/28.
 See AIR_PRESSURE_XML.md for scope.
+
+
+## Candidate Magnetometer XML
+
+Three-channel Noise XML and matching standalone Sensor output reuse existing
+XYZ parsing and Noise/XML helpers. Author 455 Rust tests, formatting and Clippy
+pass. Seventeen native outcomes, fifteen actual exports, exact fixture and
+unchanged original pass. Author shared-family replays and all 39 prior XML byte
+comparisons pass.
+
+Independent review approved the exact original mapping after 35 relevant Rust
+checks, seventeen native outcomes, fifteen exchanges, exact fixture and original.
+Shared XYZ extraction was compared against old logic and independently replayed
+24 IMU/four exchanges and 32 FT/six exchanges plus unchanged originals. Original
+XYZ, edited-X bias and native approximate inequality remain explicit; constructor
+input absence is translated only for this exact case. Normal strict staged and
+exact hosted gates remain pending: candidate 181 complete /28 partial, accepted
+180/28. See MAGNETOMETER_XML.md for scope.

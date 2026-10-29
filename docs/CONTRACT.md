@@ -1024,3 +1024,11 @@ AirPressure::to_xml/load_air_pressure_str preserve complete pressure Noise and
 reference-altitude metadata; matching standalone Sensor output uses existing
 envelope and numeric policies. Joint XML remains force_torque-only; no atmosphere
 or measurement is computed. See [AIR_PRESSURE_XML.md](AIR_PRESSURE_XML.md).
+
+
+## Magnetometer XML
+
+Magnetometer::to_xml/load_magnetometer_str preserve all three complete Noise
+records through existing XYZ parsing and numeric rules. Matching standalone
+Sensor output retains envelope metadata; Joint remains force_torque-only, with
+no magnetic-field or runtime claim. See [MAGNETOMETER_XML.md](MAGNETOMETER_XML.md).

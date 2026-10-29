@@ -2420,6 +2420,20 @@
       "baseline": "Seventeen actual native outcomes, fifteen actual Rust-to-native exchanges, exact generated fixture and both unchanged native originals pass with empty original stderr. Author 451 Rust tests, formatting and Clippy pass. Shared helpers replay all 32 force/torque, 24 IMU and 16 Altimeter native cases; all six/four/fourteen prior XML exports remain byte-identical. Provenance reference/air-pressure-xml.json.",
       "status": "ported_reviewed",
       "review": "Independent /root/integration_reviewer approved source and exact complete original mappings after 31 relevant Rust checks in fresh source/target, all seventeen native cases, byte-identical fixture, fifteen actual Rust-to-native exchanges and both unchanged originals with empty stderr. Final direct-reference helper cleanup independently replayed. Compared five native Noise EXPECT_DOUBLE_EQ fields and altitude/edit four-ULP assertions, actual quiet checks and scoped constructed-source interpretation. No loaded identity/runtime/Joint expansion. Normal strict staged and exact hosted gates remain required before acceptance."
+    },
+    {
+      "target": "UNIT_Magnetometer_TEST",
+      "case": "DOMMagnetometer.ToElement",
+      "source": "src/Magnetometer_TEST.cc:116-152",
+      "rust_test": "tests/magnetometer_xml_original.rs::original_magnetometer_to_element",
+      "assertions": "All X/Y/Z configured Noise observations, successful nonempty output and typed reload, edited X bias 11.22 and original X Noise unequal to edited Noise retained, including explicit bias difference >1e-6 to preserve native approximate-inequality semantics. Exact finite Noise equality strengthens native component-wise <=1e-6. Coordinator-approved constructor-only source=None after immutable emission means no fabricated loaded input declaration, mapping only the constructed Element-null assertion at 133; no loaded identity/mutation/runtime claim.",
+      "fixtures": {
+        "tests/fixtures/magnetometer_to_element_native.xml": "4cb25eabdb39a0710b61ac27cf4a75f5399cafaabeda36de6e7ffef4a0e26994"
+      },
+      "upstream_fixtures": {},
+      "baseline": "Seventeen actual native outcomes, fifteen actual Rust-to-native exchanges, exact generated fixture and unchanged original pass with empty original stderr. Author 455 Rust tests, formatting and Clippy pass. Shared FT/IMU/Altimeter/AirPressure native helpers replay and all six/four/fourteen/fifteen prior XML outputs remain byte-identical. Provenance reference/magnetometer-xml.json.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/integration_reviewer approved exact source/original mapping after 35 relevant Rust checks in fresh source/target, all seventeen native cases, exact fixture, fifteen actual exchanges and unchanged original. Shared XYZ extraction compared against old logic and independently replayed all 24 IMU/four exchanges and 32 FT/six exchanges plus unchanged originals. Constructed-source mapping and original-X >1e-6 inequality reviewed; no loaded identity/console/runtime claim. All 39 prior export-byte comparisons remain author evidence. Normal strict staged and exact hosted gates remain required before acceptance."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

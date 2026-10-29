@@ -1,56 +1,18 @@
 {
   "decision": "approved",
-  "author": "sdformat_owner_v3",
-  "reviewer": "msgs_owner_astra",
-  "source_digest": "fa9c350621eac1b3a6385e128e5ce644850e79d3a6479a9965f5588586f36eb2",
-  "protected_digest": "66a780fa85c9a12c2c1b0605f9cdb42f927f0aad252ec141687e190547077865",
-  "final_tree": "f32e7b8007414bbd7284b00c145c445633a33b70",
-  "parent": "efa4a3e698031135cad332b5addc2c5e3928d219",
-  "final_freeze_sha256": "a6f8e56d94936c3d9cc80eaa7551cb2abdb2387cf236be3c71a75020ff2d3068",
-  "source_tree": "fb5fa1f61190e18ce4182b5e12674c4276497145",
-  "source_review_sha256": "f752fc8d520732e22dac2a80940cddf29ee3dee312dc9103b826e4a0cf1ad383",
-  "full_gate_tree": "4c54ec88fe495e9cb7a643de45e2a8bd7ae4663b",
-  "full_review_sha256": "ba9fe0b192679f5e65fa995ccdd96faefe0ae2a3fec70057b9791b46a7ab45b5",
-  "independent_proof_sha256": "05cb93c9d477efc2fb0d90ab822dda685ff3696110dda4b4851e01279099435e",
-  "independent_executor_sha256": "e9b27dd33708c87348f5377bf0f43235297b375ab26c96c99a5a7fcb535a0b7f",
-  "coverage": {
-    "lines": {
-      "count": 4965,
-      "covered": 4941
-    },
-    "regions": {
-      "count": 8421,
-      "covered": 8178
-    }
-  },
-  "changed_lines": {
-    "count": 84,
-    "covered": 84
-  },
-  "rust_tests": {
-    "passed": 385,
-    "failed": 0,
-    "ignored": 0
-  },
-  "tooling_tests": 16,
-  "captured_raw_profiles_previously_rehashed": 139,
+  "author": "sdformat_owner",
+  "reviewer": "integration_reviewer",
+  "source_digest": "adf8b781a8c710fe1f7428e79f902a0b1d195a571797c4e7c4fee49e17138198",
+  "protected_digest": "330b0b3b5cd993ca28ec40447ccf6de20e2d1c0a8c7f4ef2ed4ab12896894c89",
+  "scope": "Immutable loaded-model direct-child queries; completion of the selected IncludesTest.MergeInclude assertion mapping only. General Element/Param API and SDF-02 remain open.",
   "checks": [
-    "All exact final raw Git blobs/modes and sixteen owned paths checked; ten reviewed source/test/fixture files unchanged from source/full gate",
-    "Only five scoped prose/ledger/results paths differ after full gate; old166 complete/25partial rows preserved except two append-only accepted WorldMerge chronology suffixes",
-    "Exactly one proposed complete PlacementFrame and one explicitly partial MergeInclude row appended; old results preserved except accepted WorldMerge chronology, exact original command append and new scoped section",
-    "Canonical source/protected digests and ledger recomputed; unchanged policy/hooks/license/dependencies/old tests/fixtures remain bound; all five canonical/retained source evidence hashes reverified",
-    "Full evidence approval retains unfiltered4941/4965 lines8178/8421 regions and84/84 changed,385Rust16tools; no duplicate runtime or filtered evidence"
+    "Compared original native includes.cc assertions with all retained Rust assertions and unchanged fixtures; no tolerance or coverage exclusion changes.",
+    "Reviewed flat shared snapshot storage, include/merge expansion, legacy typed-name behavior and nonrecursive post-load override extraction.",
+    "Fresh reviewer-owned source and target passed all 35 model-element, merge, ownership and semantics tests, including unchanged default-stack include depth bounds.",
+    "Independently ran both unchanged native MergeInclude originals; both passed with expected schema-copy warnings.",
+    "Reviewed final docs, owner guidance and sole ledger promotion from partial to reviewed port."
   ],
-  "scope": "Final metadata/protected binding only. MergeInclude generic Element/FindElement/HasElement absence remains explicitly partial. Metadata is owned XML and boolean declarations, not runtime physics/GUI/serializer/Element equivalence. Native existing-build, known schema/world custom/repeated scalar/legacy collision limits remain; no full SDF02/performance. Earlier86564/22040 failures and nine ELF proofs remain retained, no tolerance/lint/fixture waiver.",
-  "proposed_ledger": {
-    "complete": 167,
-    "partial": 26,
-    "accepted_before_remaining_gates": false
-  },
-  "permitted_followup": "Replace only reference/review.json with this exact canonical receipt; source/protected digests exclude the receipt itself. No other source/metadata edits without renewed review.",
-  "required_remaining": [
-    "mandatory normal protected hook",
-    "independent normal actual binding",
-    "public exact commit and hosted CI"
+  "remaining": [
+    "Mandatory strict staged hook and exact hosted CI before public acceptance."
   ]
 }

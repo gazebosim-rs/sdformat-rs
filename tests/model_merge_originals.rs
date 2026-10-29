@@ -98,7 +98,7 @@ fn original_includes_test_merge_include_placement_frame() {
 }
 
 #[test]
-fn partial_original_includes_test_merge_include() {
+fn original_includes_test_merge_include() {
     let sdf = loaded();
     let world = sdf.worlds.first().expect("WorldByIndex(0) != nullptr");
     let model = world
@@ -225,7 +225,16 @@ fn partial_original_includes_test_merge_include() {
         .expect("retained custom metadata");
     assert_eq!(custom.attribute("name"), Some("baz"));
     assert!(!model.extensions.iter().any(|e| e.tag == "unknown_element"));
-    // UNPORTED: native Model.Element()/FindElement pointer API and generic
-    // HasElement(enable_wind/static) absence. False DTO flags cannot stand in
-    // for XML-element absence. This original remains explicitly PARTIAL.
+    let element = model.element().expect("Model.Element() != nullptr");
+    let plugin_element = element
+        .find_child("plugin")
+        .expect("FindElement(plugin) != nullptr");
+    assert_eq!(plugin_element.name_attribute(), Some("test"));
+    let custom_element = element
+        .find_child("custom:foo")
+        .expect("FindElement(custom:foo) != nullptr");
+    assert_eq!(custom_element.name_attribute(), Some("baz"));
+    assert!(!element.has_child("unknown_element"));
+    assert!(!element.has_child("enable_wind"));
+    assert!(!element.has_child("static"));
 }

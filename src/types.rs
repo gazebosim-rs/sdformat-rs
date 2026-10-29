@@ -4,6 +4,7 @@
 use crate::Camera;
 use crate::graph::Graphs;
 use glam::{DQuat, DVec3};
+use std::sync::Arc;
 
 /// Source identity is supplied by the caller, or the injected include resolver.
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -300,6 +301,50 @@ impl Default for Physics {
         }
     }
 }
+/// A read-only direct-child view from a loaded model, after include expansion.
+/// Typed Model edits do not modify this snapshot. It is not a mutable XML DOM.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct ModelElement {
+    pub(crate) children: Vec<ModelElementChild>,
+}
+impl ModelElement {
+    /// Direct children in load order, including repeated tags.
+    pub fn children(&self) -> &[ModelElementChild] {
+        &self.children
+    }
+    /// The first direct child with this exact tag, without creating defaults.
+    pub fn find_child(&self, tag: &str) -> Option<&ModelElementChild> {
+        self.children.iter().find(|child| child.tag == tag)
+    }
+    pub fn has_child(&self, tag: &str) -> bool {
+        self.find_child(tag).is_some()
+    }
+    pub(crate) fn ensure_child(&mut self, tag: &str) {
+        if !self.has_child(tag) {
+            self.children.push(ModelElementChild {
+                tag: tag.into(),
+                name_attribute: None,
+            });
+        }
+    }
+}
+
+/// Direct tag and explicit name attribute only; no Param or nested-value API.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct ModelElementChild {
+    pub(crate) tag: String,
+    pub(crate) name_attribute: Option<String>,
+}
+impl ModelElementChild {
+    pub fn tag(&self) -> &str {
+        &self.tag
+    }
+    /// XML-decoded explicit attribute, distinct from a nested `<name>` child.
+    pub fn name_attribute(&self) -> Option<&str> {
+        self.name_attribute.as_deref()
+    }
+}
+
 #[derive(Debug, Clone)]
 pub struct Model {
     pub name: String,
@@ -312,6 +357,9 @@ pub struct Model {
     pub enable_wind: bool,
     /// Opaque non-schema children, with original XML and resource provenance.
     pub extensions: Vec<ExtensionMetadata>,
+    /// Loaded direct-element snapshot; None for an explicitly constructed DTO.
+    /// Cloning a Model shares this immutable view, independently of typed edits.
+    pub loaded_element: Option<Arc<ModelElement>>,
     pub canonical_link: String,
     pub placement_frame: String,
     /// Original include metadata; absent for a model declared directly in XML.
@@ -326,6 +374,10 @@ pub struct Model {
     pub source: Source,
 }
 impl Model {
+    /// Loaded direct children; no schema defaults are created by querying.
+    pub fn element(&self) -> Option<&ModelElement> {
+        self.loaded_element.as_deref()
+    }
     /// Resolve literal `{name}` placeholders against the current model name.
     /// This does not change frame scopes or include/resource lookup.
     pub fn namespace(&self) -> Option<String> {

@@ -2870,3 +2870,20 @@ Source; imported canonical identities remain direct. Projection retains all
 nonmessage fields plus error codes/nulls, while full raw retains messages.
 Element/OriginalVersion, resource search/model.config, serialization, full
 Includes/World/Root/SDF02 and physical runtime remain unqualified.
+
+
+## Loaded model-element queries in development
+
+The recovered candidate adds an immutable direct-child view after include
+expansion. Queries distinguish omitted elements from explicit false values and
+preserve repeated tags and explicit name attributes. Clones share the snapshot;
+typed edits leave it unchanged. The original MergeInclude test now exercises its
+remaining presence and name assertions on unchanged fixtures. Fresh native runs
+pass both include originals. All 393 Rust tests and Clippy pass. Independent
+review passed a fresh 35-test replay including the unchanged include-depth bound.
+The initial full run caught a recursive parser stack regression; moving post-load
+overrides outside the recursive frame fixed it without changing the bound or
+assertions. Strict staged coverage and hosted CI remain required. Accepted counts
+remain 167 complete and 26 partial until publication; the candidate maps 168
+complete and 25 partial originals. See
+[MODEL_ELEMENTS.md](MODEL_ELEMENTS.md) for the bounded API and remaining scope.

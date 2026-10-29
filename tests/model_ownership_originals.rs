@@ -29,6 +29,7 @@ fn model(name: &str, namespace: Option<&str>) -> Model {
         is_static: false,
         enable_wind: false,
         extensions: Vec::new(),
+        loaded_element: None,
         canonical_link: String::new(),
         placement_frame: String::new(),
         include: None,
@@ -193,4 +194,11 @@ fn xml_empty_namespace_is_absent_while_owned_empty_is_present() {
     assert!(parsed.namespace().is_none());
     parsed.raw_namespace = Some(String::new());
     assert_eq!(parsed.namespace().as_deref(), Some(""));
+}
+
+#[test]
+fn constructed_model_has_no_loaded_element_snapshot() {
+    let constructed = model("constructed", None);
+    assert!(constructed.element().is_none());
+    assert!(constructed.clone().element().is_none());
 }

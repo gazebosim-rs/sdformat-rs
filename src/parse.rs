@@ -5,7 +5,7 @@ use crate::graph::{Graphs, error, join};
 use crate::xml::{Document, Node, legacy_whitespace};
 use crate::*;
 use glam::{DQuat, DVec3, EulerRot};
-use std::{borrow::Cow, collections::BTreeSet};
+use std::{borrow::Cow, collections::BTreeSet, sync::Arc};
 
 pub(crate) fn load(
     xml: &str,
@@ -829,11 +829,16 @@ impl Parser<'_> {
         let mut plugins = Vec::new();
         let mut extensions = Vec::new();
         let mut merged_includes = Vec::new();
+        let mut element_children = Vec::new();
         let mut names = BTreeSet::new();
         let mut typed_names = BTreeSet::new();
         // Legacy collisions rename only the element loaded later. Future names
         // must not be reserved early; references retain their declared strings.
         for member in elements(node) {
+            let mut element_child = ModelElementChild {
+                tag: member.tag_name().name().into(),
+                name_attribute: member.attribute("name").map(str::to_owned),
+            };
             match member.tag_name().name() {
                 "link" => {
                     let mut link = self.link(member, &scoped_name)?;
@@ -902,6 +907,11 @@ impl Parser<'_> {
                                 typed_names.insert((kind, name.clone()));
                             }
                         }
+                        append_merged_element_children(
+                            &mut element_children,
+                            &imported,
+                            &proxy.name,
+                        );
                         links.extend(imported.links);
                         joints.extend(imported.joints);
                         frames.push(proxy);
@@ -929,6 +939,8 @@ impl Parser<'_> {
                             &mut typed_names,
                         )?;
                     }
+                    element_child.tag = "model".into();
+                    element_child.name_attribute = Some(nested.name.clone());
                     models.push(nested);
                 }
                 "plugin" => plugins.push(self.plugin(member)?),
@@ -937,6 +949,7 @@ impl Parser<'_> {
                 }
                 _ => {}
             }
+            element_children.push(element_child);
         }
         self.validate_axis_mimics(&name, &joints)?;
         Ok(Model {
@@ -951,6 +964,9 @@ impl Parser<'_> {
             is_static: self.boolean(node, "static", false)?,
             enable_wind: self.boolean(node, "enable_wind", false)?,
             extensions,
+            loaded_element: Some(Arc::new(ModelElement {
+                children: element_children,
+            })),
             canonical_link: node.attribute("canonical_link").unwrap_or("").into(),
             placement_frame: node.attribute("placement_frame").unwrap_or("").into(),
             include: None,
@@ -1071,7 +1087,19 @@ impl Parser<'_> {
                 "top-level model pose relative_to must be empty",
             ));
         }
-        let mut model = imported.model(all[0], scope, rename.as_deref())?;
+        let model = imported.model(all[0], scope, rename.as_deref())?;
+        self.apply_include_overrides(node, model, uri, rename, merge)
+    }
+    // Applying overrides after recursive loading keeps their temporaries off
+    // the stack while loading deeply nested resources.
+    fn apply_include_overrides(
+        &self,
+        node: Node<'_, '_>,
+        mut model: Model,
+        uri: String,
+        rename: Option<String>,
+        merge: bool,
+    ) -> Result<(Model, bool), Diagnostic> {
         // Native empty namespace overrides leave the resource's value intact.
         if let Some(namespace) = self
             .optional_text(node, "namespace")?
@@ -1105,6 +1133,21 @@ impl Parser<'_> {
             model.is_static = is_static;
         }
         let plugins = self.plugins(node)?;
+        if let Some(element) = &mut model.loaded_element {
+            let element = Arc::make_mut(element);
+            if pose.is_some() {
+                element.ensure_child("pose");
+            }
+            if is_static.is_some() {
+                element.ensure_child("static");
+            }
+            element
+                .children
+                .extend(plugins.iter().map(|plugin| ModelElementChild {
+                    tag: "plugin".into(),
+                    name_attribute: Some(plugin.name.clone()),
+                }));
+        }
         model.plugins.extend(plugins.iter().cloned());
         model.include = Some(Box::new(Include {
             uri,
@@ -1184,6 +1227,10 @@ impl Parser<'_> {
             rewrite(&mut link.pose.relative_to, true);
         }
         for nested in &mut model.models {
+            // Native merge creates a pose even when the nested model omitted it.
+            if let Some(element) = &mut nested.loaded_element {
+                Arc::make_mut(element).ensure_child("pose");
+            }
             rewrite(&mut nested.pose.relative_to, true);
             rescope_model(nested, scope);
         }
@@ -3226,6 +3273,32 @@ fn validate_joints(
         }
     }
     Ok(())
+}
+
+// Keep snapshot expansion temporaries off the recursive model parser's stack.
+fn append_merged_element_children(
+    children: &mut Vec<ModelElementChild>,
+    imported: &Model,
+    proxy_name: &str,
+) {
+    children.push(ModelElementChild {
+        tag: "frame".into(),
+        name_attribute: Some(proxy_name.into()),
+    });
+    if let Some(element) = imported.element() {
+        children.extend(
+            element
+                .children()
+                .iter()
+                .filter(|child| {
+                    matches!(
+                        child.tag(),
+                        "link" | "model" | "joint" | "frame" | "gripper" | "plugin"
+                    ) || child.tag().contains(':')
+                })
+                .cloned(),
+        );
+    }
 }
 
 // Utils.cc reserves a surrounding pair of double underscores, not every prefix.

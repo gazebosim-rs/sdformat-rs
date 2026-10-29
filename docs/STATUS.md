@@ -2926,3 +2926,15 @@ fixture and fresh Rust/native review passed. No parser, public API or physics
 capability changed. Strict staged/hosted checks remain required; accepted
 mappings remain 170 complete and 25 partial. See
 [WORLD_JOINT_FRAMES.md](WORLD_JOINT_FRAMES.md).
+
+
+## Complete joint-pose conformance in development
+
+The distinct DOMJoint.Complete original now has a faithful Rust port covering all
+nine raw joint poses and classic screw pitch 20 on the existing unchanged fixture.
+Its loaded Element presence predicate is represented by the matching explicitly
+named joint child in the existing immutable model snapshot. Both native and Rust
+runs pass. All 402 Rust tests and Clippy pass. Independent source/assertion review
+and fresh Rust/native replay passed. No production API, parser or physics
+capability changed. Strict staged/hosted checks remain required; accepted mappings
+remain 171 complete and 25 partial. See [JOINT_POSES.md](JOINT_POSES.md).

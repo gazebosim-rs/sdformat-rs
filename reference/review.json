@@ -2,14 +2,14 @@
   "decision": "approved",
   "author": "sdformat_owner",
   "reviewer": "root",
-  "source_digest": "9e8d13dfef525c3d641f3e9d1d21a62b91a742eb928c4fbe565e0b17e2d6e0de",
-  "protected_digest": "c7016cde9b3b701c1429f46a22921e57c9fd531ad562872560e851282630d762",
-  "scope": "Faithful DOMJoint.LoadWorldJointChildFrame conformance over existing typed parser and semantic graph APIs. No production changes or simulator world-joint physics support.",
+  "source_digest": "003a8b02923a6f94334f6aa3c2ab3a32e48ed913fb794009a810515c6025d312",
+  "protected_digest": "07ff51e03debca7b43ad5e8b9f400fc28f833d492b3e31e7e5a583bafae2279e",
+  "scope": "Faithful DOMJoint.Complete port for existing parsing and exact loaded screw-joint source identity. No generic Element facade, constructor/lifetime contract or physics capability changes.",
   "checks": [
-    "Compared complete original assertions and byte-identical fixture; independently ran original native case and Rust port successfully.",
-    "Verified gz-math Pose3 equality delegates to direct Vector3 and Quaternion component comparisons within 1e-3; retained those exact bounds and signs.",
-    "Reviewed raw metadata, name/index/presence assertions, four resolved endpoints and all nine semantic pose queries.",
-    "Reviewed explicit owning-world prefix normalization and final single-case ledger promotion; no coverage, policy or tolerance changes."
+    "Compared complete native source assertions and existing byte-identical joint_complete.sdf fixture; independently replayed Rust port and unchanged native original.",
+    "Retained all nine indexed raw translation/quaternion poses at native direct component-wise 1e-3 bounds, named screw presence and classic pitch20 at four ULP.",
+    "Reviewed existing glam expected-pose conversion, unchanged imported original notices and precise mapping of loaded Element presence to same explicitly named joint child.",
+    "Reviewed final single-case ledger disposition and documentation; no production, policy, fixture or tolerance changes."
   ],
   "remaining": [
     "Mandatory strict staged hook and exact hosted CI before acceptance."

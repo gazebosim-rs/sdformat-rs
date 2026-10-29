@@ -78,7 +78,10 @@ fetch locked dependencies and install the checked-in pre-commit hook. Run
 Coverage must strictly exceed 95% of both production lines and regions, including
 changed executable lines. The gate rejects missing instrumentation and files;
 protected assertion/policy changes require a separate review receipt. CI runs the
-same gate and publishes artifacts. Repository administrators must configure the
+same gate and publishes coverage/test evidence plus the verification log. Hosted
+artifacts omit regenerable Cargo targets, raw profiles and merged build data;
+failed instrumented test output is saved before the original failure propagates.
+Repository administrators must configure the
 `verify / core` status and independent reviews as required branch checks.
 The covered layout is one library in `src`, integration tests in `tests`, no
 package features, and the Linux x86_64 core runner. Additional Cargo targets

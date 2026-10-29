@@ -2987,3 +2987,19 @@ token-count assertion tightening. Strict staged coverage and exact hosted CI
 remain required. No additional original credit is claimed; accepted
 counts remain 169 complete and 30 partial.
 See [JOINT_SEMANTIC_POSE.md](JOINT_SEMANTIC_POSE.md).
+
+
+## Hosted evidence selection in development
+
+CI now selects exact coverage/test evidence and a verification log instead of
+archiving the regenerable Cargo target, raw LLVM profiles and merged profile.
+The verification pipeline retains failure exit status, and failed instrumented
+Cargo output is written to tests.log before the same exception is re-raised.
+All seventeen tooling tests pass, including the new failure-output regression
+and unchanged staged-index, review and strict coverage checks. Independent review
+passed all seventeen tooling tests and actual workflow success/failure pipelines,
+verifying both log streams, unchanged exit status and the exact five-file upload
+selection. The normal staged hook, exact hosted CI and downloaded artifact
+contents check remain required. Production behavior,
+original assertion mappings, source provenance and coverage thresholds are
+unchanged. Accepted ledger counts remain 169 complete and 30 partial.

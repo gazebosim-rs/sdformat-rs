@@ -2,16 +2,16 @@
   "decision": "approved",
   "author": "sdformat_owner",
   "reviewer": "integration_reviewer",
-  "source_digest": "1372481d48ea9135358d84b1f2970f4ea7dea93e0736e8deda302b861cf10d14",
-  "protected_digest": "917bc3d4f1380d530ab3486639d4804126fc9bec2d3b7b8581c8271b8a770b6b",
-  "scope": "Loaded joint semantic-pose query API; no graph mutation, physics capability or new original assertion credit.",
+  "source_digest": "a558d5a97e1da068c714fb3692bbeef5593f822a0e0ab5d6b58e11467f001738",
+  "protected_digest": "dbeb1d5656f534f1bec70278ec6467a2ea7b6ca01e8baac1293798c54e0d75a0",
+  "scope": "Bounded hosted evidence selection and preserving failed instrumented-test diagnostics; no production or gate-policy change.",
   "checks": [
-    "Independent separate source/target passed 29 relevant Rust tests; final explicit token-length tightening replayed successfully.",
-    "Native helper reproduced 46 actual queries (29 successes and 17 code26 target rejects), original fixture and unchanged native/Rust frame originals.",
-    "Reviewed strict containing scope, declared child-frame offsets versus attached bodies, wrong-kind/unknown source diagnostics and immutable loaded snapshot behavior."
+    "Fresh independent source passed all17 tooling checks, including original CalledProcessError101 propagation and no continuation.",
+    "Parsed and executed exact workflow run block with success0 and failure37; both streams retained through tee and original return codes preserved.",
+    "Verified exact five-file upload selection and always condition; Cargo targets/raw profiles/merged build data excluded without changing verification command or coverage."
   ],
   "remaining": [
-    "Mandatory strict staged coverage gate and exact hosted CI.",
-    "Live simulator attachment poses and broader SDF acceptance remain separate work."
+    "Mandatory normal staged hook and exact hosted CI.",
+    "Download/list actual hosted artifact to confirm exact retained evidence payload."
   ]
 }

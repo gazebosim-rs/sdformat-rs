@@ -152,7 +152,11 @@ def coverage(root, out, manifest):
     raw.mkdir()
     env = dict(os.environ, CARGO_TARGET_DIR=str(out / 'target'), LLVM_PROFILE_FILE=str(raw / '%p-%m.profraw'))
     env['RUSTFLAGS'] = '-C instrument-coverage'
-    result = run(['cargo', 'test', '--locked', '--all-targets', '--message-format=json'], env=env, capture=True, cwd=root)
+    try:
+        result = run(['cargo', 'test', '--locked', '--all-targets', '--message-format=json'], env=env, capture=True, cwd=root)
+    except subprocess.CalledProcessError as error:
+        (out / 'tests.log').write_text((error.stdout or '') + (error.stderr or ''))
+        raise
     (out / 'tests.log').write_text(result.stdout + result.stderr)
     binaries = []
     for line in result.stdout.splitlines():

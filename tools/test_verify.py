@@ -21,6 +21,22 @@ class CoverageGateTests(unittest.TestCase):
             counts[metric] = {'count': 0, 'covered': 0}
             with self.assertRaises(AssertionError): verify.check_counts(counts)
 
+    def test_failed_instrumented_tests_keep_output_and_failure(self):
+        import subprocess
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            output = root / 'artifacts/core'
+            failure = subprocess.CalledProcessError(101, ['cargo', 'test'], output='assertion failed\n', stderr='compiler diagnostic\n')
+            with patch('verify.run', side_effect=failure) as command:
+                with self.assertRaises(subprocess.CalledProcessError) as raised:
+                    verify.coverage(root, output, {})
+            self.assertIs(raised.exception, failure)
+            self.assertEqual(raised.exception.returncode, 101)
+            self.assertEqual((output / 'tests.log').read_text(), 'assertion failed\ncompiler diagnostic\n')
+            command.assert_called_once()
+            self.assertEqual(command.call_args.args[0], ['cargo', 'test', '--locked', '--all-targets', '--message-format=json'])
+            self.assertTrue(command.call_args.kwargs['capture'])
+
     def test_missing_instrumentation_file_crate_profile_or_exclusion_fails(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)

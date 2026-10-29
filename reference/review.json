@@ -2,17 +2,17 @@
   "decision": "approved",
   "author": "sdformat_owner",
   "reviewer": "integration_reviewer",
-  "source_digest": "a5167fe5decf5c1138d8bb7075c04775cfd598d90b49ac869980fe75695e3025",
-  "protected_digest": "38ad36e314e98cb311a0db3b3fd71b727e52ab4e8a7011d84bf921269ba0274b",
-  "scope": "Bounded base Camera XML and native-backed shared parser corrections, with partial original ToElement credit only.",
+  "source_digest": "63966c6f59a8c39b092c20bf20bf5cc37fe3f8efc6fd8112888c55fec4ada82a",
+  "protected_digest": "36c6df4c6e9eb8701d31ccd47bee606cd145eba642a1ed0a8af41af6c56bf25e",
+  "scope": "Seven exact XML original assertion mappings, precise constructor input-origin interpretation and shared quiet-output checks; no production changes.",
   "checks": [
-    "Fresh independent source/target passed 22 relevant repository Rust tests plus both concrete private regressions after fixes.",
-    "Reproduced all 34 native outcomes, exact native-generated fixture, 26 real Rust-to-native exchanges and unchanged Camera.ToElement with empty stderr.",
-    "Verified all fourteen omitted signed-zero guards, emitted signed-zero preservation, disabled/enabled save-path shape validation in standalone/full loaders, retained constructors and schema1.5707 versus constructor PI/2.",
-    "Reviewed original positive finite four-ULP comparisons, strict advanced payload rejection and unchanged Camera Sensor/Joint rejection; no rendering or runtime claim."
+    "Fresh independent source and target passed 15 relevant repository Rust tests.",
+    "Nine unchanged native originals passed with empty stderr.",
+    "Two private adversarial controls proved successful children emitting stdout or stderr fail quiet validation.",
+    "Reviewed exact native returned-output, quaternion-component and narrow FT/Camera constructor mappings; remaining IMU, Light and Joint residues retained."
   ],
   "remaining": [
-    "Mandatory single normal Main staged gate, strict coverage and exact hosted CI.",
-    "Generic Element/null identity and advanced camera/XML/runtime support remain open."
+    "Single normal strict staged hook and exact hosted CI.",
+    "Generic Element identity, ownership and mutation plus the documented IMU, Light and Joint residual assertions remain unqualified."
   ]
 }

@@ -52,5 +52,8 @@ supported. Consumers still validate runtime timesteps and solver settings.
 
 The fixed six value observations in the two native ToElement originals map to
 this roundtrip. The update-rate field and boundary checks are supplemental.
-Element pointers, redirected console, full schema, native XML byte identity,
-engine execution and native error-vector parity remain unported.
+Successful nonempty XML plus full typed reload translates the returned Element
+presence assertion. The ErrorOutput port checks actual empty library stdout/stderr
+in a child process and successful emit/load Results. See
+[XML_ASSERTION_MAPPINGS.md](XML_ASSERTION_MAPPINGS.md). Full schema, native XML
+byte identity, engine execution and general error-vector parity remain unqualified.

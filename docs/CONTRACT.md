@@ -805,8 +805,9 @@ quaternion pose values. The fixed `DOMFrame.ToElement` and
 through this pair. Both emitted variants also load within a pinned native
 SDF 1.12 model whose link targets make the frame graph valid. The native
 originals compare the source name to itself, so a Rust loaded-name check is
-supplemental. Native Element pointer and redirected console-buffer observations
-remain pending. The standalone reader does not build a frame graph, and the
+supplemental. Returned Element presence maps to successful nonempty XML and
+full reload; ErrorOutput now checks actual quiet child output. See
+[XML_ASSERTION_MAPPINGS.md](XML_ASSERTION_MAPPINGS.md). The standalone reader does not build a frame graph, and the
 Rust XML bytes, full document grammar, attachment resolution and native error
 vectors are outside this bounded API claim.
 
@@ -836,8 +837,9 @@ Element, console, graph or original-test semantics.
 
 `Physics::to_xml()` emits bounded world profile metadata that the existing world
 loader can read. It preserves the six fixed values in the two Physics ToElement
-originals; update-rate metadata is supplemental. Both originals remain partial
-because Element and console observations are unported. See docs/PHYSICS.md for
+originals; update-rate metadata is supplemental. Returned Element presence maps
+to successful nonempty XML and full reload; ErrorOutput checks actual quiet child
+output. See [XML_ASSERTION_MAPPINGS.md](XML_ASSERTION_MAPPINGS.md). See docs/PHYSICS.md for
 text/numeric limits; this API does not configure an engine.
 
 

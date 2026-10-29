@@ -52,6 +52,16 @@ fn assert_loaded(light: &Light) {
     let expected = DQuat::from_rotation_y(std::f64::consts::PI);
     let actual = DQuat::from_array(light.pose.transform.rotation);
     assert!((actual.dot(expected).abs() - 1.).abs() < 1e-12);
+    // Retain the native direct-sign component bound alongside the tighter dot check.
+    for (actual, expected) in light
+        .pose
+        .transform
+        .rotation
+        .into_iter()
+        .zip(expected.to_array())
+    {
+        assert!((actual - expected).abs() <= 1e-3);
+    }
     assert_eq!(light.pose.relative_to, "ground_plane");
     assert!(light.cast_shadows);
     assert_eq!(light.diffuse, [0.4, 0.5, 0.6, 1.]);

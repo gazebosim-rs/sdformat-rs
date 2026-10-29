@@ -17,7 +17,7 @@
 
 // Copyright (C) 2026 Open Source Robotics Foundation
 // SPDX-License-Identifier: Apache-2.0
-// Generic Element/null identity stays unported; retained values map to owned fields.
+// Constructor input absence uses the approved case-specific SourceNone mapping.
 use sdformat::*;
 fn double(actual: f64, expected: f64) {
     assert!(
@@ -51,7 +51,7 @@ fn original_camera_to_element_base_values_subset() {
     assert!(!xml.is_empty());
     assert!(
         camera.source.is_none(),
-        "supplemental owned construction provenance only"
+        "no loaded input declaration was fabricated by immutable emission"
     );
     let mut loaded = load_camera_str(&xml, "camera.xml").unwrap();
     double(loaded.horizontal_fov, 1.45);

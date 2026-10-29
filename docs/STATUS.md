@@ -3050,3 +3050,19 @@ plus two private regressions, all native outcomes and actual exchanges, includin
 signed-zero and disabled-path corrections. Strict staged/hosted checks remain
 required. Accepted counts stay 169 complete/34 partial; candidate adds one partial.
 See [CAMERA_BASE_XML.md](CAMERA_BASE_XML.md).
+
+
+## Candidate ToElement assertion audit
+
+Seven selected Frame/Physics/ForceTorque/Camera originals have explicit faithful
+Rust API mappings for emitted Element presence and, where asserted, constructed
+input absence. Frame/Physics ErrorOutput now checks actual quiet child output;
+Frame/Light retain old quaternion checks and add direct signed component bounds.
+No production code, fixture or prior assertion changes. Author 441 Rust tests,
+formatting and Clippy pass; nine unchanged native originals pass with empty
+stderr. Independent review approved all seven exact mappings after 15 focused Rust
+tests in fresh source/target, nine unchanged native originals and two private
+stdout/stderr failure controls. Normal strict staged/hosted gates are pending.
+Candidate ledger is 176 complete /28 partial; accepted remains 169/35 until gates
+pass. IMU/Light input-origin and Joint type-none sensor assertions remain partial.
+See XML_ASSERTION_MAPPINGS.md for exact case-specific mappings.

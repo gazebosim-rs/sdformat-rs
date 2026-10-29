@@ -17,7 +17,9 @@
 
 // Copyright (C) 2026 Open Source Robotics Foundation
 // SPDX-License-Identifier: Apache-2.0
-// Fixed native value observations; Element and console remain unported.
+// Native successful output maps to Ok XML plus reload; console is checked in a child.
+#[path = "support/quiet.rs"]
+mod quiet;
 use sdformat::{Diagnostic, ErrorCode, NoResources, Physics, load_str};
 
 fn configured() -> Physics {
@@ -56,20 +58,36 @@ fn assert_original_values(original: &Physics, loaded: &Physics) {
 #[test]
 fn partial_dom_physics_to_element_values() {
     let physics = configured();
-    let xml = physics.to_xml().unwrap();
+    let output = physics.to_xml();
+    assert!(output.is_ok());
+    let xml = output.unwrap();
+    assert!(
+        !xml.is_empty(),
+        "successful XML maps the non-null emitted Element"
+    );
     let physics2 = load_profile(&xml).unwrap();
     assert_original_values(&physics, &physics2);
 }
 
 #[test]
 fn partial_dom_physics_to_element_error_output_values() {
-    let physics = configured();
-    let output = physics.to_xml();
-    assert!(output.is_ok()); // Owned successful Result maps the empty emit errors.
-    let loaded = load_profile(&output.unwrap());
-    assert!(loaded.is_ok()); // Empty owned load diagnostic.
-    assert_original_values(&physics, &loaded.unwrap());
-    // Native Element pointers and redirected console remain unported.
+    quiet::assert_quiet(
+        "partial_dom_physics_to_element_error_output_values",
+        "SDF_PHYSICS_XML_QUIET_CHILD",
+        || {
+            let physics = configured();
+            let output = physics.to_xml();
+            assert!(output.is_ok());
+            let xml = output.unwrap();
+            assert!(
+                !xml.is_empty(),
+                "successful XML maps the non-null emitted Element"
+            );
+            let loaded = load_profile(&xml);
+            assert!(loaded.is_ok());
+            assert_original_values(&physics, &loaded.unwrap());
+        },
+    );
 }
 
 #[test]

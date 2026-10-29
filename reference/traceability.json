@@ -2274,6 +2274,96 @@
       "baseline": "Unchanged native DOMJointAxis.ToElement passes. Its generated XML fixture regenerates byte for byte from checked-in C++ source, command, library hashes and source provenance. Native XML loads in Rust; actual Rust XML loads in native JointAxis. Seventeen native outcomes retain sixteen exact matches and one named XYZ difference under the existing Rust normalization policy. No old assertion or tolerance changed. All 409 Rust tests and Clippy pass; strict staged and hosted checks remain pending.",
       "status": "ported_reviewed",
       "review": "Independent integration reviewer approved the source, XML/numeric error boundaries, graph-admission separation and original assertion mapping. Fresh reviewer source/target passed eight focused Rust tests, including the unchanged threshold assertion. Final helper replay reproduced seventeen native outcomes, byte-identical native XML, direct Rust loading of that fixture, actual Rust-to-native XML and the unchanged native original. Sixteen outcomes match exactly; one named XYZ difference retains the already-published Rust UnitX policy and actual native tiny-vector oracle. Constructor/general Element contracts and all previous assertions remain unchanged. Strict staged verification and hosted CI remain required before public acceptance."
+    },
+    {
+      "target": "UNIT_Frame_TEST",
+      "case": "DOMFrame.ToElement",
+      "source": "src/Frame_TEST.cc:77-121",
+      "rust_test": "tests/frame_roundtrip_originals.rs::partial_dom_frame_to_element_values",
+      "assertions": "All fixed with/without attached_to assertions retained: attachment, raw pose and relative frame. Successful nonempty XML plus successful typed reload translates nonnull emitted Element; successful Results translate empty emit/load Errors. Existing dot checks retained with direct quaternion components <=1e-3 added. Native source-name tautology preserved by source setup; supplemental loaded-name check remains.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Pinned native originals2/0 completed, exact source/binary and fresh GTest report bound by source freeze b03ffc92a2035617f79b17d84dc570f4f844700c0753b65c1de6127960929ff0; private raw-source Rust3/0, native load of both emitted XML variants on byte-identical library, full author300 Rust/16 tools, production4646/4671 lines7788/8029 regions and changed75/75. Residual assertion audit reran all nine unchanged Frame/Physics/ForceTorque/Camera/Light originals with empty stderr; all 15 corresponding Rust tests pass. Existing XML exchange proofs retained. See docs/XML_ASSERTION_MAPPINGS.md.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/integration_reviewer approved this exact complete assertion mapping, with 15 focused Rust tests from fresh source/target and all nine unchanged native originals passing with empty stderr. Two private adversarial controls confirm added child stdout/stderr is rejected. Native signed quaternion bounds retained beside prior dot checks; constructed-source mapping applies only to the coordinator-approved FT/Camera cases. No general Element equivalence, loaded identity, ownership or runtime claim. Normal strict staged hook and exact hosted CI required before public acceptance."
+    },
+    {
+      "target": "UNIT_Frame_TEST",
+      "case": "DOMFrame.ToElementErrorOutput",
+      "source": "src/Frame_TEST.cc:122-183",
+      "rust_test": "tests/frame_roundtrip_originals.rs::partial_dom_frame_to_element_error_output_values",
+      "assertions": "All fixed with/without attached_to assertions retained: attachment, raw pose and relative frame. Successful nonempty XML plus successful typed reload translates nonnull emitted Element; successful Results translate empty emit/load Errors. Existing dot checks retained with direct quaternion components <=1e-3 added. Native source-name tautology preserved by source setup; supplemental loaded-name check remains. Actual child process requires empty stderr and stdout limited to exact successful libtest protocol, numeric filter count and finite duration; Frame executes both attachment branches.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Pinned native originals2/0 completed, exact source/binary and fresh GTest report bound by source freeze b03ffc92a2035617f79b17d84dc570f4f844700c0753b65c1de6127960929ff0; private raw-source Rust3/0, native load of both emitted XML variants on byte-identical library, full author300 Rust/16 tools, production4646/4671 lines7788/8029 regions and changed75/75. Residual assertion audit reran all nine unchanged Frame/Physics/ForceTorque/Camera/Light originals with empty stderr; all 15 corresponding Rust tests pass. Existing XML exchange proofs retained. See docs/XML_ASSERTION_MAPPINGS.md.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/integration_reviewer approved this exact complete assertion mapping, with 15 focused Rust tests from fresh source/target and all nine unchanged native originals passing with empty stderr. Two private adversarial controls confirm added child stdout/stderr is rejected. Native signed quaternion bounds retained beside prior dot checks; constructed-source mapping applies only to the coordinator-approved FT/Camera cases. No general Element equivalence, loaded identity, ownership or runtime claim. Normal strict staged hook and exact hosted CI required before public acceptance."
+    },
+    {
+      "target": "UNIT_Physics_TEST",
+      "case": "DOMPhysics.ToElement",
+      "source": "src/Physics_TEST.cc:111-134",
+      "rust_test": "tests/physics_xml_originals.rs::partial_dom_physics_to_element_values",
+      "assertions": "All six fixed name/default/engine/max-step/real-time-factor/max-contacts assertions retained. Successful nonempty XML plus successful typed reload translates nonnull emitted Element; successful Results translate empty emit/load Errors. Exact finite scalar bits strengthen native double comparisons. Update-rate and wrapper/boundary checks remain supplemental; no physics runtime claim.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Pinned native originals 2/0 and private raw-source Rust 5/0. Independently regenerated emitted XML SHA256 16604d90de90c39fbb9f4937a48536e7adfa5646d44998fd33aec85d489592f7 loads with the same six values plus supplemental update-rate in the byte-identical pinned native library. Contacts-loss and subnormal-guard removal controls fail as expected. Full author gate passed 316 Rust tests and 16 tooling tests, formatting, Clippy and docs; coverage 4725/4750 lines, 7853/8094 regions, changed 44/44. Cargo 2 correctness only; no timing claim. Residual assertion audit reran all nine unchanged Frame/Physics/ForceTorque/Camera/Light originals with empty stderr; all 15 corresponding Rust tests pass. Existing XML exchange proofs retained. See docs/XML_ASSERTION_MAPPINGS.md.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/integration_reviewer approved this exact complete assertion mapping, with 15 focused Rust tests from fresh source/target and all nine unchanged native originals passing with empty stderr. Two private adversarial controls confirm added child stdout/stderr is rejected. Native signed quaternion bounds retained beside prior dot checks; constructed-source mapping applies only to the coordinator-approved FT/Camera cases. No general Element equivalence, loaded identity, ownership or runtime claim. Normal strict staged hook and exact hosted CI required before public acceptance."
+    },
+    {
+      "target": "UNIT_Physics_TEST",
+      "case": "DOMPhysics.ToElementErrorOutput",
+      "source": "src/Physics_TEST.cc:137-179",
+      "rust_test": "tests/physics_xml_originals.rs::partial_dom_physics_to_element_error_output_values",
+      "assertions": "All six fixed name/default/engine/max-step/real-time-factor/max-contacts assertions retained. Successful nonempty XML plus successful typed reload translates nonnull emitted Element; successful Results translate empty emit/load Errors. Exact finite scalar bits strengthen native double comparisons. Update-rate and wrapper/boundary checks remain supplemental; no physics runtime claim. Actual child process requires empty stderr and stdout limited to exact successful libtest protocol, numeric filter count and finite duration; Frame executes both attachment branches.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Pinned native originals 2/0 and private raw-source Rust 5/0. Independently regenerated emitted XML SHA256 16604d90de90c39fbb9f4937a48536e7adfa5646d44998fd33aec85d489592f7 loads with the same six values plus supplemental update-rate in the byte-identical pinned native library. Contacts-loss and subnormal-guard removal controls fail as expected. Full author gate passed 316 Rust tests and 16 tooling tests, formatting, Clippy and docs; coverage 4725/4750 lines, 7853/8094 regions, changed 44/44. Cargo 2 correctness only; no timing claim. Residual assertion audit reran all nine unchanged Frame/Physics/ForceTorque/Camera/Light originals with empty stderr; all 15 corresponding Rust tests pass. Existing XML exchange proofs retained. See docs/XML_ASSERTION_MAPPINGS.md.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/integration_reviewer approved this exact complete assertion mapping, with 15 focused Rust tests from fresh source/target and all nine unchanged native originals passing with empty stderr. Two private adversarial controls confirm added child stdout/stderr is rejected. Native signed quaternion bounds retained beside prior dot checks; constructed-source mapping applies only to the coordinator-approved FT/Camera cases. No general Element equivalence, loaded identity, ownership or runtime claim. Normal strict staged hook and exact hosted CI required before public acceptance."
+    },
+    {
+      "target": "UNIT_ForceTorque_TEST",
+      "case": "DOMForceTorque.ToElement",
+      "source": "src/ForceTorque_TEST.cc:115-163",
+      "rust_test": "tests/force_torque_xml_original.rs::original_force_torque_to_element_values_subset",
+      "assertions": "six complete Noise records including kind and seven scalar fields, frame/direction, successful typed output/read results, nonempty XML and edited-direction roundtrip. Exact finite scalar equality strengthens native Noise component-wise <=1e-6. Coordinator-approved case-specific constructor mapping: source=None after successful immutable emission asserts no loaded input declaration was fabricated, translating only the original constructed Element-null observation. No general Source/Element identity claim. No original assertion retired.",
+      "fixtures": {
+        "tests/fixtures/force_torque_to_element_native.xml": "ecfb0370c97208f28ded34a13152e10ebb5c2367286fd4c1d90bd461d2ed815a"
+      },
+      "upstream_fixtures": {},
+      "baseline": "Both unchanged native ToElement originals passed with empty stderr. 32 actual native outcomes, byte-identical generated fixture and six real Rust-to-native exchanges pass; provenance in reference/force-torque-xml.json. Residual assertion audit reran all nine unchanged Frame/Physics/ForceTorque/Camera/Light originals with empty stderr; all 15 corresponding Rust tests pass. Existing XML exchange proofs retained. See docs/XML_ASSERTION_MAPPINGS.md.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/integration_reviewer approved this exact complete assertion mapping, with 15 focused Rust tests from fresh source/target and all nine unchanged native originals passing with empty stderr. Two private adversarial controls confirm added child stdout/stderr is rejected. Native signed quaternion bounds retained beside prior dot checks; constructed-source mapping applies only to the coordinator-approved FT/Camera cases. No general Element equivalence, loaded identity, ownership or runtime claim. Normal strict staged hook and exact hosted CI required before public acceptance."
+    },
+    {
+      "target": "UNIT_ForceTorque_TEST",
+      "case": "DOMForceTorque.ToElementErrorOutput",
+      "source": "src/ForceTorque_TEST.cc:165-231",
+      "rust_test": "tests/force_torque_xml_original.rs::original_force_torque_to_element_error_output_subset",
+      "assertions": "six complete Noise records including kind and seven scalar fields, frame/direction, successful typed output/read results, nonempty XML and edited-direction roundtrip. Exact finite scalar equality strengthens native Noise component-wise <=1e-6. ErrorOutput variant independently checks empty library console output in a child process. Coordinator-approved case-specific constructor mapping: source=None after successful immutable emission asserts no loaded input declaration was fabricated, translating only the original constructed Element-null observation. No general Source/Element identity claim. No original assertion retired.",
+      "fixtures": {
+        "tests/fixtures/force_torque_to_element_native.xml": "ecfb0370c97208f28ded34a13152e10ebb5c2367286fd4c1d90bd461d2ed815a"
+      },
+      "upstream_fixtures": {},
+      "baseline": "Both unchanged native ToElement originals passed with empty stderr. 32 actual native outcomes, byte-identical generated fixture and six real Rust-to-native exchanges pass; provenance in reference/force-torque-xml.json. Residual assertion audit reran all nine unchanged Frame/Physics/ForceTorque/Camera/Light originals with empty stderr; all 15 corresponding Rust tests pass. Existing XML exchange proofs retained. See docs/XML_ASSERTION_MAPPINGS.md.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/integration_reviewer approved this exact complete assertion mapping, with 15 focused Rust tests from fresh source/target and all nine unchanged native originals passing with empty stderr. Two private adversarial controls confirm added child stdout/stderr is rejected. Native signed quaternion bounds retained beside prior dot checks; constructed-source mapping applies only to the coordinator-approved FT/Camera cases. No general Element equivalence, loaded identity, ownership or runtime claim. Normal strict staged hook and exact hosted CI required before public acceptance."
+    },
+    {
+      "target": "UNIT_Camera_TEST",
+      "case": "DOMCamera.ToElement",
+      "source": "src/Camera_TEST.cc:257-307",
+      "rust_test": "tests/camera_base_xml_original.rs::original_camera_to_element_base_values_subset",
+      "assertions": "constructed name, nonempty successful output, loaded HFOV/image dimensions/format/clip/visibility/pose-relative/save/path/info/trigger topics/triggered flag, and edited near-clip roundtrip. Original positive finite EXPECT_DOUBLE_EQ comparisons retain <=4 ULP. Coordinator-approved case-specific constructor mapping: source=None after successful immutable emission asserts no loaded input declaration was fabricated, translating only the original constructed Element-null observation. No general Source/Element identity claim. No original assertion retired.",
+      "fixtures": {
+        "tests/fixtures/camera_to_element_native.xml": "efe77e8a291a2511a8ebc47ec815e4554e3006576f3dfe8efb4a3cba5bb48e4c"
+      },
+      "upstream_fixtures": {},
+      "baseline": "Unchanged native Camera.ToElement passed with empty stderr. 34 actual native cases project all 68 fields including advanced defaults; 26 actual Rust-to-native exchanges and byte-identical generated fixture pass. Provenance in reference/camera-base-xml.json. Residual assertion audit reran all nine unchanged Frame/Physics/ForceTorque/Camera/Light originals with empty stderr; all 15 corresponding Rust tests pass. Existing XML exchange proofs retained. See docs/XML_ASSERTION_MAPPINGS.md.",
+      "status": "ported_reviewed",
+      "review": "Independent /root/integration_reviewer approved this exact complete assertion mapping, with 15 focused Rust tests from fresh source/target and all nine unchanged native originals passing with empty stderr. Two private adversarial controls confirm added child stdout/stderr is rejected. Native signed quaternion bounds retained beside prior dot checks; constructed-source mapping applies only to the coordinator-approved FT/Camera cases. No general Element equivalence, loaded identity, ownership or runtime claim. Normal strict staged hook and exact hosted CI required before public acceptance."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",
@@ -2527,7 +2617,7 @@
       "case": "DOMLight.ToElement",
       "source": "src/Light_TEST.cc:349-403",
       "rust_test": "tests/light_roundtrip_originals.rs::partial_dom_light_to_element_values",
-      "assertions": "PARTIAL fixed values: bounded standalone Light emit/load retains name, Spot type, pose equivalent, relative frame, shadows, colors, attenuation, direction, spot values and intensity; second emission retains changed shadows false. Native Element null/non-null pointer observations remain UNPORTED. Rust quaternion XML and explicit light-on/visualize differ from native bytes; full grammar, Link/World integration and rendering unclaimed.",
+      "assertions": "PARTIAL fixed values: bounded standalone Light emit/load retains name, Spot type, pose equivalent, relative frame, shadows, colors, attenuation, direction, spot values and intensity; second emission retains changed shadows false. Native Element null/non-null pointer observations remain UNPORTED. Rust quaternion XML and explicit light-on/visualize differ from native bytes; full grammar, Link/World integration and rendering unclaimed. Existing dot-product checks retained; native direct-sign quaternion-component <=1e-3 assertions added in the residual audit. Constructed-null and loaded-nonnull input observations and console remain explicit missing scope.",
       "fixtures": {},
       "upstream_fixtures": {},
       "baseline": "Pinned native originals2/0 completed; exact source/binary and fresh GTest report bound by corrected V2 freeze 2a91e8e3fa1f1c4a2455626b207dda0bcdde3e1d36a848c4ca20d4bf1561b838. Private raw-parent Rust4/0 and native load of generated XML against byte-identical library; source-reviewed four hashes.",
@@ -2539,36 +2629,12 @@
       "case": "DOMLight.ToElementErrorOutput",
       "source": "src/Light_TEST.cc:406-471",
       "rust_test": "tests/light_roundtrip_originals.rs::partial_dom_light_to_element_error_output_values",
-      "assertions": "PARTIAL fixed values: bounded standalone Light emit/load retains source values with Result::Ok for empty owned diagnostic. Native Element pointer observations and redirected console-buffer-empty observation remain UNPORTED; native exact error vector, native XML bytes, full grammar and rendering unclaimed.",
+      "assertions": "PARTIAL fixed values: bounded standalone Light emit/load retains source values with Result::Ok for empty owned diagnostic. Native Element pointer observations and redirected console-buffer-empty observation remain UNPORTED; native exact error vector, native XML bytes, full grammar and rendering unclaimed. Existing dot-product checks retained; native direct-sign quaternion-component <=1e-3 assertions added in the residual audit. Constructed-null and loaded-nonnull input observations and console remain explicit missing scope.",
       "fixtures": {},
       "upstream_fixtures": {},
       "baseline": "Pinned native originals2/0 completed; exact source/binary and fresh GTest report bound by corrected V2 freeze 2a91e8e3fa1f1c4a2455626b207dda0bcdde3e1d36a848c4ca20d4bf1561b838. Private raw-parent Rust4/0 and native load of generated XML against byte-identical library; source-reviewed four hashes.",
       "status": "partial_reviewed",
       "review": "Independent /root/transport_fallback V2 PARTIAL source/API/assertion approval receipt SHA256 1ca50fc1706ac1fe0674addf95493fcd526e03cb52cd7f2bca774e80864429b4. Native pointer/console side effects explicitly unported. Final metadata binding receipt SHA256 b7d8ba20bc82cb18cd1c37733c415ae97289f78a52119e6e4bd5b776fd68d300, normal protected hook and public b3b2f0146946567ecacaa570cc1c5ce4d88292bd passed exact hosted verify 40282673371 SUCCESS."
-    },
-    {
-      "target": "UNIT_Frame_TEST",
-      "case": "DOMFrame.ToElement",
-      "source": "src/Frame_TEST.cc:77-121",
-      "rust_test": "tests/frame_roundtrip_originals.rs::partial_dom_frame_to_element_values",
-      "assertions": "PARTIAL fixed with/without attached_to values: bounded Frame emit/load preserves attached_to, raw pose and pose-relative-to. Native frame.Name()==frame.Name() is a source tautology; loaded-name Rust assertion supplemental. Native Element non-null pointer observations UNPORTED; Rust quaternion XML differs from native bytes, full graph/document grammar and attachment resolution unclaimed.",
-      "fixtures": {},
-      "upstream_fixtures": {},
-      "baseline": "Pinned native originals2/0 completed, exact source/binary and fresh GTest report bound by source freeze b03ffc92a2035617f79b17d84dc570f4f844700c0753b65c1de6127960929ff0; private raw-source Rust3/0, native load of both emitted XML variants on byte-identical library, full author300 Rust/16 tools, production4646/4671 lines7788/8029 regions and changed75/75.",
-      "status": "partial_reviewed",
-      "review": "Independent /root/transport_owner_v2 PARTIAL source/API/assertion approval receipt SHA256 b360a2153094256795e2d800de90269989eb0bc41153fbd1ffb16b62bc85a97b; native pointer/console side effects explicitly unported. Final metadata binding SHA256 b53d564e2158fc912adb1c4e18ff6972e1b073dd6b6e62464e178ad1f500af40, normal protected hook and public d9560becb4ebdc74ef92d1664218b8c717423f55 passed exact hosted verify 40286173293 SUCCESS."
-    },
-    {
-      "target": "UNIT_Frame_TEST",
-      "case": "DOMFrame.ToElementErrorOutput",
-      "source": "src/Frame_TEST.cc:122-183",
-      "rust_test": "tests/frame_roundtrip_originals.rs::partial_dom_frame_to_element_error_output_values",
-      "assertions": "PARTIAL fixed with/without attached_to values and successful Result mapping native empty Errors for serialization and load. Native frame.Name()==frame.Name() tautology noted, loaded-name Rust assertion supplemental. Native Element pointer and redirected console-buffer-empty UNPORTED; full native error vector, XML bytes and graph integration unclaimed.",
-      "fixtures": {},
-      "upstream_fixtures": {},
-      "baseline": "Pinned native originals2/0 completed, exact source/binary and fresh GTest report bound by source freeze b03ffc92a2035617f79b17d84dc570f4f844700c0753b65c1de6127960929ff0; private raw-source Rust3/0, native load of both emitted XML variants on byte-identical library, full author300 Rust/16 tools, production4646/4671 lines7788/8029 regions and changed75/75.",
-      "status": "partial_reviewed",
-      "review": "Independent /root/transport_owner_v2 PARTIAL source/API/assertion approval receipt SHA256 b360a2153094256795e2d800de90269989eb0bc41153fbd1ffb16b62bc85a97b; native pointer/console side effects explicitly unported. Final metadata binding SHA256 b53d564e2158fc912adb1c4e18ff6972e1b073dd6b6e62464e178ad1f500af40, normal protected hook and public d9560becb4ebdc74ef92d1664218b8c717423f55 passed exact hosted verify 40286173293 SUCCESS."
     },
     {
       "target": "UNIT_Frame_TEST",
@@ -2581,30 +2647,6 @@
       "baseline": "Pinned native original1/0 completed with exact source/binary and GTest XML; source freeze ea22edccf4b00a94a157c68fa2ef2a85d84b081428c6d8fdedbc385cf7b8084f on hosted-green public parent d9560becb4ebdc74ef92d1664218b8c717423f55. Private raw-source Rust original1/0 and attachment-fallback-removal mutant red; author full gate, fmt/Clippy/docs and strict production4663/4688 lines7799/8040 regions, changed17/17. Two-job correctness-only overlap with Root REF01 hook; no timing claim.",
       "status": "partial_reviewed",
       "review": "Independent /root/transport_owner_v2 PARTIAL source/API/assertion approval receipt SHA256 7bd74db98f0dc35a2f1b6814d2a8ba3c2c3f0e34c3423175bf5450699cf7fbae; exact frozen two source/test hashes and imported2018 OSRF notice bound. Final metadata binding receipt SHA256 6b0048a1776c1b52d05287e4880d53681e0a5dd383225572009e020850896cf3, normal protected hook and public db702a289ae36cf31f8d0663fa3c145f86801801 passed exact hosted verify 40289925899 SUCCESS."
-    },
-    {
-      "target": "UNIT_Physics_TEST",
-      "case": "DOMPhysics.ToElement",
-      "source": "src/Physics_TEST.cc:111-134",
-      "rust_test": "tests/physics_xml_originals.rs::partial_dom_physics_to_element_values",
-      "assertions": "PARTIAL: Fixed name, default flag, engine type, max-step size, real-time factor and maximum contacts survive Physics::to_xml and the existing typed world profile loader. Exact double bits strengthen native double comparisons. Native Element nonnull pointers remain UNPORTED; redirected console is also UNPORTED for the second original. World wrapper/load setup, update-rate metadata and boundary controls are supplemental. No full grammar, byte-identical XML, engine runtime or native error-vector parity claim.",
-      "fixtures": {},
-      "upstream_fixtures": {},
-      "baseline": "Pinned native originals 2/0 and private raw-source Rust 5/0. Independently regenerated emitted XML SHA256 16604d90de90c39fbb9f4937a48536e7adfa5646d44998fd33aec85d489592f7 loads with the same six values plus supplemental update-rate in the byte-identical pinned native library. Contacts-loss and subnormal-guard removal controls fail as expected. Full author gate passed 316 Rust tests and 16 tooling tests, formatting, Clippy and docs; coverage 4725/4750 lines, 7853/8094 regions, changed 44/44. Cargo 2 correctness only; no timing claim.",
-      "status": "partial_reviewed",
-      "review": "Independent /root/transport_owner_v2 PARTIAL source/protected approval SHA256 a52dce244f240d147b79a6c70c495c8b394c77b05b9a50c0a2d590918224efa9 binds source freeze 9886f7288569df6c814485db6955ba79730f9a46ced0b78f29263d47d12356d7 on exact hosted-green public parent 4a25e2a449b6b6dcea5da80b42af6dc839d405b0. Final metadata binding receipt SHA256 2f10de8faa493fb4549a5bd58f57a9371030404be0b31e2325e832f3cbe59f28, normal protected hook and public e262de326d4d02409321a8589c81d83981db9173 passed exact hosted verify 40302323810 SUCCESS."
-    },
-    {
-      "target": "UNIT_Physics_TEST",
-      "case": "DOMPhysics.ToElementErrorOutput",
-      "source": "src/Physics_TEST.cc:137-179",
-      "rust_test": "tests/physics_xml_originals.rs::partial_dom_physics_to_element_error_output_values",
-      "assertions": "PARTIAL: Fixed name, default flag, engine type, max-step size, real-time factor and maximum contacts survive Physics::to_xml and the existing typed world profile loader. Exact double bits strengthen native double comparisons. Successful owned Results map empty emit/load diagnostics. Native Element nonnull pointers remain UNPORTED; redirected console is also UNPORTED for the second original. World wrapper/load setup, update-rate metadata and boundary controls are supplemental. No full grammar, byte-identical XML, engine runtime or native error-vector parity claim.",
-      "fixtures": {},
-      "upstream_fixtures": {},
-      "baseline": "Pinned native originals 2/0 and private raw-source Rust 5/0. Independently regenerated emitted XML SHA256 16604d90de90c39fbb9f4937a48536e7adfa5646d44998fd33aec85d489592f7 loads with the same six values plus supplemental update-rate in the byte-identical pinned native library. Contacts-loss and subnormal-guard removal controls fail as expected. Full author gate passed 316 Rust tests and 16 tooling tests, formatting, Clippy and docs; coverage 4725/4750 lines, 7853/8094 regions, changed 44/44. Cargo 2 correctness only; no timing claim.",
-      "status": "partial_reviewed",
-      "review": "Independent /root/transport_owner_v2 PARTIAL source/protected approval SHA256 a52dce244f240d147b79a6c70c495c8b394c77b05b9a50c0a2d590918224efa9 binds source freeze 9886f7288569df6c814485db6955ba79730f9a46ced0b78f29263d47d12356d7 on exact hosted-green public parent 4a25e2a449b6b6dcea5da80b42af6dc839d405b0. Final metadata binding receipt SHA256 2f10de8faa493fb4549a5bd58f57a9371030404be0b31e2325e832f3cbe59f28, normal protected hook and public e262de326d4d02409321a8589c81d83981db9173 passed exact hosted verify 40302323810 SUCCESS."
     },
     {
       "target": "UNIT_Box_TEST",
@@ -2633,34 +2675,6 @@
       "review": "Independent /root/integration_reviewer approved source, native/original assertions and error boundaries. Fresh reviewer-owned source and target passed 48 focused Rust tests and all 23 native outcomes, byte-identical native generation, actual Rust-to-native XML and unchanged DOMJoint.ToElement. Reader boundary diagnostics retain caller URI/location. General DOM, constructors, sensors and full original remain open; no complete credit."
     },
     {
-      "target": "UNIT_ForceTorque_TEST",
-      "case": "DOMForceTorque.ToElement",
-      "source": "src/ForceTorque_TEST.cc:115-163",
-      "rust_test": "tests/force_torque_xml_original.rs::original_force_torque_to_element_values_subset",
-      "assertions": "PARTIAL: six complete Noise records including kind and seven scalar fields, frame/direction, successful typed output/read results, nonempty XML and edited-direction roundtrip. Exact finite scalar equality strengthens native Noise component-wise <=1e-6. Generic constructor Element/null identity remains unported; source=None is supplemental owned provenance only. No original assertion retired.",
-      "fixtures": {
-        "tests/fixtures/force_torque_to_element_native.xml": "ecfb0370c97208f28ded34a13152e10ebb5c2367286fd4c1d90bd461d2ed815a"
-      },
-      "upstream_fixtures": {},
-      "baseline": "Both unchanged native ToElement originals passed with empty stderr. 32 actual native outcomes, byte-identical generated fixture and six real Rust-to-native exchanges pass; provenance in reference/force-torque-xml.json.",
-      "status": "partial_reviewed",
-      "review": "Independent /root/integration_reviewer approved bounded source, all six complete Noise observations, strict payload rejection, native projections and direct-sign pose bounds. Fresh reviewer source/target passed 32 relevant Rust checks, all 32 native outcomes, byte-identical fixture generation, six actual Rust-to-native exchanges and both unchanged originals with empty stderr. Generic Element/null identity remains unported; no backend/wrench claim. Normal staged and exact hosted checks remain required."
-    },
-    {
-      "target": "UNIT_ForceTorque_TEST",
-      "case": "DOMForceTorque.ToElementErrorOutput",
-      "source": "src/ForceTorque_TEST.cc:165-231",
-      "rust_test": "tests/force_torque_xml_original.rs::original_force_torque_to_element_error_output_subset",
-      "assertions": "PARTIAL: six complete Noise records including kind and seven scalar fields, frame/direction, successful typed output/read results, nonempty XML and edited-direction roundtrip. Exact finite scalar equality strengthens native Noise component-wise <=1e-6. ErrorOutput variant independently checks empty library console output in a child process. Generic constructor Element/null identity remains unported; source=None is supplemental owned provenance only. No original assertion retired.",
-      "fixtures": {
-        "tests/fixtures/force_torque_to_element_native.xml": "ecfb0370c97208f28ded34a13152e10ebb5c2367286fd4c1d90bd461d2ed815a"
-      },
-      "upstream_fixtures": {},
-      "baseline": "Both unchanged native ToElement originals passed with empty stderr. 32 actual native outcomes, byte-identical generated fixture and six real Rust-to-native exchanges pass; provenance in reference/force-torque-xml.json.",
-      "status": "partial_reviewed",
-      "review": "Independent /root/integration_reviewer approved bounded source, all six complete Noise observations, strict payload rejection, native projections and direct-sign pose bounds. Fresh reviewer source/target passed 32 relevant Rust checks, all 32 native outcomes, byte-identical fixture generation, six actual Rust-to-native exchanges and both unchanged originals with empty stderr. Generic Element/null identity remains unported; no backend/wrench claim. Normal staged and exact hosted checks remain required."
-    },
-    {
       "target": "UNIT_Imu_TEST",
       "case": "DOMImu.ToElement",
       "source": "src/Imu_TEST.cc:132-184",
@@ -2687,20 +2701,6 @@
       "baseline": "Both unchanged ToElement originals passed with empty stderr. 24 native outcomes, byte-identical fixture and four real Rust-to-native exchanges pass; shared Noise extraction also retains all 32 FT outcomes, six FT exchanges and byte-identical accepted FT output.",
       "status": "partial_reviewed",
       "review": "Independent /root/integration_reviewer approved source, boundaries and original assertions. Fresh reviewer source/target passed 33 relevant Rust checks, all 24 IMU native outcomes, exact fixture and four actual exchanges plus both unchanged originals with empty stderr. Shared-noise regression passed all 32 FT outcomes, six exchanges and both originals; all six generated FT exports independently match prior accepted review output byte for byte. Generic Element/null identity remains explicitly unported; old IMU joint/payload assertions unchanged. Normal staged and exact hosted checks remain required."
-    },
-    {
-      "target": "UNIT_Camera_TEST",
-      "case": "DOMCamera.ToElement",
-      "source": "src/Camera_TEST.cc:257-307",
-      "rust_test": "tests/camera_base_xml_original.rs::original_camera_to_element_base_values_subset",
-      "assertions": "PARTIAL: constructed name, nonempty successful output, loaded HFOV/image dimensions/format/clip/visibility/pose-relative/save/path/info/trigger topics/triggered flag, and edited near-clip roundtrip. Original positive finite EXPECT_DOUBLE_EQ comparisons retain <=4 ULP. Generic constructor Element/null identity remains unported; source=None is supplemental owned provenance only. No original assertion retired.",
-      "fixtures": {
-        "tests/fixtures/camera_to_element_native.xml": "efe77e8a291a2511a8ebc47ec815e4554e3006576f3dfe8efb4a3cba5bb48e4c"
-      },
-      "upstream_fixtures": {},
-      "baseline": "Unchanged native Camera.ToElement passed with empty stderr. 34 actual native cases project all 68 fields including advanced defaults; 26 actual Rust-to-native exchanges and byte-identical generated fixture pass. Provenance in reference/camera-base-xml.json.",
-      "status": "partial_reviewed",
-      "review": "Independent /root/integration_reviewer approved source/parser/original assertions after fresh separate source/target passed 22 relevant repository Rust tests plus both private regressions, all 34 native outcomes, exact generated fixture, 26 actual exchanges and unchanged original. Rechecked all fourteen omitted-zero guards, emitted zero signs, always-validating save paths, parsed presence/default corrections and exact schema cutoff policy; constructors and old assertions retained. Generic Element identity remains open; normal staged/hosted gates required."
     }
   ]
 }

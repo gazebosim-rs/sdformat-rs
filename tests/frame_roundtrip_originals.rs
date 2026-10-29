@@ -18,6 +18,8 @@
 // Copyright (C) 2026 Open Source Robotics Foundation
 // SPDX-License-Identifier: Apache-2.0
 // Fixed value observations from DOMFrame.ToElement and ToElementErrorOutput.
+#[path = "support/quiet.rs"]
+mod quiet;
 use glam::{DQuat, EulerRot};
 use sdformat::{ErrorCode, Frame, Pose, Source, load_frame_str};
 
@@ -48,7 +50,13 @@ fn check_roundtrip(with_attachment: bool) {
     if !with_attachment {
         assert!(frame.attached_to.is_empty());
     }
-    let xml = frame.to_xml().expect("bounded Frame output");
+    let output = frame.to_xml();
+    assert!(output.is_ok());
+    let xml = output.expect("bounded Frame output");
+    assert!(
+        !xml.is_empty(),
+        "successful XML maps the non-null emitted Element"
+    );
     let loaded = load_frame_str(&xml, "frame-roundtrip").expect("bounded Frame load");
     assert!(xml.starts_with("<frame "));
     assert_eq!(loaded.name, "my-frame"); // Supplemental; native name check is tautological.
@@ -58,6 +66,16 @@ fn check_roundtrip(with_attachment: bool) {
     let expected = DQuat::from_array(frame.pose.transform.rotation);
     let actual = DQuat::from_array(loaded.pose.transform.rotation);
     assert!((actual.dot(expected).abs() - 1.).abs() < 1e-12);
+    // Native Pose3 equality observes quaternion signs component by component.
+    for (actual, expected) in loaded
+        .pose
+        .transform
+        .rotation
+        .into_iter()
+        .zip(frame.pose.transform.rotation)
+    {
+        assert!((actual - expected).abs() <= 1e-3);
+    }
 }
 
 #[test]
@@ -68,9 +86,14 @@ fn partial_dom_frame_to_element_values() {
 
 #[test]
 fn partial_dom_frame_to_element_error_output_values() {
-    // Successful Results map native empty Errors, not console capture.
-    check_roundtrip(true);
-    check_roundtrip(false);
+    quiet::assert_quiet(
+        "partial_dom_frame_to_element_error_output_values",
+        "SDF_FRAME_XML_QUIET_CHILD",
+        || {
+            check_roundtrip(true);
+            check_roundtrip(false);
+        },
+    );
 }
 
 #[test]

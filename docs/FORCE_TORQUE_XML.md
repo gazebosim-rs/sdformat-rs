@@ -61,13 +61,15 @@ python3 tools/force_torque_xml_reference.py /path/to/pinned/sdformat
 cargo test --locked --test force_torque_xml --test force_torque_xml_original
 ```
 
-Two partial original ports retain the six full Noise equality observations,
+Both original ports retain the six full Noise equality observations,
 frame/direction, edited-direction output, successful error results and empty
 console observation. Exact Noise equality on these finite values is stronger
 than native Noise's component-wise <=1e-6 comparison. A child process admits
 only libtest's fixed protocol/duration on stdout and requires empty stderr.
-Generic Element/null identity remains unported; source=None is supplemental
-owned provenance, not a substitute assertion. These cases receive partial credit.
+The approved constructor-null translation checks that immutable emission does
+not fabricate a loaded input declaration (source=None); see
+[XML_ASSERTION_MAPPINGS.md](XML_ASSERTION_MAPPINGS.md). This is not a general
+Source/Element identity mapping.
 
 All 427 Rust tests and Clippy pass. Independent source/assertion/boundary review
 passed, with 32 focused Rust checks in fresh reviewer source/target, all 32 native

@@ -17,7 +17,7 @@ lens.c3, hidden calibration skew/tx/ty and advanced noise fields reject. Fields
 that are emitted retain their actual zero signs, verified in native loading. The
 constructor's published values remain unchanged. Matching Camera Sensor/Joint
 output stays Unsupported in this slice, preserving existing payload boundaries.
-Generic Element/null identity, advanced optics and runtime behavior remain open.
+Loaded Element identity, advanced optics and runtime behavior remain open.
 
 The base boundary requires a nonempty, lossless name; the native-loaded omitted
 name is __default__. Strings reject padding, controls and doubled text spaces
@@ -65,10 +65,12 @@ cargo test --locked --test camera_base_xml --test camera_base_xml_original
 The helper regenerates the fixture byte for byte, loads native XML in Rust and
 loads 26 actual Rust outputs in native Camera.Load. It uses low-level SDF read
 without a model graph and reruns unchanged DOMCamera.ToElement with empty stderr.
-The partial original port keeps all supported value/index-free assertions and
+The original port keeps all value/index-free assertions and
 edited near-clip output, with original positive finite double comparisons within
-four ULPs. Generic Element/null identity remains unported; source=None is only
-supplemental owned provenance. No original assertion is retired.
+four ULPs. The approved constructor-null translation checks that immutable emission does
+not fabricate a loaded input declaration (source=None); see
+[XML_ASSERTION_MAPPINGS.md](XML_ASSERTION_MAPPINGS.md). This is not a general
+Source/Element identity mapping. No original assertion is retired.
 
 All 441 Rust tests and Clippy pass. Independent source/parser/assertion review
 passed 22 focused repository tests plus both private regressions, all 34 native

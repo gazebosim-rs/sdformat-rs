@@ -17,7 +17,7 @@
 
 // Copyright (C) 2026 Open Source Robotics Foundation
 // SPDX-License-Identifier: Apache-2.0
-// Supported ToElement observations; generic Element identity remains unported.
+// Retained ToElement observations with the approved constructor input mapping.
 use sdformat::*;
 use std::process::Command;
 fn original_body() {
@@ -43,7 +43,7 @@ fn original_body() {
     assert!(!xml.is_empty());
     assert!(
         value.source.is_none(),
-        "supplementary owned construction provenance only"
+        "no loaded input declaration was fabricated by immutable emission"
     );
     let loaded = load_force_torque_str(&xml, "force_torque.xml");
     assert!(loaded.is_ok());

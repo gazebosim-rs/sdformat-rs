@@ -2196,6 +2196,22 @@
       "rust_test": "tests/model_merge_originals.rs::original_includes_test_merge_include",
       "assertions": "All previous fixture, load, count, canonical-link, pose, axis, joint, plugin and custom-value assertions are retained. The loaded model element is present; its first direct plugin and custom:foo children have explicit name attributes test and baz. Direct unknown_element, enable_wind and static children are absent. Original component-wise <=1e-3 comparisons and direct quaternion signs are unchanged, including the exact -1.5707 binary64 oracle. This structural borrowed view does not claim a general mutable native Element API.",
       "status": "ported_reviewed"
+    },
+    {
+      "target": "INTEGRATION_material_pbr",
+      "case": "Material.PbrDOM",
+      "source": "test/integration/material_pbr.cc:32-263",
+      "rust_test": "tests/pbr_original.rs::original_material_pbr_dom",
+      "assertions": "All original load/model/link/material/workflow presence, visual names/count and diffuse color predicates are retained. Metallic, specular and combined workflows retain every map, workflow kind, roughness/metalness/glossiness value and light-map UV set, including the repeated specular kind assertion. Component-wise native Color bound <=1e-6 is retained; f64 exact bits strengthen native EXPECT_DOUBLE_EQ. No generic Element or renderer behavior is claimed.",
+      "fixtures": {
+        "tests/fixtures/material_pbr.sdf": "4d6aca4869e07be41c2fb3231a2123cb5260f2e6a89e0259bfdc0fd75c5a29e1"
+      },
+      "upstream_fixtures": {
+        "test/sdf/material_pbr.sdf": "4d6aca4869e07be41c2fb3231a2123cb5260f2e6a89e0259bfdc0fd75c5a29e1"
+      },
+      "baseline": "The unchanged native Material.PbrDOM passed before implementation and in the reproducible native helper. All 30 supplementary native cases reproduce exact stored field bits and strings; 397 Rust tests pass. Strict staged coverage and hosted CI remain pending.",
+      "status": "ported_reviewed",
+      "review": "Independent Root review compared every original assertion, unchanged fixture bytes, native Color tolerance, exact scalar bits, the raw normal-map type contract and numeric error handling. A fresh reviewer-owned target passed four PBR Rust tests. Independent native replay passed all thirty workflow cases and unchanged Material.PbrDOM. Strict staged coverage and hosted CI remain required before public acceptance."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

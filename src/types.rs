@@ -902,8 +902,45 @@ pub struct Material {
     pub shader: ShaderType,
     pub normal_map: String,
     pub script: Option<MaterialScript>,
+    pub pbr: Option<Box<PbrMaterial>>,
     pub source: Source,
 }
+/// Declared PBR workflows. These values do not load textures or select a renderer.
+#[derive(Debug, Clone, PartialEq)]
+pub struct PbrMaterial {
+    pub metal: Option<PbrWorkflow>,
+    pub specular: Option<PbrWorkflow>,
+    pub source: Source,
+}
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum PbrWorkflowKind {
+    Metal,
+    Specular,
+}
+/// Owned workflow parameters; map paths retain their unresolved declaration.
+#[derive(Debug, Clone, PartialEq)]
+pub struct PbrWorkflow {
+    pub kind: PbrWorkflowKind,
+    pub albedo_map: String,
+    pub normal_map: String,
+    /// Raw optional XML attribute, not native PbrWorkflow::NormalMapType().
+    /// The native loader leaves that getter at Tangent even for type="object".
+    pub normal_map_type: Option<String>,
+    pub environment_map: String,
+    pub ambient_occlusion_map: String,
+    pub emissive_map: String,
+    pub light_map: String,
+    pub light_map_uv_set: u32,
+    pub roughness_map: String,
+    pub metalness_map: String,
+    pub specular_map: String,
+    pub glossiness_map: String,
+    pub roughness: f64,
+    pub metalness: f64,
+    pub glossiness: f64,
+    pub source: Source,
+}
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 pub enum ShaderType {
     #[default]

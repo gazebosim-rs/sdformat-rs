@@ -468,7 +468,8 @@ that native DOM acceptance makes zero/negative values a valid runtime timestep.
 Visual.material now retains optional owned basic material/script/shader metadata;
 see MATERIALS.md. Colors follow native float-token range/default rules, render
 order follows direct std::stof, and render/lidar/texture effects remain consumer
-work. PBR and unknown extensions remain Unsupported. No resource resolver call or
+work. PBR metallic and specular declarations are retained as owned metadata; see
+[PBR_MATERIALS.md](PBR_MATERIALS.md). Unknown extensions remain Unsupported. No resource resolver call or
 asset IO occurs while loading this metadata. Scalar/vector numeric policies remain
 distinct; the existing finite-double shininess boundary remains explicit.
 

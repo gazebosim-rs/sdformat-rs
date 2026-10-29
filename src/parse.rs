@@ -1794,14 +1794,14 @@ impl Parser<'_> {
         }
         self.scalar(node, name, default)
     }
-    fn joint_limit_scalar(
+    fn metadata_scalar(
         &self,
-        limit: Node<'_, '_>,
+        node: Node<'_, '_>,
         name: &str,
         default: f64,
         required: bool,
     ) -> Result<f64, Diagnostic> {
-        let Some(value) = child(limit, name) else {
+        let Some(value) = child(node, name) else {
             return Ok(default);
         };
         self.allowed(value, &[], &[])?;
@@ -1813,7 +1813,7 @@ impl Parser<'_> {
                 Ok(default)
             };
         }
-        // Native axis limits retain these Param double values, including NaN.
+        // These metadata fields retain native Param doubles, including NaN.
         let special = match text.to_ascii_lowercase().as_str() {
             "inf" | "infinity" | "+inf" | "+infinity" => Some(f64::INFINITY),
             "-inf" | "-infinity" => Some(f64::NEG_INFINITY),
@@ -1832,11 +1832,14 @@ impl Parser<'_> {
         if text.is_empty() {
             return Ok(default);
         }
+        self.unsigned_text(value, &text)
+    }
+    fn unsigned_text(&self, node: Node<'_, '_>, text: &str) -> Result<u32, Diagnostic> {
         let lower = text.to_ascii_lowercase();
         let text = match lower.as_str() {
             "true" => "1",
             "false" => "0",
-            _ => text.as_ref(),
+            _ => text,
         };
         // Param.cc uses Linux stoul, then casts to unsigned int: a numeric
         // prefix is enough, negative values and the final u32 cast wrap.
@@ -1863,7 +1866,7 @@ impl Parser<'_> {
             })
             .count();
         let number = u64::from_str_radix(&digits[..count], radix)
-            .map_err(|_| self.err(value, ErrorCode::InvalidValue, "expected unsigned integer"))?;
+            .map_err(|_| self.err(node, ErrorCode::InvalidValue, "expected unsigned integer"))?;
         Ok(if negative {
             number.wrapping_neg()
         } else {
@@ -2003,6 +2006,7 @@ impl Parser<'_> {
                 "double_sided",
                 "script",
                 "shader",
+                "pbr",
             ],
             &[],
         )?;
@@ -2093,8 +2097,148 @@ impl Parser<'_> {
             shader,
             normal_map,
             script,
+            pbr: child(node, "pbr")
+                .map(|node| self.pbr(node).map(Box::new))
+                .transpose()?,
             source: self.source(node),
         })
+    }
+    fn pbr(&self, node: Node<'_, '_>) -> Result<PbrMaterial, Diagnostic> {
+        self.allowed_repeated(node, &["metal", "specular"], &[], &["metal", "specular"])?;
+        let mut pbr = PbrMaterial {
+            metal: None,
+            specular: None,
+            source: self.source(node),
+        };
+        for workflow in elements(node) {
+            let kind = if workflow.has_tag_name("metal") {
+                PbrWorkflowKind::Metal
+            } else {
+                PbrWorkflowKind::Specular
+            };
+            let value = self.pbr_workflow(workflow, kind)?;
+            match kind {
+                PbrWorkflowKind::Metal => pbr.metal = Some(value),
+                PbrWorkflowKind::Specular => pbr.specular = Some(value),
+            }
+        }
+        Ok(pbr)
+    }
+    fn pbr_workflow(
+        &self,
+        node: Node<'_, '_>,
+        kind: PbrWorkflowKind,
+    ) -> Result<PbrWorkflow, Diagnostic> {
+        let mut children = vec![
+            "albedo_map",
+            "normal_map",
+            "environment_map",
+            "ambient_occlusion_map",
+            "emissive_map",
+            "light_map",
+        ];
+        children.extend(match kind {
+            PbrWorkflowKind::Metal => {
+                ["roughness_map", "metalness_map", "roughness", "metalness"].as_slice()
+            }
+            PbrWorkflowKind::Specular => {
+                ["specular_map", "glossiness_map", "glossiness"].as_slice()
+            }
+        });
+        self.allowed(node, &children, &[])?;
+        let (normal_map, normal_map_type) = if let Some(map) = child(node, "normal_map") {
+            self.allowed(map, &[], &["type"])?;
+            (
+                param_text(map).into_owned(),
+                map.attribute("type").map(str::to_owned),
+            )
+        } else {
+            (String::new(), None)
+        };
+        let (light_map, light_map_uv_set) = if let Some(map) = child(node, "light_map") {
+            self.allowed(map, &[], &["uv_set"])?;
+            (
+                param_text(map).into_owned(),
+                map.attribute("uv_set")
+                    .map(|text| {
+                        let text = text.trim_matches([' ', '\t', '\n']);
+                        if text.is_empty() {
+                            Ok(0)
+                        } else {
+                            self.unsigned_text(map, text)
+                        }
+                    })
+                    .transpose()?
+                    .unwrap_or(0),
+            )
+        } else {
+            (String::new(), 0)
+        };
+        let metal = kind == PbrWorkflowKind::Metal;
+        Ok(PbrWorkflow {
+            kind,
+            albedo_map: self.optional_text(node, "albedo_map")?.unwrap_or_default(),
+            normal_map,
+            normal_map_type,
+            environment_map: self
+                .optional_text(node, "environment_map")?
+                .unwrap_or_default(),
+            ambient_occlusion_map: self
+                .optional_text(node, "ambient_occlusion_map")?
+                .unwrap_or_default(),
+            emissive_map: self
+                .optional_text(node, "emissive_map")?
+                .unwrap_or_default(),
+            light_map,
+            light_map_uv_set,
+            roughness_map: if metal {
+                self.optional_text(node, "roughness_map")?
+                    .unwrap_or_default()
+            } else {
+                String::new()
+            },
+            metalness_map: if metal {
+                self.optional_text(node, "metalness_map")?
+                    .unwrap_or_default()
+            } else {
+                String::new()
+            },
+            specular_map: if !metal {
+                self.optional_text(node, "specular_map")?
+                    .unwrap_or_default()
+            } else {
+                String::new()
+            },
+            glossiness_map: if !metal {
+                self.optional_text(node, "glossiness_map")?
+                    .unwrap_or_default()
+            } else {
+                String::new()
+            },
+            roughness: if metal {
+                self.pbr_scalar(node, "roughness", 0.5)?
+            } else {
+                0.5
+            },
+            metalness: if metal {
+                self.pbr_scalar(node, "metalness", 0.5)?
+            } else {
+                0.5
+            },
+            glossiness: if !metal {
+                self.pbr_scalar(node, "glossiness", 0.)?
+            } else {
+                0.
+            },
+            source: self.source(node),
+        })
+    }
+    fn pbr_scalar(&self, node: Node<'_, '_>, name: &str, default: f64) -> Result<f64, Diagnostic> {
+        // Native workflow getters default zero when a Param conversion fails.
+        match self.metadata_scalar(node, name, default, false) {
+            Err(error) if error.code == ErrorCode::InvalidValue => Ok(0.),
+            result => result,
+        }
     }
     fn float(&self, node: Node<'_, '_>, name: &str, default: f32) -> Result<f32, Diagnostic> {
         let Some(value) = child(node, name) else {
@@ -2337,10 +2481,10 @@ impl Parser<'_> {
                 ],
                 &[],
             )?;
-            result.lower = self.joint_limit_scalar(limit, "lower", result.lower, true)?;
-            result.upper = self.joint_limit_scalar(limit, "upper", result.upper, true)?;
-            result.effort = self.joint_limit_scalar(limit, "effort", result.effort, false)?;
-            result.velocity = self.joint_limit_scalar(limit, "velocity", result.velocity, false)?;
+            result.lower = self.metadata_scalar(limit, "lower", result.lower, true)?;
+            result.upper = self.metadata_scalar(limit, "upper", result.upper, true)?;
+            result.effort = self.metadata_scalar(limit, "effort", result.effort, false)?;
+            result.velocity = self.metadata_scalar(limit, "velocity", result.velocity, false)?;
             result.stiffness = self.scalar(limit, "stiffness", result.stiffness)?;
             result.dissipation = self.scalar(limit, "dissipation", result.dissipation)?;
             if result.effort < 0. {

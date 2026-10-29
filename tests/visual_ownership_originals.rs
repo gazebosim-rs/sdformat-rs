@@ -67,6 +67,7 @@ fn populated_visual() -> Visual {
         double_sided: false,
         shader: ShaderType::Pixel,
         normal_map: String::new(),
+        pbr: None,
         script: None,
         source: source(),
     }));

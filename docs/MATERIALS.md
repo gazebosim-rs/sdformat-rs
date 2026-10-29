@@ -15,7 +15,8 @@ and name; native __default__ placeholders count as missing. Later URI declaratio
 retain schema defaults. Script names use native ordinary-text collapse and the
 space/tab/LF parameter trim while preserving NBSP and CDATA VT. Shader presence requires its type attribute. Both native
 object/tangent normal-map spellings map to owned enum variants, and those shaders
-require a nonempty normal map. PBR remains explicitly Unsupported in this slice.
+require a nonempty normal map. PBR metallic and specular declarations are supported separately; see
+[PBR_MATERIALS.md](PBR_MATERIALS.md).
 
 Param's color parser tokenizes in the classic locale, calls std::stof for each
 component and requires three/four values in [0,1]; RGB gets alpha one. It accepts

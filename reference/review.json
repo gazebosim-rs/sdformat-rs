@@ -1,18 +1,17 @@
 {
   "decision": "approved",
   "author": "sdformat_owner",
-  "reviewer": "integration_reviewer",
-  "source_digest": "adf8b781a8c710fe1f7428e79f902a0b1d195a571797c4e7c4fee49e17138198",
-  "protected_digest": "330b0b3b5cd993ca28ec40447ccf6de20e2d1c0a8c7f4ef2ed4ab12896894c89",
-  "scope": "Immutable loaded-model direct-child queries; completion of the selected IncludesTest.MergeInclude assertion mapping only. General Element/Param API and SDF-02 remain open.",
+  "reviewer": "root",
+  "source_digest": "6ce3c2f04eeeb5b99d2317f077f7c327c0af9b855f86f9d32bdc9ab90fe06746",
+  "protected_digest": "8145641c4e62696f37afcdb059daba3b9a7a6a58768dfc09d0f815ad251660b1",
+  "scope": "Typed PBR workflow metadata and faithful Material.PbrDOM port only. No texture IO, renderer, generic Element API or full SDF-02 acceptance.",
   "checks": [
-    "Compared original native includes.cc assertions with all retained Rust assertions and unchanged fixtures; no tolerance or coverage exclusion changes.",
-    "Reviewed flat shared snapshot storage, include/merge expansion, legacy typed-name behavior and nonrecursive post-load override extraction.",
-    "Fresh reviewer-owned source and target passed all 35 model-element, merge, ownership and semantics tests, including unchanged default-stack include depth bounds.",
-    "Independently ran both unchanged native MergeInclude originals; both passed with expected schema-copy warnings.",
-    "Reviewed final docs, owner guidance and sole ledger promotion from partial to reviewed port."
+    "Independently replayed four PBR Rust tests and all thirty native workflow observations plus unchanged Material.PbrDOM.",
+    "Compared complete original assertion body and unchanged material_pbr.sdf fixture; native component-wise color tolerance is retained and exact f64 bits strengthen scalar checks.",
+    "Reviewed owned source, numeric helper reuse, metadata/resource error handling, duplicate workflow policy, raw normal-map attribute distinction and clone/source lifetime tests.",
+    "Reviewed sole new original mapping, unchanged previous fixture observations and final scope documentation; no coverage gate, exclusion or tolerance changes."
   ],
   "remaining": [
-    "Mandatory strict staged hook and exact hosted CI before public acceptance."
+    "Mandatory staged strict coverage and exact hosted CI before acceptance."
   ]
 }

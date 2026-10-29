@@ -2887,3 +2887,17 @@ assertions. Strict staged coverage and hosted CI remain required. Accepted count
 remain 167 complete and 26 partial until publication; the candidate maps 168
 complete and 25 partial originals. See
 [MODEL_ELEMENTS.md](MODEL_ELEMENTS.md) for the bounded API and remaining scope.
+
+
+## PBR material workflows in development
+
+Typed metallic and specular declarations now preserve map strings, scalar
+metadata, light-map UV sets and source identity. The unchanged native
+Material.PbrDOM original and thirty supplementary native cases pass, including
+duplicate workflows, defaults, nonfinite values and unsigned UV conversion.
+All 397 Rust tests and Clippy pass. Independent review passed all four PBR
+Rust tests and reproduced the native observations. Strict staged coverage and
+hosted CI remain required. The candidate maps one new original; accepted
+counts remain 168 complete and 25 partial until publication. Texture loading,
+rendering, generic Element/Param APIs and serialization remain open. See
+[PBR_MATERIALS.md](PBR_MATERIALS.md).

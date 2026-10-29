@@ -2914,3 +2914,15 @@ physics engine. All 400 Rust tests and Clippy pass. Independent review passed
 three Rust tests and all native observations. Strict staged/hosted checks remain
 required; accepted mappings remain 169 complete and 25 partial. See
 [SCREW_PITCH.md](SCREW_PITCH.md).
+
+
+## World-joint child-frame conformance in development
+
+The unchanged native DOMJoint.LoadWorldJointChildFrame original now has a faithful
+Rust port. It preserves world/model/joint/frame metadata, resolved endpoints and
+all nine semantic pose queries, including the child-frame offset. Both native
+and Rust runs pass. All 401 Rust tests and Clippy pass. Independent source,
+fixture and fresh Rust/native review passed. No parser, public API or physics
+capability changed. Strict staged/hosted checks remain required; accepted
+mappings remain 170 complete and 25 partial. See
+[WORLD_JOINT_FRAMES.md](WORLD_JOINT_FRAMES.md).

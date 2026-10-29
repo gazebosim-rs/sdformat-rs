@@ -2228,6 +2228,22 @@
       "baseline": "The unchanged native DOMJoint.ScrewThreadPitch passed before implementation. The reference helper reproduces eighteen supplementary exact-bit native observations and reruns the original; strict staged and hosted checks remain pending.",
       "status": "ported_reviewed",
       "review": "Independent Root review compared the full unchanged fixture assertions, native Joint getter implementation, handedness and unit conventions. Fresh reviewer-owned execution passed three Rust tests, eighteen native exact-bit cases and unchanged DOMJoint.ScrewThreadPitch. Original four-ULP finite comparisons and 1e-3 near bounds remain intact. Strict staged verification and hosted CI remain required before public acceptance."
+    },
+    {
+      "target": "INTEGRATION_joint_dom",
+      "case": "DOMJoint.LoadWorldJointChildFrame",
+      "source": "test/integration/joint_dom.cc:526-636",
+      "rust_test": "tests/world_joint_frames_original.rs::original_dom_joint_load_world_joint_child_frame",
+      "assertions": "All original load/world/model/joint/frame presence, name, count, out-of-range and empty relative-to predicates are retained. Raw poses, four resolved parent/child links and nine semantic pose queries preserve world-joint child-frame offsets and world/model-link target scopes. Fully scoped Rust endpoint names are compared in the original world-relative scope. Native Pose3 component-wise <=1e-3 and direct quaternion signs are retained. No generic DOM or engine behavior claim.",
+      "fixtures": {
+        "tests/fixtures/world_joint_child_frame.sdf": "14753123f89aaed0fce1b019af035f45b53da8e118e67a6adf236d6bb7e686c9"
+      },
+      "upstream_fixtures": {
+        "test/sdf/world_joint_child_frame.sdf": "14753123f89aaed0fce1b019af035f45b53da8e118e67a6adf236d6bb7e686c9"
+      },
+      "baseline": "The unchanged native DOMJoint.LoadWorldJointChildFrame and faithful Rust port both pass. Strict staged verification and hosted CI remain pending; this is conformance evidence for existing implementation.",
+      "status": "ported_reviewed",
+      "review": "Independent Root review compared all original metadata, index/presence, endpoint and nine pose assertions and verified the native Vector3/Quaternion equality bound in gz-math. Fixture bytes match exactly. Fresh reviewer-owned Rust execution and the unchanged native original both pass. World-prefix removal only normalizes the explicit identity scope. Strict staged verification and hosted CI remain required before public acceptance."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

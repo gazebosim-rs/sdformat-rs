@@ -2,14 +2,14 @@
   "decision": "approved",
   "author": "sdformat_owner",
   "reviewer": "root",
-  "source_digest": "06f925508ef255a54740db227226bdfcaca296d8c621c3b9573967ba24a187f1",
-  "protected_digest": "cb06fb5472c9374941da8b2d287edfa8e757ba98a092aea379925a787bbe0457",
-  "scope": "Screw-joint legacy radians/metre observation and complete DOMJoint.ScrewThreadPitch port; existing parser semantics, physics admission and wider SDF-02 remain unchanged.",
+  "source_digest": "9e8d13dfef525c3d641f3e9d1d21a62b91a742eb928c4fbe565e0b17e2d6e0de",
+  "protected_digest": "c7016cde9b3b701c1429f46a22921e57c9fd531ad562872560e851282630d762",
+  "scope": "Faithful DOMJoint.LoadWorldJointChildFrame conformance over existing typed parser and semantic graph APIs. No production changes or simulator world-joint physics support.",
   "checks": [
-    "Independent three Rust tests and eighteen exact-bit native pitch cases plus unchanged DOMJoint.ScrewThreadPitch passed.",
-    "Compared complete original fixture and assertions; retained four-ULP comparisons for finite same-sign fixture values and component-wise near bounds of 1e-3.",
-    "Reviewed authoritative metres/revolution field, classic handedness conversion, signed zero/extreme metadata behavior and owned-clone edits.",
-    "Reviewed final documentation and sole new upstream mapping; no gate, exclusion or numerical tolerance changes."
+    "Compared complete original assertions and byte-identical fixture; independently ran original native case and Rust port successfully.",
+    "Verified gz-math Pose3 equality delegates to direct Vector3 and Quaternion component comparisons within 1e-3; retained those exact bounds and signs.",
+    "Reviewed raw metadata, name/index/presence assertions, four resolved endpoints and all nine semantic pose queries.",
+    "Reviewed explicit owning-world prefix normalization and final single-case ledger promotion; no coverage, policy or tolerance changes."
   ],
   "remaining": [
     "Mandatory strict staged hook and exact hosted CI before acceptance."

@@ -2,16 +2,16 @@
   "decision": "approved",
   "author": "sdformat_owner",
   "reviewer": "root",
-  "source_digest": "6ce3c2f04eeeb5b99d2317f077f7c327c0af9b855f86f9d32bdc9ab90fe06746",
-  "protected_digest": "8145641c4e62696f37afcdb059daba3b9a7a6a58768dfc09d0f815ad251660b1",
-  "scope": "Typed PBR workflow metadata and faithful Material.PbrDOM port only. No texture IO, renderer, generic Element API or full SDF-02 acceptance.",
+  "source_digest": "06f925508ef255a54740db227226bdfcaca296d8c621c3b9573967ba24a187f1",
+  "protected_digest": "cb06fb5472c9374941da8b2d287edfa8e757ba98a092aea379925a787bbe0457",
+  "scope": "Screw-joint legacy radians/metre observation and complete DOMJoint.ScrewThreadPitch port; existing parser semantics, physics admission and wider SDF-02 remain unchanged.",
   "checks": [
-    "Independently replayed four PBR Rust tests and all thirty native workflow observations plus unchanged Material.PbrDOM.",
-    "Compared complete original assertion body and unchanged material_pbr.sdf fixture; native component-wise color tolerance is retained and exact f64 bits strengthen scalar checks.",
-    "Reviewed owned source, numeric helper reuse, metadata/resource error handling, duplicate workflow policy, raw normal-map attribute distinction and clone/source lifetime tests.",
-    "Reviewed sole new original mapping, unchanged previous fixture observations and final scope documentation; no coverage gate, exclusion or tolerance changes."
+    "Independent three Rust tests and eighteen exact-bit native pitch cases plus unchanged DOMJoint.ScrewThreadPitch passed.",
+    "Compared complete original fixture and assertions; retained four-ULP comparisons for finite same-sign fixture values and component-wise near bounds of 1e-3.",
+    "Reviewed authoritative metres/revolution field, classic handedness conversion, signed zero/extreme metadata behavior and owned-clone edits.",
+    "Reviewed final documentation and sole new upstream mapping; no gate, exclusion or numerical tolerance changes."
   ],
   "remaining": [
-    "Mandatory staged strict coverage and exact hosted CI before acceptance."
+    "Mandatory strict staged hook and exact hosted CI before acceptance."
   ]
 }

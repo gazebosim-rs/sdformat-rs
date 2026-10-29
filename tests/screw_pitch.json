@@ -1,0 +1,164 @@
+[
+  {
+    "id": "default",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='screw'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz></axis></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "4607182418800017408",
+      "13842132293034192152"
+    ]
+  },
+  {
+    "id": "precedence",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='screw'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz></axis><thread_pitch>20</thread_pitch><screw_thread_pitch>0.5</screw_thread_pitch></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "4602678819172646912",
+      "13846635892661562648"
+    ]
+  },
+  {
+    "id": "empty-new",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='screw'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz></axis><screw_thread_pitch/></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "4607182418800017408",
+      "13842132293034192152"
+    ]
+  },
+  {
+    "id": "empty-old",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='screw'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz></axis><thread_pitch/></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "13842132293034192152",
+      "4607182418800017408"
+    ]
+  },
+  {
+    "id": "thread_pitch-0.5",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='screw'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz></axis><thread_pitch>0.5</thread_pitch></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "13846635892661562648",
+      "4602678819172646912"
+    ]
+  },
+  {
+    "id": "thread_pitch--0.5",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='screw'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz></axis><thread_pitch>-0.5</thread_pitch></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "4623263855806786840",
+      "13826050856027422720"
+    ]
+  },
+  {
+    "id": "thread_pitch-0",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='screw'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz></axis><thread_pitch>0</thread_pitch></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "18442240474082181120",
+      "0"
+    ]
+  },
+  {
+    "id": "thread_pitch--0",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='screw'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz></axis><thread_pitch>-0</thread_pitch></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "9218868437227405312",
+      "9223372036854775808"
+    ]
+  },
+  {
+    "id": "thread_pitch-1e-300",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='screw'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz></axis><thread_pitch>1e-300</thread_pitch></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "18330428586748636335",
+      "118622047889322841"
+    ]
+  },
+  {
+    "id": "thread_pitch-1e300",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='screw'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz></axis><thread_pitch>1e300</thread_pitch></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "9354210393071512511",
+      "9094988921128908188"
+    ]
+  },
+  {
+    "id": "thread_pitch-2.2250738585072014e-308",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='screw'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz></axis><thread_pitch>2.2250738585072014e-308</thread_pitch></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "18442240474082181120",
+      "0"
+    ]
+  },
+  {
+    "id": "screw_thread_pitch-0.5",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='screw'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz></axis><screw_thread_pitch>0.5</screw_thread_pitch></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "4602678819172646912",
+      "13846635892661562648"
+    ]
+  },
+  {
+    "id": "screw_thread_pitch--0.5",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='screw'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz></axis><screw_thread_pitch>-0.5</screw_thread_pitch></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "13826050856027422720",
+      "4623263855806786840"
+    ]
+  },
+  {
+    "id": "screw_thread_pitch-0",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='screw'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz></axis><screw_thread_pitch>0</screw_thread_pitch></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "0",
+      "18442240474082181120"
+    ]
+  },
+  {
+    "id": "screw_thread_pitch--0",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='screw'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz></axis><screw_thread_pitch>-0</screw_thread_pitch></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "9223372036854775808",
+      "9218868437227405312"
+    ]
+  },
+  {
+    "id": "screw_thread_pitch-1e-300",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='screw'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz></axis><screw_thread_pitch>1e-300</screw_thread_pitch></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "118622047889322841",
+      "18330428586748636335"
+    ]
+  },
+  {
+    "id": "screw_thread_pitch-1e300",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='screw'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz></axis><screw_thread_pitch>1e300</screw_thread_pitch></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "9094988921128908188",
+      "9354210393071512511"
+    ]
+  },
+  {
+    "id": "screw_thread_pitch-2.2250738585072014e-308",
+    "xml": "<sdf version='1.12'><model name='m'><link name='a'/><link name='b'/><joint name='j' type='screw'><parent>a</parent><child>b</child><axis><xyz>0 0 1</xyz></axis><screw_thread_pitch>2.2250738585072014e-308</screw_thread_pitch></joint></model></sdf>",
+    "tokens": [
+      "0",
+      "4503599627370496",
+      "18442240474082181120"
+    ]
+  }
+]

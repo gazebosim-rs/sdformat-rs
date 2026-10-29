@@ -32,11 +32,14 @@ in kg·m² and inertial-frame pose. Positive physical inertia is required.
 `Visual` has name, pose, optional geometry, plugins and source. Missing
 or empty geometry preserves native EMPTY as None. Visual names are unique within
 a link, independently of collision and sensor names. Owned visual properties and optional material data preserve the metadata described
-in docs/MATERIALS.md. PBR and renderer effects remain outside this loader.
+in docs/MATERIALS.md. PBR declarations are retained; texture IO and renderer effects remain outside
+this loader.
 `Joint` has kind, parent/child references, pose, optional axis/axis2 and source.
 Ball, gearbox and screw are typed kinds. Screw pitch is stored in metres per
 revolution; legacy `<thread_pitch>` converts to that unit, and modern
-`<screw_thread_pitch>` takes precedence. Known joint physics XML is retained
+`<screw_thread_pitch>` takes precedence. `Joint::legacy_thread_pitch()` exposes
+classic radians/metre with positive left-handed convention; see
+[SCREW_PITCH.md](SCREW_PITCH.md). Known joint physics XML is retained
 verbatim as `physics_xml`; its engine interpretation and nested schema
 validation are outside this loader. Native warning output for a legacy
 `<initial_position>` axis child is not reproduced.

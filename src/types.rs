@@ -1064,7 +1064,8 @@ pub struct Joint {
     pub pose: Pose,
     pub axis: Option<Axis>,
     pub axis2: Option<Axis>,
-    /// Meters per revolution. Legacy `<thread_pitch>` is converted at load.
+    /// Metres per revolution; positive denotes a right-handed screw.
+    /// Legacy `<thread_pitch>` is converted at load.
     pub screw_thread_pitch: f64,
     /// Known joint physics payload retained verbatim; engine interpretation is separate.
     pub physics_xml: Option<String>,
@@ -1073,6 +1074,12 @@ pub struct Joint {
     pub source: Source,
 }
 impl Joint {
+    /// Gazebo-classic radians per metre; positive values denote left-handed screws.
+    /// Only meaningful for screw joints. Zero pitch follows native IEEE division.
+    pub fn legacy_thread_pitch(&self) -> f64 {
+        -std::f64::consts::TAU / self.screw_thread_pitch
+    }
+
     /// Zero borrows the first axis; every positive index aliases the second.
     /// This follows native Joint::Axis clamping without narrowing Rust's usize.
     pub fn axis(&self, index: usize) -> Option<&Axis> {

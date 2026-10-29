@@ -2212,6 +2212,22 @@
       "baseline": "The unchanged native Material.PbrDOM passed before implementation and in the reproducible native helper. All 30 supplementary native cases reproduce exact stored field bits and strings; 397 Rust tests pass. Strict staged coverage and hosted CI remain pending.",
       "status": "ported_reviewed",
       "review": "Independent Root review compared every original assertion, unchanged fixture bytes, native Color tolerance, exact scalar bits, the raw normal-map type contract and numeric error handling. A fresh reviewer-owned target passed four PBR Rust tests. Independent native replay passed all thirty workflow cases and unchanged Material.PbrDOM. Strict staged coverage and hosted CI remain required before public acceptance."
+    },
+    {
+      "target": "INTEGRATION_joint_dom",
+      "case": "DOMJoint.ScrewThreadPitch",
+      "source": "test/integration/joint_dom.cc:162-202",
+      "rust_test": "tests/screw_pitch_original.rs::original_dom_joint_screw_thread_pitch",
+      "assertions": "Every original load/model presence, link count/name, joint count/name and pitch assertion is retained on the unchanged five-joint fixture. Modern metres/revolution and classic radians/metre observations preserve defaults, handedness and modern-over-legacy precedence. Native EXPECT_DOUBLE_EQ uses four ULPs; EXPECT_NEAR retains 1e-3. No generic Element, serialization or engine constraint claim.",
+      "fixtures": {
+        "tests/fixtures/joint_screw_thread_pitch.sdf": "17e44361c8dfd197aa570cd55a26c6aae4a7a0be8fe9e495f558808cb20aacbe"
+      },
+      "upstream_fixtures": {
+        "test/sdf/joint_screw_thread_pitch.sdf": "17e44361c8dfd197aa570cd55a26c6aae4a7a0be8fe9e495f558808cb20aacbe"
+      },
+      "baseline": "The unchanged native DOMJoint.ScrewThreadPitch passed before implementation. The reference helper reproduces eighteen supplementary exact-bit native observations and reruns the original; strict staged and hosted checks remain pending.",
+      "status": "ported_reviewed",
+      "review": "Independent Root review compared the full unchanged fixture assertions, native Joint getter implementation, handedness and unit conventions. Fresh reviewer-owned execution passed three Rust tests, eighteen native exact-bit cases and unchanged DOMJoint.ScrewThreadPitch. Original four-ULP finite comparisons and 1e-3 near bounds remain intact. Strict staged verification and hosted CI remain required before public acceptance."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

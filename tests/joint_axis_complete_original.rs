@@ -45,7 +45,7 @@ fn original_dom_joint_axis_complete() {
         assert_eq!(model.joints.get(index).expect("JointByIndex").kind, kind);
     }
     // Source-backed controls for known fixture fields outside this original's
-    // assertions: retain raw physics and convert legacy turns-per-metre pitch.
+    // assertions: retain raw physics and convert legacy radians-per-metre pitch.
     assert_eq!(
         model.joints[7].screw_thread_pitch,
         -std::f64::consts::PI / 10.

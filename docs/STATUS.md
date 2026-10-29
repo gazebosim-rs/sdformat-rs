@@ -2901,3 +2901,16 @@ hosted CI remain required. The candidate maps one new original; accepted
 counts remain 168 complete and 25 partial until publication. Texture loading,
 rendering, generic Element/Param APIs and serialization remain open. See
 [PBR_MATERIALS.md](PBR_MATERIALS.md).
+
+
+## Screw-joint unit conformance in development
+
+The existing normalized pitch field now has an explicit classic-unit observation.
+The complete DOMJoint.ScrewThreadPitch original is ported on its unchanged
+five-joint fixture, preserving all assertions and tolerances. Native replay passes
+that original and eighteen exact-bit supplementary cases for signs, zero, empty
+fields, precedence and finite extremes. This does not add screw constraints to a
+physics engine. All 400 Rust tests and Clippy pass. Independent review passed
+three Rust tests and all native observations. Strict staged/hosted checks remain
+required; accepted mappings remain 169 complete and 25 partial. See
+[SCREW_PITCH.md](SCREW_PITCH.md).

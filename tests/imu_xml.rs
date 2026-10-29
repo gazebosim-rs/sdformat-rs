@@ -160,16 +160,32 @@ fn raw_vectors_and_edited_values_are_not_normalized() {
         localization: "NED".into(),
         ..Imu::default()
     };
+    assert!(value.source.is_none());
     let output = value.to_xml().unwrap();
+    assert!(value.source.is_none());
     let loaded = load_imu_str(&output, "imu.xml").unwrap();
     assert_eq!(loaded.gravity_dir_x, [0.; 3]);
     assert_eq!(loaded.custom_rpy, [1., 2., 3.]);
-    assert_eq!(loaded, value);
+    let mut expected = value.clone();
+    expected.source = Some(Source {
+        uri: "imu.xml".into(),
+        line: 1,
+        column: 1,
+    });
+    assert_eq!(loaded.source, expected.source);
+    assert_eq!(loaded, expected);
     value.gravity_dir_x = [1., 2., 3.];
-    assert_eq!(
-        load_imu_str(&value.to_xml().unwrap(), "edited.xml").unwrap(),
-        value
-    );
+    let output = value.to_xml().unwrap();
+    assert!(value.source.is_none());
+    let loaded = load_imu_str(&output, "edited.xml").unwrap();
+    expected = value.clone();
+    expected.source = Some(Source {
+        uri: "edited.xml".into(),
+        line: 1,
+        column: 1,
+    });
+    assert_eq!(loaded.source, expected.source);
+    assert_eq!(loaded, expected);
     let sensor = sensor("<sensor name='s' type='imu'/>");
     assert!(sensor.to_xml().is_ok());
 }

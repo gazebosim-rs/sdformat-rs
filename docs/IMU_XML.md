@@ -56,8 +56,10 @@ gravity, custom UnitZ RPY, parent-frame strings, NED, disabled orientation and
 edited gravity output. Exact finite Noise equality strengthens native <=1e-6;
 vector checks preserve native direct component-wise <=1e-3. Successful typed
 results cover the original successful error results, and a child process checks
-empty library console output beyond libtest's fixed protocol/duration. Generic
-Element/null identity remains explicitly unported, with no fabricated substitute.
+empty library console output beyond libtest's fixed protocol/duration. Explicit declaration origin is now represented by Imu::source. The exact
+constructor-null-after-emission assertions translate to no fabricated loaded input
+declaration, independently reviewed for these exact cases. No generic loaded Element
+pointer identity, mutation or ownership equivalence is claimed. See IMU_ORIGIN.md.
 
 All 433 Rust tests and Clippy pass. Independent review passed with 33 focused
 Rust checks in fresh source/target, all 24 native IMU outcomes, four exchanges

@@ -80,7 +80,16 @@ fn link_dom_sensors_original_imu_assertions() {
 fn typed_defaults_and_all_noise_fields() {
     let empty = sensor("");
     let explicit = sensor("<imu/>");
-    assert_eq!(empty.imu().unwrap(), explicit.imu().unwrap());
+    assert!(empty.imu().unwrap().source.is_none());
+    let expected_source = Some(Source {
+        uri: "imu.sdf".into(),
+        line: 1,
+        column: 80,
+    });
+    assert_eq!(explicit.imu().unwrap().source, expected_source);
+    let mut expected = empty.imu().unwrap().clone();
+    expected.source = expected_source;
+    assert_eq!(explicit.imu().unwrap(), &expected);
     let imu = empty.imu().unwrap();
     assert!(imu.enable_orientation);
     assert_eq!(imu.localization, "CUSTOM");

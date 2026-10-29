@@ -2791,28 +2791,28 @@
       "case": "DOMImu.ToElement",
       "source": "src/Imu_TEST.cc:132-184",
       "rust_test": "tests/imu_xml_original.rs::original_imu_to_element_values_subset",
-      "assertions": "PARTIAL: six full Noise records, raw zero gravity/UnitZ custom RPY, both parent-frame strings, NED, disabled orientation, successful typed output/read and edited gravity vector. Exact finite Noise equality strengthens native <=1e-6; vector comparisons retain direct component-wise <=1e-3. Generic constructor Element/null identity remains unported, with no substitute assertion. No original assertion retired.",
+      "assertions": "six full Noise records, raw zero gravity/UnitZ custom RPY, both parent-frame strings, NED, disabled orientation, successful typed output/read and edited gravity vector. Exact finite Noise equality strengthens native <=1e-6; vector comparisons retain direct component-wise <=1e-3. Exact constructed Element-null-after-emission translates to source.is_none(): no loaded input declaration fabricated. Returned nonnull/empty errors translate to successful nonempty XML and reload. Source is genuine explicit input URI/line/column; no generic loaded pointer identity/ownership claim. No original assertion retired.",
       "fixtures": {
         "tests/fixtures/imu_to_element_native.xml": "5cbdc5b863c43272fd0239baf9ad0ae75dee0986aa30dcd9e298d4bebfd533f7"
       },
       "upstream_fixtures": {},
       "baseline": "Both unchanged ToElement originals passed with empty stderr. 24 native outcomes, byte-identical fixture and four real Rust-to-native exchanges pass; shared Noise extraction also retains all 32 FT outcomes, six FT exchanges and byte-identical accepted FT output.",
-      "status": "partial_reviewed",
-      "review": "Independent /root/integration_reviewer approved source, boundaries and original assertions. Fresh reviewer source/target passed 33 relevant Rust checks, all 24 IMU native outcomes, exact fixture and four actual exchanges plus both unchanged originals with empty stderr. Shared-noise regression passed all 32 FT outcomes, six exchanges and both originals; all six generated FT exports independently match prior accepted review output byte for byte. Generic Element/null identity remains explicitly unported; old IMU joint/payload assertions unchanged. Normal staged and exact hosted checks remain required."
+      "status": "ported_reviewed",
+      "review": "Independent integration_reviewer approved complete exact-case mapping: fresh source/owned target passed fourteen relevant Rust checks, native constructed/loaded and omitted/explicit lifecycle proof plus both unchanged originals empty stderr. Existing twenty-four-case IMU corpus, exact fixture and four real exchanges independently replayed. All three metadata-aware full-value transitions approved before edits; literal source oracles retain all typed fields. Constructor SourceNone means no fabricated loaded input declaration only, not generic Element identity. Prior 211 unchanged export comparisons remain author evidence. Normal strict staged/hosted qualification pending."
     },
     {
       "target": "UNIT_Imu_TEST",
       "case": "DOMImu.ToElementErrorOutput",
       "source": "src/Imu_TEST.cc:187-250",
       "rust_test": "tests/imu_xml_original.rs::original_imu_to_element_error_output_subset",
-      "assertions": "PARTIAL: six full Noise records, raw zero gravity/UnitZ custom RPY, both parent-frame strings, NED, disabled orientation, successful typed output/read and edited gravity vector. Exact finite Noise equality strengthens native <=1e-6; vector comparisons retain direct component-wise <=1e-3. ErrorOutput variant checks empty library output in a child process. Generic constructor Element/null identity remains unported, with no substitute assertion. No original assertion retired.",
+      "assertions": "six full Noise records, raw zero gravity/UnitZ custom RPY, both parent-frame strings, NED, disabled orientation, successful typed output/read and edited gravity vector. Exact finite Noise equality strengthens native <=1e-6; vector comparisons retain direct component-wise <=1e-3. ErrorOutput variant checks empty library output in a child process. Exact constructed Element-null-after-emission translates to source.is_none(): no loaded input declaration fabricated. Returned nonnull/empty errors translate to successful nonempty XML and reload. Source is genuine explicit input URI/line/column; no generic loaded pointer identity/ownership claim. No original assertion retired.",
       "fixtures": {
         "tests/fixtures/imu_to_element_native.xml": "5cbdc5b863c43272fd0239baf9ad0ae75dee0986aa30dcd9e298d4bebfd533f7"
       },
       "upstream_fixtures": {},
       "baseline": "Both unchanged ToElement originals passed with empty stderr. 24 native outcomes, byte-identical fixture and four real Rust-to-native exchanges pass; shared Noise extraction also retains all 32 FT outcomes, six FT exchanges and byte-identical accepted FT output.",
-      "status": "partial_reviewed",
-      "review": "Independent /root/integration_reviewer approved source, boundaries and original assertions. Fresh reviewer source/target passed 33 relevant Rust checks, all 24 IMU native outcomes, exact fixture and four actual exchanges plus both unchanged originals with empty stderr. Shared-noise regression passed all 32 FT outcomes, six exchanges and both originals; all six generated FT exports independently match prior accepted review output byte for byte. Generic Element/null identity remains explicitly unported; old IMU joint/payload assertions unchanged. Normal staged and exact hosted checks remain required."
+      "status": "ported_reviewed",
+      "review": "Independent integration_reviewer approved complete exact-case mapping: fresh source/owned target passed fourteen relevant Rust checks, native constructed/loaded and omitted/explicit lifecycle proof plus both unchanged originals empty stderr. Existing twenty-four-case IMU corpus, exact fixture and four real exchanges independently replayed. All three metadata-aware full-value transitions approved before edits; literal source oracles retain all typed fields. Constructor SourceNone means no fabricated loaded input declaration only, not generic Element identity. Prior 211 unchanged export comparisons remain author evidence. Normal strict staged/hosted qualification pending."
     }
   ]
 }

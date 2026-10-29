@@ -3220,3 +3220,16 @@ See LEGACY_SENSOR_OUTPUT.md and reference/legacy-sensor-output.json.
 
 Author regression replay passes all eleven prior family helpers. All 189 prior
 actual XML exports remain byte-identical; this comparison is author evidence.
+
+
+## Candidate IMU input origin
+
+Explicit IMU input declarations carry genuine URI/line/column Source using the
+existing parser location helper; default/omitted groups have None. The writer
+stays unchanged and immutable emission preserves origin. Independent narrow
+review approved all three metadata-aware equality transitions before edits,
+retaining complete typed values and separate literal source oracles. Final independent review passed fourteen Rust checks in fresh source/target,
+native origin controls/both unchanged originals, and the existing twenty-four-case
+IMU XML corpus/exact fixture/four exchanges. Both exact original mappings are
+reviewed complete. Normal strict/hosted gates remain pending; candidate 186 complete /26 partial is
+separate from accepted 184 complete /28 partial. See IMU_ORIGIN.md.

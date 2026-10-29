@@ -1090,3 +1090,12 @@ old Rust-only producer rejection inputs now have complete native-positive
 output/reload assertions after independent narrow approval. No native original
 credit, native producer-byte parity or simulation claim is added.
 See [LEGACY_SENSOR_OUTPUT.md](LEGACY_SENSOR_OUTPUT.md).
+
+
+## IMU input origin
+
+Imu::source records genuine explicit declaration URI/line/column. Default/omitted
+configuration has None; immutable emission and typed edits preserve origin, while
+reload records the new input. Omitted None is not native Element-null equivalence.
+See [IMU_ORIGIN.md](IMU_ORIGIN.md) for exact-case mappings and metadata-aware
+complete equality preservation.

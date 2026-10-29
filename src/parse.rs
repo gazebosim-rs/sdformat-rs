@@ -2913,6 +2913,7 @@ impl Parser<'_> {
             &[],
         )?;
         let mut imu = Imu {
+            source: Some(self.source(node)),
             enable_orientation: self.boolean(node, "enable_orientation", true)?,
             ..Imu::default()
         };

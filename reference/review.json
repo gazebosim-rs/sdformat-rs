@@ -2,17 +2,17 @@
   "decision": "approved",
   "author": "sdformat_owner",
   "reviewer": "integration_reviewer",
-  "source_digest": "3a22e4558dbc0805308a6ccba94af37d08fcdbfbd1d56241bb9cb5c0dbc0660d",
-  "protected_digest": "f4d5ead756877fff9eea7b713fdf3b578b25a08829a9bcb96b8e644e4e8e9486",
-  "scope": "Legacy gps/ray/gpu_ray Sensor output through existing writers with independently reviewed exact temporary Rust capability transitions and separate raw/effective kinds.",
+  "source_digest": "74adf79ecde3422988d978e640655dcaa62ea96c5e6308862ca94af2256c7195",
+  "protected_digest": "7d2f06319796923aa7837e7292fd0243fc1ed4082b499f0bb8ffdc076bd404df",
+  "scope": "Explicit IMU declaration origin, preserved whole-value assertions and two exact constructed-no-input-after-emission original mappings; no general Element identity claim.",
   "checks": [
-    "Fresh final independent export/owned target passed 14 Rust checks, including folded legacy/NavSat/Lidar tests and unchanged original/effective-type controls.",
-    "Fresh native helper passed 16 raw-attribute/effective-classifier inputs, 22 actual XML exchanges and unchanged DOMSensor.Type.",
-    "Reviewed exact old inputs/kind assertions and complete 50-field NavSat/38-field Lidar positive replacements with direct pose bounds; standalone-root/advanced/plugin/Joint and genuine native assertions retained.",
-    "Source changes only two existing writer-admission patterns; no parser/public-kind mutation, original-credit or native producer-byte parity claim; prior 189 byte comparisons remain author evidence."
+    "Fresh final independent export/owned target passed 14 relevant Rust checks and all three approved metadata-aware full-value transitions with literal URI/line/column oracles.",
+    "Fresh native lifecycle and omitted/explicit materialization proof plus both unchanged ToElement originals passed with empty stderr and matching source/library identities.",
+    "Independently replayed existing 24 native IMU outcomes, exact original fixture and four actual XML exchanges; writer source is unchanged.",
+    "Reviewed all original Noise/vector/frame/orientation/edit/quiet assertions and constructor-only SourceNone mapping. Omitted None means no explicit declaration, not native Element-null; prior 211 byte comparisons remain author evidence."
   ],
   "remaining": [
-    "One normal strict staged hook and exact hosted CI.",
-    "No runtime measurements, legacy standalone configuration roots, advanced payload or native producer-byte parity qualification."
+    "One normal strict staged hook and exact hosted CI; candidate 186 complete/26 partial is not accepted yet.",
+    "No general loaded Element pointer identity, mutation, ownership or omitted-element equivalence."
   ]
 }

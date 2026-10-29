@@ -17,7 +17,7 @@
 
 // Copyright (C) 2026 Open Source Robotics Foundation
 // SPDX-License-Identifier: Apache-2.0
-// Supported ToElement observations; generic Element identity remains unported.
+// Constructor origin assertions map only no fabricated input declaration.
 use sdformat::*;
 use std::process::Command;
 fn vector(actual: [f64; 3], expected: [f64; 3]) {
@@ -36,6 +36,7 @@ fn original_body() {
         ..Noise::default()
     };
     let value = Imu {
+        source: None,
         angular_velocity: [noise; 3],
         linear_acceleration: [noise; 3],
         enable_orientation: false,
@@ -45,7 +46,9 @@ fn original_body() {
         gravity_dir_x: [0.; 3],
         gravity_dir_x_parent_frame: "my_frame".into(),
     };
+    assert!(value.source.is_none());
     let output = value.to_xml();
+    assert!(value.source.is_none());
     assert!(output.is_ok());
     let xml = output.unwrap();
     assert!(!xml.is_empty());

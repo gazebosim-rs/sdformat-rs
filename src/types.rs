@@ -1764,6 +1764,8 @@ pub enum NoiseKind {
 }
 #[derive(Debug, Clone, PartialEq)]
 pub struct Imu {
+    /// Origin of an explicit input declaration; emission never fabricates one.
+    pub source: Option<Source>,
     pub angular_velocity: [Noise; 3],
     pub linear_acceleration: [Noise; 3],
     pub enable_orientation: bool,
@@ -1776,6 +1778,7 @@ pub struct Imu {
 impl Default for Imu {
     fn default() -> Self {
         Self {
+            source: None,
             angular_velocity: [Noise::default(); 3],
             linear_acceleration: [Noise::default(); 3],
             enable_orientation: true,

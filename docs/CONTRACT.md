@@ -1119,3 +1119,12 @@ getters without changing standalone Light admission or setters. Existing frame
 math resolves poses with explicit scope/host/fully scoped target; unresolved
 references remain deferred until query or consumer validation. Other unimplemented
 World/Link payloads remain Unsupported. See [DOCUMENT_LIGHTS.md](DOCUMENT_LIGHTS.md).
+
+## World wind and magnetic metadata
+
+World.wind_linear_velocity and magnetic_field expose schema-backed document
+metadata without runtime forces or sensor behavior. Empty optional wind vectors
+default to zero after payload validation; an explicit empty required magnetic
+vector fails. Existing finite/exact-three/unknown/singleton policies remain.
+See [WORLD_ENVIRONMENT.md](WORLD_ENVIRONMENT.md) for native differences and the
+partial DOMWorld.Load mapping.

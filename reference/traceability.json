@@ -2829,6 +2829,22 @@
       "baseline": "Both unchanged ToElement originals passed with empty stderr. 24 native outcomes, byte-identical fixture and four real Rust-to-native exchanges pass; shared Noise extraction also retains all 32 FT outcomes, six FT exchanges and byte-identical accepted FT output.",
       "status": "ported_reviewed",
       "review": "Independent integration_reviewer approved complete exact-case mapping: fresh source/owned target passed fourteen relevant Rust checks, native constructed/loaded and omitted/explicit lifecycle proof plus both unchanged originals empty stderr. Existing twenty-four-case IMU corpus, exact fixture and four real exchanges independently replayed. All three metadata-aware full-value transitions approved before edits; literal source oracles retain all typed fields. Constructor SourceNone means no fabricated loaded input declaration only, not generic Element identity. Prior 211 unchanged export comparisons remain author evidence. Normal strict staged/hosted qualification pending."
+    },
+    {
+      "target": "INTEGRATION_world_dom",
+      "case": "DOMWorld.Load",
+      "source": "test/integration/world_dom.cc:79",
+      "rust_test": "tests/world_environment.rs::original_dom_world_load_vector_assertions_on_unmodified_subtrees",
+      "assertions": "Only World presence/count/name and wind/gravity/magnetic vector assertions are ported; each vector retains direct component <=1e-3 bounds plus exact native bits. Projected fixture preserves unchanged complete subtrees and SDF/World ancestry. Audio/spherical/GUI/scene/atmosphere/physics/frame and native Element/path assertions are outside this mapping; explicitly partial.",
+      "fixtures": {
+        "tests/fixtures/world_environment_original.sdf": "3b64431d1ff3762a987f381e55305800713ca569d94cf894f2373287600d8086"
+      },
+      "upstream_fixtures": {
+        "test/sdf/world_complete.sdf": "c555ca24e892172ac39114a4638cd597282acf8b94cefff7f860a7591af6e56a"
+      },
+      "baseline": "Author native helper replays 35 actual cases, full/projected vector getter equality, raw/constructor profiles and unchanged DOMWorld.Load; independent review pending.",
+      "status": "partial_reviewed",
+      "review": "Root independently reviewed the exact partial vector assertions, fixture ancestry/unchanged subtrees, pinned native math bound, strict policies and approved old Wind capability transition. Fresh final source/owned target/native peers passed eight affected Rust checks, all 35 native cases, raw/constructor profiles, full/projection exact vectors and unchanged DOMWorld.Load; no findings. Remaining original assertions are explicitly unported; no complete credit. Normal strict staged and exact hosted gates pending."
     }
   ]
 }

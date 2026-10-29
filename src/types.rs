@@ -229,6 +229,10 @@ impl Sdf {
 pub struct World {
     pub name: String,
     pub gravity: [f64; 3],
+    /// World wind metadata; applying wind forces is a consumer responsibility.
+    pub wind_linear_velocity: [f64; 3],
+    /// Magnetic field in Tesla, in the world spherical-coordinate frame.
+    pub magnetic_field: [f64; 3],
     /// Atmosphere metadata, including native defaults when the element is absent.
     pub atmosphere: Atmosphere,
     /// Physics profiles in declaration order, or the implicit native default.

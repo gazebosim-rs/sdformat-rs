@@ -1,0 +1,313 @@
+{
+  "cases": [
+    {
+      "id": "omitted",
+      "xml": "<sdf version='1.12'><world name='w'></world></sdf>",
+      "native": {
+        "stdout": "ROOT\nVALUES 0 0 0 4528183427953460019 4537372969584020815 13764752285348817520 0 0 13845078564453063066\n",
+        "stderr": ""
+      }
+    },
+    {
+      "id": "empty-wind",
+      "xml": "<sdf version='1.12'><world name='w'><wind/></world></sdf>",
+      "native": {
+        "stdout": "ROOT\nVALUES 0 0 0 4528183427953460019 4537372969584020815 13764752285348817520 0 0 13845078564453063066\n",
+        "stderr": ""
+      }
+    },
+    {
+      "id": "empty-velocity",
+      "xml": "<sdf version='1.12'><world name='w'><wind><linear_velocity/></wind></world></sdf>",
+      "native": {
+        "stdout": "ROOT\nVALUES 0 0 0 4528183427953460019 4537372969584020815 13764752285348817520 0 0 13845078564453063066\n",
+        "stderr": ""
+      }
+    },
+    {
+      "id": "whitespace-velocity",
+      "xml": "<sdf version='1.12'><world name='w'><wind><linear_velocity> \t\n </linear_velocity></wind></world></sdf>",
+      "native": {
+        "stdout": "ROOT\nVALUES 0 0 0 4528183427953460019 4537372969584020815 13764752285348817520 0 0 13845078564453063066\n",
+        "stderr": ""
+      }
+    },
+    {
+      "id": "configured",
+      "xml": "<sdf version='1.12'><world name='w'><wind><linear_velocity>4 5 6</linear_velocity></wind><gravity>1 2 3</gravity><magnetic_field>-1 .5 10</magnetic_field></world></sdf>",
+      "native": {
+        "stdout": "ROOT\nVALUES 4616189618054758400 4617315517961601024 4618441417868443648 13830554455654793216 4602678819172646912 4621819117588971520 4607182418800017408 4611686018427387904 4613937818241073152\n",
+        "stderr": ""
+      }
+    },
+    {
+      "id": "wind-empty",
+      "xml": "<sdf version='1.12'><world name='w'><wind><linear_velocity></linear_velocity></wind></world></sdf>",
+      "native": {
+        "stdout": "ROOT\nVALUES 0 0 0 4528183427953460019 4537372969584020815 13764752285348817520 0 0 13845078564453063066\n",
+        "stderr": ""
+      }
+    },
+    {
+      "id": "wind-signed-zero",
+      "xml": "<sdf version='1.12'><world name='w'><wind><linear_velocity>-0 0 -0</linear_velocity></wind></world></sdf>",
+      "native": {
+        "stdout": "ROOT\nVALUES 9223372036854775808 0 9223372036854775808 4528183427953460019 4537372969584020815 13764752285348817520 0 0 13845078564453063066\n",
+        "stderr": ""
+      }
+    },
+    {
+      "id": "wind-whitespace",
+      "xml": "<sdf version='1.12'><world name='w'><wind><linear_velocity>1\t2\n3</linear_velocity></wind></world></sdf>",
+      "native": {
+        "stdout": "ROOT\nVALUES 4607182418800017408 4611686018427387904 4613937818241073152 4528183427953460019 4537372969584020815 13764752285348817520 0 0 13845078564453063066\n",
+        "stderr": ""
+      }
+    },
+    {
+      "id": "wind-normal-small",
+      "xml": "<sdf version='1.12'><world name='w'><wind><linear_velocity>1e-300 2 3</linear_velocity></wind></world></sdf>",
+      "native": {
+        "stdout": "ROOT\nVALUES 118622047889322841 4611686018427387904 4613937818241073152 4528183427953460019 4537372969584020815 13764752285348817520 0 0 13845078564453063066\n",
+        "stderr": ""
+      }
+    },
+    {
+      "id": "wind-subnormal",
+      "xml": "<sdf version='1.12'><world name='w'><wind><linear_velocity>1e-310 2 3</linear_velocity></wind></world></sdf>",
+      "native": {
+        "stdout": "ROOT\nVALUES 20240225330731 4611686018427387904 4613937818241073152 4528183427953460019 4537372969584020815 13764752285348817520 0 0 13845078564453063066\n",
+        "stderr": ""
+      }
+    },
+    {
+      "id": "wind-too-few",
+      "xml": "<sdf version='1.12'><world name='w'><wind><linear_velocity>1 2</linear_velocity></wind></world></sdf>",
+      "native": {
+        "stdout": "ROOT 9 9 9 9 30\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Unknown error. Unable to set value [1 2 ] for key[linear_velocity]\n"
+      }
+    },
+    {
+      "id": "wind-too-many",
+      "xml": "<sdf version='1.12'><world name='w'><wind><linear_velocity>1 2 3 4</linear_velocity></wind></world></sdf>",
+      "native": {
+        "stdout": "ROOT\nVALUES 4607182418800017408 4611686018427387904 4613937818241073152 4528183427953460019 4537372969584020815 13764752285348817520 0 0 13845078564453063066\n",
+        "stderr": ""
+      },
+      "gap_code": "InvalidValue"
+    },
+    {
+      "id": "wind-bad",
+      "xml": "<sdf version='1.12'><world name='w'><wind><linear_velocity>bad</linear_velocity></wind></world></sdf>",
+      "native": {
+        "stdout": "ROOT 9 9 9 9 30\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Unknown error. Unable to set value [bad ] for key[linear_velocity]\n"
+      }
+    },
+    {
+      "id": "wind-nan",
+      "xml": "<sdf version='1.12'><world name='w'><wind><linear_velocity>nan 0 1</linear_velocity></wind></world></sdf>",
+      "native": {
+        "stdout": "ROOT 9 9 9 9 30\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Unknown error. Unable to set value [nan 0 1 ] for key[linear_velocity]\n"
+      }
+    },
+    {
+      "id": "wind-infinite",
+      "xml": "<sdf version='1.12'><world name='w'><wind><linear_velocity>inf 0 1</linear_velocity></wind></world></sdf>",
+      "native": {
+        "stdout": "ROOT 9 9 9 9 30\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Unknown error. Unable to set value [inf 0 1 ] for key[linear_velocity]\n"
+      }
+    },
+    {
+      "id": "magnetic_field-empty",
+      "xml": "<sdf version='1.12'><world name='w'><magnetic_field></magnetic_field></world></sdf>",
+      "native": {
+        "stdout": "ROOT 9 9 9 30\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Empty string used when setting a required parameter. Key[magnetic_field]\n"
+      }
+    },
+    {
+      "id": "magnetic_field-signed-zero",
+      "xml": "<sdf version='1.12'><world name='w'><magnetic_field>-0 0 -0</magnetic_field></world></sdf>",
+      "native": {
+        "stdout": "ROOT\nVALUES 0 0 0 9223372036854775808 0 9223372036854775808 0 0 13845078564453063066\n",
+        "stderr": ""
+      }
+    },
+    {
+      "id": "magnetic_field-whitespace",
+      "xml": "<sdf version='1.12'><world name='w'><magnetic_field>1\t2\n3</magnetic_field></world></sdf>",
+      "native": {
+        "stdout": "ROOT\nVALUES 0 0 0 4607182418800017408 4611686018427387904 4613937818241073152 0 0 13845078564453063066\n",
+        "stderr": ""
+      }
+    },
+    {
+      "id": "magnetic_field-normal-small",
+      "xml": "<sdf version='1.12'><world name='w'><magnetic_field>1e-300 2 3</magnetic_field></world></sdf>",
+      "native": {
+        "stdout": "ROOT\nVALUES 0 0 0 118622047889322841 4611686018427387904 4613937818241073152 0 0 13845078564453063066\n",
+        "stderr": ""
+      }
+    },
+    {
+      "id": "magnetic_field-subnormal",
+      "xml": "<sdf version='1.12'><world name='w'><magnetic_field>1e-310 2 3</magnetic_field></world></sdf>",
+      "native": {
+        "stdout": "ROOT\nVALUES 0 0 0 20240225330731 4611686018427387904 4613937818241073152 0 0 13845078564453063066\n",
+        "stderr": ""
+      }
+    },
+    {
+      "id": "magnetic_field-too-few",
+      "xml": "<sdf version='1.12'><world name='w'><magnetic_field>1 2</magnetic_field></world></sdf>",
+      "native": {
+        "stdout": "ROOT 9 9 9 30\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Unknown error. Unable to set value [1 2 ] for key[magnetic_field]\n"
+      }
+    },
+    {
+      "id": "magnetic_field-too-many",
+      "xml": "<sdf version='1.12'><world name='w'><magnetic_field>1 2 3 4</magnetic_field></world></sdf>",
+      "native": {
+        "stdout": "ROOT\nVALUES 0 0 0 4607182418800017408 4611686018427387904 4613937818241073152 0 0 13845078564453063066\n",
+        "stderr": ""
+      },
+      "gap_code": "InvalidValue"
+    },
+    {
+      "id": "magnetic_field-bad",
+      "xml": "<sdf version='1.12'><world name='w'><magnetic_field>bad</magnetic_field></world></sdf>",
+      "native": {
+        "stdout": "ROOT 9 9 9 30\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Unknown error. Unable to set value [bad ] for key[magnetic_field]\n"
+      }
+    },
+    {
+      "id": "magnetic_field-nan",
+      "xml": "<sdf version='1.12'><world name='w'><magnetic_field>nan 0 1</magnetic_field></world></sdf>",
+      "native": {
+        "stdout": "ROOT 9 9 9 30\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Unknown error. Unable to set value [nan 0 1 ] for key[magnetic_field]\n"
+      }
+    },
+    {
+      "id": "magnetic_field-infinite",
+      "xml": "<sdf version='1.12'><world name='w'><magnetic_field>inf 0 1</magnetic_field></world></sdf>",
+      "native": {
+        "stdout": "ROOT 9 9 9 30\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Unknown error. Unable to set value [inf 0 1 ] for key[magnetic_field]\n"
+      }
+    },
+    {
+      "id": "wind-attribute",
+      "xml": "<sdf version='1.12'><world name='w'><wind unknown=\"x\"/></world></sdf>",
+      "native": {
+        "stdout": "ROOT\nVALUES 0 0 0 4528183427953460019 4537372969584020815 13764752285348817520 0 0 13845078564453063066\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/world[@name=\"w\"]/wind[@unknown=\"x\"]:<data-string>:L1]: XML Attribute[unknown] in element[wind] not defined in SDF.\n"
+      },
+      "gap_code": "Unsupported"
+    },
+    {
+      "id": "wind-child",
+      "xml": "<sdf version='1.12'><world name='w'><wind><unknown/></wind></world></sdf>",
+      "native": {
+        "stdout": "ROOT\nVALUES 0 0 0 4528183427953460019 4537372969584020815 13764752285348817520 0 0 13845078564453063066\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/world[@name=\"w\"]/wind/unknown:<data-string>:L1]: XML Element[unknown], child of element[wind], not defined in SDF. Copying[unknown] as children of [wind].\n"
+      },
+      "gap_code": "Unsupported"
+    },
+    {
+      "id": "velocity-attribute",
+      "xml": "<sdf version='1.12'><world name='w'><wind><linear_velocity unknown=\"x\">1 2 3</linear_velocity></wind></world></sdf>",
+      "native": {
+        "stdout": "ROOT\nVALUES 4607182418800017408 4611686018427387904 4613937818241073152 4528183427953460019 4537372969584020815 13764752285348817520 0 0 13845078564453063066\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/world[@name=\"w\"]/wind/linear_velocity[@unknown=\"x\"]:<data-string>:L1]: XML Attribute[unknown] in element[linear_velocity] not defined in SDF.\n"
+      },
+      "gap_code": "Unsupported"
+    },
+    {
+      "id": "magnetic-attribute",
+      "xml": "<sdf version='1.12'><world name='w'><magnetic_field unknown=\"x\">1 2 3</magnetic_field></world></sdf>",
+      "native": {
+        "stdout": "ROOT\nVALUES 0 0 0 4607182418800017408 4611686018427387904 4613937818241073152 0 0 13845078564453063066\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/world[@name=\"w\"]/magnetic_field[@unknown=\"x\"]:<data-string>:L1]: XML Attribute[unknown] in element[magnetic_field] not defined in SDF.\n"
+      },
+      "gap_code": "Unsupported"
+    },
+    {
+      "id": "velocity-child",
+      "xml": "<sdf version='1.12'><world name='w'><wind><linear_velocity><unknown/></linear_velocity></wind></world></sdf>",
+      "native": {
+        "stdout": "ROOT\nVALUES 0 0 0 4528183427953460019 4537372969584020815 13764752285348817520 0 0 13845078564453063066\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/world[@name=\"w\"]/wind/linear_velocity/unknown:<data-string>:L1]: XML Element[unknown], child of element[linear_velocity], not defined in SDF. Copying[unknown] as children of [linear_velocity].\n"
+      },
+      "gap_code": "Unsupported"
+    },
+    {
+      "id": "magnetic-child",
+      "xml": "<sdf version='1.12'><world name='w'><magnetic_field><unknown/></magnetic_field></world></sdf>",
+      "native": {
+        "stdout": "ROOT 9 9 9 30\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Empty string used when setting a required parameter. Key[magnetic_field]\n"
+      },
+      "gap_code": "Unsupported"
+    },
+    {
+      "id": "duplicate-wind",
+      "xml": "<sdf version='1.12'><world name='w'><wind/><wind/></world></sdf>",
+      "native": {
+        "stdout": "ROOT\nVALUES 0 0 0 4528183427953460019 4537372969584020815 13764752285348817520 0 0 13845078564453063066\n",
+        "stderr": ""
+      },
+      "gap_code": "InvalidValue"
+    },
+    {
+      "id": "duplicate-velocity",
+      "xml": "<sdf version='1.12'><world name='w'><wind><linear_velocity>1 2 3</linear_velocity><linear_velocity>4 5 6</linear_velocity></wind></world></sdf>",
+      "native": {
+        "stdout": "ROOT\nVALUES 4607182418800017408 4611686018427387904 4613937818241073152 4528183427953460019 4537372969584020815 13764752285348817520 0 0 13845078564453063066\n",
+        "stderr": ""
+      },
+      "gap_code": "InvalidValue"
+    },
+    {
+      "id": "duplicate-magnetic",
+      "xml": "<sdf version='1.12'><world name='w'><magnetic_field>1 2 3</magnetic_field><magnetic_field>4 5 6</magnetic_field></world></sdf>",
+      "native": {
+        "stdout": "ROOT\nVALUES 0 0 0 4607182418800017408 4611686018427387904 4613937818241073152 0 0 13845078564453063066\n",
+        "stderr": ""
+      },
+      "gap_code": "InvalidValue"
+    },
+    {
+      "id": "prepared-old-wind",
+      "xml": "<sdf version='1.12'><world name='w'><wind/><light name='n' type='point'/></world></sdf>",
+      "native": {
+        "stdout": "ROOT\nVALUES 0 0 0 4528183427953460019 4537372969584020815 13764752285348817520 0 0 13845078564453063066\n",
+        "stderr": ""
+      },
+      "light_native": {
+        "stdout": "OK 6e 1 0 0 0 0 0 0 4607182418800017408 - 1 1 0 1065353216 1065353216 1065353216 1065353216 1036831949 1036831949 1036831949 1065353216 4621819117588971520 0 0 0 4607182418800017408 4607182418800017408 0 0 0 13830554455654793216 4607182418800017408\nPOSE default OK 0 0 0 0 0 0 4607182418800017408\n",
+        "stderr": ""
+      }
+    }
+  ],
+  "fixture": {
+    "full": {
+      "stdout": "ROOT\nVALUES 4616189618054758400 4617315517961601024 4618441417868443648 13830554455654793216 4602678819172646912 4621819117588971520 4607182418800017408 4611686018427387904 4613937818241073152\n",
+      "stderr": ""
+    },
+    "projection": {
+      "stdout": "ROOT\nVALUES 4616189618054758400 4617315517961601024 4618441417868443648 13830554455654793216 4602678819172646912 4621819117588971520 4607182418800017408 4611686018427387904 4613937818241073152\n",
+      "stderr": ""
+    }
+  },
+  "profiles": {
+    "stdout": "constructor\nVALUES 0 0 0 4528183427953460019 4537372969584020815 13764752285348817520 0 0 13845082308070253317\nraw\nVALUES 0 0 0 4528183427953460019 4537372969584020815 13764752285348817520 0 0 13845082308070253317\n",
+    "stderr": ""
+  }
+}

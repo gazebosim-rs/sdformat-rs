@@ -2,6 +2,8 @@
 // SPDX-License-Identifier: Apache-2.0
 use sdformat::*;
 use serde_json::Value;
+#[path = "support/world_environment_projection.rs"]
+mod environment;
 #[path = "support/document_light_projection.rs"]
 mod projection;
 fn data() -> Value {
@@ -166,7 +168,7 @@ fn document_schema_defaults_do_not_hide_unknown_payloads() {
             ErrorCode::Unsupported
         );
     }
-    for payload in ["<scene/>", "<gui/>", "<wind/>", "<projector/>"] {
+    for payload in ["<scene/>", "<gui/>", "<projector/>"] {
         let xml = format!(
             "<sdf version='1.12'><world name='w'>{payload}<light name='n' type='point'/></world></sdf>"
         );
@@ -177,4 +179,38 @@ fn document_schema_defaults_do_not_hide_unknown_payloads() {
             ErrorCode::Unsupported
         );
     }
+
+    let data: Value = serde_json::from_str(include_str!("world_environment.json")).unwrap();
+    let row = data["cases"]
+        .as_array()
+        .unwrap()
+        .iter()
+        .find(|r| r["id"] == "prepared-old-wind")
+        .unwrap();
+    assert_eq!(
+        row["xml"],
+        "<sdf version='1.12'><world name='w'><wind/><light name='n' type='point'/></world></sdf>"
+    );
+    let sdf = load_str(row["xml"].as_str().unwrap(), "payload.sdf", &NoResources).unwrap();
+    assert_eq!(sdf.worlds.len(), 1);
+    let world = &sdf.worlds[0];
+    assert_eq!(world.name, "w");
+    environment::compare(world, &row["native"]);
+    assert_eq!(world.models.len(), 0);
+    assert_eq!(world.lights.len(), 1);
+    let native: Vec<Vec<String>> = row["light_native"]["stdout"]
+        .as_str()
+        .unwrap()
+        .lines()
+        .map(|line| line.split_whitespace().map(str::to_owned).collect())
+        .collect();
+    assert_eq!(native.len(), 2);
+    projection::compare(&projection::projection(&world.lights[0]), &native[0]);
+    assert_eq!(&native[1][..3], ["POSE", "default", "OK"]);
+    projection::pose(
+        sdf.resolve_pose(&world.lights[0].pose, "w", "w", "w")
+            .unwrap(),
+        &native[1][3..],
+    );
+    sdf.validate_non_frame_poses().unwrap();
 }

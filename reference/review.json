@@ -1,19 +1,18 @@
 {
   "decision": "approved",
   "author": "sdformat_owner",
-  "reviewer": "integration_reviewer",
-  "source_digest": "909038445891a5788652f02eb5698a64d944a0ccc453b19b3ff3c989c6b530f4",
-  "protected_digest": "096b54f60acdff064b99e3cb4e8dcd20264a87260a8d67ac650b3b445778d5bb",
-  "scope": "Direct World/Link Light collections and document-schema metadata with one complete LoadLights assertion mapping; exact missing-type failures retained with approved precise classification.",
+  "reviewer": "root",
+  "source_digest": "715ad16e09aadb29e34312508b1a1901efe65c5900222fef97616e4f87b527d0",
+  "protected_digest": "b4bed54e849d299e699a110674d0b8727ac16cd86620c241cc9c24d9cc6f3141",
+  "scope": "Schema-backed World wind and magnetic metadata; partial DOMWorld.Load vectors only.",
   "checks": [
-    "Fresh final source and reviewer-owned target passed 41 relevant Rust checks: seven new document/original/projection checks and 34 existing Light, pose-graph and semantic checks.",
-    "Independently replayed 42 native schema cases, eleven document controls, raw/schema profiles, exact full-versus-projected getter/query streams and the genuine unchanged LoadLights original with matching source/SDK/library identities.",
-    "Audited every original predicate against pinned source and math. The omitted explicit Spot type assertion was added and freshly replayed; signed 1e-3 pose components and four-ULP configured doubles remain.",
-    "Document-only defaults/getters/zero ties preserve standalone behavior. Known unused/empty payloads remain validated; local scoping, deferred pose errors and explicit consumer checks are retained. Exact old XML/URI failures now assert Missing and literal Source 1:37/1:52 after prior narrow approval.",
-    "Prior twelve native family helpers, 211 family XML exports and configured Spot-byte comparisons remain author evidence, not independent replay claims."
+    "Fresh reviewer source and owned target passed eight affected Rust checks, including the exact old Wind input and URI with stronger complete World/Light/pose assertions.",
+    "Fresh C++ peers and helper replay passed 35 native cases, constructor/raw profiles, full-versus-projected getter equality and unchanged DOMWorld.Load with pinned source/header/library checks.",
+    "Reviewed parser reuse, finite/exact-three/unknown/duplicate boundaries, empty optional wind versus required magnetic fields, caller source locations and partial original mapping. Existing unrelated predicates and assertions remain intact.",
+    "Final executable paths byte-match the independent export; subsequent metadata changes only record actual review and preserve Apache-2.0 attribution."
   ],
   "remaining": [
-    "One normal strict staged hook and exact hosted qualification; candidate 189 complete/24 partial is separate from accepted 188/24.",
-    "No scene, GUI, wind, projector, rendering, generic DOM/pointer identity, broader light-include or native diagnostic-count parity is claimed."
+    "Normal strict staged hook and exact hosted qualification remain required; accepted 189 complete/24 partial versus candidate 189/25.",
+    "No runtime wind force, magnetic sensor, spherical conversion, full DOMWorld.Load, serializer or consumer-pin credit."
   ]
 }

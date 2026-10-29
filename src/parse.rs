@@ -824,6 +824,8 @@ impl Parser<'_> {
                 "frame",
                 "joint",
                 "gravity",
+                "wind",
+                "magnetic_field",
                 "plugin",
                 "physics",
                 "atmosphere",
@@ -832,6 +834,19 @@ impl Parser<'_> {
         )?;
         let name = self.name(node)?;
         let gravity = child(node, "gravity").map_or(Ok([0., 0., -9.8]), |n| self.values(n))?;
+        let wind_linear_velocity = child(node, "wind").map_or(Ok([0.; 3]), |wind| {
+            self.allowed(wind, &["linear_velocity"], &[])?;
+            child(wind, "linear_velocity").map_or(Ok([0.; 3]), |velocity| {
+                self.allowed(velocity, &[], &[])?;
+                if param_text(velocity).is_empty() {
+                    Ok([0.; 3])
+                } else {
+                    self.values(velocity)
+                }
+            })
+        })?;
+        let magnetic_field = child(node, "magnetic_field")
+            .map_or(Ok([5.5645e-6, 22.8758e-6, -42.3884e-6]), |n| self.values(n))?;
         let mut physics = elements(node)
             .filter(|n| n.has_tag_name("physics"))
             .map(|n| self.physics(n))
@@ -931,6 +946,8 @@ impl Parser<'_> {
         Ok(World {
             name,
             gravity,
+            wind_linear_velocity,
+            magnetic_field,
             atmosphere: child(node, "atmosphere")
                 .map_or(Ok(Atmosphere::default()), |n| self.atmosphere(n))?,
             physics,

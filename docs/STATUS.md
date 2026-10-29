@@ -3265,3 +3265,18 @@ full/projection streams/unchanged original; explicit Spot type predicate correct
 all original bounds/context/error mappings reviewed complete. Prior 211 exports/
 Spot bytes remain author evidence. Strict local/hosted gates remain pending; candidate 189 complete /24 partial,
 accepted 188 complete /24 partial. See DOCUMENT_LIGHTS.md.
+
+## Candidate World wind and magnetic metadata
+
+Accepted Main is 4bdcc6e with 189 complete /24 partial mappings. The isolated
+candidate adds typed World vectors and validates optional empty wind defaults
+without broadening existing vector/unknown/duplicate policies. Eight focused Rust
+tests and 35 native observations pass, including the exact old wind input,
+full-versus-projected original getter streams and unchanged DOMWorld.Load. Root independently approved the exact old wind-input
+transition before its stronger positive was folded into the original test;
+unrelated negatives remain. All 495 Rust and 17 tooling tests, formatting and
+all-target Clippy pass.
+Root independently replayed the final eight affected Rust controls and full native
+helper with fresh source/target/peers; source/error/assertion review is approved.
+Strict staged coverage and exact hosted CI remain pending. Candidate 189 complete
+/25 partial adds only a partial original mapping; no runtime claim.

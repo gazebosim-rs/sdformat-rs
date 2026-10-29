@@ -1677,6 +1677,7 @@ impl Parser<'_> {
             _ => return Err(self.err(node, ErrorCode::InvalidValue, "invalid light type")),
         };
         let mut light = Light {
+            source: Some(self.source(node)),
             name: self.name(node)?,
             light_type,
             pose: self.pose(node)?,

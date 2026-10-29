@@ -19,7 +19,9 @@
 // SPDX-License-Identifier: Apache-2.0
 // Fixed value observations from DOMLight.ToElement and ToElementErrorOutput.
 use glam::DQuat;
-use sdformat::{ErrorCode, Light, LightType, load_light_str};
+use sdformat::{ErrorCode, Light, LightType, Source, load_light_str};
+#[path = "support/quiet.rs"]
+mod quiet;
 
 fn source_light() -> Light {
     let mut light = Light {
@@ -80,9 +82,19 @@ fn assert_loaded(light: &Light) {
 #[test]
 fn partial_dom_light_to_element_values() {
     let light = source_light();
+    assert!(light.source.is_none());
     let xml = light.to_xml().expect("bounded Light output");
+    assert!(light.source.is_none());
     assert!(xml.starts_with("<light "));
     let mut light2 = load_light_str(&xml, "light-roundtrip").expect("bounded Light load");
+    assert_eq!(
+        light2.source,
+        Some(Source {
+            uri: "light-roundtrip".into(),
+            line: 1,
+            column: 1
+        })
+    );
     assert_loaded(&light2);
 
     light2.cast_shadows = false;
@@ -93,10 +105,27 @@ fn partial_dom_light_to_element_values() {
 
 #[test]
 fn partial_dom_light_to_element_error_output_values() {
-    let light = source_light();
-    let xml = light.to_xml().expect("native Errors.empty value mapping");
-    let light2 = load_light_str(&xml, "light-roundtrip").expect("native load errors empty");
-    assert_loaded(&light2);
+    quiet::assert_quiet(
+        "partial_dom_light_to_element_error_output_values",
+        "SDF_LIGHT_QUIET_CHILD",
+        || {
+            let light = source_light();
+            assert!(light.source.is_none());
+            let xml = light.to_xml().expect("native Errors.empty value mapping");
+            assert!(!xml.is_empty());
+            assert!(light.source.is_none());
+            let light2 = load_light_str(&xml, "light-roundtrip").expect("native load errors empty");
+            assert_eq!(
+                light2.source,
+                Some(Source {
+                    uri: "light-roundtrip".into(),
+                    line: 1,
+                    column: 1
+                })
+            );
+            assert_loaded(&light2);
+        },
+    );
 }
 
 #[test]

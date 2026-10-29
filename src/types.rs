@@ -552,6 +552,8 @@ pub enum LightType {
 
 #[derive(Debug, Clone, PartialEq)]
 pub struct Light {
+    /// Origin of an explicit input declaration; emission never fabricates one.
+    pub source: Option<Source>,
     pub name: String,
     pub light_type: LightType,
     pub pose: Pose,
@@ -576,6 +578,7 @@ pub struct Light {
 impl Default for Light {
     fn default() -> Self {
         Self {
+            source: None,
             name: String::new(),
             light_type: LightType::Point,
             pose: Pose::default(),

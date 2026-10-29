@@ -3233,3 +3233,19 @@ native origin controls/both unchanged originals, and the existing twenty-four-ca
 IMU XML corpus/exact fixture/four exchanges. Both exact original mappings are
 reviewed complete. Normal strict/hosted gates remain pending; candidate 186 complete /26 partial is
 separate from accepted 184 complete /28 partial. See IMU_ORIGIN.md.
+
+
+## Candidate Light input origin
+
+The standalone Light parser records genuine declaration Source; constructors
+retain None and XML output is unchanged. Literal source/edit/clone controls and
+native lifecycle plus both unchanged originals pass. Existing full-document
+World/Link light admission remains explicitly Unsupported. Independent narrow mapping review approved exact constructor-null/loaded-presence
+assertions before old-test edits; actual quiet capture now retains all existing
+value checks. Author 485 Rust/fmt/Clippy pass, twelve prior helpers/211 XML byte
+comparisons pass, plus accepted configured Spot bytes/native loading (author
+evidence). Final independent review passed seven Rust checks, pinned native lifecycle and
+both originals with empty stderr. Private stdout/stderr injections correctly fail
+the actual quiet wrapper; restored source passes. Both exact mappings are reviewed
+complete. Normal strict staged/hosted gates remain pending: candidate 188 complete /24 partial, accepted 186 complete /26 partial.
+See LIGHT_ORIGIN.md.

@@ -2,17 +2,17 @@
   "decision": "approved",
   "author": "sdformat_owner",
   "reviewer": "integration_reviewer",
-  "source_digest": "74adf79ecde3422988d978e640655dcaa62ea96c5e6308862ca94af2256c7195",
-  "protected_digest": "7d2f06319796923aa7837e7292fd0243fc1ed4082b499f0bb8ffdc076bd404df",
-  "scope": "Explicit IMU declaration origin, preserved whole-value assertions and two exact constructed-no-input-after-emission original mappings; no general Element identity claim.",
+  "source_digest": "eeee3bec1334565bd9af952d0ea996f97e10f319151532d65057ca0ab5193ed3",
+  "protected_digest": "a2e88131bb89c62c2897a66ab8fb2b78ee4885b2946744ca2afe946753b4c96e",
+  "scope": "Explicit Light input origin and actual quiet output, with coordinator-approved exact constructor-null and loaded-declaration-presence mappings only.",
   "checks": [
-    "Fresh final independent export/owned target passed 14 relevant Rust checks and all three approved metadata-aware full-value transitions with literal URI/line/column oracles.",
-    "Fresh native lifecycle and omitted/explicit materialization proof plus both unchanged ToElement originals passed with empty stderr and matching source/library identities.",
-    "Independently replayed existing 24 native IMU outcomes, exact original fixture and four actual XML exchanges; writer source is unchanged.",
-    "Reviewed all original Noise/vector/frame/orientation/edit/quiet assertions and constructor-only SourceNone mapping. Omitted None means no explicit declaration, not native Element-null; prior 211 byte comparisons remain author evidence."
+    "Fresh final independent source/owned target passed seven relevant Rust checks, native origin lifecycle and both genuine originals with empty stderr and matching source/library provenance.",
+    "Two reviewer-only injected stdout/stderr controls independently failed the actual quiet wrapper; restored exact author source passed again.",
+    "Audited genuine originals: no further pointer behavior; every old value/direct quaternion/dot bound/edit assertion preserved. Literal URI/root1:1 binds successful explicit input declaration presence.",
+    "Writer is unchanged and document World/Link lights remain Unsupported; prior 211-family and Spot-byte/native-peer comparisons remain author evidence."
   ],
   "remaining": [
-    "One normal strict staged hook and exact hosted CI; candidate 186 complete/26 partial is not accepted yet.",
-    "No general loaded Element pointer identity, mutation, ownership or omitted-element equivalence."
+    "One normal strict staged hook and exact hosted CI; candidate 188 complete/24 partial is not accepted yet.",
+    "No general Element pointer identity, mutation, ownership, omitted-group equivalence, native producer-byte or rendering qualification."
   ]
 }

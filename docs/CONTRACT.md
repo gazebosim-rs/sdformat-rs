@@ -1099,3 +1099,13 @@ configuration has None; immutable emission and typed edits preserve origin, whil
 reload records the new input. Omitted None is not native Element-null equivalence.
 See [IMU_ORIGIN.md](IMU_ORIGIN.md) for exact-case mappings and metadata-aware
 complete equality preservation.
+
+
+## Standalone Light input origin
+
+Light::source records the actual standalone declaration URI/line/column. Default
+construction has None; immutable emission and typed edits preserve origin. The
+exact constructed-null/loaded-presence translations are limited to no fabricated
+input and actual explicit declaration presence, with no pointer identity API.
+Full-document World/Link light admission remains Unsupported. See
+[LIGHT_ORIGIN.md](LIGHT_ORIGIN.md) for quiet-output and original mapping scope.

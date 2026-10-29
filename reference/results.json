@@ -60859,5 +60859,15 @@
       "fullSDF02/performance"
     ],
     "review": "Independent Msgs source/protected/runtime approval f752fc8d520732e22dac2a80940cddf29ee3dee312dc9103b826e4a0cf1ad383 and full-evidence binding ba9fe0b192679f5e65fa995ccdd96faefe0ae2a3fec70057b9791b46a7ab45b5; fresh private twenty tests, five effective production controls and exact restored twenty. Final metadata/protected binding, mandatory normal hook, public push and exact new hosted success remain required; no new public acceptance from source gate alone."
+  },
+  "joint_semantic_pose_queries": {
+    "native_cases": 46,
+    "successes": 29,
+    "invalid_targets": 17,
+    "native_error_code": 26,
+    "rust_api": "Sdf::joint_pose",
+    "proof": "reference/joint-semantic-pose.json",
+    "scope": "Default declared child frame and strict local model/world target semantics, immutable loaded graph. Original frame/relative-pose assertions unchanged; no duplicate original credit.",
+    "quality": "Author 420 Rust tests and Clippy passed. Independent source, scope and error review approved: 29 focused Rust checks in fresh separate source and target, all 46 native queries and unchanged native original, fixture and frame assertions passed. The three final tests with token-length tightening also passed independent replay. Normal strict staged hook and exact hosted CI remain required. No new original mapping credit."
   }
 }

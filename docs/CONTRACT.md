@@ -969,3 +969,11 @@ metadata, including raw quaternion pose/frame, endpoints, both axes and modern
 screw pitch. Local validity checks are distinct from containing-model graph
 validation. Unsupported retained sensor/physics payloads, axis2-only values and
 non-screw nondefault pitch return explicit errors. See [JOINT_XML.md](JOINT_XML.md).
+
+
+## Joint semantic-pose queries
+
+`Sdf::joint_pose` resolves a canonical loaded joint identity to a target in its
+containing model/world scope. Empty target selects the declared child frame;
+explicit targets use strict native local scoping. It shares the loaded graph
+snapshot and math with `pose_of`. See [JOINT_SEMANTIC_POSE.md](JOINT_SEMANTIC_POSE.md).

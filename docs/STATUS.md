@@ -2972,3 +2972,18 @@ coverage and exact hosted CI remain required. Accepted mappings are 169 complete
 status across both ledger lists; four older entries in the ports list are
 explicitly partial. The candidate adds one partial mapping and no complete credit.
 See [JOINT_XML.md](JOINT_XML.md).
+
+
+## Joint semantic-pose queries in development
+
+The new joint_pose query reuses loaded graph math with native default child-frame
+and strict local target semantics. It preserves offset child frames, world-joint
+targets and nested paths without ancestor or ambiguous-short-name fallback. All
+420 Rust tests and Clippy pass. Forty-six native queries (29 successes and 17
+invalid targets), the unchanged native relative-pose original and existing Rust
+joint-frame originals pass. Independent source/scope/error review passed with
+29 fresh focused Rust tests, all 46 native queries and a replay of the final
+token-count assertion tightening. Strict staged coverage and exact hosted CI
+remain required. No additional original credit is claimed; accepted
+counts remain 169 complete and 30 partial.
+See [JOINT_SEMANTIC_POSE.md](JOINT_SEMANTIC_POSE.md).

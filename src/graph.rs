@@ -456,6 +456,33 @@ impl Graphs {
     pub(crate) fn axis_frame(&self, scope: &str, value: &str) -> Result<String, Diagnostic> {
         self.schema_lookup(value, scope, &self.nodes["::"].source)
     }
+    pub(crate) fn joint_pose(&self, name: &str, target: &str) -> Result<Transform, Diagnostic> {
+        let node = self.nodes.get(name).ok_or_else(|| {
+            error(
+                ErrorCode::UnknownReference,
+                &self.nodes["::"].source,
+                format!("unknown joint {name}"),
+            )
+        })?;
+        if node.kind != Kind::Joint {
+            return Err(error(
+                ErrorCode::InvalidValue,
+                &node.source,
+                format!("frame {name} is not a joint"),
+            ));
+        }
+        let target = if target.is_empty() {
+            // The declared child may be an offset frame, not its attached body.
+            self.resolve_reference(
+                node.attachment.as_ref().expect("joint child reference"),
+                &node.scope,
+                &node.source,
+            )?
+        } else {
+            self.schema_lookup(target, &node.scope, &node.source)?
+        };
+        self.pose_of(name, &target)
+    }
     pub(crate) fn pose_of(&self, name: &str, target: &str) -> Result<Transform, Diagnostic> {
         let source = &self.nodes["::"].source;
         let a = self.poses.get(name).ok_or_else(|| {

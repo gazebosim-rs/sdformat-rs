@@ -189,6 +189,12 @@ impl Sdf {
     pub fn resolve_name(&self, scope: &str, reference: &str) -> Result<String, Diagnostic> {
         self.graphs.resolve_name(scope, reference)
     }
+    /// Resolve a loaded joint pose to a target in its containing model/world scope.
+    /// An empty target selects the declared child frame, including frame offsets.
+    /// Like `pose_of`, this reads the loaded graph, not later edits to DOM fields.
+    pub fn joint_pose(&self, scoped_joint: &str, target: &str) -> Result<Transform, Diagnostic> {
+        self.graphs.joint_pose(scoped_joint, target)
+    }
     /// Rotate a joint axis into a fully scoped target frame, without translation.
     pub fn resolve_axis(
         &self,

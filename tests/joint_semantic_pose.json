@@ -1,0 +1,774 @@
+[
+  {
+    "id": "original-J1:default",
+    "xml": "<?xml version=\"1.0\" ?>\n<sdf version='1.7'>\n  <model name=\"model_joint_relative_to\">\n    <link name=\"P1\">\n      <pose>1 0 0 0 1.5707963267948966 0</pose>   <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <link name=\"C1\">\n      <pose>2 0 0 0 -1.5707963267948966 0</pose>  <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <joint name=\"J1\" type=\"fixed\">\n      <pose relative_to=\"\">0 0 1 0 0 0</pose> <!-- Joint pose relative to child link frame (C1 -> M) by default. -->\n      <parent>P1</parent>\n      <child>C1</child>\n    </joint>\n\n    <link name=\"P2\">\n      <pose>3 0 0 0 1.5707963267948966 0</pose>   <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <joint name=\"J2\" type=\"fixed\">\n      <pose relative_to=\"P2\">0 0 2 0 0 0</pose>   <!-- Joint pose relative to link frame P2 -> M. -->\n      <parent>P2</parent>\n      <child>C2</child>\n    </joint>\n    <link name=\"C2\">\n      <pose relative_to=\"J2\">4 0 0 0 0 0</pose>   <!-- Link pose relative to joint frame J2 -> P2 -> M. -->\n    </link>\n  </model>\n</sdf>\n",
+    "world": "",
+    "model": "model_joint_relative_to",
+    "joint": "J1",
+    "scoped_joint": "model_joint_relative_to::J1",
+    "target": "",
+    "tokens": [
+      "OK",
+      "13594115475217842176",
+      "0",
+      "4607182418800017408",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408"
+    ]
+  },
+  {
+    "id": "original-J1:__model__",
+    "xml": "<?xml version=\"1.0\" ?>\n<sdf version='1.7'>\n  <model name=\"model_joint_relative_to\">\n    <link name=\"P1\">\n      <pose>1 0 0 0 1.5707963267948966 0</pose>   <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <link name=\"C1\">\n      <pose>2 0 0 0 -1.5707963267948966 0</pose>  <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <joint name=\"J1\" type=\"fixed\">\n      <pose relative_to=\"\">0 0 1 0 0 0</pose> <!-- Joint pose relative to child link frame (C1 -> M) by default. -->\n      <parent>P1</parent>\n      <child>C1</child>\n    </joint>\n\n    <link name=\"P2\">\n      <pose>3 0 0 0 1.5707963267948966 0</pose>   <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <joint name=\"J2\" type=\"fixed\">\n      <pose relative_to=\"P2\">0 0 2 0 0 0</pose>   <!-- Joint pose relative to link frame P2 -> M. -->\n      <parent>P2</parent>\n      <child>C2</child>\n    </joint>\n    <link name=\"C2\">\n      <pose relative_to=\"J2\">4 0 0 0 0 0</pose>   <!-- Link pose relative to joint frame J2 -> P2 -> M. -->\n    </link>\n  </model>\n</sdf>\n",
+    "world": "",
+    "model": "model_joint_relative_to",
+    "joint": "J1",
+    "scoped_joint": "model_joint_relative_to::J1",
+    "target": "__model__",
+    "tokens": [
+      "OK",
+      "4607182418800017408",
+      "0",
+      "4372995238176751616",
+      "0",
+      "13827916308072577996",
+      "0",
+      "4604544271217802189"
+    ]
+  },
+  {
+    "id": "original-J1:P1",
+    "xml": "<?xml version=\"1.0\" ?>\n<sdf version='1.7'>\n  <model name=\"model_joint_relative_to\">\n    <link name=\"P1\">\n      <pose>1 0 0 0 1.5707963267948966 0</pose>   <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <link name=\"C1\">\n      <pose>2 0 0 0 -1.5707963267948966 0</pose>  <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <joint name=\"J1\" type=\"fixed\">\n      <pose relative_to=\"\">0 0 1 0 0 0</pose> <!-- Joint pose relative to child link frame (C1 -> M) by default. -->\n      <parent>P1</parent>\n      <child>C1</child>\n    </joint>\n\n    <link name=\"P2\">\n      <pose>3 0 0 0 1.5707963267948966 0</pose>   <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <joint name=\"J2\" type=\"fixed\">\n      <pose relative_to=\"P2\">0 0 2 0 0 0</pose>   <!-- Joint pose relative to link frame P2 -> M. -->\n      <parent>P2</parent>\n      <child>C2</child>\n    </joint>\n    <link name=\"C2\">\n      <pose relative_to=\"J2\">4 0 0 0 0 0</pose>   <!-- Link pose relative to joint frame J2 -> P2 -> M. -->\n    </link>\n  </model>\n</sdf>\n",
+    "world": "",
+    "model": "model_joint_relative_to",
+    "joint": "J1",
+    "scoped_joint": "model_joint_relative_to::J1",
+    "target": "P1",
+    "tokens": [
+      "OK",
+      "13596367275031527424",
+      "0",
+      "0",
+      "0",
+      "13830554455654793216",
+      "0",
+      "4372995238176751616"
+    ]
+  },
+  {
+    "id": "original-J1:P2",
+    "xml": "<?xml version=\"1.0\" ?>\n<sdf version='1.7'>\n  <model name=\"model_joint_relative_to\">\n    <link name=\"P1\">\n      <pose>1 0 0 0 1.5707963267948966 0</pose>   <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <link name=\"C1\">\n      <pose>2 0 0 0 -1.5707963267948966 0</pose>  <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <joint name=\"J1\" type=\"fixed\">\n      <pose relative_to=\"\">0 0 1 0 0 0</pose> <!-- Joint pose relative to child link frame (C1 -> M) by default. -->\n      <parent>P1</parent>\n      <child>C1</child>\n    </joint>\n\n    <link name=\"P2\">\n      <pose>3 0 0 0 1.5707963267948966 0</pose>   <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <joint name=\"J2\" type=\"fixed\">\n      <pose relative_to=\"P2\">0 0 2 0 0 0</pose>   <!-- Joint pose relative to link frame P2 -> M. -->\n      <parent>P2</parent>\n      <child>C2</child>\n    </joint>\n    <link name=\"C2\">\n      <pose relative_to=\"J2\">4 0 0 0 0 0</pose>   <!-- Link pose relative to joint frame J2 -> P2 -> M. -->\n    </link>\n  </model>\n</sdf>\n",
+    "world": "",
+    "model": "model_joint_relative_to",
+    "joint": "J1",
+    "scoped_joint": "model_joint_relative_to::J1",
+    "target": "P2",
+    "tokens": [
+      "OK",
+      "13600870874658897920",
+      "0",
+      "13835058055282163712",
+      "0",
+      "13830554455654793216",
+      "0",
+      "4372995238176751616"
+    ]
+  },
+  {
+    "id": "original-J1:C1",
+    "xml": "<?xml version=\"1.0\" ?>\n<sdf version='1.7'>\n  <model name=\"model_joint_relative_to\">\n    <link name=\"P1\">\n      <pose>1 0 0 0 1.5707963267948966 0</pose>   <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <link name=\"C1\">\n      <pose>2 0 0 0 -1.5707963267948966 0</pose>  <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <joint name=\"J1\" type=\"fixed\">\n      <pose relative_to=\"\">0 0 1 0 0 0</pose> <!-- Joint pose relative to child link frame (C1 -> M) by default. -->\n      <parent>P1</parent>\n      <child>C1</child>\n    </joint>\n\n    <link name=\"P2\">\n      <pose>3 0 0 0 1.5707963267948966 0</pose>   <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <joint name=\"J2\" type=\"fixed\">\n      <pose relative_to=\"P2\">0 0 2 0 0 0</pose>   <!-- Joint pose relative to link frame P2 -> M. -->\n      <parent>P2</parent>\n      <child>C2</child>\n    </joint>\n    <link name=\"C2\">\n      <pose relative_to=\"J2\">4 0 0 0 0 0</pose>   <!-- Link pose relative to joint frame J2 -> P2 -> M. -->\n    </link>\n  </model>\n</sdf>\n",
+    "world": "",
+    "model": "model_joint_relative_to",
+    "joint": "J1",
+    "scoped_joint": "model_joint_relative_to::J1",
+    "target": "C1",
+    "tokens": [
+      "OK",
+      "13594115475217842176",
+      "0",
+      "4607182418800017408",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408"
+    ]
+  },
+  {
+    "id": "original-J1:C2",
+    "xml": "<?xml version=\"1.0\" ?>\n<sdf version='1.7'>\n  <model name=\"model_joint_relative_to\">\n    <link name=\"P1\">\n      <pose>1 0 0 0 1.5707963267948966 0</pose>   <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <link name=\"C1\">\n      <pose>2 0 0 0 -1.5707963267948966 0</pose>  <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <joint name=\"J1\" type=\"fixed\">\n      <pose relative_to=\"\">0 0 1 0 0 0</pose> <!-- Joint pose relative to child link frame (C1 -> M) by default. -->\n      <parent>P1</parent>\n      <child>C1</child>\n    </joint>\n\n    <link name=\"P2\">\n      <pose>3 0 0 0 1.5707963267948966 0</pose>   <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <joint name=\"J2\" type=\"fixed\">\n      <pose relative_to=\"P2\">0 0 2 0 0 0</pose>   <!-- Joint pose relative to link frame P2 -> M. -->\n      <parent>P2</parent>\n      <child>C2</child>\n    </joint>\n    <link name=\"C2\">\n      <pose relative_to=\"J2\">4 0 0 0 0 0</pose>   <!-- Link pose relative to joint frame J2 -> P2 -> M. -->\n    </link>\n  </model>\n</sdf>\n",
+    "world": "",
+    "model": "model_joint_relative_to",
+    "joint": "J1",
+    "scoped_joint": "model_joint_relative_to::J1",
+    "target": "C2",
+    "tokens": [
+      "OK",
+      "13839561654909534208",
+      "0",
+      "13839561654909534208",
+      "0",
+      "13830554455654793216",
+      "0",
+      "4372995238176751616"
+    ]
+  },
+  {
+    "id": "original-J1:J1",
+    "xml": "<?xml version=\"1.0\" ?>\n<sdf version='1.7'>\n  <model name=\"model_joint_relative_to\">\n    <link name=\"P1\">\n      <pose>1 0 0 0 1.5707963267948966 0</pose>   <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <link name=\"C1\">\n      <pose>2 0 0 0 -1.5707963267948966 0</pose>  <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <joint name=\"J1\" type=\"fixed\">\n      <pose relative_to=\"\">0 0 1 0 0 0</pose> <!-- Joint pose relative to child link frame (C1 -> M) by default. -->\n      <parent>P1</parent>\n      <child>C1</child>\n    </joint>\n\n    <link name=\"P2\">\n      <pose>3 0 0 0 1.5707963267948966 0</pose>   <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <joint name=\"J2\" type=\"fixed\">\n      <pose relative_to=\"P2\">0 0 2 0 0 0</pose>   <!-- Joint pose relative to link frame P2 -> M. -->\n      <parent>P2</parent>\n      <child>C2</child>\n    </joint>\n    <link name=\"C2\">\n      <pose relative_to=\"J2\">4 0 0 0 0 0</pose>   <!-- Link pose relative to joint frame J2 -> P2 -> M. -->\n    </link>\n  </model>\n</sdf>\n",
+    "world": "",
+    "model": "model_joint_relative_to",
+    "joint": "J1",
+    "scoped_joint": "model_joint_relative_to::J1",
+    "target": "J1",
+    "tokens": [
+      "OK",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408"
+    ]
+  },
+  {
+    "id": "original-J1:missing",
+    "xml": "<?xml version=\"1.0\" ?>\n<sdf version='1.7'>\n  <model name=\"model_joint_relative_to\">\n    <link name=\"P1\">\n      <pose>1 0 0 0 1.5707963267948966 0</pose>   <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <link name=\"C1\">\n      <pose>2 0 0 0 -1.5707963267948966 0</pose>  <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <joint name=\"J1\" type=\"fixed\">\n      <pose relative_to=\"\">0 0 1 0 0 0</pose> <!-- Joint pose relative to child link frame (C1 -> M) by default. -->\n      <parent>P1</parent>\n      <child>C1</child>\n    </joint>\n\n    <link name=\"P2\">\n      <pose>3 0 0 0 1.5707963267948966 0</pose>   <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <joint name=\"J2\" type=\"fixed\">\n      <pose relative_to=\"P2\">0 0 2 0 0 0</pose>   <!-- Joint pose relative to link frame P2 -> M. -->\n      <parent>P2</parent>\n      <child>C2</child>\n    </joint>\n    <link name=\"C2\">\n      <pose relative_to=\"J2\">4 0 0 0 0 0</pose>   <!-- Link pose relative to joint frame J2 -> P2 -> M. -->\n    </link>\n  </model>\n</sdf>\n",
+    "world": "",
+    "model": "model_joint_relative_to",
+    "joint": "J1",
+    "scoped_joint": "model_joint_relative_to::J1",
+    "target": "missing",
+    "tokens": [
+      "REJECT",
+      "26"
+    ]
+  },
+  {
+    "id": "original-J1:world",
+    "xml": "<?xml version=\"1.0\" ?>\n<sdf version='1.7'>\n  <model name=\"model_joint_relative_to\">\n    <link name=\"P1\">\n      <pose>1 0 0 0 1.5707963267948966 0</pose>   <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <link name=\"C1\">\n      <pose>2 0 0 0 -1.5707963267948966 0</pose>  <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <joint name=\"J1\" type=\"fixed\">\n      <pose relative_to=\"\">0 0 1 0 0 0</pose> <!-- Joint pose relative to child link frame (C1 -> M) by default. -->\n      <parent>P1</parent>\n      <child>C1</child>\n    </joint>\n\n    <link name=\"P2\">\n      <pose>3 0 0 0 1.5707963267948966 0</pose>   <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <joint name=\"J2\" type=\"fixed\">\n      <pose relative_to=\"P2\">0 0 2 0 0 0</pose>   <!-- Joint pose relative to link frame P2 -> M. -->\n      <parent>P2</parent>\n      <child>C2</child>\n    </joint>\n    <link name=\"C2\">\n      <pose relative_to=\"J2\">4 0 0 0 0 0</pose>   <!-- Link pose relative to joint frame J2 -> P2 -> M. -->\n    </link>\n  </model>\n</sdf>\n",
+    "world": "",
+    "model": "model_joint_relative_to",
+    "joint": "J1",
+    "scoped_joint": "model_joint_relative_to::J1",
+    "target": "world",
+    "tokens": [
+      "REJECT",
+      "26"
+    ]
+  },
+  {
+    "id": "original-J1:model_joint_relative_to::P1",
+    "xml": "<?xml version=\"1.0\" ?>\n<sdf version='1.7'>\n  <model name=\"model_joint_relative_to\">\n    <link name=\"P1\">\n      <pose>1 0 0 0 1.5707963267948966 0</pose>   <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <link name=\"C1\">\n      <pose>2 0 0 0 -1.5707963267948966 0</pose>  <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <joint name=\"J1\" type=\"fixed\">\n      <pose relative_to=\"\">0 0 1 0 0 0</pose> <!-- Joint pose relative to child link frame (C1 -> M) by default. -->\n      <parent>P1</parent>\n      <child>C1</child>\n    </joint>\n\n    <link name=\"P2\">\n      <pose>3 0 0 0 1.5707963267948966 0</pose>   <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <joint name=\"J2\" type=\"fixed\">\n      <pose relative_to=\"P2\">0 0 2 0 0 0</pose>   <!-- Joint pose relative to link frame P2 -> M. -->\n      <parent>P2</parent>\n      <child>C2</child>\n    </joint>\n    <link name=\"C2\">\n      <pose relative_to=\"J2\">4 0 0 0 0 0</pose>   <!-- Link pose relative to joint frame J2 -> P2 -> M. -->\n    </link>\n  </model>\n</sdf>\n",
+    "world": "",
+    "model": "model_joint_relative_to",
+    "joint": "J1",
+    "scoped_joint": "model_joint_relative_to::J1",
+    "target": "model_joint_relative_to::P1",
+    "tokens": [
+      "REJECT",
+      "26"
+    ]
+  },
+  {
+    "id": "original-J2:default",
+    "xml": "<?xml version=\"1.0\" ?>\n<sdf version='1.7'>\n  <model name=\"model_joint_relative_to\">\n    <link name=\"P1\">\n      <pose>1 0 0 0 1.5707963267948966 0</pose>   <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <link name=\"C1\">\n      <pose>2 0 0 0 -1.5707963267948966 0</pose>  <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <joint name=\"J1\" type=\"fixed\">\n      <pose relative_to=\"\">0 0 1 0 0 0</pose> <!-- Joint pose relative to child link frame (C1 -> M) by default. -->\n      <parent>P1</parent>\n      <child>C1</child>\n    </joint>\n\n    <link name=\"P2\">\n      <pose>3 0 0 0 1.5707963267948966 0</pose>   <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <joint name=\"J2\" type=\"fixed\">\n      <pose relative_to=\"P2\">0 0 2 0 0 0</pose>   <!-- Joint pose relative to link frame P2 -> M. -->\n      <parent>P2</parent>\n      <child>C2</child>\n    </joint>\n    <link name=\"C2\">\n      <pose relative_to=\"J2\">4 0 0 0 0 0</pose>   <!-- Link pose relative to joint frame J2 -> P2 -> M. -->\n    </link>\n  </model>\n</sdf>\n",
+    "world": "",
+    "model": "model_joint_relative_to",
+    "joint": "J2",
+    "scoped_joint": "model_joint_relative_to::J2",
+    "target": "",
+    "tokens": [
+      "OK",
+      "13839561654909534208",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408"
+    ]
+  },
+  {
+    "id": "original-J2:__model__",
+    "xml": "<?xml version=\"1.0\" ?>\n<sdf version='1.7'>\n  <model name=\"model_joint_relative_to\">\n    <link name=\"P1\">\n      <pose>1 0 0 0 1.5707963267948966 0</pose>   <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <link name=\"C1\">\n      <pose>2 0 0 0 -1.5707963267948966 0</pose>  <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <joint name=\"J1\" type=\"fixed\">\n      <pose relative_to=\"\">0 0 1 0 0 0</pose> <!-- Joint pose relative to child link frame (C1 -> M) by default. -->\n      <parent>P1</parent>\n      <child>C1</child>\n    </joint>\n\n    <link name=\"P2\">\n      <pose>3 0 0 0 1.5707963267948966 0</pose>   <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <joint name=\"J2\" type=\"fixed\">\n      <pose relative_to=\"P2\">0 0 2 0 0 0</pose>   <!-- Joint pose relative to link frame P2 -> M. -->\n      <parent>P2</parent>\n      <child>C2</child>\n    </joint>\n    <link name=\"C2\">\n      <pose relative_to=\"J2\">4 0 0 0 0 0</pose>   <!-- Link pose relative to joint frame J2 -> P2 -> M. -->\n    </link>\n  </model>\n</sdf>\n",
+    "world": "",
+    "model": "model_joint_relative_to",
+    "joint": "J2",
+    "scoped_joint": "model_joint_relative_to::J2",
+    "target": "__model__",
+    "tokens": [
+      "OK",
+      "4617315517961601024",
+      "0",
+      "4377498837804122112",
+      "0",
+      "4604544271217802188",
+      "0",
+      "4604544271217802189"
+    ]
+  },
+  {
+    "id": "original-J2:P1",
+    "xml": "<?xml version=\"1.0\" ?>\n<sdf version='1.7'>\n  <model name=\"model_joint_relative_to\">\n    <link name=\"P1\">\n      <pose>1 0 0 0 1.5707963267948966 0</pose>   <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <link name=\"C1\">\n      <pose>2 0 0 0 -1.5707963267948966 0</pose>  <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <joint name=\"J1\" type=\"fixed\">\n      <pose relative_to=\"\">0 0 1 0 0 0</pose> <!-- Joint pose relative to child link frame (C1 -> M) by default. -->\n      <parent>P1</parent>\n      <child>C1</child>\n    </joint>\n\n    <link name=\"P2\">\n      <pose>3 0 0 0 1.5707963267948966 0</pose>   <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <joint name=\"J2\" type=\"fixed\">\n      <pose relative_to=\"P2\">0 0 2 0 0 0</pose>   <!-- Joint pose relative to link frame P2 -> M. -->\n      <parent>P2</parent>\n      <child>C2</child>\n    </joint>\n    <link name=\"C2\">\n      <pose relative_to=\"J2\">4 0 0 0 0 0</pose>   <!-- Link pose relative to joint frame J2 -> P2 -> M. -->\n    </link>\n  </model>\n</sdf>\n",
+    "world": "",
+    "model": "model_joint_relative_to",
+    "joint": "J2",
+    "scoped_joint": "model_joint_relative_to::J2",
+    "target": "P1",
+    "tokens": [
+      "OK",
+      "13596367275031527424",
+      "0",
+      "4616189618054758400",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408"
+    ]
+  },
+  {
+    "id": "original-J2:P2",
+    "xml": "<?xml version=\"1.0\" ?>\n<sdf version='1.7'>\n  <model name=\"model_joint_relative_to\">\n    <link name=\"P1\">\n      <pose>1 0 0 0 1.5707963267948966 0</pose>   <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <link name=\"C1\">\n      <pose>2 0 0 0 -1.5707963267948966 0</pose>  <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <joint name=\"J1\" type=\"fixed\">\n      <pose relative_to=\"\">0 0 1 0 0 0</pose> <!-- Joint pose relative to child link frame (C1 -> M) by default. -->\n      <parent>P1</parent>\n      <child>C1</child>\n    </joint>\n\n    <link name=\"P2\">\n      <pose>3 0 0 0 1.5707963267948966 0</pose>   <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <joint name=\"J2\" type=\"fixed\">\n      <pose relative_to=\"P2\">0 0 2 0 0 0</pose>   <!-- Joint pose relative to link frame P2 -> M. -->\n      <parent>P2</parent>\n      <child>C2</child>\n    </joint>\n    <link name=\"C2\">\n      <pose relative_to=\"J2\">4 0 0 0 0 0</pose>   <!-- Link pose relative to joint frame J2 -> P2 -> M. -->\n    </link>\n  </model>\n</sdf>\n",
+    "world": "",
+    "model": "model_joint_relative_to",
+    "joint": "J2",
+    "scoped_joint": "model_joint_relative_to::J2",
+    "target": "P2",
+    "tokens": [
+      "OK",
+      "13600870874658897920",
+      "0",
+      "4611686018427387904",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408"
+    ]
+  },
+  {
+    "id": "original-J2:C1",
+    "xml": "<?xml version=\"1.0\" ?>\n<sdf version='1.7'>\n  <model name=\"model_joint_relative_to\">\n    <link name=\"P1\">\n      <pose>1 0 0 0 1.5707963267948966 0</pose>   <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <link name=\"C1\">\n      <pose>2 0 0 0 -1.5707963267948966 0</pose>  <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <joint name=\"J1\" type=\"fixed\">\n      <pose relative_to=\"\">0 0 1 0 0 0</pose> <!-- Joint pose relative to child link frame (C1 -> M) by default. -->\n      <parent>P1</parent>\n      <child>C1</child>\n    </joint>\n\n    <link name=\"P2\">\n      <pose>3 0 0 0 1.5707963267948966 0</pose>   <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <joint name=\"J2\" type=\"fixed\">\n      <pose relative_to=\"P2\">0 0 2 0 0 0</pose>   <!-- Joint pose relative to link frame P2 -> M. -->\n      <parent>P2</parent>\n      <child>C2</child>\n    </joint>\n    <link name=\"C2\">\n      <pose relative_to=\"J2\">4 0 0 0 0 0</pose>   <!-- Link pose relative to joint frame J2 -> P2 -> M. -->\n    </link>\n  </model>\n</sdf>\n",
+    "world": "",
+    "model": "model_joint_relative_to",
+    "joint": "J2",
+    "scoped_joint": "model_joint_relative_to::J2",
+    "target": "C1",
+    "tokens": [
+      "OK",
+      "4382002437431492608",
+      "0",
+      "13837309855095848960",
+      "0",
+      "4607182418800017408",
+      "0",
+      "4372995238176751616"
+    ]
+  },
+  {
+    "id": "original-J2:C2",
+    "xml": "<?xml version=\"1.0\" ?>\n<sdf version='1.7'>\n  <model name=\"model_joint_relative_to\">\n    <link name=\"P1\">\n      <pose>1 0 0 0 1.5707963267948966 0</pose>   <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <link name=\"C1\">\n      <pose>2 0 0 0 -1.5707963267948966 0</pose>  <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <joint name=\"J1\" type=\"fixed\">\n      <pose relative_to=\"\">0 0 1 0 0 0</pose> <!-- Joint pose relative to child link frame (C1 -> M) by default. -->\n      <parent>P1</parent>\n      <child>C1</child>\n    </joint>\n\n    <link name=\"P2\">\n      <pose>3 0 0 0 1.5707963267948966 0</pose>   <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <joint name=\"J2\" type=\"fixed\">\n      <pose relative_to=\"P2\">0 0 2 0 0 0</pose>   <!-- Joint pose relative to link frame P2 -> M. -->\n      <parent>P2</parent>\n      <child>C2</child>\n    </joint>\n    <link name=\"C2\">\n      <pose relative_to=\"J2\">4 0 0 0 0 0</pose>   <!-- Link pose relative to joint frame J2 -> P2 -> M. -->\n    </link>\n  </model>\n</sdf>\n",
+    "world": "",
+    "model": "model_joint_relative_to",
+    "joint": "J2",
+    "scoped_joint": "model_joint_relative_to::J2",
+    "target": "C2",
+    "tokens": [
+      "OK",
+      "13839561654909534208",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408"
+    ]
+  },
+  {
+    "id": "original-J2:J2",
+    "xml": "<?xml version=\"1.0\" ?>\n<sdf version='1.7'>\n  <model name=\"model_joint_relative_to\">\n    <link name=\"P1\">\n      <pose>1 0 0 0 1.5707963267948966 0</pose>   <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <link name=\"C1\">\n      <pose>2 0 0 0 -1.5707963267948966 0</pose>  <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <joint name=\"J1\" type=\"fixed\">\n      <pose relative_to=\"\">0 0 1 0 0 0</pose> <!-- Joint pose relative to child link frame (C1 -> M) by default. -->\n      <parent>P1</parent>\n      <child>C1</child>\n    </joint>\n\n    <link name=\"P2\">\n      <pose>3 0 0 0 1.5707963267948966 0</pose>   <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <joint name=\"J2\" type=\"fixed\">\n      <pose relative_to=\"P2\">0 0 2 0 0 0</pose>   <!-- Joint pose relative to link frame P2 -> M. -->\n      <parent>P2</parent>\n      <child>C2</child>\n    </joint>\n    <link name=\"C2\">\n      <pose relative_to=\"J2\">4 0 0 0 0 0</pose>   <!-- Link pose relative to joint frame J2 -> P2 -> M. -->\n    </link>\n  </model>\n</sdf>\n",
+    "world": "",
+    "model": "model_joint_relative_to",
+    "joint": "J2",
+    "scoped_joint": "model_joint_relative_to::J2",
+    "target": "J2",
+    "tokens": [
+      "OK",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408"
+    ]
+  },
+  {
+    "id": "original-J2:missing",
+    "xml": "<?xml version=\"1.0\" ?>\n<sdf version='1.7'>\n  <model name=\"model_joint_relative_to\">\n    <link name=\"P1\">\n      <pose>1 0 0 0 1.5707963267948966 0</pose>   <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <link name=\"C1\">\n      <pose>2 0 0 0 -1.5707963267948966 0</pose>  <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <joint name=\"J1\" type=\"fixed\">\n      <pose relative_to=\"\">0 0 1 0 0 0</pose> <!-- Joint pose relative to child link frame (C1 -> M) by default. -->\n      <parent>P1</parent>\n      <child>C1</child>\n    </joint>\n\n    <link name=\"P2\">\n      <pose>3 0 0 0 1.5707963267948966 0</pose>   <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <joint name=\"J2\" type=\"fixed\">\n      <pose relative_to=\"P2\">0 0 2 0 0 0</pose>   <!-- Joint pose relative to link frame P2 -> M. -->\n      <parent>P2</parent>\n      <child>C2</child>\n    </joint>\n    <link name=\"C2\">\n      <pose relative_to=\"J2\">4 0 0 0 0 0</pose>   <!-- Link pose relative to joint frame J2 -> P2 -> M. -->\n    </link>\n  </model>\n</sdf>\n",
+    "world": "",
+    "model": "model_joint_relative_to",
+    "joint": "J2",
+    "scoped_joint": "model_joint_relative_to::J2",
+    "target": "missing",
+    "tokens": [
+      "REJECT",
+      "26"
+    ]
+  },
+  {
+    "id": "original-J2:world",
+    "xml": "<?xml version=\"1.0\" ?>\n<sdf version='1.7'>\n  <model name=\"model_joint_relative_to\">\n    <link name=\"P1\">\n      <pose>1 0 0 0 1.5707963267948966 0</pose>   <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <link name=\"C1\">\n      <pose>2 0 0 0 -1.5707963267948966 0</pose>  <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <joint name=\"J1\" type=\"fixed\">\n      <pose relative_to=\"\">0 0 1 0 0 0</pose> <!-- Joint pose relative to child link frame (C1 -> M) by default. -->\n      <parent>P1</parent>\n      <child>C1</child>\n    </joint>\n\n    <link name=\"P2\">\n      <pose>3 0 0 0 1.5707963267948966 0</pose>   <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <joint name=\"J2\" type=\"fixed\">\n      <pose relative_to=\"P2\">0 0 2 0 0 0</pose>   <!-- Joint pose relative to link frame P2 -> M. -->\n      <parent>P2</parent>\n      <child>C2</child>\n    </joint>\n    <link name=\"C2\">\n      <pose relative_to=\"J2\">4 0 0 0 0 0</pose>   <!-- Link pose relative to joint frame J2 -> P2 -> M. -->\n    </link>\n  </model>\n</sdf>\n",
+    "world": "",
+    "model": "model_joint_relative_to",
+    "joint": "J2",
+    "scoped_joint": "model_joint_relative_to::J2",
+    "target": "world",
+    "tokens": [
+      "REJECT",
+      "26"
+    ]
+  },
+  {
+    "id": "original-J2:model_joint_relative_to::P1",
+    "xml": "<?xml version=\"1.0\" ?>\n<sdf version='1.7'>\n  <model name=\"model_joint_relative_to\">\n    <link name=\"P1\">\n      <pose>1 0 0 0 1.5707963267948966 0</pose>   <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <link name=\"C1\">\n      <pose>2 0 0 0 -1.5707963267948966 0</pose>  <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <joint name=\"J1\" type=\"fixed\">\n      <pose relative_to=\"\">0 0 1 0 0 0</pose> <!-- Joint pose relative to child link frame (C1 -> M) by default. -->\n      <parent>P1</parent>\n      <child>C1</child>\n    </joint>\n\n    <link name=\"P2\">\n      <pose>3 0 0 0 1.5707963267948966 0</pose>   <!-- Link pose relative to model frame (M) by default. -->\n    </link>\n    <joint name=\"J2\" type=\"fixed\">\n      <pose relative_to=\"P2\">0 0 2 0 0 0</pose>   <!-- Joint pose relative to link frame P2 -> M. -->\n      <parent>P2</parent>\n      <child>C2</child>\n    </joint>\n    <link name=\"C2\">\n      <pose relative_to=\"J2\">4 0 0 0 0 0</pose>   <!-- Link pose relative to joint frame J2 -> P2 -> M. -->\n    </link>\n  </model>\n</sdf>\n",
+    "world": "",
+    "model": "model_joint_relative_to",
+    "joint": "J2",
+    "scoped_joint": "model_joint_relative_to::J2",
+    "target": "model_joint_relative_to::P1",
+    "tokens": [
+      "REJECT",
+      "26"
+    ]
+  },
+  {
+    "id": "model-child-frame:default",
+    "xml": "<sdf version='1.12'><world name='w'><model name='m'><pose>10 2 3 0 0 0.2</pose><link name='p'/><link name='c'><pose>1 2 3 0.1 0.2 0.3</pose></link><frame name='child_frame' attached_to='c'><pose>0 0 2 0 0 0.4</pose></frame><joint name='j' type='revolute'><parent>world</parent><child>child_frame</child><pose relative_to='p'>0 0 4 0 0 0</pose><axis/></joint><model name='left'><link name='tip'/></model><model name='right'><link name='tip'/></model></model><joint name='wj' type='fixed'><parent>world</parent><child>m::c</child><pose>0 1 0 0 0 0</pose></joint></world></sdf>",
+    "world": "w",
+    "model": "m",
+    "joint": "j",
+    "scoped_joint": "w::m::j",
+    "target": "",
+    "tokens": [
+      "OK",
+      "13835460164259387964",
+      "13828309884462004321",
+      "13831316763340460326",
+      "13811408852104530132",
+      "13815033149223285991",
+      "13823097778535407047",
+      "4606598955631307114"
+    ]
+  },
+  {
+    "id": "model-child-frame:child_frame",
+    "xml": "<sdf version='1.12'><world name='w'><model name='m'><pose>10 2 3 0 0 0.2</pose><link name='p'/><link name='c'><pose>1 2 3 0.1 0.2 0.3</pose></link><frame name='child_frame' attached_to='c'><pose>0 0 2 0 0 0.4</pose></frame><joint name='j' type='revolute'><parent>world</parent><child>child_frame</child><pose relative_to='p'>0 0 4 0 0 0</pose><axis/></joint><model name='left'><link name='tip'/></model><model name='right'><link name='tip'/></model></model><joint name='wj' type='fixed'><parent>world</parent><child>m::c</child><pose>0 1 0 0 0 0</pose></joint></world></sdf>",
+    "world": "w",
+    "model": "m",
+    "joint": "j",
+    "scoped_joint": "w::m::j",
+    "target": "child_frame",
+    "tokens": [
+      "OK",
+      "13835460164259387964",
+      "13828309884462004321",
+      "13831316763340460326",
+      "13811408852104530132",
+      "13815033149223285991",
+      "13823097778535407047",
+      "4606598955631307114"
+    ]
+  },
+  {
+    "id": "model-child-frame:c",
+    "xml": "<sdf version='1.12'><world name='w'><model name='m'><pose>10 2 3 0 0 0.2</pose><link name='p'/><link name='c'><pose>1 2 3 0.1 0.2 0.3</pose></link><frame name='child_frame' attached_to='c'><pose>0 0 2 0 0 0.4</pose></frame><joint name='j' type='revolute'><parent>world</parent><child>child_frame</child><pose relative_to='p'>0 0 4 0 0 0</pose><axis/></joint><model name='left'><link name='tip'/></model><model name='right'><link name='tip'/></model></model><joint name='wj' type='fixed'><parent>world</parent><child>m::c</child><pose>0 1 0 0 0 0</pose></joint></world></sdf>",
+    "world": "w",
+    "model": "m",
+    "joint": "j",
+    "scoped_joint": "w::m::j",
+    "target": "c",
+    "tokens": [
+      "OK",
+      "13833771024009928138",
+      "13832985998315130561",
+      "4605657803428683184",
+      "13808471800469182735",
+      "13815676040463725251",
+      "13817712789896944301",
+      "4607032425903326522"
+    ]
+  },
+  {
+    "id": "model-child-frame:p",
+    "xml": "<sdf version='1.12'><world name='w'><model name='m'><pose>10 2 3 0 0 0.2</pose><link name='p'/><link name='c'><pose>1 2 3 0.1 0.2 0.3</pose></link><frame name='child_frame' attached_to='c'><pose>0 0 2 0 0 0.4</pose></frame><joint name='j' type='revolute'><parent>world</parent><child>child_frame</child><pose relative_to='p'>0 0 4 0 0 0</pose><axis/></joint><model name='left'><link name='tip'/></model><model name='right'><link name='tip'/></model></model><joint name='wj' type='fixed'><parent>world</parent><child>m::c</child><pose>0 1 0 0 0 0</pose></joint></world></sdf>",
+    "world": "w",
+    "model": "m",
+    "joint": "j",
+    "scoped_joint": "w::m::j",
+    "target": "p",
+    "tokens": [
+      "OK",
+      "0",
+      "0",
+      "4616189618054758400",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408"
+    ]
+  },
+  {
+    "id": "model-child-frame:__model__",
+    "xml": "<sdf version='1.12'><world name='w'><model name='m'><pose>10 2 3 0 0 0.2</pose><link name='p'/><link name='c'><pose>1 2 3 0.1 0.2 0.3</pose></link><frame name='child_frame' attached_to='c'><pose>0 0 2 0 0 0.4</pose></frame><joint name='j' type='revolute'><parent>world</parent><child>child_frame</child><pose relative_to='p'>0 0 4 0 0 0</pose><axis/></joint><model name='left'><link name='tip'/></model><model name='right'><link name='tip'/></model></model><joint name='wj' type='fixed'><parent>world</parent><child>m::c</child><pose>0 1 0 0 0 0</pose></joint></world></sdf>",
+    "world": "w",
+    "model": "m",
+    "joint": "j",
+    "scoped_joint": "w::m::j",
+    "target": "__model__",
+    "tokens": [
+      "OK",
+      "0",
+      "0",
+      "4616189618054758400",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408"
+    ]
+  },
+  {
+    "id": "model-child-frame:world",
+    "xml": "<sdf version='1.12'><world name='w'><model name='m'><pose>10 2 3 0 0 0.2</pose><link name='p'/><link name='c'><pose>1 2 3 0.1 0.2 0.3</pose></link><frame name='child_frame' attached_to='c'><pose>0 0 2 0 0 0.4</pose></frame><joint name='j' type='revolute'><parent>world</parent><child>child_frame</child><pose relative_to='p'>0 0 4 0 0 0</pose><axis/></joint><model name='left'><link name='tip'/></model><model name='right'><link name='tip'/></model></model><joint name='wj' type='fixed'><parent>world</parent><child>m::c</child><pose>0 1 0 0 0 0</pose></joint></world></sdf>",
+    "world": "w",
+    "model": "m",
+    "joint": "j",
+    "scoped_joint": "w::m::j",
+    "target": "world",
+    "tokens": [
+      "REJECT",
+      "26"
+    ]
+  },
+  {
+    "id": "model-child-frame:w",
+    "xml": "<sdf version='1.12'><world name='w'><model name='m'><pose>10 2 3 0 0 0.2</pose><link name='p'/><link name='c'><pose>1 2 3 0.1 0.2 0.3</pose></link><frame name='child_frame' attached_to='c'><pose>0 0 2 0 0 0.4</pose></frame><joint name='j' type='revolute'><parent>world</parent><child>child_frame</child><pose relative_to='p'>0 0 4 0 0 0</pose><axis/></joint><model name='left'><link name='tip'/></model><model name='right'><link name='tip'/></model></model><joint name='wj' type='fixed'><parent>world</parent><child>m::c</child><pose>0 1 0 0 0 0</pose></joint></world></sdf>",
+    "world": "w",
+    "model": "m",
+    "joint": "j",
+    "scoped_joint": "w::m::j",
+    "target": "w",
+    "tokens": [
+      "REJECT",
+      "26"
+    ]
+  },
+  {
+    "id": "model-child-frame:tip",
+    "xml": "<sdf version='1.12'><world name='w'><model name='m'><pose>10 2 3 0 0 0.2</pose><link name='p'/><link name='c'><pose>1 2 3 0.1 0.2 0.3</pose></link><frame name='child_frame' attached_to='c'><pose>0 0 2 0 0 0.4</pose></frame><joint name='j' type='revolute'><parent>world</parent><child>child_frame</child><pose relative_to='p'>0 0 4 0 0 0</pose><axis/></joint><model name='left'><link name='tip'/></model><model name='right'><link name='tip'/></model></model><joint name='wj' type='fixed'><parent>world</parent><child>m::c</child><pose>0 1 0 0 0 0</pose></joint></world></sdf>",
+    "world": "w",
+    "model": "m",
+    "joint": "j",
+    "scoped_joint": "w::m::j",
+    "target": "tip",
+    "tokens": [
+      "REJECT",
+      "26"
+    ]
+  },
+  {
+    "id": "model-child-frame:left::tip",
+    "xml": "<sdf version='1.12'><world name='w'><model name='m'><pose>10 2 3 0 0 0.2</pose><link name='p'/><link name='c'><pose>1 2 3 0.1 0.2 0.3</pose></link><frame name='child_frame' attached_to='c'><pose>0 0 2 0 0 0.4</pose></frame><joint name='j' type='revolute'><parent>world</parent><child>child_frame</child><pose relative_to='p'>0 0 4 0 0 0</pose><axis/></joint><model name='left'><link name='tip'/></model><model name='right'><link name='tip'/></model></model><joint name='wj' type='fixed'><parent>world</parent><child>m::c</child><pose>0 1 0 0 0 0</pose></joint></world></sdf>",
+    "world": "w",
+    "model": "m",
+    "joint": "j",
+    "scoped_joint": "w::m::j",
+    "target": "left::tip",
+    "tokens": [
+      "OK",
+      "0",
+      "0",
+      "4616189618054758400",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408"
+    ]
+  },
+  {
+    "id": "model-child-frame:right::tip",
+    "xml": "<sdf version='1.12'><world name='w'><model name='m'><pose>10 2 3 0 0 0.2</pose><link name='p'/><link name='c'><pose>1 2 3 0.1 0.2 0.3</pose></link><frame name='child_frame' attached_to='c'><pose>0 0 2 0 0 0.4</pose></frame><joint name='j' type='revolute'><parent>world</parent><child>child_frame</child><pose relative_to='p'>0 0 4 0 0 0</pose><axis/></joint><model name='left'><link name='tip'/></model><model name='right'><link name='tip'/></model></model><joint name='wj' type='fixed'><parent>world</parent><child>m::c</child><pose>0 1 0 0 0 0</pose></joint></world></sdf>",
+    "world": "w",
+    "model": "m",
+    "joint": "j",
+    "scoped_joint": "w::m::j",
+    "target": "right::tip",
+    "tokens": [
+      "OK",
+      "0",
+      "0",
+      "4616189618054758400",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408"
+    ]
+  },
+  {
+    "id": "model-child-frame:w::m::c",
+    "xml": "<sdf version='1.12'><world name='w'><model name='m'><pose>10 2 3 0 0 0.2</pose><link name='p'/><link name='c'><pose>1 2 3 0.1 0.2 0.3</pose></link><frame name='child_frame' attached_to='c'><pose>0 0 2 0 0 0.4</pose></frame><joint name='j' type='revolute'><parent>world</parent><child>child_frame</child><pose relative_to='p'>0 0 4 0 0 0</pose><axis/></joint><model name='left'><link name='tip'/></model><model name='right'><link name='tip'/></model></model><joint name='wj' type='fixed'><parent>world</parent><child>m::c</child><pose>0 1 0 0 0 0</pose></joint></world></sdf>",
+    "world": "w",
+    "model": "m",
+    "joint": "j",
+    "scoped_joint": "w::m::j",
+    "target": "w::m::c",
+    "tokens": [
+      "REJECT",
+      "26"
+    ]
+  },
+  {
+    "id": "world-joint:default",
+    "xml": "<sdf version='1.12'><world name='w'><model name='m'><pose>10 2 3 0 0 0.2</pose><link name='p'/><link name='c'><pose>1 2 3 0.1 0.2 0.3</pose></link><frame name='child_frame' attached_to='c'><pose>0 0 2 0 0 0.4</pose></frame><joint name='j' type='revolute'><parent>world</parent><child>child_frame</child><pose relative_to='p'>0 0 4 0 0 0</pose><axis/></joint><model name='left'><link name='tip'/></model><model name='right'><link name='tip'/></model></model><joint name='wj' type='fixed'><parent>world</parent><child>m::c</child><pose>0 1 0 0 0 0</pose></joint></world></sdf>",
+    "world": "w",
+    "model": "",
+    "joint": "wj",
+    "scoped_joint": "w::wj",
+    "target": "",
+    "tokens": [
+      "OK",
+      "13614381673541009408",
+      "4607182418800017396",
+      "0",
+      "0",
+      "4347099540319371264",
+      "0",
+      "4607182418800017407"
+    ]
+  },
+  {
+    "id": "world-joint:world",
+    "xml": "<sdf version='1.12'><world name='w'><model name='m'><pose>10 2 3 0 0 0.2</pose><link name='p'/><link name='c'><pose>1 2 3 0.1 0.2 0.3</pose></link><frame name='child_frame' attached_to='c'><pose>0 0 2 0 0 0.4</pose></frame><joint name='j' type='revolute'><parent>world</parent><child>child_frame</child><pose relative_to='p'>0 0 4 0 0 0</pose><axis/></joint><model name='left'><link name='tip'/></model><model name='right'><link name='tip'/></model></model><joint name='wj' type='fixed'><parent>world</parent><child>m::c</child><pose>0 1 0 0 0 0</pose></joint></world></sdf>",
+    "world": "w",
+    "model": "",
+    "joint": "wj",
+    "scoped_joint": "w::wj",
+    "target": "world",
+    "tokens": [
+      "OK",
+      "4621888418607832054",
+      "4617362253660775202",
+      "4618551579737767484",
+      "4582435015615062756",
+      "4592512373271330184",
+      "4597851891614961000",
+      "4606859073868264167"
+    ]
+  },
+  {
+    "id": "world-joint:m::c",
+    "xml": "<sdf version='1.12'><world name='w'><model name='m'><pose>10 2 3 0 0 0.2</pose><link name='p'/><link name='c'><pose>1 2 3 0.1 0.2 0.3</pose></link><frame name='child_frame' attached_to='c'><pose>0 0 2 0 0 0.4</pose></frame><joint name='j' type='revolute'><parent>world</parent><child>child_frame</child><pose relative_to='p'>0 0 4 0 0 0</pose><axis/></joint><model name='left'><link name='tip'/></model><model name='right'><link name='tip'/></model></model><joint name='wj' type='fixed'><parent>world</parent><child>m::c</child><pose>0 1 0 0 0 0</pose></joint></world></sdf>",
+    "world": "w",
+    "model": "",
+    "joint": "wj",
+    "scoped_joint": "w::wj",
+    "target": "m::c",
+    "tokens": [
+      "OK",
+      "13614381673541009408",
+      "4607182418800017396",
+      "0",
+      "0",
+      "4347099540319371264",
+      "0",
+      "4607182418800017407"
+    ]
+  },
+  {
+    "id": "world-joint:m",
+    "xml": "<sdf version='1.12'><world name='w'><model name='m'><pose>10 2 3 0 0 0.2</pose><link name='p'/><link name='c'><pose>1 2 3 0.1 0.2 0.3</pose></link><frame name='child_frame' attached_to='c'><pose>0 0 2 0 0 0.4</pose></frame><joint name='j' type='revolute'><parent>world</parent><child>child_frame</child><pose relative_to='p'>0 0 4 0 0 0</pose><axis/></joint><model name='left'><link name='tip'/></model><model name='right'><link name='tip'/></model></model><joint name='wj' type='fixed'><parent>world</parent><child>m::c</child><pose>0 1 0 0 0 0</pose></joint></world></sdf>",
+    "world": "w",
+    "model": "",
+    "joint": "wj",
+    "scoped_joint": "w::wj",
+    "target": "m",
+    "tokens": [
+      "OK",
+      "4604704575689070192",
+      "4613839696257507105",
+      "4614158141979720824",
+      "4585099763614406928",
+      "4592304003608949446",
+      "4594340753042168495",
+      "4607032425903326524"
+    ]
+  },
+  {
+    "id": "world-joint:__model__",
+    "xml": "<sdf version='1.12'><world name='w'><model name='m'><pose>10 2 3 0 0 0.2</pose><link name='p'/><link name='c'><pose>1 2 3 0.1 0.2 0.3</pose></link><frame name='child_frame' attached_to='c'><pose>0 0 2 0 0 0.4</pose></frame><joint name='j' type='revolute'><parent>world</parent><child>child_frame</child><pose relative_to='p'>0 0 4 0 0 0</pose><axis/></joint><model name='left'><link name='tip'/></model><model name='right'><link name='tip'/></model></model><joint name='wj' type='fixed'><parent>world</parent><child>m::c</child><pose>0 1 0 0 0 0</pose></joint></world></sdf>",
+    "world": "w",
+    "model": "",
+    "joint": "wj",
+    "scoped_joint": "w::wj",
+    "target": "__model__",
+    "tokens": [
+      "REJECT",
+      "26"
+    ]
+  },
+  {
+    "id": "world-joint:missing",
+    "xml": "<sdf version='1.12'><world name='w'><model name='m'><pose>10 2 3 0 0 0.2</pose><link name='p'/><link name='c'><pose>1 2 3 0.1 0.2 0.3</pose></link><frame name='child_frame' attached_to='c'><pose>0 0 2 0 0 0.4</pose></frame><joint name='j' type='revolute'><parent>world</parent><child>child_frame</child><pose relative_to='p'>0 0 4 0 0 0</pose><axis/></joint><model name='left'><link name='tip'/></model><model name='right'><link name='tip'/></model></model><joint name='wj' type='fixed'><parent>world</parent><child>m::c</child><pose>0 1 0 0 0 0</pose></joint></world></sdf>",
+    "world": "w",
+    "model": "",
+    "joint": "wj",
+    "scoped_joint": "w::wj",
+    "target": "missing",
+    "tokens": [
+      "REJECT",
+      "26"
+    ]
+  },
+  {
+    "id": "world-joint:w::m::c",
+    "xml": "<sdf version='1.12'><world name='w'><model name='m'><pose>10 2 3 0 0 0.2</pose><link name='p'/><link name='c'><pose>1 2 3 0.1 0.2 0.3</pose></link><frame name='child_frame' attached_to='c'><pose>0 0 2 0 0 0.4</pose></frame><joint name='j' type='revolute'><parent>world</parent><child>child_frame</child><pose relative_to='p'>0 0 4 0 0 0</pose><axis/></joint><model name='left'><link name='tip'/></model><model name='right'><link name='tip'/></model></model><joint name='wj' type='fixed'><parent>world</parent><child>m::c</child><pose>0 1 0 0 0 0</pose></joint></world></sdf>",
+    "world": "w",
+    "model": "",
+    "joint": "wj",
+    "scoped_joint": "w::wj",
+    "target": "w::m::c",
+    "tokens": [
+      "REJECT",
+      "26"
+    ]
+  },
+  {
+    "id": "nested-joint:default",
+    "xml": "<sdf version='1.12'><model name='top'><link name='body'/><model name='nested'><pose>0 2 0 0 0 0.5</pose><link name='p'/><link name='c'><pose>0 0 3 0 0 0</pose></link><joint name='j' type='fixed'><parent>p</parent><child>c</child><pose>1 0 0 0 0 0</pose></joint></model></model></sdf>",
+    "world": "",
+    "model": "top::nested",
+    "joint": "j",
+    "scoped_joint": "top::nested::j",
+    "target": "",
+    "tokens": [
+      "OK",
+      "4607182418800017408",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408"
+    ]
+  },
+  {
+    "id": "nested-joint:c",
+    "xml": "<sdf version='1.12'><model name='top'><link name='body'/><model name='nested'><pose>0 2 0 0 0 0.5</pose><link name='p'/><link name='c'><pose>0 0 3 0 0 0</pose></link><joint name='j' type='fixed'><parent>p</parent><child>c</child><pose>1 0 0 0 0 0</pose></joint></model></model></sdf>",
+    "world": "",
+    "model": "top::nested",
+    "joint": "j",
+    "scoped_joint": "top::nested::j",
+    "target": "c",
+    "tokens": [
+      "OK",
+      "4607182418800017408",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408"
+    ]
+  },
+  {
+    "id": "nested-joint:p",
+    "xml": "<sdf version='1.12'><model name='top'><link name='body'/><model name='nested'><pose>0 2 0 0 0 0.5</pose><link name='p'/><link name='c'><pose>0 0 3 0 0 0</pose></link><joint name='j' type='fixed'><parent>p</parent><child>c</child><pose>1 0 0 0 0 0</pose></joint></model></model></sdf>",
+    "world": "",
+    "model": "top::nested",
+    "joint": "j",
+    "scoped_joint": "top::nested::j",
+    "target": "p",
+    "tokens": [
+      "OK",
+      "4607182418800017408",
+      "0",
+      "4613937818241073152",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408"
+    ]
+  },
+  {
+    "id": "nested-joint:__model__",
+    "xml": "<sdf version='1.12'><model name='top'><link name='body'/><model name='nested'><pose>0 2 0 0 0 0.5</pose><link name='p'/><link name='c'><pose>0 0 3 0 0 0</pose></link><joint name='j' type='fixed'><parent>p</parent><child>c</child><pose>1 0 0 0 0 0</pose></joint></model></model></sdf>",
+    "world": "",
+    "model": "top::nested",
+    "joint": "j",
+    "scoped_joint": "top::nested::j",
+    "target": "__model__",
+    "tokens": [
+      "OK",
+      "4607182418800017408",
+      "0",
+      "4613937818241073152",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408"
+    ]
+  },
+  {
+    "id": "nested-joint:body",
+    "xml": "<sdf version='1.12'><model name='top'><link name='body'/><model name='nested'><pose>0 2 0 0 0 0.5</pose><link name='p'/><link name='c'><pose>0 0 3 0 0 0</pose></link><joint name='j' type='fixed'><parent>p</parent><child>c</child><pose>1 0 0 0 0 0</pose></joint></model></model></sdf>",
+    "world": "",
+    "model": "top::nested",
+    "joint": "j",
+    "scoped_joint": "top::nested::j",
+    "target": "body",
+    "tokens": [
+      "REJECT",
+      "26"
+    ]
+  },
+  {
+    "id": "nested-joint:top::body",
+    "xml": "<sdf version='1.12'><model name='top'><link name='body'/><model name='nested'><pose>0 2 0 0 0 0.5</pose><link name='p'/><link name='c'><pose>0 0 3 0 0 0</pose></link><joint name='j' type='fixed'><parent>p</parent><child>c</child><pose>1 0 0 0 0 0</pose></joint></model></model></sdf>",
+    "world": "",
+    "model": "top::nested",
+    "joint": "j",
+    "scoped_joint": "top::nested::j",
+    "target": "top::body",
+    "tokens": [
+      "REJECT",
+      "26"
+    ]
+  },
+  {
+    "id": "nested-joint:top::nested::c",
+    "xml": "<sdf version='1.12'><model name='top'><link name='body'/><model name='nested'><pose>0 2 0 0 0 0.5</pose><link name='p'/><link name='c'><pose>0 0 3 0 0 0</pose></link><joint name='j' type='fixed'><parent>p</parent><child>c</child><pose>1 0 0 0 0 0</pose></joint></model></model></sdf>",
+    "world": "",
+    "model": "top::nested",
+    "joint": "j",
+    "scoped_joint": "top::nested::j",
+    "target": "top::nested::c",
+    "tokens": [
+      "REJECT",
+      "26"
+    ]
+  },
+  {
+    "id": "nested-joint:::",
+    "xml": "<sdf version='1.12'><model name='top'><link name='body'/><model name='nested'><pose>0 2 0 0 0 0.5</pose><link name='p'/><link name='c'><pose>0 0 3 0 0 0</pose></link><joint name='j' type='fixed'><parent>p</parent><child>c</child><pose>1 0 0 0 0 0</pose></joint></model></model></sdf>",
+    "world": "",
+    "model": "top::nested",
+    "joint": "j",
+    "scoped_joint": "top::nested::j",
+    "target": "::",
+    "tokens": [
+      "REJECT",
+      "26"
+    ]
+  }
+]

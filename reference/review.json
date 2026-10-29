@@ -2,17 +2,16 @@
   "decision": "approved",
   "author": "sdformat_owner",
   "reviewer": "integration_reviewer",
-  "source_digest": "502b98d6a0c3af7cd1292d11555b2b49de62b697380da7610a272c3a13be8779",
-  "protected_digest": "dd2037df3049840ccae9fa9ca3b99b638226229c2bc0fd0e6de077d995c448c6",
-  "scope": "Bounded unattached Joint XML and partial DOMJoint.ToElement metadata port; general DOM, constructors and sensors remain open.",
+  "source_digest": "1372481d48ea9135358d84b1f2970f4ea7dea93e0736e8deda302b861cf10d14",
+  "protected_digest": "917bc3d4f1380d530ab3486639d4804126fc9bec2d3b7b8581c8271b8a770b6b",
+  "scope": "Loaded joint semantic-pose query API; no graph mutation, physics capability or new original assertion credit.",
   "checks": [
-    "Fresh independent source and Cargo target passed 48 relevant Rust tests, including caller diagnostic regression, retained Axis/threshold, semantics/include depth, mimic/version/frame/endpoint cases.",
-    "Final native helper reproduced all 23 outcomes, byte-identical native fixture, actual Rust-to-native XML and unchanged original DOMJoint.ToElement.",
-    "Reviewed local metadata versus model graph boundaries, explicit unsupported payloads, original direct-sign pose tolerances, source immutability and final partial ledger metadata.",
-    "Current status counts use reviewed dispositions across both lists: accepted 169 complete and 29 partial; candidate adds one partial only."
+    "Independent separate source/target passed 29 relevant Rust tests; final explicit token-length tightening replayed successfully.",
+    "Native helper reproduced 46 actual queries (29 successes and 17 code26 target rejects), original fixture and unchanged native/Rust frame originals.",
+    "Reviewed strict containing scope, declared child-frame offsets versus attached bodies, wrong-kind/unknown source diagnostics and immutable loaded snapshot behavior."
   ],
   "remaining": [
     "Mandatory strict staged coverage gate and exact hosted CI.",
-    "Full DOMJoint.ToElement, sensor serialization, constructor/Element contracts and wider SDF acceptance."
+    "Live simulator attachment poses and broader SDF acceptance remain separate work."
   ]
 }

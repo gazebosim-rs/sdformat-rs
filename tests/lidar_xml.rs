@@ -1,5 +1,7 @@
 // Copyright (C) 2026 Open Source Robotics Foundation
 // SPDX-License-Identifier: Apache-2.0
+#[path = "support/legacy_sensor_projection.rs"]
+mod legacy_sensor_projection;
 use sdformat::*;
 use serde_json::Value;
 fn hex(value: &str) -> String {
@@ -209,9 +211,10 @@ fn omitted_noise_fields_are_never_silently_discarded() {
 #[test]
 fn matching_sensor_and_joint_payload_boundaries_are_explicit() {
     for kind in ["ray", "gpu_ray"] {
-        let legacy = sensor(&format!("<sensor name='s' type='{kind}'/>"));
+        let input = format!("<sensor name='s' type='{kind}'/>");
+        let legacy = sensor(&input);
         assert_eq!(legacy.kind, kind);
-        assert_eq!(legacy.to_xml().unwrap_err().code, ErrorCode::Unsupported);
+        legacy_sensor_projection::assert_boundary(&input, &legacy, &format!("{kind}_default"));
     }
     for root in ["ray", "gpu_ray", "gpu_lidar"] {
         assert!(load_lidar_str(&format!("<{root}/>"), "legacy.xml").is_err());

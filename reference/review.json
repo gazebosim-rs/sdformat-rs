@@ -2,17 +2,17 @@
   "decision": "approved",
   "author": "sdformat_owner",
   "reviewer": "integration_reviewer",
-  "source_digest": "fd3737c9982f5aa5bfd6713c9b98bdad9c236b28d76d867d2765c6b2f533f2d7",
-  "protected_digest": "b8df4927914d5d391f709f96d7c5a94a57b6cb2e935d3c5b2f9be6dee2896093",
-  "scope": "Bounded Contact Sensor collision/topic metadata and canonical Sensor XML, preserving native Load/Element semantics without native producer-parity or original-credit claim.",
+  "source_digest": "3a22e4558dbc0805308a6ccba94af37d08fcdbfbd1d56241bb9cb5c0dbc0660d",
+  "protected_digest": "f4d5ead756877fff9eea7b713fdf3b578b25a08829a9bcb96b8e644e4e8e9486",
+  "scope": "Legacy gps/ray/gpu_ray Sensor output through existing writers with independently reviewed exact temporary Rust capability transitions and separate raw/effective kinds.",
   "checks": [
-    "Fresh independent source/owned target passed 11 relevant Rust checks, including unchanged Contact/85-observation controls.",
-    "Fresh helper replay passed 16 native inputs, 17 actual XML exchanges, native producer nonnull plus ELEMENT_INVALID9 observation and unchanged DOMLink.Sensors.",
-    "Reviewed safe CDATA versus escaped-text policy, explicit unrepresentable-string errors, ordered duplicates/defaults/typed edits/caller diagnostics, pure node extraction and FT-only Joint boundary.",
-    "Audited retained Sensor originals: no Contact producer-failure assertion is displaced; final metadata keeps prior 172-byte comparisons as author evidence."
+    "Fresh final independent export/owned target passed 14 Rust checks, including folded legacy/NavSat/Lidar tests and unchanged original/effective-type controls.",
+    "Fresh native helper passed 16 raw-attribute/effective-classifier inputs, 22 actual XML exchanges and unchanged DOMSensor.Type.",
+    "Reviewed exact old inputs/kind assertions and complete 50-field NavSat/38-field Lidar positive replacements with direct pose bounds; standalone-root/advanced/plugin/Joint and genuine native assertions retained.",
+    "Source changes only two existing writer-admission patterns; no parser/public-kind mutation, original-credit or native producer-byte parity claim; prior 189 byte comparisons remain author evidence."
   ],
   "remaining": [
     "One normal strict staged hook and exact hosted CI.",
-    "No native Contact writer parity, collision/runtime resolution, Joint serialization or extra original credit."
+    "No runtime measurements, legacy standalone configuration roots, advanced payload or native producer-byte parity qualification."
   ]
 }

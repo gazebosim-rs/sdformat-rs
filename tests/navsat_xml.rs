@@ -1,5 +1,7 @@
 // Copyright (C) 2026 Open Source Robotics Foundation
 // SPDX-License-Identifier: Apache-2.0
+#[path = "support/legacy_sensor_projection.rs"]
+mod legacy_sensor_projection;
 use sdformat::*;
 use serde_json::Value;
 fn hex(value: &str) -> String {
@@ -208,9 +210,10 @@ fn invalid_configurations_and_reader_locations_are_explicit() {
 }
 #[test]
 fn matching_sensor_and_joint_payload_boundaries_are_explicit() {
-    let legacy = sensor("<sensor name='legacy' type='gps'/>");
+    let input = "<sensor name='legacy' type='gps'/>";
+    let legacy = sensor(input);
     assert_eq!(legacy.kind, "gps");
-    assert_eq!(legacy.to_xml().unwrap_err().code, ErrorCode::Unsupported);
+    legacy_sensor_projection::assert_boundary(input, &legacy, "gps_old_boundary");
     assert!(load_navsat_str("<gps/>", "legacy.xml").is_err());
 
     let mut value = sensor("<sensor name='s' type='navsat'/>");

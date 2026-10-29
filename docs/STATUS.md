@@ -3202,3 +3202,21 @@ DOMLink.Sensors. Text/error boundaries and source audit approved; prior byte
 comparisons remain author evidence. Normal strict staged/hosted qualification
 remains pending; accepted stays 184/28.
 See CONTACT_XML.md for scope.
+
+
+## Candidate legacy Sensor output
+
+gps/ray/gpu_ray Sensor output preserves raw kind separately from the existing
+effective classifier and delegates accepted NavSat/Lidar configuration writers.
+Author 479 Rust tests, formatting and Clippy pass; native proof passes sixteen
+inputs, twenty-two actual outputs and unchanged DOMSensor.Type. Independent
+narrow review approved only the three temporary Rust-only output predicates
+before replacement with full native-positive/reload assertions. Parser/public
+values, standalone root, advanced/plugin/Joint boundaries and genuine originals
+remain unchanged. Final independent slice review passed fourteen Rust checks in fresh source/target,
+all sixteen native inputs, twenty-two outputs and unchanged DOMSensor.Type.
+Normal strict staged/hosted gates remain pending; no new original credit (184 complete /28 partial).
+See LEGACY_SENSOR_OUTPUT.md and reference/legacy-sensor-output.json.
+
+Author regression replay passes all eleven prior family helpers. All 189 prior
+actual XML exports remain byte-identical; this comparison is author evidence.

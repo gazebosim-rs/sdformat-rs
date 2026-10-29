@@ -9,13 +9,12 @@ The standalone reader reuses existing node parsing, defaults and caller source
 locations. Output uses current typed fields without mutating input provenance.
 No geographic position, velocity estimate or noise sample is computed.
 
-Matching standalone Sensor output is bounded to declared kind navsat. Existing
+Matching standalone Sensor output supports declared navsat and gps kinds. Existing
 document parsing still accepts legacy gps kinds and payloads and retains its
 public kind string. A canonical navsat Sensor with an existing gps payload can
 emit canonical configuration with the same selected values; actual native
-exchange covers this. Raw kind gps output and standalone gps roots remain
-explicitly unsupported, preserving the existing public-kind contract without
-silent normalization. Joint XML stays force_torque-only; plugins, extensions,
+exchange covers this. Raw gps Sensor output now retains its kind with canonical
+configuration; standalone gps roots remain unsupported. See LEGACY_SENSOR_OUTPUT.md. Joint XML stays force_torque-only; plugins, extensions,
 gz_frame_id and mismatched families still reject.
 
 Existing Noise writer bounds apply: finite/non-subnormal scalars and nonnegative

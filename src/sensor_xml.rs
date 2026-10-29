@@ -32,8 +32,11 @@ pub(crate) fn validate(sensor: &Sensor) -> Result<(), Diagnostic> {
             | ("air_pressure", SensorConfig::AirPressure(_))
             | ("air_speed", SensorConfig::AirSpeed(_))
             | ("magnetometer", SensorConfig::Magnetometer(_))
-            | ("navsat", SensorConfig::NavSat(_))
-            | ("lidar" | "gpu_lidar", SensorConfig::Lidar(_))
+            | ("navsat" | "gps", SensorConfig::NavSat(_))
+            | (
+                "lidar" | "gpu_lidar" | "ray" | "gpu_ray",
+                SensorConfig::Lidar(_)
+            )
             | ("camera", SensorConfig::Camera(_))
             | ("contact", SensorConfig::Contact(_))
     ) || !sensor.plugins.is_empty()

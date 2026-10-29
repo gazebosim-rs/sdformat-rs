@@ -1038,7 +1038,8 @@ no magnetic-field or runtime claim. See [MAGNETOMETER_XML.md](MAGNETOMETER_XML.m
 
 NavSat::to_xml/load_navsat_str preserve four complete Noise records; matching
 standalone Sensor output admits canonical navsat. Existing gps document parsing
-is unchanged; raw gps kind output and standalone gps roots remain unsupported.
+is unchanged; gps Sensor output preserves its raw kind with canonical navsat
+configuration. Standalone gps roots remain unsupported.
 Joint stays force_torque-only and no navigation measurement is computed.
 See [NAVSAT_XML.md](NAVSAT_XML.md).
 
@@ -1055,8 +1056,9 @@ atmospheric calculation is performed. See [AIR_SPEED_XML.md](AIR_SPEED_XML.md).
 
 Lidar::to_xml/load_lidar_str preserve current scan/range/visibility and simple
 Noise metadata through existing reader rules. Omitted advanced Noise fields must
-have exact +0 bits. Canonical lidar/gpu_lidar Sensor output is supported; legacy
-kind/root output and unsupported payloads reject without changing old parsing.
+have exact +0 bits. Sensor output supports lidar/gpu_lidar and raw ray/gpu_ray
+kinds with canonical lidar configuration. Legacy standalone roots and unsupported
+payloads reject without changing old parsing.
 No ray allocation, ordering or runtime policy is added. See [LIDAR_XML.md](LIDAR_XML.md).
 
 
@@ -1077,3 +1079,14 @@ output retains envelope metadata; collision resolution and consumer topic fallba
 are separate. Native Sensor.ToElement lacks this producer, so qualification is
 native Load/Element field preservation, not native writer parity or new original
 credit. See [CONTACT_XML.md](CONTACT_XML.md).
+
+
+## Legacy Sensor output
+
+gps/ray/gpu_ray Sensor output retains raw kind and separately preserves native
+effective classification. Existing NavSat/Lidar writers enforce all prior
+configuration bounds; public parsing and standalone roots are unchanged. Exact
+old Rust-only producer rejection inputs now have complete native-positive
+output/reload assertions after independent narrow approval. No native original
+credit, native producer-byte parity or simulation claim is added.
+See [LEGACY_SENSOR_OUTPUT.md](LEGACY_SENSOR_OUTPUT.md).

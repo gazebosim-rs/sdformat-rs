@@ -2617,6 +2617,20 @@
       "baseline": "Pinned native five Box originals5/0; independent raw-source Rust6/0 and separate production Clone Box-size/Mesh-URI loss controls verified, exact source restored. Full author336 Rust/16 tooling/fmt/Clippy/docs; unchanged4771/4795 lines7915/8157 regions,zero changed instrumented executable lines for derives,no exclusions. Ordinary Cargo2 correctness only.",
       "status": "partial_reviewed",
       "review": "Independent /root/transport_owner_v2 source/protected approval SHA256 2aa1fb573214b4f37007440462191a94c159b84164782a113c354d48642b47c9 binds exact source freeze ac1e24638e6bca56b4f7f9231a4b3cac9148d89ffabb3843ec8aa51260ed00c4 on hosted-green parent e579d8c9ece09f2df67711e90e40f2c10416008e, run40321971461. Final metadata binding receipt SHA256 11d2991b8f35fc99de3abac278866ea9c9615740801be96c5008f415483bcc6b, mandatory normal hook and public fa399d81a02d5fec02968e6d8ed8836c7ff04c34 passed exact hosted verify 40329549257 SUCCESS."
+    },
+    {
+      "target": "UNIT_Joint_TEST",
+      "case": "DOMJoint.ToElement",
+      "source": "src/Joint_TEST.cc:266-329",
+      "rust_test": "tests/joint_xml.rs::original_to_element_metadata_subset",
+      "assertions": "PARTIAL: raw pose seven direct-sign components <=1e-3, relative frame, name/endpoints, Ball kind, both axis presence and UnitX/UnitY directions, nonempty typed XML and edited-parent roundtrip. Native-generated XML setup replaces default DOM construction. Constructor Element identity, AddSensor/duplicate/ClearSensors and source sensor lookup/count contracts remain unported; sensors explicitly Unsupported in the new bounded serializer. No original assertion retired.",
+      "fixtures": {
+        "tests/fixtures/joint_to_element_native_subset.xml": "e553ddd8866b335bc0fea077540d9fe6e3d7d7687464faeec9b2317dc02b6d8c"
+      },
+      "upstream_fixtures": {},
+      "baseline": "Unchanged DOMJoint.ToElement passed one test, zero failures with expected type-none sensor errors. Twenty-three actual native cases plus byte-identical generated subset fixture and actual Rust-to-native XML exchange passed; source/library provenance in reference/joint-xml.json.",
+      "status": "partial_reviewed",
+      "review": "Independent /root/integration_reviewer approved source, native/original assertions and error boundaries. Fresh reviewer-owned source and target passed 48 focused Rust tests and all 23 native outcomes, byte-identical native generation, actual Rust-to-native XML and unchanged DOMJoint.ToElement. Reader boundary diagnostics retain caller URI/location. General DOM, constructors, sensors and full original remain open; no complete credit."
     }
   ]
 }

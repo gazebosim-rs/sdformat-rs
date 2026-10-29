@@ -2,16 +2,17 @@
   "decision": "approved",
   "author": "sdformat_owner",
   "reviewer": "integration_reviewer",
-  "source_digest": "127cd31626874efa7c1133acb8dbab3a394edb46afb8795cc5c704083d90e28d",
-  "protected_digest": "5dd80d7c695bfb23b857a37c94f9eba9344c31eddcabe4028155f167975d375b",
-  "scope": "Standalone Axis XML and selected DOMJointAxis.ToElement port only; existing UnitX normalization policy retained.",
+  "source_digest": "502b98d6a0c3af7cd1292d11555b2b49de62b697380da7610a272c3a13be8779",
+  "protected_digest": "dd2037df3049840ccae9fa9ca3b99b638226229c2bc0fd0e6de077d995c448c6",
+  "scope": "Bounded unattached Joint XML and partial DOMJoint.ToElement metadata port; general DOM, constructors and sensors remain open.",
   "checks": [
-    "Independent separate source/target: eight focused Rust tests passed, including protected direction threshold.",
-    "Final native helper: seventeen actual outcomes, byte-identical native fixture, both new Rust targets, actual Rust-to-native XML and unchanged native original passed.",
-    "Reviewed XML/numeric bounds, graph validation separation, original assertions and final metadata; sixteen exact outcomes plus one explicit existing-policy XYZ difference."
+    "Fresh independent source and Cargo target passed 48 relevant Rust tests, including caller diagnostic regression, retained Axis/threshold, semantics/include depth, mimic/version/frame/endpoint cases.",
+    "Final native helper reproduced all 23 outcomes, byte-identical native fixture, actual Rust-to-native XML and unchanged original DOMJoint.ToElement.",
+    "Reviewed local metadata versus model graph boundaries, explicit unsupported payloads, original direct-sign pose tolerances, source immutability and final partial ledger metadata.",
+    "Current status counts use reviewed dispositions across both lists: accepted 169 complete and 29 partial; candidate adds one partial only."
   ],
   "remaining": [
-    "Mandatory staged coverage gate and exact hosted CI.",
-    "Constructor/general Element contracts and broader SDF acceptance remain open."
+    "Mandatory strict staged coverage gate and exact hosted CI.",
+    "Full DOMJoint.ToElement, sensor serialization, constructor/Element contracts and wider SDF acceptance."
   ]
 }

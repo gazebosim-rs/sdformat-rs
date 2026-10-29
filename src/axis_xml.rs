@@ -23,6 +23,10 @@ impl Axis {
     /// Negative effort/velocity encode the native unbounded sentinel. Graph
     /// admission remains the responsibility of the containing model loader.
     pub fn to_xml(&self) -> Result<String, Diagnostic> {
+        self.to_xml_for_slot(false)
+    }
+    pub(crate) fn to_xml_for_slot(&self, second: bool) -> Result<String, Diagnostic> {
+        let tag = if second { "axis2" } else { "axis" };
         let invalid = || Diagnostic {
             code: ErrorCode::InvalidValue,
             source: Source {
@@ -73,9 +77,9 @@ impl Axis {
         };
         let unbounded = |value: f64| if value < 0. { f64::INFINITY } else { value };
         Ok(format!(
-            "<axis><xyz expressed_in=\"{}\">{} {} {}</xyz>\
+            "<{tag}><xyz expressed_in=\"{}\">{} {} {}</xyz>\
             <dynamics><damping>{}</damping><friction>{}</friction><spring_reference>{}</spring_reference><spring_stiffness>{}</spring_stiffness></dynamics>\
-            <limit><lower>{}</lower><upper>{}</upper><effort>{}</effort><velocity>{}</velocity><stiffness>{}</stiffness><dissipation>{}</dissipation></limit>{}</axis>",
+            <limit><lower>{}</lower><upper>{}</upper><effort>{}</effort><velocity>{}</velocity><stiffness>{}</stiffness><dissipation>{}</dissipation></limit>{}</{tag}>",
             escape(&self.expressed_in),
             xyz[0],
             xyz[1],

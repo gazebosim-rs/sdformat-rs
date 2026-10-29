@@ -1,0 +1,483 @@
+[
+  {
+    "id": "native-subset",
+    "xml": "<joint name='test_joint' type='ball'>\n  <pose relative_to='link'>-1 -2 -3 3.1415926535897931 1.2246467991473532e-16 3.1415926535897931</pose>\n  <parent>parent</parent>\n  <child>child</child>\n  <axis>\n    <xyz>1 0 0</xyz>\n    <limit>\n      <lower>-inf</lower>\n      <upper>inf</upper>\n      <effort>inf</effort>\n      <velocity>inf</velocity>\n      <stiffness>100000000</stiffness>\n      <dissipation>1</dissipation>\n    </limit>\n    <dynamics>\n      <spring_reference>0</spring_reference>\n      <spring_stiffness>0</spring_stiffness>\n      <damping>0</damping>\n      <friction>0</friction>\n    </dynamics>\n  </axis>\n  <axis2>\n    <xyz>0 1 0</xyz>\n    <limit>\n      <lower>-inf</lower>\n      <upper>inf</upper>\n      <effort>inf</effort>\n      <velocity>inf</velocity>\n      <stiffness>100000000</stiffness>\n      <dissipation>1</dissipation>\n    </limit>\n    <dynamics>\n      <spring_reference>0</spring_reference>\n      <spring_stiffness>0</spring_stiffness>\n      <damping>0</damping>\n      <friction>0</friction>\n    </dynamics>\n  </axis2>\n</joint>\n",
+    "tokens": [
+      "OK",
+      "746573745f6a6f696e74",
+      "1",
+      "706172656e74",
+      "6368696c64",
+      "6c696e6b",
+      "13830554455654793216",
+      "13835058055282163712",
+      "13837309855095848960",
+      "4364452196894661639",
+      "4607182418800017408",
+      "4364452196894661639",
+      "4364452196894661639",
+      "4607182418800017408",
+      "1",
+      "4607182418800017408",
+      "0",
+      "0",
+      "-",
+      "0",
+      "0",
+      "0",
+      "0",
+      "18442240474082181120",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "4726483295884279808",
+      "4607182418800017408",
+      "0",
+      "1",
+      "0",
+      "4607182418800017408",
+      "0",
+      "-",
+      "0",
+      "0",
+      "0",
+      "0",
+      "18442240474082181120",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "4726483295884279808",
+      "4607182418800017408",
+      "0"
+    ]
+  },
+  {
+    "id": "kind-ball",
+    "xml": "<joint name=\"j\" type=\"ball\"><parent>external::parent</parent><child>external::child</child><pose relative_to=\"external::frame\">1 2 3 0.1 0.2 0.3</pose></joint>",
+    "tokens": [
+      "OK",
+      "6a",
+      "1",
+      "65787465726e616c3a3a706172656e74",
+      "65787465726e616c3a3a6368696c64",
+      "65787465726e616c3a3a6672616d65",
+      "4607182418800017408",
+      "4611686018427387904",
+      "4613937818241073152",
+      "4585099763614406928",
+      "4592304003608949445",
+      "4594340753042168494",
+      "4607032425903326524",
+      "4607182418800017408",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "kind-continuous",
+    "xml": "<joint name=\"j\" type=\"continuous\"><parent>external::parent</parent><child>external::child</child><pose relative_to=\"external::frame\">1 2 3 0.1 0.2 0.3</pose></joint>",
+    "tokens": [
+      "OK",
+      "6a",
+      "2",
+      "65787465726e616c3a3a706172656e74",
+      "65787465726e616c3a3a6368696c64",
+      "65787465726e616c3a3a6672616d65",
+      "4607182418800017408",
+      "4611686018427387904",
+      "4613937818241073152",
+      "4585099763614406928",
+      "4592304003608949445",
+      "4594340753042168494",
+      "4607032425903326524",
+      "4607182418800017408",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "kind-fixed",
+    "xml": "<joint name=\"j\" type=\"fixed\"><parent>external::parent</parent><child>external::child</child><pose relative_to=\"external::frame\">1 2 3 0.1 0.2 0.3</pose></joint>",
+    "tokens": [
+      "OK",
+      "6a",
+      "3",
+      "65787465726e616c3a3a706172656e74",
+      "65787465726e616c3a3a6368696c64",
+      "65787465726e616c3a3a6672616d65",
+      "4607182418800017408",
+      "4611686018427387904",
+      "4613937818241073152",
+      "4585099763614406928",
+      "4592304003608949445",
+      "4594340753042168494",
+      "4607032425903326524",
+      "4607182418800017408",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "kind-gearbox",
+    "xml": "<joint name=\"j\" type=\"gearbox\"><parent>external::parent</parent><child>external::child</child><pose relative_to=\"external::frame\">1 2 3 0.1 0.2 0.3</pose></joint>",
+    "tokens": [
+      "OK",
+      "6a",
+      "4",
+      "65787465726e616c3a3a706172656e74",
+      "65787465726e616c3a3a6368696c64",
+      "65787465726e616c3a3a6672616d65",
+      "4607182418800017408",
+      "4611686018427387904",
+      "4613937818241073152",
+      "4585099763614406928",
+      "4592304003608949445",
+      "4594340753042168494",
+      "4607032425903326524",
+      "4607182418800017408",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "kind-prismatic",
+    "xml": "<joint name=\"j\" type=\"prismatic\"><parent>external::parent</parent><child>external::child</child><pose relative_to=\"external::frame\">1 2 3 0.1 0.2 0.3</pose></joint>",
+    "tokens": [
+      "OK",
+      "6a",
+      "5",
+      "65787465726e616c3a3a706172656e74",
+      "65787465726e616c3a3a6368696c64",
+      "65787465726e616c3a3a6672616d65",
+      "4607182418800017408",
+      "4611686018427387904",
+      "4613937818241073152",
+      "4585099763614406928",
+      "4592304003608949445",
+      "4594340753042168494",
+      "4607032425903326524",
+      "4607182418800017408",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "kind-revolute",
+    "xml": "<joint name=\"j\" type=\"revolute\"><parent>external::parent</parent><child>external::child</child><pose relative_to=\"external::frame\">1 2 3 0.1 0.2 0.3</pose></joint>",
+    "tokens": [
+      "OK",
+      "6a",
+      "6",
+      "65787465726e616c3a3a706172656e74",
+      "65787465726e616c3a3a6368696c64",
+      "65787465726e616c3a3a6672616d65",
+      "4607182418800017408",
+      "4611686018427387904",
+      "4613937818241073152",
+      "4585099763614406928",
+      "4592304003608949445",
+      "4594340753042168494",
+      "4607032425903326524",
+      "4607182418800017408",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "kind-revolute2",
+    "xml": "<joint name=\"j\" type=\"revolute2\"><parent>external::parent</parent><child>external::child</child><pose relative_to=\"external::frame\">1 2 3 0.1 0.2 0.3</pose></joint>",
+    "tokens": [
+      "OK",
+      "6a",
+      "7",
+      "65787465726e616c3a3a706172656e74",
+      "65787465726e616c3a3a6368696c64",
+      "65787465726e616c3a3a6672616d65",
+      "4607182418800017408",
+      "4611686018427387904",
+      "4613937818241073152",
+      "4585099763614406928",
+      "4592304003608949445",
+      "4594340753042168494",
+      "4607032425903326524",
+      "4607182418800017408",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "kind-screw",
+    "xml": "<joint name=\"j\" type=\"screw\"><parent>external::parent</parent><child>external::child</child><pose relative_to=\"external::frame\">1 2 3 0.1 0.2 0.3</pose></joint>",
+    "tokens": [
+      "OK",
+      "6a",
+      "8",
+      "65787465726e616c3a3a706172656e74",
+      "65787465726e616c3a3a6368696c64",
+      "65787465726e616c3a3a6672616d65",
+      "4607182418800017408",
+      "4611686018427387904",
+      "4613937818241073152",
+      "4585099763614406928",
+      "4592304003608949445",
+      "4594340753042168494",
+      "4607032425903326524",
+      "4607182418800017408",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "kind-universal",
+    "xml": "<joint name=\"j\" type=\"universal\"><parent>external::parent</parent><child>external::child</child><pose relative_to=\"external::frame\">1 2 3 0.1 0.2 0.3</pose></joint>",
+    "tokens": [
+      "OK",
+      "6a",
+      "9",
+      "65787465726e616c3a3a706172656e74",
+      "65787465726e616c3a3a6368696c64",
+      "65787465726e616c3a3a6672616d65",
+      "4607182418800017408",
+      "4611686018427387904",
+      "4613937818241073152",
+      "4585099763614406928",
+      "4592304003608949445",
+      "4594340753042168494",
+      "4607032425903326524",
+      "4607182418800017408",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "pitch-0",
+    "xml": "<joint name=\"j\" type=\"screw\"><parent>a</parent><child>b</child><screw_thread_pitch>0</screw_thread_pitch></joint>",
+    "tokens": [
+      "OK",
+      "6a",
+      "8",
+      "61",
+      "62",
+      "-",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "pitch--0",
+    "xml": "<joint name=\"j\" type=\"screw\"><parent>a</parent><child>b</child><screw_thread_pitch>-0</screw_thread_pitch></joint>",
+    "tokens": [
+      "OK",
+      "6a",
+      "8",
+      "61",
+      "62",
+      "-",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408",
+      "9223372036854775808",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "pitch-0.5",
+    "xml": "<joint name=\"j\" type=\"screw\"><parent>a</parent><child>b</child><screw_thread_pitch>0.5</screw_thread_pitch></joint>",
+    "tokens": [
+      "OK",
+      "6a",
+      "8",
+      "61",
+      "62",
+      "-",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408",
+      "4602678819172646912",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "pitch--0.5",
+    "xml": "<joint name=\"j\" type=\"screw\"><parent>a</parent><child>b</child><screw_thread_pitch>-0.5</screw_thread_pitch></joint>",
+    "tokens": [
+      "OK",
+      "6a",
+      "8",
+      "61",
+      "62",
+      "-",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408",
+      "13826050856027422720",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "pitch-1e-300",
+    "xml": "<joint name=\"j\" type=\"screw\"><parent>a</parent><child>b</child><screw_thread_pitch>1e-300</screw_thread_pitch></joint>",
+    "tokens": [
+      "OK",
+      "6a",
+      "8",
+      "61",
+      "62",
+      "-",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408",
+      "118622047889322841",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "pitch-1e300",
+    "xml": "<joint name=\"j\" type=\"screw\"><parent>a</parent><child>b</child><screw_thread_pitch>1e300</screw_thread_pitch></joint>",
+    "tokens": [
+      "OK",
+      "6a",
+      "8",
+      "61",
+      "62",
+      "-",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408",
+      "9094988921128908188",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "mimic-unattached",
+    "xml": "<joint name=\"j\" type=\"revolute\"><parent>a</parent><child>b</child><axis><xyz expressed_in=\"outside\">0 1 0</xyz><mimic joint=\"leader\" axis=\"axis2\"><multiplier>2</multiplier><offset>1</offset><reference>3</reference></mimic></axis></joint>",
+    "tokens": [
+      "OK",
+      "6a",
+      "6",
+      "61",
+      "62",
+      "-",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408",
+      "4607182418800017408",
+      "1",
+      "0",
+      "4607182418800017408",
+      "0",
+      "6f757473696465",
+      "0",
+      "0",
+      "0",
+      "0",
+      "18442240474082181120",
+      "9218868437227405312",
+      "9218868437227405312",
+      "9218868437227405312",
+      "4726483295884279808",
+      "4607182418800017408",
+      "1",
+      "6c6561646572",
+      "6178697332",
+      "4611686018427387904",
+      "4607182418800017408",
+      "4613937818241073152",
+      "0"
+    ]
+  },
+  {
+    "id": "world-parent",
+    "xml": "<joint name=\"j\" type=\"fixed\"><parent>world</parent><child>robot::body</child></joint>",
+    "tokens": [
+      "OK",
+      "6a",
+      "3",
+      "776f726c64",
+      "726f626f743a3a626f6479",
+      "-",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408",
+      "4607182418800017408",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "id": "same-endpoint",
+    "xml": "<joint name='j' type='revolute'><parent>a</parent><child>a</child></joint>",
+    "tokens": [
+      "REJECT"
+    ]
+  },
+  {
+    "id": "reserved-parent",
+    "xml": "<joint name='j' type='revolute'><parent>__root__</parent><child>b</child></joint>",
+    "tokens": [
+      "REJECT"
+    ]
+  },
+  {
+    "id": "child-world",
+    "xml": "<joint name='j' type='revolute'><parent>a</parent><child>world</child></joint>",
+    "tokens": [
+      "REJECT"
+    ]
+  },
+  {
+    "id": "self-mimic",
+    "xml": "<joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><mimic joint='j' axis='axis'/></axis></joint>",
+    "tokens": [
+      "REJECT"
+    ]
+  },
+  {
+    "id": "invalid-mimic-slot",
+    "xml": "<joint name='j' type='revolute'><parent>a</parent><child>b</child><axis><mimic joint='other' axis='invalid'/></axis></joint>",
+    "tokens": [
+      "REJECT"
+    ]
+  }
+]

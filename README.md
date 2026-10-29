@@ -55,7 +55,9 @@ full mutable Element and extension grammar remain pending.
 
 Standalone current-schema axis XML preserves direction/frame, dynamics, limits
 and mimic metadata without resolving a model graph. See
-[the axis XML contract](docs/AXIS_XML.md).
+[the axis XML contract](docs/AXIS_XML.md). Bounded standalone joint XML adds
+raw pose/frame, endpoints, both axes and modern screw pitch; unsupported retained
+payloads return errors. See [the joint XML contract](docs/JOINT_XML.md).
 
 Scalar and pose-component conversion is qualified for Linux GNU/glibc using an
 owned C locale and native range/prefix semantics. One reviewed FFI module is the

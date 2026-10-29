@@ -960,3 +960,12 @@ keeps its graph checks and existing version gates. The bounded writer uses nativ
 unbounded sentinels and rejects values its XML encoding cannot preserve. The
 published normalized-direction policy remains in force, including its explicit
 1e-6 native difference. See [AXIS_XML.md](AXIS_XML.md) for the precise contract.
+
+
+## Unattached joint XML
+
+`load_joint_str` and `Joint::to_xml` read and write bounded current-schema joint
+metadata, including raw quaternion pose/frame, endpoints, both axes and modern
+screw pitch. Local validity checks are distinct from containing-model graph
+validation. Unsupported retained sensor/physics payloads, axis2-only values and
+non-screw nondefault pitch return explicit errors. See [JOINT_XML.md](JOINT_XML.md).

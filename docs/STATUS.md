@@ -2953,3 +2953,22 @@ Rust port. All 409 Rust tests and Clippy pass. Independent source/error-boundary
 review and fresh Rust/native/XML exchange replay passed. Strict staged/hosted
 checks remain required; accepted mappings remain 172 complete and 25 partial.
 See [AXIS_XML.md](AXIS_XML.md).
+
+
+## Standalone joint XML in development
+
+Typed standalone joint XML preserves current names, endpoints, raw pose/frame,
+both axes and modern screw pitch. Local endpoint/mimic checks leave graph
+validation to the existing document loader. Unsupported sensor/physics payloads,
+axis2-only metadata and non-screw nondefault pitch return explicit errors.
+Twenty-three native outcomes, a byte-identical generated native fixture and
+actual Rust-to-native XML exchange pass. The unchanged native ToElement original
+passes with its expected type-none sensor errors. Its Rust metadata assertion
+subset remains explicitly partial. All 416 Rust tests and Clippy passed before
+review; a reviewer-requested caller diagnostic location regression was then added
+and passed. Independent source/boundary review and a fresh 48-test Rust replay,
+23 native outcomes and both XML exchange directions passed. Strict staged
+coverage and exact hosted CI remain required. Accepted mappings are 169 complete and 29 partial when counted by reviewed
+status across both ledger lists; four older entries in the ports list are
+explicitly partial. The candidate adds one partial mapping and no complete credit.
+See [JOINT_XML.md](JOINT_XML.md).

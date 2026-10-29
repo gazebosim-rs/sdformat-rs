@@ -1,0 +1,39 @@
+<joint name='test_joint' type='ball'>
+  <pose relative_to='link'>-1 -2 -3 3.1415926535897931 1.2246467991473532e-16 3.1415926535897931</pose>
+  <parent>parent</parent>
+  <child>child</child>
+  <axis>
+    <xyz>1 0 0</xyz>
+    <limit>
+      <lower>-inf</lower>
+      <upper>inf</upper>
+      <effort>inf</effort>
+      <velocity>inf</velocity>
+      <stiffness>100000000</stiffness>
+      <dissipation>1</dissipation>
+    </limit>
+    <dynamics>
+      <spring_reference>0</spring_reference>
+      <spring_stiffness>0</spring_stiffness>
+      <damping>0</damping>
+      <friction>0</friction>
+    </dynamics>
+  </axis>
+  <axis2>
+    <xyz>0 1 0</xyz>
+    <limit>
+      <lower>-inf</lower>
+      <upper>inf</upper>
+      <effort>inf</effort>
+      <velocity>inf</velocity>
+      <stiffness>100000000</stiffness>
+      <dissipation>1</dissipation>
+    </limit>
+    <dynamics>
+      <spring_reference>0</spring_reference>
+      <spring_stiffness>0</spring_stiffness>
+      <damping>0</damping>
+      <friction>0</friction>
+    </dynamics>
+  </axis2>
+</joint>

@@ -12,6 +12,7 @@ mod axis_xml;
 mod camera;
 mod frame_xml;
 mod graph;
+mod joint_xml;
 mod light_xml;
 pub use camera::*;
 mod model_config;
@@ -68,4 +69,11 @@ pub fn load_frame_str(xml: &str, source: &str) -> Result<Frame, Diagnostic> {
 /// and legacy conversion directives are outside this standalone interface.
 pub fn load_axis_str(xml: &str, source: &str) -> Result<Axis, Diagnostic> {
     parse::load_axis_element(xml, source)
+}
+
+/// Load bounded current-schema joint metadata without attaching a frame graph.
+/// Sensors/physics payloads and unrepresentable axis/pitch configurations return
+/// explicit errors. Containing model loading performs graph validation.
+pub fn load_joint_str(xml: &str, source: &str) -> Result<Joint, Diagnostic> {
+    parse::load_joint_element(xml, source)
 }

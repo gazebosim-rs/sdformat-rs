@@ -195,13 +195,66 @@ pub(crate) fn load_axis_element(xml: &str, uri: &str) -> Result<Axis, Diagnostic
         return Err(parser.err(root, ErrorCode::Xml, "root element must be axis"));
     }
     let mut axis = parser.axis(root, false, true)?;
+    trim_axis_parameters(&mut axis);
+    Ok(axis)
+}
+
+fn trim_axis_parameters(axis: &mut Axis) {
     // Native string Params trim padding; unattached names are not graph queries.
     axis.expressed_in = axis.expressed_in.trim_matches([' ', '\t', '\n']).into();
     if let Some(mimic) = &mut axis.mimic {
         mimic.joint = mimic.joint.trim_matches([' ', '\t', '\n']).into();
         mimic.axis = mimic.axis.trim_matches([' ', '\t', '\n']).into();
     }
-    Ok(axis)
+}
+
+pub(crate) fn load_joint_element(xml: &str, uri: &str) -> Result<Joint, Diagnostic> {
+    let resolver = NoResources;
+    let parser = Parser {
+        uri,
+        xml,
+        resolver: &resolver,
+        includes: vec![uri.into()],
+    };
+    let doc = Document::parse(xml).map_err(|error| Diagnostic {
+        code: error.code,
+        source: Source {
+            uri: uri.into(),
+            line: error.pos().row,
+            column: error.pos().col,
+        },
+        message: error.to_string(),
+    })?;
+    let root = doc.root_element();
+    if !root.has_tag_name("joint") {
+        return Err(parser.err(root, ErrorCode::Xml, "root element must be joint"));
+    }
+    if child(root, "physics").is_some() || child(root, "sensor").is_some() {
+        return Err(parser.err(
+            root,
+            ErrorCode::Unsupported,
+            "standalone joint XML does not support physics or sensor payloads",
+        ));
+    }
+    let mut joint = parser.joint(root, false, true)?;
+    // Param text canonicalization is separate from resolving these references.
+    joint.parent =
+        param_text(child(root, "parent").expect("joint parser requires parent")).into_owned();
+    joint.child =
+        param_text(child(root, "child").expect("joint parser requires child")).into_owned();
+    joint.pose.relative_to = joint
+        .pose
+        .relative_to
+        .trim_matches([' ', '\t', '\n'])
+        .into();
+    for axis in [&mut joint.axis, &mut joint.axis2].into_iter().flatten() {
+        trim_axis_parameters(axis);
+    }
+    crate::joint_xml::validate_boundary(&joint).map_err(|mut error| {
+        error.source = parser.source(root);
+        error
+    })?;
+    Ok(joint)
 }
 
 struct Parser<'a> {
@@ -589,7 +642,7 @@ impl Parser<'_> {
                     frames.push(self.frame(member)?);
                     frame_elements.push(member);
                 }
-                "joint" => joints.push(self.joint(member, false)?),
+                "joint" => joints.push(self.joint(member, false, supports_axis_mimic(member))?),
                 "plugin" => plugins.push(self.plugin(member)?),
                 _ => {}
             }
@@ -887,7 +940,11 @@ impl Parser<'_> {
                     links.push(link);
                 }
                 "joint" => {
-                    let mut joint = self.joint(member, converted_14_model(node))?;
+                    let mut joint = self.joint(
+                        member,
+                        converted_14_model(node),
+                        supports_axis_mimic(member),
+                    )?;
                     if is_pre17(node) {
                         joint.name = self.legacy_name(
                             member,
@@ -2326,7 +2383,12 @@ impl Parser<'_> {
         }
         Ok(result)
     }
-    fn joint(&self, node: Node<'_, '_>, model_frame_default: bool) -> Result<Joint, Diagnostic> {
+    fn joint(
+        &self,
+        node: Node<'_, '_>,
+        model_frame_default: bool,
+        allow_mimic: bool,
+    ) -> Result<Joint, Diagnostic> {
         self.allowed(
             node,
             &[
@@ -2355,10 +2417,10 @@ impl Parser<'_> {
             _ => return Err(self.err(node, ErrorCode::Unsupported, "unsupported joint type")),
         };
         let axis = child(node, "axis")
-            .map(|n| self.axis(n, model_frame_default, supports_axis_mimic(n)))
+            .map(|n| self.axis(n, model_frame_default, allow_mimic))
             .transpose()?;
         let axis2 = child(node, "axis2")
-            .map(|n| self.axis(n, model_frame_default, supports_axis_mimic(n)))
+            .map(|n| self.axis(n, model_frame_default, allow_mimic))
             .transpose()?;
         let screw_thread_pitch = if child(node, "screw_thread_pitch").is_some() {
             self.scalar(node, "screw_thread_pitch", 1.)?

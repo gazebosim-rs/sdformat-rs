@@ -61,6 +61,9 @@ payloads return errors. See [the joint XML contract](docs/JOINT_XML.md).
 Typed force/torque configuration and bounded sensor/joint XML preserve current
 noise and envelope fields; other families and opaque payloads remain explicit
 errors. See [the force/torque XML contract](docs/FORCE_TORQUE_XML.md).
+Standalone IMU configuration and matching sensor XML retain six noise records,
+raw reference vectors and orientation metadata; joint XML remains force_torque-only.
+See [the IMU XML contract](docs/IMU_XML.md).
 `Sdf::joint_pose` resolves loaded joint identities with native child-frame default
 and local target scoping. See [its contract](docs/JOINT_SEMANTIC_POSE.md).
 

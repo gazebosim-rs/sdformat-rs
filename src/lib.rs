@@ -13,8 +13,10 @@ mod camera;
 mod force_torque_xml;
 mod frame_xml;
 mod graph;
+mod imu_xml;
 mod joint_xml;
 mod light_xml;
+mod noise_xml;
 pub use camera::*;
 mod model_config;
 pub use model_config::{
@@ -84,4 +86,10 @@ pub fn load_joint_str(xml: &str, source: &str) -> Result<Joint, Diagnostic> {
 /// noise admission applies; no sensor envelope or frame graph is created.
 pub fn load_force_torque_str(xml: &str, source: &str) -> Result<ForceTorque, Diagnostic> {
     parse::load_force_torque_element(xml, source)
+}
+
+/// Load unattached current-schema IMU configuration without resolving its frames.
+/// Existing finite-noise admission remains in force.
+pub fn load_imu_str(xml: &str, source: &str) -> Result<Imu, Diagnostic> {
+    parse::load_imu_element(xml, source)
 }

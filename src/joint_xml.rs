@@ -36,6 +36,12 @@ pub(crate) fn validate_boundary(joint: &Joint) -> Result<(), Diagnostic> {
     }
     let mut sensor_names = std::collections::BTreeSet::new();
     for sensor in &joint.sensors {
+        if sensor.kind != "force_torque" {
+            return Err(error(
+                ErrorCode::Unsupported,
+                "joint XML supports only force/torque sensor payloads",
+            ));
+        }
         crate::sensor_xml::validate(sensor)?;
         if !sensor_names.insert(&sensor.name) {
             return Err(error(

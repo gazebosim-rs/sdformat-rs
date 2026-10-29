@@ -988,3 +988,12 @@ sensors and their current envelope fields; unsupported families and retained
 plugin/extension/physics payloads return explicit errors. Existing document
 parsing, numeric admission and graph validation remain unchanged.
 See [FORCE_TORQUE_XML.md](FORCE_TORQUE_XML.md).
+
+
+## IMU XML
+
+Imu::to_xml/load_imu_str preserve all six Noise records, orientation settings
+and raw custom/gravity vectors and parent-frame strings. Matching standalone
+Sensor output supports imu without changing finite/noise/negative-rate policies.
+Joint XML remains force_torque-only; generic Element and runtime behavior remain
+unqualified. See [IMU_XML.md](IMU_XML.md).

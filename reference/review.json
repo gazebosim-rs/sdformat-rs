@@ -2,16 +2,17 @@
   "decision": "approved",
   "author": "sdformat_owner",
   "reviewer": "integration_reviewer",
-  "source_digest": "bc26ed9fc7f9b08ca5e1b9e6b82dbddcb3cb322f7aaee9ce2714dee9d54720ce",
-  "protected_digest": "41b37d243d5fc0a03d145ebe2bd8e0c3744192f1d6afdb5652df554efc44762f",
-  "scope": "Typed force/torque configuration and bounded sensor/joint XML; two original mappings remain partial for generic Element identity.",
+  "source_digest": "4cc63d998f60ee069a1d5650340c15ff1453fcb1970e8aff089cfd428347e1eb",
+  "protected_digest": "4930ca65e331163505a34dcecdae08f8e6361aff33a2fb326152e08672153708",
+  "scope": "Typed IMU configuration and matching standalone Sensor XML; shared Noise emission preserves accepted force/torque output. Generic Element identity remains partial.",
   "checks": [
-    "Fresh independent source and Cargo target passed 32 relevant Rust checks, preserving existing IMU and payload rejection assertions.",
-    "Independently regenerated all 32 native outcomes and byte-identical fixture, replayed six actual Rust-to-native exchanges and both unchanged native originals with empty stderr.",
-    "Reviewed all six complete Noise records, exact non-pose scalar projections, direct-sign pose bounds, fail-closed payload boundaries and caller provenance; no backend or wrench support claimed."
+    "Fresh independent source/target passed 33 relevant Rust checks, including old IMU joint rejection and force/torque payload boundaries.",
+    "Replayed all 24 native IMU outcomes, byte-identical native fixture, four real Rust-to-native exchanges and both unchanged native originals with empty stderr.",
+    "Replayed all 32 force/torque native outcomes, six exchanges and both unchanged originals; all six generated force/torque XML exports are byte-identical to accepted reviewer output.",
+    "Reviewed raw zero/non-unit vectors, all six complete Noise records, original direct vector tolerances and typed sensor-family admission without decoder or runtime policy changes."
   ],
   "remaining": [
-    "Mandatory normal staged coverage gate and exact hosted CI.",
-    "Generic Element/null identity and other sensor families remain unported."
+    "Mandatory single normal staged gate, strict coverage and exact hosted CI.",
+    "Generic Element/null identity and broader sensor/XML support remain unported."
   ]
 }

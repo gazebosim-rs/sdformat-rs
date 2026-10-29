@@ -3019,3 +3019,18 @@ source/assertion/boundary review passed with 32 fresh focused Rust checks, all
 hosted CI remain required. Accepted
 ledger counts remain 169 complete and 30 partial; the candidate adds two partial
 mappings, without duplicate credit. See [FORCE_TORQUE_XML.md](FORCE_TORQUE_XML.md).
+
+
+## IMU XML in development
+
+Typed IMU configuration and matching standalone sensor output retain orientation
+settings, raw zero/non-unit vectors and all six Noise records. Shared noise
+emission leaves accepted force/torque output byte-identical; its native corpus
+and six exchanges still pass. All 433 Rust tests and Clippy pass. Twenty-four
+native IMU outcomes, fixture regeneration, four actual exchanges and both unchanged
+originals pass with empty stderr. Independent review passed 33 fresh Rust checks,
+all IMU/native exchanges and the complete FT regression replay; all six FT
+exports matched accepted output byte for byte. Normal strict staged checks
+and exact hosted CI remain required. Constructor Element identity stays partial
+and joint XML remains force_torque-only. Accepted counts remain 169 complete and
+32 partial; this candidate adds two partial mappings. See [IMU_XML.md](IMU_XML.md).

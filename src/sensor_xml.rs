@@ -1,7 +1,7 @@
 // Copyright (C) 2026 Open Source Robotics Foundation
 // SPDX-License-Identifier: Apache-2.0
-//! Bounded force/torque sensor output; retained payloads are never silently dropped.
-use crate::{Diagnostic, ErrorCode, ForceTorque, Sensor, SensorConfig, Source};
+//! Bounded typed sensor output; retained payloads are never silently dropped.
+use crate::{Diagnostic, ErrorCode, Sensor, SensorConfig, Source};
 use quick_xml::escape::escape;
 fn error(code: ErrorCode, message: &str) -> Diagnostic {
     Diagnostic {
@@ -23,15 +23,11 @@ fn attribute(value: &str) -> bool {
 fn text(value: &str) -> bool {
     attribute(value) && !value.contains("  ")
 }
-pub(crate) fn validate(sensor: &Sensor) -> Result<&ForceTorque, Diagnostic> {
-    let SensorConfig::ForceTorque(config) = &sensor.config else {
-        return Err(error(
-            ErrorCode::Unsupported,
-            "only force/torque sensor XML is supported",
-        ));
-    };
-    if sensor.kind != "force_torque"
-        || !sensor.plugins.is_empty()
+pub(crate) fn validate(sensor: &Sensor) -> Result<(), Diagnostic> {
+    if !matches!(
+        (sensor.kind.as_str(), &sensor.config),
+        ("force_torque", SensorConfig::ForceTorque(_)) | ("imu", SensorConfig::Imu(_))
+    ) || !sensor.plugins.is_empty()
         || !sensor.extensions.is_empty()
         || sensor.gz_frame_id.is_some()
     {
@@ -52,6 +48,7 @@ pub(crate) fn validate(sensor: &Sensor) -> Result<&ForceTorque, Diagnostic> {
         || sensor.topic == "__default__"
         || !sensor.update_rate.is_finite()
         || sensor.update_rate.is_subnormal()
+        || (sensor.kind == "imu" && sensor.update_rate < 0.)
     {
         return Err(error(
             ErrorCode::InvalidValue,
@@ -76,19 +73,36 @@ pub(crate) fn validate(sensor: &Sensor) -> Result<&ForceTorque, Diagnostic> {
             "sensor pose cannot roundtrip through XML",
         ));
     }
-    crate::force_torque_xml::validate_config(config)?;
-    Ok(config)
+    match &sensor.config {
+        SensorConfig::ForceTorque(config) => crate::force_torque_xml::validate_config(config),
+        SensorConfig::Imu(config) => crate::imu_xml::validate_config(config),
+        _ => Err(error(
+            ErrorCode::Unsupported,
+            "unsupported sensor configuration",
+        )),
+    }
 }
 impl Sensor {
-    /// Emit a force/torque sensor with its current envelope and configuration.
+    /// Emit a supported IMU or force/torque sensor with its current values.
     /// Other families, plugins and opaque extensions return Unsupported.
     pub fn to_xml(&self) -> Result<String, Diagnostic> {
-        let config = validate(self)?.to_xml()?;
+        validate(self)?;
+        let config = match &self.config {
+            SensorConfig::ForceTorque(value) => value.to_xml()?,
+            SensorConfig::Imu(value) => value.to_xml()?,
+            _ => {
+                return Err(error(
+                    ErrorCode::Unsupported,
+                    "unsupported sensor configuration",
+                ));
+            }
+        };
         let p = self.pose.transform.translation;
         let q = self.pose.transform.rotation;
         Ok(format!(
-            "<sensor name=\"{}\" type=\"force_torque\"><pose relative_to=\"{}\" rotation_format=\"quat_xyzw\">{} {} {} {} {} {} {}</pose><frame_id>{}</frame_id><topic>{}</topic><update_rate>{}</update_rate><always_on>{}</always_on><visualize>{}</visualize><enable_metrics>{}</enable_metrics>{config}</sensor>",
+            "<sensor name=\"{}\" type=\"{}\"><pose relative_to=\"{}\" rotation_format=\"quat_xyzw\">{} {} {} {} {} {} {}</pose><frame_id>{}</frame_id><topic>{}</topic><update_rate>{}</update_rate><always_on>{}</always_on><visualize>{}</visualize><enable_metrics>{}</enable_metrics>{config}</sensor>",
             escape(&self.name),
+            self.kind,
             escape(&self.pose.relative_to),
             p[0],
             p[1],

@@ -223,6 +223,30 @@ pub(crate) fn load_force_torque_element(xml: &str, uri: &str) -> Result<ForceTor
     parser.force_torque_node(root)
 }
 
+pub(crate) fn load_imu_element(xml: &str, uri: &str) -> Result<Imu, Diagnostic> {
+    let resolver = NoResources;
+    let parser = Parser {
+        uri,
+        xml,
+        resolver: &resolver,
+        includes: vec![uri.into()],
+    };
+    let document = Document::parse(xml).map_err(|error| Diagnostic {
+        code: error.code,
+        source: Source {
+            uri: uri.into(),
+            line: error.pos().row,
+            column: error.pos().col,
+        },
+        message: error.to_string(),
+    })?;
+    let root = document.root_element();
+    if !root.has_tag_name("imu") {
+        return Err(parser.err(root, ErrorCode::Xml, "root element must be imu"));
+    }
+    parser.imu_node(root)
+}
+
 fn trim_axis_parameters(axis: &mut Axis) {
     // Native string Params trim padding; unattached names are not graph queries.
     axis.expressed_in = axis.expressed_in.trim_matches([' ', '\t', '\n']).into();
@@ -2675,6 +2699,9 @@ impl Parser<'_> {
         let Some(node) = child(sensor, "imu") else {
             return Ok(Imu::default());
         };
+        self.imu_node(node)
+    }
+    fn imu_node(&self, node: Node<'_, '_>) -> Result<Imu, Diagnostic> {
         self.allowed(
             node,
             &[

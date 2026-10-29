@@ -13,6 +13,7 @@ reader policies are unchanged. The writer rejects nonfinite values, negative
 standard deviations and decimal subnormals that cannot pass that reader.
 
 `Sensor::to_xml` supports the force_torque family with a matching typed config.
+Standalone IMU output is also supported; see [IMU_XML.md](IMU_XML.md).
 It emits current name, raw quaternion pose/frame, frame_id, topic, update rate,
 always_on, visualize and enable_metrics, followed by the typed configuration.
 Typed edits are authoritative; configuration_xml and source locations retain
@@ -21,9 +22,9 @@ not mutate the source object. Loading emitted XML creates new input provenance;
 owned-object equality including Source is not promised across a read/write cycle.
 
 Joint XML now reads and writes force_torque sensors in declaration order, using
-the same bounded sensor writer. Duplicate sensor names reject. Other families,
+the same bounded sensor writer. Duplicate sensor names reject. Other joint sensor families,
 plugins, opaque legacy extensions, gz_frame_id and joint physics XML remain
-Unsupported; existing unsupported IMU inputs still reject. No payload is silently
+Unsupported; existing unsupported IMU joint inputs still reject. No payload is silently
 discarded. The full document loader keeps its existing sensor support and graph
 validation. Standalone loading retains unresolved pose references, with no
 runtime/backend admission implied.

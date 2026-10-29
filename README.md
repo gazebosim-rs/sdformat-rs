@@ -58,6 +58,9 @@ and mimic metadata without resolving a model graph. See
 [the axis XML contract](docs/AXIS_XML.md). Bounded standalone joint XML preserves
 raw pose/frame, endpoints, both axes and modern screw pitch; unsupported retained
 payloads return errors. See [the joint XML contract](docs/JOINT_XML.md).
+Typed force/torque configuration and bounded sensor/joint XML preserve current
+noise and envelope fields; other families and opaque payloads remain explicit
+errors. See [the force/torque XML contract](docs/FORCE_TORQUE_XML.md).
 `Sdf::joint_pose` resolves loaded joint identities with native child-frame default
 and local target scoping. See [its contract](docs/JOINT_SEMANTIC_POSE.md).
 

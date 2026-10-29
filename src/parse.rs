@@ -199,6 +199,30 @@ pub(crate) fn load_axis_element(xml: &str, uri: &str) -> Result<Axis, Diagnostic
     Ok(axis)
 }
 
+pub(crate) fn load_force_torque_element(xml: &str, uri: &str) -> Result<ForceTorque, Diagnostic> {
+    let resolver = NoResources;
+    let parser = Parser {
+        uri,
+        xml,
+        resolver: &resolver,
+        includes: vec![uri.into()],
+    };
+    let document = Document::parse(xml).map_err(|error| Diagnostic {
+        code: error.code,
+        source: Source {
+            uri: uri.into(),
+            line: error.pos().row,
+            column: error.pos().col,
+        },
+        message: error.to_string(),
+    })?;
+    let root = document.root_element();
+    if !root.has_tag_name("force_torque") {
+        return Err(parser.err(root, ErrorCode::Xml, "root element must be force_torque"));
+    }
+    parser.force_torque_node(root)
+}
+
 fn trim_axis_parameters(axis: &mut Axis) {
     // Native string Params trim padding; unattached names are not graph queries.
     axis.expressed_in = axis.expressed_in.trim_matches([' ', '\t', '\n']).into();
@@ -229,11 +253,15 @@ pub(crate) fn load_joint_element(xml: &str, uri: &str) -> Result<Joint, Diagnost
     if !root.has_tag_name("joint") {
         return Err(parser.err(root, ErrorCode::Xml, "root element must be joint"));
     }
-    if child(root, "physics").is_some() || child(root, "sensor").is_some() {
+    if child(root, "physics").is_some()
+        || elements(root)
+            .filter(|node| node.has_tag_name("sensor"))
+            .any(|sensor| sensor.attribute("type").map(str::trim) != Some("force_torque"))
+    {
         return Err(parser.err(
             root,
             ErrorCode::Unsupported,
-            "standalone joint XML does not support physics or sensor payloads",
+            "standalone joint XML supports only force/torque sensors without physics payloads",
         ));
     }
     let mut joint = parser.joint(root, false, true)?;
@@ -2703,6 +2731,9 @@ impl Parser<'_> {
         let Some(node) = child(sensor, "force_torque") else {
             return Ok(ForceTorque::default());
         };
+        self.force_torque_node(node)
+    }
+    fn force_torque_node(&self, node: Node<'_, '_>) -> Result<ForceTorque, Diagnostic> {
         self.allowed(
             node,
             &["frame", "measure_direction", "force", "torque"],

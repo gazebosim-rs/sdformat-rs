@@ -25,8 +25,7 @@ fn reference(value: &str) -> bool {
     !value.is_empty() && value.trim() == value && attribute(value) && !value.contains("  ")
 }
 pub(crate) fn validate_boundary(joint: &Joint) -> Result<(), Diagnostic> {
-    if !joint.sensors.is_empty()
-        || joint.physics_xml.is_some()
+    if joint.physics_xml.is_some()
         || (joint.axis.is_none() && joint.axis2.is_some())
         || (joint.kind != JointKind::Screw && joint.screw_thread_pitch != 1.)
     {
@@ -34,6 +33,16 @@ pub(crate) fn validate_boundary(joint: &Joint) -> Result<(), Diagnostic> {
             ErrorCode::Unsupported,
             "joint XML cannot preserve this payload, axis order or non-screw pitch",
         ));
+    }
+    let mut sensor_names = std::collections::BTreeSet::new();
+    for sensor in &joint.sensors {
+        crate::sensor_xml::validate(sensor)?;
+        if !sensor_names.insert(&sensor.name) {
+            return Err(error(
+                ErrorCode::DuplicateName,
+                "duplicate joint sensor name",
+            ));
+        }
     }
     let reserved = joint.name == "world"
         || (joint.name.len() >= 4 && joint.name.starts_with("__") && joint.name.ends_with("__"));
@@ -110,6 +119,10 @@ impl Joint {
         if let Some(axis) = &self.axis2 {
             axes.push_str(&axis.to_xml_for_slot(true)?);
         }
+        let mut sensors = String::new();
+        for sensor in &self.sensors {
+            sensors.push_str(&sensor.to_xml()?);
+        }
         let screw = if self.kind == JointKind::Screw {
             format!(
                 "<screw_thread_pitch>{}</screw_thread_pitch>",
@@ -123,7 +136,7 @@ impl Joint {
         let q = pose.rotation;
         Ok(format!(
             "<joint name=\"{}\" type=\"{kind}\"><parent>{}</parent><child>{}</child>\
-            <pose relative_to=\"{}\" rotation_format=\"quat_xyzw\">{} {} {} {} {} {} {}</pose>{axes}{screw}</joint>",
+            <pose relative_to=\"{}\" rotation_format=\"quat_xyzw\">{} {} {} {} {} {} {}</pose>{axes}{screw}{sensors}</joint>",
             escape(&self.name),
             escape(&self.parent),
             escape(&self.child),

@@ -2623,7 +2623,7 @@
       "case": "DOMJoint.ToElement",
       "source": "src/Joint_TEST.cc:266-329",
       "rust_test": "tests/joint_xml.rs::original_to_element_metadata_subset",
-      "assertions": "PARTIAL: raw pose seven direct-sign components <=1e-3, relative frame, name/endpoints, Ball kind, both axis presence and UnitX/UnitY directions, nonempty typed XML and edited-parent roundtrip. Native-generated XML setup replaces default DOM construction. Constructor Element identity, AddSensor/duplicate/ClearSensors and source sensor lookup/count contracts remain unported; sensors explicitly Unsupported in the new bounded serializer. No original assertion retired.",
+      "assertions": "PARTIAL: raw pose seven direct-sign components <=1e-3, relative frame, name/endpoints, Ball kind, both axis presence and UnitX/UnitY directions, nonempty typed XML and edited-parent roundtrip. Native-generated XML setup replaces default DOM construction. Constructor Element identity, AddSensor/duplicate/ClearSensors and source sensor lookup/count contracts remain unported; the original type-none sensors explicitly Unsupported in the bounded serializer. No original assertion retired.",
       "fixtures": {
         "tests/fixtures/joint_to_element_native_subset.xml": "e553ddd8866b335bc0fea077540d9fe6e3d7d7687464faeec9b2317dc02b6d8c"
       },
@@ -2631,6 +2631,34 @@
       "baseline": "Unchanged DOMJoint.ToElement passed one test, zero failures with expected type-none sensor errors. Twenty-three actual native cases plus byte-identical generated subset fixture and actual Rust-to-native XML exchange passed; source/library provenance in reference/joint-xml.json.",
       "status": "partial_reviewed",
       "review": "Independent /root/integration_reviewer approved source, native/original assertions and error boundaries. Fresh reviewer-owned source and target passed 48 focused Rust tests and all 23 native outcomes, byte-identical native generation, actual Rust-to-native XML and unchanged DOMJoint.ToElement. Reader boundary diagnostics retain caller URI/location. General DOM, constructors, sensors and full original remain open; no complete credit."
+    },
+    {
+      "target": "UNIT_ForceTorque_TEST",
+      "case": "DOMForceTorque.ToElement",
+      "source": "src/ForceTorque_TEST.cc:115-163",
+      "rust_test": "tests/force_torque_xml_original.rs::original_force_torque_to_element_values_subset",
+      "assertions": "PARTIAL: six complete Noise records including kind and seven scalar fields, frame/direction, successful typed output/read results, nonempty XML and edited-direction roundtrip. Exact finite scalar equality strengthens native Noise component-wise <=1e-6. Generic constructor Element/null identity remains unported; source=None is supplemental owned provenance only. No original assertion retired.",
+      "fixtures": {
+        "tests/fixtures/force_torque_to_element_native.xml": "ecfb0370c97208f28ded34a13152e10ebb5c2367286fd4c1d90bd461d2ed815a"
+      },
+      "upstream_fixtures": {},
+      "baseline": "Both unchanged native ToElement originals passed with empty stderr. 32 actual native outcomes, byte-identical generated fixture and six real Rust-to-native exchanges pass; provenance in reference/force-torque-xml.json.",
+      "status": "partial_reviewed",
+      "review": "Independent /root/integration_reviewer approved bounded source, all six complete Noise observations, strict payload rejection, native projections and direct-sign pose bounds. Fresh reviewer source/target passed 32 relevant Rust checks, all 32 native outcomes, byte-identical fixture generation, six actual Rust-to-native exchanges and both unchanged originals with empty stderr. Generic Element/null identity remains unported; no backend/wrench claim. Normal staged and exact hosted checks remain required."
+    },
+    {
+      "target": "UNIT_ForceTorque_TEST",
+      "case": "DOMForceTorque.ToElementErrorOutput",
+      "source": "src/ForceTorque_TEST.cc:165-231",
+      "rust_test": "tests/force_torque_xml_original.rs::original_force_torque_to_element_error_output_subset",
+      "assertions": "PARTIAL: six complete Noise records including kind and seven scalar fields, frame/direction, successful typed output/read results, nonempty XML and edited-direction roundtrip. Exact finite scalar equality strengthens native Noise component-wise <=1e-6. ErrorOutput variant independently checks empty library console output in a child process. Generic constructor Element/null identity remains unported; source=None is supplemental owned provenance only. No original assertion retired.",
+      "fixtures": {
+        "tests/fixtures/force_torque_to_element_native.xml": "ecfb0370c97208f28ded34a13152e10ebb5c2367286fd4c1d90bd461d2ed815a"
+      },
+      "upstream_fixtures": {},
+      "baseline": "Both unchanged native ToElement originals passed with empty stderr. 32 actual native outcomes, byte-identical generated fixture and six real Rust-to-native exchanges pass; provenance in reference/force-torque-xml.json.",
+      "status": "partial_reviewed",
+      "review": "Independent /root/integration_reviewer approved bounded source, all six complete Noise observations, strict payload rejection, native projections and direct-sign pose bounds. Fresh reviewer source/target passed 32 relevant Rust checks, all 32 native outcomes, byte-identical fixture generation, six actual Rust-to-native exchanges and both unchanged originals with empty stderr. Generic Element/null identity remains unported; no backend/wrench claim. Normal staged and exact hosted checks remain required."
     }
   ]
 }

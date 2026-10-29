@@ -10,6 +10,7 @@
 //! Unsupported schema features are errors.
 mod axis_xml;
 mod camera;
+mod force_torque_xml;
 mod frame_xml;
 mod graph;
 mod joint_xml;
@@ -24,6 +25,7 @@ pub use model_config::{
 mod number;
 mod parse;
 mod physics_xml;
+mod sensor_xml;
 mod types;
 mod xml;
 pub use types::*;
@@ -76,4 +78,10 @@ pub fn load_axis_str(xml: &str, source: &str) -> Result<Axis, Diagnostic> {
 /// explicit errors. Containing model loading performs graph validation.
 pub fn load_joint_str(xml: &str, source: &str) -> Result<Joint, Diagnostic> {
     parse::load_joint_element(xml, source)
+}
+
+/// Load unattached current-schema force/torque configuration. Existing finite
+/// noise admission applies; no sensor envelope or frame graph is created.
+pub fn load_force_torque_str(xml: &str, source: &str) -> Result<ForceTorque, Diagnostic> {
+    parse::load_force_torque_element(xml, source)
 }

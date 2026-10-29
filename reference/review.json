@@ -2,16 +2,16 @@
   "decision": "approved",
   "author": "sdformat_owner",
   "reviewer": "integration_reviewer",
-  "source_digest": "a558d5a97e1da068c714fb3692bbeef5593f822a0e0ab5d6b58e11467f001738",
-  "protected_digest": "dbeb1d5656f534f1bec70278ec6467a2ea7b6ca01e8baac1293798c54e0d75a0",
-  "scope": "Bounded hosted evidence selection and preserving failed instrumented-test diagnostics; no production or gate-policy change.",
+  "source_digest": "bc26ed9fc7f9b08ca5e1b9e6b82dbddcb3cb322f7aaee9ce2714dee9d54720ce",
+  "protected_digest": "41b37d243d5fc0a03d145ebe2bd8e0c3744192f1d6afdb5652df554efc44762f",
+  "scope": "Typed force/torque configuration and bounded sensor/joint XML; two original mappings remain partial for generic Element identity.",
   "checks": [
-    "Fresh independent source passed all17 tooling checks, including original CalledProcessError101 propagation and no continuation.",
-    "Parsed and executed exact workflow run block with success0 and failure37; both streams retained through tee and original return codes preserved.",
-    "Verified exact five-file upload selection and always condition; Cargo targets/raw profiles/merged build data excluded without changing verification command or coverage."
+    "Fresh independent source and Cargo target passed 32 relevant Rust checks, preserving existing IMU and payload rejection assertions.",
+    "Independently regenerated all 32 native outcomes and byte-identical fixture, replayed six actual Rust-to-native exchanges and both unchanged native originals with empty stderr.",
+    "Reviewed all six complete Noise records, exact non-pose scalar projections, direct-sign pose bounds, fail-closed payload boundaries and caller provenance; no backend or wrench support claimed."
   ],
   "remaining": [
-    "Mandatory normal staged hook and exact hosted CI.",
-    "Download/list actual hosted artifact to confirm exact retained evidence payload."
+    "Mandatory normal staged coverage gate and exact hosted CI.",
+    "Generic Element/null identity and other sensor families remain unported."
   ]
 }

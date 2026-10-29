@@ -967,7 +967,8 @@ published normalized-direction policy remains in force, including its explicit
 `load_joint_str` and `Joint::to_xml` read and write bounded current-schema joint
 metadata, including raw quaternion pose/frame, endpoints, both axes and modern
 screw pitch. Local validity checks are distinct from containing-model graph
-validation. Unsupported retained sensor/physics payloads, axis2-only values and
+validation. Unsupported sensor families/opaque extensions and retained physics
+payloads, axis2-only values and
 non-screw nondefault pitch return explicit errors. See [JOINT_XML.md](JOINT_XML.md).
 
 
@@ -977,3 +978,13 @@ non-screw nondefault pitch return explicit errors. See [JOINT_XML.md](JOINT_XML.
 containing model/world scope. Empty target selects the declared child frame;
 explicit targets use strict native local scoping. It shares the loaded graph
 snapshot and math with `pose_of`. See [JOINT_SEMANTIC_POSE.md](JOINT_SEMANTIC_POSE.md).
+
+
+## Force/torque configuration and sensor XML
+
+`load_force_torque_str` and ForceTorque::to_xml preserve frame/direction and six
+complete noise records. Sensor::to_xml and joint XML support bounded force_torque
+sensors and their current envelope fields; unsupported families and retained
+plugin/extension/physics payloads return explicit errors. Existing document
+parsing, numeric admission and graph validation remain unchanged.
+See [FORCE_TORQUE_XML.md](FORCE_TORQUE_XML.md).

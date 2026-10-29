@@ -18,12 +18,14 @@ the same axis slot and mimic slots other than `axis`/`axis2`. Full document load
 keeps its version gates, frame checks and resolved-body checks. Standalone
 metadata admission does not make an invalid containing model valid.
 
-The bounded API rejects sensors, physics XML, an axis2 without axis, and a
-non-default pitch on a non-screw joint with Unsupported. These values already
+The bounded API supports typed force_torque sensors in order; see
+[FORCE_TORQUE_XML.md](FORCE_TORQUE_XML.md). Other sensor families, plugins and
+opaque extensions, physics XML, an axis2 without axis, and a non-default pitch
+on a non-screw joint return Unsupported. These values already
 have owned storage in document-loaded joints; the writer reports the unsupported
 payload instead of dropping it. Gearbox-specific XML fields remain unsupported
 by the existing parser. Default Joint construction, mutable Element objects,
-XML formatting preservation and sensor serialization are outside this API.
+XML formatting preservation and general sensor serialization are outside this API.
 
 Output uses quick-xml escaping and explicit `quat_xyzw` poses, retaining the raw
 quaternion sign and relative-frame string rather than resolving world poses.
@@ -68,9 +70,10 @@ assertion compares the source count to itself; this port makes no loaded sensor
 count claim. Existing sensor API tests are separate. The original stays partial,
 and its unsupported assertions remain in the ledger.
 
-Independent source/assertion/error-boundary review passed, with a fresh 48-test
-Rust replay and all 23 native outcomes, fixture regeneration and XML exchange.
-The reviewer-requested reader diagnostic fix preserves the caller URI and root
-location. Strict staged coverage and exact hosted CI remain required before
-acceptance. Accepted ledger counts are 169 complete and 29 partial by reviewed
-status across both lists; this candidate adds one partial and no complete credit.
+The initial joint XML slice passed independent source/assertion/error-boundary
+review, a fresh 48-test Rust replay, all 23 native outcomes and both exchange
+directions, followed by strict staged coverage and exact hosted CI. Its reader
+diagnostics preserve the caller URI and root location. That slice added one
+partial mapping, bringing accepted counts to 169 complete and 30 partial by
+reviewed status across both lists. The force/torque extension's current evidence
+and remaining gates are recorded in [FORCE_TORQUE_XML.md](FORCE_TORQUE_XML.md).

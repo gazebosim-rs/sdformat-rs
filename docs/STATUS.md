@@ -3003,3 +3003,19 @@ selection. The normal staged hook, exact hosted CI and downloaded artifact
 contents check remain required. Production behavior,
 original assertion mappings, source provenance and coverage thresholds are
 unchanged. Accepted ledger counts remain 169 complete and 30 partial.
+
+
+## Force/torque XML in development
+
+Typed configuration plus bounded force_torque sensor/joint XML now preserves
+frame/direction, six complete noise records and current sensor envelope fields.
+Other families, plugins/extensions and joint physics remain Unsupported; old IMU
+rejection assertions are unchanged. All 427 Rust tests and Clippy pass, along
+with 32 native outcomes, byte-identical native fixture regeneration, six actual
+Rust-to-native exchanges and both unchanged native ToElement originals. Two
+original ports are explicitly partial for generic Element identity. Independent
+source/assertion/boundary review passed with 32 fresh focused Rust checks, all
+32 native outcomes and six actual exchanges. Normal staged coverage and exact
+hosted CI remain required. Accepted
+ledger counts remain 169 complete and 30 partial; the candidate adds two partial
+mappings, without duplicate credit. See [FORCE_TORQUE_XML.md](FORCE_TORQUE_XML.md).

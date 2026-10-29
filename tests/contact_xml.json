@@ -1,0 +1,232 @@
+[
+  {
+    "id": "defaults",
+    "mode": "config",
+    "xml": "<contact></contact>",
+    "tokens": [
+      "OK",
+      "1",
+      "5f5f64656661756c745f5f",
+      "5f5f64656661756c745f746f7069635f5f"
+    ]
+  },
+  {
+    "id": "one",
+    "mode": "config",
+    "xml": "<contact><collision>c</collision></contact>",
+    "tokens": [
+      "OK",
+      "1",
+      "63",
+      "5f5f64656661756c745f746f7069635f5f"
+    ]
+  },
+  {
+    "id": "ordered_duplicates",
+    "mode": "config",
+    "xml": "<contact><collision>link::a</collision><collision>link::b</collision><collision>link::a</collision><topic>/contacts</topic></contact>",
+    "tokens": [
+      "OK",
+      "3",
+      "6c696e6b3a3a61",
+      "6c696e6b3a3a62",
+      "6c696e6b3a3a61",
+      "2f636f6e7461637473"
+    ]
+  },
+  {
+    "id": "normalized_text",
+    "mode": "config",
+    "xml": "<contact><collision> arm  foot </collision><topic> other  channel </topic></contact>",
+    "tokens": [
+      "OK",
+      "1",
+      "61726d20666f6f74",
+      "6f74686572206368616e6e656c"
+    ]
+  },
+  {
+    "id": "cdata_spaces",
+    "mode": "config",
+    "xml": "<contact><collision><![CDATA[arm  foot]]></collision><topic><![CDATA[other  channel]]></topic></contact>",
+    "tokens": [
+      "OK",
+      "1",
+      "61726d2020666f6f74",
+      "6f7468657220206368616e6e656c"
+    ]
+  },
+  {
+    "id": "cdata_trim",
+    "mode": "config",
+    "xml": "<contact><collision><![CDATA[ arm  foot ]]></collision></contact>",
+    "tokens": [
+      "OK",
+      "1",
+      "61726d2020666f6f74",
+      "5f5f64656661756c745f746f7069635f5f"
+    ]
+  },
+  {
+    "id": "escaped",
+    "mode": "config",
+    "xml": "<contact><collision>a&amp;b&lt;c</collision><topic>/a&amp;b</topic></contact>",
+    "tokens": [
+      "OK",
+      "1",
+      "6126623c63",
+      "2f612662"
+    ]
+  },
+  {
+    "id": "unicode",
+    "mode": "config",
+    "xml": "<contact><collision>\u673a\u5668\u4eba::collision</collision><topic>/\u63a5\u89e6</topic></contact>",
+    "tokens": [
+      "OK",
+      "1",
+      "e69cbae599a8e4baba3a3a636f6c6c6973696f6e",
+      "2fe68ea5e8a7a6"
+    ]
+  },
+  {
+    "id": "plain_delimiter",
+    "mode": "config",
+    "xml": "<contact><collision>a]]&gt;b</collision></contact>",
+    "tokens": [
+      "OK",
+      "1",
+      "615d5d3e62",
+      "5f5f64656661756c745f746f7069635f5f"
+    ]
+  },
+  {
+    "id": "cdata_split_native_first",
+    "mode": "config",
+    "xml": "<contact><collision><![CDATA[a  ]]]]><![CDATA[>b]]></collision></contact>",
+    "tokens": [
+      "OK",
+      "1",
+      "6120205d5d",
+      "5f5f64656661756c745f746f7069635f5f"
+    ]
+  },
+  {
+    "id": "deferred_reference",
+    "mode": "config",
+    "xml": "<contact><collision>missing::collision</collision></contact>",
+    "tokens": [
+      "OK",
+      "1",
+      "6d697373696e673a3a636f6c6c6973696f6e",
+      "5f5f64656661756c745f746f7069635f5f"
+    ]
+  },
+  {
+    "id": "literal_topic_sentinel",
+    "mode": "config",
+    "xml": "<contact><collision>__default__</collision><topic>__default_topic__</topic></contact>",
+    "tokens": [
+      "OK",
+      "1",
+      "5f5f64656661756c745f5f",
+      "5f5f64656661756c745f746f7069635f5f"
+    ]
+  },
+  {
+    "id": "sensor_default",
+    "mode": "sensor",
+    "xml": "<sensor name='s' type='contact'/>",
+    "tokens": [
+      "OK",
+      "73",
+      "636f6e74616374",
+      "-",
+      "-",
+      "-",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408",
+      "1",
+      "5f5f64656661756c745f5f",
+      "5f5f64656661756c745f746f7069635f5f"
+    ]
+  },
+  {
+    "id": "sensor_flags",
+    "mode": "sensor",
+    "xml": "<sensor name='s' type='contact'><update_rate>-5</update_rate><always_on>true</always_on><visualize>true</visualize><enable_metrics>true</enable_metrics><contact><collision>c</collision><collision>c</collision><topic>/contacts</topic></contact></sensor>",
+    "tokens": [
+      "OK",
+      "73",
+      "636f6e74616374",
+      "-",
+      "-",
+      "-",
+      "13840687554816376832",
+      "1",
+      "1",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408",
+      "2",
+      "63",
+      "63",
+      "2f636f6e7461637473"
+    ]
+  },
+  {
+    "id": "sensor_escaped_pose",
+    "mode": "sensor",
+    "xml": "<sensor name='s&amp;b' type='contact'><frame_id>f&lt;b</frame_id><topic>/outer&amp;b</topic><pose relative_to='missing&amp;frame' rotation_format='quat_xyzw'>1 -2 3 0 0 0 -1</pose><update_rate>10.5</update_rate><contact><collision><![CDATA[arm  foot]]></collision><collision>missing::c</collision><topic><![CDATA[other  channel]]></topic></contact></sensor>",
+    "tokens": [
+      "OK",
+      "732662",
+      "636f6e74616374",
+      "663c62",
+      "2f6f757465722662",
+      "6d697373696e67266672616d65",
+      "4622100592565682176",
+      "0",
+      "0",
+      "0",
+      "4607182418800017408",
+      "13835058055282163712",
+      "4613937818241073152",
+      "0",
+      "0",
+      "0",
+      "13830554455654793216",
+      "2",
+      "61726d2020666f6f74",
+      "6d697373696e673a3a63",
+      "6f7468657220206368616e6e656c"
+    ]
+  },
+  {
+    "id": "typed_edits",
+    "mode": "config",
+    "xml": "<contact><collision><![CDATA[changed  collision]]></collision><collision>b</collision><collision>a</collision><topic><![CDATA[topic  changed]]></topic></contact>",
+    "tokens": [
+      "OK",
+      "3",
+      "6368616e6765642020636f6c6c6973696f6e",
+      "62",
+      "61",
+      "746f70696320206368616e676564"
+    ]
+  }
+]

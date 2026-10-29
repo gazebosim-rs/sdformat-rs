@@ -14,6 +14,7 @@ mod altimeter_xml;
 mod axis_xml;
 mod camera;
 mod camera_xml;
+mod contact_xml;
 mod force_torque_xml;
 mod frame_xml;
 mod graph;
@@ -135,6 +136,12 @@ pub fn load_air_speed_str(xml: &str, source: &str) -> Result<AirSpeed, Diagnosti
 /// Legacy roots remain supported by document parsing, outside this root API.
 pub fn load_lidar_str(xml: &str, source: &str) -> Result<Lidar, Diagnostic> {
     parse::load_lidar_element(xml, source)
+}
+
+/// Load unattached Contact Sensor metadata without resolving collision names.
+/// This `<contact>` grammar is distinct from physical Surface contact settings.
+pub fn load_contact_sensor_str(xml: &str, source: &str) -> Result<ContactSensor, Diagnostic> {
+    parse::load_contact_sensor_element(xml, source)
 }
 
 /// Load bounded current-schema base-camera XML. Unsupported advanced payloads

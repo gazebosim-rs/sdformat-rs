@@ -2,17 +2,17 @@
   "decision": "approved",
   "author": "sdformat_owner",
   "reviewer": "integration_reviewer",
-  "source_digest": "498785968dec10cfe94f851c98677d293c78fe3af53540de78b454a9ec85822b",
-  "protected_digest": "817ee38050728fb5c206f1084a834cc5ab0fff2f69ff4741676b1439049964c5",
-  "scope": "Canonical Camera Sensor XML delegating existing Camera guards and an independently reviewed temporary Rust capability transition.",
+  "source_digest": "fd3737c9982f5aa5bfd6713c9b98bdad9c236b28d76d867d2765c6b2f533f2d7",
+  "protected_digest": "b8df4927914d5d391f709f96d7c5a94a57b6cb2e935d3c5b2f9be6dee2896093",
+  "scope": "Bounded Contact Sensor collision/topic metadata and canonical Sensor XML, preserving native Load/Element semantics without native producer-parity or original-credit claim.",
   "checks": [
-    "Fresh final independent source/owned target passed 23 Rust checks.",
-    "Fresh helper replay passed 38 native inputs, 32 actual Rust XML exchanges and unchanged Camera.ToElement; recorded dynamic-library identities matched.",
-    "Verified extracted Camera projection/bounds bodies are unchanged after visibility extraction, all 84 fields and both direct pose bounds, exact full-document transition and eight retained generic-read/native-schema differences.",
-    "Final source/prose preserve constructor/name/presence/native assertions, advanced payload and Joint guards, no added original credit; prior export-byte comparisons remain author evidence."
+    "Fresh independent source/owned target passed 11 relevant Rust checks, including unchanged Contact/85-observation controls.",
+    "Fresh helper replay passed 16 native inputs, 17 actual XML exchanges, native producer nonnull plus ELEMENT_INVALID9 observation and unchanged DOMLink.Sensors.",
+    "Reviewed safe CDATA versus escaped-text policy, explicit unrepresentable-string errors, ordered duplicates/defaults/typed edits/caller diagnostics, pure node extraction and FT-only Joint boundary.",
+    "Audited retained Sensor originals: no Contact producer-failure assertion is displaced; final metadata keeps prior 172-byte comparisons as author evidence."
   ],
   "remaining": [
     "One normal strict staged hook and exact hosted CI.",
-    "No camera runtime, advanced family, plugin/Joint serialization or loaded Element identity qualification."
+    "No native Contact writer parity, collision/runtime resolution, Joint serialization or extra original credit."
   ]
 }

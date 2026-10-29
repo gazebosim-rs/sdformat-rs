@@ -271,6 +271,33 @@ pub(crate) fn load_altimeter_element(xml: &str, uri: &str) -> Result<Altimeter, 
     parser.altimeter_node(root)
 }
 
+pub(crate) fn load_contact_sensor_element(
+    xml: &str,
+    uri: &str,
+) -> Result<ContactSensor, Diagnostic> {
+    let resolver = NoResources;
+    let parser = Parser {
+        uri,
+        xml,
+        resolver: &resolver,
+        includes: vec![uri.into()],
+    };
+    let document = Document::parse(xml).map_err(|error| Diagnostic {
+        code: error.code,
+        source: Source {
+            uri: uri.into(),
+            line: error.pos().row,
+            column: error.pos().col,
+        },
+        message: error.to_string(),
+    })?;
+    let root = document.root_element();
+    if !root.has_tag_name("contact") {
+        return Err(parser.err(root, ErrorCode::Xml, "root element must be contact"));
+    }
+    parser.contact_node(root)
+}
+
 pub(crate) fn load_lidar_element(xml: &str, uri: &str) -> Result<Lidar, Diagnostic> {
     let resolver = NoResources;
     let parser = Parser {
@@ -3050,6 +3077,9 @@ impl Parser<'_> {
         let Some(node) = child(sensor, "contact") else {
             return Ok(ContactSensor::default());
         };
+        self.contact_node(node)
+    }
+    fn contact_node(&self, node: Node<'_, '_>) -> Result<ContactSensor, Diagnostic> {
         self.allowed(node, &["collision", "topic"], &[])?;
         let mut collisions = elements(node)
             .filter(|value| value.has_tag_name("collision"))

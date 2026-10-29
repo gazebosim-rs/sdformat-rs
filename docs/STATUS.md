@@ -3185,3 +3185,20 @@ Final independent review passed 23 Rust checks in fresh source/target, all
 helper/transition/read-output scope verified; prior bytes remain author evidence.
 Normal strict staged/hosted gates remain pending, no extra original credit: accepted ledger stays 184/28.
 See CAMERA_SENSOR_XML.md and reference/camera-sensor-xml.json for the disposition.
+
+
+## Candidate Contact Sensor XML
+
+Ordered collision/topic XML and canonical Contact Sensor output reuse existing
+node parsing. Four new/seven unchanged tests pass; native proof passes 16 inputs,
+17 actual Load/Element exchanges and unchanged DOMLink.Sensors. Native producer
+limitation (nonnull + ELEMENT_INVALID 9) and safe CDATA/explicit unrepresentable
+text bounds are recorded. No collision resolution, writer parity, identity or
+new original credit is inferred. Author 476 Rust tests/Clippy, existing Contact85
+proof, ten prior helper replays and all 172 prior XML byte comparisons pass.
+Independent review passed eleven Rust checks in fresh source/target, sixteen
+native inputs, seventeen actual outputs, exact producer observation and unchanged
+DOMLink.Sensors. Text/error boundaries and source audit approved; prior byte
+comparisons remain author evidence. Normal strict staged/hosted qualification
+remains pending; accepted stays 184/28.
+See CONTACT_XML.md for scope.

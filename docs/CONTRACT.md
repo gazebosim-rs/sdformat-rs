@@ -1067,3 +1067,13 @@ retaining both poses and the existing optics/name/precision guards. Other camera
 kinds and plugin/Joint payloads remain unsupported; parser/public constructor
 values stay unchanged. See [CAMERA_SENSOR_XML.md](CAMERA_SENSOR_XML.md). No extra
 upstream-original credit or rendering/runtime parity is implied.
+
+
+## Contact Sensor XML
+
+ContactSensor::to_xml/load_contact_sensor_str preserve ordered collision strings
+and topic with native-compatible text/CDATA handling. Canonical contact Sensor
+output retains envelope metadata; collision resolution and consumer topic fallback
+are separate. Native Sensor.ToElement lacks this producer, so qualification is
+native Load/Element field preservation, not native writer parity or new original
+credit. See [CONTACT_XML.md](CONTACT_XML.md).

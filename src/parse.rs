@@ -797,8 +797,9 @@ impl Parser<'_> {
         attrs: &[&str],
         extra_repeated: &[&str],
     ) -> Result<(), Diagnostic> {
+        let extra_repeated: BTreeSet<_> = extra_repeated.iter().copied().collect();
         for attr in node.attributes() {
-            if attr.namespace().is_some() || !attrs.contains(&attr.name()) {
+            if !attrs.contains(&attr.name()) {
                 return Err(self.err(
                     node,
                     ErrorCode::Unsupported,
@@ -813,7 +814,7 @@ impl Parser<'_> {
         for child in elements(node) {
             // Additional names are admitted only when the caller lists them.
             let name = child.tag_name().name();
-            if !(children.contains(&name) || extra_repeated.contains(&name)) {
+            if !(children.contains(&name) || extra_repeated.contains(name)) {
                 return Err(self.err(
                     child,
                     ErrorCode::Unsupported,
@@ -843,7 +844,7 @@ impl Parser<'_> {
         let mut seen = BTreeSet::new();
         for child in elements(node) {
             let name = child.tag_name().name();
-            if !repeated.contains(&name) && !extra_repeated.contains(&name) && !seen.insert(name) {
+            if !repeated.contains(&name) && !extra_repeated.contains(name) && !seen.insert(name) {
                 return Err(self.err(
                     child,
                     ErrorCode::InvalidValue,
@@ -3878,6 +3879,12 @@ impl Parser<'_> {
             .attr(node, "type")?
             .trim_matches([' ', '\t', '\n'])
             .to_owned();
+        let custom_type = (kind == "custom")
+            .then(|| {
+                node.attribute("gz:type")
+                    .map(|value| value.trim_matches([' ', '\t', '\n']).to_owned())
+            })
+            .flatten();
         let custom_element = if kind == "custom" {
             elements(node).find(|child| child.tag_name().namespace().is_some())
         } else {
@@ -3907,11 +3914,26 @@ impl Parser<'_> {
             "lidar",
             "camera",
         ];
+        // Unknown direct children of custom sensors are native extension data.
+        // Keep each original subtree instead of assigning schema or runtime meaning.
+        let custom_fields: BTreeSet<_> = elements(node)
+            .filter(|child| {
+                kind == "custom" && !allowed_children.contains(&child.tag_name().name())
+            })
+            .map(|child| child.tag_name().name())
+            .collect();
         if let Some(extension) = custom_element {
             allowed_children.push(extension.tag_name().name());
         }
         // The unknown legacy spelling is copied as opaque XML, never a boolean alias.
-        self.allowed_repeated(node, &allowed_children, &["name", "type"], &["alwaysOn"])?;
+        let attrs: &[&str] = if kind == "custom" {
+            &["name", "type", "gz:type"]
+        } else {
+            &["name", "type"]
+        };
+        let mut repeated = vec!["alwaysOn"];
+        repeated.extend(custom_fields.iter().copied());
+        self.allowed_repeated(node, &allowed_children, attrs, &repeated)?;
         if !matches!(
             kind.as_str(),
             "imu"
@@ -4058,6 +4080,8 @@ impl Parser<'_> {
             | "wireless_receiver"
             | "wireless_transmitter" => SensorConfig::Unconfigured,
             "custom" => SensorConfig::Custom(CustomSensor {
+                custom_type,
+                xml: self.xml[node.range()].to_owned(),
                 element_name: custom_element
                     .map(|extension| extension.tag_name().name().to_owned())
                     .unwrap_or_default(),
@@ -4089,7 +4113,10 @@ impl Parser<'_> {
             always_on,
             visualize: self.boolean(node, "visualize", false)?,
             extensions: elements(node)
-                .filter(|child| child.tag_name().name() == "alwaysOn")
+                .filter(|child| {
+                    child.tag_name().name() == "alwaysOn"
+                        || custom_fields.contains(child.tag_name().name())
+                })
                 .map(|child| self.extension_metadata(child))
                 .collect(),
             enable_metrics,

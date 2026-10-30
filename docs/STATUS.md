@@ -3560,3 +3560,22 @@ that guard unchanged and passed independent review. The next retry encountered
 unmapped declaration lines; syntax proof 074f77c has since passed exact hosted
 run 41059379474. This additive rebase passed independent re-review; a fresh normal staged run
 and exact hosted qualification remain required.
+
+The reviewed custom-sensor metadata change loads the unchanged environmental
+sensor world with unbound `gz:type`, preserves optional subtype and arbitrary
+ordered opaque direct children, and retains exact raw sensor XML. Author 585 Rust tests, 36 tools and Clippy pass. Independent fresh replay
+passed seven new Rust controls and eleven native observations; the coordinator
+reviewed the corrected bounded field membership with no remaining findings.
+Protected staged verification and exact hosted CI remain pending. The monorepo producer
+pin and original-test ledger are unchanged. See CUSTOM_SENSOR_METADATA.md.
+
+
+The bounded syntax-proof follow-up admits only plain String/Option<String>
+field declarations and exclusive AST-confirmed else delimiters. Independent
+coordinator source review and fresh own-target 16 helper/39 tooling tests passed,
+including real LLVM DA0 and region controls. Existing Vec boundaries and measured
+DA/region authority remain. The custom-sensor source previously passed independent
+seven-Rust/eleven-native replay; its additional Default/Clone/Debug ownership test
+also passed author focused replay and independent source review. The first failed
+staged hook is retained; a full combined protected staged run and exact hosted CI
+remain required. No thresholds, consumer pin or original-case counts changed.

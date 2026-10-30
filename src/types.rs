@@ -1224,7 +1224,7 @@ pub struct Sensor {
     pub always_on: bool,
     /// Canonical GUI-visualization metadata; this does not run a visualizer.
     pub visualize: bool,
-    /// Qualified opaque sensor children; currently only the unknown `alwaysOn` tag.
+    /// Opaque `alwaysOn` metadata and unknown direct custom-sensor children, in order.
     /// This is independent of the canonical `always_on` boolean.
     pub extensions: Vec<ExtensionMetadata>,
     pub enable_metrics: bool,
@@ -1418,10 +1418,16 @@ pub enum SensorConfig {
     Lidar(Box<Lidar>),
     Camera(Box<Camera>),
 }
-/// Direct text values from one vendor extension child of a custom sensor.
-/// The original subtree remains in `Sensor::configuration_xml`.
+/// Custom sensor subtype and original XML, without executing sensor behavior.
+/// The legacy first vendor child remains in `Sensor::configuration_xml`;
+/// all opaque direct children remain ordered in `Sensor::extensions`.
 #[derive(Debug, Default, Clone, PartialEq)]
 pub struct CustomSensor {
+    /// Native string value of `gz:type`, including explicit empty presence.
+    /// This selects metadata only; it never activates a simulator system.
+    pub custom_type: Option<String>,
+    /// Exact original sensor span, including subtype attribute spelling and whitespace.
+    pub xml: String,
     pub element_name: String,
     pub parameters: Vec<(String, String)>,
 }

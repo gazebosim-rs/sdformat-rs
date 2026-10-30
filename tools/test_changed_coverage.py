@@ -9,8 +9,8 @@ from unittest.mock import patch
 import verify
 
 
-def syntax(*, fields=(), closings=(), opaque=(), declarations=(), items=()):
-    return lambda _path, _source: dict(fields=set(fields), closings=set(closings), opaque=set(opaque), declarations=set(declarations), items=set(items))
+def syntax(*, fields=(), closings=(), opaque=(), declarations=(), items=(), else_delimiters=()):
+    return lambda _path, _source: dict(fields=set(fields), closings=set(closings), opaque=set(opaque), declarations=set(declarations), items=set(items), else_delimiters=set(else_delimiters))
 
 
 class ChangedCoverageTests(unittest.TestCase):
@@ -63,12 +63,12 @@ class ChangedCoverageTests(unittest.TestCase):
     def test_syntax_helper_output_and_coverage_priority_fail_closed(self):
         import json
         source = "pub struct World {\n    pub extensions: Vec<Thing>,\n}\n"
-        value = {'source': source, 'helper_source': 'reviewed helper', 'ancestor': 'mod types;', 'module': 'types', 'fields': [2], 'closings': [], 'opaque': [], 'declarations': [], 'items': []}
+        value = {'source': source, 'helper_source': 'reviewed helper', 'ancestor': 'mod types;', 'module': 'types', 'fields': [2], 'closings': [], 'opaque': [], 'declarations': [], 'items': [], 'else_delimiters': []}
         prefix = "\nrunning 1 test\nSDF_COVERAGE_SYNTAX_V1="
         suffix = "\ntest syntax_query ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.01s\n\n"
         output = lambda item: prefix + json.dumps(item) + suffix
         self.assertEqual(verify.parse_syntax_output(output(value), source, 'reviewed helper', 'mod types;', 'types')['fields'], {2})
-        for broken in [dict(value, source=source + ' '), dict(value, helper_source='stale helper'), dict(value, ancestor='stale context'), dict(value, module='wrong'), dict(value, fields=[2, 2]), dict(value, fields=[4]), dict(value, fields=[True]), dict(value, extra=[]), dict(value, opaque='bad')]:
+        for broken in [dict(value, source=source + ' '), dict(value, helper_source='stale helper'), dict(value, ancestor='stale context'), dict(value, module='wrong'), dict(value, fields=[2, 2]), dict(value, fields=[4]), dict(value, fields=[True]), dict(value, else_delimiters=[2, 2]), dict(value, else_delimiters=[True]), dict(value, else_delimiters=[4]), dict(value, extra=[]), dict(value, opaque='bad')]:
             with self.subTest(broken=broken), self.assertRaises(AssertionError):
                 verify.parse_syntax_output(output(broken), source, 'reviewed helper', 'mod types;', 'types')
         for broken in [output(value).replace('SYNTAX_V1', 'SYNTAX_V0'), output(value) + 'unexpected', prefix + '{bad' + suffix, output(value).replace('{\"source\":', '{\"source\":\"duplicate\",\"source\":', 1)]:
@@ -219,3 +219,35 @@ class ChangedCoverageTests(unittest.TestCase):
             with patch.dict(os.environ, {'SDF_COVERAGE_BASE': 'not-a-commit'}, clear=True):
                 with self.assertRaises(subprocess.CalledProcessError):
                     verify.changed_manifest(root)
+
+class CustomMetadataSyntaxTests(unittest.TestCase):
+    def test_only_proven_plain_string_field_declarations_are_syntax(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp); (root / 'src').mkdir()
+            file = root / 'src/types.rs'
+            file.write_text('fn f() {}\npub raw: String,\npub subtype: Option<String>,\npub nested: Option<Vec<String>>,\npub inline: String, fn hidden() {}\npub expression: [u8; { fn hidden() {} 1 }],\n')
+            covered = {(file.resolve(), 1): True}
+            proof = syntax(fields=range(2, 7))
+            self.assertEqual(verify.check_changed_coverage(root, {'lines': {('src/types.rs', 2), ('src/types.rs', 3)}}, covered, syntax_provider=proof), [])
+            for line in (4, 5, 6):
+                with self.assertRaisesRegex(AssertionError, 'no instrumented executable'):
+                    verify.check_changed_coverage(root, {'lines': {('src/types.rs', 1), ('src/types.rs', line)}}, covered, syntax_provider=proof)
+            with self.assertRaisesRegex(AssertionError, 'changed executable'):
+                verify.check_changed_coverage(root, {'lines': {('src/types.rs', 2)}}, covered | {(file.resolve(), 2): False}, syntax_provider=proof)
+
+    def test_else_tokens_require_real_exclusive_proof_and_never_override_da(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp); (root / 'src').mkdir(); file = root / 'src/parse.rs'
+            file.write_text('fn f() {}\n} else {\n} else { hidden();\n} else if condition() {\n')
+            covered = {(file.resolve(), 1): True}
+            proof = syntax(else_delimiters=[2, 3, 4])
+            self.assertEqual(verify.check_changed_coverage(root, {'lines': {('src/parse.rs', 2)}}, covered, syntax_provider=proof), [])
+            with self.assertRaisesRegex(AssertionError, 'no instrumented executable'):
+                verify.check_changed_coverage(root, {'lines': {('src/parse.rs', 2)}}, covered, syntax_provider=syntax())
+            for line in (3, 4):
+                with self.assertRaisesRegex(AssertionError, 'no instrumented executable'):
+                    verify.check_changed_coverage(root, {'lines': {('src/parse.rs', 1), ('src/parse.rs', line)}}, covered, syntax_provider=proof)
+            with self.assertRaisesRegex(AssertionError, 'changed executable'):
+                verify.check_changed_coverage(root, {'lines': {('src/parse.rs', 2)}}, covered | {(file.resolve(), 2): False}, syntax_provider=proof)
+            with self.assertRaisesRegex(AssertionError, 'opaque syntax'):
+                verify.check_changed_coverage(root, {'lines': {('src/parse.rs', 2)}}, covered, syntax_provider=syntax(else_delimiters=[2], opaque=[2]))

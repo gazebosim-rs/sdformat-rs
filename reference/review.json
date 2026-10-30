@@ -1,20 +1,19 @@
 {
   "decision": "approved",
-  "author": "sdformat_owner_terra",
-  "reviewer": "integration_reviewer",
-  "source_digest": "54d2754b5111aec30a1b058f2a2c1bca62a4f3cc9cc3b49b0cd9e5fae8b011a9",
-  "protected_digest": "5a81abffcb8f1130d91bc658470f33f49b3ff28b7df3c4f2ab7f0db2a8028e65",
-  "scope": "Separately bounded import/static compile-time declaration evidence; six tooling/documentation paths only.",
+  "author": "integration_reviewer",
+  "reviewer": "Root",
+  "source_digest": "fdd24e6cef0c7d0b4e8979b64945b99def96be1a7e11ec5b8fec1b2e0a124cb5",
+  "protected_digest": "4863a020c6612551761385dd801e7a079da417706b47938838e920aa47410ed9",
+  "scope": "Custom sensor owned metadata and bounded existing AST proof for nonexecuting String/Option<String> declarations and exclusive else delimiters; no runtime activation or pin change.",
   "checks": [
-    "Fresh exact b7 baseline reviewer export/owned target passed13 unconditional Rust helper tests,34 Python tooling controls and all-target Clippy. All four executable/test paths byte-match; other baseline tracked files unchanged except accurate two-document scope/evidence append.",
-    "Explicit final compiled-helper query proved six actual world-candidate declaration lines; this manual check is separate from unconditional test counts. Optional assertion-free environment test was removed before approval.",
-    "Reviewed recursive plain-type grammar rejecting executable const-block/array/type-macro/associated/generic expression bodies; static initializer only unannotated zero-argument plain path call, with LF-exclusive complete item spans and file/module/direct-unannotated-function context.",
-    "Real rustc-accepted closures, type macros, const-generic/array hidden function bodies and custom attributes are refused. Real LLVM uncovered DA0 rejects even forged positive syntax evidence; real region failure independently rejects, with existing source/helper/context protocol identity retained.",
-    "Source selectors, measured DA/region authority and strictly-greater-than95 thresholds unchanged. No ordinary operator/literal proof and no waiver for the separate legacy merge blocker.",
-    "Additive rebase on exact hosted accepted074f77ce independently checked:12 substantive producer/data/test/proof/binding files byte-identical to reviewed d4abf902; verifier differs from accepted parent only by reviewed exact data-asset digest and actual production-library dep-info binding. Accepted syntax helper/protocol and all other parent files retained; no source-selector/DA/region/threshold change. Two prose merges preserve accepted-parent context and prior failed-hook evidence. No duplicate native/build replay claimed; fresh entire normal staged and exact hosted qualification remain required."
+    "Independent source review verified exact custom-only attribute admission, full QName allowlists, preserved singleton checks, legacy vendor metadata and source order. BTreeSet membership fixes the reviewed quadratic scan without changing duplicate retention.",
+    "Fresh independent Cargo target passed all seven environmental custom sensor tests, including 4096 distinct ordered fields and repeated values with exact source locations.",
+    "Fresh independent C++ compilation and replay matched all eleven native observations and recorded source/header/library identities. Existing test assertions, test mappings, dependencies, coverage selectors and thresholds remain unchanged.",
+    "Independent source review of the six-path proof follow-up preserved measured DA0 and actual region authority, prior Vec grammar, opaque contexts and exact helper/source/context identity. Only plain String/Option<String> declarations and exclusive real AST else delimiters are newly proved nonexecuting.",
+    "Fresh independent reviewer source/target passed sixteen Rust syntax helper tests; thirty-nine tooling controls passed, including actual rustc/LLVM uncovered-branch and region failures. The added public metadata Default/Clone/Debug ownership test was separately source reviewed; it is not a syntax proof or a native test port."
   ],
   "remaining": [
-    "Mandatory normal staged and exact hosted qualification before acceptance.",
-    "Broader syntax remains fail-closed; no runtime/producer behavior or original-count claim."
+    "Full combined normal staged checks and exact hosted CI remain required after the retained first failed syntax-mapping gate.",
+    "No full custom sensor runtime, broad serializer or simulator consumer compatibility claim."
   ]
 }

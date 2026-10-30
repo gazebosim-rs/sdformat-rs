@@ -68,3 +68,48 @@ normal coverage threshold. A separate actual-source query covered the six
 unmapped declaration lines in the world-metadata candidate. Normal staged and
 exact hosted checks remain required before accepting this tooling change. No
 ordinary executable operator or literal is classified by this proof.
+
+## Plain owned string fields and exclusive else delimiters
+
+The private follow-up extends field evidence only to `pub NAME: String,` and
+`pub NAME: Option<String>,`. Syn must identify a public named field with an
+unqualified plain type path, exactly one plain `String` argument for `Option`,
+and doc-only field attributes. Arrays, references, other option arguments,
+nested generics, const arguments, type macros, qualified paths and trailing
+source remain outside this rule. Standard source and ancestor scope is still
+required. These two shapes permit only the already audited unqualified standard
+Debug/Default/Clone/Copy/PartialEq/Eq derives and docs. The existing Vec rule and
+its narrower derive predicate are unchanged; every earlier negative remains.
+
+The separate `else_delimiters` evidence identifies a real `syn::ExprIf` whose
+then-block closing brace, `else` token and plain else-block opening brace share
+one physical LF line in that order. The line must contain only `} else {` and
+whitespace. Existing untransformed function/module/ancestor checks apply. Raw
+strings, macro tokens, attributes, `else if`, inline bodies and other source on
+the delimiter line fail closed. Both the helper and verifier enforce the
+exclusive line spelling; the helper response retains exact source, ancestor,
+module and helper-source identity. Unknown, stale, missing or malformed evidence
+continues to fail.
+
+These are syntax-only line classifications. Actual DA records take priority,
+including an uncovered record on a purported syntax line. Per-file
+instrumentation, measured changed-line coverage and aggregate line/region
+thresholds are unchanged. No runtime expression or new source exclusion is
+introduced.
+
+Author checks pass: 16 helper tests, all 39 tooling tests and targeted Clippy.
+New compiler-backed negative fields contain real hidden function bodies or type
+macros. A separate real module is compiled and run with LLVM instrumentation;
+its String/Option fields and exclusive else line receive syntax evidence while
+a real unexecuted branch has DA0 and fails even if evidence is forged in any new
+category. The earlier real hidden-body and region-failure controls are retained.
+An explicit helper query also proves the three actual custom-sensor candidate
+lines; this is separate from normal test counts and does not replace staged
+verification. Against retained LLVM data and exact unchanged producer source,
+the diagnostic now measures 28/28 executable changed lines and proves only the
+three previously identified unmapped declarations/delimiter. This is not a
+staged-gate pass. Independent coordinator source review and fresh own-target
+replay passed all 16 helper tests and all 39 tooling tests, including the real
+LLVM DA0 and region controls, with no remaining findings. Full protected staged
+and exact hosted qualification remain pending. The public custom-metadata Default/Clone/Debug test belongs to
+the separate producer candidate, not this tooling test count.

@@ -26,6 +26,27 @@ fn debug_or_docs(attributes: &[syn::Attribute]) -> bool {
     })
 }
 
+// Keep the historical Vec derive boundary; only the two new field shapes
+// use this broader set of known built-ins under the same proven scope.
+fn string_field_derives_or_docs(attributes: &[syn::Attribute]) -> bool {
+    attributes.iter().all(|attribute| {
+        docs_only(std::slice::from_ref(attribute))
+            || (attribute.path().is_ident("derive")
+                && attribute
+                    .parse_args_with(
+                        syn::punctuated::Punctuated::<syn::Path, syn::Token![,]>::parse_terminated,
+                    )
+                    .is_ok_and(|paths| {
+                        !paths.is_empty()
+                            && paths.iter().all(|path| {
+                                ["Debug", "Default", "Clone", "Copy", "PartialEq", "Eq"]
+                                    .iter()
+                                    .any(|name| path.is_ident(name))
+                            })
+                    }))
+    })
+}
+
 fn exposes_builtin(tree: &syn::UseTree) -> bool {
     match tree {
         syn::UseTree::Path(path) => exposes_builtin(&path.tree),
@@ -146,6 +167,38 @@ fn public_vec_ident(field: &syn::Field) -> bool {
     item.qself.is_none()
         && item.path.segments.len() == 1
         && matches!(item.path.segments[0].arguments, PathArguments::None)
+}
+fn public_string_field(field: &syn::Field) -> bool {
+    if !matches!(field.vis, Visibility::Public(_)) {
+        return false;
+    }
+    let Type::Path(ty) = &field.ty else {
+        return false;
+    };
+    if ty.qself.is_some() || ty.path.leading_colon.is_some() || ty.path.segments.len() != 1 {
+        return false;
+    }
+    let segment = &ty.path.segments[0];
+    if segment.ident == "String" && matches!(segment.arguments, PathArguments::None) {
+        return true;
+    }
+    if segment.ident != "Option" {
+        return false;
+    }
+    let PathArguments::AngleBracketed(args) = &segment.arguments else {
+        return false;
+    };
+    if args.colon2_token.is_some() || args.args.len() != 1 || args.args.trailing_punct() {
+        return false;
+    }
+    let GenericArgument::Type(Type::Path(inner)) = &args.args[0] else {
+        return false;
+    };
+    inner.qself.is_none()
+        && inner.path.leading_colon.is_none()
+        && inner.path.segments.len() == 1
+        && inner.path.segments[0].ident == "String"
+        && matches!(inner.path.segments[0].arguments, PathArguments::None)
 }
 struct Audit {
     opaque: bool,
@@ -284,6 +337,7 @@ struct CallAudit {
     in_function: bool,
     type_attributes: bool,
     closings: BTreeSet<usize>,
+    else_delimiters: BTreeSet<usize>,
 }
 impl<'ast> Visit<'ast> for CallAudit {
     fn visit_attribute(&mut self, attr: &'ast syn::Attribute) {
@@ -346,6 +400,29 @@ impl<'ast> Visit<'ast> for CallAudit {
     }
     fn visit_item_macro(&mut self, _: &'ast syn::ItemMacro) {
         self.opaque = true;
+    }
+    fn visit_expr_if(&mut self, expression: &'ast syn::ExprIf) {
+        if self.in_function
+            && docs_only(&expression.attrs)
+            && let Some((token, branch)) = &expression.else_branch
+            && let syn::Expr::Block(block) = &**branch
+            && docs_only(&block.attrs)
+        {
+            let close = expression.then_branch.brace_token.span.close();
+            let open = block.block.brace_token.span.open();
+            let line = token.span.start().line;
+            if close.start().line == line
+                && close.end().line == line
+                && token.span.end().line == line
+                && open.start().line == line
+                && open.end().line == line
+                && close.end().column <= token.span.start().column
+                && token.span.end().column <= open.start().column
+            {
+                self.else_delimiters.insert(line);
+            }
+        }
+        visit::visit_expr_if(self, expression);
     }
     fn visit_expr_call(&mut self, expression: &'ast syn::ExprCall) {
         if self.in_function {
@@ -478,6 +555,7 @@ fn context_lines(source: &str, ancestor: &str, module: &str) -> BTreeSet<usize> 
 struct Evidence {
     fields: BTreeSet<usize>,
     closings: BTreeSet<usize>,
+    else_delimiters: BTreeSet<usize>,
     opaque: BTreeSet<usize>,
     declarations: BTreeSet<usize>,
     items: BTreeSet<usize>,
@@ -489,12 +567,13 @@ fn classify(source: &str, ancestor: &str, module: &str) -> Result<Evidence, syn:
     let standard_scope = standard_debug_scope(&syntax, &ancestor_syntax, module);
     if standard_scope {
         for item in &syntax.items {
-            if let Item::Struct(item) = item
-                && debug_or_docs(&item.attrs)
-            {
+            if let Item::Struct(item) = item {
+                let legacy_vec_scope = debug_or_docs(&item.attrs);
+                let string_scope = string_field_derives_or_docs(&item.attrs);
                 for field in &item.fields {
                     if docs_only(&field.attrs)
-                        && public_vec_ident(field)
+                        && ((legacy_vec_scope && public_vec_ident(field))
+                            || (string_scope && public_string_field(field)))
                         && let Some(name) = &field.ident
                     {
                         fields.insert(name.span().start().line);
@@ -518,8 +597,15 @@ fn classify(source: &str, ancestor: &str, module: &str) -> Result<Evidence, syn:
         in_function: false,
         type_attributes: false,
         closings: BTreeSet::new(),
+        else_delimiters: BTreeSet::new(),
     };
     calls.visit_file(&syntax);
+    let lines: Vec<_> = source.split('\n').collect();
+    calls.else_delimiters.retain(|line| {
+        lines
+            .get(line - 1)
+            .is_some_and(|text| text.trim() == "} else {")
+    });
     // AncestorAudit rejects attributes, extern crates and item macros across
     // the entire ancestor, independent of any builtin-name imports.
     let mut ancestor_audit = CallAncestorAudit { opaque: false };
@@ -540,6 +626,7 @@ fn classify(source: &str, ancestor: &str, module: &str) -> Result<Evidence, syn:
         || !docs_only(&modules[0].attrs)
     {
         calls.closings.clear();
+        calls.else_delimiters.clear();
     }
     if audit.opaque || audit.item_macro {
         fields.clear();
@@ -551,6 +638,7 @@ fn classify(source: &str, ancestor: &str, module: &str) -> Result<Evidence, syn:
     Ok(Evidence {
         fields,
         closings: calls.closings,
+        else_delimiters: calls.else_delimiters,
         opaque: audit.opaque_lines,
         declarations: audit.declarations,
         items: context_lines(source, ancestor, module),
@@ -575,7 +663,7 @@ fn syntax_query() {
     let evidence = classify(source, ancestor, module).expect("source must parse");
     println!(
         "SDF_COVERAGE_SYNTAX_V1={}",
-        serde_json::json!({"source": source, "ancestor": ancestor, "module": module, "helper_source": include_str!("coverage_syntax.rs"), "fields": evidence.fields, "closings": evidence.closings, "opaque": evidence.opaque, "declarations": evidence.declarations, "items": evidence.items})
+        serde_json::json!({"source": source, "ancestor": ancestor, "module": module, "helper_source": include_str!("coverage_syntax.rs"), "fields": evidence.fields, "closings": evidence.closings, "else_delimiters": evidence.else_delimiters, "opaque": evidence.opaque, "declarations": evidence.declarations, "items": evidence.items})
     );
 }
 
@@ -987,4 +1075,146 @@ fn source_and_ancestor_context_fail_closed() {
         context_lines(unicode, "mod parse;", "parse"),
         (1..=3).collect()
     );
+}
+
+#[test]
+fn string_field_shapes_are_bounded_without_widening_legacy_vec_proof() {
+    let source = "#[derive(Debug, Default, Clone, PartialEq)]\npub struct Metadata {\n pub raw: String,\n pub subtype: Option<String>,\n}\n";
+    assert_eq!(
+        classify(source, "mod types;", "types").unwrap().fields,
+        BTreeSet::from([3, 4])
+    );
+    // The existing Vec predicate and its old multi-derive refusal stay intact.
+    assert!(
+        classify(
+            "#[derive(Debug, Clone)] pub struct World { pub extensions: Vec<Thing>, }",
+            "mod types;",
+            "types"
+        )
+        .unwrap()
+        .fields
+        .is_empty()
+    );
+    for ty in [
+        "Option<u8>",
+        "Option<String,>",
+        "Option::<String>",
+        "Option<Vec<String>>",
+        "Option<String, String>",
+        "String<Thing>",
+        "&'static str",
+        "[String; 1]",
+        "ty!()",
+        "::String",
+        "std::string::String",
+    ] {
+        let source = format!("pub struct Metadata {{\n pub raw: {ty},\n}}\n");
+        assert!(
+            classify(&source, "mod types;", "types")
+                .unwrap()
+                .fields
+                .is_empty(),
+            "{ty}"
+        );
+    }
+    for changed in [
+        source.replace("pub raw", "#[cfg(any())] pub raw"),
+        source.replace(
+            "#[derive(Debug, Default, Clone, PartialEq)]",
+            "#[custom::transform]",
+        ),
+    ] {
+        assert!(
+            !classify(&changed, "mod types;", "types")
+                .unwrap()
+                .fields
+                .contains(&3)
+        );
+    }
+    for ancestor in [
+        "#[custom::transform] mod types;",
+        "mod types; #[macro_use] extern crate custom;",
+        "mod types; macro_rules! later { () => {} }",
+    ] {
+        assert!(
+            classify(source, ancestor, "types")
+                .unwrap()
+                .fields
+                .is_empty()
+        );
+    }
+    assert!(
+        classify(
+            &format!("use custom::Debug;\n{source}"),
+            "mod types;",
+            "types"
+        )
+        .unwrap()
+        .fields
+        .is_empty()
+    );
+}
+
+#[test]
+fn else_delimiter_requires_exclusive_real_tokens_and_untransformed_context() {
+    let source = "fn f(x: bool) -> u8 {\n if x {\n  1\n } else {\n  2\n }\n}\n";
+    assert_eq!(
+        classify(source, "mod parse;", "parse")
+            .unwrap()
+            .else_delimiters,
+        BTreeSet::from([4])
+    );
+    assert_eq!(
+        classify(&source.replace('\n', "\r\n"), "mod parse;", "parse")
+            .unwrap()
+            .else_delimiters,
+        BTreeSet::from([4])
+    );
+    for changed in [
+        source.replace(" } else {", " } else { 7;"),
+        source.replace(" } else {", " } else if !x { 7 } else {"),
+        source.replace("fn f", "#[cfg(any())] fn f"),
+        source.replace("fn f", "#[custom::transform] fn f"),
+        format!("macro_rules! make {{ () => {{ {source} }} }}"),
+        "fn f() { let raw = r#\"\n} else {\n\"#; }".to_owned(),
+    ] {
+        assert!(
+            classify(&changed, "mod parse;", "parse")
+                .unwrap()
+                .else_delimiters
+                .is_empty(),
+            "{changed}"
+        );
+    }
+    for ancestor in [
+        "#[cfg(any())] mod parse;",
+        "#[custom::transform] mod parse;",
+        "mod parse; #[custom::transform] fn later() {}",
+    ] {
+        assert!(
+            classify(source, ancestor, "parse")
+                .unwrap()
+                .else_delimiters
+                .is_empty()
+        );
+    }
+}
+
+#[test]
+fn compiler_accepted_field_bodies_and_macros_receive_no_string_field_evidence() {
+    for source in [
+        "pub struct Metadata { pub raw: [u8; { #[unsafe(no_mangle)] pub extern \"C\" fn hidden() { std::hint::black_box(42); } 1 }], }",
+        "macro_rules! ty { () => { String } } pub struct Metadata { pub raw: ty!(), }",
+        "pub struct Metadata { pub raw: Option<Vec<String>>, }",
+        "pub struct Metadata { #[cfg(any())] pub raw: String, }",
+    ] {
+        compiles(source);
+        assert!(
+            classify(source, "mod types;", "types")
+                .unwrap()
+                .fields
+                .is_empty(),
+            "{source}"
+        );
+    }
 }

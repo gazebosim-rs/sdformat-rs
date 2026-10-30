@@ -1237,3 +1237,8 @@ This adds a field to public `World` struct literals and exhaustive destructuring
 Consumers must explicitly support or reject the metadata before adoption; no
 simulator dependency pin changes here. No Element identity or
 expanded XML serialization is implied; see [the boundary](WORLD_MERGE_EXTENSIONS.md).
+
+Custom sensor subtype and opaque direct-child metadata are described in
+[CUSTOM_SENSOR_METADATA.md](CUSTOM_SENSOR_METADATA.md). The parser preserves
+arbitrary custom subtype names, original XML and ordered unknown child subtrees;
+this does not enable sensor runtime behavior or custom XML output.

@@ -3463,3 +3463,16 @@ code. All 23 tooling tests pass. Independent fresh-export review passed all 23 t
 positive, mapped-uncovered and generic/path/trait/inline impostor controls.
 Normal staged/exact hosted qualification remains pending. No production source
 or threshold changes.
+
+## Candidate Collision XML
+
+Density commit 005fda0 passed independent review, the normal staged hook and
+exact hosted CI 41022794046. Accepted original mappings remain 201 complete/27
+partial. Gate correction 5172ee2 passed independent review and exact hosted CI
+41025131418. A separate Collision reader/writer candidate composes actual Empty
+geometry, density presence and bounded Surface metadata. All 556 author Rust tests and all-target Clippy pass. Six focused Rust tests,
+a native constructor fixture, two actual Rust-to-native exchanges and both
+unchanged native originals pass. Independent fresh-source review reproduced the six tests, native fixture, two
+exchanges and both originals with no findings. Strict gate and exact hosted
+qualification remain pending; no original credit is claimed. See
+[Collision XML](COLLISION_XML.md).

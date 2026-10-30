@@ -15,6 +15,7 @@ mod atmosphere_xml;
 mod axis_xml;
 mod camera;
 mod camera_xml;
+mod collision_xml;
 mod contact_xml;
 mod force_torque_xml;
 mod frame_xml;
@@ -189,6 +190,11 @@ pub fn load_polyline_str(xml: &str, source: &str) -> Result<Polyline, Diagnostic
 /// Load standalone Material/PBR metadata without resolving scripts or textures.
 pub fn load_material_str(xml: &str, source: &str) -> Result<Material, Diagnostic> {
     parse::load_material_element(xml, source)
+}
+
+/// Load standalone Collision metadata without resolving its pose or assets.
+pub fn load_collision_str(xml: &str, source: &str) -> Result<Collision, Diagnostic> {
+    parse::load_collision_element(xml, source)
 }
 
 /// Load standalone Visual metadata without resolving its pose or any asset.

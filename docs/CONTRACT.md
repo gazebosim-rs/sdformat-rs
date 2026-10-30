@@ -1225,3 +1225,7 @@ closed; only line comments, blank lines and narrow syntax-only forms (including 
 `impl Type {` header) are admitted.
 Neither empty case is measured coverage. The index and HEAD race
 checks and repository-local Git environment isolation remain in force.
+
+Standalone Collision XML composes supported Geometry and Surface output while
+retaining optional density and actual Empty values. Unrepresentable values return
+errors. No physics or Element identity is implied; see [Collision XML](COLLISION_XML.md).

@@ -295,6 +295,29 @@ pub(crate) fn load_material_element(xml: &str, uri: &str) -> Result<Material, Di
     }
     parser.material(root)
 }
+pub(crate) fn load_collision_element(xml: &str, uri: &str) -> Result<Collision, Diagnostic> {
+    let resolver = NoResources;
+    let parser = Parser {
+        uri,
+        xml,
+        resolver: &resolver,
+        includes: vec![uri.into()],
+    };
+    let doc = Document::parse(xml).map_err(|e| Diagnostic {
+        code: e.code,
+        source: Source {
+            uri: uri.into(),
+            line: e.pos().row,
+            column: e.pos().col,
+        },
+        message: e.to_string(),
+    })?;
+    let root = doc.root_element();
+    if !root.has_tag_name("collision") {
+        return Err(parser.err(root, ErrorCode::Xml, "root element must be collision"));
+    }
+    parser.collision(root)
+}
 pub(crate) fn load_visual_element(xml: &str, uri: &str) -> Result<Visual, Diagnostic> {
     let resolver = NoResources;
     let parser = Parser {

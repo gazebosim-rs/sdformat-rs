@@ -1104,6 +1104,7 @@ impl Parser<'_> {
         let mut frame_elements = Vec::new();
         let mut joints = Vec::new();
         let mut plugins = Vec::new();
+        let mut extensions = Vec::new();
         let mut merged_includes = Vec::new();
         for member in elements(node) {
             match member.tag_name().name() {
@@ -1125,15 +1126,6 @@ impl Parser<'_> {
                                 "world merge include cannot contain direct links",
                             ));
                         }
-                        // World extension metadata is not yet characterized.
-                        // Retain an explicit subset error instead of losing data.
-                        if imported.extensions.iter().any(|e| e.tag.contains(':')) {
-                            return Err(self.err(
-                                member,
-                                ErrorCode::Unsupported,
-                                "world merge custom extensions are not implemented",
-                            ));
-                        }
                         frame_elements
                             .extend(std::iter::repeat_n(member, 1 + imported.frames.len()));
                         frames.push(proxy);
@@ -1141,6 +1133,12 @@ impl Parser<'_> {
                         joints.extend(imported.joints);
                         models.extend(imported.models);
                         plugins.extend(imported.plugins);
+                        extensions.extend(
+                            imported
+                                .extensions
+                                .into_iter()
+                                .filter(|e| e.tag.contains(':')),
+                        );
                         merged_includes.push(provenance);
                         merged_includes.extend(imported.merged_includes);
                     } else {
@@ -1190,6 +1188,7 @@ impl Parser<'_> {
             frames,
             merged_includes,
             plugins,
+            extensions,
             source: self.source(node),
         })
     }

@@ -121,7 +121,7 @@ fn known_model_schema_is_not_disguised_as_opaque_extensions() {
 }
 
 #[test]
-fn world_custom_merge_stays_explicitly_unqualified_instead_of_losing_data() {
+fn world_custom_merge_preserves_qualified_metadata() {
     struct Nested;
     impl ResourceResolver for Nested {
         fn resolve(&self, _: &str, _: &str) -> Result<Resource, String> {
@@ -129,8 +129,20 @@ fn world_custom_merge_stays_explicitly_unqualified_instead_of_losing_data() {
         }
     }
     let xml = "<sdf version='1.12'><world name='w'><include merge='true'><uri>nested</uri></include></world></sdf>";
+    let sdf = load_str(xml, "root.sdf", &Nested).unwrap();
+    let world = &sdf.worlds[0];
+    assert_eq!(world.models.len(), 1);
+    assert_eq!(world.models[0].name, "n");
+    assert_eq!(world.frames.len(), 1);
+    assert_eq!(world.frames[0].name, "_merged__c__model__");
+    assert_eq!(world.frames[0].attached_to, "n::l");
     assert_eq!(
-        load_str(xml, "root.sdf", &Nested).unwrap_err().code,
-        ErrorCode::Unsupported
+        sdf.pose_of("w::n::l", "w").unwrap(),
+        sdformat::Transform::default()
     );
+    assert_eq!(world.extensions.len(), 1);
+    assert_eq!(world.extensions[0].tag, "custom:foo");
+    assert_eq!(world.extensions[0].xml, "<custom:foo/>");
+    assert_eq!(world.extensions[0].source.uri, "nested.sdf");
+    assert_eq!(world.merged_includes.len(), 1);
 }

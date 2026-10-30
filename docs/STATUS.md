@@ -3499,3 +3499,16 @@ closing was classified through the compiled helper. Thirty-three Python tooling
 controls and nine Rust helper controls pass. The derived Debug attribution limit
 and conservative module/macro scope are documented in COVERAGE_SYNTAX.md.
 Independent review, normal staged and exact hosted qualification remain pending.
+
+## Candidate world-merge extension metadata
+
+Collision family commit 9a00ab3 passed independent review and exact hosted CI
+41029340630; accepted ledger is 203 complete/27 partial. The world-merge
+candidate retains imported qualified metadata, exact XML and source in a new
+World field. Fourteen native observations and seven focused Rust checks pass. An independent
+pre-change review confirmed the exact old Unsupported input succeeds natively;
+the predicate now checks the retained metadata, frame and pose.
+Independent final review passed seven affected Rust checks and all-target Clippy.
+Direct-world custom extensions and other SDF-02 conversion/merge gaps remain.
+Normal staged/exact hosted qualification and consumer adoption are pending.
+See [world merge extensions](WORLD_MERGE_EXTENSIONS.md).

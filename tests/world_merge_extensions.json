@@ -1,0 +1,128 @@
+[
+  {
+    "id": "two_1.5",
+    "version": "1.5",
+    "world": "<sdf version='1.5'><world name='w'><include merge='true'><uri>@A@</uri></include><include merge='true'><uri>@B@</uri></include></world></sdf>",
+    "resource_a": "<sdf version='1.12'><model name='a'><model name='a_child'><link name='link'/></model><v:alpha k='1'/><v:alpha k='2'/><v:beta>text</v:beta></model></sdf>",
+    "resource_b": "<sdf version='1.12'><model name='b'><model name='b_child'><link name='link'/></model><v:gamma><child>payload</child></v:gamma></model></sdf>",
+    "stdout": "models=2 frames=2\n<world name='w'>\n  <frame name='_merged__a__model__' attached_to='a_child::link'>\n    <pose relative_to='world'>0 0 0 0 0 0</pose>\n  </frame>\n  <model name='a_child'>\n    <link name='link'/>\n    <pose relative_to='_merged__a__model__'>0 0 0 0 0 0</pose>\n  </model>\n  <v:alpha k='1'/>\n  <v:alpha k='2'/>\n  <v:beta>text</v:beta>\n  <frame name='_merged__b__model__' attached_to='b_child::link'>\n    <pose relative_to='world'>0 0 0 0 0 0</pose>\n  </frame>\n  <model name='b_child'>\n    <link name='link'/>\n    <pose relative_to='_merged__b__model__'>0 0 0 0 0 0</pose>\n  </model>\n  <v:gamma>\n    <child>payload</child>\n  </v:gamma>\n  <gravity>0 0 -9.8000000000000007</gravity>\n  <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>\n  <atmosphere type='adiabatic'/>\n  <physics type='ode'>\n    <max_step_size>0.001</max_step_size>\n    <real_time_factor>1</real_time_factor>\n    <real_time_update_rate>1000</real_time_update_rate>\n  </physics>\n  <scene>\n    <ambient>0.400000006 0.400000006 0.400000006 1</ambient>\n    <background>0.699999988 0.699999988 0.699999988 1</background>\n    <shadows>true</shadows>\n  </scene>\n</world>\n",
+    "stderr": ""
+  },
+  {
+    "id": "two_1.6",
+    "version": "1.6",
+    "world": "<sdf version='1.6'><world name='w'><include merge='true'><uri>@A@</uri></include><include merge='true'><uri>@B@</uri></include></world></sdf>",
+    "resource_a": "<sdf version='1.12'><model name='a'><model name='a_child'><link name='link'/></model><v:alpha k='1'/><v:alpha k='2'/><v:beta>text</v:beta></model></sdf>",
+    "resource_b": "<sdf version='1.12'><model name='b'><model name='b_child'><link name='link'/></model><v:gamma><child>payload</child></v:gamma></model></sdf>",
+    "stdout": "models=2 frames=2\n<world name='w'>\n  <frame name='_merged__a__model__' attached_to='a_child::link'>\n    <pose relative_to='world'>0 0 0 0 0 0</pose>\n  </frame>\n  <model name='a_child'>\n    <link name='link'/>\n    <pose relative_to='_merged__a__model__'>0 0 0 0 0 0</pose>\n  </model>\n  <v:alpha k='1'/>\n  <v:alpha k='2'/>\n  <v:beta>text</v:beta>\n  <frame name='_merged__b__model__' attached_to='b_child::link'>\n    <pose relative_to='world'>0 0 0 0 0 0</pose>\n  </frame>\n  <model name='b_child'>\n    <link name='link'/>\n    <pose relative_to='_merged__b__model__'>0 0 0 0 0 0</pose>\n  </model>\n  <v:gamma>\n    <child>payload</child>\n  </v:gamma>\n  <gravity>0 0 -9.8000000000000007</gravity>\n  <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>\n  <atmosphere type='adiabatic'/>\n  <physics type='ode'>\n    <max_step_size>0.001</max_step_size>\n    <real_time_factor>1</real_time_factor>\n    <real_time_update_rate>1000</real_time_update_rate>\n  </physics>\n  <scene>\n    <ambient>0.400000006 0.400000006 0.400000006 1</ambient>\n    <background>0.699999988 0.699999988 0.699999988 1</background>\n    <shadows>true</shadows>\n  </scene>\n</world>\n",
+    "stderr": ""
+  },
+  {
+    "id": "two_1.7",
+    "version": "1.7",
+    "world": "<sdf version='1.7'><world name='w'><include merge='true'><uri>@A@</uri></include><include merge='true'><uri>@B@</uri></include></world></sdf>",
+    "resource_a": "<sdf version='1.12'><model name='a'><model name='a_child'><link name='link'/></model><v:alpha k='1'/><v:alpha k='2'/><v:beta>text</v:beta></model></sdf>",
+    "resource_b": "<sdf version='1.12'><model name='b'><model name='b_child'><link name='link'/></model><v:gamma><child>payload</child></v:gamma></model></sdf>",
+    "stdout": "models=2 frames=2\n<world name='w'>\n  <frame name='_merged__a__model__' attached_to='a_child::link'>\n    <pose relative_to='world'>0 0 0 0 0 0</pose>\n  </frame>\n  <model name='a_child'>\n    <link name='link'/>\n    <pose relative_to='_merged__a__model__'>0 0 0 0 0 0</pose>\n  </model>\n  <v:alpha k='1'/>\n  <v:alpha k='2'/>\n  <v:beta>text</v:beta>\n  <frame name='_merged__b__model__' attached_to='b_child::link'>\n    <pose relative_to='world'>0 0 0 0 0 0</pose>\n  </frame>\n  <model name='b_child'>\n    <link name='link'/>\n    <pose relative_to='_merged__b__model__'>0 0 0 0 0 0</pose>\n  </model>\n  <v:gamma>\n    <child>payload</child>\n  </v:gamma>\n  <gravity>0 0 -9.8000000000000007</gravity>\n  <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>\n  <atmosphere type='adiabatic'/>\n  <physics type='ode'>\n    <max_step_size>0.001</max_step_size>\n    <real_time_factor>1</real_time_factor>\n    <real_time_update_rate>1000</real_time_update_rate>\n  </physics>\n  <scene>\n    <ambient>0.400000006 0.400000006 0.400000006 1</ambient>\n    <background>0.699999988 0.699999988 0.699999988 1</background>\n    <shadows>true</shadows>\n  </scene>\n</world>\n",
+    "stderr": ""
+  },
+  {
+    "id": "two_1.8",
+    "version": "1.8",
+    "world": "<sdf version='1.8'><world name='w'><include merge='true'><uri>@A@</uri></include><include merge='true'><uri>@B@</uri></include></world></sdf>",
+    "resource_a": "<sdf version='1.12'><model name='a'><model name='a_child'><link name='link'/></model><v:alpha k='1'/><v:alpha k='2'/><v:beta>text</v:beta></model></sdf>",
+    "resource_b": "<sdf version='1.12'><model name='b'><model name='b_child'><link name='link'/></model><v:gamma><child>payload</child></v:gamma></model></sdf>",
+    "stdout": "models=2 frames=2\n<world name='w'>\n  <frame name='_merged__a__model__' attached_to='a_child::link'>\n    <pose relative_to='world'>0 0 0 0 0 0</pose>\n  </frame>\n  <model name='a_child'>\n    <link name='link'/>\n    <pose relative_to='_merged__a__model__'>0 0 0 0 0 0</pose>\n  </model>\n  <v:alpha k='1'/>\n  <v:alpha k='2'/>\n  <v:beta>text</v:beta>\n  <frame name='_merged__b__model__' attached_to='b_child::link'>\n    <pose relative_to='world'>0 0 0 0 0 0</pose>\n  </frame>\n  <model name='b_child'>\n    <link name='link'/>\n    <pose relative_to='_merged__b__model__'>0 0 0 0 0 0</pose>\n  </model>\n  <v:gamma>\n    <child>payload</child>\n  </v:gamma>\n  <gravity>0 0 -9.8000000000000007</gravity>\n  <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>\n  <atmosphere type='adiabatic'/>\n  <physics type='ode'>\n    <max_step_size>0.001</max_step_size>\n    <real_time_factor>1</real_time_factor>\n    <real_time_update_rate>1000</real_time_update_rate>\n  </physics>\n  <scene>\n    <ambient>0.400000006 0.400000006 0.400000006 1</ambient>\n    <background>0.699999988 0.699999988 0.699999988 1</background>\n    <shadows>true</shadows>\n  </scene>\n</world>\n",
+    "stderr": ""
+  },
+  {
+    "id": "two_1.9",
+    "version": "1.9",
+    "world": "<sdf version='1.9'><world name='w'><include merge='true'><uri>@A@</uri></include><include merge='true'><uri>@B@</uri></include></world></sdf>",
+    "resource_a": "<sdf version='1.12'><model name='a'><model name='a_child'><link name='link'/></model><v:alpha k='1'/><v:alpha k='2'/><v:beta>text</v:beta></model></sdf>",
+    "resource_b": "<sdf version='1.12'><model name='b'><model name='b_child'><link name='link'/></model><v:gamma><child>payload</child></v:gamma></model></sdf>",
+    "stdout": "models=2 frames=2\n<world name='w'>\n  <frame name='_merged__a__model__' attached_to='a_child::link'>\n    <pose relative_to='world'>0 0 0 0 0 0</pose>\n  </frame>\n  <model name='a_child'>\n    <link name='link'/>\n    <pose relative_to='_merged__a__model__'>0 0 0 0 0 0</pose>\n  </model>\n  <v:alpha k='1'/>\n  <v:alpha k='2'/>\n  <v:beta>text</v:beta>\n  <frame name='_merged__b__model__' attached_to='b_child::link'>\n    <pose relative_to='world'>0 0 0 0 0 0</pose>\n  </frame>\n  <model name='b_child'>\n    <link name='link'/>\n    <pose relative_to='_merged__b__model__'>0 0 0 0 0 0</pose>\n  </model>\n  <v:gamma>\n    <child>payload</child>\n  </v:gamma>\n  <gravity>0 0 -9.8000000000000007</gravity>\n  <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>\n  <atmosphere type='adiabatic'/>\n  <physics type='ode'>\n    <max_step_size>0.001</max_step_size>\n    <real_time_factor>1</real_time_factor>\n    <real_time_update_rate>1000</real_time_update_rate>\n  </physics>\n  <scene>\n    <ambient>0.400000006 0.400000006 0.400000006 1</ambient>\n    <background>0.699999988 0.699999988 0.699999988 1</background>\n    <shadows>true</shadows>\n  </scene>\n</world>\n",
+    "stderr": ""
+  },
+  {
+    "id": "two_1.10",
+    "version": "1.10",
+    "world": "<sdf version='1.10'><world name='w'><include merge='true'><uri>@A@</uri></include><include merge='true'><uri>@B@</uri></include></world></sdf>",
+    "resource_a": "<sdf version='1.12'><model name='a'><model name='a_child'><link name='link'/></model><v:alpha k='1'/><v:alpha k='2'/><v:beta>text</v:beta></model></sdf>",
+    "resource_b": "<sdf version='1.12'><model name='b'><model name='b_child'><link name='link'/></model><v:gamma><child>payload</child></v:gamma></model></sdf>",
+    "stdout": "models=2 frames=2\n<world name='w'>\n  <frame name='_merged__a__model__' attached_to='a_child::link'>\n    <pose relative_to='world'>0 0 0 0 0 0</pose>\n  </frame>\n  <model name='a_child'>\n    <link name='link'/>\n    <pose relative_to='_merged__a__model__'>0 0 0 0 0 0</pose>\n  </model>\n  <v:alpha k='1'/>\n  <v:alpha k='2'/>\n  <v:beta>text</v:beta>\n  <frame name='_merged__b__model__' attached_to='b_child::link'>\n    <pose relative_to='world'>0 0 0 0 0 0</pose>\n  </frame>\n  <model name='b_child'>\n    <link name='link'/>\n    <pose relative_to='_merged__b__model__'>0 0 0 0 0 0</pose>\n  </model>\n  <v:gamma>\n    <child>payload</child>\n  </v:gamma>\n  <gravity>0 0 -9.8000000000000007</gravity>\n  <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>\n  <atmosphere type='adiabatic'/>\n  <physics type='ode'>\n    <max_step_size>0.001</max_step_size>\n    <real_time_factor>1</real_time_factor>\n    <real_time_update_rate>1000</real_time_update_rate>\n  </physics>\n  <scene>\n    <ambient>0.400000006 0.400000006 0.400000006 1</ambient>\n    <background>0.699999988 0.699999988 0.699999988 1</background>\n    <shadows>true</shadows>\n  </scene>\n</world>\n",
+    "stderr": ""
+  },
+  {
+    "id": "two_1.11",
+    "version": "1.11",
+    "world": "<sdf version='1.11'><world name='w'><include merge='true'><uri>@A@</uri></include><include merge='true'><uri>@B@</uri></include></world></sdf>",
+    "resource_a": "<sdf version='1.12'><model name='a'><model name='a_child'><link name='link'/></model><v:alpha k='1'/><v:alpha k='2'/><v:beta>text</v:beta></model></sdf>",
+    "resource_b": "<sdf version='1.12'><model name='b'><model name='b_child'><link name='link'/></model><v:gamma><child>payload</child></v:gamma></model></sdf>",
+    "stdout": "models=2 frames=2\n<world name='w'>\n  <frame name='_merged__a__model__' attached_to='a_child::link'>\n    <pose relative_to='world'>0 0 0 0 0 0</pose>\n  </frame>\n  <model name='a_child'>\n    <link name='link'/>\n    <pose relative_to='_merged__a__model__'>0 0 0 0 0 0</pose>\n  </model>\n  <v:alpha k='1'/>\n  <v:alpha k='2'/>\n  <v:beta>text</v:beta>\n  <frame name='_merged__b__model__' attached_to='b_child::link'>\n    <pose relative_to='world'>0 0 0 0 0 0</pose>\n  </frame>\n  <model name='b_child'>\n    <link name='link'/>\n    <pose relative_to='_merged__b__model__'>0 0 0 0 0 0</pose>\n  </model>\n  <v:gamma>\n    <child>payload</child>\n  </v:gamma>\n  <gravity>0 0 -9.8000000000000007</gravity>\n  <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>\n  <atmosphere type='adiabatic'/>\n  <physics type='ode'>\n    <max_step_size>0.001</max_step_size>\n    <real_time_factor>1</real_time_factor>\n    <real_time_update_rate>1000</real_time_update_rate>\n  </physics>\n  <scene>\n    <ambient>0.400000006 0.400000006 0.400000006 1</ambient>\n    <background>0.699999988 0.699999988 0.699999988 1</background>\n    <shadows>true</shadows>\n  </scene>\n</world>\n",
+    "stderr": ""
+  },
+  {
+    "id": "two_1.12",
+    "version": "1.12",
+    "world": "<sdf version='1.12'><world name='w'><include merge='true'><uri>@A@</uri></include><include merge='true'><uri>@B@</uri></include></world></sdf>",
+    "resource_a": "<sdf version='1.12'><model name='a'><model name='a_child'><link name='link'/></model><v:alpha k='1'/><v:alpha k='2'/><v:beta>text</v:beta></model></sdf>",
+    "resource_b": "<sdf version='1.12'><model name='b'><model name='b_child'><link name='link'/></model><v:gamma><child>payload</child></v:gamma></model></sdf>",
+    "stdout": "models=2 frames=2\n<world name='w'>\n  <frame name='_merged__a__model__' attached_to='a_child::link'>\n    <pose relative_to='world'>0 0 0 0 0 0</pose>\n  </frame>\n  <model name='a_child'>\n    <link name='link'/>\n    <pose relative_to='_merged__a__model__'>0 0 0 0 0 0</pose>\n  </model>\n  <v:alpha k='1'/>\n  <v:alpha k='2'/>\n  <v:beta>text</v:beta>\n  <frame name='_merged__b__model__' attached_to='b_child::link'>\n    <pose relative_to='world'>0 0 0 0 0 0</pose>\n  </frame>\n  <model name='b_child'>\n    <link name='link'/>\n    <pose relative_to='_merged__b__model__'>0 0 0 0 0 0</pose>\n  </model>\n  <v:gamma>\n    <child>payload</child>\n  </v:gamma>\n  <gravity>0 0 -9.8000000000000007</gravity>\n  <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>\n  <atmosphere type='adiabatic'/>\n  <physics type='ode'>\n    <max_step_size>0.001</max_step_size>\n    <real_time_factor>1</real_time_factor>\n    <real_time_update_rate>1000</real_time_update_rate>\n  </physics>\n  <scene>\n    <ambient>0.400000006 0.400000006 0.400000006 1</ambient>\n    <background>0.699999988 0.699999988 0.699999988 1</background>\n    <shadows>true</shadows>\n  </scene>\n</world>\n",
+    "stderr": ""
+  },
+  {
+    "id": "old_rejection",
+    "version": "1.12",
+    "world": "<sdf version='1.12'><world name='w'><include merge='true'><uri>@A@</uri></include></world></sdf>",
+    "resource_a": "<sdf version='1.12'><model name='c'><model name='n'><link name='l'/></model><custom:foo/></model></sdf>",
+    "resource_b": null,
+    "stdout": "models=1 frames=1\n<world name='w'>\n  <frame name='_merged__c__model__' attached_to='n::l'>\n    <pose relative_to='world'>0 0 0 0 0 0</pose>\n  </frame>\n  <model name='n'>\n    <link name='l'/>\n    <pose relative_to='_merged__c__model__'>0 0 0 0 0 0</pose>\n  </model>\n  <custom:foo/>\n  <gravity>0 0 -9.8000000000000007</gravity>\n  <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>\n  <atmosphere type='adiabatic'/>\n  <physics type='ode'>\n    <max_step_size>0.001</max_step_size>\n    <real_time_factor>1</real_time_factor>\n    <real_time_update_rate>1000</real_time_update_rate>\n  </physics>\n  <scene>\n    <ambient>0.400000006 0.400000006 0.400000006 1</ambient>\n    <background>0.699999988 0.699999988 0.699999988 1</background>\n    <shadows>true</shadows>\n  </scene>\n</world>\n",
+    "stderr": ""
+  },
+  {
+    "id": "unqualified",
+    "version": "1.12",
+    "world": "<sdf version='1.12'><world name='w'><include merge='true'><uri>@A@</uri></include></world></sdf>",
+    "resource_a": "<sdf version='1.12'><model name='a'><model name='a_child'><link name='link'/></model><other>ignored</other><v:keep>yes</v:keep></model></sdf>",
+    "resource_b": null,
+    "stdout": "models=1 frames=1\n<world name='w'>\n  <frame name='_merged__a__model__' attached_to='a_child::link'>\n    <pose relative_to='world'>0 0 0 0 0 0</pose>\n  </frame>\n  <model name='a_child'>\n    <link name='link'/>\n    <pose relative_to='_merged__a__model__'>0 0 0 0 0 0</pose>\n  </model>\n  <v:keep>yes</v:keep>\n  <gravity>0 0 -9.8000000000000007</gravity>\n  <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>\n  <atmosphere type='adiabatic'/>\n  <physics type='ode'>\n    <max_step_size>0.001</max_step_size>\n    <real_time_factor>1</real_time_factor>\n    <real_time_update_rate>1000</real_time_update_rate>\n  </physics>\n  <scene>\n    <ambient>0.400000006 0.400000006 0.400000006 1</ambient>\n    <background>0.699999988 0.699999988 0.699999988 1</background>\n    <shadows>true</shadows>\n  </scene>\n</world>\n",
+    "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"a\"]/other:@A@:L1]: XML Element[other], child of element[model], not defined in SDF. Copying[other] as children of [model].\n"
+  },
+  {
+    "id": "direct_world",
+    "version": "1.12",
+    "world": "<sdf version='1.12'><world name='w'><v:parent>own</v:parent><include merge='true'><uri>@A@</uri></include></world></sdf>",
+    "resource_a": "<sdf version='1.12'><model name='a'><model name='a_child'><link name='link'/></model><v:alpha k='1'/><v:alpha k='2'/><v:beta>text</v:beta></model></sdf>",
+    "resource_b": null,
+    "stdout": "models=1 frames=1\n<world name='w'>\n  <frame name='_merged__a__model__' attached_to='a_child::link'>\n    <pose relative_to='world'>0 0 0 0 0 0</pose>\n  </frame>\n  <model name='a_child'>\n    <link name='link'/>\n    <pose relative_to='_merged__a__model__'>0 0 0 0 0 0</pose>\n  </model>\n  <v:alpha k='1'/>\n  <v:alpha k='2'/>\n  <v:beta>text</v:beta>\n  <v:parent>own</v:parent>\n  <gravity>0 0 -9.8000000000000007</gravity>\n  <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>\n  <atmosphere type='adiabatic'/>\n  <physics type='ode'>\n    <max_step_size>0.001</max_step_size>\n    <real_time_factor>1</real_time_factor>\n    <real_time_update_rate>1000</real_time_update_rate>\n  </physics>\n  <scene>\n    <ambient>0.400000006 0.400000006 0.400000006 1</ambient>\n    <background>0.699999988 0.699999988 0.699999988 1</background>\n    <shadows>true</shadows>\n  </scene>\n</world>\n",
+    "stderr": ""
+  },
+  {
+    "id": "none",
+    "version": "1.12",
+    "world": "<sdf version='1.12'><world name='w'><include merge='true'><uri>@A@</uri></include></world></sdf>",
+    "resource_a": "<sdf version='1.12'><model name='a'><model name='a_child'><link name='link'/></model></model></sdf>",
+    "resource_b": null,
+    "stdout": "models=1 frames=1\n<world name='w'>\n  <frame name='_merged__a__model__' attached_to='a_child::link'>\n    <pose relative_to='world'>0 0 0 0 0 0</pose>\n  </frame>\n  <model name='a_child'>\n    <link name='link'/>\n    <pose relative_to='_merged__a__model__'>0 0 0 0 0 0</pose>\n  </model>\n  <gravity>0 0 -9.8000000000000007</gravity>\n  <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>\n  <atmosphere type='adiabatic'/>\n  <physics type='ode'>\n    <max_step_size>0.001</max_step_size>\n    <real_time_factor>1</real_time_factor>\n    <real_time_update_rate>1000</real_time_update_rate>\n  </physics>\n  <scene>\n    <ambient>0.400000006 0.400000006 0.400000006 1</ambient>\n    <background>0.699999988 0.699999988 0.699999988 1</background>\n    <shadows>true</shadows>\n  </scene>\n</world>\n",
+    "stderr": ""
+  },
+  {
+    "id": "nested",
+    "version": "1.12",
+    "world": "<sdf version='1.12'><world name='w'><include merge='true'><uri>@A@</uri></include></world></sdf>",
+    "resource_a": "<sdf version='1.12'><model name='a'><include merge='true'><uri>@B@</uri></include><v:outer>O</v:outer></model></sdf>",
+    "resource_b": "<sdf version='1.12'><model name='b'><model name='child'><link name='link'/></model><v:inner>I</v:inner></model></sdf>",
+    "stdout": "models=1 frames=2\n<world name='w'>\n  <frame name='_merged__a__model__' attached_to='child::link'>\n    <pose relative_to='world'>0 0 0 0 0 0</pose>\n  </frame>\n  <frame name='_merged__b__model__' attached_to='child::link'>\n    <pose relative_to='_merged__a__model__'>0 0 0 0 0 0</pose>\n  </frame>\n  <model name='child'>\n    <link name='link'/>\n    <pose relative_to='_merged__b__model__'>0 0 0 0 0 0</pose>\n  </model>\n  <v:inner>I</v:inner>\n  <v:outer>O</v:outer>\n  <gravity>0 0 -9.8000000000000007</gravity>\n  <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>\n  <atmosphere type='adiabatic'/>\n  <physics type='ode'>\n    <max_step_size>0.001</max_step_size>\n    <real_time_factor>1</real_time_factor>\n    <real_time_update_rate>1000</real_time_update_rate>\n  </physics>\n  <scene>\n    <ambient>0.400000006 0.400000006 0.400000006 1</ambient>\n    <background>0.699999988 0.699999988 0.699999988 1</background>\n    <shadows>true</shadows>\n  </scene>\n</world>\n",
+    "stderr": ""
+  },
+  {
+    "id": "multiline",
+    "version": "1.12",
+    "world": "<sdf version='1.12'><world name='w'><include merge='true'><uri>@A@</uri></include></world></sdf>",
+    "resource_a": "<sdf version='1.12'>\n <model name='a'>\n  <model name='child'><link name='link'/></model>\n  <v:meta key='α&amp;β'>π<v:child/>tail</v:meta>\n </model>\n</sdf>",
+    "resource_b": null,
+    "stdout": "models=1 frames=1\n<world name='w'>\n  <frame name='_merged__a__model__' attached_to='child::link'>\n    <pose relative_to='world'>0 0 0 0 0 0</pose>\n  </frame>\n  <model name='child'>\n    <link name='link'/>\n    <pose relative_to='_merged__a__model__'>0 0 0 0 0 0</pose>\n  </model>\n  <v:meta key='α&β'>\n    <v:child/>\n  </v:meta>\n  <gravity>0 0 -9.8000000000000007</gravity>\n  <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>\n  <atmosphere type='adiabatic'/>\n  <physics type='ode'>\n    <max_step_size>0.001</max_step_size>\n    <real_time_factor>1</real_time_factor>\n    <real_time_update_rate>1000</real_time_update_rate>\n  </physics>\n  <scene>\n    <ambient>0.400000006 0.400000006 0.400000006 1</ambient>\n    <background>0.699999988 0.699999988 0.699999988 1</background>\n    <shadows>true</shadows>\n  </scene>\n</world>\n",
+    "stderr": ""
+  }
+]

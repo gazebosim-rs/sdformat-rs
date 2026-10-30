@@ -2,17 +2,18 @@
   "decision": "approved",
   "author": "sdformat_owner_terra",
   "reviewer": "integration_reviewer",
-  "source_digest": "8a4515a668ef44d47b2e4b6100deda927a276e6dce2820374c061f96b6e5b246",
-  "protected_digest": "b28d0aaa85adb3c3181caeae3f844dda547f2fea831530ac3ba7a5928daad279",
-  "scope": "Local-only maintained-syn syntax evidence and exact LF source/output handling; no public qualification or disclosure approval.",
+  "source_digest": "179e773f0b63aaf952e5f0c06226fd9ff1f2181d1d1f3ad5cb74274a664fc82e",
+  "protected_digest": "4b5f64582331910a46d61cc838d48973c374fceea3ea5227025e10047f69c5f6",
+  "scope": "Local-only imported qualified world-merge metadata and exact prior-reviewed capability predicate transition.",
   "checks": [
-    "Fresh independent source/owned target passed 33 Python tooling controls, nine Rust helper controls and targeted Clippy. Final nine paths match the reviewed export.",
-    "Independent compiler-backed macro-resolution repros were rechecked against the corrected helper; unsafe attribute and ancestor contexts refuse evidence. Explicit harness mode remains deterministic with a serial parent environment.",
-    "Separate direct-call proof was reviewed independently from Debug field-name resolution. Macro/literal opacity, mapped-DA priority and mixed mapped-uncovered failure remain. Exact source/helper/context echoes, artifact identity, unique output, CR/CRLF and LF controls reviewed.",
-    "Existing locked package versions/checksums remain unchanged; maintained syn and proc-macro2 are test-only direct dependencies with no production/layout exception."
+    "Fresh independent source/owned target reproduced all 14 full native observations, seven affected Rust checks and all-target Clippy.",
+    "Before the protected predicate edit, exact old full XML/resolver XML/URIs were retained and independently replayed as stronger positives for model/proxy/attachment/resolved pose/metadata/source. Final fold preserves all unrelated strict errors and proposes no original credit.",
+    "World field raw XML/source/order, qualified-only import policy, direct-world rejection and no consumer pin adoption inspected. Public struct-literal impact and native serialization differences are explicit.",
+    "Final local rebase preserves all ten executable/reference/test paths exactly and merges only two append-only docs onto the separately reviewed local tooling parent."
   ],
   "remaining": [
-    "Mandatory local staged qualification remains required; this receipt does not claim its result.",
-    "External publication/disclosure remains held pending explicit user authorization. No public push or dashboard action is approved by this local receipt."
+    "Mandatory local staged qualification remains required; exact hosted acceptance is not claimed.",
+    "Public publication/disclosure remains held pending explicit user authorization. This local receipt does not authorize a push or dashboard upload.",
+    "Consumers must explicitly reject or support World extensions before dependency pin adoption. Direct-world extensions and broader conversion/merge behavior remain unsupported."
   ]
 }

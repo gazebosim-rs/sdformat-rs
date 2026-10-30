@@ -173,3 +173,6 @@ fallback; evidence labels empty and comment-only source diffs explicitly.
 
 Bounded Collision metadata can be read and emitted independently; see
 [the Collision XML contract](docs/COLLISION_XML.md).
+
+The world-merge metadata boundary is documented in
+[WORLD_MERGE_EXTENSIONS.md](docs/WORLD_MERGE_EXTENSIONS.md).

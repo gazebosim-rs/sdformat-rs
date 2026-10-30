@@ -2,17 +2,17 @@
   "decision": "approved",
   "author": "sdformat_owner_terra",
   "reviewer": "root",
-  "source_digest": "8f3b47da955d4484a3f413cde26ff79d5fbcc25cabadf4fe9c73d3b6305cc9ce",
-  "protected_digest": "9a0fa55bb2ce8b4214ad4a55f1a1e2b4b834b857d9f677275ef83b0a2b5d96fa",
-  "scope": "Bounded standalone Collision XML reader/writer using existing Geometry and Surface writers; optional density and genuine Empty geometry retained.",
+  "source_digest": "ae1e145c21335690abead18fabb8bd843d7db6f44a1fb69cb19e2cb1cedbf373",
+  "protected_digest": "4e826a4453ab5176f3db6f08e562be3d4a6652ff746e62381e45e9879b5fbf77",
+  "scope": "Correct five Collision ownership setups to native Empty defaults, retain stronger supplemental destination, and map two fully qualified writer originals.",
   "checks": [
-    "Fresh reviewer-owned source and target passed six Rust tests, byte-exact native constructor fixture, two actual Rust-to-native exchanges and both unchanged native originals.",
-    "Complete native ToElement and ToElementErrorOutput setups and assertions checked, including the original reload-first-element density order and actual quiet stdout/stderr. No original assertions weakened.",
-    "Reviewed scalar/pose and XML attribute bounds, delegated writers, nonfinite/subnormal rejection preserving owned values, and separate installed/helper/original-binary library provenance.",
-    "Original 2018 Apache notice retained alongside 2026 attribution in the two source-derived test/helper files. Final approval-only documentation and reference metadata reviewed."
+    "Fresh reviewer-owned source and target passed13 Rust checks and seven unchanged native originals. The added family helper was independently inspected and replayed with the same results and accepted writer source/binary/header/library checks and actual XML exchanges.",
+    "Read all seven complete native bodies. Existing pose predicates, signed tolerances and supplemental ownership assertions are unchanged. Native Empty, empty name and default assignment destination are now explicit; a separate test retains the configured Box destination.",
+    "Structured ledger review confirms only five existing assertion/review descriptions and two new ToElement mappings changed. Full original setups, error/nonnull value translations and quiet-output capture were reviewed.",
+    "Final approval-only documentation/results/mappings reviewed. Original2018 license notice retained; synthetic Source does not claim native Element identity."
   ],
   "remaining": [
-    "Normal strict staged gate and exact hosted CI remain required.",
-    "No whole SDF packet, unrestricted Element identity, physics, performance or additional ledger credit is claimed."
+    "Normal strict staged and exact hosted checks remain required before accepting203 complete/27 partial.",
+    "Native constructor/Element identity, standalone semantic pose, auto-inertia, type-only BOX geometry, broader SDF-02 and performance remain open."
   ]
 }

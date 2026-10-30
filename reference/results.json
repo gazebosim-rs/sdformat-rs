@@ -127,6 +127,12 @@
       "sha256": "d5a5f7030bbf6be8d2c7ab238f7e040b24e25e2860cd0d0d3e0d99521e992ada",
       "args": "--gtest_filter=IncludesTest.MergeInclude:IncludesTest.MergeIncludePlacementFrame",
       "result": "passed2/0; exact originalPlacement predicates complete candidate, MergeInclude explicitlypartial Element/API gaps; source/native qualification bound c22a93ed/ea1dd368/cdf4b3f8, finalnormal/public/hosted still separate."
+    },
+    {
+      "binary": "UNIT_Collision_TEST",
+      "sha256": "9d514b8b699fbeedcfae031e2f1d40936ebeedb3e931cccbd8d2d7e3019e3bbd",
+      "args": "--gtest_filter=DOMCollision.MoveConstructor:DOMCollision.CopyConstructor:DOMCollision.MoveAssignment:DOMCollision.CopyAssignment:DOMCollision.CopyAssignmentAfterMove:DOMCollision.ToElement:DOMCollision.ToElementErrorOutput",
+      "result": "Seven unchanged native originals passed 7/0 on pinned binary; independent review also replayed 13 Rust checks and family helper, including actual writer exchanges. Normal staged and exact hosted qualification pending."
     }
   ],
   "corpus": {

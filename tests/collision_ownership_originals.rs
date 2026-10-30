@@ -29,22 +29,25 @@ fn source() -> Source {
     }
 }
 
-fn collision(position: [f64; 3]) -> Collision {
+fn default_collision() -> Collision {
     Collision {
         density: None,
-        name: "collision".into(),
-        pose: Pose {
-            transform: Transform {
-                translation: position,
-                rotation: DQuat::from_euler(EulerRot::ZYX, PI, PI, PI).to_array(),
-            },
-            relative_to: String::new(),
-        },
-        // The native originals observe only pose; this owned geometry is supplemental.
-        geometry: Geometry::Box { size: [1., 2., 3.] },
+        name: String::new(),
+        pose: Pose::default(),
+        geometry: Geometry::Empty,
         surface: Surface::default(),
+        // Rust requires a source value; native unattached Element identity is not mapped.
         source: source(),
     }
+}
+
+fn collision(position: [f64; 3]) -> Collision {
+    let mut value = default_collision();
+    value.pose.transform = Transform {
+        translation: position,
+        rotation: DQuat::from_euler(EulerRot::ZYX, PI, PI, PI).to_array(),
+    };
+    value
 }
 
 fn assert_original_pose(value: &Collision, expected: [f64; 3]) {
@@ -67,6 +70,7 @@ fn assert_original_pose(value: &Collision, expected: [f64; 3]) {
 fn original_dom_collision_move_constructor() {
     let original = collision([-10., -20., -30.]);
     let moved = original;
+    assert_eq!(moved.geometry, Geometry::Empty);
     assert_original_pose(&moved, [-10., -20., -30.]);
 }
 
@@ -74,6 +78,7 @@ fn original_dom_collision_move_constructor() {
 fn original_dom_collision_copy_constructor() {
     let original = collision([-10., -20., -30.]);
     let copied = original.clone();
+    assert_eq!(copied.geometry, Geometry::Empty);
     assert_original_pose(&copied, [-10., -20., -30.]);
     assert_eq!(copied.pose, original.pose); // Supplemental exact retention.
 }
@@ -81,8 +86,9 @@ fn original_dom_collision_copy_constructor() {
 #[test]
 fn original_dom_collision_move_assignment() {
     let original = collision([-10., -20., -30.]);
-    let mut moved = collision([0.; 3]);
+    let mut moved = default_collision();
     let previous = std::mem::replace(&mut moved, original);
+    assert_eq!(moved.geometry, Geometry::Empty);
     assert_original_pose(&moved, [-10., -20., -30.]);
     assert_eq!(previous.pose.transform.translation, [0.; 3]); // Supplemental.
 }
@@ -90,8 +96,9 @@ fn original_dom_collision_move_assignment() {
 #[test]
 fn original_dom_collision_copy_assignment() {
     let original = collision([-10., -20., -30.]);
-    let mut copied = collision([0.; 3]);
+    let mut copied = default_collision();
     copied.clone_from(&original);
+    assert_eq!(copied.geometry, Geometry::Empty);
     assert_original_pose(&copied, [-10., -20., -30.]);
     assert_eq!(copied.pose, original.pose); // Supplemental.
 }
@@ -103,6 +110,8 @@ fn original_dom_collision_copy_assignment_after_move() {
     let temporary = first;
     let first = second.clone();
     let second = temporary.clone();
+    assert_eq!(first.geometry, Geometry::Empty);
+    assert_eq!(second.geometry, Geometry::Empty);
     assert_original_pose(&first, [-20., -30., -40.]);
     assert_original_pose(&second, [-10., -20., -30.]);
 }
@@ -163,4 +172,21 @@ fn nested_collision_metadata_clones_remain_owned_and_independent() {
     assert_eq!(assigned.surface.contact.category_bitmask, Some(0x1234));
     assert_eq!(assigned.surface.source, Some(source()));
     assert_eq!(assigned.source, source());
+}
+
+#[test]
+fn replacing_a_preconfigured_box_destination_remains_supported() {
+    let mut target = collision([0.; 3]);
+    target.name = "collision".into();
+    target.geometry = Geometry::Box { size: [1., 2., 3.] };
+    let previous = std::mem::replace(&mut target, collision([-10., -20., -30.]));
+    assert_eq!(previous.name, "collision");
+    assert_eq!(previous.geometry, Geometry::Box { size: [1., 2., 3.] });
+    assert_eq!(previous.pose.transform.translation, [0.; 3]);
+    assert_original_pose(&target, [-10., -20., -30.]);
+
+    let mut copied = previous;
+    copied.clone_from(&target);
+    assert_original_pose(&copied, [-10., -20., -30.]);
+    assert_eq!(copied.pose, target.pose);
 }

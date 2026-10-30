@@ -3476,3 +3476,15 @@ unchanged native originals pass. Independent fresh-source review reproduced the 
 exchanges and both originals with no findings. Strict gate and exact hosted
 qualification remain pending; no original credit is claimed. See
 [Collision XML](COLLISION_XML.md).
+
+## Candidate Collision family reconciliation
+
+Writer commit 260b23f passed independent native review and exact hosted CI
+41028236807. The five older ownership mappings had a Box setup while the genuine
+native constructors use Empty; the candidate corrects this without weakening
+pose or supplemental assertions. A separate supplemental test retains the former configured Box destination.
+Focused author checks pass 13 Rust and seven native originals. Two complete
+ToElement mappings passed independent review; 203 complete/27 partial remains
+conditional on normal staged and exact hosted checks. Constructor/Element identity, semantic pose, type-only
+BOX and auto-inertia remain gaps. See [Collision family](COLLISION_FAMILY.md).
+SDF-02 version/schema conversion and merge/include priorities remain open.

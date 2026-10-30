@@ -1932,60 +1932,60 @@
       "case": "DOMCollision.MoveConstructor",
       "source": "src/Collision_TEST.cc:97-105",
       "rust_test": "tests/collision_ownership_originals.rs::original_dom_collision_move_constructor",
-      "assertions": "Moved destination final pose translation[-10,-20,-30] and RPY[pi,pi,pi]. Native signed quaternion/translation component absolute<=1e-3 retained without sign relaxation. Exact owned-pose/previous-value checks supplemental. No default EMPTY geometry, Element, surface physics, general C++ constructor/operator/storage/moved-from identity or parser/resource/runtime claim.",
+      "assertions": "Moved destination final pose translation[-10,-20,-30] and RPY[pi,pi,pi]. Native signed quaternion/translation component absolute<=1e-3 retained without sign relaxation. Exact owned-pose/previous-value checks supplemental. Owned default EMPTY geometry is now explicit in the original setup and checks. The required synthetic Rust source is not native Element identity. No Element, surface physics, general C++ constructor/operator/storage/moved-from identity or parser/resource/runtime claim.",
       "fixtures": {},
       "upstream_fixtures": {},
       "baseline": "Pinned five Collision originals 5/0 before production edits. Independent private raw-source/exclusive reviewer target Rust 6/0/native 5/0; zero-translation and negative-quaternion countercontrols fail all five original predicates, exact restored source 6/0. Initial shared-target run retained without credit. Full author348 Rust/16 tooling/fmt/Clippy/docs; strict4771/4795 lines7915/8157 regions and zero changed instrumented executable lines. No exclusion or timing claim.",
       "status": "ported_reviewed",
-      "review": "Independent /root source semantics SHA256 eb81a694a46ad3e8c05b5942111bb53c77fb4cc4205f0b1a1918895a19100468 and source/protected supplement 786a9f956bd3119b1af4c7db30e8410f06595810b838c3ca0d575448ad95e9f4 bind exact source freeze 382d22a0dbee96bbb48037a1f9ce6b96ffc5c4a6273d1caa8515f0a87fbd51a3 on hosted-green parent bccc97287c2c2f3ce3ea405a0a0a27ed29dffdce, run40348739829. Final metadata binding receipt SHA256 29c10ff04a920a726801eb011e588ec2893b0367f9412ce6db887cd68c95c78c, mandatory normal hook and public 685ff8d9c6b264eb046fd2d0e8de1e84a3d088e8 passed exact hosted verify 40358636368 SUCCESS."
+      "review": "Independent /root source semantics SHA256 eb81a694a46ad3e8c05b5942111bb53c77fb4cc4205f0b1a1918895a19100468 and source/protected supplement 786a9f956bd3119b1af4c7db30e8410f06595810b838c3ca0d575448ad95e9f4 bind exact source freeze 382d22a0dbee96bbb48037a1f9ce6b96ffc5c4a6273d1caa8515f0a87fbd51a3 on hosted-green parent bccc97287c2c2f3ce3ea405a0a0a27ed29dffdce, run40348739829. Final metadata binding receipt SHA256 29c10ff04a920a726801eb011e588ec2893b0367f9412ce6db887cd68c95c78c, mandatory normal hook and public 685ff8d9c6b264eb046fd2d0e8de1e84a3d088e8 passed exact hosted verify 40358636368 SUCCESS. Coordinator independently re-reviewed genuine Empty and empty-name setup, original pose predicates and the preserved separate configured-Box supplemental test; 13 Rust and seven unchanged native originals passed. Normal staged and exact hosted qualification remain pending."
     },
     {
       "target": "UNIT_Collision_TEST",
       "case": "DOMCollision.CopyConstructor",
       "source": "src/Collision_TEST.cc:108-116",
       "rust_test": "tests/collision_ownership_originals.rs::original_dom_collision_copy_constructor",
-      "assertions": "Copied destination final pose translation[-10,-20,-30] and RPY[pi,pi,pi]. Native signed quaternion/translation component absolute<=1e-3 retained without sign relaxation. Exact owned-pose/previous-value checks supplemental. No default EMPTY geometry, Element, surface physics, general C++ constructor/operator/storage/moved-from identity or parser/resource/runtime claim.",
+      "assertions": "Copied destination final pose translation[-10,-20,-30] and RPY[pi,pi,pi]. Native signed quaternion/translation component absolute<=1e-3 retained without sign relaxation. Exact owned-pose/previous-value checks supplemental. Owned default EMPTY geometry is now explicit in the original setup and checks. The required synthetic Rust source is not native Element identity. No Element, surface physics, general C++ constructor/operator/storage/moved-from identity or parser/resource/runtime claim.",
       "fixtures": {},
       "upstream_fixtures": {},
       "baseline": "Pinned five Collision originals 5/0 before production edits. Independent private raw-source/exclusive reviewer target Rust 6/0/native 5/0; zero-translation and negative-quaternion countercontrols fail all five original predicates, exact restored source 6/0. Initial shared-target run retained without credit. Full author348 Rust/16 tooling/fmt/Clippy/docs; strict4771/4795 lines7915/8157 regions and zero changed instrumented executable lines. No exclusion or timing claim.",
       "status": "ported_reviewed",
-      "review": "Independent /root source semantics SHA256 eb81a694a46ad3e8c05b5942111bb53c77fb4cc4205f0b1a1918895a19100468 and source/protected supplement 786a9f956bd3119b1af4c7db30e8410f06595810b838c3ca0d575448ad95e9f4 bind exact source freeze 382d22a0dbee96bbb48037a1f9ce6b96ffc5c4a6273d1caa8515f0a87fbd51a3 on hosted-green parent bccc97287c2c2f3ce3ea405a0a0a27ed29dffdce, run40348739829. Final metadata binding receipt SHA256 29c10ff04a920a726801eb011e588ec2893b0367f9412ce6db887cd68c95c78c, mandatory normal hook and public 685ff8d9c6b264eb046fd2d0e8de1e84a3d088e8 passed exact hosted verify 40358636368 SUCCESS."
+      "review": "Independent /root source semantics SHA256 eb81a694a46ad3e8c05b5942111bb53c77fb4cc4205f0b1a1918895a19100468 and source/protected supplement 786a9f956bd3119b1af4c7db30e8410f06595810b838c3ca0d575448ad95e9f4 bind exact source freeze 382d22a0dbee96bbb48037a1f9ce6b96ffc5c4a6273d1caa8515f0a87fbd51a3 on hosted-green parent bccc97287c2c2f3ce3ea405a0a0a27ed29dffdce, run40348739829. Final metadata binding receipt SHA256 29c10ff04a920a726801eb011e588ec2893b0367f9412ce6db887cd68c95c78c, mandatory normal hook and public 685ff8d9c6b264eb046fd2d0e8de1e84a3d088e8 passed exact hosted verify 40358636368 SUCCESS. Coordinator independently re-reviewed genuine Empty and empty-name setup, original pose predicates and the preserved separate configured-Box supplemental test; 13 Rust and seven unchanged native originals passed. Normal staged and exact hosted qualification remain pending."
     },
     {
       "target": "UNIT_Collision_TEST",
       "case": "DOMCollision.MoveAssignment",
       "source": "src/Collision_TEST.cc:119-128",
       "rust_test": "tests/collision_ownership_originals.rs::original_dom_collision_move_assignment",
-      "assertions": "Replaced destination final pose translation[-10,-20,-30] and RPY[pi,pi,pi]. Native signed quaternion/translation component absolute<=1e-3 retained without sign relaxation. Exact owned-pose/previous-value checks supplemental. No default EMPTY geometry, Element, surface physics, general C++ constructor/operator/storage/moved-from identity or parser/resource/runtime claim.",
+      "assertions": "Replaced destination final pose translation[-10,-20,-30] and RPY[pi,pi,pi]. Native signed quaternion/translation component absolute<=1e-3 retained without sign relaxation. Exact owned-pose/previous-value checks supplemental. Owned default EMPTY geometry is now explicit in the original setup and checks. The required synthetic Rust source is not native Element identity. No Element, surface physics, general C++ constructor/operator/storage/moved-from identity or parser/resource/runtime claim.",
       "fixtures": {},
       "upstream_fixtures": {},
       "baseline": "Pinned five Collision originals 5/0 before production edits. Independent private raw-source/exclusive reviewer target Rust 6/0/native 5/0; zero-translation and negative-quaternion countercontrols fail all five original predicates, exact restored source 6/0. Initial shared-target run retained without credit. Full author348 Rust/16 tooling/fmt/Clippy/docs; strict4771/4795 lines7915/8157 regions and zero changed instrumented executable lines. No exclusion or timing claim.",
       "status": "ported_reviewed",
-      "review": "Independent /root source semantics SHA256 eb81a694a46ad3e8c05b5942111bb53c77fb4cc4205f0b1a1918895a19100468 and source/protected supplement 786a9f956bd3119b1af4c7db30e8410f06595810b838c3ca0d575448ad95e9f4 bind exact source freeze 382d22a0dbee96bbb48037a1f9ce6b96ffc5c4a6273d1caa8515f0a87fbd51a3 on hosted-green parent bccc97287c2c2f3ce3ea405a0a0a27ed29dffdce, run40348739829. Final metadata binding receipt SHA256 29c10ff04a920a726801eb011e588ec2893b0367f9412ce6db887cd68c95c78c, mandatory normal hook and public 685ff8d9c6b264eb046fd2d0e8de1e84a3d088e8 passed exact hosted verify 40358636368 SUCCESS."
+      "review": "Independent /root source semantics SHA256 eb81a694a46ad3e8c05b5942111bb53c77fb4cc4205f0b1a1918895a19100468 and source/protected supplement 786a9f956bd3119b1af4c7db30e8410f06595810b838c3ca0d575448ad95e9f4 bind exact source freeze 382d22a0dbee96bbb48037a1f9ce6b96ffc5c4a6273d1caa8515f0a87fbd51a3 on hosted-green parent bccc97287c2c2f3ce3ea405a0a0a27ed29dffdce, run40348739829. Final metadata binding receipt SHA256 29c10ff04a920a726801eb011e588ec2893b0367f9412ce6db887cd68c95c78c, mandatory normal hook and public 685ff8d9c6b264eb046fd2d0e8de1e84a3d088e8 passed exact hosted verify 40358636368 SUCCESS. Coordinator independently re-reviewed genuine Empty and empty-name setup, original pose predicates and the preserved separate configured-Box supplemental test; 13 Rust and seven unchanged native originals passed. Normal staged and exact hosted qualification remain pending."
     },
     {
       "target": "UNIT_Collision_TEST",
       "case": "DOMCollision.CopyAssignment",
       "source": "src/Collision_TEST.cc:131-140",
       "rust_test": "tests/collision_ownership_originals.rs::original_dom_collision_copy_assignment",
-      "assertions": "Assigned destination final pose translation[-10,-20,-30] and RPY[pi,pi,pi]. Native signed quaternion/translation component absolute<=1e-3 retained without sign relaxation. Exact owned-pose/previous-value checks supplemental. No default EMPTY geometry, Element, surface physics, general C++ constructor/operator/storage/moved-from identity or parser/resource/runtime claim.",
+      "assertions": "Assigned destination final pose translation[-10,-20,-30] and RPY[pi,pi,pi]. Native signed quaternion/translation component absolute<=1e-3 retained without sign relaxation. Exact owned-pose/previous-value checks supplemental. Owned default EMPTY geometry is now explicit in the original setup and checks. The required synthetic Rust source is not native Element identity. No Element, surface physics, general C++ constructor/operator/storage/moved-from identity or parser/resource/runtime claim.",
       "fixtures": {},
       "upstream_fixtures": {},
       "baseline": "Pinned five Collision originals 5/0 before production edits. Independent private raw-source/exclusive reviewer target Rust 6/0/native 5/0; zero-translation and negative-quaternion countercontrols fail all five original predicates, exact restored source 6/0. Initial shared-target run retained without credit. Full author348 Rust/16 tooling/fmt/Clippy/docs; strict4771/4795 lines7915/8157 regions and zero changed instrumented executable lines. No exclusion or timing claim.",
       "status": "ported_reviewed",
-      "review": "Independent /root source semantics SHA256 eb81a694a46ad3e8c05b5942111bb53c77fb4cc4205f0b1a1918895a19100468 and source/protected supplement 786a9f956bd3119b1af4c7db30e8410f06595810b838c3ca0d575448ad95e9f4 bind exact source freeze 382d22a0dbee96bbb48037a1f9ce6b96ffc5c4a6273d1caa8515f0a87fbd51a3 on hosted-green parent bccc97287c2c2f3ce3ea405a0a0a27ed29dffdce, run40348739829. Final metadata binding receipt SHA256 29c10ff04a920a726801eb011e588ec2893b0367f9412ce6db887cd68c95c78c, mandatory normal hook and public 685ff8d9c6b264eb046fd2d0e8de1e84a3d088e8 passed exact hosted verify 40358636368 SUCCESS."
+      "review": "Independent /root source semantics SHA256 eb81a694a46ad3e8c05b5942111bb53c77fb4cc4205f0b1a1918895a19100468 and source/protected supplement 786a9f956bd3119b1af4c7db30e8410f06595810b838c3ca0d575448ad95e9f4 bind exact source freeze 382d22a0dbee96bbb48037a1f9ce6b96ffc5c4a6273d1caa8515f0a87fbd51a3 on hosted-green parent bccc97287c2c2f3ce3ea405a0a0a27ed29dffdce, run40348739829. Final metadata binding receipt SHA256 29c10ff04a920a726801eb011e588ec2893b0367f9412ce6db887cd68c95c78c, mandatory normal hook and public 685ff8d9c6b264eb046fd2d0e8de1e84a3d088e8 passed exact hosted verify 40358636368 SUCCESS. Coordinator independently re-reviewed genuine Empty and empty-name setup, original pose predicates and the preserved separate configured-Box supplemental test; 13 Rust and seven unchanged native originals passed. Normal staged and exact hosted qualification remain pending."
     },
     {
       "target": "UNIT_Collision_TEST",
       "case": "DOMCollision.CopyAssignmentAfterMove",
       "source": "src/Collision_TEST.cc:143-165",
       "rust_test": "tests/collision_ownership_originals.rs::original_dom_collision_copy_assignment_after_move",
-      "assertions": "Final first pose translation[-20,-30,-40], second[-10,-20,-30], both RPY[pi,pi,pi] after move and two copies. Native signed quaternion/translation component absolute<=1e-3 retained without sign relaxation. Exact owned-pose/previous-value checks supplemental. No default EMPTY geometry, Element, surface physics, general C++ constructor/operator/storage/moved-from identity or parser/resource/runtime claim.",
+      "assertions": "Final first pose translation[-20,-30,-40], second[-10,-20,-30], both RPY[pi,pi,pi] after move and two copies. Native signed quaternion/translation component absolute<=1e-3 retained without sign relaxation. Exact owned-pose/previous-value checks supplemental. Owned default EMPTY geometry is now explicit in the original setup and checks. The required synthetic Rust source is not native Element identity. No Element, surface physics, general C++ constructor/operator/storage/moved-from identity or parser/resource/runtime claim.",
       "fixtures": {},
       "upstream_fixtures": {},
       "baseline": "Pinned five Collision originals 5/0 before production edits. Independent private raw-source/exclusive reviewer target Rust 6/0/native 5/0; zero-translation and negative-quaternion countercontrols fail all five original predicates, exact restored source 6/0. Initial shared-target run retained without credit. Full author348 Rust/16 tooling/fmt/Clippy/docs; strict4771/4795 lines7915/8157 regions and zero changed instrumented executable lines. No exclusion or timing claim.",
       "status": "ported_reviewed",
-      "review": "Independent /root source semantics SHA256 eb81a694a46ad3e8c05b5942111bb53c77fb4cc4205f0b1a1918895a19100468 and source/protected supplement 786a9f956bd3119b1af4c7db30e8410f06595810b838c3ca0d575448ad95e9f4 bind exact source freeze 382d22a0dbee96bbb48037a1f9ce6b96ffc5c4a6273d1caa8515f0a87fbd51a3 on hosted-green parent bccc97287c2c2f3ce3ea405a0a0a27ed29dffdce, run40348739829. Final metadata binding receipt SHA256 29c10ff04a920a726801eb011e588ec2893b0367f9412ce6db887cd68c95c78c, mandatory normal hook and public 685ff8d9c6b264eb046fd2d0e8de1e84a3d088e8 passed exact hosted verify 40358636368 SUCCESS."
+      "review": "Independent /root source semantics SHA256 eb81a694a46ad3e8c05b5942111bb53c77fb4cc4205f0b1a1918895a19100468 and source/protected supplement 786a9f956bd3119b1af4c7db30e8410f06595810b838c3ca0d575448ad95e9f4 bind exact source freeze 382d22a0dbee96bbb48037a1f9ce6b96ffc5c4a6273d1caa8515f0a87fbd51a3 on hosted-green parent bccc97287c2c2f3ce3ea405a0a0a27ed29dffdce, run40348739829. Final metadata binding receipt SHA256 29c10ff04a920a726801eb011e588ec2893b0367f9412ce6db887cd68c95c78c, mandatory normal hook and public 685ff8d9c6b264eb046fd2d0e8de1e84a3d088e8 passed exact hosted verify 40358636368 SUCCESS. Coordinator independently re-reviewed genuine Empty and empty-name setup, original pose predicates and the preserved separate configured-Box supplemental test; 13 Rust and seven unchanged native originals passed. Normal staged and exact hosted qualification remain pending."
     },
     {
       "target": "UNIT_Link_TEST",
@@ -2664,6 +2664,34 @@
       "baseline": "Author 13 actual native inputs, one exact constructor fixture, 11 actual output exchanges and unchanged DOMPlugin.ToElement pass; shared Visual native 28/fixture/25 exchanges/original replay passes.",
       "status": "ported_reviewed",
       "review": "Independent integration_reviewer fresh source/owned target passed 33 Rust checks: new Plugin four, Visual/ownership/properties 20 and nine existing plugin ownership/DOM/sensor controls. Fresh helper reproduced 13 native inputs, exact fixture, 11 actual exchanges and unchanged DOMPlugin.ToElement; accepted Visual 28/fixture/25 exchanges/original replay also passed. Extracted serializer branch body mechanically verified byte-identical and final executable paths match. Audited complete genuine pre-emission name/file/one-child setup and every post-load count/name/string predicate; public XML construction is faithful without insertion-failure, Element-identity or quiet claims. Checked opaque unknown attributes/CDATA/comments/prefixes/order, owned-attribute agreement and scoped diagnostics, with no host/execution or parser-domain change. No findings. Normal strict/exact hosted qualification pending; reviewed candidate 201 complete/27 partial versus accepted 200/27."
+    },
+    {
+      "target": "UNIT_Collision_TEST",
+      "source": "src/Collision_TEST.cc:457-509",
+      "fixtures": {
+        "tests/fixtures/collision_to_element_native.xml": "7b6e811911d0d92c9058014a2667c10414903ffb2ae615b3130b011180b96f9c"
+      },
+      "upstream_fixtures": {},
+      "baseline": "Exact writer commit 260b23f independently reviewed; native constructor fixture, two actual exchanges and both unchanged originals passed, then normal staged and exact hosted CI 41028236807 passed.",
+      "status": "ported_reviewed",
+      "review": "Coordinator independently reviewed complete original body and exact Rust predicates/quiet capture, replayed 13 Rust checks and seven unchanged native originals with pinned identities and actual XML exchanges; no findings. Normal staged and exact hosted qualification remain pending.",
+      "case": "DOMCollision.ToElement",
+      "rust_test": "tests/collision_xml.rs::original_collision_to_element",
+      "assertions": "Genuine Empty geometry, raw pose, name, Surface/Contact/Friction/ODE, mask 123 and mu 1.23 setup. Successful nonempty XML represents returned output; absence of density is checked, followed by native-equivalent reload and all name, signed pose, owned nonnullable geometry/surface/contact/friction/ODE and value assertions. Then set density 1234.5, check presence/value, reload the first XML as the original does, and check the original getter. Additional second-output reload is supplemental. No Element identity or auto-inertia claim."
+    },
+    {
+      "target": "UNIT_Collision_TEST",
+      "source": "src/Collision_TEST.cc:512-568",
+      "fixtures": {
+        "tests/fixtures/collision_to_element_native.xml": "7b6e811911d0d92c9058014a2667c10414903ffb2ae615b3130b011180b96f9c"
+      },
+      "upstream_fixtures": {},
+      "baseline": "Exact writer commit 260b23f independently reviewed; native constructor fixture, two actual exchanges and both unchanged originals passed, then normal staged and exact hosted CI 41028236807 passed.",
+      "status": "ported_reviewed",
+      "review": "Coordinator independently reviewed complete original body and exact Rust predicates/quiet capture, replayed 13 Rust checks and seven unchanged native originals with pinned identities and actual XML exchanges; no findings. Normal staged and exact hosted qualification remain pending.",
+      "case": "DOMCollision.ToElementErrorOutput",
+      "rust_test": "tests/collision_xml.rs::original_collision_to_element_error_output",
+      "assertions": "Genuine Empty geometry, raw pose, name, Surface/Contact/Friction/ODE, mask 123 and mu 1.23 setup. Ok/nonempty XML and successful reload represent nonnull output and empty error vectors; direct signed pose, name, safe owned geometry/surface/contact/friction/ODE and value predicates remain. A child process captures actual stdout/stderr for the original quiet-output assertion. No Element identity or auto-inertia claim."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

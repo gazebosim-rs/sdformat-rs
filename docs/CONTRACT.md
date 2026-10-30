@@ -1177,3 +1177,11 @@ normal-map attributes, script URI order and PBR slots. Unsupported hidden state
 is rejected rather than dropped. Original constructor inputs with inactive fields
 are retained as explicit failures, with no original-success credit. See
 [MATERIAL_XML.md](MATERIAL_XML.md).
+
+## Visual metadata XML
+
+Visual::to_xml and load_visual_str preserve current typed properties, unresolved
+pose, supported Geometry/Material and ordered opaque plugins. EMPTY geometry
+uses existing None and valid empty geometry output; strict standalone Geometry
+admission is unchanged. No asset, plugin or renderer is executed. See
+[VISUAL_XML.md](VISUAL_XML.md) for numeric, raw-payload and original boundaries.

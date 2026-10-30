@@ -2608,6 +2608,20 @@
       "baseline": "Author 19 actual native inputs, one exact fixture, two exact retained-input controls, nine actual Rust/native exchanges and both unchanged originals pass; native producer records successful AddPoint flags and empty-producer Load insertion separately.",
       "status": "ported_reviewed",
       "review": "Independent integration_reviewer fresh source/owned Cargo target passed 21 selected Rust checks. Complete Polyline helper reproduced 19 native inputs, one exact fixture, two preserved old-input controls, nine actual XML exchanges, both genuine originals, successful native ADD1/1 and a separate empty producer/load insertion profile. Independently replayed Heightmap 28/15, Mesh 28/18 and Geometry 48/46 native pipelines and originals. Audited normal successful Vec additions via immediate count/last-literal-point assertions, every original scalar/vector/count/order/Result/reload/quiet predicate, multiple groups, empty rejection, source/ancestry and numeric policies. Private stdout/stderr injections each failed quiet capture; restored source passed all 21 and matches final executable paths. One old-cwd helper invocation ran no tests and is excluded. No findings; Geometry originals remain partial, no insertion/OOM/resource/physics claim. Strict staged/exact hosted qualification pending."
+    },
+    {
+      "target": "UNIT_Visual_TEST",
+      "case": "DOMVisual.ToElement",
+      "source": "src/Visual_TEST.cc:293",
+      "rust_test": "tests/visual_xml.rs::original_visual_to_element",
+      "assertions": "Complete configured name/shadows/transparency/visibility/retro presence and value, direct signed pose components <=1e-3, material presence and plugin count/name/filename. Returned nonnull output maps to Ok(nonempty XML). Native Geom returns address of owned Geometry; safe access to the owned Rust geometry field supplies the nonnullable-object guarantee. The separate geometry.is_none assertion checks existing EMPTY value, verified against actual native empty-geometry readback; it is not Option-to-pointer-presence equivalence. No general pointer/input-origin equivalence or producer-byte claim.",
+      "fixtures": {
+        "tests/fixtures/visual_to_element_native.xml": "71a213266cc3a2c7ede5ef5368ee3099af5ce27a35d79d9405a10ef9ecdff2c0"
+      },
+      "upstream_fixtures": {},
+      "baseline": "Author 28 native observations, one exact constructor fixture, 25 actual XML exchanges and unchanged DOMVisual.ToElement pass. Constructor Load has no errors/stderr; native producer <empty> input remains explicit Rust Unsupported.",
+      "status": "ported_reviewed",
+      "review": "Independent integration_reviewer fresh source/owned target passed 30 selected Rust controls, 28 native inputs, one exact fixture, 25 actual XML exchanges and unchanged DOMVisual.ToElement, plus Geometry48/46 and Material53/three fixtures/44 exchanges/both originals. Audited every genuine configured field/direct signed pose/material/plugin predicate and exact owned-Geometry nonnullable safe access versus separate EMPTY None value assertion. Native <empty> reader gap remains Unsupported; no producer-byte or pointer/origin equivalence. Final executable paths remained stable after original 2018 Apache notice corrections. No findings. Normal strict staged/exact hosted qualification pending; candidate198/27 versus accepted197/27."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

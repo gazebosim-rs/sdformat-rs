@@ -44,6 +44,7 @@ mod polyline_xml;
 mod sensor_xml;
 mod surface_xml;
 mod types;
+mod visual_xml;
 mod xml;
 pub use types::*;
 
@@ -186,4 +187,9 @@ pub fn load_polyline_str(xml: &str, source: &str) -> Result<Polyline, Diagnostic
 /// Load standalone Material/PBR metadata without resolving scripts or textures.
 pub fn load_material_str(xml: &str, source: &str) -> Result<Material, Diagnostic> {
     parse::load_material_element(xml, source)
+}
+
+/// Load standalone Visual metadata without resolving its pose or any asset.
+pub fn load_visual_str(xml: &str, source: &str) -> Result<Visual, Diagnostic> {
+    parse::load_visual_element(xml, source)
 }

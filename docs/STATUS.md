@@ -3376,3 +3376,16 @@ and reproduced all native proofs, with no findings. Stdout/stderr injections eac
 failed quiet capture; restored source matches final paths and passed all 22. Normal
 strict staged gate and exact hosted CI remain pending; see MATERIAL_XML.md for
 the explicit disposition.
+
+## Candidate Visual metadata XML
+
+Accepted Main 295e991 has 197 complete/27 partial mappings. Isolated Visual output
+and standalone readback delegate the existing parser and accepted Geometry and
+Material writers. Six new Rust controls and native 28 inputs/one exact fixture/25
+actual exchanges/unchanged original pass. EMPTY by-value Geometry is represented
+as existing None and valid <geometry/> output; native producer <empty> input
+remains explicitly Unsupported. All original configured fields remain; the
+case-specific complete mapping and full slice are independently approved after
+30 selected Rust checks and new/Geometry/Material native replays. Reviewed
+candidate counts are 198 complete/27 partial, accepted remains 197/27 pending
+normal strict staged checks and exact hosted qualification. No runtime/asset credit.

@@ -1,0 +1,21 @@
+<visual name='my-visual'>
+  <pose>1 2 3 0.099999999999999992 0.20000000000000001 0.29999999999999999</pose>
+  <geometry>
+    <empty/>
+  </geometry>
+  <cast_shadows>true</cast_shadows>
+  <laser_retro>1.2</laser_retro>
+  <transparency>0.20000000300000001</transparency>
+  <visibility_flags>1234</visibility_flags>
+  <material>
+    <ambient>0 0 0 1</ambient>
+    <diffuse>0 0 0 1</diffuse>
+    <specular>0 0 0 1</specular>
+    <emissive>0 0 0 1</emissive>
+    <render_order>0</render_order>
+    <lighting>true</lighting>
+    <double_sided>false</double_sided>
+    <shader type='pixel'/>
+  </material>
+  <plugin name='name1' filename='filename1'/>
+</visual>

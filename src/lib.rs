@@ -11,6 +11,7 @@
 mod air_pressure_xml;
 mod air_speed_xml;
 mod altimeter_xml;
+mod atmosphere_xml;
 mod axis_xml;
 mod camera;
 mod camera_xml;
@@ -192,4 +193,9 @@ pub fn load_material_str(xml: &str, source: &str) -> Result<Material, Diagnostic
 /// Load standalone Visual metadata without resolving its pose or any asset.
 pub fn load_visual_str(xml: &str, source: &str) -> Result<Visual, Diagnostic> {
     parse::load_visual_element(xml, source)
+}
+
+/// Load standalone Adiabatic atmosphere metadata without sampling it.
+pub fn load_atmosphere_str(xml: &str, source: &str) -> Result<Atmosphere, Diagnostic> {
+    parse::load_atmosphere_element(xml, source)
 }

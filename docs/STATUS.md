@@ -3389,3 +3389,16 @@ case-specific complete mapping and full slice are independently approved after
 30 selected Rust checks and new/Geometry/Material native replays. Reviewed
 candidate counts are 198 complete/27 partial, accepted remains 197/27 pending
 normal strict staged checks and exact hosted qualification. No runtime/asset credit.
+
+## Candidate Atmosphere metadata XML
+
+Accepted Main c64c46d has 198 complete/27 partial mappings. Bounded Atmosphere
+output/standalone readback delegates the existing reader, preserves all three
+finite scalar values and immutable input origin, and adds no runtime model.
+Author native proof passes 23 inputs, one exact fixture, 14 actual exchanges and
+both unchanged originals. Exact original temperature <=1e-6, other four-ULP,
+returned output/errors and actual quiet predicates are retained. Two complete
+mappings are independently approved after 14 selected Rust controls, full native
+replay and private quiet-failure checks. Candidate counts are 200 complete/27
+partial versus accepted 198/27 pending normal strict/exact hosted checks.
+Collision EMPTY/density and assets are untouched.

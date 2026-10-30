@@ -1185,3 +1185,10 @@ pose, supported Geometry/Material and ordered opaque plugins. EMPTY geometry
 uses existing None and valid empty geometry output; strict standalone Geometry
 admission is unchanged. No asset, plugin or renderer is executed. See
 [VISUAL_XML.md](VISUAL_XML.md) for numeric, raw-payload and original boundaries.
+
+## Atmosphere metadata XML
+
+Atmosphere::to_xml and load_atmosphere_str retain current typed sea-level values
+through the existing Adiabatic reader. Scalar admission and required-type rules
+are unchanged; source/XML remain input provenance. No altitude or atmospheric
+runtime sampling is implied. See [ATMOSPHERE_XML.md](ATMOSPHERE_XML.md).

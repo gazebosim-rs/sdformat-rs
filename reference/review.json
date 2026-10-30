@@ -2,19 +2,18 @@
   "decision": "approved",
   "author": "sdformat_owner",
   "reviewer": "integration_reviewer",
-  "source_digest": "3caf36a5edf7f652b53d39b97151878a76bfc68b38418a4900fa4097bd4b351c",
-  "protected_digest": "b41430b1400e10a23295d183d1389c4011cf7f3bbb3f4ee60898abeed8b686ed",
-  "scope": "Bounded Visual metadata XML and standalone readback, including exact DOMVisual.ToElement mapping.",
+  "source_digest": "edbf04f018180a874483e655c1479a68b5cac08ee9e52860078a88c4af94fc22",
+  "protected_digest": "3ebc1ecce7fc6f3ad606bfa6be11aa4f0ee8a6d7621769b15f27de71d2ae6685",
+  "scope": "Bounded Adiabatic Atmosphere metadata XML and standalone readback; two exact ToElement assertion mappings.",
   "checks": [
-    "Fresh independent source and owned target passed 30 selected Rust controls.",
-    "Native helper reproduced 28 actual inputs, one exact constructor fixture, 25 actual Rust-to-native exchanges and unchanged DOMVisual.ToElement with pinned source/header/library identity.",
-    "Unchanged Geometry helper passed48 cases/46 exchanges/both originals; Material helper passed53 cases/three fixtures/44 exchanges/both originals, retaining constructor-domain Unsupported disposition.",
-    "Reviewed every original configured field, direct signed pose bounds, f32 values, material presence and plugin count/name/file. Owned Rust field access supplies nonnullable-object guarantee; separate None assertion preserves EMPTY value. Native <empty> reader gap remains Unsupported; valid <geometry/> is native admitted.",
-    "Reviewed immutable raw plugin XML span/attribute consistency, exact f32 conversion, finite/subnormal policies, delegated shape/material boundaries and original notices. Final executable paths byte-match independent snapshot.",
-    "Final metadata accurately records independent checks, candidate198 complete/27 partial versus accepted197/27 pending qualification, and no pointer identity or producer-byte claim."
+    "Fresh independent export/owned target passed14 selected Rust checks: old Atmosphere/originals and new XML/original ports.",
+    "Fresh pinned native helper reproduced23 inputs, exact constructor fixture,14 actual exports, world-omission defaults and both unchanged originals, with native source/header/math/library checks.",
+    "Compared exact genuine constructor setup and assertions: temperature absolute<=1e-6, positive finite gradient/pressure four-ULP checks, successful nonempty output/load and real quiet-console behavior. No Element identity assertion exists.",
+    "Reviewed unchanged existing parser delegation, required type/default/unknown/duplicate/numeric policies, finite non-subnormal output domain, negative and signed-zero bits, and immutable source/XML under typed edits.",
+    "Private stdout/stderr injections each failed actual child quiet capture; restored source passed all14 checks and executable paths byte-match final candidate. Final metadata records candidate200/27 versus accepted198/27 pending qualification."
   ],
   "remaining": [
     "Normal strict staged hook and exact hosted qualification remain mandatory.",
-    "Native <empty> reader grammar, resource IO, rendering, plugin execution, generic pointer/origin semantics and performance remain open."
+    "No altitude/weather/pressure-sensor runtime model, resource/physics/rendering behavior, generic origin identity or performance credit."
   ]
 }

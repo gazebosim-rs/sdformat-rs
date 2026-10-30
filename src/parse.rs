@@ -318,6 +318,29 @@ pub(crate) fn load_visual_element(xml: &str, uri: &str) -> Result<Visual, Diagno
     }
     parser.visual(root)
 }
+pub(crate) fn load_atmosphere_element(xml: &str, uri: &str) -> Result<Atmosphere, Diagnostic> {
+    let resolver = NoResources;
+    let parser = Parser {
+        uri,
+        xml,
+        resolver: &resolver,
+        includes: vec![uri.into()],
+    };
+    let doc = Document::parse(xml).map_err(|e| Diagnostic {
+        code: e.code,
+        source: Source {
+            uri: uri.into(),
+            line: e.pos().row,
+            column: e.pos().col,
+        },
+        message: e.to_string(),
+    })?;
+    let root = doc.root_element();
+    if !root.has_tag_name("atmosphere") {
+        return Err(parser.err(root, ErrorCode::Xml, "root element must be atmosphere"));
+    }
+    parser.atmosphere(root)
+}
 
 pub(crate) fn load_geometry_element(xml: &str, uri: &str) -> Result<Geometry, Diagnostic> {
     let resolver = NoResources;

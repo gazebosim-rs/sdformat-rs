@@ -1,0 +1,351 @@
+{
+  "rows": [
+    {
+      "id": "default",
+      "xml": "<atmosphere type='adiabatic'></atmosphere>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 0 4643776804600309350 13797516048788403257 4681699414190850048\n",
+        "stderr": ""
+      },
+      "export": true,
+      "values": [
+        "0",
+        "4643776804600309350",
+        "13797516048788403257",
+        "4681699414190850048"
+      ]
+    },
+    {
+      "id": "configured",
+      "xml": "<atmosphere type='adiabatic'><temperature>123</temperature><temperature_gradient>1.34</temperature_gradient><pressure>2.65</pressure></atmosphere>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 0 4638355772470722560 4608713642673323377 4613149688306283315\n",
+        "stderr": ""
+      },
+      "export": true,
+      "values": [
+        "0",
+        "4638355772470722560",
+        "4608713642673323377",
+        "4613149688306283315"
+      ]
+    },
+    {
+      "id": "temperature_minus_zero",
+      "xml": "<atmosphere type='adiabatic'><temperature>-0</temperature></atmosphere>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 0 9223372036854775808 13797516048788403257 4681699414190850048\n",
+        "stderr": ""
+      },
+      "export": true,
+      "values": [
+        "0",
+        "9223372036854775808",
+        "13797516048788403257",
+        "4681699414190850048"
+      ]
+    },
+    {
+      "id": "temperature_negative",
+      "xml": "<atmosphere type='adiabatic'><temperature>-1</temperature></atmosphere>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 0 13830554455654793216 13797516048788403257 4681699414190850048\n",
+        "stderr": ""
+      },
+      "export": true,
+      "values": [
+        "0",
+        "13830554455654793216",
+        "13797516048788403257",
+        "4681699414190850048"
+      ]
+    },
+    {
+      "id": "temperature_minimum_normal",
+      "xml": "<atmosphere type='adiabatic'><temperature>2.2250738585072014e-308</temperature></atmosphere>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 0 4503599627370496 13797516048788403257 4681699414190850048\n",
+        "stderr": ""
+      },
+      "export": true,
+      "values": [
+        "0",
+        "4503599627370496",
+        "13797516048788403257",
+        "4681699414190850048"
+      ]
+    },
+    {
+      "id": "temperature_maximum",
+      "xml": "<atmosphere type='adiabatic'><temperature>1.7976931348623157e308</temperature></atmosphere>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 0 9218868437227405311 13797516048788403257 4681699414190850048\n",
+        "stderr": ""
+      },
+      "export": true,
+      "values": [
+        "0",
+        "9218868437227405311",
+        "13797516048788403257",
+        "4681699414190850048"
+      ]
+    },
+    {
+      "id": "temperature_gradient_minus_zero",
+      "xml": "<atmosphere type='adiabatic'><temperature_gradient>-0</temperature_gradient></atmosphere>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 0 4643776804600309350 9223372036854775808 4681699414190850048\n",
+        "stderr": ""
+      },
+      "export": true,
+      "values": [
+        "0",
+        "4643776804600309350",
+        "9223372036854775808",
+        "4681699414190850048"
+      ]
+    },
+    {
+      "id": "temperature_gradient_negative",
+      "xml": "<atmosphere type='adiabatic'><temperature_gradient>-1</temperature_gradient></atmosphere>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 0 4643776804600309350 13830554455654793216 4681699414190850048\n",
+        "stderr": ""
+      },
+      "export": true,
+      "values": [
+        "0",
+        "4643776804600309350",
+        "13830554455654793216",
+        "4681699414190850048"
+      ]
+    },
+    {
+      "id": "temperature_gradient_minimum_normal",
+      "xml": "<atmosphere type='adiabatic'><temperature_gradient>2.2250738585072014e-308</temperature_gradient></atmosphere>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 0 4643776804600309350 4503599627370496 4681699414190850048\n",
+        "stderr": ""
+      },
+      "export": true,
+      "values": [
+        "0",
+        "4643776804600309350",
+        "4503599627370496",
+        "4681699414190850048"
+      ]
+    },
+    {
+      "id": "temperature_gradient_maximum",
+      "xml": "<atmosphere type='adiabatic'><temperature_gradient>1.7976931348623157e308</temperature_gradient></atmosphere>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 0 4643776804600309350 9218868437227405311 4681699414190850048\n",
+        "stderr": ""
+      },
+      "export": true,
+      "values": [
+        "0",
+        "4643776804600309350",
+        "9218868437227405311",
+        "4681699414190850048"
+      ]
+    },
+    {
+      "id": "pressure_minus_zero",
+      "xml": "<atmosphere type='adiabatic'><pressure>-0</pressure></atmosphere>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 0 4643776804600309350 13797516048788403257 9223372036854775808\n",
+        "stderr": ""
+      },
+      "export": true,
+      "values": [
+        "0",
+        "4643776804600309350",
+        "13797516048788403257",
+        "9223372036854775808"
+      ]
+    },
+    {
+      "id": "pressure_negative",
+      "xml": "<atmosphere type='adiabatic'><pressure>-1</pressure></atmosphere>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 0 4643776804600309350 13797516048788403257 13830554455654793216\n",
+        "stderr": ""
+      },
+      "export": true,
+      "values": [
+        "0",
+        "4643776804600309350",
+        "13797516048788403257",
+        "13830554455654793216"
+      ]
+    },
+    {
+      "id": "pressure_minimum_normal",
+      "xml": "<atmosphere type='adiabatic'><pressure>2.2250738585072014e-308</pressure></atmosphere>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 0 4643776804600309350 13797516048788403257 4503599627370496\n",
+        "stderr": ""
+      },
+      "export": true,
+      "values": [
+        "0",
+        "4643776804600309350",
+        "13797516048788403257",
+        "4503599627370496"
+      ]
+    },
+    {
+      "id": "pressure_maximum",
+      "xml": "<atmosphere type='adiabatic'><pressure>1.7976931348623157e308</pressure></atmosphere>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 0 4643776804600309350 13797516048788403257 9218868437227405311\n",
+        "stderr": ""
+      },
+      "export": true,
+      "values": [
+        "0",
+        "4643776804600309350",
+        "13797516048788403257",
+        "9218868437227405311"
+      ]
+    },
+    {
+      "id": "temperature_subnormal",
+      "xml": "<atmosphere type='adiabatic'><temperature>4.9406564584124654e-324</temperature></atmosphere>",
+      "native": {
+        "stdout": "READ 0 9 9 9 9\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Out of range. Unable to set value [4.9406564584124654e-324 ] for key[temperature].\n"
+      },
+      "export": false,
+      "gap": "InvalidValue",
+      "values": null
+    },
+    {
+      "id": "temperature_nan",
+      "xml": "<atmosphere type='adiabatic'><temperature>nan</temperature></atmosphere>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 0 9221120237041090560 13797516048788403257 4681699414190850048\n",
+        "stderr": ""
+      },
+      "export": false,
+      "gap": "InvalidValue",
+      "values": [
+        "0",
+        "9221120237041090560",
+        "13797516048788403257",
+        "4681699414190850048"
+      ]
+    },
+    {
+      "id": "temperature_infinity",
+      "xml": "<atmosphere type='adiabatic'><temperature>inf</temperature></atmosphere>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 0 9218868437227405312 13797516048788403257 4681699414190850048\n",
+        "stderr": ""
+      },
+      "export": false,
+      "gap": "InvalidValue",
+      "values": [
+        "0",
+        "9218868437227405312",
+        "13797516048788403257",
+        "4681699414190850048"
+      ]
+    },
+    {
+      "id": "missing_type",
+      "xml": "<atmosphere ></atmosphere>",
+      "native": {
+        "stdout": "READ 0 4 9 9 9\n",
+        "stderr": ""
+      },
+      "export": false,
+      "gap": "Missing",
+      "values": null
+    },
+    {
+      "id": "empty_type",
+      "xml": "<atmosphere type=''></atmosphere>",
+      "native": {
+        "stdout": "READ 0 5 9 9 9\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Empty string used when setting a required parameter. Key[type]\n"
+      },
+      "export": false,
+      "gap": "Missing",
+      "values": null
+    },
+    {
+      "id": "unknown_type",
+      "xml": "<atmosphere type='bad'></atmosphere>",
+      "native": {
+        "stdout": "READ 1\nLOAD 9\nVALUES 0 4643776804600309350 13797516048788403257 4681699414190850048\n",
+        "stderr": ""
+      },
+      "export": false,
+      "gap": "InvalidValue",
+      "values": [
+        "0",
+        "4643776804600309350",
+        "13797516048788403257",
+        "4681699414190850048"
+      ]
+    },
+    {
+      "id": "unknown_child",
+      "xml": "<atmosphere type='adiabatic'><unknown/></atmosphere>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 0 4643776804600309350 13797516048788403257 4681699414190850048\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/world[@name=\"w\"]/atmosphere/unknown:<data-string>:L1]: XML Element[unknown], child of element[atmosphere], not defined in SDF. Copying[unknown] as children of [atmosphere].\n"
+      },
+      "export": false,
+      "gap": "Unsupported",
+      "values": [
+        "0",
+        "4643776804600309350",
+        "13797516048788403257",
+        "4681699414190850048"
+      ]
+    },
+    {
+      "id": "unknown_attribute",
+      "xml": "<atmosphere type='adiabatic' unknown='x'></atmosphere>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 0 4643776804600309350 13797516048788403257 4681699414190850048\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/world[@name=\"w\"]/atmosphere[@unknown=\"x\"]:<data-string>:L1]: XML Attribute[unknown] in element[atmosphere] not defined in SDF.\n"
+      },
+      "export": false,
+      "gap": "Unsupported",
+      "values": [
+        "0",
+        "4643776804600309350",
+        "13797516048788403257",
+        "4681699414190850048"
+      ]
+    },
+    {
+      "id": "duplicate_pressure",
+      "xml": "<atmosphere type='adiabatic'><pressure>1</pressure><pressure>2</pressure></atmosphere>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 0 4643776804600309350 13797516048788403257 4607182418800017408\n",
+        "stderr": ""
+      },
+      "export": false,
+      "gap": "InvalidValue",
+      "values": [
+        "0",
+        "4643776804600309350",
+        "13797516048788403257",
+        "4607182418800017408"
+      ]
+    }
+  ],
+  "configured_native_producer": {
+    "stdout": "EMIT 1\nXML_BEGIN\n<atmosphere type='adiabatic'>\n  <temperature>123</temperature>\n  <pressure>2.6499999999999999</pressure>\n  <temperature_gradient>1.3400000000000001</temperature_gradient>\n</atmosphere>\nXML_END\nLOAD\nVALUES 0 4638355772470722560 4608713642673323377 4613149688306283315\n",
+    "stderr": ""
+  },
+  "absent_world_atmosphere": {
+    "stdout": "READ 1\nLOAD\nVALUES 0 4643776804600309350 13797516048788403257 4681699414190850048\n",
+    "stderr": ""
+  }
+}

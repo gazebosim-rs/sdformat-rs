@@ -2622,6 +2622,34 @@
       "baseline": "Author 28 native observations, one exact constructor fixture, 25 actual XML exchanges and unchanged DOMVisual.ToElement pass. Constructor Load has no errors/stderr; native producer <empty> input remains explicit Rust Unsupported.",
       "status": "ported_reviewed",
       "review": "Independent integration_reviewer fresh source/owned target passed 30 selected Rust controls, 28 native inputs, one exact fixture, 25 actual XML exchanges and unchanged DOMVisual.ToElement, plus Geometry48/46 and Material53/three fixtures/44 exchanges/both originals. Audited every genuine configured field/direct signed pose/material/plugin predicate and exact owned-Geometry nonnullable safe access versus separate EMPTY None value assertion. Native <empty> reader gap remains Unsupported; no producer-byte or pointer/origin equivalence. Final executable paths remained stable after original 2018 Apache notice corrections. No findings. Normal strict staged/exact hosted qualification pending; candidate198/27 versus accepted197/27."
+    },
+    {
+      "target": "UNIT_Atmosphere_TEST",
+      "case": "DOMAtmosphere.ToElement",
+      "source": "src/Atmosphere_TEST.cc:137",
+      "rust_test": "tests/atmosphere_xml_original.rs::original_atmosphere_to_element",
+      "assertions": "Complete Adiabatic/123 K/1.34 gradient/2.65 pressure setup; returned Ok(nonempty XML) and successful reload map nonnull output/empty errors. Native Temperature <=1e-6 and four-ULP gradient/pressure bounds retained. ErrorOutput uses actual empty stdout/stderr child capture. No Element identity predicate or atmosphere runtime claim.",
+      "fixtures": {
+        "tests/fixtures/atmosphere_to_element_native.xml": "142966116b5d040fa1af5e53ec35258093256ce1aee2e1abc29323440734c181"
+      },
+      "upstream_fixtures": {},
+      "baseline": "Author 23 actual native inputs, one exact constructor fixture, 14 XML exchanges, world-omission defaults and both unchanged originals pass with empty stderr.",
+      "status": "ported_reviewed",
+      "review": "Independent integration_reviewer fresh source/owned target passed 14 selected Rust controls (old Atmosphere/originals plus new three/original two). Fresh helper reproduced 23 native inputs, one exact fixture, 14 real XML exchanges, world-omission defaults and both unchanged originals with pinned identities. Audited complete original setup, Temperature absolute <=1e-6 and positive finite scalar four-ULP bounds, Result/nonempty/error predicates, type/default/unknown/duplicate/numeric policies and immutable source/XML. Private stdout and stderr injections each failed actual quiet capture; restored final executable paths match and all 14 pass. No findings. Normal strict staged/exact hosted qualification pending; reviewed candidate 200 complete/27 partial versus accepted 198/27."
+    },
+    {
+      "target": "UNIT_Atmosphere_TEST",
+      "case": "DOMAtmosphere.ToElementErrorOutput",
+      "source": "src/Atmosphere_TEST.cc:159",
+      "rust_test": "tests/atmosphere_xml_original.rs::original_atmosphere_to_element_error_output",
+      "assertions": "Complete Adiabatic/123 K/1.34 gradient/2.65 pressure setup; returned Ok(nonempty XML) and successful reload map nonnull output/empty errors. Native Temperature <=1e-6 and four-ULP gradient/pressure bounds retained. ErrorOutput uses actual empty stdout/stderr child capture. No Element identity predicate or atmosphere runtime claim.",
+      "fixtures": {
+        "tests/fixtures/atmosphere_to_element_native.xml": "142966116b5d040fa1af5e53ec35258093256ce1aee2e1abc29323440734c181"
+      },
+      "upstream_fixtures": {},
+      "baseline": "Author 23 actual native inputs, one exact constructor fixture, 14 XML exchanges, world-omission defaults and both unchanged originals pass with empty stderr.",
+      "status": "ported_reviewed",
+      "review": "Independent integration_reviewer fresh source/owned target passed 14 selected Rust controls (old Atmosphere/originals plus new three/original two). Fresh helper reproduced 23 native inputs, one exact fixture, 14 real XML exchanges, world-omission defaults and both unchanged originals with pinned identities. Audited complete original setup, Temperature absolute <=1e-6 and positive finite scalar four-ULP bounds, Result/nonempty/error predicates, type/default/unknown/duplicate/numeric policies and immutable source/XML. Private stdout and stderr injections each failed actual quiet capture; restored final executable paths match and all 14 pass. No findings. Normal strict staged/exact hosted qualification pending; reviewed candidate 200 complete/27 partial versus accepted 198/27."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

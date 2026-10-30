@@ -69,11 +69,18 @@ impl Geometry {
             ),
             Self::Mesh(value) => value.to_xml()?,
             Self::Heightmap(value) => value.to_xml()?,
-            _ => {
-                return Err(error(
-                    ErrorCode::Unsupported,
-                    "geometry XML does not support polyline",
-                ));
+            Self::Polyline(lines) => {
+                if lines.is_empty() {
+                    return Err(error(
+                        ErrorCode::Unsupported,
+                        "empty polyline groups cannot roundtrip through XML",
+                    ));
+                }
+                let mut output = String::new();
+                for line in lines {
+                    output.push_str(&line.to_xml()?);
+                }
+                output
             }
         };
         Ok(format!("<geometry>{shape}</geometry>"))

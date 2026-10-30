@@ -2,19 +2,19 @@
   "decision": "approved",
   "author": "sdformat_owner",
   "reviewer": "integration_reviewer",
-  "source_digest": "c18da97aee98bd3b1107e002cfeb4dc32854b6572845c58d84d21d1f9b76ed30",
-  "protected_digest": "1aeac00c8d2cd318e9c1a40e163906ea9be98f220f7ead6facba67143e846652",
-  "scope": "Valid Heightmap metadata XML and two exact complete ToElement mappings, with two previously approved Geometry capability transitions.",
+  "source_digest": "ee1a88e6ae8f83b9126315ada25a65cb52820d55301a0c7774ea8b16620f1c66",
+  "protected_digest": "c1dc89a5a4f4697348f204bd132f27b120bc18105e772bed325cc786fcbbf5bf",
+  "scope": "Ordered Polyline metadata XML and two exact complete configured ToElement mappings; two prior-approved Geometry temporary capability transitions.",
   "checks": [
-    "Fresh independent source and owned target passed 27 selected Rust checks after restoring all reviewer-only modifications.",
-    "Complete Heightmap helper passed 28 native inputs, exact fixture, two exact old-input controls, 15 actual XML exchanges and both unchanged originals; pinned source/header/math/library identities matched.",
-    "Independent Mesh 28/18, Geometry 48/45 and Contact 16/17 native pipelines and their unchanged originals passed.",
-    "Reviewed all original URI, component-wise vector 1e-3, paging, sampling, ordered texture/blend counts and string/scalar four-ULP predicates; successful Result/nonempty output/reload and actual quiet capture preserve exact valid originals. No input Element identity assertion exists.",
-    "Private stdout/stderr injections each failed quiet capture; restored original file byte-matches candidate and all 27 checks passed. A nonexistent contact target invocation ran no tests and is excluded; corrected contact_sensor target supplies the stated checks.",
-    "Shared text validator preserves Mesh codes/messages and accepted output, Contact validation/output remains unchanged. Finite/subnormal/signed-zero, raw vectors, defaults, ordered records and caller origins retain explicit documented native differences. Final metadata reviewed without findings."
+    "Fresh independent source and owned target passed 21 selected Rust checks after restoring reviewer-only changes.",
+    "Complete Polyline helper passed 19 native inputs, exact fixture, two exact retained inputs, nine actual exchanges, both unchanged originals, native ADD1/1 and separate empty producer/load insertion profile. Source/header/math/library bindings matched.",
+    "Independent Heightmap 28/15, Mesh 28/18 and Geometry 48/46 native pipelines and unchanged originals passed.",
+    "Compared every original height four-ULP, literal normal point additions with immediate length/last point, indexed vector components 1e-3, ordered counts, successful Result/nonempty/reload and actual quiet predicate. No original input Element identity or allocation-failure predicate exists.",
+    "Private stdout/stderr injections each failed quiet capture; restored source byte-matches final candidate and all 21 checks passed. One initial invocation used the prior Heightmap working directory and ran no tests; excluded.",
+    "Reviewed ordered multiple groups, source/ancestry, immutable emission, empty-point/group explicit errors, scalar/subnormal/signed-zero policies and precise native differences. Final reviewed metadata preserves accepted versus candidate counts."
   ],
   "remaining": [
-    "Normal strict staged and exact hosted gates remain required; accepted 193 complete/27 partial versus candidate 195/27.",
-    "Invalid default native producer error34, full Geometry completion, resource/image processing, rendering/physics/runtime and performance claims remain outside scope."
+    "Normal strict staged and exact hosted qualification remain required; accepted 195 complete/27 partial versus candidate 197/27.",
+    "Geometry original default-empty Polyline and invalid Mesh/Heightmap producer blocks remain partial; no insertion/OOM facade, resource processing, polygon triangulation, rendering/physics or runtime claim."
   ]
 }

@@ -2580,6 +2580,34 @@
       "baseline": "Author 28 native inputs, one exact configured fixture, two exact old-input controls, 15 actual Rust/native exchanges and both unchanged originals pass with empty stderr.",
       "status": "ported_reviewed",
       "review": "Independent integration_reviewer fresh source/owned Cargo target passed 27 selected Rust checks; complete Heightmap helper reproduced 28 native inputs, one exact fixture, two exact old-input controls, 15 actual XML exchanges and both unchanged originals. Independently replayed Mesh 28/18, Geometry 48/45 and Contact 16/17 native pipelines and their originals. Private stdout/stderr injections each failed quiet capture; restored source passed all 27. Every exact original URI/vector/paging/sampling/ordered texture/blend count and value predicate, Result/reload and quiet mapping was reviewed. All final executable paths match restored export. No findings. One nonexistent contact target invocation ran no tests and is excluded; corrected contact_sensor run supplies the stated 27 passes. Strict staged/exact hosted gates remain pending; default producer error34 and Geometry partial/resource/runtime boundaries remain open."
+    },
+    {
+      "target": "UNIT_Polyline_TEST",
+      "case": "DOMPolyline.ToElement",
+      "source": "src/Polyline_TEST.cc:159",
+      "rust_test": "tests/polyline_xml_original.rs::original_polyline_to_element",
+      "assertions": "Complete configured height four-ULP, two literal successful point additions via Vec push + immediate length-increment and exact last-point assertions, ordered point count and both indexed vectors at component <=1e-3; successful nonempty XML/reload translates returned output/empty errors. ErrorOutput uses actual empty stdout/stderr child capture. No input Element identity or capacity/OOM behavior claim.",
+      "fixtures": {
+        "tests/fixtures/polyline_to_element_native.xml": "68c434d2218eb721a4096fa614cd3c5ac26ebf31e8a26c31502e4e3ac0fa9be4"
+      },
+      "upstream_fixtures": {},
+      "baseline": "Author 19 actual native inputs, one exact fixture, two exact retained-input controls, nine actual Rust/native exchanges and both unchanged originals pass; native producer records successful AddPoint flags and empty-producer Load insertion separately.",
+      "status": "ported_reviewed",
+      "review": "Independent integration_reviewer fresh source/owned Cargo target passed 21 selected Rust checks. Complete Polyline helper reproduced 19 native inputs, one exact fixture, two preserved old-input controls, nine actual XML exchanges, both genuine originals, successful native ADD1/1 and a separate empty producer/load insertion profile. Independently replayed Heightmap 28/15, Mesh 28/18 and Geometry 48/46 native pipelines and originals. Audited normal successful Vec additions via immediate count/last-literal-point assertions, every original scalar/vector/count/order/Result/reload/quiet predicate, multiple groups, empty rejection, source/ancestry and numeric policies. Private stdout/stderr injections each failed quiet capture; restored source passed all 21 and matches final executable paths. One old-cwd helper invocation ran no tests and is excluded. No findings; Geometry originals remain partial, no insertion/OOM/resource/physics claim. Strict staged/exact hosted qualification pending."
+    },
+    {
+      "target": "UNIT_Polyline_TEST",
+      "case": "DOMPolyline.ToElementErrorOutput",
+      "source": "src/Polyline_TEST.cc:183",
+      "rust_test": "tests/polyline_xml_original.rs::original_polyline_to_element_error_output",
+      "assertions": "Complete configured height four-ULP, two literal successful point additions via Vec push + immediate length-increment and exact last-point assertions, ordered point count and both indexed vectors at component <=1e-3; successful nonempty XML/reload translates returned output/empty errors. ErrorOutput uses actual empty stdout/stderr child capture. No input Element identity or capacity/OOM behavior claim.",
+      "fixtures": {
+        "tests/fixtures/polyline_to_element_native.xml": "68c434d2218eb721a4096fa614cd3c5ac26ebf31e8a26c31502e4e3ac0fa9be4"
+      },
+      "upstream_fixtures": {},
+      "baseline": "Author 19 actual native inputs, one exact fixture, two exact retained-input controls, nine actual Rust/native exchanges and both unchanged originals pass; native producer records successful AddPoint flags and empty-producer Load insertion separately.",
+      "status": "ported_reviewed",
+      "review": "Independent integration_reviewer fresh source/owned Cargo target passed 21 selected Rust checks. Complete Polyline helper reproduced 19 native inputs, one exact fixture, two preserved old-input controls, nine actual XML exchanges, both genuine originals, successful native ADD1/1 and a separate empty producer/load insertion profile. Independently replayed Heightmap 28/15, Mesh 28/18 and Geometry 48/46 native pipelines and originals. Audited normal successful Vec additions via immediate count/last-literal-point assertions, every original scalar/vector/count/order/Result/reload/quiet predicate, multiple groups, empty rejection, source/ancestry and numeric policies. Private stdout/stderr injections each failed quiet capture; restored source passed all 21 and matches final executable paths. One old-cwd helper invocation ran no tests and is excluded. No findings; Geometry originals remain partial, no insertion/OOM/resource/physics claim. Strict staged/exact hosted qualification pending."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

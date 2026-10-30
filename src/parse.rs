@@ -249,6 +249,29 @@ pub(crate) fn load_heightmap_element(xml: &str, uri: &str) -> Result<Heightmap, 
     }
     parser.heightmap(root)
 }
+pub(crate) fn load_polyline_element(xml: &str, uri: &str) -> Result<Polyline, Diagnostic> {
+    let resolver = NoResources;
+    let parser = Parser {
+        uri,
+        xml,
+        resolver: &resolver,
+        includes: vec![uri.into()],
+    };
+    let doc = Document::parse(xml).map_err(|e| Diagnostic {
+        code: e.code,
+        source: Source {
+            uri: uri.into(),
+            line: e.pos().row,
+            column: e.pos().col,
+        },
+        message: e.to_string(),
+    })?;
+    let root = doc.root_element();
+    if !root.has_tag_name("polyline") {
+        return Err(parser.err(root, ErrorCode::Xml, "root element must be polyline"));
+    }
+    parser.polyline(root)
+}
 
 pub(crate) fn load_geometry_element(xml: &str, uri: &str) -> Result<Geometry, Diagnostic> {
     let resolver = NoResources;
@@ -270,13 +293,6 @@ pub(crate) fn load_geometry_element(xml: &str, uri: &str) -> Result<Geometry, Di
     let root = doc.root_element();
     if !root.has_tag_name("geometry") {
         return Err(parser.err(root, ErrorCode::Xml, "root element must be geometry"));
-    }
-    if let Some(shape) = elements(root).find(|shape| shape.has_tag_name("polyline")) {
-        return Err(parser.err(
-            shape,
-            ErrorCode::Unsupported,
-            "standalone geometry does not support polyline",
-        ));
     }
     parser.geometry(root)
 }

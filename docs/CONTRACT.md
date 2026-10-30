@@ -1140,8 +1140,8 @@ in [SURFACE_XML.md](SURFACE_XML.md).
 ## Primitive geometry XML
 
 Geometry::to_xml and load_geometry_str cover seven primitive/Plane variants.
-Existing document/default/normalization behavior is reused; standalone
-Polyline variants and unrepresentable output dimensions fail explicitly. Plane output is
+Existing document/default/normalization behavior is reused; unrepresentable
+output dimensions/states fail explicitly. Plane output is
 raw metadata whose reload follows existing normalization, not a blanket bit
 roundtrip. See [GEOMETRY_XML.md](GEOMETRY_XML.md) for subtype, numeric, native
 constructor/document and partial-original boundaries.
@@ -1161,3 +1161,10 @@ metadata through the existing reader. They preserve URI/default/numeric and list
 policies without image or terrain IO. Invalid native producer errors and full
 Geometry original credit remain outside this capability. See
 [HEIGHTMAP_XML.md](HEIGHTMAP_XML.md) for exact boundaries and qualification.
+
+## Ordered Polyline metadata XML
+
+Polyline::to_xml and load_polyline_str extend Geometry XML to ordered points and
+multiple polylines through the existing reader. Empty point vectors/groups fail
+explicitly to avoid schema point insertion; no polygon or collision meshing
+validation is implied. See [POLYLINE_XML.md](POLYLINE_XML.md).

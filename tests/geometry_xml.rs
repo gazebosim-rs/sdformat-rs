@@ -6,6 +6,8 @@ use serde_json::Value;
 mod heightmap_projection;
 #[path = "support/mesh_projection.rs"]
 mod mesh_projection;
+#[path = "support/polyline_projection.rs"]
+mod polyline_projection;
 #[path = "support/geometry_projection.rs"]
 mod projection;
 fn data() -> Value {
@@ -57,6 +59,19 @@ fn native_primitive_inputs_and_current_value_outputs() {
                     rows.iter().find(|r| r["id"] == "heightmap").unwrap()["xml"]
                 );
                 heightmap_projection::assert_geometry(
+                    row["xml"].as_str().unwrap(),
+                    "geometry.xml",
+                    row["native"]["stdout"].as_str().unwrap(),
+                );
+            }
+            if matches!(value, Geometry::Polyline(_)) {
+                let d: Value = serde_json::from_str(include_str!("polyline_xml.json")).unwrap();
+                let row = &d["geometry_controls"][0];
+                assert_eq!(
+                    row["xml"],
+                    rows.iter().find(|r| r["id"] == "polyline").unwrap()["xml"]
+                );
+                polyline_projection::assert_geometry(
                     row["xml"].as_str().unwrap(),
                     "geometry.xml",
                     row["native"]["stdout"].as_str().unwrap(),
@@ -228,15 +243,20 @@ fn output_rejects_dimensions_or_types_it_cannot_preserve() {
                 "complex.xml",
                 row["native"]["stdout"].as_str().unwrap(),
             );
-        } else {
-            assert_eq!(
-                sdf.models[0].links[0].collisions[0]
-                    .geometry
-                    .to_xml()
-                    .unwrap_err()
-                    .code,
-                ErrorCode::Unsupported
+        } else if matches!(
+            sdf.models[0].links[0].collisions[0].geometry,
+            Geometry::Polyline(_)
+        ) {
+            let d: Value = serde_json::from_str(include_str!("polyline_xml.json")).unwrap();
+            let row = &d["geometry_controls"][1];
+            assert_eq!(row["xml"], xml);
+            polyline_projection::assert_geometry(
+                &xml,
+                "complex.xml",
+                row["native"]["stdout"].as_str().unwrap(),
             );
+        } else {
+            panic!("unexpected geometry fixture type");
         }
     }
 }

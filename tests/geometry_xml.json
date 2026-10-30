@@ -315,8 +315,7 @@
         "stdout": "READ 1\nLOAD\nVALUES 9 512\n",
         "stderr": ""
       },
-      "export": false,
-      "gap_code": "Unsupported"
+      "export": true
     },
     {
       "id": "unknown",

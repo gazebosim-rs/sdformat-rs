@@ -39,6 +39,7 @@ pub use model_config::{
 mod number;
 mod parse;
 mod physics_xml;
+mod polyline_xml;
 mod sensor_xml;
 mod surface_xml;
 mod types;
@@ -94,7 +95,6 @@ pub fn load_mesh_str(xml: &str, source: &str) -> Result<Mesh, Diagnostic> {
 }
 
 /// Load one supported geometry without creating a collision.
-/// Polyline roots remain unsupported by this standalone API.
 pub fn load_geometry_str(xml: &str, source: &str) -> Result<Geometry, Diagnostic> {
     parse::load_geometry_element(xml, source)
 }
@@ -175,4 +175,9 @@ pub fn load_camera_str(xml: &str, source: &str) -> Result<Camera, Diagnostic> {
 /// Load standalone heightmap metadata without resolving image/texture resources.
 pub fn load_heightmap_str(xml: &str, source: &str) -> Result<Heightmap, Diagnostic> {
     parse::load_heightmap_element(xml, source)
+}
+
+/// Load standalone ordered polyline metadata without validating a physical polygon.
+pub fn load_polyline_str(xml: &str, source: &str) -> Result<Polyline, Diagnostic> {
+    parse::load_polyline_element(xml, source)
 }

@@ -1,0 +1,208 @@
+{
+  "rows": [
+    {
+      "id": "configured",
+      "xml": "<polyline>\n  <height>1.2</height>\n  <point>1 2</point>\n  <point>3 4</point>\n</polyline>\n",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 1 4608083138725491507 2 4607182418800017408 4611686018427387904 4613937818241073152 4616189618054758400\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "omitted",
+      "xml": "<polyline/>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 1 4607182418800017408 1 0 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "empty-height",
+      "xml": "<polyline><height/></polyline>",
+      "native": {
+        "stdout": "READ 0 9 9 9 9 9 9 9\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Empty string used when setting a required parameter. Key[height]\n"
+      },
+      "export": false
+    },
+    {
+      "id": "one-point",
+      "xml": "<polyline><point>1 2</point></polyline>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 1 4607182418800017408 1 4607182418800017408 4611686018427387904\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "empty-point",
+      "xml": "<polyline><point/></polyline>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 1 4607182418800017408 1 0 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "negative-height",
+      "xml": "<polyline><height>-2</height><point>0 0</point></polyline>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 1 13835058055282163712 1 0 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "signed-zero",
+      "xml": "<polyline><height>-0</height><point>-0 0</point></polyline>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 1 9223372036854775808 1 9223372036854775808 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "subnormal-point",
+      "xml": "<polyline><point>5e-324 -1e-310</point></polyline>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 1 4607182418800017408 1 1 9223392277080106539\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "subnormal-height",
+      "xml": "<polyline><height>5e-324</height></polyline>",
+      "native": {
+        "stdout": "READ 0 9 9 9 9 9 9 9\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Out of range. Unable to set value [5e-324 ] for key[height].\n"
+      },
+      "export": false
+    },
+    {
+      "id": "infinite-height",
+      "xml": "<polyline><height>inf</height></polyline>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 1 9218868437227405312 1 0 0\n",
+        "stderr": ""
+      },
+      "export": false,
+      "gap_code": "InvalidValue"
+    },
+    {
+      "id": "nan-point",
+      "xml": "<polyline><point>nan 2</point></polyline>",
+      "native": {
+        "stdout": "READ 0 9 9 9 9 9 9 9\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Unknown error. Unable to set value [nan 2 ] for key[point]\n"
+      },
+      "export": false
+    },
+    {
+      "id": "infinite-point",
+      "xml": "<polyline><point>inf -inf</point></polyline>",
+      "native": {
+        "stdout": "READ 0 9 9 9 9 9 9 9\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Unknown error. Unable to set value [inf -inf ] for key[point]\n"
+      },
+      "export": false
+    },
+    {
+      "id": "duplicate-points",
+      "xml": "<polyline><point>1 2</point><point>1 2</point></polyline>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 1 4607182418800017408 2 4607182418800017408 4611686018427387904 4607182418800017408 4611686018427387904\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "extra-point-component",
+      "xml": "<polyline><point>1 2 3</point></polyline>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 1 4607182418800017408 1 4607182418800017408 4611686018427387904\n",
+        "stderr": ""
+      },
+      "export": false,
+      "gap_code": "InvalidValue"
+    },
+    {
+      "id": "short-point",
+      "xml": "<polyline><point>1</point></polyline>",
+      "native": {
+        "stdout": "READ 0 9 9 9 9 9 9 9\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Unknown error. Unable to set value [1 ] for key[point]\n"
+      },
+      "export": false
+    },
+    {
+      "id": "duplicate-height",
+      "xml": "<polyline><height>1</height><height>2</height></polyline>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 1 4607182418800017408 1 0 0\n",
+        "stderr": ""
+      },
+      "export": false,
+      "gap_code": "InvalidValue"
+    },
+    {
+      "id": "unknown-child",
+      "xml": "<polyline><unknown/></polyline>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 1 4607182418800017408 1 0 0\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/geometry/polyline/unknown:<data-string>:L1]: XML Element[unknown], child of element[polyline], not defined in SDF. Copying[unknown] as children of [polyline].\n"
+      },
+      "export": false,
+      "gap_code": "Unsupported"
+    },
+    {
+      "id": "unknown-attribute",
+      "xml": "<polyline bad='x'/>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 1 4607182418800017408 1 0 0\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/geometry/polyline[@bad=\"x\"]:<data-string>:L1]: XML Attribute[bad] in element[polyline] not defined in SDF.\n"
+      },
+      "export": false,
+      "gap_code": "Unsupported"
+    },
+    {
+      "id": "multiple",
+      "xml": "<geometry><polyline><height>2</height><point>1 2</point></polyline><polyline><height>3</height><point>4 5</point><point>6 7</point></polyline></geometry>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 2 4611686018427387904 1 4607182418800017408 4611686018427387904 4613937818241073152 2 4616189618054758400 4617315517961601024 4618441417868443648 4619567317775286272\n",
+        "stderr": ""
+      },
+      "export": true
+    }
+  ],
+  "geometry_controls": [
+    {
+      "id": "old-corpus",
+      "xml": "<geometry><polyline><height>1</height><point>0 0</point></polyline></geometry>",
+      "uri": "geometry.xml",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 1 4607182418800017408 1 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "id": "old-writer",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><polyline><height>1</height><point>0 0</point></polyline></geometry></collision></link></model></sdf>",
+      "uri": "complex.xml",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 1 4607182418800017408 1 0 0\n",
+        "stderr": ""
+      }
+    }
+  ],
+  "configured_native_producer": {
+    "stdout": "ADD 1 1\nEMIT 1\nXML_BEGIN\n<polyline>\n  <height>1.2</height>\n  <point>1 2</point>\n  <point>3 4</point>\n</polyline>\nXML_END\nVALUES 1 4608083138725491507 2 4607182418800017408 4611686018427387904 4613937818241073152 4616189618054758400\nLOAD\nVALUES 1 4608083138725491507 2 4607182418800017408 4611686018427387904 4613937818241073152 4616189618054758400\n",
+    "stderr": ""
+  },
+  "empty_native_producer": {
+    "stdout": "EMIT 1\nXML_BEGIN\n<polyline>\n  <height>1</height>\n</polyline>\nXML_END\nVALUES 1 4607182418800017408 0\nLOAD\nVALUES 1 4607182418800017408 1 0 0\n",
+    "stderr": ""
+  }
+}

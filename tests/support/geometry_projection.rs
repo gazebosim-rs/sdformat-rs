@@ -12,7 +12,7 @@ pub fn projection(value: &Geometry) -> Vec<String> {
         Geometry::Mesh(_) => (5, 128, vec![]),
         Geometry::Heightmap(_) => (6, 256, vec![]),
         Geometry::Plane { normal, size } => (3, 64, normal.iter().chain(size).copied().collect()),
-        _ => panic!("unsupported geometry projection"),
+        Geometry::Polyline(lines) => (9, if lines.is_empty() { 0 } else { 512 }, vec![]),
     };
     let mut tokens = vec!["VALUES".into(), kind.to_string(), mask.to_string()];
     tokens.extend(values.into_iter().map(|v| v.to_bits().to_string()));

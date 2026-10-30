@@ -3343,3 +3343,20 @@ passed all 27; no findings remain. Normal strict gate and exact hosted CI remain
 pending.
 Candidate 195 complete/27 partial adds no invalid Geometry producer or runtime
 credit; see HEIGHTMAP_XML.md.
+
+## Candidate ordered Polyline XML
+
+Accepted Main 2e101ea has 195 complete/27 partial mappings. Polyline XML preserves
+height, ordered points and multiple geometry polylines through the existing reader.
+Empty point vectors/groups are explicitly Unsupported because native Load inserts
+a default point into empty producer output. Root independently approved exactly
+two temporary Geometry rejection transitions before exact-input native positives
+replaced them. All 522 author Rust tests, 17 tooling tests, formatting and Clippy
+pass. Native proof passes 19 inputs, one exact fixture, two old-input controls,
+nine actual exports and both unchanged originals. Heightmap 28/15, Mesh 28/18 and
+Geometry 48/46 regressions pass. Independent fresh-source review reproduced all
+native proofs and passed 21 selected Rust checks; stdout/stderr injections failed
+quiet capture and restored source passed all 21. No findings remain. Strict staged
+coverage and exact hosted qualification remain pending; candidate
+197 complete/27 partial adds no Geometry original, meshing or runtime credit.
+See POLYLINE_XML.md.

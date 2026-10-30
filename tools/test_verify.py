@@ -148,6 +148,22 @@ class SnapshotAndReviewTests(unittest.TestCase):
             (root/'reference/review.json').write_text(json.dumps(receipt))
             with self.assertRaises(AssertionError):verify.check_review(root)
 
+    def test_verified_source_mutation_is_rejected(self):
+        from types import SimpleNamespace
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            (root / 'src').mkdir(); (root / 'reference').mkdir()
+            source = root / 'src/lib.rs'; source.write_text('pub fn f() {}\n')
+            for name in ('Cargo.toml', 'Cargo.lock', 'rust-toolchain.toml', 'coverage.json',
+                         'reference/traceability.json', 'reference/inventory.json', 'reference/results.json'):
+                (root / name).write_text('{}')
+            def mutate(*_): source.write_text('pub fn changed() {}\n')
+            with patch('verify.check_review'), patch('verify.check_layout'), patch('verify.check_ledger'), \
+                 patch('verify.run', return_value=SimpleNamespace(stdout='{"packages":[]}')), \
+                 patch('verify.coverage', side_effect=mutate):
+                with self.assertRaisesRegex(AssertionError, 'verified source changed'):
+                    verify.verify(root)
+
     def test_failed_required_runner_is_failure(self):
         import subprocess
         with self.assertRaises(subprocess.CalledProcessError):

@@ -23,6 +23,15 @@ def run(command, *, env=None, capture=False, cwd=ROOT):
     return subprocess.run(command, cwd=cwd, env=env, check=True, text=True, capture_output=capture)
 
 
+def run_bytes(command, *, cwd=ROOT):
+    print('+', ' '.join(map(str, command)), flush=True)
+    return subprocess.run(command, cwd=cwd, check=True, capture_output=True).stdout
+
+
+def read_source(path):
+    return path.read_bytes().decode('utf-8')
+
+
 def digest(root):
     files = sorted(p for pattern in ('src/**/*.rs', 'tests/**/*', 'tools/*.py') for p in root.glob(pattern) if p.is_file())
     files += [root / p for p in ('Cargo.toml', 'Cargo.lock', 'rust-toolchain.toml', 'coverage.json', 'reference/traceability.json', 'reference/inventory.json', 'reference/results.json')]
@@ -145,6 +154,24 @@ def check_ledger(root):
             print('Protected changes:', ', '.join(changed))
 
 
+def test_binaries(output, root, target):
+    binaries = []
+    syntax_binaries = []
+    for line in output.split('\n'):
+        if line.startswith('{'):
+            item = json.loads(line)
+            if item.get('reason') == 'compiler-artifact' and item.get('executable') and item['profile']['test']:
+                binaries.append(item['executable'])
+                if item['target']['name'] == 'coverage_syntax':
+                    assert item['target']['kind'] == ['test'] and Path(item['target']['src_path']).resolve() == (root / 'tests/coverage_syntax.rs').resolve(), 'unexpected coverage syntax helper source'
+                    syntax_binaries.append(item['executable'])
+    assert len(syntax_binaries) == 1, 'missing or duplicate coverage syntax helper'
+    syntax_binary = Path(syntax_binaries[0]).resolve()
+    assert syntax_binary.is_file() and syntax_binary.is_relative_to(target.resolve()), 'invalid coverage syntax helper'
+    assert binaries, 'no instrumented test binaries'
+    return binaries, syntax_binary
+
+
 def coverage(root, out, manifest, changed=None):
     out.mkdir(parents=True, exist_ok=True)
     raw = out / 'raw'
@@ -152,19 +179,14 @@ def coverage(root, out, manifest, changed=None):
     raw.mkdir()
     env = dict(os.environ, CARGO_TARGET_DIR=str(out / 'target'), LLVM_PROFILE_FILE=str(raw / '%p-%m.profraw'))
     env['RUSTFLAGS'] = '-C instrument-coverage'
+    env.pop('SDF_COVERAGE_SYNTAX_QUERY', None)
     try:
         result = run(['cargo', 'test', '--locked', '--all-targets', '--message-format=json'], env=env, capture=True, cwd=root)
     except subprocess.CalledProcessError as error:
         (out / 'tests.log').write_text((error.stdout or '') + (error.stderr or ''))
         raise
     (out / 'tests.log').write_text(result.stdout + result.stderr)
-    binaries = []
-    for line in result.stdout.splitlines():
-        if line.startswith('{'):
-            item = json.loads(line)
-            if item.get('reason') == 'compiler-artifact' and item.get('executable') and item['profile']['test']:
-                binaries.append(item['executable'])
-    assert binaries, 'no instrumented test binaries'
+    binaries, syntax_binary = test_binaries(result.stdout, root, out / 'target')
     sysroot = Path(run(['rustc', '--print', 'sysroot'], capture=True, cwd=root).stdout.strip())
     host = next(line.split(': ', 1)[1] for line in run(['rustc', '-vV'], capture=True, cwd=root).stdout.splitlines() if line.startswith('host: '))
     llvm = sysroot / 'lib/rustlib' / host / 'bin'
@@ -180,29 +202,51 @@ def coverage(root, out, manifest, changed=None):
     lcov = run(args + ['-format=lcov'], capture=True, cwd=root).stdout
     (out / 'coverage.lcov').write_text(lcov)
     # LLVM's DA records are the authoritative executable-line denominator.
-    covered = {}
-    path = None
-    for line in lcov.splitlines():
-        if line.startswith('SF:'): path = Path(line[3:]).resolve()
-        elif line.startswith('DA:') and path:
-            number, count, *_ = line[3:].split(',')
-            covered[(path, int(number))] = int(count) > 0
+    covered = lcov_records(lcov)
     full = check_changed_coverage(root, {'lines': all_source_lines(root)}, covered, strict=False)
     changed = changed if changed is not None else changed_manifest(root)
-    measured = check_changed_coverage(root, changed, covered, strict=changed['mode'] != 'full-source')
+    def syntax_provider(path, source):
+        query_env = dict(os.environ, SDF_COVERAGE_SYNTAX_QUERY='1', RUST_TEST_THREADS='2',
+                         LLVM_PROFILE_FILE=str(out / 'syntax-query-%p-%m.profraw'))
+        ancestor = read_source(root / 'src/lib.rs')
+        module = path.stem if path.parent == (root / 'src').resolve() and path.name != 'lib.rs' else ''
+        request = json.dumps({'source': source, 'ancestor': ancestor, 'module': module})
+        result = subprocess.run([str(syntax_binary), '--exact', 'syntax_query', '--nocapture', '--color', 'never'],
+                                input=request, capture_output=True, text=True, env=query_env, cwd=root, check=True, timeout=30)
+        assert not result.stderr, 'coverage syntax helper stderr'
+        return parse_syntax_output(result.stdout, source, read_source(root / 'tests/coverage_syntax.rs'), ancestor, module)
+    measured = check_changed_coverage(root, changed, covered, strict=changed['mode'] != 'full-source', syntax_provider=syntax_provider)
     evidence = {'source_digest': digest(root), 'toolchain': run(['rustc', '-vV'], capture=True, cwd=root).stdout, 'runner': os.uname().nodename, 'profile': 'core', 'coverage': counts, 'changed_lines': {'count': len(measured), 'covered': sum(measured), 'base': changed['base'], 'target': changed['target'], 'mode': changed['mode'], 'status': 'measured' if measured else ('no executable changes' if changed['lines'] else 'no added source lines')}, 'full_source_lines': {'count': len(full), 'covered': sum(full)}}
     (out / 'evidence.json').write_text(json.dumps(evidence, indent=2) + '\n')
     print(json.dumps(evidence, indent=2))
 
 
+def lcov_records(lcov):
+    covered = {}
+    path = None
+    for line in lcov.split('\n'):
+        if line.startswith('SF:'): path = Path(line[3:]).resolve()
+        elif line.startswith('DA:') and path:
+            number, count, *_ = line[3:].split(',')
+            covered[(path, int(number))] = int(count) > 0
+    return covered
+
+
+def source_lines(text):
+    if not text:
+        return []
+    lines = text.split('\n')
+    return lines[:-1] if text.endswith('\n') else lines
+
+
 def all_source_lines(root):
     return {(str(p.relative_to(root)), i) for p in (root / 'src').rglob('*.rs')
-            for i, _ in enumerate(p.read_text().splitlines(), 1)}
+            for i, _ in enumerate(source_lines(read_source(p)), 1)}
 
 
 def diff_lines(diff):
     path, result, in_hunk = None, set(), False
-    for line in diff.splitlines():
+    for line in diff.split('\n'):
         if line.startswith('diff --git '):
             path, in_hunk = None, False
         elif not in_hunk and line.startswith('+++ b/'):
@@ -232,42 +276,80 @@ def changed_manifest(root, base=None, target=None):
     args = ['git', 'diff', '--no-ext-diff', '--unified=0', base]
     if target is not None:
         args.append(target)
-    diff = run(args + ['--', 'src'], capture=True, cwd=root).stdout
+    diff = run_bytes(args + ['--', 'src'], cwd=root).decode('utf-8')
     lines = diff_lines(diff)
     if target is None:
-        for name in run(['git', 'ls-files', '--others', '--exclude-standard', 'src'], capture=True, cwd=root).stdout.splitlines():
-            lines.update((name, i) for i, _ in enumerate((root / name).read_text().splitlines(), 1))
+        raw = run_bytes(['git', 'ls-files', '--others', '--exclude-standard', '-z', '--', 'src'], cwd=root)
+        for entry in raw.split(b'\0'):
+            if not entry:
+                continue
+            name = entry.decode('utf-8')
+            assert not any(ord(char) < 32 or ord(char) == 127 for char in name), 'unsupported source path'
+            lines.update((name, i) for i, _ in enumerate(source_lines(read_source(root / name)), 1))
     return {'base': base, 'target': target or head, 'mode': 'parent-diff', 'lines': lines}
 
 
-def check_changed_coverage(root, changed, covered, strict=True):
+def parse_syntax_output(output, source, helper_source, ancestor, module):
+    prefix = '\nrunning 1 test\nSDF_COVERAGE_SYNTAX_V1='
+    assert output.startswith(prefix), 'invalid coverage syntax helper output'
+    def unique_object(pairs):
+        result = {}
+        for key, value in pairs:
+            assert key not in result, 'duplicate coverage syntax key'
+            result[key] = value
+        return result
+    value, end = json.JSONDecoder(object_pairs_hook=unique_object).raw_decode(output[len(prefix):])
+    suffix = output[len(prefix) + end:]
+    assert re.fullmatch(r'\ntest syntax_query \.\.\. ok\n\ntest result: ok\. 1 passed; 0 failed; 0 ignored; 0 measured; \d+ filtered out; finished in [0-9.]+s\n\n', suffix), 'invalid coverage syntax helper footer'
+    assert isinstance(value, dict) and set(value) == {'source', 'ancestor', 'module', 'helper_source', 'fields', 'closings', 'opaque', 'declarations'}, 'invalid coverage syntax helper schema'
+    assert value['source'] == source, 'stale coverage syntax source'
+    assert value['helper_source'] == helper_source, 'stale coverage syntax helper'
+    assert value['ancestor'] == ancestor and value['module'] == module, 'stale coverage syntax context'
+    limit = len(source_lines(source))
+    for key in ('fields', 'closings', 'opaque', 'declarations'):
+        lines = value[key]
+        assert isinstance(lines, list) and all(type(line) is int and 1 <= line <= limit for line in lines), 'invalid coverage syntax line'
+        assert lines == sorted(set(lines)), 'duplicate or unordered coverage syntax line'
+        value[key] = set(lines)
+    return value
+
+
+def check_changed_coverage(root, changed, covered, strict=True, syntax_provider=None):
     instrumented = {path for path, _ in covered}
     for name, _ in changed['lines']:
         assert (root / name).resolve() in instrumented, 'changed source has no instrumentation'
     measured = [covered[key] for name, line in changed['lines']
                 if (key := ((root / name).resolve(), line)) in covered]
-    if strict:
-        for name, line in changed['lines']:
-            path = (root / name).resolve()
-            if (path, line) in covered:
-                continue
-            lines = path.read_text().splitlines()
-            assert 1 <= line <= len(lines), 'changed line outside source'
-            text = lines[line - 1].strip()
-            non_executable = (not text or text.startswith('//') or text in ('{', '}', '};')
-                              or re.fullmatch(r'#\[[^\]]*\]', text)
-                              or re.fullmatch(r'impl\s+[A-Za-z_][A-Za-z0-9_]*\s*\{', text)
-                              or re.fullmatch(r'(?:pub(?:\([^)]*\))?\s+)?(?:use|mod)\s+[^;]+;', text))
-            assert non_executable, 'changed source has no instrumented executable lines'
     if measured:
         assert sum(measured) * 100 > len(measured) * 95, 'changed executable line coverage must exceed 95%'
+    if strict:
+        pending = {}
+        for name, line in changed['lines']:
+            path = (root / name).resolve()
+            if (path, line) not in covered:
+                pending.setdefault(path, set()).add(line)
+        for path, numbers in pending.items():
+            assert syntax_provider is not None, 'coverage syntax helper required'
+            source = read_source(path)
+            lines = source_lines(source)
+            syntax = syntax_provider(path, source)
+            for line in numbers:
+                assert 1 <= line <= len(lines), 'changed line outside source'
+                text = lines[line - 1].strip()
+                assert line not in syntax['opaque'], 'changed source is opaque syntax'
+                non_executable = (not text or text.startswith('//') or text in ('{', '}', '};')
+                                  or (line in syntax['declarations'] and (re.fullmatch(r'impl\s+[A-Za-z_][A-Za-z0-9_]*\s*\{', text)
+                                      or re.fullmatch(r'(?:pub(?:\([^)]*\))?\s+)?(?:use|mod)\s+[^;]+;', text)))
+                                  or (line in syntax['fields'] and re.fullmatch(r'pub\s+[A-Za-z_][A-Za-z0-9_]*:\s*Vec<[A-Za-z_][A-Za-z0-9_]*>,', text))
+                                  or (line in syntax['closings'] and text == ');'))
+                assert non_executable, 'changed source has no instrumented executable lines'
     return measured
-
 
 def changed_lines(root):
     return {((root / path).resolve(), line) for path, line in changed_manifest(root)['lines']}
 
 def verify(root, changed=None):
+    input_digest = digest(root)
     check_review(root)
     manifest = json.loads((root / 'coverage.json').read_text())
     metadata = json.loads(run(['cargo', 'metadata', '--locked', '--format-version=1'], capture=True, cwd=root).stdout)
@@ -279,6 +361,7 @@ def verify(root, changed=None):
     run(['cargo', 'clippy', '--locked', '--all-targets', '--', '-D', 'warnings'], cwd=root)
     run(['cargo', 'test', '--locked', '--doc'], cwd=root)
     coverage(root, root / 'artifacts' / 'core', manifest, changed)
+    assert digest(root) == input_digest, 'verified source changed during checks'
 
 
 def validate_snapshot(root, tree, candidate):

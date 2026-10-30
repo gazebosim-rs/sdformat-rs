@@ -3488,3 +3488,14 @@ ToElement mappings passed independent review; 203 complete/27 partial remains
 conditional on normal staged and exact hosted checks. Constructor/Element identity, semantic pose, type-only
 BOX and auto-inertia remain gaps. See [Collision family](COLLISION_FAMILY.md).
 SDF-02 version/schema conversion and merge/include priorities remain open.
+
+## Candidate maintained coverage syntax evidence
+
+The accepted parent-bound gate rejects unmapped source lines it cannot classify.
+A separate test-only syn-based candidate recognizes narrowly verified syntax
+while keeping all LLVM-mapped lines authoritative. An earlier diagnostic all-target run
+passed 563 Rust tests and the unchanged aggregate coverage; a real unmapped call
+closing was classified through the compiled helper. Thirty-three Python tooling
+controls and nine Rust helper controls pass. The derived Debug attribution limit
+and conservative module/macro scope are documented in COVERAGE_SYNTAX.md.
+Independent review, normal staged and exact hosted qualification remain pending.

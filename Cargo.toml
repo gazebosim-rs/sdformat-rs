@@ -25,3 +25,5 @@ all = "deny"
 [dev-dependencies]
 serde_json = "=1.0.150"
 tempfile = "=3.27.0"
+syn = { version = "=3.0.9", features = ["full", "visit"] }
+proc-macro2 = { version = "=1.0.107", features = ["span-locations"] }

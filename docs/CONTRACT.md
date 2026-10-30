@@ -1221,9 +1221,9 @@ the event, with full history available. A true initial or new-branch zero base
 falls back to the full source. An empty diff is reported as no added source
 lines; a source-backed blank or line-comment-only change in an instrumented
 file is reported as no executable changes. Unknown unmapped source lines fail
-closed; only line comments, blank lines and narrow syntax-only forms (including a plain
-`impl Type {` header) are admitted.
-Neither empty case is measured coverage. The index and HEAD race
+closed. Narrow syntax-only forms require maintained AST evidence and exact
+source/context ownership; see [coverage syntax](COVERAGE_SYNTAX.md). Neither
+empty case is measured coverage. The index and HEAD race
 checks and repository-local Git environment isolation remain in force.
 
 Standalone Collision XML composes supported Geometry and Surface output while

@@ -194,8 +194,10 @@ dependencies = [
  "glam",
  "libc",
  "petgraph",
+ "proc-macro2",
  "quick-xml",
  "serde_json",
+ "syn",
  "tempfile",
  "xmlparser",
 ]

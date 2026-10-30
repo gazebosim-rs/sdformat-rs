@@ -1,18 +1,18 @@
 {
   "decision": "approved",
   "author": "sdformat_owner_terra",
-  "reviewer": "root",
-  "source_digest": "ae1e145c21335690abead18fabb8bd843d7db6f44a1fb69cb19e2cb1cedbf373",
-  "protected_digest": "4e826a4453ab5176f3db6f08e562be3d4a6652ff746e62381e45e9879b5fbf77",
-  "scope": "Correct five Collision ownership setups to native Empty defaults, retain stronger supplemental destination, and map two fully qualified writer originals.",
+  "reviewer": "integration_reviewer",
+  "source_digest": "8a4515a668ef44d47b2e4b6100deda927a276e6dce2820374c061f96b6e5b246",
+  "protected_digest": "b28d0aaa85adb3c3181caeae3f844dda547f2fea831530ac3ba7a5928daad279",
+  "scope": "Local-only maintained-syn syntax evidence and exact LF source/output handling; no public qualification or disclosure approval.",
   "checks": [
-    "Fresh reviewer-owned source and target passed13 Rust checks and seven unchanged native originals. The added family helper was independently inspected and replayed with the same results and accepted writer source/binary/header/library checks and actual XML exchanges.",
-    "Read all seven complete native bodies. Existing pose predicates, signed tolerances and supplemental ownership assertions are unchanged. Native Empty, empty name and default assignment destination are now explicit; a separate test retains the configured Box destination.",
-    "Structured ledger review confirms only five existing assertion/review descriptions and two new ToElement mappings changed. Full original setups, error/nonnull value translations and quiet-output capture were reviewed.",
-    "Final approval-only documentation/results/mappings reviewed. Original2018 license notice retained; synthetic Source does not claim native Element identity."
+    "Fresh independent source/owned target passed 33 Python tooling controls, nine Rust helper controls and targeted Clippy. Final nine paths match the reviewed export.",
+    "Independent compiler-backed macro-resolution repros were rechecked against the corrected helper; unsafe attribute and ancestor contexts refuse evidence. Explicit harness mode remains deterministic with a serial parent environment.",
+    "Separate direct-call proof was reviewed independently from Debug field-name resolution. Macro/literal opacity, mapped-DA priority and mixed mapped-uncovered failure remain. Exact source/helper/context echoes, artifact identity, unique output, CR/CRLF and LF controls reviewed.",
+    "Existing locked package versions/checksums remain unchanged; maintained syn and proc-macro2 are test-only direct dependencies with no production/layout exception."
   ],
   "remaining": [
-    "Normal strict staged and exact hosted checks remain required before accepting203 complete/27 partial.",
-    "Native constructor/Element identity, standalone semantic pose, auto-inertia, type-only BOX geometry, broader SDF-02 and performance remain open."
+    "Mandatory local staged qualification remains required; this receipt does not claim its result.",
+    "External publication/disclosure remains held pending explicit user authorization. No public push or dashboard action is approved by this local receipt."
   ]
 }

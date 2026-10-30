@@ -1141,7 +1141,7 @@ in [SURFACE_XML.md](SURFACE_XML.md).
 
 Geometry::to_xml and load_geometry_str cover seven primitive/Plane variants.
 Existing document/default/normalization behavior is reused; standalone
-Heightmap/Polyline variants and unrepresentable output dimensions fail explicitly. Plane output is
+Polyline variants and unrepresentable output dimensions fail explicitly. Plane output is
 raw metadata whose reload follows existing normalization, not a blanket bit
 roundtrip. See [GEOMETRY_XML.md](GEOMETRY_XML.md) for subtype, numeric, native
 constructor/document and partial-original boundaries.
@@ -1153,3 +1153,11 @@ URI/default/parser rules remain; no URI resolution or resource processing occurs
 Unrepresentable edited text/state fails explicitly. Invalid native default Mesh
 partial-output errors remain outside the API and Geometry originals stay partial.
 See [MESH_XML.md](MESH_XML.md).
+
+## Heightmap metadata XML
+
+Heightmap::to_xml and load_heightmap_str extend Geometry XML to ordered Heightmap
+metadata through the existing reader. They preserve URI/default/numeric and list
+policies without image or terrain IO. Invalid native producer errors and full
+Geometry original credit remain outside this capability. See
+[HEIGHTMAP_XML.md](HEIGHTMAP_XML.md) for exact boundaries and qualification.

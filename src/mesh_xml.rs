@@ -14,25 +14,16 @@ fn error(code: ErrorCode, message: &str) -> Diagnostic {
     }
 }
 fn validate_text(value: &str) -> Result<(), Diagnostic> {
-    if value.is_empty()
-        || value.trim_matches([' ', '\t', '\n']) != value
-        || value.chars().any(|c| {
-            (c < '\u{20}' && c != '\t' && c != '\n') || matches!(c, '\u{fffe}' | '\u{ffff}')
-        })
-    {
-        return Err(error(
-            ErrorCode::InvalidValue,
-            "mesh text cannot roundtrip through XML",
-        ));
-    }
-    if crate::param_xml::needs_cdata(value) && value.contains("]]>") {
-        return Err(error(
-            ErrorCode::Unsupported,
-            "native Param would truncate split CDATA",
-        ));
-    }
-    Ok(())
+    crate::param_xml::validate_text(value).map_err(|code| {
+        let message = if code == ErrorCode::Unsupported {
+            "native Param would truncate split CDATA"
+        } else {
+            "mesh text cannot roundtrip through XML"
+        };
+        error(code, message)
+    })
 }
+
 impl Mesh {
     /// Emit current URI/scale/submesh/optimization metadata without resolving it.
     pub fn to_xml(&self) -> Result<String, Diagnostic> {

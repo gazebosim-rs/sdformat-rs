@@ -3325,3 +3325,21 @@ injections fail and restored source passes. Every original predicate is reviewed
 Strict staged qualification and exact hosted CI remain pending. Candidate
 193 complete/27 partial does not promote the invalid Geometry producer blocks.
 See MESH_XML.md for numeric/text/error boundaries.
+
+## Candidate valid Heightmap XML
+
+Accepted Main a8bb353 has 193 complete/27 partial mappings. Bounded Heightmap
+metadata serialization/standalone readback preserves raw finite vectors, existing
+scalar/text/default policies, sampling and ordered texture/blend fields without
+resource or terrain IO. Independent prior review approved two precise temporary
+Geometry rejection transitions before they were folded into full native-positive
+assertions with their exact XML/URIs retained. Author checks pass 517 Rust tests,
+17 tooling tests, formatting and Clippy. Native proof passes 28 inputs, one exact
+fixture, two old-input controls, 15 actual outputs and both unchanged originals.
+Mesh 28/18, Geometry 48/45 and Contact 16/17 regressions pass. Independent fresh
+source/target review reproduced all native proofs and passed 27 selected Rust
+checks. Private stdout/stderr controls failed quiet capture and restored source
+passed all 27; no findings remain. Normal strict gate and exact hosted CI remain
+pending.
+Candidate 195 complete/27 partial adds no invalid Geometry producer or runtime
+credit; see HEIGHTMAP_XML.md.

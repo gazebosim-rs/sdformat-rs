@@ -306,8 +306,7 @@
         "stdout": "READ 1\nLOAD\nVALUES 6 256\n",
         "stderr": ""
       },
-      "export": false,
-      "gap_code": "Unsupported"
+      "export": true
     },
     {
       "id": "polyline",

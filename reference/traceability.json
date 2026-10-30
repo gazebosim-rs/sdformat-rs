@@ -2552,6 +2552,34 @@
       "baseline": "Author 28 native inputs, two exact fixtures, three exact Geometry inputs, 18 actual Rust/native exchanges and both unchanged originals pass with empty stderr.",
       "status": "ported_reviewed",
       "review": "Independent integration_reviewer fresh source/owned Cargo target passed 30 relevant Rust checks; full Mesh helper reproduced 28 native inputs, two exact fixtures, three exact old-input controls, 18 actual XML exchanges and both unchanged originals. Independently replayed Geometry 48 inputs/44 exports/both originals and Contact 16 inputs/17 exchanges/producer limitation/unchanged DOMLink.Sensors. Private stdout/stderr injections each failed quiet capture; restored source passed all 30. Audited every original literal optimization-string success, enum/string, URI, scale component <=1e-3, submesh/center and decomposition predicate. Shared text output is unchanged on accepted Contact domain. Three prior-approved predicate transitions preserve exact input and URI; Geometry originals remain partial. No findings. Strict staged/exact hosted qualification pending."
+    },
+    {
+      "target": "UNIT_Heightmap_TEST",
+      "case": "DOMHeightmap.ToElement",
+      "source": "src/Heightmap_TEST.cc:413",
+      "rust_test": "tests/heightmap_xml_original.rs::original_heightmap_to_element",
+      "assertions": "Complete valid configured URI, size/position component <=1e-3, paging/sampling, ordered texture and blend counts and all string/scalar values (four-ULP positive scalars). Successful nonempty XML/reload translates returned nonnull output/empty errors; ErrorOutput uses actual empty stdout/stderr child capture. No input Element identity assertion exists in either exact original.",
+      "fixtures": {
+        "tests/fixtures/heightmap_to_element_native.xml": "8b7bc56393ff63596490fffa734691f5b926c43a0aad53b40e98fc42f4035950"
+      },
+      "upstream_fixtures": {},
+      "baseline": "Author 28 native inputs, one exact configured fixture, two exact old-input controls, 15 actual Rust/native exchanges and both unchanged originals pass with empty stderr.",
+      "status": "ported_reviewed",
+      "review": "Independent integration_reviewer fresh source/owned Cargo target passed 27 selected Rust checks; complete Heightmap helper reproduced 28 native inputs, one exact fixture, two exact old-input controls, 15 actual XML exchanges and both unchanged originals. Independently replayed Mesh 28/18, Geometry 48/45 and Contact 16/17 native pipelines and their originals. Private stdout/stderr injections each failed quiet capture; restored source passed all 27. Every exact original URI/vector/paging/sampling/ordered texture/blend count and value predicate, Result/reload and quiet mapping was reviewed. All final executable paths match restored export. No findings. One nonexistent contact target invocation ran no tests and is excluded; corrected contact_sensor run supplies the stated 27 passes. Strict staged/exact hosted gates remain pending; default producer error34 and Geometry partial/resource/runtime boundaries remain open."
+    },
+    {
+      "target": "UNIT_Heightmap_TEST",
+      "case": "DOMHeightmap.ToElementErrorOutput",
+      "source": "src/Heightmap_TEST.cc:463",
+      "rust_test": "tests/heightmap_xml_original.rs::original_heightmap_to_element_error_output",
+      "assertions": "Complete valid configured URI, size/position component <=1e-3, paging/sampling, ordered texture and blend counts and all string/scalar values (four-ULP positive scalars). Successful nonempty XML/reload translates returned nonnull output/empty errors; ErrorOutput uses actual empty stdout/stderr child capture. No input Element identity assertion exists in either exact original.",
+      "fixtures": {
+        "tests/fixtures/heightmap_to_element_native.xml": "8b7bc56393ff63596490fffa734691f5b926c43a0aad53b40e98fc42f4035950"
+      },
+      "upstream_fixtures": {},
+      "baseline": "Author 28 native inputs, one exact configured fixture, two exact old-input controls, 15 actual Rust/native exchanges and both unchanged originals pass with empty stderr.",
+      "status": "ported_reviewed",
+      "review": "Independent integration_reviewer fresh source/owned Cargo target passed 27 selected Rust checks; complete Heightmap helper reproduced 28 native inputs, one exact fixture, two exact old-input controls, 15 actual XML exchanges and both unchanged originals. Independently replayed Mesh 28/18, Geometry 48/45 and Contact 16/17 native pipelines and their originals. Private stdout/stderr injections each failed quiet capture; restored source passed all 27. Every exact original URI/vector/paging/sampling/ordered texture/blend count and value predicate, Result/reload and quiet mapping was reviewed. All final executable paths match restored export. No findings. One nonexistent contact target invocation ran no tests and is excluded; corrected contact_sensor run supplies the stated 27 passes. Strict staged/exact hosted gates remain pending; default producer error34 and Geometry partial/resource/runtime boundaries remain open."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

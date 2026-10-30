@@ -27,6 +27,7 @@ mod magnetometer_xml;
 mod navsat_xml;
 mod noise_xml;
 pub use camera::*;
+mod heightmap_xml;
 mod mesh_xml;
 mod model_config;
 mod param_xml;
@@ -93,7 +94,7 @@ pub fn load_mesh_str(xml: &str, source: &str) -> Result<Mesh, Diagnostic> {
 }
 
 /// Load one supported geometry without creating a collision.
-/// Heightmap and polyline roots remain unsupported by this standalone API.
+/// Polyline roots remain unsupported by this standalone API.
 pub fn load_geometry_str(xml: &str, source: &str) -> Result<Geometry, Diagnostic> {
     parse::load_geometry_element(xml, source)
 }
@@ -169,4 +170,9 @@ pub fn load_contact_sensor_str(xml: &str, source: &str) -> Result<ContactSensor,
 /// return explicit errors; no sensor, graph or renderer is created.
 pub fn load_camera_str(xml: &str, source: &str) -> Result<Camera, Diagnostic> {
     parse::load_camera_element(xml, source)
+}
+
+/// Load standalone heightmap metadata without resolving image/texture resources.
+pub fn load_heightmap_str(xml: &str, source: &str) -> Result<Heightmap, Diagnostic> {
+    parse::load_heightmap_element(xml, source)
 }

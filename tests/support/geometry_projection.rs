@@ -10,6 +10,7 @@ pub fn projection(value: &Geometry) -> Vec<String> {
         Geometry::Cone { radius, length } => (10, 4, vec![*radius, *length]),
         Geometry::Ellipsoid { radii } => (8, 16, radii.to_vec()),
         Geometry::Mesh(_) => (5, 128, vec![]),
+        Geometry::Heightmap(_) => (6, 256, vec![]),
         Geometry::Plane { normal, size } => (3, 64, normal.iter().chain(size).copied().collect()),
         _ => panic!("unsupported geometry projection"),
     };

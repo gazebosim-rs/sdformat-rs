@@ -2,19 +2,19 @@
   "decision": "approved",
   "author": "sdformat_owner",
   "reviewer": "integration_reviewer",
-  "source_digest": "2132dca26a63f33c6be309ce3656660e8f5ca52f5d78699052716e35f4809fd0",
-  "protected_digest": "dce06d061538365cdaf484e01e18e53c7ce04a484351fb64f08df77968a6055a",
-  "scope": "Valid Mesh metadata XML, exact two configured Mesh ToElement mappings and three independently approved Geometry capability transitions.",
+  "source_digest": "c18da97aee98bd3b1107e002cfeb4dc32854b6572845c58d84d21d1f9b76ed30",
+  "protected_digest": "1aeac00c8d2cd318e9c1a40e163906ea9be98f220f7ead6facba67143e846652",
+  "scope": "Valid Heightmap metadata XML and two exact complete ToElement mappings, with two previously approved Geometry capability transitions.",
   "checks": [
-    "Fresh source and owned Cargo target passed 30 relevant Rust checks, including both tightened original ports with successful literal optimization-string parsing.",
-    "Fresh Mesh helper passed 28 native inputs, two exact fixtures, three exact old-input controls, 18 actual exchanges and both unchanged originals with empty stderr; source/header/math/library identity checks passed.",
-    "Independent Geometry helper passed 48 inputs, 44 actual exports and both originals with their distinct stderr. Independent Contact helper passed 16 inputs, 17 exchanges, producer limitation and unchanged DOMLink.Sensors.",
-    "Audited original enum/string optimization, URI, direct scale-component 1e-3, submesh/center, decomposition presence/counts/absence and output/error/quiet predicates. No input Element identity assertion exists in these exact cases.",
-    "Reviewer-only stdout and stderr injections each failed quiet capture; restored executable files match the final candidate and all 30 checks passed again.",
-    "Reviewed XML text/CDATA/closing-marker boundaries, finite scale and existing numeric/default/sentinel policies, immutable output and literal caller source. Shared Contact validation excludes new tab/LF text paths, preserving accepted output. Geometry remains partial and invalid default producer error 34 is not imitated."
+    "Fresh independent source and owned target passed 27 selected Rust checks after restoring all reviewer-only modifications.",
+    "Complete Heightmap helper passed 28 native inputs, exact fixture, two exact old-input controls, 15 actual XML exchanges and both unchanged originals; pinned source/header/math/library identities matched.",
+    "Independent Mesh 28/18, Geometry 48/45 and Contact 16/17 native pipelines and their unchanged originals passed.",
+    "Reviewed all original URI, component-wise vector 1e-3, paging, sampling, ordered texture/blend counts and string/scalar four-ULP predicates; successful Result/nonempty output/reload and actual quiet capture preserve exact valid originals. No input Element identity assertion exists.",
+    "Private stdout/stderr injections each failed quiet capture; restored original file byte-matches candidate and all 27 checks passed. A nonexistent contact target invocation ran no tests and is excluded; corrected contact_sensor target supplies the stated checks.",
+    "Shared text validator preserves Mesh codes/messages and accepted output, Contact validation/output remains unchanged. Finite/subnormal/signed-zero, raw vectors, defaults, ordered records and caller origins retain explicit documented native differences. Final metadata reviewed without findings."
   ],
   "remaining": [
-    "Normal strict staged hook and exact hosted qualification remain required; accepted 191 complete/27 partial versus candidate 193/27.",
-    "No URI resolution, asset loading, rendering/physics, broader Geometry completion, generic pointer identity or performance claim."
+    "Normal strict staged and exact hosted gates remain required; accepted 193 complete/27 partial versus candidate 195/27.",
+    "Invalid default native producer error34, full Geometry completion, resource/image processing, rendering/physics/runtime and performance claims remain outside scope."
   ]
 }

@@ -12,3 +12,19 @@ pub(crate) fn text(value: &str) -> String {
         escape(value).into_owned()
     }
 }
+
+/// Validate strings that native Param must retain as one complete text chunk.
+pub(crate) fn validate_text(value: &str) -> Result<(), crate::ErrorCode> {
+    if value.is_empty()
+        || value.trim_matches([' ', '\t', '\n']) != value
+        || value.chars().any(|c| {
+            (c < '\u{20}' && c != '\t' && c != '\n') || matches!(c, '\u{fffe}' | '\u{ffff}')
+        })
+    {
+        return Err(crate::ErrorCode::InvalidValue);
+    }
+    if needs_cdata(value) && value.contains("]]>") {
+        return Err(crate::ErrorCode::Unsupported);
+    }
+    Ok(())
+}

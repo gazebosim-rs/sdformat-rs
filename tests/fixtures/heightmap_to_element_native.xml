@@ -1,0 +1,16 @@
+<heightmap>
+  <uri>https://test-uri.org</uri>
+  <size>1 2 3</size>
+  <pos>4 5 6</pos>
+  <use_terrain_paging>true</use_terrain_paging>
+  <sampling>2</sampling>
+  <texture>
+    <size>1.2</size>
+    <diffuse>diffuse_map</diffuse>
+    <normal>normal_map</normal>
+  </texture>
+  <blend>
+    <min_height>1.2</min_height>
+    <fade_dist>3.3999999999999999</fade_dist>
+  </blend>
+</heightmap>

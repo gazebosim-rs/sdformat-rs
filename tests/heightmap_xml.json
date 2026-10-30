@@ -1,0 +1,286 @@
+{
+  "rows": [
+    {
+      "id": "configured",
+      "xml": "<heightmap>\n  <uri>https://test-uri.org</uri>\n  <size>1 2 3</size>\n  <pos>4 5 6</pos>\n  <use_terrain_paging>true</use_terrain_paging>\n  <sampling>2</sampling>\n  <texture>\n    <size>1.2</size>\n    <diffuse>diffuse_map</diffuse>\n    <normal>normal_map</normal>\n  </texture>\n  <blend>\n    <min_height>1.2</min_height>\n    <fade_dist>3.3999999999999999</fade_dist>\n  </blend>\n</heightmap>\n",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 68747470733a2f2f746573742d7572692e6f7267 4607182418800017408 4611686018427387904 4613937818241073152 4616189618054758400 4617315517961601024 4618441417868443648 1 2 1 4608083138725491507 646966667573655f6d6170 6e6f726d616c5f6d6170 1 4608083138725491507 4614838538166547251\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "omitted",
+      "xml": "<heightmap/>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 5f5f64656661756c745f5f 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 1 0 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "empty-uri",
+      "xml": "<heightmap><uri/></heightmap>",
+      "native": {
+        "stdout": "READ 0 9 9 9 9 9 9 9\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Empty string used when setting a required parameter. Key[uri]\n"
+      },
+      "export": false
+    },
+    {
+      "id": "negative-zero-vectors",
+      "xml": "<heightmap><size>-1 -0 0</size><pos>-0 5e-324 1e-310</pos></heightmap>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 5f5f64656661756c745f5f 13830554455654793216 9223372036854775808 0 9223372036854775808 1 20240225330731 0 1 0 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "zero-sampling",
+      "xml": "<heightmap><sampling>0</sampling></heightmap>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 5f5f64656661756c745f5f 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "max-sampling",
+      "xml": "<heightmap><sampling>4294967295</sampling></heightmap>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 5f5f64656661756c745f5f 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 4294967295 0 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "negative-sampling",
+      "xml": "<heightmap><sampling>-1</sampling></heightmap>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 5f5f64656661756c745f5f 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 4294967295 0 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "empty-vectors",
+      "xml": "<heightmap><size/><pos/></heightmap>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 5f5f64656661756c745f5f 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 1 0 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "empty-texture",
+      "xml": "<heightmap><texture/></heightmap>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 5f5f64656661756c745f5f 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 1 1 4621819117588971520 5f5f64656661756c745f5f 5f5f64656661756c745f5f 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "empty-blend",
+      "xml": "<heightmap><blend/></heightmap>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 5f5f64656661756c745f5f 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 1 0 1 0 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "negative-scalars",
+      "xml": "<heightmap><texture><size>-2</size></texture><blend><min_height>-3</min_height><fade_dist>-4</fade_dist></blend></heightmap>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 5f5f64656661756c745f5f 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 1 1 13835058055282163712 5f5f64656661756c745f5f 5f5f64656661756c745f5f 1 13837309855095848960 13839561654909534208\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "signed-zero-scalars",
+      "xml": "<heightmap><texture><size>-0</size></texture><blend><min_height>-0</min_height><fade_dist>-0</fade_dist></blend></heightmap>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 5f5f64656661756c745f5f 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 1 1 9223372036854775808 5f5f64656661756c745f5f 5f5f64656661756c745f5f 1 9223372036854775808 9223372036854775808\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "subnormal-texture",
+      "xml": "<heightmap><texture><size>5e-324</size></texture></heightmap>",
+      "native": {
+        "stdout": "READ 0 9 9 9 9 9 9 9 9\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Out of range. Unable to set value [5e-324 ] for key[size].\n"
+      },
+      "export": false
+    },
+    {
+      "id": "subnormal-blend",
+      "xml": "<heightmap><blend><min_height>1e-310</min_height></blend></heightmap>",
+      "native": {
+        "stdout": "READ 0 9 9 9 9 9 9 9 9\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Out of range. Unable to set value [1e-310 ] for key[min_height].\n"
+      },
+      "export": false
+    },
+    {
+      "id": "nan-vector",
+      "xml": "<heightmap><size>nan 1 1</size></heightmap>",
+      "native": {
+        "stdout": "READ 0 9 9 9 9 9 9 9\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Unknown error. Unable to set value [nan 1 1 ] for key[size]\n"
+      },
+      "export": false
+    },
+    {
+      "id": "unknown-child",
+      "xml": "<heightmap><unknown/></heightmap>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 5f5f64656661756c745f5f 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 1 0 0\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/geometry/heightmap/unknown:<data-string>:L1]: XML Element[unknown], child of element[heightmap], not defined in SDF. Copying[unknown] as children of [heightmap].\n"
+      },
+      "export": false,
+      "gap_code": "Unsupported"
+    },
+    {
+      "id": "duplicate-uri",
+      "xml": "<heightmap><uri>first</uri><uri>second</uri></heightmap>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 6669727374 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 1 0 0\n",
+        "stderr": ""
+      },
+      "export": false,
+      "gap_code": "InvalidValue"
+    },
+    {
+      "id": "list-order",
+      "xml": "<heightmap><texture><size>1</size><diffuse>a</diffuse><normal>b</normal></texture><texture><size>2</size><diffuse>c</diffuse><normal>d</normal></texture><blend><min_height>3</min_height><fade_dist>4</fade_dist></blend><blend><min_height>5</min_height><fade_dist>6</fade_dist></blend></heightmap>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 5f5f64656661756c745f5f 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 1 2 4607182418800017408 61 62 4611686018427387904 63 64 2 4613937818241073152 4616189618054758400 4617315517961601024 4618441417868443648\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "extra-size-component",
+      "xml": "<heightmap><size>1 2 3 4</size></heightmap>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 5f5f64656661756c745f5f 4607182418800017408 4611686018427387904 4613937818241073152 0 0 0 0 1 0 0\n",
+        "stderr": ""
+      },
+      "export": false,
+      "gap_code": "InvalidValue"
+    },
+    {
+      "id": "escaped-strings",
+      "xml": "<heightmap><uri>a &amp; &lt;b&gt;</uri><texture><diffuse><![CDATA[a  b]]></diffuse><normal><![CDATA[a\tb\nc]]></normal></texture></heightmap>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 612026203c623e 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 1 1 4621819117588971520 61202062 6109620a63 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "unicode-space",
+      "xml": "<heightmap><uri>\u00a0asset\u00a0</uri></heightmap>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES c2a06173736574c2a0 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 1 0 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "empty-texture-string",
+      "xml": "<heightmap><texture><diffuse/></texture></heightmap>",
+      "native": {
+        "stdout": "READ 0 9 9 9 9 9 9 9 9\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Empty string used when setting a required parameter. Key[diffuse]\n"
+      },
+      "export": false
+    },
+    {
+      "id": "empty-scalar",
+      "xml": "<heightmap><blend><min_height/></blend></heightmap>",
+      "native": {
+        "stdout": "READ 0 9 9 9 9 9 9 9 9\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Empty string used when setting a required parameter. Key[min_height]\n"
+      },
+      "export": false
+    },
+    {
+      "id": "unknown-texture",
+      "xml": "<heightmap><texture><unknown/></texture></heightmap>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 5f5f64656661756c745f5f 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 1 1 4621819117588971520 5f5f64656661756c745f5f 5f5f64656661756c745f5f 0\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/geometry/heightmap/texture/unknown:<data-string>:L1]: XML Element[unknown], child of element[texture], not defined in SDF. Copying[unknown] as children of [texture].\n"
+      },
+      "export": false,
+      "gap_code": "Unsupported"
+    },
+    {
+      "id": "unknown-blend-attribute",
+      "xml": "<heightmap><blend unknown='x'/></heightmap>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 5f5f64656661756c745f5f 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 1 0 1 0 0\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/geometry/heightmap/blend[@unknown=\"x\"]:<data-string>:L1]: XML Attribute[unknown] in element[blend] not defined in SDF.\n"
+      },
+      "export": false,
+      "gap_code": "Unsupported"
+    },
+    {
+      "id": "infinite-scalar",
+      "xml": "<heightmap><blend><fade_dist>inf</fade_dist></blend></heightmap>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 5f5f64656661756c745f5f 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 1 0 1 0 9218868437227405312\n",
+        "stderr": ""
+      },
+      "export": false,
+      "gap_code": "InvalidValue"
+    },
+    {
+      "id": "empty-sampling",
+      "xml": "<heightmap><sampling/></heightmap>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 5f5f64656661756c745f5f 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 1 0 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "invalid-paging",
+      "xml": "<heightmap><use_terrain_paging>maybe</use_terrain_paging></heightmap>",
+      "native": {
+        "stdout": "READ 0 9 9 9 9 9 9 9\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Invalid boolean value\n"
+      },
+      "export": false
+    }
+  ],
+  "geometry_controls": [
+    {
+      "id": "old-corpus",
+      "xml": "<geometry><heightmap><uri>height.png</uri></heightmap></geometry>",
+      "uri": "geometry.xml",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 6865696768742e706e67 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 1 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "id": "old-writer",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><heightmap><uri>height.png</uri></heightmap></geometry></collision></link></model></sdf>",
+      "uri": "complex.xml",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 6865696768742e706e67 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 1 0 0\n",
+        "stderr": ""
+      }
+    }
+  ],
+  "empty_native_producer": {
+    "stdout": "EMIT 1 34\nXML_BEGIN\n<heightmap>\n  <uri>__default__</uri>\n  <size>1 1 1</size>\n  <pos>0 0 0</pos>\n  <use_terrain_paging>false</use_terrain_paging>\n  <sampling>1</sampling>\n</heightmap>\nXML_END\nLOAD\nVALUES 5f5f64656661756c745f5f 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 1 0 0\n",
+    "stderr": ""
+  }
+}

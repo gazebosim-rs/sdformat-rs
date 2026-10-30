@@ -68,10 +68,11 @@ impl Geometry {
                 vector("size", *size, true)?
             ),
             Self::Mesh(value) => value.to_xml()?,
+            Self::Heightmap(value) => value.to_xml()?,
             _ => {
                 return Err(error(
                     ErrorCode::Unsupported,
-                    "geometry XML does not support heightmap or polyline",
+                    "geometry XML does not support polyline",
                 ));
             }
         };

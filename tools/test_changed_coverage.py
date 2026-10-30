@@ -9,8 +9,8 @@ from unittest.mock import patch
 import verify
 
 
-def syntax(*, fields=(), closings=(), opaque=(), declarations=()):
-    return lambda _path, _source: dict(fields=set(fields), closings=set(closings), opaque=set(opaque), declarations=set(declarations))
+def syntax(*, fields=(), closings=(), opaque=(), declarations=(), items=()):
+    return lambda _path, _source: dict(fields=set(fields), closings=set(closings), opaque=set(opaque), declarations=set(declarations), items=set(items))
 
 
 class ChangedCoverageTests(unittest.TestCase):
@@ -63,7 +63,7 @@ class ChangedCoverageTests(unittest.TestCase):
     def test_syntax_helper_output_and_coverage_priority_fail_closed(self):
         import json
         source = "pub struct World {\n    pub extensions: Vec<Thing>,\n}\n"
-        value = {'source': source, 'helper_source': 'reviewed helper', 'ancestor': 'mod types;', 'module': 'types', 'fields': [2], 'closings': [], 'opaque': [], 'declarations': []}
+        value = {'source': source, 'helper_source': 'reviewed helper', 'ancestor': 'mod types;', 'module': 'types', 'fields': [2], 'closings': [], 'opaque': [], 'declarations': [], 'items': []}
         prefix = "\nrunning 1 test\nSDF_COVERAGE_SYNTAX_V1="
         suffix = "\ntest syntax_query ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.01s\n\n"
         output = lambda item: prefix + json.dumps(item) + suffix

@@ -3528,3 +3528,15 @@ rejected unmeasured opaque macro-token lines; the revised candidate uses the
 validation helper for explicitly permitted qualified repeated names. Independent review of that helper change passed 29 Rust controls across the
 affected callers and all-target Clippy. The staged gate must be rerun; hosted
 qualification, public acceptance and consumer adoption remain pending.
+
+## Candidate bounded import and static syntax proof
+
+A separate tooling candidate recognizes exclusive multiline imports and narrowly
+bounded static declarations, with file, module and direct-function context
+checks. The type grammar excludes const-expression and macro bodies; mapped
+LLVM lines and region thresholds remain authoritative. Independent review passed
+13 helper tests and 34 tooling controls, including real compiler/LLVM uncovered
+line and region checks; an actual-source query checked the six world-candidate
+declaration lines. Normal staged and exact hosted qualification remain pending.
+The separate legacy model-merge operator/literal gate issue remains unresolved.
+See [coverage syntax](COVERAGE_SYNTAX.md).

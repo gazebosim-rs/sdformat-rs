@@ -301,12 +301,12 @@ def parse_syntax_output(output, source, helper_source, ancestor, module):
     value, end = json.JSONDecoder(object_pairs_hook=unique_object).raw_decode(output[len(prefix):])
     suffix = output[len(prefix) + end:]
     assert re.fullmatch(r'\ntest syntax_query \.\.\. ok\n\ntest result: ok\. 1 passed; 0 failed; 0 ignored; 0 measured; \d+ filtered out; finished in [0-9.]+s\n\n', suffix), 'invalid coverage syntax helper footer'
-    assert isinstance(value, dict) and set(value) == {'source', 'ancestor', 'module', 'helper_source', 'fields', 'closings', 'opaque', 'declarations'}, 'invalid coverage syntax helper schema'
+    assert isinstance(value, dict) and set(value) == {'source', 'ancestor', 'module', 'helper_source', 'fields', 'closings', 'opaque', 'declarations', 'items'}, 'invalid coverage syntax helper schema'
     assert value['source'] == source, 'stale coverage syntax source'
     assert value['helper_source'] == helper_source, 'stale coverage syntax helper'
     assert value['ancestor'] == ancestor and value['module'] == module, 'stale coverage syntax context'
     limit = len(source_lines(source))
-    for key in ('fields', 'closings', 'opaque', 'declarations'):
+    for key in ('fields', 'closings', 'opaque', 'declarations', 'items'):
         lines = value[key]
         assert isinstance(lines, list) and all(type(line) is int and 1 <= line <= limit for line in lines), 'invalid coverage syntax line'
         assert lines == sorted(set(lines)), 'duplicate or unordered coverage syntax line'
@@ -337,7 +337,7 @@ def check_changed_coverage(root, changed, covered, strict=True, syntax_provider=
                 assert 1 <= line <= len(lines), 'changed line outside source'
                 text = lines[line - 1].strip()
                 assert line not in syntax['opaque'], 'changed source is opaque syntax'
-                non_executable = (not text or text.startswith('//') or text in ('{', '}', '};')
+                non_executable = (line in syntax['items'] or not text or text.startswith('//') or text in ('{', '}', '};')
                                   or (line in syntax['declarations'] and (re.fullmatch(r'impl\s+[A-Za-z_][A-Za-z0-9_]*\s*\{', text)
                                       or re.fullmatch(r'(?:pub(?:\([^)]*\))?\s+)?(?:use|mod)\s+[^;]+;', text)))
                                   or (line in syntax['fields'] and re.fullmatch(r'pub\s+[A-Za-z_][A-Za-z0-9_]*:\s*Vec<[A-Za-z_][A-Za-z0-9_]*>,', text))

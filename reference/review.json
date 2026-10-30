@@ -2,18 +2,18 @@
   "decision": "approved",
   "author": "sdformat_owner_terra",
   "reviewer": "integration_reviewer",
-  "source_digest": "253de1ed3a6daa170cb3664608d7e41a9098260673bd7eba07c2666c4a05b45a",
-  "protected_digest": "c15b8ef75e002a1efad10b8ed3fdda3abbdcb3e5789d5cb07d7534a0ba549549",
-  "scope": "Local-only direct qualified world metadata and exact pre-reviewed temporary capability transition.",
+  "source_digest": "a6a416731906d8b9d153081f9185818cc7003f8653cb43a229b071350433830d",
+  "protected_digest": "baad4a4c30c2dd550500cc9fff2f9d8b458c832434a98fdaa88e9839dcfa4bc0",
+  "scope": "Separately bounded import/static compile-time declaration evidence; six tooling/documentation paths only.",
   "checks": [
-    "Fresh independent source/owned target passed nine affected Rust tests and all-target Clippy; actual pinned helper replay reproduced 13 direct and 14 prior native observations.",
-    "Prior independent review checked the exact old direct-world fixture and complete prepared positive before the rejection was replaced. Final fold preserves fixture bytes, all unrelated strict assertions and complete native-backed corpus expectations.",
-    "Imported-before-direct order, duplicates, raw XML/source, namespace declarations/raw versus decoded attributes and known-singleton failure inspected. All nine executable/test paths matched the reviewed export; final docs only record actual evidence.",
-    "Shared validator refinement independently reviewed across all callers: only explicitly listed qualified extra names gain admission; all earlier extras were already in their allowed lists. Original fixed world schema slice retained. Fresh independent replay passed 29 distinct affected/reader Rust controls and all-target Clippy; failed nonexistent sensor target setup excluded."
+    "Fresh exact b7 baseline reviewer export/owned target passed13 unconditional Rust helper tests,34 Python tooling controls and all-target Clippy. All four executable/test paths byte-match; other baseline tracked files unchanged except accurate two-document scope/evidence append.",
+    "Explicit final compiled-helper query proved six actual world-candidate declaration lines; this manual check is separate from unconditional test counts. Optional assertion-free environment test was removed before approval.",
+    "Reviewed recursive plain-type grammar rejecting executable const-block/array/type-macro/associated/generic expression bodies; static initializer only unannotated zero-argument plain path call, with LF-exclusive complete item spans and file/module/direct-unannotated-function context.",
+    "Real rustc-accepted closures, type macros, const-generic/array hidden function bodies and custom attributes are refused. Real LLVM uncovered DA0 rejects even forged positive syntax evidence; real region failure independently rejects, with existing source/helper/context protocol identity retained.",
+    "Source selectors, measured DA/region authority and strictly-greater-than95 thresholds unchanged. No ordinary operator/literal proof and no waiver for the separate legacy merge blocker."
   ],
   "remaining": [
-    "Mandatory local staged checks remain required; hosted/public acceptance is not claimed.",
-    "External publication/disclosure remains held pending explicit user authorization; no push or dashboard action is authorized by this local receipt.",
-    "No original-test credit or consumer pin adoption; consumers must explicitly support or reject World extension metadata."
+    "Mandatory normal staged and exact hosted qualification before acceptance.",
+    "Broader syntax remains fail-closed; no runtime/producer behavior or original-count claim."
   ]
 }

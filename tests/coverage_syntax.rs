@@ -360,11 +360,127 @@ impl<'ast> Visit<'ast> for CallAudit {
         visit::visit_expr_method_call(self, expression);
     }
 }
+fn plain_type(ty: &syn::Type) -> bool {
+    match ty {
+        syn::Type::Reference(value) => value.mutability.is_none() && plain_type(&value.elem),
+        syn::Type::Path(value) if value.qself.is_none() => {
+            value
+                .path
+                .segments
+                .iter()
+                .all(|segment| match &segment.arguments {
+                    PathArguments::None => true,
+                    PathArguments::AngleBracketed(args) => args.args.iter().all(|arg| match arg {
+                        syn::GenericArgument::Type(ty) => plain_type(ty),
+                        syn::GenericArgument::Lifetime(_) => true,
+                        _ => false,
+                    }),
+                    _ => false,
+                })
+        }
+        _ => false,
+    }
+}
+fn candidate_lines(source: &str) -> BTreeSet<usize> {
+    let file = syn::parse_file(source).unwrap();
+    let lines: Vec<_> = source.split('\n').collect();
+    let mut out = BTreeSet::new();
+    let mut items: Vec<&Item> = file.items.iter().collect();
+    for item in &file.items {
+        if let Item::Fn(function) = item
+            && function.attrs.is_empty()
+        {
+            items.extend(function.block.stmts.iter().filter_map(|stmt| match stmt {
+                syn::Stmt::Item(item) => Some(item),
+                _ => None,
+            }));
+        }
+    }
+    for item in items {
+        let supported = match item {
+            Item::Use(item) => item.attrs.is_empty(),
+            Item::Static(item) => {
+                let syn::Expr::Call(call) = &*item.expr else {
+                    continue;
+                };
+                let syn::Expr::Path(path) = &*call.func else {
+                    continue;
+                };
+                item.attrs.is_empty()
+                    && plain_type(&item.ty)
+                    && call.attrs.is_empty()
+                    && path.attrs.is_empty()
+                    && path.qself.is_none()
+                    && call.args.is_empty()
+                    && path
+                        .path
+                        .segments
+                        .iter()
+                        .all(|segment| matches!(segment.arguments, PathArguments::None))
+                    && item.span().start().line == item.span().end().line
+            }
+            _ => false,
+        };
+        if !supported {
+            continue;
+        }
+        let span = item.span();
+        let (start, end) = (span.start(), span.end());
+        if !lines[start.line - 1]
+            .chars()
+            .take(start.column)
+            .all(char::is_whitespace)
+            || !lines[end.line - 1]
+                .chars()
+                .skip(end.column)
+                .all(char::is_whitespace)
+        {
+            continue;
+        }
+        out.extend(start.line..=end.line);
+    }
+    out
+}
+
+fn context_lines(source: &str, ancestor: &str, module: &str) -> BTreeSet<usize> {
+    let Ok(file) = syn::parse_file(source) else {
+        return BTreeSet::new();
+    };
+    let Ok(parent) = syn::parse_file(ancestor) else {
+        return BTreeSet::new();
+    };
+    if !docs_only(&file.attrs)
+        || !docs_only(&parent.attrs)
+        || module.is_empty()
+        || parent.items.iter().any(|item| {
+            matches!(
+                item,
+                Item::Macro(_) | Item::ExternCrate(_) | Item::Verbatim(_)
+            )
+        })
+    {
+        return BTreeSet::new();
+    }
+    let modules: Vec<_> = parent
+        .items
+        .iter()
+        .filter_map(|item| match item {
+            Item::Mod(value) if value.ident == module => Some(value),
+            _ => None,
+        })
+        .collect();
+    if modules.len() != 1 || !modules[0].attrs.is_empty() || modules[0].content.is_some() {
+        return BTreeSet::new();
+    }
+    candidate_lines(source)
+}
+
 struct Evidence {
     fields: BTreeSet<usize>,
     closings: BTreeSet<usize>,
     opaque: BTreeSet<usize>,
     declarations: BTreeSet<usize>,
+    items: BTreeSet<usize>,
 }
 fn classify(source: &str, ancestor: &str, module: &str) -> Result<Evidence, syn::Error> {
     let syntax = syn::parse_file(source)?;
@@ -437,6 +553,7 @@ fn classify(source: &str, ancestor: &str, module: &str) -> Result<Evidence, syn:
         closings: calls.closings,
         opaque: audit.opaque_lines,
         declarations: audit.declarations,
+        items: context_lines(source, ancestor, module),
     })
 }
 
@@ -458,7 +575,7 @@ fn syntax_query() {
     let evidence = classify(source, ancestor, module).expect("source must parse");
     println!(
         "SDF_COVERAGE_SYNTAX_V1={}",
-        serde_json::json!({"source": source, "ancestor": ancestor, "module": module, "helper_source": include_str!("coverage_syntax.rs"), "fields": evidence.fields, "closings": evidence.closings, "opaque": evidence.opaque, "declarations": evidence.declarations})
+        serde_json::json!({"source": source, "ancestor": ancestor, "module": module, "helper_source": include_str!("coverage_syntax.rs"), "fields": evidence.fields, "closings": evidence.closings, "opaque": evidence.opaque, "declarations": evidence.declarations, "items": evidence.items})
     );
 }
 
@@ -729,5 +846,145 @@ fn call_closing_uses_enclosing_context_not_unrelated_derive_resolution() {
         .unwrap()
         .closings
         .is_empty()
+    );
+}
+
+fn compiles(source: &str) {
+    let tmp = tempfile::tempdir().unwrap();
+    let path = tmp.path().join("probe.rs");
+    std::fs::write(&path, source).unwrap();
+    let output = std::process::Command::new("rustc")
+        .args([
+            "--edition=2024",
+            "--crate-type=lib",
+            "--emit=metadata",
+            "-o",
+        ])
+        .arg(tmp.path().join("probe.rmeta"))
+        .arg(path)
+        .output()
+        .unwrap();
+    assert!(
+        output.status.success(),
+        "{}",
+        String::from_utf8_lossy(&output.stderr)
+    );
+}
+#[test]
+fn compiler_accepted_positive_and_negative_declarations() {
+    let positive = "use std::{\n    borrow::Cow,\n    collections::BTreeSet,\n    sync::{Arc, OnceLock},\n};\nstatic NAMES: OnceLock<BTreeSet<&str>> = OnceLock::new();\n";
+    compiles(positive);
+    assert_eq!(candidate_lines(positive), (1..=6).collect());
+    let probes = [
+        "static FN: fn() = || { panic!(\"uncovered\") };\n",
+        "static FN: fn() = { fn hidden() { panic!(\"uncovered\") } hidden };\n",
+        "macro_rules! make { () => { || panic!(\"uncovered\") } }\nstatic FN: fn() = make!();\n",
+        "#[cfg(any())]\nstatic VALUE: usize = 0;\n",
+        "#[allow(unused_imports)]\nuse std::{\n  borrow::Cow,\n  sync::Arc,\n};\n",
+        "use std::sync::OnceLock; static VALUE: OnceLock<u8> = OnceLock::new();\n",
+        "static VALUE: u32 = 1 + 2;\n",
+        "struct T<const N: usize>; const fn f() -> T<1> { T }\nstatic X: T<{ #[unsafe(no_mangle)] pub extern \"C\" fn hidden2() { panic!(\"uncovered\") } 1 }> = f();\n",
+        "const fn f() -> [u8;1] { [0] }\nstatic X: [u8; { #[unsafe(no_mangle)] pub extern \"C\" fn hidden() { panic!(\"uncovered\") } 1 }] = f();\n",
+        "macro_rules! ty { () => { u32 } }\nconst fn f() -> u32 { 0 }\nstatic X: ty!() = f();\n",
+    ];
+    for source in probes {
+        compiles(source);
+        assert!(candidate_lines(source).is_empty(), "{source}");
+    }
+}
+#[test]
+fn ignores_shared_lines_and_syntax_expressions() {
+    for source in [
+        "use std::sync::Arc; fn hidden() {}\n",
+        "static X: u8 = f::<u8>();\n",
+        "static X: u8 = f(|| 1);\n",
+        "#[custom] use std::{sync::Arc};\n",
+        "static X: u8 = { f() };\n",
+    ] {
+        assert!(candidate_lines(source).is_empty(), "{source}");
+    }
+}
+#[test]
+fn compiler_accepts_custom_attribute_but_proof_refuses_it() {
+    let tmp = tempfile::tempdir().unwrap();
+    let macro_src = tmp.path().join("attr.rs");
+    let macro_lib = tmp.path().join("libattr.so");
+    std::fs::write(&macro_src, "extern crate proc_macro; use proc_macro::TokenStream; #[proc_macro_attribute] pub fn custom(_: TokenStream, item: TokenStream) -> TokenStream { item }").unwrap();
+    let result = std::process::Command::new("rustc")
+        .args(["--edition=2024", "--crate-type=proc-macro", "-o"])
+        .arg(&macro_lib)
+        .arg(&macro_src)
+        .output()
+        .unwrap();
+    assert!(
+        result.status.success(),
+        "{}",
+        String::from_utf8_lossy(&result.stderr)
+    );
+    let source = "use attr::custom;\n#[custom]\nstatic VALUE: std::sync::OnceLock<u8> = std::sync::OnceLock::new();\n";
+    let path = tmp.path().join("probe.rs");
+    std::fs::write(&path, source).unwrap();
+    let result = std::process::Command::new("rustc")
+        .args([
+            "--edition=2024",
+            "--crate-type=lib",
+            "--emit=metadata",
+            "--extern",
+        ])
+        .arg(format!("attr={}", macro_lib.display()))
+        .arg("-o")
+        .arg(tmp.path().join("probe.rmeta"))
+        .arg(path)
+        .output()
+        .unwrap();
+    assert!(
+        result.status.success(),
+        "{}",
+        String::from_utf8_lossy(&result.stderr)
+    );
+    let lines = candidate_lines(source);
+    assert!(!lines.contains(&2) && !lines.contains(&3));
+}
+
+#[test]
+fn source_and_ancestor_context_fail_closed() {
+    let text = "use std::{\n sync::OnceLock,\n};\nstatic X: OnceLock<u8> = OnceLock::new();\n";
+    assert_eq!(
+        context_lines(text, "//! docs\nmod parse;", "parse"),
+        (1..=4).collect()
+    );
+    for parent in [
+        "#[cfg(any())] mod parse;",
+        "#[custom] mod parse;",
+        "mod parse {}",
+        "mod parse; mod parse;",
+        "macro_rules! m { () => {} } mod parse;",
+        "#![allow(dead_code)] mod parse;",
+    ] {
+        assert!(context_lines(text, parent, "parse").is_empty(), "{parent}");
+    }
+    assert!(
+        context_lines(
+            "#![allow(dead_code)]\nuse std::sync::Arc;",
+            "mod parse;",
+            "parse"
+        )
+        .is_empty()
+    );
+    assert!(
+        context_lines(
+            "mod nested {\nuse std::sync::Arc;\n}",
+            "mod parse;",
+            "parse"
+        )
+        .is_empty()
+    );
+    assert!(context_lines("#[cfg(any())] fn f() {\nstatic X: std::sync::OnceLock<u8> = std::sync::OnceLock::new();\n}", "mod parse;", "parse").is_empty());
+    assert!(context_lines("fn f() { if true {\nstatic X: std::sync::OnceLock<u8> = std::sync::OnceLock::new();\n} }", "mod parse;", "parse").is_empty());
+    let unicode =
+        "use std::{\r\n sync::OnceLock,\r\n};\r\nstatic X: OnceLock<u8> = OnceLock::new(); // π\n";
+    assert_eq!(
+        context_lines(unicode, "mod parse;", "parse"),
+        (1..=3).collect()
     );
 }

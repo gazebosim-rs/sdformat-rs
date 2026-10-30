@@ -50,3 +50,21 @@ identity, malformed and missing output,
 wrong or duplicate helper artifacts, source mutation, and mapped-uncovered
 priority. Native code, business parsing and simulator plugin loading are outside
 this test-only tool.
+
+A separately reviewed declaration proof recognizes complete, exclusive LF-line
+spans of unannotated imports and one-line static items whose initializer is a
+zero-argument plain-path call. Static types are restricted recursively to plain
+type paths, immutable references, lifetimes and type generic arguments; const
+generics, arrays, type macros, closures, blocks and operators are refused. The
+item must be at file scope or directly inside an unannotated top-level function,
+with independently checked file and direct ancestor module context. Other
+nesting, shared-line text, conditional or custom attributes and macro tokens
+remain opaque. This proof is independent of Debug name resolution.
+
+Independent review passed 13 helper tests and 34 tooling tests, including real
+compiler and LLVM controls: an uncovered function hidden in a static type is
+rejected even with a forged syntax hint, and uncovered regions still fail their
+normal coverage threshold. A separate actual-source query covered the six
+unmapped declaration lines in the world-metadata candidate. Normal staged and
+exact hosted checks remain required before accepting this tooling change. No
+ordinary executable operator or literal is classified by this proof.

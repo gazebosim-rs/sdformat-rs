@@ -3294,3 +3294,18 @@ private stdout/stderr injection controls fail the quiet wrapper as required.
 All 501 author Rust tests, 17 tooling tests, formatting and Clippy pass. Normal strict
 staged coverage and exact hosted CI remain pending. Candidate 191 complete /25
 partial is separate from accepted 189/25; no runtime claim.
+
+## Candidate primitive geometry XML
+
+Accepted Main 2dbd442 has 191 complete /25 partial mappings. The new bounded
+primitive/Plane writer and standalone reader pass six new Rust checks and native
+proof: 48 inputs, seven exact fixtures, six Plane setter/reload profiles, 43 actual
+Rust/native exchanges and both unchanged full originals. Only the seven selected
+variant/presence blocks are mapped; Mesh/Heightmap/Polyline and their native
+producer-error contracts remain open. No old admission or assertions changed.
+All 507 author Rust tests, 17 tooling tests, formatting and Clippy pass.
+Independent fresh-source review passed all 23 relevant Rust checks and the full
+native helper, with adversarial quiet controls failing as required. Every selected
+original predicate was audited; remaining blocks stay partial. Strict staged/exact
+hosted qualification remains pending; candidate 191 complete /27 partial adds no
+complete-case or runtime credit.

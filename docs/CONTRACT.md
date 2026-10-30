@@ -1136,3 +1136,12 @@ through the existing surface parser. They add no surface/physics admission or
 runtime behavior. Unsupported bounce/contact/engine extras still fail explicitly;
 scalar/vector output policies and exact original assertion scope are documented
 in [SURFACE_XML.md](SURFACE_XML.md).
+
+## Primitive geometry XML
+
+Geometry::to_xml and load_geometry_str cover seven primitive/Plane variants.
+Existing document/default/normalization behavior is reused; standalone complex
+variants and unrepresentable output dimensions fail explicitly. Plane output is
+raw metadata whose reload follows existing normalization, not a blanket bit
+roundtrip. See [GEOMETRY_XML.md](GEOMETRY_XML.md) for subtype, numeric, native
+constructor/document and partial-original boundaries.

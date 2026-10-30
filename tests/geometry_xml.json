@@ -1,0 +1,458 @@
+{
+  "rows": [
+    {
+      "id": "default-box",
+      "xml": "<geometry>\n  <box>\n    <size>1 1 1</size>\n  </box>\n</geometry>\n",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 1 1 4607182418800017408 4607182418800017408 4607182418800017408\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "default-sphere",
+      "xml": "<geometry>\n  <sphere>\n    <radius>1</radius>\n  </sphere>\n</geometry>\n",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 4 32 4607182418800017408\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "default-cylinder",
+      "xml": "<geometry>\n  <cylinder>\n    <radius>0.5</radius>\n    <length>1</length>\n  </cylinder>\n</geometry>\n",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 2 8 4602678819172646912 4607182418800017408\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "default-capsule",
+      "xml": "<geometry>\n  <capsule>\n    <radius>0.5</radius>\n    <length>1</length>\n  </capsule>\n</geometry>\n",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 7 2 4602678819172646912 4607182418800017408\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "default-cone",
+      "xml": "<geometry>\n  <cone>\n    <radius>0.5</radius>\n    <length>1</length>\n  </cone>\n</geometry>\n",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 10 4 4602678819172646912 4607182418800017408\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "default-ellipsoid",
+      "xml": "<geometry>\n  <ellipsoid>\n    <radii>1 1 1</radii>\n  </ellipsoid>\n</geometry>\n",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 8 16 4607182418800017408 4607182418800017408 4607182418800017408\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "default-plane",
+      "xml": "<geometry>\n  <plane>\n    <normal>0 0 1</normal>\n    <size>1 1</size>\n  </plane>\n</geometry>\n",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 3 64 0 0 4607182418800017408 4607182418800017408 4607182418800017408\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "configured-box",
+      "xml": "<geometry><box><size>2 3 4</size></box></geometry>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 1 1 4611686018427387904 4613937818241073152 4616189618054758400\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "configured-sphere",
+      "xml": "<geometry><sphere><radius>2.5</radius></sphere></geometry>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 4 32 4612811918334230528\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "configured-cylinder",
+      "xml": "<geometry><cylinder><radius>2</radius><length>3</length></cylinder></geometry>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 2 8 4611686018427387904 4613937818241073152\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "configured-capsule",
+      "xml": "<geometry><capsule><radius>2</radius><length>3</length></capsule></geometry>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 7 2 4611686018427387904 4613937818241073152\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "configured-cone",
+      "xml": "<geometry><cone><radius>2</radius><length>3</length></cone></geometry>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 10 4 4611686018427387904 4613937818241073152\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "configured-ellipsoid",
+      "xml": "<geometry><ellipsoid><radii>2 3 4</radii></ellipsoid></geometry>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 8 16 4611686018427387904 4613937818241073152 4616189618054758400\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "configured-plane",
+      "xml": "<geometry><plane><normal>1 2 3</normal><size>2 3</size></plane></geometry>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 3 64 4598486170435855402 4602989770063225898 4605397045322200639 4611686018427387904 4613937818241073152\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "plane-normal-14",
+      "xml": "<geometry><plane><normal>0 0 0</normal><size>2 3</size></plane></geometry>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 3 64 0 0 0 4611686018427387904 4613937818241073152\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "plane-normal-15",
+      "xml": "<geometry><plane><normal>-0 0 -0</normal><size>2 3</size></plane></geometry>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 3 64 9223372036854775808 0 9223372036854775808 4611686018427387904 4613937818241073152\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "plane-normal-16",
+      "xml": "<geometry><plane><normal>1e-7 0 0</normal><size>2 3</size></plane></geometry>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 3 64 4502148214488346440 0 0 4611686018427387904 4613937818241073152\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "plane-normal-17",
+      "xml": "<geometry><plane><normal>1e-6 0 0</normal><size>2 3</size></plane></geometry>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 3 64 4517329193108106637 0 0 4611686018427387904 4613937818241073152\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "plane-normal-18",
+      "xml": "<geometry><plane><normal>1e-5 0 0</normal><size>2 3</size></plane></geometry>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 3 64 4607182418800017408 0 0 4611686018427387904 4613937818241073152\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "plane-normal-19",
+      "xml": "<geometry><plane><normal>1e300 1e300 0</normal><size>2 3</size></plane></geometry>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 3 64 0 0 0 4611686018427387904 4613937818241073152\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "plane-normal-20",
+      "xml": "<geometry><plane><normal>1e-310 -0 0</normal><size>2 3</size></plane></geometry>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 3 64 20240225330731 9223372036854775808 0 4611686018427387904 4613937818241073152\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "box-subnormal",
+      "xml": "<geometry><box><size>1e-310 2 3</size></box></geometry>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 1 1 20240225330731 4611686018427387904 4613937818241073152\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "plane-size-subnormal",
+      "xml": "<geometry><plane><size>1e-310 2</size></plane></geometry>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 3 64 0 0 4607182418800017408 20240225330731 4611686018427387904\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "box-negative",
+      "xml": "<geometry><box><size>-1 2 3</size></box></geometry>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 1 1 4607182418800017408 4607182418800017408 4607182418800017408\n",
+        "stderr": "\u001b[1;33mWarning [Box.cc:86]\u001b[0m Value of <size> is negative. Using default value of 1, 1, 1.\n"
+      },
+      "export": true
+    },
+    {
+      "id": "sphere-negative",
+      "xml": "<geometry><sphere><radius>-1</radius></sphere></geometry>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 4 32 4607182418800017408\n",
+        "stderr": "\u001b[1;33mWarning [Sphere.cc:82]\u001b[0m Value of <radius> is negative. Using default value of 1.0.\n"
+      },
+      "export": true
+    },
+    {
+      "id": "sphere-small-normal",
+      "xml": "<geometry><sphere><radius>2.2250738585072014e-308</radius></sphere></geometry>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 4 32 4503599627370496\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "sphere-max",
+      "xml": "<geometry><sphere><radius>1.7976931348623157e308</radius></sphere></geometry>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 4 32 9218868437227405311\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "sphere-subnormal",
+      "xml": "<geometry><sphere><radius>1e-310</radius></sphere></geometry>",
+      "native": {
+        "stdout": "READ 0 9 9 9 9 9 9 9\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Out of range. Unable to set value [1e-310 ] for key[radius].\n"
+      },
+      "export": false
+    },
+    {
+      "id": "sphere-nan",
+      "xml": "<geometry><sphere><radius>nan</radius></sphere></geometry>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 4 32 9221120237041090560\n",
+        "stderr": ""
+      },
+      "export": false,
+      "gap_code": "InvalidValue"
+    },
+    {
+      "id": "sphere-infinity",
+      "xml": "<geometry><sphere><radius>inf</radius></sphere></geometry>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 4 32 9218868437227405312\n",
+        "stderr": ""
+      },
+      "export": false,
+      "gap_code": "InvalidValue"
+    },
+    {
+      "id": "box-vector-short",
+      "xml": "<geometry><box><size>1 2</size></box></geometry>",
+      "native": {
+        "stdout": "READ 0 9 9 9 9 9 9 9\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Unknown error. Unable to set value [1 2 ] for key[size]\n"
+      },
+      "export": false
+    },
+    {
+      "id": "plane-normal-nan",
+      "xml": "<geometry><plane><normal>nan 0 1</normal></plane></geometry>",
+      "native": {
+        "stdout": "READ 0 9 9 9 9 9 9 9\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Unknown error. Unable to set value [nan 0 1 ] for key[normal]\n"
+      },
+      "export": false
+    },
+    {
+      "id": "mesh",
+      "xml": "<geometry><mesh><uri>mesh.dae</uri></mesh></geometry>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 5 128\n",
+        "stderr": ""
+      },
+      "export": false,
+      "gap_code": "Unsupported"
+    },
+    {
+      "id": "heightmap",
+      "xml": "<geometry><heightmap><uri>height.png</uri></heightmap></geometry>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 6 256\n",
+        "stderr": ""
+      },
+      "export": false,
+      "gap_code": "Unsupported"
+    },
+    {
+      "id": "polyline",
+      "xml": "<geometry><polyline><height>1</height><point>0 0</point></polyline></geometry>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 9 512\n",
+        "stderr": ""
+      },
+      "export": false,
+      "gap_code": "Unsupported"
+    },
+    {
+      "id": "unknown",
+      "xml": "<geometry><unknown/></geometry>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 0 0\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/geometry/unknown:<data-string>:L1]: XML Element[unknown], child of element[geometry], not defined in SDF. Copying[unknown] as children of [geometry].\n"
+      },
+      "export": false,
+      "gap_code": "Unsupported"
+    },
+    {
+      "id": "box-extra",
+      "xml": "<geometry><box><size>1 2 3 4</size></box></geometry>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 1 1 4607182418800017408 4611686018427387904 4613937818241073152\n",
+        "stderr": ""
+      },
+      "export": false,
+      "gap_code": "InvalidValue"
+    },
+    {
+      "id": "two-shapes",
+      "xml": "<geometry><sphere/><box/></geometry>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 1 1 4607182418800017408 4607182418800017408 4607182418800017408\n",
+        "stderr": ""
+      },
+      "export": false,
+      "gap_code": "InvalidValue"
+    },
+    {
+      "id": "document-default-box",
+      "xml": "<geometry><box/></geometry>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 1 1 4607182418800017408 4607182418800017408 4607182418800017408\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "document-default-sphere",
+      "xml": "<geometry><sphere/></geometry>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 4 32 4607182418800017408\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "document-default-cylinder",
+      "xml": "<geometry><cylinder/></geometry>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 2 8 4607182418800017408 4607182418800017408\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "document-default-capsule",
+      "xml": "<geometry><capsule/></geometry>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 7 2 4602678819172646912 4607182418800017408\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "document-default-cone",
+      "xml": "<geometry><cone/></geometry>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 10 4 4607182418800017408 4607182418800017408\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "document-default-ellipsoid",
+      "xml": "<geometry><ellipsoid/></geometry>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 8 16 4607182418800017408 4607182418800017408 4607182418800017408\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "document-default-plane",
+      "xml": "<geometry><plane/></geometry>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 3 64 0 0 4607182418800017408 4607182418800017408 4607182418800017408\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "box-min-subnormal",
+      "xml": "<geometry><box><size>5e-324 2 3</size></box></geometry>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 1 1 1 4611686018427387904 4613937818241073152\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "plane-size-min-subnormal",
+      "xml": "<geometry><plane><size>5e-324 2</size></plane></geometry>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 3 64 0 0 4607182418800017408 1 4611686018427387904\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "plane-normal-min-subnormal",
+      "xml": "<geometry><plane><normal>5e-324 -0 0</normal></plane></geometry>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 3 64 1 9223372036854775808 0 4607182418800017408 4607182418800017408\n",
+        "stderr": ""
+      },
+      "export": true
+    }
+  ],
+  "plane_profiles": {
+    "stdout": "VALUES 3 64 0 0 0 4607182418800017408 4607182418800017408\nVALUES 3 64 0 0 0 4607182418800017408 4607182418800017408\nVALUES 3 64 4502148214488346440 0 0 4607182418800017408 4607182418800017408\nVALUES 3 64 4502148214488346440 0 0 4607182418800017408 4607182418800017408\nVALUES 3 64 4517329193108106637 0 0 4607182418800017408 4607182418800017408\nVALUES 3 64 4517329193108106637 0 0 4607182418800017408 4607182418800017408\nVALUES 3 64 4607182418800017408 0 0 4607182418800017408 4607182418800017408\nVALUES 3 64 4607182418800017408 0 0 4607182418800017408 4607182418800017408\nVALUES 3 64 4598486170435855402 4602989770063225898 4605397045322200639 4607182418800017408 4607182418800017408\nVALUES 3 64 4598486170435855402 4602989770063225898 4605397045322200639 4607182418800017408 4607182418800017408\nVALUES 3 64 0 0 0 4607182418800017408 4607182418800017408\nVALUES 3 64 0 0 0 4607182418800017408 4607182418800017408\n",
+    "stderr": ""
+  },
+  "original_stderr": [
+    {
+      "case": "DOMGeometry.ToElement",
+      "stderr": "\u001b[1;31mError [Utils.cc:176]\u001b[0m Empty string used when setting a required parameter. Key[uri]\u001b[1;31mError [Utils.cc:176]\u001b[0m Empty string used when setting a required parameter. Key[uri]"
+    },
+    {
+      "case": "DOMGeometry.ToElementErrorOutput",
+      "stderr": ""
+    }
+  ]
+}

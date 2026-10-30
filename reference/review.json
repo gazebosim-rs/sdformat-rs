@@ -2,18 +2,18 @@
   "decision": "approved",
   "author": "sdformat_owner",
   "reviewer": "integration_reviewer",
-  "source_digest": "bb1fe01c13aa3ec307db5ad430d442a5056c2c1b3b9dd4d729df944d8110984f",
-  "protected_digest": "4d3b03103682e83530f6811a351c3619afe44decd56e19dc8955e53920a99a43",
-  "scope": "Supported Surface metadata XML and the two exact DOMsurface.ToElement output/reload mappings; existing parser and Joint capability boundaries unchanged.",
+  "source_digest": "9a2dec7bdab4bff9734785cc5fe6e4a0fe86d871d99ce5029c3ab92468946af6",
+  "protected_digest": "c62f5222f166c4163ebbab7ad5fdac0d4fe1603e12b3e0193f27e3ff7b9d314a",
+  "scope": "Primitive/Plane Geometry XML and the seven supported blocks in each of two genuine originals; both mappings remain partial.",
   "checks": [
-    "Fresh independent source and owned Cargo target passed all 19 relevant Rust checks: six new and thirteen unchanged Surface controls.",
-    "Fresh native helper passed all 34 inputs, two byte-identical native fixtures, 17 actual Rust-to-native exchanges and both unchanged originals with empty stderr; pinned source, SDK header, math and loaded-library identity checks passed.",
-    "Compared every original mask and ODE/Bullet/torsional field, positive scalar four-ULP checks, direct component 1e-3 vector bounds and Result/nonempty/reload/quiet mappings. Neither original asserts input Element identity.",
-    "Reviewer-only stdout and stderr injections each failed the quiet wrapper. Restored executable source byte-matches the author candidate and all 19 checks passed again.",
-    "Reviewed optional-group and sign-bit preservation, finite/nonnegative scalar and vector policies, caller diagnostics and all explicit retained reader differences. Existing production parser and original tests remain unchanged. Joint documentation retains its genuine partial residue and grants no added credit."
+    "Fresh reviewer source and owned Cargo target passed all 23 relevant Rust checks: six new and seventeen unchanged geometry/basic-primitive/shape controls.",
+    "Fresh native helper passed 48 inputs, seven exact constructor fixtures, six Plane setter/reload profiles, 43 actual Rust/native exchanges and both unchanged full originals with their distinct exact stderr. Pinned source/header/math/loaded-library checks passed.",
+    "Compared selected type/presence/other-shape absence/empty-Polyline/output/error predicates against both originals. Rust enum and complete native presence mask preserve those seven blocks; complex-shape blocks remain unported.",
+    "Reviewer-only stdout and stderr injections each failed actual quiet capture. Restored source matches the final executable paths and all 23 checks passed again.",
+    "Reviewed dimension and vector policies, constructor versus document defaults, explicit complex-variant errors, caller diagnostics, raw immutable Plane emission and existing reload normalization. Full document parsing and old assertions remain unchanged."
   ],
   "remaining": [
-    "Normal strict staged hook and exact hosted qualification remain required; accepted 189 complete/25 partial versus candidate 191/25.",
-    "No contact simulation, broader Surface payload, generic mutable DOM identity, Joint completion or performance claim."
+    "Normal strict staged hook and exact hosted qualification remain required; accepted 191 complete/25 partial versus candidate 191/27.",
+    "Mesh/Heightmap/Polyline blocks and required-URI partial producer errors remain unported. No generic pointer-origin facade, physical/resource creation, arbitrary-normal bitwise roundtrip or performance claim."
   ]
 }

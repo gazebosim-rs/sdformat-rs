@@ -1,0 +1,6 @@
+<geometry>
+  <capsule>
+    <radius>0.5</radius>
+    <length>1</length>
+  </capsule>
+</geometry>

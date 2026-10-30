@@ -203,6 +203,39 @@ pub(crate) fn load_surface_element(xml: &str, uri: &str) -> Result<Surface, Diag
     parser.surface(root)
 }
 
+pub(crate) fn load_geometry_element(xml: &str, uri: &str) -> Result<Geometry, Diagnostic> {
+    let resolver = NoResources;
+    let parser = Parser {
+        uri,
+        xml,
+        resolver: &resolver,
+        includes: vec![uri.into()],
+    };
+    let doc = Document::parse(xml).map_err(|e| Diagnostic {
+        code: e.code,
+        source: Source {
+            uri: uri.into(),
+            line: e.pos().row,
+            column: e.pos().col,
+        },
+        message: e.to_string(),
+    })?;
+    let root = doc.root_element();
+    if !root.has_tag_name("geometry") {
+        return Err(parser.err(root, ErrorCode::Xml, "root element must be geometry"));
+    }
+    if let Some(shape) = elements(root)
+        .find(|shape| matches!(shape.tag_name().name(), "mesh" | "heightmap" | "polyline"))
+    {
+        return Err(parser.err(
+            shape,
+            ErrorCode::Unsupported,
+            "standalone geometry supports primitives and Plane only",
+        ));
+    }
+    parser.geometry(root)
+}
+
 pub(crate) fn load_axis_element(xml: &str, uri: &str) -> Result<Axis, Diagnostic> {
     let resolver = NoResources;
     let parser = Parser {

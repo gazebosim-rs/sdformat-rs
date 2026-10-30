@@ -2875,6 +2875,46 @@
       "baseline": "Author native helper replays 35 actual cases, full/projected vector getter equality, raw/constructor profiles and unchanged DOMWorld.Load; independent review pending.",
       "status": "partial_reviewed",
       "review": "Root independently reviewed the exact partial vector assertions, fixture ancestry/unchanged subtrees, pinned native math bound, strict policies and approved old Wind capability transition. Fresh final source/owned target/native peers passed eight affected Rust checks, all 35 native cases, raw/constructor profiles, full/projection exact vectors and unchanged DOMWorld.Load; no findings. Remaining original assertions are explicitly unported; no complete credit. Normal strict staged and exact hosted gates pending."
+    },
+    {
+      "target": "UNIT_Geometry_TEST",
+      "case": "DOMGeometry.ToElement",
+      "source": "src/Geometry_TEST.cc:597",
+      "rust_test": "tests/geometry_xml_original.rs::original_geometry_to_element_supported_variant_subset",
+      "assertions": "Only seven Box/Sphere/Cylinder/Capsule/Cone/Ellipsoid/Plane blocks are mapped. Single Rust enum variant plus exact native presence-mask comparisons translate type equality, selected nonnull shape, all other null shapes and empty Polyline; successful nonempty output/reload and actual quiet child capture preserve selected output/error/console assertions. Seven native fixtures are loaded directly. Mesh/Heightmap/Polyline blocks, including required-URI producer errors with nonnull partial output, remain unported; no empty/default Geometry or native pointer-origin facade. Explicitly partial.",
+      "fixtures": {
+        "tests/fixtures/geometry_plane_native.xml": "82ec4def65b4c437e89511b2a5a28603236a337ea5c8453bdb9ccfcd1a3c1159",
+        "tests/fixtures/geometry_cone_native.xml": "361c1722f03ba4c511ce9c9d07338fc63b85e37df91ec424768aae10799f68fd",
+        "tests/fixtures/geometry_capsule_native.xml": "03897fc21d575b132c4d705c0cde9066721598f5387060cb65a25da6779d57b9",
+        "tests/fixtures/geometry_cylinder_native.xml": "8cd8c6c0da5871a2b169bf0a60fb7b08cda9565112a541196b3998ebe784bee6",
+        "tests/fixtures/geometry_ellipsoid_native.xml": "71bed5e34d418523ac856abfdc0d1440a041a0dc31b4cf5c55f661c4ddf8f71e",
+        "tests/fixtures/geometry_sphere_native.xml": "2aa6ff5b2d8062ec50e3f5adc713cadbd897f50fef55f137ac41b866f5a32816",
+        "tests/fixtures/geometry_box_native.xml": "49b74109650d36e9fa3234435d0f9bc1472e9617ad8ae5f062c9659f8fd031c7"
+      },
+      "upstream_fixtures": {},
+      "baseline": "Author helper passes 48 actual native inputs, seven byte-identical native fixtures, six Plane setter/reload profiles, 43 actual Rust-to-native exchanges and both unchanged full native cases; expected required-URI stderr for ToElement and empty stderr for ToElementErrorOutput are checked separately.",
+      "status": "partial_reviewed",
+      "review": "Independent integration_reviewer fresh source/owned Cargo target passed all 23 relevant Rust checks (six new and seventeen unchanged geometry/basic-primitive/shape checks). Fresh helper passed 48 actual native inputs, seven byte-identical constructor fixtures, six Plane setter/reload profiles, 43 actual Rust/native exchanges and both unchanged full originals with their distinct exact stderr. Audited every selected seven-block type/presence/other-absence/empty-Polyline/output/error assertion; enum/native-mask mapping is sound. Private stdout/stderr injections each failed quiet capture; restored source passed all 23. No findings. Both originals remain partial for Mesh/Heightmap/Polyline; no physical/resource/pointer identity or arbitrary-normal bit-roundtrip claim."
+    },
+    {
+      "target": "UNIT_Geometry_TEST",
+      "case": "DOMGeometry.ToElementErrorOutput",
+      "source": "src/Geometry_TEST.cc:871",
+      "rust_test": "tests/geometry_xml_original.rs::original_geometry_to_element_error_output_supported_variant_subset",
+      "assertions": "Only seven Box/Sphere/Cylinder/Capsule/Cone/Ellipsoid/Plane blocks are mapped. Single Rust enum variant plus exact native presence-mask comparisons translate type equality, selected nonnull shape, all other null shapes and empty Polyline; successful nonempty output/reload and actual quiet child capture preserve selected output/error/console assertions. Seven native fixtures are loaded directly. Mesh/Heightmap/Polyline blocks, including required-URI producer errors with nonnull partial output, remain unported; no empty/default Geometry or native pointer-origin facade. Explicitly partial.",
+      "fixtures": {
+        "tests/fixtures/geometry_plane_native.xml": "82ec4def65b4c437e89511b2a5a28603236a337ea5c8453bdb9ccfcd1a3c1159",
+        "tests/fixtures/geometry_cone_native.xml": "361c1722f03ba4c511ce9c9d07338fc63b85e37df91ec424768aae10799f68fd",
+        "tests/fixtures/geometry_capsule_native.xml": "03897fc21d575b132c4d705c0cde9066721598f5387060cb65a25da6779d57b9",
+        "tests/fixtures/geometry_cylinder_native.xml": "8cd8c6c0da5871a2b169bf0a60fb7b08cda9565112a541196b3998ebe784bee6",
+        "tests/fixtures/geometry_ellipsoid_native.xml": "71bed5e34d418523ac856abfdc0d1440a041a0dc31b4cf5c55f661c4ddf8f71e",
+        "tests/fixtures/geometry_sphere_native.xml": "2aa6ff5b2d8062ec50e3f5adc713cadbd897f50fef55f137ac41b866f5a32816",
+        "tests/fixtures/geometry_box_native.xml": "49b74109650d36e9fa3234435d0f9bc1472e9617ad8ae5f062c9659f8fd031c7"
+      },
+      "upstream_fixtures": {},
+      "baseline": "Author helper passes 48 actual native inputs, seven byte-identical native fixtures, six Plane setter/reload profiles, 43 actual Rust-to-native exchanges and both unchanged full native cases; expected required-URI stderr for ToElement and empty stderr for ToElementErrorOutput are checked separately.",
+      "status": "partial_reviewed",
+      "review": "Independent integration_reviewer fresh source/owned Cargo target passed all 23 relevant Rust checks (six new and seventeen unchanged geometry/basic-primitive/shape checks). Fresh helper passed 48 actual native inputs, seven byte-identical constructor fixtures, six Plane setter/reload profiles, 43 actual Rust/native exchanges and both unchanged full originals with their distinct exact stderr. Audited every selected seven-block type/presence/other-absence/empty-Polyline/output/error assertion; enum/native-mask mapping is sound. Private stdout/stderr injections each failed quiet capture; restored source passed all 23. No findings. Both originals remain partial for Mesh/Heightmap/Polyline; no physical/resource/pointer identity or arbitrary-normal bit-roundtrip claim."
     }
   ]
 }

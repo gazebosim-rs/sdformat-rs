@@ -17,6 +17,7 @@ mod camera_xml;
 mod contact_xml;
 mod force_torque_xml;
 mod frame_xml;
+mod geometry_xml;
 mod graph;
 mod imu_xml;
 mod joint_xml;
@@ -82,6 +83,12 @@ pub fn load_frame_str(xml: &str, source: &str) -> Result<Frame, Diagnostic> {
 /// and legacy conversion directives are outside this standalone interface.
 pub fn load_axis_str(xml: &str, source: &str) -> Result<Axis, Diagnostic> {
     parse::load_axis_element(xml, source)
+}
+
+/// Load one supported primitive/Plane geometry without creating a collision.
+/// Mesh, heightmap and polyline roots remain unsupported by this standalone API.
+pub fn load_geometry_str(xml: &str, source: &str) -> Result<Geometry, Diagnostic> {
+    parse::load_geometry_element(xml, source)
 }
 
 /// Load standalone contact/friction metadata without creating a collision or engine.

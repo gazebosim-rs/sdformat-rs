@@ -41,6 +41,7 @@ pub use model_config::{
 mod number;
 mod parse;
 mod physics_xml;
+mod plugin_xml;
 mod polyline_xml;
 mod sensor_xml;
 mod surface_xml;
@@ -198,4 +199,9 @@ pub fn load_visual_str(xml: &str, source: &str) -> Result<Visual, Diagnostic> {
 /// Load standalone Adiabatic atmosphere metadata without sampling it.
 pub fn load_atmosphere_str(xml: &str, source: &str) -> Result<Atmosphere, Diagnostic> {
     parse::load_atmosphere_element(xml, source)
+}
+
+/// Load one opaque Plugin declaration without loading its shared library.
+pub fn load_plugin_str(xml: &str, source: &str) -> Result<Plugin, Diagnostic> {
+    parse::load_plugin_element(xml, source)
 }

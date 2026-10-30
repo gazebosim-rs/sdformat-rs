@@ -3402,3 +3402,16 @@ mappings are independently approved after 14 selected Rust controls, full native
 replay and private quiet-failure checks. Candidate counts are 200 complete/27
 partial versus accepted 198/27 pending normal strict/exact hosted checks.
 Collision EMPTY/density and assets are untouched.
+
+## Candidate standalone Plugin metadata XML
+
+Accepted Main b69a457 has 200 complete/27 partial mappings. Standalone opaque
+Plugin read/write reuses the accepted Visual writer and existing parser, with no
+system host, runtime execution or child DOM facade. Author full 543 Rust checks,
+native 13 inputs/fixture/11 actual exchanges/unchanged original and Visual native
+regression pass. Shared serializer body is unchanged; Visual diagnostics stay
+in their original scope. The precise ToElement mapping and source are independently
+approved after 33 selected Rust checks and both complete native pipelines.
+Reviewed candidate counts are 201 complete/27 partial versus accepted 200/27
+pending normal strict/exact hosted qualification. No stream-format, insertion
+failure, mutation or runtime credit.

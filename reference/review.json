@@ -2,18 +2,19 @@
   "decision": "approved",
   "author": "sdformat_owner",
   "reviewer": "integration_reviewer",
-  "source_digest": "edbf04f018180a874483e655c1479a68b5cac08ee9e52860078a88c4af94fc22",
-  "protected_digest": "3ebc1ecce7fc6f3ad606bfa6be11aa4f0ee8a6d7621769b15f27de71d2ae6685",
-  "scope": "Bounded Adiabatic Atmosphere metadata XML and standalone readback; two exact ToElement assertion mappings.",
+  "source_digest": "84fdbdb85ca065c23e8fa7a68a3e597e6acee9c641ea7fc15c474158523368e0",
+  "protected_digest": "f454823e5eb47528b535f86534f79cbfc3558d9ba7f1e6868c4a786bd9a70668",
+  "scope": "Standalone opaque Plugin metadata XML and exact DOMPlugin.ToElement mapping; existing Visual serializer behavior preserved.",
   "checks": [
-    "Fresh independent export/owned target passed14 selected Rust checks: old Atmosphere/originals and new XML/original ports.",
-    "Fresh pinned native helper reproduced23 inputs, exact constructor fixture,14 actual exports, world-omission defaults and both unchanged originals, with native source/header/math/library checks.",
-    "Compared exact genuine constructor setup and assertions: temperature absolute<=1e-6, positive finite gradient/pressure four-ULP checks, successful nonempty output/load and real quiet-console behavior. No Element identity assertion exists.",
-    "Reviewed unchanged existing parser delegation, required type/default/unknown/duplicate/numeric policies, finite non-subnormal output domain, negative and signed-zero bits, and immutable source/XML under typed edits.",
-    "Private stdout/stderr injections each failed actual child quiet capture; restored source passed all14 checks and executable paths byte-match final candidate. Final metadata records candidate200/27 versus accepted198/27 pending qualification."
+    "Fresh independent source/owned target passed33 Rust checks including new Plugin4, accepted Visual/ownership/property20 and existing Plugin ownership/DOM/Sensor9.",
+    "Fresh native helper reproduced13 actual inputs, exact constructor fixture,11 real emitted-output exchanges and unchanged DOMPlugin.ToElement with pinned native source/header/library identities.",
+    "Independently replayed accepted Visual28 cases/fixture/25 actual exchanges/unchanged original. Mechanically checked extracted serializer branch body byte-identical; Visual diagnostic scope remains <visual>, Plugin scope is <plugin>.",
+    "Compared every genuine original setup and assertion: literal name/file, one inserted child before output, successful nonempty output and reload strings/count/exact child name. Public XML construction preserves this normal metadata behavior; no insertion-failure, pointer identity, stream canonicalization or quiet assertion is invented.",
+    "Reviewed raw XML span, unknown attributes/comments/CDATA/prefixes/ordering, exact owned-attribute agreement and empty-raw construction, caller errors and unchanged parser/numeric/string policy. All executable/test/tool paths match final candidate.",
+    "Final metadata accurately records candidate201 complete/27 partial versus accepted200/27 pending strict/hosted qualification. Independent SDF metadata remains separate from simulator built-ins; no shared-library load or system host is added."
   ],
   "remaining": [
     "Normal strict staged hook and exact hosted qualification remain mandatory.",
-    "No altitude/weather/pressure-sensor runtime model, resource/physics/rendering behavior, generic origin identity or performance credit."
+    "Runtime execution, child-DOM mutation, insertion failure, generic ownership/origin identity and canonical stream/producer-byte parity remain unclaimed."
   ]
 }

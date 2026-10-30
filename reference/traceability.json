@@ -2650,6 +2650,20 @@
       "baseline": "Author 23 actual native inputs, one exact constructor fixture, 14 XML exchanges, world-omission defaults and both unchanged originals pass with empty stderr.",
       "status": "ported_reviewed",
       "review": "Independent integration_reviewer fresh source/owned target passed 14 selected Rust controls (old Atmosphere/originals plus new three/original two). Fresh helper reproduced 23 native inputs, one exact fixture, 14 real XML exchanges, world-omission defaults and both unchanged originals with pinned identities. Audited complete original setup, Temperature absolute <=1e-6 and positive finite scalar four-ULP bounds, Result/nonempty/error predicates, type/default/unknown/duplicate/numeric policies and immutable source/XML. Private stdout and stderr injections each failed actual quiet capture; restored final executable paths match and all 14 pass. No findings. Normal strict staged/exact hosted qualification pending; reviewed candidate 200 complete/27 partial versus accepted 198/27."
+    },
+    {
+      "target": "UNIT_Plugin_TEST",
+      "case": "DOMPlugin.ToElement",
+      "source": "src/Plugin_TEST.cc:296",
+      "rust_test": "tests/plugin_xml.rs::original_plugin_to_element",
+      "assertions": "Literal my-plugin/filename.so and one an-element child; public XML construction translates successful native insertion without adding a production child DOM facade. Pre-emission name/file/count, returned Ok(nonempty XML), full reload name/file/child count and exact child name preserve every original predicate. No stream-format, insertion-failure, mutation/ownership, quiet or Element-identity claim.",
+      "fixtures": {
+        "tests/fixtures/plugin_to_element_native.xml": "f5a6e64d83a7dc3dded67089c5b473bdc69bc5201ae734bde3bcbc3da5eaff48"
+      },
+      "upstream_fixtures": {},
+      "baseline": "Author 13 actual native inputs, one exact constructor fixture, 11 actual output exchanges and unchanged DOMPlugin.ToElement pass; shared Visual native 28/fixture/25 exchanges/original replay passes.",
+      "status": "ported_reviewed",
+      "review": "Independent integration_reviewer fresh source/owned target passed 33 Rust checks: new Plugin four, Visual/ownership/properties 20 and nine existing plugin ownership/DOM/sensor controls. Fresh helper reproduced 13 native inputs, exact fixture, 11 actual exchanges and unchanged DOMPlugin.ToElement; accepted Visual 28/fixture/25 exchanges/original replay also passed. Extracted serializer branch body mechanically verified byte-identical and final executable paths match. Audited complete genuine pre-emission name/file/one-child setup and every post-load count/name/string predicate; public XML construction is faithful without insertion-failure, Element-identity or quiet claims. Checked opaque unknown attributes/CDATA/comments/prefixes/order, owned-attribute agreement and scoped diagnostics, with no host/execution or parser-domain change. No findings. Normal strict/exact hosted qualification pending; reviewed candidate 201 complete/27 partial versus accepted 200/27."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

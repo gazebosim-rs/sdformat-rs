@@ -1192,3 +1192,10 @@ Atmosphere::to_xml and load_atmosphere_str retain current typed sea-level values
 through the existing Adiabatic reader. Scalar admission and required-type rules
 are unchanged; source/XML remain input provenance. No altitude or atmospheric
 runtime sampling is implied. See [ATMOSPHERE_XML.md](ATMOSPHERE_XML.md).
+
+## Standalone Plugin metadata XML
+
+Plugin::to_xml and load_plugin_str expose opaque metadata without loading a
+library or hosting a simulation system. The shared Visual serializer retains its
+output and diagnostic scope; input payload and attribute-consistency boundaries
+are unchanged. See [PLUGIN_XML.md](PLUGIN_XML.md) for exact original scope.

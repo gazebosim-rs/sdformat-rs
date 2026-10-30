@@ -1,0 +1,3 @@
+<plugin name='my-plugin' filename='filename.so'>
+  <an-element/>
+</plugin>

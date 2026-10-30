@@ -1,0 +1,196 @@
+{
+  "rows": [
+    {
+      "id": "empty",
+      "xml": "<plugin filename='f'/>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES - 66 0\n",
+        "stderr": ""
+      },
+      "values": [
+        "-",
+        "66",
+        "0"
+      ],
+      "export": true
+    },
+    {
+      "id": "named",
+      "xml": "<plugin name='n' filename='f'/>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 6e 66 0\n",
+        "stderr": ""
+      },
+      "values": [
+        "6e",
+        "66",
+        "0"
+      ],
+      "export": true
+    },
+    {
+      "id": "original",
+      "xml": "<plugin name='my-plugin' filename='filename.so'><an-element/></plugin>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 6d792d706c7567696e 66696c656e616d652e736f 1 616e2d656c656d656e74\n",
+        "stderr": ""
+      },
+      "values": [
+        "6d792d706c7567696e",
+        "66696c656e616d652e736f",
+        "1",
+        "616e2d656c656d656e74"
+      ],
+      "export": true
+    },
+    {
+      "id": "ordered",
+      "xml": "<plugin name='n' filename='f'><a/><b/><a/></plugin>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 6e 66 3 61 62 61\n",
+        "stderr": ""
+      },
+      "values": [
+        "6e",
+        "66",
+        "3",
+        "61",
+        "62",
+        "61"
+      ],
+      "export": true
+    },
+    {
+      "id": "nested",
+      "xml": "<plugin name='n' filename='f'><a><b x='value'>text</b></a></plugin>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 6e 66 1 61\n",
+        "stderr": ""
+      },
+      "values": [
+        "6e",
+        "66",
+        "1",
+        "61"
+      ],
+      "export": true
+    },
+    {
+      "id": "cdata",
+      "xml": "<plugin name='n' filename='f'><a><![CDATA[ text  with gaps ]]></a></plugin>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 6e 66 1 61\n",
+        "stderr": ""
+      },
+      "values": [
+        "6e",
+        "66",
+        "1",
+        "61"
+      ],
+      "export": true
+    },
+    {
+      "id": "namespaced",
+      "xml": "<plugin name='n' filename='f'><x:config x:a='b'/></plugin>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 6e 66 1 783a636f6e666967\n",
+        "stderr": ""
+      },
+      "values": [
+        "6e",
+        "66",
+        "1",
+        "783a636f6e666967"
+      ],
+      "export": true
+    },
+    {
+      "id": "comments",
+      "xml": "<plugin name='n' filename='f'><!--keep--><a/><!--also--><b/></plugin>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 6e 66 2 61 62\n",
+        "stderr": ""
+      },
+      "values": [
+        "6e",
+        "66",
+        "2",
+        "61",
+        "62"
+      ],
+      "export": true
+    },
+    {
+      "id": "escaped",
+      "xml": "<plugin name='a&amp;b' filename='lib&amp;file'><a> &lt;value&gt; </a></plugin>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 612662 6c69622666696c65 1 61\n",
+        "stderr": ""
+      },
+      "values": [
+        "612662",
+        "6c69622666696c65",
+        "1",
+        "61"
+      ],
+      "export": true
+    },
+    {
+      "id": "padded_attributes",
+      "xml": "<plugin name=' n ' filename=' f '><a/></plugin>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 6e 66 1 61\n",
+        "stderr": ""
+      },
+      "values": [
+        "6e",
+        "66",
+        "1",
+        "61"
+      ],
+      "export": true
+    },
+    {
+      "id": "root_extension",
+      "xml": "<plugin name='n' filename='f' x:extra='retained'><a/></plugin>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 6e 66 1 61\n",
+        "stderr": ""
+      },
+      "values": [
+        "6e",
+        "66",
+        "1",
+        "61"
+      ],
+      "export": true
+    },
+    {
+      "id": "missing_filename",
+      "xml": "<plugin name='n'/>",
+      "native": {
+        "stdout": "READ 0 4 9 9 9\n",
+        "stderr": ""
+      },
+      "values": null,
+      "export": false,
+      "gap": "Missing"
+    },
+    {
+      "id": "empty_filename",
+      "xml": "<plugin name='n' filename=''/>",
+      "native": {
+        "stdout": "READ 0 5 9 9 9\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Empty string used when setting a required parameter. Key[filename]\n"
+      },
+      "values": null,
+      "export": false,
+      "gap": "Missing"
+    }
+  ],
+  "configured_native_producer": {
+    "stdout": "VALUES 6d792d706c7567696e 66696c656e616d652e736f 1 616e2d656c656d656e74\nEMIT 1\nXML_BEGIN\n<plugin name='my-plugin' filename='filename.so'>\n  <an-element/>\n</plugin>\nXML_END\nLOAD\nVALUES 6d792d706c7567696e 66696c656e616d652e736f 1 616e2d656c656d656e74\n",
+    "stderr": ""
+  }
+}

@@ -2,18 +2,17 @@
   "decision": "approved",
   "author": "sdformat_owner_terra",
   "reviewer": "integration_reviewer",
-  "source_digest": "d816bcf54bccd00a8007922d2a50da50b2d44ce9962f5a932e2b4345472a2af9",
-  "protected_digest": "913d57ea63b6cd76d6bb46261fbf3d6083b20637fa8b85faa588ee3bea7acef4",
-  "scope": "Parent-bound staged and hosted changed-executable coverage, separate full-source check, honest non-executable N/A and robust unified-diff selection.",
+  "source_digest": "f0593e3a85c38e9f3e8200ec6c1948dee4d149626e28d73b5ccae57549c5f02c",
+  "protected_digest": "3fd29c6e92953cc80e30663cb45b1d60f23039a3fa8c7c63cb9ea3bb300b9b9a",
+  "scope": "Narrow unmapped bare impl Type header recognition; no production or threshold changes.",
   "checks": [
-    "Fresh independent export passed22 repository tooling controls, including strict threshold, aggregate-masked changed failure, missing files/instrumentation, mixed missing executable, source-backed comments/blank N/A and diff-header/hunk guards.",
-    "Reviewer-only actual unborn-HEAD frozen-index export excluded unstaged bytes; explicit zero-base fallback measured full source. Real Git raw-string addition resembling +++ did not redirect later hunks.",
-    "Reviewed push-before/PR-base workflow/history binding, frozen HEAD-to-tree selection before export, exact evidence base/target/mode, unchanged index/HEAD race and repository-local environment isolation controls.",
-    "Full-source and strictly-greater-than95 thresholds retained. Unknown unmapped changed executable forms fail closed; only documented narrow syntax/comments/blank lines are N/A.",
-    "Two reported source-classification findings were fixed and independently replayed: source comment-only false failure and mixed covered/unmapped executable masking. Final metadata accurately states review and pending strict/hosted qualification."
+    "Fresh independent export passed23 tooling tests.",
+    "Reviewed full-match ASCII bare-identifier impl header only; path, generic, trait, raw-identifier and inline code forms remain fail closed.",
+    "Own mixed mapped+bare-header control passes; compiler-mapped uncovered impl header still fails strict changed coverage, so syntax recognition cannot waive measured execution.",
+    "Final STATUS reviewed and remaining three paths match independent source. No original assertions or ledger changed."
   ],
   "remaining": [
     "Normal strict staged and exact hosted qualification remain mandatory.",
-    "No production behavior, original mapping credit, coverage threshold reduction or broader claim about unknown unmapped syntax."
+    "Unrecognized unmapped source forms remain errors; no general Rust parser or broader syntax exemption is claimed."
   ]
 }

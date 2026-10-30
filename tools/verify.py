@@ -256,6 +256,7 @@ def check_changed_coverage(root, changed, covered, strict=True):
             text = lines[line - 1].strip()
             non_executable = (not text or text.startswith('//') or text in ('{', '}', '};')
                               or re.fullmatch(r'#\[[^\]]*\]', text)
+                              or re.fullmatch(r'impl\s+[A-Za-z_][A-Za-z0-9_]*\s*\{', text)
                               or re.fullmatch(r'(?:pub(?:\([^)]*\))?\s+)?(?:use|mod)\s+[^;]+;', text))
             assert non_executable, 'changed source has no instrumented executable lines'
     if measured:

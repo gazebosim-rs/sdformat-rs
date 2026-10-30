@@ -44,6 +44,18 @@ class ChangedCoverageTests(unittest.TestCase):
                 with self.assertRaisesRegex(AssertionError, 'no instrumented executable'):
                     verify.check_changed_coverage(root, {'lines': changed}, covered)
 
+    def test_plain_impl_header_is_syntax_but_inline_code_is_not(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            (root / 'src').mkdir()
+            file = root / 'src/lib.rs'
+            file.write_text('fn f() {}\nimpl Collision {\n}\nimpl Collision { fn f() {} }\nimpl Collision { fn f() {\nimpl crate::Collision {\n')
+            covered = {(file.resolve(), 1): True}
+            self.assertEqual(verify.check_changed_coverage(root, {'lines': {('src/lib.rs', 2)}}, covered), [])
+            for line in (4, 5, 6):
+                with self.assertRaisesRegex(AssertionError, 'no instrumented executable'):
+                    verify.check_changed_coverage(root, {'lines': {('src/lib.rs', 1), ('src/lib.rs', line)}}, covered)
+
     def test_unsupported_quoted_path_fails_closed(self):
         with self.assertRaisesRegex(AssertionError, 'quoted source path'):
             verify.diff_lines('+++ "b/src/a\\tb.rs"\n@@ -1 +1 @@\n')

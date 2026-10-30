@@ -3453,3 +3453,13 @@ fail as required. Independent fresh-export review passed all 22 tooling checks a
 initial, zero-base, diff-spoof, comment and mixed unmapped-executable controls.
 Normal staged/exact hosted qualification remains pending; accepted density
 evidence is unchanged.
+
+## Candidate plain impl header recognition
+
+Gate commit 5172ee2 passed exact hosted CI 41025131418. A writer coverage
+diagnostic exposed an unmapped `impl Collision {` syntax-only header; a narrow
+plain-type impl recognition candidate admits that header while rejecting inline
+code. All 23 tooling tests pass. Independent fresh-export review passed all 23 tooling checks and additional
+positive, mapped-uncovered and generic/path/trait/inline impostor controls.
+Normal staged/exact hosted qualification remains pending. No production source
+or threshold changes.

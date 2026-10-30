@@ -61,6 +61,24 @@
           "after": "            \"<link name='l'/><joint name='j' type='ball'><parent>l</parent><child>l</child></joint>\",\n            // Native accepts ball and then rejects the same parent/child pair.\n            ErrorCode::InvalidValue,\n",
           "after_sha256": "6e357dd193f60081dcea5abf778f415bd8d69d3bd5c002688b6413a2cb6f46ae",
           "purpose": "Native recognizes ball joint type, then emits code22 for equal parent/child; old Rust-only Unsupported expectation corrected without weakening rejection."
+        },
+        {
+          "before": "use sdformat::*;\n",
+          "after": "use sdformat::*;\n#[path = \"support/geometry_empty.rs\"]\nmod empty_support;\n",
+          "after_sha256": "1f5ad8d94e18b80b863eada12af7048ad0e5a14a8aa780ce509eefa4ffb05068",
+          "purpose": "Independently approved Empty capability uses shared complete exact-input positive assertions; no static-model or original predicate changes."
+        },
+        {
+          "before": "        (\n            \"<link name='l'><collision name='c'/></link>\",\n            ErrorCode::Missing,\n        ),\n        (\n            \"<link name='l'><collision name='c'><geometry/></collision></link>\",\n            ErrorCode::InvalidValue,\n        ),\n        (\n            \"<link name='l'><collision name='c'><geometry><sphere/><box/></geometry></collision></link>\",\n            ErrorCode::InvalidValue,\n        ),\n",
+          "after": "        (\n            \"<link name='l'><collision name='c'><geometry><sphere/><box/></geometry></collision></link>\",\n            ErrorCode::InvalidValue,\n        ),\n",
+          "after_sha256": "c7d012a46b0448bb5baebd895c86b0e3dae5fb2c9245a6d8916103220f60b5b4",
+          "purpose": "Independent Native/positive review approves replacing only missing/bare Collision temporary Rust rejection cases with complete same-input metadata positives; mixed-shape rejection remains intact."
+        },
+        {
+          "before": "    // Model frames in different scopes cannot become this model's canonical link.\n",
+          "after": "    for content in [\n        \"<link name='l'><collision name='c'/></link>\",\n        \"<link name='l'><collision name='c'><geometry/></collision></link>\",\n    ] {\n        let xml = format!(\"<sdf version='1.12'><model name='m'>{content}</model></sdf>\");\n        empty_support::collision(&xml, \"test.sdf\");\n    }\n    // Model frames in different scopes cannot become this model's canonical link.\n",
+          "after_sha256": "498a9baaca8b1624df596568559eee8a88a2c152ecf5b0e74f889d146e18279f",
+          "purpose": "Fold exact old missing/bare Collision XML and test.sdf into stronger native-backed name/count/pose/source/default-surface/frame/canonical-empty assertions. All original/static-model predicates preserved."
         }
       ]
     },

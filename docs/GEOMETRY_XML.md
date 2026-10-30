@@ -3,7 +3,7 @@
 
 # Primitive geometry XML
 
-Geometry::to_xml and load_geometry_str support Box, Sphere, Cylinder, Capsule,
+Geometry::to_xml and load_geometry_str support Empty, Box, Sphere, Cylinder, Capsule,
 Cone, Ellipsoid and Plane metadata. The standalone reader delegates to the
 existing geometry parser. Valid Mesh metadata is added by [MESH_XML.md](MESH_XML.md);
 Valid Heightmap metadata is added by [HEIGHTMAP_XML.md](HEIGHTMAP_XML.md);
@@ -44,10 +44,11 @@ Mesh/Heightmap/Polyline blocks remain unported. The first native original prints
 two required-URI errors for default Mesh/Heightmap producers; the error-output
 original explicitly expects those errors while also checking nonnull output.
 Both unchanged full native cases pass, with their distinct stderr retained.
-This API does not imitate invalid producer partial output, an empty/None geometry
-or a pointer-origin facade. Both exact originals stay partial.
+This API does not imitate invalid producer partial output, mutable Element
+behavior or a pointer-origin facade. Both exact originals stay partial.
 
-All 507 author Rust tests, 17 tooling tests, formatting and Clippy pass. Native
+At initial primitive qualification, all 507 author Rust tests, 17 tooling tests,
+formatting and Clippy passed. Native
 evidence replays 48 inputs, seven exact
 fixtures, six Plane setter/reload profiles and 43 actual Rust/native XML exchanges,
 including six raw edited normals. Independent fresh-source review passed all
@@ -56,3 +57,5 @@ assertions and normalization/default/error boundaries were checked. Private
 stdout/stderr injections each failed the quiet wrapper; restored source passed
 all 23 again. Normal strict/hosted qualification remains pending. Accepted counts are 191 complete /25 partial;
 candidate 191/27 adds two partial mappings only, with no runtime or performance claim.
+
+Native Empty defaults and Visual None distinctions now follow [GEOMETRY_EMPTY.md](GEOMETRY_EMPTY.md); physical consumers remain separate.

@@ -30,7 +30,8 @@ nested models, frames, plugins, scoped name and source.
 in kg·m² and inertial-frame pose. Positive physical inertia is required.
 `Collision` has pose and box/sphere/cylinder/plane geometry, with SI dimensions.
 `Visual` has name, pose, optional geometry, plugins and source. Missing
-or empty geometry preserves native EMPTY as None. Visual names are unique within
+or bare geometry groups preserve native EMPTY as None; explicit <empty/> is
+Some(Geometry::Empty). Visual names are unique within
 a link, independently of collision and sensor names. Owned visual properties and optional material data preserve the metadata described
 in docs/MATERIALS.md. PBR declarations are retained; texture IO and renderer effects remain outside
 this loader.
@@ -240,7 +241,7 @@ validate_non_frame_poses checks it as a consumer policy. This does not claim nat
 Link::ResolveInertial parity for nonempty inertial references.
 
 
-Geometry metadata includes box, sphere, cylinder, plane, capsule, cone, ellipsoid
+Geometry metadata includes native Empty defaults, box, sphere, cylinder, plane, capsule, cone, ellipsoid
 and mesh. New capsule/cone dimensions and ellipsoid radii use native fallback
 values for nonpositive inputs. Mesh scale may be zero or negative. Mesh retains
 URI, scale, submesh/centering, optimization enum, optional convex-decomposition
@@ -1199,3 +1200,11 @@ Plugin::to_xml and load_plugin_str expose opaque metadata without loading a
 library or hosting a simulation system. The shared Visual serializer retains its
 output and diagnostic scope; input payload and attribute-consistency boundaries
 are unchanged. See [PLUGIN_XML.md](PLUGIN_XML.md) for exact original scope.
+
+## Native Empty geometry metadata
+
+Geometry::Empty/default supports bare/explicit geometry and the missing-Collision
+default through the shared parser. Visual absent/bare None remains distinct from
+explicit Some(Empty). Strict unknown/mixed/cardinality policy remains; no density
+or physical shape interpretation is added. Consumers need explicit handling
+before dependency adoption. See [GEOMETRY_EMPTY.md](GEOMETRY_EMPTY.md).

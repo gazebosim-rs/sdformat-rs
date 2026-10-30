@@ -995,18 +995,39 @@ impl Default for VisualProperties {
         }
     }
 }
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Default, Clone, PartialEq)]
 pub enum Geometry {
-    Box { size: [f64; 3] },
-    Sphere { radius: f64 },
-    Cylinder { radius: f64, length: f64 },
-    Capsule { radius: f64, length: f64 },
-    Cone { radius: f64, length: f64 },
-    Ellipsoid { radii: [f64; 3] },
+    /// Known empty SDF metadata; no physical shape is implied.
+    #[default]
+    Empty,
+    Box {
+        size: [f64; 3],
+    },
+    Sphere {
+        radius: f64,
+    },
+    Cylinder {
+        radius: f64,
+        length: f64,
+    },
+    Capsule {
+        radius: f64,
+        length: f64,
+    },
+    Cone {
+        radius: f64,
+        length: f64,
+    },
+    Ellipsoid {
+        radii: [f64; 3],
+    },
     Mesh(Mesh),
     Heightmap(Box<Heightmap>),
     Polyline(Vec<Polyline>),
-    Plane { normal: [f64; 3], size: [f64; 2] },
+    Plane {
+        normal: [f64; 3],
+        size: [f64; 2],
+    },
 }
 /// Heightmap metadata; URIs are retained without resource or image IO.
 #[derive(Debug, Clone, PartialEq)]

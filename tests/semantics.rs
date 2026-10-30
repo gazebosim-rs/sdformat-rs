@@ -16,6 +16,8 @@
 //
 // Portions ported from sdformat test/integration/nested_model.cc and model_dom.cc.
 use sdformat::*;
+#[path = "support/geometry_empty.rs"]
+mod empty_support;
 
 fn load(xml: &str) -> Sdf {
     load_str(xml, "test.sdf", &NoResources).unwrap()
@@ -506,14 +508,6 @@ fn invalid_documents_fail_atomically() {
             ErrorCode::InvalidValue,
         ),
         (
-            "<link name='l'><collision name='c'/></link>",
-            ErrorCode::Missing,
-        ),
-        (
-            "<link name='l'><collision name='c'><geometry/></collision></link>",
-            ErrorCode::InvalidValue,
-        ),
-        (
             "<link name='l'><collision name='c'><geometry><sphere/><box/></geometry></collision></link>",
             ErrorCode::InvalidValue,
         ),
@@ -599,6 +593,13 @@ fn attachment_cycles_are_independent_of_pose_cycles() {
             .code,
         ErrorCode::UnknownReference
     );
+    for content in [
+        "<link name='l'><collision name='c'/></link>",
+        "<link name='l'><collision name='c'><geometry/></collision></link>",
+    ] {
+        let xml = format!("<sdf version='1.12'><model name='m'>{content}</model></sdf>");
+        empty_support::collision(&xml, "test.sdf");
+    }
     // Model frames in different scopes cannot become this model's canonical link.
     let xml = "<sdf version='1.12'><model name='m' canonical_link='__model__'><link name='l'/></model></sdf>";
     assert_eq!(

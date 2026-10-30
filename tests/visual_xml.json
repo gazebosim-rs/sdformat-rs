@@ -65,8 +65,7 @@
         "stdout": "READ 1\nLOAD\nVALUES \"v\" \"\" 0 0 0 0 0 0 4607182418800017408 1 0 4294967295 0 0 1 0 0 0\n",
         "stderr": ""
       },
-      "export": false,
-      "gap": "Unsupported",
+      "export": true,
       "values": [
         "v",
         "",

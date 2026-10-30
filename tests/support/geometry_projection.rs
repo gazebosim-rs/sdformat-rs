@@ -3,6 +3,7 @@
 use sdformat::Geometry;
 pub fn projection(value: &Geometry) -> Vec<String> {
     let (kind, mask, values) = match value {
+        Geometry::Empty => (0, 0, vec![]),
         Geometry::Box { size } => (1, 1, size.to_vec()),
         Geometry::Sphere { radius } => (4, 32, vec![*radius]),
         Geometry::Cylinder { radius, length } => (2, 8, vec![*radius, *length]),

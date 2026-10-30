@@ -1,6 +1,8 @@
 // Copyright (C) 2026 Open Source Robotics Foundation
 // SPDX-License-Identifier: Apache-2.0
 use sdformat::*;
+#[path = "support/geometry_empty.rs"]
+mod empty_support;
 use serde_json::Value;
 #[path = "support/heightmap_projection.rs"]
 mod heightmap_projection;
@@ -283,23 +285,20 @@ fn standalone_error_locations_and_strict_xml_boundaries() {
             column: 11
         }
     );
-    for (xml, code, column) in [
-        (
-            "<geometry><box bad='x'/></geometry>",
-            ErrorCode::Unsupported,
-            11,
-        ),
-        ("<geometry/>", ErrorCode::InvalidValue, 1),
-    ] {
-        let error = load_geometry_str(xml, "caller.xml").unwrap_err();
-        assert_eq!(error.code, code);
-        assert_eq!(
-            error.source,
-            Source {
-                uri: "caller.xml".into(),
-                line: 1,
-                column
-            }
-        );
-    }
+    let (xml, code, column) = (
+        "<geometry><box bad='x'/></geometry>",
+        ErrorCode::Unsupported,
+        11,
+    );
+    let error = load_geometry_str(xml, "caller.xml").unwrap_err();
+    assert_eq!(error.code, code);
+    assert_eq!(
+        error.source,
+        Source {
+            uri: "caller.xml".into(),
+            line: 1,
+            column
+        }
+    );
+    empty_support::geometry("<geometry/>", "caller.xml");
 }

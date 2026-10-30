@@ -3415,3 +3415,17 @@ approved after 33 selected Rust checks and both complete native pipelines.
 Reviewed candidate counts are 201 complete/27 partial versus accepted 200/27
 pending normal strict/exact hosted qualification. No stream-format, insertion
 failure, mutation or runtime credit.
+
+## Candidate native Empty representation/defaults
+
+Accepted Main b5c3715 has 201 complete/27 partial mappings. Geometry::Empty/default,
+bare/explicit shared parsing, missing-Collision default and canonical output
+address genuine native-valid metadata. Visual absent/bare None is preserved;
+explicit Empty is Some(Empty). Native scope and the exact old-negative positive
+folds were independently approved before edits. Native proof passes 38 profiles,
+constructor fixture and 20 actual Geometry/Visual exchanges with 18 explicit
+strict structure differences. No density, physics, simulator pin or original
+Element-origin credit. Final independent review passed 33 distinct selected Rust
+checks, all 17 tooling controls and all new/Geometry/Visual native replays, with
+no findings. Full author 547 Rust checks pass. Normal strict/exact hosted gates
+remain; accepted ledger counts stay 201/27.

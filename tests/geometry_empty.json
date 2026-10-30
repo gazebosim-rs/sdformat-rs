@@ -1,0 +1,337 @@
+{
+  "rows": [
+    {
+      "id": "bare_geometry",
+      "xml": "<geometry/>",
+      "mode": "geometry",
+      "stdout": "READ 1\nSCHEMA\nDECLARED_GEOMETRY 1\nGEOMETRY_LOAD\nVALUES 0 0 0\nROOT\nCOLLISION 1\nVALUES 0 0 0\n",
+      "stderr": "",
+      "export": true
+    },
+    {
+      "id": "bare_visual",
+      "xml": "<visual name=\"v\"><geometry/></visual>",
+      "mode": "visual",
+      "stdout": "READ 1\nSCHEMA\nDECLARED_GEOMETRY 1\nGEOMETRY_LOAD\nVALUES 0 0 0\nROOT\nVISUAL 1\nVALUES 0 0 0\n",
+      "stderr": "",
+      "export": true,
+      "visual_none": true
+    },
+    {
+      "id": "bare_collision",
+      "xml": "<collision name=\"c\"><geometry/></collision>",
+      "mode": "collision",
+      "stdout": "READ 1\nSCHEMA\nDECLARED_GEOMETRY 1\nGEOMETRY_LOAD\nVALUES 0 0 0\nROOT\nCOLLISION 1\nVALUES 0 0 0\n",
+      "stderr": "",
+      "export": true
+    },
+    {
+      "id": "explicit_geometry",
+      "xml": "<geometry><empty/></geometry>",
+      "mode": "geometry",
+      "stdout": "READ 1\nSCHEMA\nDECLARED_GEOMETRY 1\nGEOMETRY_LOAD\nVALUES 0 0 0\nROOT\nCOLLISION 1\nVALUES 0 0 0\n",
+      "stderr": "",
+      "export": true
+    },
+    {
+      "id": "explicit_visual",
+      "xml": "<visual name=\"v\"><geometry><empty/></geometry></visual>",
+      "mode": "visual",
+      "stdout": "READ 1\nSCHEMA\nDECLARED_GEOMETRY 1\nGEOMETRY_LOAD\nVALUES 0 0 0\nROOT\nVISUAL 1\nVALUES 0 0 0\n",
+      "stderr": "",
+      "export": true,
+      "visual_none": false
+    },
+    {
+      "id": "explicit_collision",
+      "xml": "<collision name=\"c\"><geometry><empty/></geometry></collision>",
+      "mode": "collision",
+      "stdout": "READ 1\nSCHEMA\nDECLARED_GEOMETRY 1\nGEOMETRY_LOAD\nVALUES 0 0 0\nROOT\nCOLLISION 1\nVALUES 0 0 0\n",
+      "stderr": "",
+      "export": true
+    },
+    {
+      "id": "comments_geometry",
+      "xml": "<geometry><!--keep--><empty/></geometry>",
+      "mode": "geometry",
+      "stdout": "READ 1\nSCHEMA\nDECLARED_GEOMETRY 1\nGEOMETRY_LOAD\nVALUES 0 0 0\nROOT\nCOLLISION 1\nVALUES 0 0 0\n",
+      "stderr": "",
+      "export": true
+    },
+    {
+      "id": "comments_visual",
+      "xml": "<visual name=\"v\"><geometry><!--keep--><empty/></geometry></visual>",
+      "mode": "visual",
+      "stdout": "READ 1\nSCHEMA\nDECLARED_GEOMETRY 1\nGEOMETRY_LOAD\nVALUES 0 0 0\nROOT\nVISUAL 1\nVALUES 0 0 0\n",
+      "stderr": "",
+      "export": true,
+      "visual_none": false
+    },
+    {
+      "id": "comments_collision",
+      "xml": "<collision name=\"c\"><geometry><!--keep--><empty/></geometry></collision>",
+      "mode": "collision",
+      "stdout": "READ 1\nSCHEMA\nDECLARED_GEOMETRY 1\nGEOMETRY_LOAD\nVALUES 0 0 0\nROOT\nCOLLISION 1\nVALUES 0 0 0\n",
+      "stderr": "",
+      "export": true
+    },
+    {
+      "id": "text_root_geometry",
+      "xml": "<geometry>data</geometry>",
+      "mode": "geometry",
+      "stdout": "READ 1\nSCHEMA\nDECLARED_GEOMETRY 1\nGEOMETRY_LOAD\nVALUES 0 0 0\nROOT\nCOLLISION 1\nVALUES 0 0 0\n",
+      "stderr": "",
+      "export": true
+    },
+    {
+      "id": "text_root_visual",
+      "xml": "<visual name=\"v\"><geometry>data</geometry></visual>",
+      "mode": "visual",
+      "stdout": "READ 1\nSCHEMA\nDECLARED_GEOMETRY 1\nGEOMETRY_LOAD\nVALUES 0 0 0\nROOT\nVISUAL 1\nVALUES 0 0 0\n",
+      "stderr": "",
+      "export": true,
+      "visual_none": true
+    },
+    {
+      "id": "text_root_collision",
+      "xml": "<collision name=\"c\"><geometry>data</geometry></collision>",
+      "mode": "collision",
+      "stdout": "READ 1\nSCHEMA\nDECLARED_GEOMETRY 1\nGEOMETRY_LOAD\nVALUES 0 0 0\nROOT\nCOLLISION 1\nVALUES 0 0 0\n",
+      "stderr": "",
+      "export": true
+    },
+    {
+      "id": "text_child_geometry",
+      "xml": "<geometry><empty>data</empty></geometry>",
+      "mode": "geometry",
+      "stdout": "READ 1\nSCHEMA\nDECLARED_GEOMETRY 1\nGEOMETRY_LOAD\nVALUES 0 0 0\nROOT\nCOLLISION 1\nVALUES 0 0 0\n",
+      "stderr": "",
+      "export": true
+    },
+    {
+      "id": "text_child_visual",
+      "xml": "<visual name=\"v\"><geometry><empty>data</empty></geometry></visual>",
+      "mode": "visual",
+      "stdout": "READ 1\nSCHEMA\nDECLARED_GEOMETRY 1\nGEOMETRY_LOAD\nVALUES 0 0 0\nROOT\nVISUAL 1\nVALUES 0 0 0\n",
+      "stderr": "",
+      "export": true,
+      "visual_none": false
+    },
+    {
+      "id": "text_child_collision",
+      "xml": "<collision name=\"c\"><geometry><empty>data</empty></geometry></collision>",
+      "mode": "collision",
+      "stdout": "READ 1\nSCHEMA\nDECLARED_GEOMETRY 1\nGEOMETRY_LOAD\nVALUES 0 0 0\nROOT\nCOLLISION 1\nVALUES 0 0 0\n",
+      "stderr": "",
+      "export": true
+    },
+    {
+      "id": "attribute_geometry",
+      "xml": "<geometry><empty bad=\"x\"/></geometry>",
+      "mode": "geometry",
+      "stdout": "READ 1\nSCHEMA\nDECLARED_GEOMETRY 1\nGEOMETRY_LOAD\nVALUES 0 0 0\nROOT\nCOLLISION 1\nVALUES 0 0 0\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/geometry/empty[@bad=\"x\"]:<data-string>:L1]: XML Attribute[bad] in element[empty] not defined in SDF.\n\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/geometry/empty[@bad=\"x\"]:<data-string>:L1]: XML Attribute[bad] in element[empty] not defined in SDF.\n",
+      "export": false,
+      "rust_error": "Unsupported"
+    },
+    {
+      "id": "attribute_visual",
+      "xml": "<visual name=\"v\"><geometry><empty bad=\"x\"/></geometry></visual>",
+      "mode": "visual",
+      "stdout": "READ 1\nSCHEMA\nDECLARED_GEOMETRY 1\nGEOMETRY_LOAD\nVALUES 0 0 0\nROOT\nVISUAL 1\nVALUES 0 0 0\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/visual[@name=\"v\"]/geometry/empty[@bad=\"x\"]:<data-string>:L1]: XML Attribute[bad] in element[empty] not defined in SDF.\n\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/visual[@name=\"v\"]/geometry/empty[@bad=\"x\"]:<data-string>:L1]: XML Attribute[bad] in element[empty] not defined in SDF.\n",
+      "export": false,
+      "rust_error": "Unsupported"
+    },
+    {
+      "id": "attribute_collision",
+      "xml": "<collision name=\"c\"><geometry><empty bad=\"x\"/></geometry></collision>",
+      "mode": "collision",
+      "stdout": "READ 1\nSCHEMA\nDECLARED_GEOMETRY 1\nGEOMETRY_LOAD\nVALUES 0 0 0\nROOT\nCOLLISION 1\nVALUES 0 0 0\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/geometry/empty[@bad=\"x\"]:<data-string>:L1]: XML Attribute[bad] in element[empty] not defined in SDF.\n\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/geometry/empty[@bad=\"x\"]:<data-string>:L1]: XML Attribute[bad] in element[empty] not defined in SDF.\n",
+      "export": false,
+      "rust_error": "Unsupported"
+    },
+    {
+      "id": "nested_geometry",
+      "xml": "<geometry><empty><box/></empty></geometry>",
+      "mode": "geometry",
+      "stdout": "READ 1\nSCHEMA\nDECLARED_GEOMETRY 1\nGEOMETRY_LOAD\nVALUES 0 0 0\nROOT\nCOLLISION 1\nVALUES 0 0 0\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/geometry/empty/box:<data-string>:L1]: XML Element[box], child of element[empty], not defined in SDF. Copying[box] as children of [empty].\n\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/geometry/empty/box:<data-string>:L1]: XML Element[box], child of element[empty], not defined in SDF. Copying[box] as children of [empty].\n",
+      "export": false,
+      "rust_error": "Unsupported"
+    },
+    {
+      "id": "nested_visual",
+      "xml": "<visual name=\"v\"><geometry><empty><box/></empty></geometry></visual>",
+      "mode": "visual",
+      "stdout": "READ 1\nSCHEMA\nDECLARED_GEOMETRY 1\nGEOMETRY_LOAD\nVALUES 0 0 0\nROOT\nVISUAL 1\nVALUES 0 0 0\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/visual[@name=\"v\"]/geometry/empty/box:<data-string>:L1]: XML Element[box], child of element[empty], not defined in SDF. Copying[box] as children of [empty].\n\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/visual[@name=\"v\"]/geometry/empty/box:<data-string>:L1]: XML Element[box], child of element[empty], not defined in SDF. Copying[box] as children of [empty].\n",
+      "export": false,
+      "rust_error": "Unsupported"
+    },
+    {
+      "id": "nested_collision",
+      "xml": "<collision name=\"c\"><geometry><empty><box/></empty></geometry></collision>",
+      "mode": "collision",
+      "stdout": "READ 1\nSCHEMA\nDECLARED_GEOMETRY 1\nGEOMETRY_LOAD\nVALUES 0 0 0\nROOT\nCOLLISION 1\nVALUES 0 0 0\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/geometry/empty/box:<data-string>:L1]: XML Element[box], child of element[empty], not defined in SDF. Copying[box] as children of [empty].\n\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/geometry/empty/box:<data-string>:L1]: XML Element[box], child of element[empty], not defined in SDF. Copying[box] as children of [empty].\n",
+      "export": false,
+      "rust_error": "Unsupported"
+    },
+    {
+      "id": "duplicate_geometry",
+      "xml": "<geometry><empty/><empty/></geometry>",
+      "mode": "geometry",
+      "stdout": "READ 1\nSCHEMA\nDECLARED_GEOMETRY 1\nGEOMETRY_LOAD\nVALUES 0 0 0\nROOT\nCOLLISION 1\nVALUES 0 0 0\n",
+      "stderr": "",
+      "export": false,
+      "rust_error": "InvalidValue"
+    },
+    {
+      "id": "duplicate_visual",
+      "xml": "<visual name=\"v\"><geometry><empty/><empty/></geometry></visual>",
+      "mode": "visual",
+      "stdout": "READ 1\nSCHEMA\nDECLARED_GEOMETRY 1\nGEOMETRY_LOAD\nVALUES 0 0 0\nROOT\nVISUAL 1\nVALUES 0 0 0\n",
+      "stderr": "",
+      "export": false,
+      "rust_error": "InvalidValue"
+    },
+    {
+      "id": "duplicate_collision",
+      "xml": "<collision name=\"c\"><geometry><empty/><empty/></geometry></collision>",
+      "mode": "collision",
+      "stdout": "READ 1\nSCHEMA\nDECLARED_GEOMETRY 1\nGEOMETRY_LOAD\nVALUES 0 0 0\nROOT\nCOLLISION 1\nVALUES 0 0 0\n",
+      "stderr": "",
+      "export": false,
+      "rust_error": "InvalidValue"
+    },
+    {
+      "id": "mixed_geometry",
+      "xml": "<geometry><empty/><box/></geometry>",
+      "mode": "geometry",
+      "stdout": "READ 1\nSCHEMA\nDECLARED_GEOMETRY 1\nGEOMETRY_LOAD\nVALUES 1 1 0\nROOT\nCOLLISION 1\nVALUES 1 1 0\n",
+      "stderr": "",
+      "export": false,
+      "rust_error": "InvalidValue"
+    },
+    {
+      "id": "mixed_visual",
+      "xml": "<visual name=\"v\"><geometry><empty/><box/></geometry></visual>",
+      "mode": "visual",
+      "stdout": "READ 1\nSCHEMA\nDECLARED_GEOMETRY 1\nGEOMETRY_LOAD\nVALUES 1 1 0\nROOT\nVISUAL 1\nVALUES 1 1 0\n",
+      "stderr": "",
+      "export": false,
+      "rust_error": "InvalidValue"
+    },
+    {
+      "id": "mixed_collision",
+      "xml": "<collision name=\"c\"><geometry><empty/><box/></geometry></collision>",
+      "mode": "collision",
+      "stdout": "READ 1\nSCHEMA\nDECLARED_GEOMETRY 1\nGEOMETRY_LOAD\nVALUES 1 1 0\nROOT\nCOLLISION 1\nVALUES 1 1 0\n",
+      "stderr": "",
+      "export": false,
+      "rust_error": "InvalidValue"
+    },
+    {
+      "id": "reverse_geometry",
+      "xml": "<geometry><box/><empty/></geometry>",
+      "mode": "geometry",
+      "stdout": "READ 1\nSCHEMA\nDECLARED_GEOMETRY 1\nGEOMETRY_LOAD\nVALUES 1 1 0\nROOT\nCOLLISION 1\nVALUES 1 1 0\n",
+      "stderr": "",
+      "export": false,
+      "rust_error": "InvalidValue"
+    },
+    {
+      "id": "reverse_visual",
+      "xml": "<visual name=\"v\"><geometry><box/><empty/></geometry></visual>",
+      "mode": "visual",
+      "stdout": "READ 1\nSCHEMA\nDECLARED_GEOMETRY 1\nGEOMETRY_LOAD\nVALUES 1 1 0\nROOT\nVISUAL 1\nVALUES 1 1 0\n",
+      "stderr": "",
+      "export": false,
+      "rust_error": "InvalidValue"
+    },
+    {
+      "id": "reverse_collision",
+      "xml": "<collision name=\"c\"><geometry><box/><empty/></geometry></collision>",
+      "mode": "collision",
+      "stdout": "READ 1\nSCHEMA\nDECLARED_GEOMETRY 1\nGEOMETRY_LOAD\nVALUES 1 1 0\nROOT\nCOLLISION 1\nVALUES 1 1 0\n",
+      "stderr": "",
+      "export": false,
+      "rust_error": "InvalidValue"
+    },
+    {
+      "id": "unknown_geometry",
+      "xml": "<geometry><unknown/></geometry>",
+      "mode": "geometry",
+      "stdout": "READ 1\nSCHEMA\nDECLARED_GEOMETRY 1\nGEOMETRY_LOAD\nVALUES 0 0 0\nROOT\nCOLLISION 1\nVALUES 0 0 0\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/geometry/unknown:<data-string>:L1]: XML Element[unknown], child of element[geometry], not defined in SDF. Copying[unknown] as children of [geometry].\n\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/geometry/unknown:<data-string>:L1]: XML Element[unknown], child of element[geometry], not defined in SDF. Copying[unknown] as children of [geometry].\n",
+      "export": false,
+      "rust_error": "Unsupported"
+    },
+    {
+      "id": "unknown_visual",
+      "xml": "<visual name=\"v\"><geometry><unknown/></geometry></visual>",
+      "mode": "visual",
+      "stdout": "READ 1\nSCHEMA\nDECLARED_GEOMETRY 1\nGEOMETRY_LOAD\nVALUES 0 0 0\nROOT\nVISUAL 1\nVALUES 0 0 0\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/visual[@name=\"v\"]/geometry/unknown:<data-string>:L1]: XML Element[unknown], child of element[geometry], not defined in SDF. Copying[unknown] as children of [geometry].\n\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/visual[@name=\"v\"]/geometry/unknown:<data-string>:L1]: XML Element[unknown], child of element[geometry], not defined in SDF. Copying[unknown] as children of [geometry].\n",
+      "export": false,
+      "rust_error": "Unsupported"
+    },
+    {
+      "id": "unknown_collision",
+      "xml": "<collision name=\"c\"><geometry><unknown/></geometry></collision>",
+      "mode": "collision",
+      "stdout": "READ 1\nSCHEMA\nDECLARED_GEOMETRY 1\nGEOMETRY_LOAD\nVALUES 0 0 0\nROOT\nCOLLISION 1\nVALUES 0 0 0\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/geometry/unknown:<data-string>:L1]: XML Element[unknown], child of element[geometry], not defined in SDF. Copying[unknown] as children of [geometry].\n\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/geometry/unknown:<data-string>:L1]: XML Element[unknown], child of element[geometry], not defined in SDF. Copying[unknown] as children of [geometry].\n",
+      "export": false,
+      "rust_error": "Unsupported"
+    },
+    {
+      "id": "missing_visual",
+      "mode": "visual",
+      "xml": "<visual name=\"v\"/>",
+      "stdout": "READ 1\nSCHEMA\nDECLARED_GEOMETRY 1\nGEOMETRY_LOAD\nVALUES 0 0 0\nROOT\nVISUAL 1\nVALUES 0 0 0\n",
+      "stderr": "",
+      "export": true,
+      "visual_none": true
+    },
+    {
+      "id": "missing_collision",
+      "mode": "collision",
+      "xml": "<collision name=\"c\"/>",
+      "stdout": "READ 1\nSCHEMA\nDECLARED_GEOMETRY 1\nGEOMETRY_LOAD\nVALUES 0 0 0\nROOT\nCOLLISION 1\nVALUES 0 0 0\n",
+      "stderr": "",
+      "export": true
+    },
+    {
+      "id": "old_collision_missing",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'/></link></model></sdf>",
+      "mode": "document",
+      "stdout": "READ 1\nSCHEMA\nDECLARED_GEOMETRY 1\nGEOMETRY_LOAD\nVALUES 0 0 0\nROOT\nCOLLISION 1\nVALUES 0 0 0\n",
+      "stderr": "",
+      "export": true
+    },
+    {
+      "id": "old_collision_bare",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry/></collision></link></model></sdf>",
+      "mode": "document",
+      "stdout": "READ 1\nSCHEMA\nDECLARED_GEOMETRY 1\nGEOMETRY_LOAD\nVALUES 0 0 0\nROOT\nCOLLISION 1\nVALUES 0 0 0\n",
+      "stderr": "",
+      "export": true
+    },
+    {
+      "id": "old_visual_explicit_exact",
+      "xml": "<visual name='v'><geometry><empty/></geometry></visual>",
+      "mode": "visual",
+      "stdout": "READ 1\nSCHEMA\nDECLARED_GEOMETRY 1\nGEOMETRY_LOAD\nVALUES 0 0 0\nROOT\nVISUAL 1\nVALUES 0 0 0\n",
+      "stderr": "",
+      "export": true,
+      "visual_none": false
+    }
+  ],
+  "constructor": {
+    "stdout": "VALUES 0 0 0\nEMIT 1\nERRORS\nXML_BEGIN\n<geometry>\n  <empty/>\n</geometry>\nXML_END\nRELOAD\nVALUES 0 0 0\n",
+    "stderr": ""
+  }
+}

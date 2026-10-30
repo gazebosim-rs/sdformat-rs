@@ -14,11 +14,12 @@ The writer emits name, quaternion pose/reference, cast shadows, float32
 transparency, visibility flags, optional laser retro, supported Geometry and
 losslessly representable Material/PBR metadata. It delegates geometry/material
 output to their accepted writers; their explicit rejection policies remain.
-Missing geometry is the existing `None` representation of native EMPTY geometry.
-It emits valid `<geometry/>`, which native accepts without errors. Native's
-producer emits `<geometry><empty/></geometry>` instead. That distinct input
-remains Unsupported by the existing Rust shape parser; no producer-byte parity
-or general Geometry admission is claimed.
+Missing or bare geometry retains the existing `None` representation and valid
+`<geometry/>` output. Explicit `Geometry::Empty` emits a canonical `<empty/>`
+child and reloads as `Some(Empty)`. Both are native EMPTY values. The native
+producer's explicit empty form is now admitted through the shared parser;
+[GEOMETRY_EMPTY.md](GEOMETRY_EMPTY.md) records the exact capability transition.
+No producer-byte or general pointer equivalence is claimed.
 
 Transparency follows the existing stored-double-to-float32 conversion, including
 native's default-zero result when a textual value overflows or underflows the
@@ -63,8 +64,8 @@ unchanged original. Pose projections use the original direct signed 1e-3 bound;
 other projected values compare exact bits/strings. Shape/material payloads also
 retain complete typed roundtrip checks through existing delegated writers.
 Native input warnings for float32 range fallback are recorded; valid emitted
-output has empty native stderr. Unknown payload, missing name and native `<empty>`
-shape remain explicit reader errors. Independent fresh source/owned target
+output has empty native stderr. Unknown payload and missing name remain explicit reader errors. Native `<empty>`
+is admitted by the separately reviewed Empty capability. Independent fresh source/owned target
 review passed 30 selected Rust controls
 and reproduced the full new native proof, plus unchanged Geometry 48/46 and
 Material 53/three fixtures/44 exchanges/originals. No findings remain. Normal

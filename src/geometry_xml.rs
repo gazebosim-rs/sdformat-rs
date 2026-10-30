@@ -37,10 +37,11 @@ fn vector<const N: usize>(
     Ok(format!("<{name}>{text}</{name}>"))
 }
 impl Geometry {
-    /// Emit supported primitive values. Plane normal normalization occurs on
+    /// Emit supported geometry metadata. Plane normal normalization occurs on
     /// reload under the existing reader policy; emission does not change self.
     pub fn to_xml(&self) -> Result<String, Diagnostic> {
         let shape = match self {
+            Self::Empty => "<empty/>".into(),
             Self::Box { size } => format!("<box>{}</box>", vector("size", *size, true)?),
             Self::Sphere { radius } => {
                 format!("<sphere>{}</sphere>", dimension("radius", *radius)?)

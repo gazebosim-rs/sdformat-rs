@@ -19,6 +19,8 @@
 // SPDX-License-Identifier: Apache-2.0
 #![cfg(all(target_os = "linux", target_env = "gnu"))]
 use sdformat::*;
+#[path = "support/geometry_empty.rs"]
+mod empty_support;
 fn same(a: &Visual, b: &Visual) {
     assert_eq!(a.name, b.name);
     assert_eq!(a.pose.relative_to, b.pose.relative_to);
@@ -116,7 +118,6 @@ fn standalone_errors_retain_caller_location_and_strict_document_boundaries() {
     for xml in [
         "<visual/>",
         "<visual name='v'><unknown/></visual>",
-        "<visual name='v'><geometry><empty/></geometry></visual>",
         "<visual name='v'><geometry><box/></geometry><geometry/></visual>",
     ] {
         let error = load_visual_str(xml, "caller.xml").unwrap_err();
@@ -124,6 +125,10 @@ fn standalone_errors_retain_caller_location_and_strict_document_boundaries() {
         assert_eq!(error.source.line, 1);
         assert!(error.source.column > 0);
     }
+    empty_support::visual(
+        "<visual name='v'><geometry><empty/></geometry></visual>",
+        "caller.xml",
+    );
     assert_eq!(
         load_visual_str("<material/>", "x").unwrap_err().code,
         ErrorCode::Xml
@@ -239,7 +244,7 @@ fn native_projection(value: &Visual) -> Vec<String> {
     );
     fields.push("1".into());
     let kind = match &value.geometry {
-        None => 0,
+        None | Some(Geometry::Empty) => 0,
         Some(Geometry::Box { .. }) => 1,
         Some(Geometry::Cylinder { .. }) => 2,
         Some(Geometry::Plane { .. }) => 3,

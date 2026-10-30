@@ -2116,12 +2116,12 @@ impl Parser<'_> {
     }
     fn collision(&self, node: Node<'_, '_>) -> Result<Collision, Diagnostic> {
         self.allowed(node, &["pose", "geometry", "surface"], &["name"])?;
-        let geometry = child(node, "geometry")
-            .ok_or_else(|| self.err(node, ErrorCode::Missing, "collision requires geometry"))?;
+        let geometry =
+            child(node, "geometry").map_or(Ok(Geometry::default()), |node| self.geometry(node))?;
         Ok(Collision {
             name: self.name(node)?,
             pose: self.pose(node)?,
-            geometry: self.geometry(geometry)?,
+            geometry,
             surface: child(node, "surface").map_or(Ok(Surface::default()), |n| self.surface(n))?,
             source: self.source(node),
         })
@@ -2247,6 +2247,7 @@ impl Parser<'_> {
         self.allowed(
             geometry,
             &[
+                "empty",
                 "box",
                 "sphere",
                 "cylinder",
@@ -2261,6 +2262,9 @@ impl Parser<'_> {
             &[],
         )?;
         let shapes = elements(geometry).collect::<Vec<_>>();
+        if shapes.is_empty() {
+            return Ok(Geometry::Empty);
+        }
         let polylines = !shapes.is_empty() && shapes.iter().all(|n| n.has_tag_name("polyline"));
         if shapes.len() != 1 && !polylines {
             return Err(self.err(
@@ -2271,6 +2275,10 @@ impl Parser<'_> {
         }
         let shape = shapes[0];
         let geometry = match shape.tag_name().name() {
+            "empty" => {
+                self.allowed(shape, &[], &[])?;
+                Geometry::Empty
+            }
             "box" => {
                 self.allowed(shape, &["size"], &[])?;
                 let size = child(shape, "size").map_or(Ok([1.; 3]), |n| self.values(n))?;

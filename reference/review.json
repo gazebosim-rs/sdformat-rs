@@ -2,19 +2,18 @@
   "decision": "approved",
   "author": "sdformat_owner",
   "reviewer": "integration_reviewer",
-  "source_digest": "84fdbdb85ca065c23e8fa7a68a3e597e6acee9c641ea7fc15c474158523368e0",
-  "protected_digest": "f454823e5eb47528b535f86534f79cbfc3558d9ba7f1e6868c4a786bd9a70668",
-  "scope": "Standalone opaque Plugin metadata XML and exact DOMPlugin.ToElement mapping; existing Visual serializer behavior preserved.",
+  "source_digest": "b2c5f68c79bad7985a83a0fd6c1eca3853cfc9a05403472349de85ce8110044c",
+  "protected_digest": "68299e6a33c36cc5bee3ea38192d2ece7ca12c7bac90d16bf2b88e0e82c04555",
+  "scope": "Native-valid Geometry::Empty, canonical output, missing Collision default and exact independently approved temporary predicate folds. No ledger promotion or consumer pin.",
   "checks": [
-    "Fresh independent source/owned target passed33 Rust checks including new Plugin4, accepted Visual/ownership/property20 and existing Plugin ownership/DOM/Sensor9.",
-    "Fresh native helper reproduced13 actual inputs, exact constructor fixture,11 real emitted-output exchanges and unchanged DOMPlugin.ToElement with pinned native source/header/library identities.",
-    "Independently replayed accepted Visual28 cases/fixture/25 actual exchanges/unchanged original. Mechanically checked extracted serializer branch body byte-identical; Visual diagnostic scope remains <visual>, Plugin scope is <plugin>.",
-    "Compared every genuine original setup and assertion: literal name/file, one inserted child before output, successful nonempty output and reload strings/count/exact child name. Public XML construction preserves this normal metadata behavior; no insertion-failure, pointer identity, stream canonicalization or quiet assertion is invented.",
-    "Reviewed raw XML span, unknown attributes/comments/CDATA/prefixes/ordering, exact owned-attribute agreement and empty-raw construction, caller errors and unchanged parser/numeric/string policy. All executable/test/tool paths match final candidate.",
-    "Final metadata accurately records candidate201 complete/27 partial versus accepted200/27 pending strict/hosted qualification. Independent SDF metadata remains separate from simulator built-ins; no shared-library load or system host is added."
+    "Fresh independent source and owned target passed33 distinct Rust checks and all17 tooling controls. Repeated helper executions excluded.",
+    "New native helper reproduced38 profiles, one exact fixture,20 actual Geometry/Visual exchanges and18 named strict differences with pinned source/header/library identities.",
+    "Unchanged Geometry48/46/two originals and Visual28/26/original native pipelines passed.",
+    "Reviewed exact input/URI/full metadata/frame/source folds, preserved unrelated errors, absent/bare Visual None and explicit Some(Empty), unchanged numeric policies and strict unknown/cardinality boundaries.",
+    "Static-model successor metadata is reversible; original preimage and unreviewed-mutation regression remain intact. Final metadata accurately distinguishes547 author-wide tests and accepted201/27 counts."
   ],
   "remaining": [
-    "Normal strict staged hook and exact hosted qualification remain mandatory.",
-    "Runtime execution, child-DOM mutation, insertion failure, generic ownership/origin identity and canonical stream/producer-byte parity remain unclaimed."
+    "Normal strict staged and exact hosted qualification remain mandatory.",
+    "No density, physics, consumer pin or Element-origin identity claim. Consumers must explicitly handle Empty before adoption."
   ]
 }

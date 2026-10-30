@@ -2492,6 +2492,36 @@
       "baseline": "Unchanged native original passes on full world_complete.sdf with empty stderr. Fresh native full/projection streams are byte-identical: all 33 fields per four lights, model metadata, eleven original semantic queries plus two unknown targets. Raw/schema profiles and42 complete schema cases/eleven document controls pass. Projection retains exact original light/ancestor/frame subtrees and adds no fields.",
       "status": "ported_reviewed",
       "review": "Independent integration_reviewer approved complete original/source/error mapping after adding the missing explicit Spot type predicate. Fresh final source/owned target passed 41 relevant Rust checks, all 42 native schema cases/eleven document controls/raw profiles, byte-identical full/projection observation streams and genuine unchanged LoadLights. Every original presence/index/type/name/shadow/value/default-frame assertion audited against source/math; direct signed 1e-3 poses and four-ULP doubles retained. Document-only defaults/getters/zero ties preserve standalone behavior, validate unused/empty payloads, retain local scope and explicit consumer checks. Prior 211 family outputs/Spot bytes are author evidence. Normal strict staged/hosted qualification pending."
+    },
+    {
+      "target": "UNIT_Surface_TEST",
+      "case": "DOMsurface.ToElement",
+      "source": "src/Surface_TEST.cc:151",
+      "rust_test": "tests/surface_xml_original.rs::original_surface_to_element",
+      "assertions": "Complete configured contact masks and ODE/Bullet/torsional fields for ToElement; ODE/masks and actual empty stdout/stderr child capture for ToElementErrorOutput. Result<nonempty XML> Ok and successful reload translate returned nonnull output / empty error lists. All original scalar four-ULP and direct vector component <=1e-3 bounds retained. No native input Element identity assertion exists in these exact cases.",
+      "fixtures": {
+        "tests/fixtures/surface_to_element_quiet_native.xml": "e3217a4032d1619fcd8cda2ed892dd3effa1cf517972f658f42477d25e2b2f59",
+        "tests/fixtures/surface_to_element_native.xml": "46db484ebbaa1ec70411efbea0e8fb14c3567755e961083e7c4dae75dd3af5e0"
+      },
+      "upstream_fixtures": {},
+      "baseline": "Author helper passes 34 actual native inputs, two byte-identical generated fixtures, 17 actual Rust-to-native exchanges and both unchanged native originals with empty stderr.",
+      "status": "ported_reviewed",
+      "review": "Independent integration_reviewer fresh source/owned Cargo target passed all 19 relevant Rust checks (six new and 13 unchanged Surface); helper reproduced all 34 actual native inputs, two byte-identical fixtures, 17 actual Rust-to-native exchanges and both unchanged originals with empty stderr. Compared all original fields, four-ULP scalars/direct 1e-3 vectors and output/reload/quiet mappings. Private stdout/stderr injections each failed quiet capture; restored source passed full 19. No findings; Joint source/tests remain unchanged and its original stays partial."
+    },
+    {
+      "target": "UNIT_Surface_TEST",
+      "case": "DOMsurface.ToElementErrorOutput",
+      "source": "src/Surface_TEST.cc:211",
+      "rust_test": "tests/surface_xml_original.rs::original_surface_to_element_error_output",
+      "assertions": "Complete configured contact masks and ODE/Bullet/torsional fields for ToElement; ODE/masks and actual empty stdout/stderr child capture for ToElementErrorOutput. Result<nonempty XML> Ok and successful reload translate returned nonnull output / empty error lists. All original scalar four-ULP and direct vector component <=1e-3 bounds retained. No native input Element identity assertion exists in these exact cases.",
+      "fixtures": {
+        "tests/fixtures/surface_to_element_quiet_native.xml": "e3217a4032d1619fcd8cda2ed892dd3effa1cf517972f658f42477d25e2b2f59",
+        "tests/fixtures/surface_to_element_native.xml": "46db484ebbaa1ec70411efbea0e8fb14c3567755e961083e7c4dae75dd3af5e0"
+      },
+      "upstream_fixtures": {},
+      "baseline": "Author helper passes 34 actual native inputs, two byte-identical generated fixtures, 17 actual Rust-to-native exchanges and both unchanged native originals with empty stderr.",
+      "status": "ported_reviewed",
+      "review": "Independent integration_reviewer fresh source/owned Cargo target passed all 19 relevant Rust checks (six new and 13 unchanged Surface); helper reproduced all 34 actual native inputs, two byte-identical fixtures, 17 actual Rust-to-native exchanges and both unchanged originals with empty stderr. Compared all original fields, four-ULP scalars/direct 1e-3 vectors and output/reload/quiet mappings. Private stdout/stderr injections each failed quiet capture; restored source passed full 19. No findings; Joint source/tests remain unchanged and its original stays partial."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

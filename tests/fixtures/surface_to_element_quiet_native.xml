@@ -1,0 +1,15 @@
+<surface>
+  <contact>
+    <collide_bitmask>18</collide_bitmask>
+    <category_bitmask>33</category_bitmask>
+  </contact>
+  <friction>
+    <ode>
+      <mu>0.10000000000000001</mu>
+      <mu2>0.20000000000000001</mu2>
+      <slip1>3</slip1>
+      <slip2>4</slip2>
+      <fdir1>1 2 3</fdir1>
+    </ode>
+  </friction>
+</surface>

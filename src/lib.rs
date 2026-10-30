@@ -36,6 +36,7 @@ mod number;
 mod parse;
 mod physics_xml;
 mod sensor_xml;
+mod surface_xml;
 mod types;
 mod xml;
 pub use types::*;
@@ -81,6 +82,12 @@ pub fn load_frame_str(xml: &str, source: &str) -> Result<Frame, Diagnostic> {
 /// and legacy conversion directives are outside this standalone interface.
 pub fn load_axis_str(xml: &str, source: &str) -> Result<Axis, Diagnostic> {
     parse::load_axis_element(xml, source)
+}
+
+/// Load standalone contact/friction metadata without creating a collision or engine.
+/// Unsupported surface fields retain the document loader's explicit errors.
+pub fn load_surface_str(xml: &str, source: &str) -> Result<Surface, Diagnostic> {
+    parse::load_surface_element(xml, source)
 }
 
 /// Load bounded current-schema joint metadata without attaching a frame graph.

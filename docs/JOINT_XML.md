@@ -77,3 +77,23 @@ diagnostics preserve the caller URI and root location. That slice added one
 partial mapping, bringing accepted counts to 169 complete and 30 partial by
 reviewed status across both lists. The force/torque extension's current evidence
 and remaining gates are recorded in [FORCE_TORQUE_XML.md](FORCE_TORQUE_XML.md).
+
+## Invalid default-sensor case in the native original
+
+The unchanged DOMJoint.ToElement original inserts three default sensors of type
+NONE, checks unique insertion/duplicate refusal/clear and checks the source
+objects by index. Native Joint.ToElement reuses GetElement("sensor") for each
+copy, so the emitted XML retains only sensor2. It logs unsupported-NONE conversion
+messages. Loading that XML returns error code 5 but retains the joint fields and
+one NONE sensor. The original ignores that Load result and compares the source
+SensorCount to itself, not to the loaded count. Its edited-parent load also
+returns code 5. The constructed Joint keeps a null input Element after output;
+the loaded object's Element records the supplied input.
+
+These observations do not justify a success-returning Rust loader for invalid
+sensor data or reproducing the native producer's sensor loss. The strict writer
+and document admission remain unchanged; supported force/torque envelopes keep
+their full order. This exact original remains partial, including its constructor
+origin and NONE-sensor behavior. No insertion-helper or partial-diagnostics API
+was added merely to imitate the invalid-data case. The source basis is pinned
+Joint_TEST.cc:266–331, Joint.cc:581–587 and Sensor.cc's NONE admission/output paths.

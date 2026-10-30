@@ -30,5 +30,6 @@
   "math_sources": {
     "include/gz/math/Vector3.hh": "b4e8d01584139efba180bf530c95e18101aee4fb070aa93b8ddfe7cc38282a38",
     "include/gz/math/Helpers.hh": "24aeb75ca8b1ee502c654f045901d39befcbd84dfce4bd7fd93c8e2ca1e439f5"
-  }
+  },
+  "native_original_residue": "Exact native original inserts three default NONE sensors and tests source insertion/duplicates/clear/indexed presence; source SensorCount is compared to itself. Joint.ToElement reuses one sensor Element and retains only sensor2 while logging unsupported-NONE conversions. Joint.Load returns code5 but retains joint fields and one NONE sensor; edited-parent reload also returns5. Constructed input Element remains null, loaded input Element is retained. Strict Rust writer/reader remain unchanged and the original remains partial; no invalid-data success or producer-loss emulation."
 }

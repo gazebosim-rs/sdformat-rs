@@ -3280,3 +3280,17 @@ Root independently replayed the final eight affected Rust controls and full nati
 helper with fresh source/target/peers; source/error/assertion review is approved.
 Strict staged coverage and exact hosted CI remain pending. Candidate 189 complete
 /25 partial adds only a partial original mapping; no runtime claim.
+
+## Candidate supported surface XML
+
+Accepted Main e29f975 has 189 complete /25 partial mappings. The isolated candidate
+adds supported Surface XML output and standalone readback through the existing
+parser. Six new Rust tests and the unchanged Surface controls pass; native proof
+passes 34 cases, two exact generated fixtures, 17 actual Rust/native exchanges and
+both unchanged originals. No old assertions or surface admission changed. Joint's
+invalid NONE-sensor ToElement case remains explicitly partial. Independent fresh
+source/target review passed all 19 Rust controls and the full native helper;
+private stdout/stderr injection controls fail the quiet wrapper as required.
+All 501 author Rust tests, 17 tooling tests, formatting and Clippy pass. Normal strict
+staged coverage and exact hosted CI remain pending. Candidate 191 complete /25
+partial is separate from accepted 189/25; no runtime claim.

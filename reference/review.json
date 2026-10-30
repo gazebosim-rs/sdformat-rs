@@ -1,18 +1,19 @@
 {
   "decision": "approved",
   "author": "sdformat_owner",
-  "reviewer": "root",
-  "source_digest": "715ad16e09aadb29e34312508b1a1901efe65c5900222fef97616e4f87b527d0",
-  "protected_digest": "b4bed54e849d299e699a110674d0b8727ac16cd86620c241cc9c24d9cc6f3141",
-  "scope": "Schema-backed World wind and magnetic metadata; partial DOMWorld.Load vectors only.",
+  "reviewer": "integration_reviewer",
+  "source_digest": "bb1fe01c13aa3ec307db5ad430d442a5056c2c1b3b9dd4d729df944d8110984f",
+  "protected_digest": "4d3b03103682e83530f6811a351c3619afe44decd56e19dc8955e53920a99a43",
+  "scope": "Supported Surface metadata XML and the two exact DOMsurface.ToElement output/reload mappings; existing parser and Joint capability boundaries unchanged.",
   "checks": [
-    "Fresh reviewer source and owned target passed eight affected Rust checks, including the exact old Wind input and URI with stronger complete World/Light/pose assertions.",
-    "Fresh C++ peers and helper replay passed 35 native cases, constructor/raw profiles, full-versus-projected getter equality and unchanged DOMWorld.Load with pinned source/header/library checks.",
-    "Reviewed parser reuse, finite/exact-three/unknown/duplicate boundaries, empty optional wind versus required magnetic fields, caller source locations and partial original mapping. Existing unrelated predicates and assertions remain intact.",
-    "Final executable paths byte-match the independent export; subsequent metadata changes only record actual review and preserve Apache-2.0 attribution."
+    "Fresh independent source and owned Cargo target passed all 19 relevant Rust checks: six new and thirteen unchanged Surface controls.",
+    "Fresh native helper passed all 34 inputs, two byte-identical native fixtures, 17 actual Rust-to-native exchanges and both unchanged originals with empty stderr; pinned source, SDK header, math and loaded-library identity checks passed.",
+    "Compared every original mask and ODE/Bullet/torsional field, positive scalar four-ULP checks, direct component 1e-3 vector bounds and Result/nonempty/reload/quiet mappings. Neither original asserts input Element identity.",
+    "Reviewer-only stdout and stderr injections each failed the quiet wrapper. Restored executable source byte-matches the author candidate and all 19 checks passed again.",
+    "Reviewed optional-group and sign-bit preservation, finite/nonnegative scalar and vector policies, caller diagnostics and all explicit retained reader differences. Existing production parser and original tests remain unchanged. Joint documentation retains its genuine partial residue and grants no added credit."
   ],
   "remaining": [
-    "Normal strict staged hook and exact hosted qualification remain required; accepted 189 complete/24 partial versus candidate 189/25.",
-    "No runtime wind force, magnetic sensor, spherical conversion, full DOMWorld.Load, serializer or consumer-pin credit."
+    "Normal strict staged hook and exact hosted qualification remain required; accepted 189 complete/25 partial versus candidate 191/25.",
+    "No contact simulation, broader Surface payload, generic mutable DOM identity, Joint completion or performance claim."
   ]
 }

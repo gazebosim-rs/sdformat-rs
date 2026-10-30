@@ -1128,3 +1128,11 @@ default to zero after payload validation; an explicit empty required magnetic
 vector fails. Existing finite/exact-three/unknown/singleton policies remain.
 See [WORLD_ENVIRONMENT.md](WORLD_ENVIRONMENT.md) for native differences and the
 partial DOMWorld.Load mapping.
+
+## Standalone surface XML
+
+Surface::to_xml and load_surface_str preserve supported masks and friction groups
+through the existing surface parser. They add no surface/physics admission or
+runtime behavior. Unsupported bounce/contact/engine extras still fail explicitly;
+scalar/vector output policies and exact original assertion scope are documented
+in [SURFACE_XML.md](SURFACE_XML.md).

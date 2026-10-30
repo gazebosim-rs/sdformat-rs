@@ -3429,3 +3429,15 @@ Element-origin credit. Final independent review passed 33 distinct selected Rust
 checks, all 17 tooling controls and all new/Geometry/Visual native replays, with
 no findings. Full author 547 Rust checks pass. Normal strict/exact hosted gates
 remain; accepted ledger counts stay 201/27.
+
+## Candidate Collision density metadata
+
+Accepted Empty Main ce5b2e9 retains 201 complete/27 partial mappings. The bounded
+density candidate adds explicit optional density and the native effective default
+1000 kg/m³, using the existing scalar parser. No Collision writer, physics,
+auto-inertia or consumer pin change is included. Native evidence covers 14 XML
+profiles and ten setter states, including the recorded subnormal emission loss.
+Author full 550 Rust checks, focused 15-check/native replay and all-target Clippy
+pass. Independent fresh-source review reproduced all 14 native profiles, ten setter
+states and 15 Rust checks with no findings. Strict/exact hosted qualification
+remains pending; no original credit is proposed. See [the density boundary](COLLISION_DENSITY.md).

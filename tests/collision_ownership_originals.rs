@@ -31,6 +31,7 @@ fn source() -> Source {
 
 fn collision(position: [f64; 3]) -> Collision {
     Collision {
+        density: None,
         name: "collision".into(),
         pose: Pose {
             transform: Transform {

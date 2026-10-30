@@ -1,0 +1,86 @@
+[
+  {
+    "id": "absent",
+    "xml": "",
+    "stdout": "READ 1\nSCHEMA\nLOAD\nVALUE 4652007308841189376\nEMIT\nPRESENT 0\nRELOAD\nRELOADED 4652007308841189376\nXML_BEGIN\n<collision name='c'>\n  <pose>0 0 0 0 0 0</pose>\n  <geometry>\n    <empty/>\n  </geometry>\n  <surface>\n    <contact>\n      <collide_bitmask>255</collide_bitmask>\n    </contact>\n    <friction>\n      <ode>\n        <mu>1</mu>\n        <mu2>1</mu2>\n        <slip1>0</slip1>\n        <slip2>0</slip2>\n        <fdir1>0 0 0</fdir1>\n      </ode>\n    </friction>\n  </surface>\n</collision>\nXML_END\n",
+    "stderr": ""
+  },
+  {
+    "id": "empty",
+    "xml": "<density/>",
+    "stdout": "READ 1\nSCHEMA\nLOAD\nVALUE 4652007308841189376\nEMIT\nPRESENT 1\nSTORED 4652007308841189376\nRELOAD\nRELOADED 4652007308841189376\nXML_BEGIN\n<collision name='c'>\n  <pose>0 0 0 0 0 0</pose>\n  <density>1000</density>\n  <geometry>\n    <empty/>\n  </geometry>\n  <surface>\n    <contact>\n      <collide_bitmask>255</collide_bitmask>\n    </contact>\n    <friction>\n      <ode>\n        <mu>1</mu>\n        <mu2>1</mu2>\n        <slip1>0</slip1>\n        <slip2>0</slip2>\n        <fdir1>0 0 0</fdir1>\n      </ode>\n    </friction>\n  </surface>\n</collision>\nXML_END\n",
+    "stderr": ""
+  },
+  {
+    "id": "configured",
+    "xml": "<density>1234.5</density>",
+    "stdout": "READ 1\nSCHEMA\nLOAD\nVALUE 4653144203864309760\nEMIT\nPRESENT 1\nSTORED 4653144203864309760\nRELOAD\nRELOADED 4653144203864309760\nXML_BEGIN\n<collision name='c'>\n  <pose>0 0 0 0 0 0</pose>\n  <density>1234.5</density>\n  <geometry>\n    <empty/>\n  </geometry>\n  <surface>\n    <contact>\n      <collide_bitmask>255</collide_bitmask>\n    </contact>\n    <friction>\n      <ode>\n        <mu>1</mu>\n        <mu2>1</mu2>\n        <slip1>0</slip1>\n        <slip2>0</slip2>\n        <fdir1>0 0 0</fdir1>\n      </ode>\n    </friction>\n  </surface>\n</collision>\nXML_END\n",
+    "stderr": ""
+  },
+  {
+    "id": "default",
+    "xml": "<density>1000</density>",
+    "stdout": "READ 1\nSCHEMA\nLOAD\nVALUE 4652007308841189376\nEMIT\nPRESENT 1\nSTORED 4652007308841189376\nRELOAD\nRELOADED 4652007308841189376\nXML_BEGIN\n<collision name='c'>\n  <pose>0 0 0 0 0 0</pose>\n  <density>1000</density>\n  <geometry>\n    <empty/>\n  </geometry>\n  <surface>\n    <contact>\n      <collide_bitmask>255</collide_bitmask>\n    </contact>\n    <friction>\n      <ode>\n        <mu>1</mu>\n        <mu2>1</mu2>\n        <slip1>0</slip1>\n        <slip2>0</slip2>\n        <fdir1>0 0 0</fdir1>\n      </ode>\n    </friction>\n  </surface>\n</collision>\nXML_END\n",
+    "stderr": ""
+  },
+  {
+    "id": "minus_zero",
+    "xml": "<density>-0</density>",
+    "stdout": "READ 1\nSCHEMA\nLOAD\nVALUE 9223372036854775808\nEMIT\nPRESENT 1\nSTORED 9223372036854775808\nRELOAD\nRELOADED 9223372036854775808\nXML_BEGIN\n<collision name='c'>\n  <pose>0 0 0 0 0 0</pose>\n  <density>-0</density>\n  <geometry>\n    <empty/>\n  </geometry>\n  <surface>\n    <contact>\n      <collide_bitmask>255</collide_bitmask>\n    </contact>\n    <friction>\n      <ode>\n        <mu>1</mu>\n        <mu2>1</mu2>\n        <slip1>0</slip1>\n        <slip2>0</slip2>\n        <fdir1>0 0 0</fdir1>\n      </ode>\n    </friction>\n  </surface>\n</collision>\nXML_END\n",
+    "stderr": ""
+  },
+  {
+    "id": "negative",
+    "xml": "<density>-1</density>",
+    "stdout": "READ 1\nSCHEMA\nLOAD\nVALUE 13830554455654793216\nEMIT\nPRESENT 1\nSTORED 13830554455654793216\nRELOAD\nRELOADED 13830554455654793216\nXML_BEGIN\n<collision name='c'>\n  <pose>0 0 0 0 0 0</pose>\n  <density>-1</density>\n  <geometry>\n    <empty/>\n  </geometry>\n  <surface>\n    <contact>\n      <collide_bitmask>255</collide_bitmask>\n    </contact>\n    <friction>\n      <ode>\n        <mu>1</mu>\n        <mu2>1</mu2>\n        <slip1>0</slip1>\n        <slip2>0</slip2>\n        <fdir1>0 0 0</fdir1>\n      </ode>\n    </friction>\n  </surface>\n</collision>\nXML_END\n",
+    "stderr": ""
+  },
+  {
+    "id": "prefix",
+    "xml": "<density>1suffix</density>",
+    "stdout": "READ 1\nSCHEMA\nLOAD\nVALUE 4607182418800017408\nEMIT\nPRESENT 1\nSTORED 4607182418800017408\nRELOAD\nRELOADED 4607182418800017408\nXML_BEGIN\n<collision name='c'>\n  <pose>0 0 0 0 0 0</pose>\n  <density>1</density>\n  <geometry>\n    <empty/>\n  </geometry>\n  <surface>\n    <contact>\n      <collide_bitmask>255</collide_bitmask>\n    </contact>\n    <friction>\n      <ode>\n        <mu>1</mu>\n        <mu2>1</mu2>\n        <slip1>0</slip1>\n        <slip2>0</slip2>\n        <fdir1>0 0 0</fdir1>\n      </ode>\n    </friction>\n  </surface>\n</collision>\nXML_END\n",
+    "stderr": ""
+  },
+  {
+    "id": "subnormal",
+    "xml": "<density>4.9406564584124654e-324</density>",
+    "stdout": "READ 0\nSCHEMA 9 9 9 9 9\n",
+    "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Out of range. Unable to set value [4.9406564584124654e-324 ] for key[density].\n"
+  },
+  {
+    "id": "nan",
+    "xml": "<density>nan</density>",
+    "stdout": "READ 1\nSCHEMA\nLOAD\nVALUE 9221120237041090560\nEMIT\nPRESENT 1\nSTORED 9221120237041090560\nRELOAD\nRELOADED 9221120237041090560\nXML_BEGIN\n<collision name='c'>\n  <pose>0 0 0 0 0 0</pose>\n  <density>nan</density>\n  <geometry>\n    <empty/>\n  </geometry>\n  <surface>\n    <contact>\n      <collide_bitmask>255</collide_bitmask>\n    </contact>\n    <friction>\n      <ode>\n        <mu>1</mu>\n        <mu2>1</mu2>\n        <slip1>0</slip1>\n        <slip2>0</slip2>\n        <fdir1>0 0 0</fdir1>\n      </ode>\n    </friction>\n  </surface>\n</collision>\nXML_END\n",
+    "stderr": ""
+  },
+  {
+    "id": "infinity",
+    "xml": "<density>inf</density>",
+    "stdout": "READ 1\nSCHEMA\nLOAD\nVALUE 9218868437227405312\nEMIT\nPRESENT 1\nSTORED 9218868437227405312\nRELOAD\nRELOADED 9218868437227405312\nXML_BEGIN\n<collision name='c'>\n  <pose>0 0 0 0 0 0</pose>\n  <density>inf</density>\n  <geometry>\n    <empty/>\n  </geometry>\n  <surface>\n    <contact>\n      <collide_bitmask>255</collide_bitmask>\n    </contact>\n    <friction>\n      <ode>\n        <mu>1</mu>\n        <mu2>1</mu2>\n        <slip1>0</slip1>\n        <slip2>0</slip2>\n        <fdir1>0 0 0</fdir1>\n      </ode>\n    </friction>\n  </surface>\n</collision>\nXML_END\n",
+    "stderr": ""
+  },
+  {
+    "id": "bad",
+    "xml": "<density>bad</density>",
+    "stdout": "READ 0\nSCHEMA 9 9 9 9 9\n",
+    "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Invalid argument. Unable to set value [bad] for key[density].\n"
+  },
+  {
+    "id": "duplicate",
+    "xml": "<density>1</density><density>2</density>",
+    "stdout": "READ 1\nSCHEMA\nLOAD\nVALUE 4607182418800017408\nEMIT\nPRESENT 1\nSTORED 4607182418800017408\nRELOAD\nRELOADED 4607182418800017408\nXML_BEGIN\n<collision name='c'>\n  <pose>0 0 0 0 0 0</pose>\n  <density>1</density>\n  <geometry>\n    <empty/>\n  </geometry>\n  <surface>\n    <contact>\n      <collide_bitmask>255</collide_bitmask>\n    </contact>\n    <friction>\n      <ode>\n        <mu>1</mu>\n        <mu2>1</mu2>\n        <slip1>0</slip1>\n        <slip2>0</slip2>\n        <fdir1>0 0 0</fdir1>\n      </ode>\n    </friction>\n  </surface>\n</collision>\nXML_END\n",
+    "stderr": ""
+  },
+  {
+    "id": "attribute",
+    "xml": "<density bad='x'>1</density>",
+    "stdout": "READ 1\nSCHEMA\nLOAD\nVALUE 4607182418800017408\nEMIT\nPRESENT 1\nSTORED 4607182418800017408\nRELOAD\nRELOADED 4607182418800017408\nXML_BEGIN\n<collision name='c'>\n  <pose>0 0 0 0 0 0</pose>\n  <density>1</density>\n  <geometry>\n    <empty/>\n  </geometry>\n  <surface>\n    <contact>\n      <collide_bitmask>255</collide_bitmask>\n    </contact>\n    <friction>\n      <ode>\n        <mu>1</mu>\n        <mu2>1</mu2>\n        <slip1>0</slip1>\n        <slip2>0</slip2>\n        <fdir1>0 0 0</fdir1>\n      </ode>\n    </friction>\n  </surface>\n</collision>\nXML_END\n",
+    "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/density[@bad=\"x\"]:<data-string>:L1]: XML Attribute[bad] in element[density] not defined in SDF.\n"
+  },
+  {
+    "id": "child",
+    "xml": "<density><unknown/></density>",
+    "stdout": "READ 1\nSCHEMA\nLOAD\nVALUE 4652007308841189376\nEMIT\nPRESENT 1\nSTORED 4652007308841189376\nRELOAD\nRELOADED 4652007308841189376\nXML_BEGIN\n<collision name='c'>\n  <pose>0 0 0 0 0 0</pose>\n  <density>1000</density>\n  <geometry>\n    <empty/>\n  </geometry>\n  <surface>\n    <contact>\n      <collide_bitmask>255</collide_bitmask>\n    </contact>\n    <friction>\n      <ode>\n        <mu>1</mu>\n        <mu2>1</mu2>\n        <slip1>0</slip1>\n        <slip2>0</slip2>\n        <fdir1>0 0 0</fdir1>\n      </ode>\n    </friction>\n  </surface>\n</collision>\nXML_END\n",
+    "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/density/unknown:<data-string>:L1]: XML Element[unknown], child of element[density], not defined in SDF. Copying[unknown] as children of [density].\n"
+  }
+]

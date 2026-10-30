@@ -1208,3 +1208,7 @@ default through the shared parser. Visual absent/bare None remains distinct from
 explicit Some(Empty). Strict unknown/mixed/cardinality policy remains; no density
 or physical shape interpretation is added. Consumers need explicit handling
 before dependency adoption. See [GEOMETRY_EMPTY.md](GEOMETRY_EMPTY.md).
+
+Collision density retains explicit optional metadata and native effective default
+1000 kg/m³ through `Collision::density` and `density()`. No mass/inertia
+calculation is implied. See [the density boundary](COLLISION_DENSITY.md).

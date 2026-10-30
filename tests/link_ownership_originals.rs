@@ -103,6 +103,7 @@ fn nested_link_and_inertial_metadata_remain_owned_and_independent() {
     let mut surface = Surface::default();
     surface.contact.source = Some(source());
     original.collisions.push(Collision {
+        density: None,
         name: "collision".into(),
         pose: Pose::default(),
         geometry: Geometry::Mesh(Mesh {

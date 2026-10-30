@@ -163,3 +163,6 @@ contents; imported model wind and unqualified unknown children are omitted.
 Sensor `visualize` is canonical boolean metadata, while legacy `alwaysOn` remains
 opaque XML distinct from `always_on`. See [MODEL_METADATA.md](docs/MODEL_METADATA.md)
 for the qualified subset and remaining Element, runtime and schema limits.
+
+Collision density presence and its native effective default are metadata only;
+see [the density contract](docs/COLLISION_DENSITY.md).

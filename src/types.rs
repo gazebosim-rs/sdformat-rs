@@ -797,11 +797,22 @@ impl Default for Inertial {
 }
 #[derive(Debug, Clone)]
 pub struct Collision {
+    /// Explicit density in kg/m³; None retains the native omitted default.
+    /// Metadata only: no automatic inertia or physics calculation is performed.
+    pub density: Option<f64>,
     pub name: String,
     pub pose: Pose,
     pub geometry: Geometry,
     pub surface: Surface,
     pub source: Source,
+}
+impl Collision {
+    pub const DENSITY_DEFAULT: f64 = 1000.;
+
+    /// Effective density, preserving explicit presence separately in `density`.
+    pub fn density(&self) -> f64 {
+        self.density.unwrap_or(Self::DENSITY_DEFAULT)
+    }
 }
 /// Contact and friction metadata, independent of any physics engine.
 /// Source is None for an absent group and Some for explicitly loaded XML.

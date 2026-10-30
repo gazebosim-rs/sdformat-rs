@@ -2115,10 +2115,13 @@ impl Parser<'_> {
         Ok(result)
     }
     fn collision(&self, node: Node<'_, '_>) -> Result<Collision, Diagnostic> {
-        self.allowed(node, &["pose", "geometry", "surface"], &["name"])?;
+        self.allowed(node, &["pose", "geometry", "surface", "density"], &["name"])?;
         let geometry =
             child(node, "geometry").map_or(Ok(Geometry::default()), |node| self.geometry(node))?;
         Ok(Collision {
+            density: child(node, "density")
+                .map(|_| self.scalar(node, "density", Collision::DENSITY_DEFAULT))
+                .transpose()?,
             name: self.name(node)?,
             pose: self.pose(node)?,
             geometry,

@@ -28,6 +28,7 @@ mod navsat_xml;
 mod noise_xml;
 pub use camera::*;
 mod heightmap_xml;
+mod material_xml;
 mod mesh_xml;
 mod model_config;
 mod param_xml;
@@ -180,4 +181,9 @@ pub fn load_heightmap_str(xml: &str, source: &str) -> Result<Heightmap, Diagnost
 /// Load standalone ordered polyline metadata without validating a physical polygon.
 pub fn load_polyline_str(xml: &str, source: &str) -> Result<Polyline, Diagnostic> {
     parse::load_polyline_element(xml, source)
+}
+
+/// Load standalone Material/PBR metadata without resolving scripts or textures.
+pub fn load_material_str(xml: &str, source: &str) -> Result<Material, Diagnostic> {
+    parse::load_material_element(xml, source)
 }

@@ -2,19 +2,20 @@
   "decision": "approved",
   "author": "sdformat_owner",
   "reviewer": "integration_reviewer",
-  "source_digest": "ee1a88e6ae8f83b9126315ada25a65cb52820d55301a0c7774ea8b16620f1c66",
-  "protected_digest": "c1dc89a5a4f4697348f204bd132f27b120bc18105e772bed325cc786fcbbf5bf",
-  "scope": "Ordered Polyline metadata XML and two exact complete configured ToElement mappings; two prior-approved Geometry temporary capability transitions.",
+  "source_digest": "f0c0c497d83ebcbc5dfcf3935ddfa46e44bb5c95f8cf151049c09a6de4e78523",
+  "protected_digest": "062d3929de3d8affeb88dc1be7ef5ccaf9a1c480253242a43d1a23ea6228fc92",
+  "scope": "Bounded lossless Material/PBR current metadata XML with standalone readback; full native constructor states remain explicitly Unsupported and no ledger credit is added.",
   "checks": [
-    "Fresh independent source and owned target passed 21 selected Rust checks after restoring reviewer-only changes.",
-    "Complete Polyline helper passed 19 native inputs, exact fixture, two exact retained inputs, nine actual exchanges, both unchanged originals, native ADD1/1 and separate empty producer/load insertion profile. Source/header/math/library bindings matched.",
-    "Independent Heightmap 28/15, Mesh 28/18 and Geometry 48/46 native pipelines and unchanged originals passed.",
-    "Compared every original height four-ULP, literal normal point additions with immediate length/last point, indexed vector components 1e-3, ordered counts, successful Result/nonempty/reload and actual quiet predicate. No original input Element identity or allocation-failure predicate exists.",
-    "Private stdout/stderr injections each failed quiet capture; restored source byte-matches final candidate and all 21 checks passed. One initial invocation used the prior Heightmap working directory and ran no tests; excluded.",
-    "Reviewed ordered multiple groups, source/ancestry, immutable emission, empty-point/group explicit errors, scalar/subnormal/signed-zero policies and precise native differences. Final reviewed metadata preserves accepted versus candidate counts."
+    "Fresh independent source/owned Cargo target passed 22 selected Rust controls, including material/numeric/original, PBR/original and Axis XML regressions.",
+    "Fresh Material XML helper reproduced 53 native inputs, three exact fixtures, 44 actual exchanges and both unchanged native originals with source/header/math/library checks.",
+    "Independently replayed existing Material110/direct-float ABI/DOMVisual.Material, PBR30/Material.PbrDOM and Axis17/fixture/exchange/original reference pipelines. The existing named Axis normalization difference is unchanged.",
+    "Reviewed all original constructor setup fields against actual pre-emission native getter bits/strings. Both complete states retain inactive-kind values and produce explicit Unsupported in Rust. Separate loaded-domain successes/quiet checks are not original translations, and traceability remains unchanged.",
+    "Reviewed f32 audited converter/bit checks, signed zero/canonical NaN/infinity domains, lossy payload/subnormal rejection, exact inactive-field defaults, workflow-slot kinds, raw attribute absence/empty/literal values, ordered script URIs/sentinels and existing Param text/CDATA policy.",
+    "Existing Axis decimal helper body moved byte-identically; no unsafe boundary, parser policy, asset resolution or renderer changes.",
+    "Private stdout/stderr injections each failed quiet capture; restored executable paths byte-match final candidate and all22 controls passed. Final reviewed metadata accurately preserves constructor-success and broader scope gaps."
   ],
   "remaining": [
-    "Normal strict staged and exact hosted qualification remain required; accepted 195 complete/27 partial versus candidate 197/27.",
-    "Geometry original default-empty Polyline and invalid Mesh/Heightmap producer blocks remain partial; no insertion/OOM facade, resource processing, polygon triangulation, rendering/physics or runtime claim."
+    "Normal strict staged hook and exact hosted qualification remain mandatory; mapping counts stay197 complete/27 partial with no new full/partial original credit.",
+    "Native original constructor-success equivalence, generic pointer/origin behavior, assets, rendering/physics/runtime and performance remain open."
   ]
 }

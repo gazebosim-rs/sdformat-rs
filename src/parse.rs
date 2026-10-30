@@ -272,6 +272,29 @@ pub(crate) fn load_polyline_element(xml: &str, uri: &str) -> Result<Polyline, Di
     }
     parser.polyline(root)
 }
+pub(crate) fn load_material_element(xml: &str, uri: &str) -> Result<Material, Diagnostic> {
+    let resolver = NoResources;
+    let parser = Parser {
+        uri,
+        xml,
+        resolver: &resolver,
+        includes: vec![uri.into()],
+    };
+    let doc = Document::parse(xml).map_err(|e| Diagnostic {
+        code: e.code,
+        source: Source {
+            uri: uri.into(),
+            line: e.pos().row,
+            column: e.pos().col,
+        },
+        message: e.to_string(),
+    })?;
+    let root = doc.root_element();
+    if !root.has_tag_name("material") {
+        return Err(parser.err(root, ErrorCode::Xml, "root element must be material"));
+    }
+    parser.material(root)
+}
 
 pub(crate) fn load_geometry_element(xml: &str, uri: &str) -> Result<Geometry, Diagnostic> {
     let resolver = NoResources;

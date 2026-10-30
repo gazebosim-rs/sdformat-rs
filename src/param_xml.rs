@@ -28,3 +28,12 @@ pub(crate) fn validate_text(value: &str) -> Result<(), crate::ErrorCode> {
     }
     Ok(())
 }
+
+// Display drops a NaN sign; native metadata retains that sign.
+pub(crate) fn decimal(value: f64) -> String {
+    if value.is_nan() && value.is_sign_negative() {
+        "-nan".into()
+    } else {
+        value.to_string()
+    }
+}

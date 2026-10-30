@@ -1,6 +1,7 @@
 // Copyright (C) 2026 Open Source Robotics Foundation
 // SPDX-License-Identifier: Apache-2.0
 //! Current-schema axis metadata output, independent of frame or mimic graphs.
+use crate::param_xml::decimal;
 use crate::types::normalized_axis_direction;
 use crate::{Axis, Diagnostic, ErrorCode, Source};
 use quick_xml::escape::escape;
@@ -11,13 +12,7 @@ fn safe_attribute(value: &str) -> bool {
             .chars()
             .all(|c| c >= '\u{20}' && c != '\u{fffe}' && c != '\u{ffff}')
 }
-fn decimal(value: f64) -> String {
-    if value.is_nan() && value.is_sign_negative() {
-        "-nan".into()
-    } else {
-        value.to_string()
-    }
-}
+
 impl Axis {
     /// Emit one current-schema `<axis>` element, normalizing its direction.
     /// Negative effort/velocity encode the native unbounded sentinel. Graph

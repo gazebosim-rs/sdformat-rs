@@ -1,0 +1,29 @@
+<material>
+  <ambient>0.100000001 0.200000003 0.300000012 1</ambient>
+  <diffuse>0.400000006 0.5 0.600000024 0.5</diffuse>
+  <specular>0.600000024 0.400000006 0.800000012 0.800000012</specular>
+  <emissive>0.200000003 0.699999988 0.899999976 0.100000001</emissive>
+  <render_order>0.5</render_order>
+  <lighting>false</lighting>
+  <double_sided>true</double_sided>
+  <script>
+    <name>my-script-name</name>
+    <uri>my-uri</uri>
+  </script>
+  <shader type='vertex'>
+    <normal_map>my-normal-map</normal_map>
+  </shader>
+  <pbr>
+    <metal>
+      <albedo_map>albedo</albedo_map>
+      <roughness_map>rough</roughness_map>
+      <roughness>0.10000000000000001</roughness>
+      <metalness_map>metalness</metalness_map>
+      <metalness>1</metalness>
+      <ambient_occlusion_map>ambient</ambient_occlusion_map>
+      <normal_map type='tangent'>normal</normal_map>
+      <emissive_map>emissive</emissive_map>
+      <light_map uv_set='1'>light</light_map>
+    </metal>
+  </pbr>
+</material>

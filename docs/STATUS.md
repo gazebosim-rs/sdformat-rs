@@ -3360,3 +3360,19 @@ quiet capture and restored source passed all 21. No findings remain. Strict stag
 coverage and exact hosted qualification remain pending; candidate
 197 complete/27 partial adds no Geometry original, meshing or runtime credit.
 See POLYLINE_XML.md.
+
+## Candidate lossless Material/PBR XML
+
+Accepted Main bdd1b84 has 197 complete/27 partial mappings. The isolated candidate
+adds typed Material/PBR output/standalone readback without asset IO or numeric
+policy changes. All 528 Rust/17 tooling checks and Clippy pass. New native proof
+passes 53 inputs, three exact fixtures, 44 actual exchanges and both unchanged
+Material originals. Existing Material 110, PBR 30 and Axis 17 reference pipelines
+pass. Original complete constructor setups retain inactive fields that native
+serialization drops; Rust explicitly rejects these same states. Separate native
+loaded-domain controls are not counted as constructor-success ports. No ledger
+credit is added. Independent fresh-source review passed 22 selected Rust checks
+and reproduced all native proofs, with no findings. Stdout/stderr injections each
+failed quiet capture; restored source matches final paths and passed all 22. Normal
+strict staged gate and exact hosted CI remain pending; see MATERIAL_XML.md for
+the explicit disposition.

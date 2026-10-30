@@ -1168,3 +1168,12 @@ Polyline::to_xml and load_polyline_str extend Geometry XML to ordered points and
 multiple polylines through the existing reader. Empty point vectors/groups fail
 explicitly to avoid schema point insertion; no polygon or collision meshing
 validation is implied. See [POLYLINE_XML.md](POLYLINE_XML.md).
+
+## Material/PBR metadata XML
+
+Material::to_xml and load_material_str preserve losslessly representable current
+metadata through the existing reader, including float32 render/color policy, raw
+normal-map attributes, script URI order and PBR slots. Unsupported hidden state
+is rejected rather than dropped. Original constructor inputs with inactive fields
+are retained as explicit failures, with no original-success credit. See
+[MATERIAL_XML.md](MATERIAL_XML.md).

@@ -1,0 +1,10 @@
+<material>
+  <ambient>0 0 0 1</ambient>
+  <diffuse>0 0 0 1</diffuse>
+  <specular>0 0 0 1</specular>
+  <emissive>0 0 0 1</emissive>
+  <render_order>0</render_order>
+  <lighting>true</lighting>
+  <double_sided>false</double_sided>
+  <shader type='pixel'/>
+</material>

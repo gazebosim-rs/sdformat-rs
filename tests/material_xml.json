@@ -1,0 +1,500 @@
+{
+  "rows": [
+    {
+      "id": "material_default_native.xml",
+      "xml": "<material>\n  <ambient>0 0 0 1</ambient>\n  <diffuse>0 0 0 1</diffuse>\n  <specular>0 0 0 1</specular>\n  <emissive>0 0 0 1</emissive>\n  <render_order>0</render_order>\n  <lighting>true</lighting>\n  <double_sided>false</double_sided>\n  <shader type='pixel'/>\n</material>\n",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 1 0 0 - - -\nRAW_SCRIPT 0\nPBR 0\nFLOW 0\nFLOW 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "material_specular_native.xml",
+      "xml": "<material>\n  <ambient>0.100000001 0.200000003 0.300000012 1</ambient>\n  <diffuse>0.400000006 0.5 0.600000024 0.5</diffuse>\n  <specular>0.600000024 0.400000006 0.800000012 0.800000012</specular>\n  <emissive>0.200000003 0.699999988 0.899999976 0.100000001</emissive>\n  <render_order>0.5</render_order>\n  <lighting>false</lighting>\n  <double_sided>true</double_sided>\n  <script>\n    <name>my-script-name</name>\n    <uri>my-uri</uri>\n  </script>\n  <shader type='vertex'>\n    <normal_map>my-normal-map</normal_map>\n  </shader>\n  <pbr>\n    <specular>\n      <albedo_map>albedo</albedo_map>\n      <specular_map>gloss</specular_map>\n      <environment_map>env</environment_map>\n      <ambient_occlusion_map>ambient</ambient_occlusion_map>\n      <emissive_map>emissive</emissive_map>\n      <glossiness_map>gloss</glossiness_map>\n      <glossiness>0</glossiness>\n      <normal_map type='tangent'>normal</normal_map>\n      <light_map uv_set='1'>light</light_map>\n    </specular>\n  </pbr>\n</material>\n",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 1036831949 1045220557 1050253722 1065353216 1053609165 1056964608 1058642330 1056964608 1058642330 1053609165 1061997773 1061997773 1045220557 1060320051 1063675494 1036831949 0 1056964608 0 1 1 6d792d6e6f726d616c2d6d6170 6d792d757269 6d792d7363726970742d6e616d65\nRAW_SCRIPT 1 6d792d757269\nPBR 1\nFLOW 0\nFLOW 1 2 616c6265646f 6e6f726d616c 656e76 616d6269656e74 656d697373697665 6c69676874 - - 676c6f7373 676c6f7373 0 1 4602678819172646912 4602678819172646912 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "material_metal_native.xml",
+      "xml": "<material>\n  <ambient>0.100000001 0.200000003 0.300000012 1</ambient>\n  <diffuse>0.400000006 0.5 0.600000024 0.5</diffuse>\n  <specular>0.600000024 0.400000006 0.800000012 0.800000012</specular>\n  <emissive>0.200000003 0.699999988 0.899999976 0.100000001</emissive>\n  <render_order>0.5</render_order>\n  <lighting>false</lighting>\n  <double_sided>true</double_sided>\n  <script>\n    <name>my-script-name</name>\n    <uri>my-uri</uri>\n  </script>\n  <shader type='vertex'>\n    <normal_map>my-normal-map</normal_map>\n  </shader>\n  <pbr>\n    <metal>\n      <albedo_map>albedo</albedo_map>\n      <roughness_map>rough</roughness_map>\n      <roughness>0.10000000000000001</roughness>\n      <metalness_map>metalness</metalness_map>\n      <metalness>1</metalness>\n      <ambient_occlusion_map>ambient</ambient_occlusion_map>\n      <normal_map type='tangent'>normal</normal_map>\n      <emissive_map>emissive</emissive_map>\n      <light_map uv_set='1'>light</light_map>\n    </metal>\n  </pbr>\n</material>\n",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 1036831949 1045220557 1050253722 1065353216 1053609165 1056964608 1058642330 1056964608 1058642330 1053609165 1061997773 1061997773 1045220557 1060320051 1063675494 1036831949 0 1056964608 0 1 1 6d792d6e6f726d616c2d6d6170 6d792d757269 6d792d7363726970742d6e616d65\nRAW_SCRIPT 1 6d792d757269\nPBR 1\nFLOW 1 1 616c6265646f 6e6f726d616c - 616d6269656e74 656d697373697665 6c69676874 726f756768 6d6574616c6e657373 - - 0 1 4591870180066957722 4607182418800017408 0\nFLOW 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "omitted",
+      "xml": "<material/>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 1 0 0 - - -\nRAW_SCRIPT 0\nPBR 0\nFLOW 0\nFLOW 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "shininess",
+      "xml": "<material><shininess>7</shininess></material>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 4619567317775286272 0 1 0 0 - - -\nRAW_SCRIPT 0\nPBR 0\nFLOW 0\nFLOW 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "colors",
+      "xml": "<material><ambient>0.1 0.2 0.3 1</ambient><diffuse>0.4 0.5 0.6 .5</diffuse><specular>.6 .4 .8 .8</specular><emissive>.2 .7 .9 .1</emissive></material>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 1036831949 1045220557 1050253722 1065353216 1053609165 1056964608 1058642330 1056964608 1058642330 1053609165 1061997773 1061997773 1045220557 1060320051 1063675494 1036831949 0 0 1 0 0 - - -\nRAW_SCRIPT 0\nPBR 0\nFLOW 0\nFLOW 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "color-normalization",
+      "xml": "<material><ambient>-1 2 300 2</ambient></material>",
+      "native": {
+        "stdout": "READ 0 9 9 9 9 9 9\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: The value <ambient>-1 2 300 2</ambient> is invalid.\n"
+      },
+      "export": false
+    },
+    {
+      "id": "signed-zero-color",
+      "xml": "<material><ambient>-0 0 -0 -0</ambient></material>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 2147483648 0 2147483648 2147483648 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 1 0 0 - - -\nRAW_SCRIPT 0\nPBR 0\nFLOW 0\nFLOW 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "render-order",
+      "xml": "<material><render_order>.1</render_order></material>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 1036831949 1 0 0 - - -\nRAW_SCRIPT 0\nPBR 0\nFLOW 0\nFLOW 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "negative-zero-render",
+      "xml": "<material><render_order>-0</render_order></material>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 2147483648 1 0 0 - - -\nRAW_SCRIPT 0\nPBR 0\nFLOW 0\nFLOW 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "infinite-render",
+      "xml": "<material><render_order>inf</render_order></material>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 2139095040 1 0 0 - - -\nRAW_SCRIPT 0\nPBR 0\nFLOW 0\nFLOW 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "nan-render",
+      "xml": "<material><render_order>nan</render_order></material>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 2143289344 1 0 0 - - -\nRAW_SCRIPT 0\nPBR 0\nFLOW 0\nFLOW 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "subnormal-render",
+      "xml": "<material><render_order>1e-45</render_order></material>",
+      "native": {
+        "stdout": "READ 0 9 9 9 9 9 9\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Out of range. Unable to set value [1e-45 ] for key[render_order].\n"
+      },
+      "export": false
+    },
+    {
+      "id": "subnormal-shininess",
+      "xml": "<material><shininess>1e-310</shininess></material>",
+      "native": {
+        "stdout": "READ 0 9 9 9 9 9 9\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Out of range. Unable to set value [1e-310 ] for key[shininess].\n"
+      },
+      "export": false
+    },
+    {
+      "id": "infinite-shininess",
+      "xml": "<material><shininess>inf</shininess></material>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 9218868437227405312 0 1 0 0 - - -\nRAW_SCRIPT 0\nPBR 0\nFLOW 0\nFLOW 0\n",
+        "stderr": ""
+      },
+      "export": false,
+      "gap_code": "InvalidValue"
+    },
+    {
+      "id": "script-multiple",
+      "xml": "<material><script><uri>first</uri><uri>second</uri><name>script</name></script></material>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 1 0 0 - 6669727374 736372697074\nRAW_SCRIPT 2 6669727374 7365636f6e64\nPBR 0\nFLOW 0\nFLOW 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "script-omitted-uri",
+      "xml": "<material><script><name>script</name></script></material>",
+      "native": {
+        "stdout": "READ 1\nLOAD 9\nBASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 1 0 0 - - 736372697074\nRAW_SCRIPT 1 5f5f64656661756c745f5f\nPBR 0\nFLOW 0\nFLOW 0\n",
+        "stderr": ""
+      },
+      "export": false
+    },
+    {
+      "id": "shader-vertex",
+      "xml": "<material><shader type=\"vertex\"/></material>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 1 0 1 - - -\nRAW_SCRIPT 0\nPBR 0\nFLOW 0\nFLOW 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "shader-alias",
+      "xml": "<material><shader type=\"normal_map_objectspace\"><normal_map>map</normal_map></shader></material>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 1 0 2 6d6170 - -\nRAW_SCRIPT 0\nPBR 0\nFLOW 0\nFLOW 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "shader-canonical",
+      "xml": "<material><shader type=\"normal_map_object_space\"><normal_map>map</normal_map></shader></material>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 1 0 2 6d6170 - -\nRAW_SCRIPT 0\nPBR 0\nFLOW 0\nFLOW 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "normal-map-sentinel",
+      "xml": "<material><shader type=\"pixel\"><normal_map>__default__</normal_map></shader></material>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 1 0 0 - - -\nRAW_SCRIPT 0\nPBR 0\nFLOW 0\nFLOW 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "empty-metal",
+      "xml": "<material><pbr><metal/></pbr></material>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 1 0 0 - - -\nRAW_SCRIPT 0\nPBR 1\nFLOW 1 1 - - - - - - - - - - 0 0 4602678819172646912 4602678819172646912 0\nFLOW 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "empty-specular",
+      "xml": "<material><pbr><specular/></pbr></material>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 1 0 0 - - -\nRAW_SCRIPT 0\nPBR 1\nFLOW 0\nFLOW 1 2 - - - - - - - - - - 0 0 4602678819172646912 4602678819172646912 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "both-workflows",
+      "xml": "<material><pbr><metal/><specular/></pbr></material>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 1 0 0 - - -\nRAW_SCRIPT 0\nPBR 1\nFLOW 1 1 - - - - - - - - - - 0 0 4602678819172646912 4602678819172646912 0\nFLOW 1 2 - - - - - - - - - - 0 0 4602678819172646912 4602678819172646912 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "metal-environment",
+      "xml": "<material><pbr><metal><environment_map>env</environment_map></metal></pbr></material>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 1 0 0 - - -\nRAW_SCRIPT 0\nPBR 1\nFLOW 1 1 - - 656e76 - - - - - - - 0 0 4602678819172646912 4602678819172646912 0\nFLOW 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "object-normal",
+      "xml": "<material><pbr><metal><normal_map type=\"object\">map</normal_map></metal></pbr></material>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 1 0 0 - - -\nRAW_SCRIPT 0\nPBR 1\nFLOW 1 1 - 6d6170 - - - - - - - - 0 0 4602678819172646912 4602678819172646912 0\nFLOW 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "unknown-normal-type",
+      "xml": "<material><pbr><metal><normal_map type=\"invalid\">map</normal_map></metal></pbr></material>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 1 0 0 - - -\nRAW_SCRIPT 0\nPBR 1\nFLOW 1 1 - 6d6170 - - - - - - - - 0 0 4602678819172646912 4602678819172646912 0\nFLOW 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "empty-normal-type",
+      "xml": "<material><pbr><metal><normal_map type=\"\"/></metal></pbr></material>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 1 0 0 - - -\nRAW_SCRIPT 0\nPBR 1\nFLOW 1 1 - - - - - - - - - - 0 0 4602678819172646912 4602678819172646912 0\nFLOW 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "light-empty-uv",
+      "xml": "<material><pbr><metal><light_map uv_set=\"3\"/></metal></pbr></material>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 1 0 0 - - -\nRAW_SCRIPT 0\nPBR 1\nFLOW 1 1 - - - - - - - - - - 0 3 4602678819172646912 4602678819172646912 0\nFLOW 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "out-of-range-roughness",
+      "xml": "<material><pbr><metal><roughness>-2</roughness><metalness>3</metalness></metal></pbr></material>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 1 0 0 - - -\nRAW_SCRIPT 0\nPBR 1\nFLOW 1 1 - - - - - - - - - - 0 0 13835058055282163712 4613937818241073152 0\nFLOW 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "nan-roughness",
+      "xml": "<material><pbr><metal><roughness>nan</roughness></metal></pbr></material>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 1 0 0 - - -\nRAW_SCRIPT 0\nPBR 1\nFLOW 1 1 - - - - - - - - - - 0 0 9221120237041090560 4602678819172646912 0\nFLOW 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "subnormal-roughness",
+      "xml": "<material><pbr><metal><roughness>1e-310</roughness></metal></pbr></material>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 1 0 0 - - -\nRAW_SCRIPT 0\nPBR 1\nFLOW 1 1 - - - - - - - - - - 0 0 0 4602678819172646912 0\nFLOW 0\n",
+        "stderr": "\u001b[1;31mError [Element.hh:1053]\u001b[0m Out of range. Unable to set value [1e-310 ] for key[roughness]."
+      },
+      "export": true
+    },
+    {
+      "id": "empty-pbr",
+      "xml": "<material><pbr/></material>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 1 0 0 - - -\nRAW_SCRIPT 0\nPBR 1\nFLOW 0\nFLOW 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "negative-nan-render",
+      "xml": "<material><render_order>-nan</render_order></material>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 4290772992 1 0 0 - - -\nRAW_SCRIPT 0\nPBR 0\nFLOW 0\nFLOW 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "negative-infinite-render",
+      "xml": "<material><render_order>-inf</render_order></material>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 4286578688 1 0 0 - - -\nRAW_SCRIPT 0\nPBR 0\nFLOW 0\nFLOW 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "negative-nan-pbr",
+      "xml": "<material><pbr><metal><roughness>-nan</roughness><metalness>inf</metalness></metal></pbr></material>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 1 0 0 - - -\nRAW_SCRIPT 0\nPBR 1\nFLOW 1 1 - - - - - - - - - - 0 0 18444492273895866368 9218868437227405312 0\nFLOW 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "negative-zero-pbr",
+      "xml": "<material><pbr><metal><roughness>-0</roughness><metalness>-0</metalness></metal></pbr></material>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 1 0 0 - - -\nRAW_SCRIPT 0\nPBR 1\nFLOW 1 1 - - - - - - - - - - 0 0 9223372036854775808 9223372036854775808 0\nFLOW 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "script-cdata",
+      "xml": "<material><script><uri><![CDATA[a  b]]></uri><uri>__default__</uri><name><![CDATA[a\tb\nc]]></name></script></material>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 1 0 0 - 61202062 6109620a63\nRAW_SCRIPT 2 61202062 5f5f64656661756c745f5f\nPBR 0\nFLOW 0\nFLOW 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "pbr-cdata",
+      "xml": "<material><pbr><specular><albedo_map><![CDATA[a  b]]></albedo_map><normal_map type=\" object \"><![CDATA[a\tb\nc]]></normal_map></specular></pbr></material>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 1 0 0 - - -\nRAW_SCRIPT 0\nPBR 1\nFLOW 0\nFLOW 1 2 61202062 6109620a63 - - - - - - - - 0 0 4602678819172646912 4602678819172646912 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "unknown-child",
+      "xml": "<material><unknown/></material>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 1 0 0 - - -\nRAW_SCRIPT 0\nPBR 0\nFLOW 0\nFLOW 0\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/visual[@name=\"v\"]/material/unknown:<data-string>:L1]: XML Element[unknown], child of element[material], not defined in SDF. Copying[unknown] as children of [material].\n"
+      },
+      "export": false,
+      "gap_code": "Unsupported"
+    },
+    {
+      "id": "unknown-shader-attribute",
+      "xml": "<material><shader type=\"vertex\" bad=\"x\"/></material>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 1 0 1 - - -\nRAW_SCRIPT 0\nPBR 0\nFLOW 0\nFLOW 0\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/visual[@name=\"v\"]/material/shader[@bad=\"x\"]:<data-string>:L1]: XML Attribute[bad] in element[shader] not defined in SDF.\n"
+      },
+      "export": false,
+      "gap_code": "Unsupported"
+    },
+    {
+      "id": "duplicate-render-order",
+      "xml": "<material><render_order>1</render_order><render_order>2</render_order></material>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 1065353216 1 0 0 - - -\nRAW_SCRIPT 0\nPBR 0\nFLOW 0\nFLOW 0\n",
+        "stderr": ""
+      },
+      "export": false,
+      "gap_code": "InvalidValue"
+    },
+    {
+      "id": "kind-specific-map",
+      "xml": "<material><pbr><metal><specular_map>gloss</specular_map></metal></pbr></material>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 1 0 0 - - -\nRAW_SCRIPT 0\nPBR 1\nFLOW 1 1 - - - - - - - - - - 0 0 4602678819172646912 4602678819172646912 0\nFLOW 0\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/visual[@name=\"v\"]/material/pbr/metal/specular_map:<data-string>:L1]: XML Element[specular_map], child of element[metal], not defined in SDF. Copying[specular_map] as children of [metal].\n"
+      },
+      "export": false,
+      "gap_code": "Unsupported"
+    },
+    {
+      "id": "color-nan-normalization",
+      "xml": "<material><ambient>nan nan nan nan</ambient></material>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 0 0 0 0 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 1 0 0 - - -\nRAW_SCRIPT 0\nPBR 0\nFLOW 0\nFLOW 0\n",
+        "stderr": "Color values were clamped\n"
+      },
+      "export": true
+    },
+    {
+      "id": "positive-min-normal-render",
+      "xml": "<material><render_order>1.1754944e-38</render_order></material>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 8388608 1 0 0 - - -\nRAW_SCRIPT 0\nPBR 0\nFLOW 0\nFLOW 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "negative-min-normal-render",
+      "xml": "<material><render_order>-1.1754944e-38</render_order></material>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 2155872256 1 0 0 - - -\nRAW_SCRIPT 0\nPBR 0\nFLOW 0\nFLOW 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "max-render",
+      "xml": "<material><render_order>3.4028235e38</render_order></material>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 2139095039 1 0 0 - - -\nRAW_SCRIPT 0\nPBR 0\nFLOW 0\nFLOW 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "render-bool",
+      "xml": "<material><render_order>true</render_order></material>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 1065353216 1 0 0 - - -\nRAW_SCRIPT 0\nPBR 0\nFLOW 0\nFLOW 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "negative-zero-shininess",
+      "xml": "<material><shininess>-0</shininess></material>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 9223372036854775808 0 1 0 0 - - -\nRAW_SCRIPT 0\nPBR 0\nFLOW 0\nFLOW 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "specular-nan-glossiness",
+      "xml": "<material><pbr><specular><glossiness>-nan</glossiness></specular></pbr></material>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 1 0 0 - - -\nRAW_SCRIPT 0\nPBR 1\nFLOW 0\nFLOW 1 2 - - - - - - - - - - 0 0 4602678819172646912 4602678819172646912 18444492273895866368\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "light-max-uv",
+      "xml": "<material><pbr><metal><light_map uv_set=\"4294967295\"/></metal></pbr></material>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 1 0 0 - - -\nRAW_SCRIPT 0\nPBR 1\nFLOW 1 1 - - - - - - - - - - 0 4294967295 4602678819172646912 4602678819172646912 0\nFLOW 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "unknown-normal-space",
+      "xml": "<material><pbr><metal><normal_map type=\"unknown\">map</normal_map></metal></pbr></material>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 1 0 0 - - -\nRAW_SCRIPT 0\nPBR 1\nFLOW 1 1 - 6d6170 - - - - - - - - 0 0 4602678819172646912 4602678819172646912 0\nFLOW 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "script-escaped",
+      "xml": "<material><script><uri>a &amp; &lt;b&gt;</uri><name>a ]]&gt; b</name></script></material>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nBASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 1 0 0 - 612026203c623e 61205d5d3e2062\nRAW_SCRIPT 1 612026203c623e\nPBR 0\nFLOW 0\nFLOW 0\n",
+        "stderr": ""
+      },
+      "export": true
+    }
+  ],
+  "constructors": {
+    "--fixture-metal": {
+      "stdout": "BASE 1036831949 1045220557 1050253722 1065353216 1053609165 1056964608 1058642330 1056964608 1058642330 1053609165 1061997773 1061997773 1045220557 1060320051 1063675494 1036831949 0 1056964608 0 1 1 6d792d6e6f726d616c2d6d6170 6d792d757269 6d792d7363726970742d6e616d65\nRAW_SCRIPT 0\nPBR 1\nFLOW 1 1 616c6265646f 6e6f726d616c 656e76 616d6269656e74 656d697373697665 6c69676874 726f756768 6d6574616c6e657373 676c6f7373 676c6f7373 0 1 4591870180066957722 4607182418800017408 0\nFLOW 0\nEMIT 1\nXML_BEGIN\n<material>\n  <ambient>0.100000001 0.200000003 0.300000012 1</ambient>\n  <diffuse>0.400000006 0.5 0.600000024 0.5</diffuse>\n  <specular>0.600000024 0.400000006 0.800000012 0.800000012</specular>\n  <emissive>0.200000003 0.699999988 0.899999976 0.100000001</emissive>\n  <render_order>0.5</render_order>\n  <lighting>false</lighting>\n  <double_sided>true</double_sided>\n  <script>\n    <name>my-script-name</name>\n    <uri>my-uri</uri>\n  </script>\n  <shader type='vertex'>\n    <normal_map>my-normal-map</normal_map>\n  </shader>\n  <pbr>\n    <metal>\n      <albedo_map>albedo</albedo_map>\n      <roughness_map>rough</roughness_map>\n      <roughness>0.10000000000000001</roughness>\n      <metalness_map>metalness</metalness_map>\n      <metalness>1</metalness>\n      <ambient_occlusion_map>ambient</ambient_occlusion_map>\n      <normal_map type='tangent'>normal</normal_map>\n      <emissive_map>emissive</emissive_map>\n      <light_map uv_set='1'>light</light_map>\n    </metal>\n  </pbr>\n</material>\nXML_END\nLOAD\nBASE 1036831949 1045220557 1050253722 1065353216 1053609165 1056964608 1058642330 1056964608 1058642330 1053609165 1061997773 1061997773 1045220557 1060320051 1063675494 1036831949 0 1056964608 0 1 1 6d792d6e6f726d616c2d6d6170 6d792d757269 6d792d7363726970742d6e616d65\nRAW_SCRIPT 1 6d792d757269\nPBR 1\nFLOW 1 1 616c6265646f 6e6f726d616c - 616d6269656e74 656d697373697665 6c69676874 726f756768 6d6574616c6e657373 - - 0 1 4591870180066957722 4607182418800017408 0\nFLOW 0\n",
+      "stderr": ""
+    },
+    "--fixture-specular": {
+      "stdout": "BASE 1036831949 1045220557 1050253722 1065353216 1053609165 1056964608 1058642330 1056964608 1058642330 1053609165 1061997773 1061997773 1045220557 1060320051 1063675494 1036831949 0 1056964608 0 1 1 6d792d6e6f726d616c2d6d6170 6d792d757269 6d792d7363726970742d6e616d65\nRAW_SCRIPT 0\nPBR 1\nFLOW 0\nFLOW 1 2 616c6265646f 6e6f726d616c 656e76 616d6269656e74 656d697373697665 6c69676874 726f756768 6d6574616c6e657373 676c6f7373 676c6f7373 0 1 4591870180066957722 4607182418800017408 0\nEMIT 1\nXML_BEGIN\n<material>\n  <ambient>0.100000001 0.200000003 0.300000012 1</ambient>\n  <diffuse>0.400000006 0.5 0.600000024 0.5</diffuse>\n  <specular>0.600000024 0.400000006 0.800000012 0.800000012</specular>\n  <emissive>0.200000003 0.699999988 0.899999976 0.100000001</emissive>\n  <render_order>0.5</render_order>\n  <lighting>false</lighting>\n  <double_sided>true</double_sided>\n  <script>\n    <name>my-script-name</name>\n    <uri>my-uri</uri>\n  </script>\n  <shader type='vertex'>\n    <normal_map>my-normal-map</normal_map>\n  </shader>\n  <pbr>\n    <specular>\n      <albedo_map>albedo</albedo_map>\n      <specular_map>gloss</specular_map>\n      <environment_map>env</environment_map>\n      <ambient_occlusion_map>ambient</ambient_occlusion_map>\n      <emissive_map>emissive</emissive_map>\n      <glossiness_map>gloss</glossiness_map>\n      <glossiness>0</glossiness>\n      <normal_map type='tangent'>normal</normal_map>\n      <light_map uv_set='1'>light</light_map>\n    </specular>\n  </pbr>\n</material>\nXML_END\nLOAD\nBASE 1036831949 1045220557 1050253722 1065353216 1053609165 1056964608 1058642330 1056964608 1058642330 1053609165 1061997773 1061997773 1045220557 1060320051 1063675494 1036831949 0 1056964608 0 1 1 6d792d6e6f726d616c2d6d6170 6d792d757269 6d792d7363726970742d6e616d65\nRAW_SCRIPT 1 6d792d757269\nPBR 1\nFLOW 0\nFLOW 1 2 616c6265646f 6e6f726d616c 656e76 616d6269656e74 656d697373697665 6c69676874 - - 676c6f7373 676c6f7373 0 1 4602678819172646912 4602678819172646912 0\n",
+      "stderr": ""
+    },
+    "--default": {
+      "stdout": "BASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 1 0 0 - - -\nRAW_SCRIPT 0\nPBR 0\nFLOW 0\nFLOW 0\nEMIT 1\nXML_BEGIN\n<material>\n  <ambient>0 0 0 1</ambient>\n  <diffuse>0 0 0 1</diffuse>\n  <specular>0 0 0 1</specular>\n  <emissive>0 0 0 1</emissive>\n  <render_order>0</render_order>\n  <lighting>true</lighting>\n  <double_sided>false</double_sided>\n  <shader type='pixel'/>\n</material>\nXML_END\nLOAD\nBASE 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 0 1065353216 0 0 1 0 0 - - -\nRAW_SCRIPT 0\nPBR 0\nFLOW 0\nFLOW 0\n",
+      "stderr": ""
+    }
+  }
+}

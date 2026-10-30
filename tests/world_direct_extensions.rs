@@ -22,9 +22,29 @@ fn direct_qualified_metadata_follows_imports_and_preserves_source() {
         let id = row["id"].as_str().unwrap();
         let xml = row["xml"].as_str().unwrap();
         if id.starts_with("unknown_") {
+            let sdf = load_str(xml, "root.sdf", &Resolver).unwrap();
+            let entries: Vec<_> = sdf.worlds[0]
+                .extensions
+                .iter()
+                .map(|value| (&*value.tag, &*value.xml, &*value.source.uri))
+                .collect();
             assert_eq!(
-                load_str(xml, "root.sdf", &Resolver).unwrap_err().code,
-                ErrorCode::Unsupported
+                entries,
+                [
+                    ("plain", "<plain>keep?</plain>", "root.sdf"),
+                    ("v:ok", "<v:ok/>", "root.sdf"),
+                    ("plain", "<plain>twice</plain>", "root.sdf"),
+                ],
+                "{id}"
+            );
+            let native = row["stdout"].as_str().unwrap();
+            let mut position = 0;
+            for marker in ["<plain>keep?</plain>", "<v:ok/>", "<plain>twice</plain>"] {
+                position += native[position..].find(marker).unwrap() + marker.len();
+            }
+            assert_eq!(
+                row["stderr"].as_str().unwrap().matches("Warning").count(),
+                2
             );
             continue;
         }

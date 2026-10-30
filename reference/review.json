@@ -2,15 +2,16 @@
   "decision": "approved",
   "author": "sdformat_owner_terra",
   "reviewer": "integration_reviewer",
-  "source_digest": "a6a416731906d8b9d153081f9185818cc7003f8653cb43a229b071350433830d",
-  "protected_digest": "baad4a4c30c2dd550500cc9fff2f9d8b458c832434a98fdaa88e9839dcfa4bc0",
+  "source_digest": "54d2754b5111aec30a1b058f2a2c1bca62a4f3cc9cc3b49b0cd9e5fae8b011a9",
+  "protected_digest": "5a81abffcb8f1130d91bc658470f33f49b3ff28b7df3c4f2ab7f0db2a8028e65",
   "scope": "Separately bounded import/static compile-time declaration evidence; six tooling/documentation paths only.",
   "checks": [
     "Fresh exact b7 baseline reviewer export/owned target passed13 unconditional Rust helper tests,34 Python tooling controls and all-target Clippy. All four executable/test paths byte-match; other baseline tracked files unchanged except accurate two-document scope/evidence append.",
     "Explicit final compiled-helper query proved six actual world-candidate declaration lines; this manual check is separate from unconditional test counts. Optional assertion-free environment test was removed before approval.",
     "Reviewed recursive plain-type grammar rejecting executable const-block/array/type-macro/associated/generic expression bodies; static initializer only unannotated zero-argument plain path call, with LF-exclusive complete item spans and file/module/direct-unannotated-function context.",
     "Real rustc-accepted closures, type macros, const-generic/array hidden function bodies and custom attributes are refused. Real LLVM uncovered DA0 rejects even forged positive syntax evidence; real region failure independently rejects, with existing source/helper/context protocol identity retained.",
-    "Source selectors, measured DA/region authority and strictly-greater-than95 thresholds unchanged. No ordinary operator/literal proof and no waiver for the separate legacy merge blocker."
+    "Source selectors, measured DA/region authority and strictly-greater-than95 thresholds unchanged. No ordinary operator/literal proof and no waiver for the separate legacy merge blocker.",
+    "Additive rebase on exact hosted accepted074f77ce independently checked:12 substantive producer/data/test/proof/binding files byte-identical to reviewed d4abf902; verifier differs from accepted parent only by reviewed exact data-asset digest and actual production-library dep-info binding. Accepted syntax helper/protocol and all other parent files retained; no source-selector/DA/region/threshold change. Two prose merges preserve accepted-parent context and prior failed-hook evidence. No duplicate native/build replay claimed; fresh entire normal staged and exact hosted qualification remain required."
   ],
   "remaining": [
     "Mandatory normal staged and exact hosted qualification before acceptance.",

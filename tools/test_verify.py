@@ -117,6 +117,61 @@ class LayoutGateTests(unittest.TestCase):
                 verify.check_layout(root, metadata, manifest)
 
 class SnapshotAndReviewTests(unittest.TestCase):
+    def test_production_schema_asset_participates_in_both_digests(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            for name in ('data/world_known_schema_names.txt', 'Cargo.toml', 'Cargo.lock',
+                         'rust-toolchain.toml', 'coverage.json', 'reference/traceability.json',
+                         'reference/inventory.json', 'reference/results.json'):
+                path = root / name
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text('original')
+            before = (verify.digest(root), verify.review_digest(root))
+            import json
+            receipt = {'decision': 'approved', 'reviewer': 'reviewer', 'author': 'author',
+                       'protected_digest': before[1]}
+            (root / 'reference/review.json').write_text(json.dumps(receipt))
+            verify.check_review(root)
+            (root / 'data/world_known_schema_names.txt').write_text('modified')
+            after = (verify.digest(root), verify.review_digest(root))
+            self.assertNotEqual(before[0], after[0])
+            self.assertNotEqual(before[1], after[1])
+            with self.assertRaisesRegex(AssertionError, 'independent review required'):
+                verify.check_review(root)
+
+    def test_schema_dep_info_requires_owned_library_and_exact_asset(self):
+        import json
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp); target = root / 'target'; deps = target / 'debug/deps'
+            deps.mkdir(parents=True)
+            (root / 'src').mkdir()
+            library = deps / 'libsdformat-123.rlib'; library.write_bytes(b'library')
+            dep = deps / 'sdformat-123.d'
+            item = {'reason': 'compiler-artifact', 'target': {'name': 'sdformat', 'kind': ['lib'],
+                    'src_path': str(root / 'src/lib.rs')}, 'profile': {'test': False},
+                    'filenames': [str(library)]}
+            output = json.dumps(item)
+            dep.write_text('target: src/lib.rs src/../data/world_known_schema_names.txt\n')
+            verify.check_schema_dep_info(output, root, target)
+            for content in ('target: src/lib.rs\n', 'target: src/../data/world_known_schema_names.txt.fake\n'):
+                dep.write_text(content)
+                with self.assertRaisesRegex(AssertionError, 'schema asset'):
+                    verify.check_schema_dep_info(output, root, target)
+            dep.unlink()
+            with self.assertRaisesRegex(AssertionError, 'dep-info'):
+                verify.check_schema_dep_info(output, root, target)
+            with self.assertRaisesRegex(AssertionError, 'missing or duplicate'):
+                verify.check_schema_dep_info('', root, target)
+            with self.assertRaisesRegex(AssertionError, 'missing or duplicate'):
+                verify.check_schema_dep_info(output + '\n' + output, root, target)
+            wrong = dict(item, target=dict(item['target'], src_path=str(root / 'other.rs')))
+            with self.assertRaisesRegex(AssertionError, 'library source'):
+                verify.check_schema_dep_info(json.dumps(wrong), root, target)
+            foreign = root / 'libsdformat-foreign.rlib'; foreign.write_bytes(b'foreign')
+            outside = dict(item, filenames=[str(foreign)])
+            with self.assertRaisesRegex(AssertionError, 'production library'):
+                verify.check_schema_dep_info(json.dumps(outside), root, target)
+
     def test_partial_staging_exports_only_index_and_detects_changes(self):
         import subprocess
         def git(root, *args):

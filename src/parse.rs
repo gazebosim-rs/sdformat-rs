@@ -6,7 +6,11 @@ use crate::types::normalized_axis_direction;
 use crate::xml::{Document, Node, legacy_whitespace};
 use crate::*;
 use glam::{DQuat, DVec3, EulerRot};
-use std::{borrow::Cow, collections::BTreeSet, sync::Arc};
+use std::{
+    borrow::Cow,
+    collections::BTreeSet,
+    sync::{Arc, OnceLock},
+};
 
 #[derive(Clone, Copy, PartialEq, Eq)]
 enum LightContext {
@@ -807,10 +811,9 @@ impl Parser<'_> {
             }
         }
         for child in elements(node) {
-            // An explicitly listed lexical extension name is permitted only
-            // by its caller; ordinary SDF child lists contain no prefixes.
+            // Additional names are admitted only when the caller lists them.
             let name = child.tag_name().name();
-            if !(children.contains(&name) || name.contains(':') && extra_repeated.contains(&name)) {
+            if !(children.contains(&name) || extra_repeated.contains(&name)) {
                 return Err(self.err(
                     child,
                     ErrorCode::Unsupported,
@@ -1051,7 +1054,7 @@ impl Parser<'_> {
     fn world(&mut self, node: Node<'_, '_>) -> Result<World, Diagnostic> {
         let extension_names: Vec<_> = elements(node)
             .map(|member| member.tag_name().name())
-            .filter(|name| name.contains(':'))
+            .filter(|name| name.contains(':') || !known_schema_name(name))
             .collect();
         self.allowed_repeated(
             node,
@@ -4123,6 +4126,21 @@ fn converted_14_model(model: Node<'_, '_>) -> bool {
             }
         })
 }
+// Names from pinned schema declarations and conversion paths remain reserved,
+// even when they are not valid direct children of this particular world.
+fn known_schema_name(name: &str) -> bool {
+    static NAMES: OnceLock<BTreeSet<&str>> = OnceLock::new();
+    let names = NAMES.get_or_init(|| {
+        include_str!("../data/world_known_schema_names.txt")
+            .lines()
+            .filter(|entry| !entry.starts_with('#'))
+            .collect()
+    });
+    names.contains(name)
+        || (name.bytes().any(|byte| byte.is_ascii_uppercase())
+            && names.contains(name.to_ascii_lowercase().as_str()))
+}
+
 fn is_pre17(node: Node<'_, '_>) -> bool {
     matches!(
         node.document().root_element().attribute("version"),

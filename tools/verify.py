@@ -33,7 +33,7 @@ def read_source(path):
 
 
 def digest(root):
-    files = sorted(p for pattern in ('src/**/*.rs', 'tests/**/*', 'tools/*.py') for p in root.glob(pattern) if p.is_file())
+    files = sorted(p for pattern in ('src/**/*.rs', 'data/world_known_schema_names.txt', 'tests/**/*', 'tools/*.py') for p in root.glob(pattern) if p.is_file())
     files += [root / p for p in ('Cargo.toml', 'Cargo.lock', 'rust-toolchain.toml', 'coverage.json', 'reference/traceability.json', 'reference/inventory.json', 'reference/results.json')]
     state = hashlib.sha256()
     for path in files:
@@ -43,7 +43,7 @@ def digest(root):
 
 
 def review_digest(root):
-    protected = sorted(p for pattern in ('src/**/*.rs', 'LICENSE', 'NOTICE', 'README.md', 'tests/**/*', 'tools/*', '.githooks/*', '.github/workflows/*', '.pre-commit-config.yaml', 'coverage.json', 'AGENTS.md', 'Cargo.toml', 'Cargo.lock', 'rust-toolchain.toml', 'reference/*.json') for p in root.glob(pattern) if p.is_file() and p.name != 'review.json')
+    protected = sorted(p for pattern in ('src/**/*.rs', 'data/world_known_schema_names.txt', 'LICENSE', 'NOTICE', 'README.md', 'tests/**/*', 'tools/*', '.githooks/*', '.github/workflows/*', '.pre-commit-config.yaml', 'coverage.json', 'AGENTS.md', 'Cargo.toml', 'Cargo.lock', 'rust-toolchain.toml', 'reference/*.json') for p in root.glob(pattern) if p.is_file() and p.name != 'review.json')
     state = hashlib.sha256()
     for path in protected:
         state.update(str(path.relative_to(root)).encode())
@@ -172,6 +172,28 @@ def test_binaries(output, root, target):
     return binaries, syntax_binary
 
 
+def check_schema_dep_info(output, root, target):
+    """Bind the production data asset to the actual compiled library."""
+    artifacts = []
+    for line in output.split('\n'):
+        if not line.startswith('{'):
+            continue
+        item = json.loads(line)
+        descriptor = item.get('target', {})
+        if (item.get('reason') == 'compiler-artifact' and descriptor.get('name') == 'sdformat'
+                and descriptor.get('kind') == ['lib'] and not item['profile']['test']):
+            assert Path(descriptor['src_path']).resolve() == (root / 'src/lib.rs').resolve(), 'unexpected library source'
+            artifacts += [Path(name) for name in item['filenames'] if name.endswith('.rlib')]
+    assert len(artifacts) == 1, 'missing or duplicate production library'
+    library = artifacts[0].resolve()
+    assert library.is_file() and library.is_relative_to(target.resolve()), 'invalid production library'
+    assert library.name.startswith('libsdformat-'), 'unexpected production library name'
+    dep_info = library.with_name(library.name.removeprefix('lib').removesuffix('.rlib') + '.d')
+    assert dep_info.is_file(), 'missing production dep-info'
+    text = read_source(dep_info)
+    assert re.search(r'(?<!\S)src/\.\./data/world_known_schema_names\.txt(?=\s|$)', text), 'production schema asset missing from dep-info'
+
+
 def coverage(root, out, manifest, changed=None):
     out.mkdir(parents=True, exist_ok=True)
     raw = out / 'raw'
@@ -187,6 +209,7 @@ def coverage(root, out, manifest, changed=None):
         raise
     (out / 'tests.log').write_text(result.stdout + result.stderr)
     binaries, syntax_binary = test_binaries(result.stdout, root, out / 'target')
+    check_schema_dep_info(result.stdout, root, out / 'target')
     sysroot = Path(run(['rustc', '--print', 'sysroot'], capture=True, cwd=root).stdout.strip())
     host = next(line.split(': ', 1)[1] for line in run(['rustc', '-vV'], capture=True, cwd=root).stdout.splitlines() if line.startswith('host: '))
     llvm = sysroot / 'lib/rustlib' / host / 'bin'

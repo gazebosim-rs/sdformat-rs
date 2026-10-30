@@ -135,12 +135,20 @@ fn unrelated_world_and_merge_rejections_remain() {
             .code,
         ErrorCode::MergeIncludeUnsupported
     );
-    for xml in [
-        "<sdf version='1.12'><world name='w'><unknown/></world></sdf>",
-        "<sdf version='1.12'><world name='w'><gravity>0 0 -9.8</gravity><gravity>0 0 -9.8</gravity></world></sdf>",
-    ] {
-        assert!(load_str(xml, "root.sdf", &Resolver(row)).is_err());
-    }
+    let xml = "<sdf version='1.12'><world name='w'><unknown/></world></sdf>";
+    let sdf = load_str(xml, "root.sdf", &Resolver(row)).unwrap();
+    let extensions = &sdf.worlds[0].extensions;
+    assert_eq!(extensions.len(), 1);
+    assert_eq!(
+        (
+            &*extensions[0].tag,
+            &*extensions[0].xml,
+            &*extensions[0].source.uri
+        ),
+        ("unknown", "<unknown/>", "root.sdf")
+    );
+    let xml = "<sdf version='1.12'><world name='w'><gravity>0 0 -9.8</gravity><gravity>0 0 -9.8</gravity></world></sdf>";
+    assert!(load_str(xml, "root.sdf", &Resolver(row)).is_err());
 }
 
 #[test]

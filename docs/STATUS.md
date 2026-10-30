@@ -3540,3 +3540,23 @@ line and region checks; an actual-source query checked the six world-candidate
 declaration lines. Normal staged and exact hosted qualification remain pending.
 The separate legacy model-merge operator/literal gate issue remains unresolved.
 See [coverage syntax](COVERAGE_SYNTAX.md).
+
+## Candidate unqualified world extension metadata
+
+An isolated candidate retains genuinely unknown unqualified direct world XML as
+owned metadata, after qualified imported metadata and alongside qualified direct
+children. Known schema and historical conversion names remain reserved, including
+misplaced link, with a generated 484-name table bound to 547 pinned schema and
+conversion inputs. Twenty-one native observations, three focused Rust tests and
+35 tooling tests pass. The native warning for unknown unqualified children is an
+explicit Rust diagnostic difference. Independent pre-change review approved the
+four exact rejection transitions; final independent review reproduced 21 native
+observations, the 547-input inventory, eight affected Rust tests, 35 tooling tests
+and all-target Clippy. Other strict errors remain. Simulator consumer adoption,
+normal staged checks and exact hosted qualification remain pending; no original
+case credit is added. The first staged attempt rejected the generated text asset
+under the source instrumentation guard; the revised data-directory layout keeps
+that guard unchanged and passed independent review. The next retry encountered
+unmapped declaration lines; syntax proof 074f77c has since passed exact hosted
+run 41059379474. This additive rebase passed independent re-review; a fresh normal staged run
+and exact hosted qualification remain required.

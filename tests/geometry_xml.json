@@ -297,8 +297,7 @@
         "stdout": "READ 1\nLOAD\nVALUES 5 128\n",
         "stderr": ""
       },
-      "export": false,
-      "gap_code": "Unsupported"
+      "export": true
     },
     {
       "id": "heightmap",

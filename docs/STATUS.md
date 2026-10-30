@@ -3309,3 +3309,19 @@ native helper, with adversarial quiet controls failing as required. Every select
 original predicate was audited; remaining blocks stay partial. Strict staged/exact
 hosted qualification remains pending; candidate 191 complete /27 partial adds no
 complete-case or runtime credit.
+
+## Candidate valid Mesh XML
+
+Accepted Main bef73c6 has 191 complete/27 partial mappings. The valid Mesh metadata
+writer/standalone reader preserves existing parser policies and adds no resource
+IO. Five new tests bring the author suite to 512 passing Rust checks; all-target
+Clippy passes. Native proof passes 28 inputs, two exact fixtures, three exact old
+Geometry inputs, 18 actual outputs and both unchanged Mesh originals. Root approved
+the three precise temporary Geometry predicate transitions before edits; all
+unrelated failures remain. Existing Geometry native proof passes 48 inputs/44
+outputs; Contact passes 16 inputs/17 exchanges/unchanged original. Independent fresh-source
+review passed 30 relevant Rust checks and all native proofs; quiet stdout/stderr
+injections fail and restored source passes. Every original predicate is reviewed.
+Strict staged qualification and exact hosted CI remain pending. Candidate
+193 complete/27 partial does not promote the invalid Geometry producer blocks.
+See MESH_XML.md for numeric/text/error boundaries.

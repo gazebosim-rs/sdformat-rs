@@ -2522,6 +2522,36 @@
       "baseline": "Author helper passes 34 actual native inputs, two byte-identical generated fixtures, 17 actual Rust-to-native exchanges and both unchanged native originals with empty stderr.",
       "status": "ported_reviewed",
       "review": "Independent integration_reviewer fresh source/owned Cargo target passed all 19 relevant Rust checks (six new and 13 unchanged Surface); helper reproduced all 34 actual native inputs, two byte-identical fixtures, 17 actual Rust-to-native exchanges and both unchanged originals with empty stderr. Compared all original fields, four-ULP scalars/direct 1e-3 vectors and output/reload/quiet mappings. Private stdout/stderr injections each failed quiet capture; restored source passed full 19. No findings; Joint source/tests remain unchanged and its original stays partial."
+    },
+    {
+      "target": "UNIT_Mesh_TEST",
+      "case": "DOMMesh.ToElement",
+      "source": "src/Mesh_TEST.cc:360",
+      "rust_test": "tests/mesh_xml_original.rs::original_mesh_to_element",
+      "assertions": "Complete valid configured URI, scale component <=1e-3, successful parsing of each exact original optimization string and expected enum, optimization string and enum, submesh name/center, decomposition presence/counts or absence; successful nonempty XML/reload translates returned nonnull output/empty errors. ErrorOutput captures actual empty stdout/stderr. No native input Element identity assertion in either exact case.",
+      "fixtures": {
+        "tests/fixtures/mesh_to_element_native.xml": "a1448da52ebdbccad3be963b09b535534f7727394453b88f2b73640dd5a3e9b7",
+        "tests/fixtures/mesh_to_element_quiet_native.xml": "1a39af6d7805a520fd88635cb17810ca902a861b4a3d5002b32506fbef7a6c50"
+      },
+      "upstream_fixtures": {},
+      "baseline": "Author 28 native inputs, two exact fixtures, three exact Geometry inputs, 18 actual Rust/native exchanges and both unchanged originals pass with empty stderr.",
+      "status": "ported_reviewed",
+      "review": "Independent integration_reviewer fresh source/owned Cargo target passed 30 relevant Rust checks; full Mesh helper reproduced 28 native inputs, two exact fixtures, three exact old-input controls, 18 actual XML exchanges and both unchanged originals. Independently replayed Geometry 48 inputs/44 exports/both originals and Contact 16 inputs/17 exchanges/producer limitation/unchanged DOMLink.Sensors. Private stdout/stderr injections each failed quiet capture; restored source passed all 30. Audited every original literal optimization-string success, enum/string, URI, scale component <=1e-3, submesh/center and decomposition predicate. Shared text output is unchanged on accepted Contact domain. Three prior-approved predicate transitions preserve exact input and URI; Geometry originals remain partial. No findings. Strict staged/exact hosted qualification pending."
+    },
+    {
+      "target": "UNIT_Mesh_TEST",
+      "case": "DOMMesh.ToElementErrorOutput",
+      "source": "src/Mesh_TEST.cc:393",
+      "rust_test": "tests/mesh_xml_original.rs::original_mesh_to_element_error_output",
+      "assertions": "Complete valid configured URI, scale component <=1e-3, successful parsing of each exact original optimization string and expected enum, optimization string and enum, submesh name/center, decomposition presence/counts or absence; successful nonempty XML/reload translates returned nonnull output/empty errors. ErrorOutput captures actual empty stdout/stderr. No native input Element identity assertion in either exact case.",
+      "fixtures": {
+        "tests/fixtures/mesh_to_element_native.xml": "a1448da52ebdbccad3be963b09b535534f7727394453b88f2b73640dd5a3e9b7",
+        "tests/fixtures/mesh_to_element_quiet_native.xml": "1a39af6d7805a520fd88635cb17810ca902a861b4a3d5002b32506fbef7a6c50"
+      },
+      "upstream_fixtures": {},
+      "baseline": "Author 28 native inputs, two exact fixtures, three exact Geometry inputs, 18 actual Rust/native exchanges and both unchanged originals pass with empty stderr.",
+      "status": "ported_reviewed",
+      "review": "Independent integration_reviewer fresh source/owned Cargo target passed 30 relevant Rust checks; full Mesh helper reproduced 28 native inputs, two exact fixtures, three exact old-input controls, 18 actual XML exchanges and both unchanged originals. Independently replayed Geometry 48 inputs/44 exports/both originals and Contact 16 inputs/17 exchanges/producer limitation/unchanged DOMLink.Sensors. Private stdout/stderr injections each failed quiet capture; restored source passed all 30. Audited every original literal optimization-string success, enum/string, URI, scale component <=1e-3, submesh/center and decomposition predicate. Shared text output is unchanged on accepted Contact domain. Three prior-approved predicate transitions preserve exact input and URI; Geometry originals remain partial. No findings. Strict staged/exact hosted qualification pending."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

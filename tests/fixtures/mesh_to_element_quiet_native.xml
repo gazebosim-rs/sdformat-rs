@@ -1,0 +1,8 @@
+<mesh optimization='convex_hull'>
+  <uri>mesh-uri</uri>
+  <submesh>
+    <name>submesh</name>
+    <center>false</center>
+  </submesh>
+  <scale>1 2 3</scale>
+</mesh>

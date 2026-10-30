@@ -27,7 +27,9 @@ mod magnetometer_xml;
 mod navsat_xml;
 mod noise_xml;
 pub use camera::*;
+mod mesh_xml;
 mod model_config;
+mod param_xml;
 pub use model_config::{
     ModelConfigSelection, ModelConfigWarning, ModelConfigWarningKind, select_model_config,
 };
@@ -85,8 +87,13 @@ pub fn load_axis_str(xml: &str, source: &str) -> Result<Axis, Diagnostic> {
     parse::load_axis_element(xml, source)
 }
 
-/// Load one supported primitive/Plane geometry without creating a collision.
-/// Mesh, heightmap and polyline roots remain unsupported by this standalone API.
+/// Load mesh metadata without resolving a URI or decoding an asset.
+pub fn load_mesh_str(xml: &str, source: &str) -> Result<Mesh, Diagnostic> {
+    parse::load_mesh_element(xml, source)
+}
+
+/// Load one supported geometry without creating a collision.
+/// Heightmap and polyline roots remain unsupported by this standalone API.
 pub fn load_geometry_str(xml: &str, source: &str) -> Result<Geometry, Diagnostic> {
     parse::load_geometry_element(xml, source)
 }

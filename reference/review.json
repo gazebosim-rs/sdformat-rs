@@ -2,18 +2,19 @@
   "decision": "approved",
   "author": "sdformat_owner",
   "reviewer": "integration_reviewer",
-  "source_digest": "9a2dec7bdab4bff9734785cc5fe6e4a0fe86d871d99ce5029c3ab92468946af6",
-  "protected_digest": "c62f5222f166c4163ebbab7ad5fdac0d4fe1603e12b3e0193f27e3ff7b9d314a",
-  "scope": "Primitive/Plane Geometry XML and the seven supported blocks in each of two genuine originals; both mappings remain partial.",
+  "source_digest": "2132dca26a63f33c6be309ce3656660e8f5ca52f5d78699052716e35f4809fd0",
+  "protected_digest": "dce06d061538365cdaf484e01e18e53c7ce04a484351fb64f08df77968a6055a",
+  "scope": "Valid Mesh metadata XML, exact two configured Mesh ToElement mappings and three independently approved Geometry capability transitions.",
   "checks": [
-    "Fresh reviewer source and owned Cargo target passed all 23 relevant Rust checks: six new and seventeen unchanged geometry/basic-primitive/shape controls.",
-    "Fresh native helper passed 48 inputs, seven exact constructor fixtures, six Plane setter/reload profiles, 43 actual Rust/native exchanges and both unchanged full originals with their distinct exact stderr. Pinned source/header/math/loaded-library checks passed.",
-    "Compared selected type/presence/other-shape absence/empty-Polyline/output/error predicates against both originals. Rust enum and complete native presence mask preserve those seven blocks; complex-shape blocks remain unported.",
-    "Reviewer-only stdout and stderr injections each failed actual quiet capture. Restored source matches the final executable paths and all 23 checks passed again.",
-    "Reviewed dimension and vector policies, constructor versus document defaults, explicit complex-variant errors, caller diagnostics, raw immutable Plane emission and existing reload normalization. Full document parsing and old assertions remain unchanged."
+    "Fresh source and owned Cargo target passed 30 relevant Rust checks, including both tightened original ports with successful literal optimization-string parsing.",
+    "Fresh Mesh helper passed 28 native inputs, two exact fixtures, three exact old-input controls, 18 actual exchanges and both unchanged originals with empty stderr; source/header/math/library identity checks passed.",
+    "Independent Geometry helper passed 48 inputs, 44 actual exports and both originals with their distinct stderr. Independent Contact helper passed 16 inputs, 17 exchanges, producer limitation and unchanged DOMLink.Sensors.",
+    "Audited original enum/string optimization, URI, direct scale-component 1e-3, submesh/center, decomposition presence/counts/absence and output/error/quiet predicates. No input Element identity assertion exists in these exact cases.",
+    "Reviewer-only stdout and stderr injections each failed quiet capture; restored executable files match the final candidate and all 30 checks passed again.",
+    "Reviewed XML text/CDATA/closing-marker boundaries, finite scale and existing numeric/default/sentinel policies, immutable output and literal caller source. Shared Contact validation excludes new tab/LF text paths, preserving accepted output. Geometry remains partial and invalid default producer error 34 is not imitated."
   ],
   "remaining": [
-    "Normal strict staged hook and exact hosted qualification remain required; accepted 191 complete/25 partial versus candidate 191/27.",
-    "Mesh/Heightmap/Polyline blocks and required-URI partial producer errors remain unported. No generic pointer-origin facade, physical/resource creation, arbitrary-normal bitwise roundtrip or performance claim."
+    "Normal strict staged hook and exact hosted qualification remain required; accepted 191 complete/27 partial versus candidate 193/27.",
+    "No URI resolution, asset loading, rendering/physics, broader Geometry completion, generic pointer identity or performance claim."
   ]
 }

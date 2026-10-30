@@ -67,10 +67,11 @@ impl Geometry {
                 vector("normal", *normal, false)?,
                 vector("size", *size, true)?
             ),
+            Self::Mesh(value) => value.to_xml()?,
             _ => {
                 return Err(error(
                     ErrorCode::Unsupported,
-                    "geometry XML supports primitives and Plane only",
+                    "geometry XML does not support heightmap or polyline",
                 ));
             }
         };

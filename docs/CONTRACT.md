@@ -1140,8 +1140,16 @@ in [SURFACE_XML.md](SURFACE_XML.md).
 ## Primitive geometry XML
 
 Geometry::to_xml and load_geometry_str cover seven primitive/Plane variants.
-Existing document/default/normalization behavior is reused; standalone complex
-variants and unrepresentable output dimensions fail explicitly. Plane output is
+Existing document/default/normalization behavior is reused; standalone
+Heightmap/Polyline variants and unrepresentable output dimensions fail explicitly. Plane output is
 raw metadata whose reload follows existing normalization, not a blanket bit
 roundtrip. See [GEOMETRY_XML.md](GEOMETRY_XML.md) for subtype, numeric, native
 constructor/document and partial-original boundaries.
+
+## Mesh metadata XML
+
+Mesh::to_xml and load_mesh_str extend Geometry XML to valid Mesh metadata. Existing
+URI/default/parser rules remain; no URI resolution or resource processing occurs.
+Unrepresentable edited text/state fails explicitly. Invalid native default Mesh
+partial-output errors remain outside the API and Geometry originals stay partial.
+See [MESH_XML.md](MESH_XML.md).

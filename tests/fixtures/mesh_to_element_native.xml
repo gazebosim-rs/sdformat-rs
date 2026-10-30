@@ -1,0 +1,12 @@
+<mesh optimization='convex_decomposition'>
+  <convex_decomposition>
+    <max_convex_hulls>10</max_convex_hulls>
+    <voxel_resolution>300000</voxel_resolution>
+  </convex_decomposition>
+  <uri>mesh-uri</uri>
+  <submesh>
+    <name>submesh</name>
+    <center>false</center>
+  </submesh>
+  <scale>1 2 3</scale>
+</mesh>

@@ -5,7 +5,8 @@
 
 Geometry::to_xml and load_geometry_str support Box, Sphere, Cylinder, Capsule,
 Cone, Ellipsoid and Plane metadata. The standalone reader delegates to the
-existing geometry parser after rejecting Mesh, Heightmap and Polyline explicitly.
+existing geometry parser. Valid Mesh metadata is added by [MESH_XML.md](MESH_XML.md);
+Heightmap and Polyline remain explicitly Unsupported in standalone XML.
 Full document loading keeps its existing complex-shape admission and defaults.
 No resource IO, collision creation or physics validation occurs here.
 

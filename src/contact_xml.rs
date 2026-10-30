@@ -1,8 +1,8 @@
 // Copyright (C) 2026 Open Source Robotics Foundation
 // SPDX-License-Identifier: Apache-2.0
 //! Contact metadata output; collision references remain unresolved.
+use crate::param_xml::text;
 use crate::{ContactSensor, Diagnostic, ErrorCode, Source};
-use quick_xml::escape::escape;
 
 fn error(code: ErrorCode, message: &str) -> Diagnostic {
     Diagnostic {
@@ -43,13 +43,6 @@ pub(crate) fn validate_config(value: &ContactSensor) -> Result<(), Diagnostic> {
         }
     }
     Ok(())
-}
-fn text(value: &str) -> String {
-    if value.contains("  ") {
-        format!("<![CDATA[{value}]]>")
-    } else {
-        escape(value).into_owned()
-    }
 }
 impl ContactSensor {
     /// Emit ordered collision strings and topic without resolving names or contacts.

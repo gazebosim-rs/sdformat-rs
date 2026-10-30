@@ -1,0 +1,293 @@
+{
+  "rows": [
+    {
+      "id": "mesh_to_element_native.xml",
+      "xml": "<mesh optimization='convex_decomposition'>\n  <convex_decomposition>\n    <max_convex_hulls>10</max_convex_hulls>\n    <voxel_resolution>300000</voxel_resolution>\n  </convex_decomposition>\n  <uri>mesh-uri</uri>\n  <submesh>\n    <name>submesh</name>\n    <center>false</center>\n  </submesh>\n  <scale>1 2 3</scale>\n</mesh>\n",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 6d6573682d757269 636f6e7665785f6465636f6d706f736974696f6e 2 4607182418800017408 4611686018427387904 4613937818241073152 7375626d657368 0 1 10 300000\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "mesh_to_element_quiet_native.xml",
+      "xml": "<mesh optimization='convex_hull'>\n  <uri>mesh-uri</uri>\n  <submesh>\n    <name>submesh</name>\n    <center>false</center>\n  </submesh>\n  <scale>1 2 3</scale>\n</mesh>\n",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 6d6573682d757269 636f6e7665785f68756c6c 1 4607182418800017408 4611686018427387904 4613937818241073152 7375626d657368 0 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "omitted-uri",
+      "xml": "<mesh/>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 5f5f64656661756c745f5f - 0 4607182418800017408 4607182418800017408 4607182418800017408 - 0 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "simple",
+      "xml": "<mesh><uri>mesh.dae</uri></mesh>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 6d6573682e646165 - 0 4607182418800017408 4607182418800017408 4607182418800017408 - 0 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "empty-scale",
+      "xml": "<mesh><uri>mesh-uri</uri><scale/></mesh>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 6d6573682d757269 - 0 4607182418800017408 4607182418800017408 4607182418800017408 - 0 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "negative-zero-scale",
+      "xml": "<mesh><uri>mesh-uri</uri><scale>-1 -0 0</scale></mesh>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 6d6573682d757269 - 0 13830554455654793216 9223372036854775808 0 - 0 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "min-subnormal-scale",
+      "xml": "<mesh><uri>mesh-uri</uri><scale>5e-324 1e-310 2</scale></mesh>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 6d6573682d757269 - 0 1 20240225330731 4611686018427387904 - 0 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "unknown-optimization",
+      "xml": "<mesh optimization=\"unknown\"><uri>mesh-uri</uri></mesh>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 6d6573682d757269 - 0 4607182418800017408 4607182418800017408 4607182418800017408 - 0 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "empty-decomposition",
+      "xml": "<mesh><uri>mesh-uri</uri><convex_decomposition/></mesh>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 6d6573682d757269 - 0 4607182418800017408 4607182418800017408 4607182418800017408 - 0 1 16 200000\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "zero-counts",
+      "xml": "<mesh><uri>mesh-uri</uri><convex_decomposition><max_convex_hulls>0</max_convex_hulls><voxel_resolution>0</voxel_resolution></convex_decomposition></mesh>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 6d6573682d757269 - 0 4607182418800017408 4607182418800017408 4607182418800017408 - 0 1 0 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "max-counts",
+      "xml": "<mesh><uri>mesh-uri</uri><convex_decomposition><max_convex_hulls>4294967295</max_convex_hulls><voxel_resolution>4294967295</voxel_resolution></convex_decomposition></mesh>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 6d6573682d757269 - 0 4607182418800017408 4607182418800017408 4607182418800017408 - 0 1 4294967295 4294967295\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "center-true",
+      "xml": "<mesh><uri>mesh-uri</uri><submesh><name>submesh</name><center>true</center></submesh></mesh>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 6d6573682d757269 - 0 4607182418800017408 4607182418800017408 4607182418800017408 7375626d657368 1 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "ordinary-space-collapse",
+      "xml": "<mesh><uri> a  b </uri><submesh><name> sub  mesh </name></submesh></mesh>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 612062 - 0 4607182418800017408 4607182418800017408 4607182418800017408 737562206d657368 0 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "cdata-spaces",
+      "xml": "<mesh><uri><![CDATA[a  b]]></uri><submesh><name><![CDATA[sub  mesh]]></name><center>true</center></submesh></mesh>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 61202062 - 0 4607182418800017408 4607182418800017408 4607182418800017408 73756220206d657368 1 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "internal-tab-lf",
+      "xml": "<mesh><uri><![CDATA[a\tb\nc]]></uri><submesh><name><![CDATA[sub\tmesh]]></name></submesh></mesh>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 6109620a63 - 0 4607182418800017408 4607182418800017408 4607182418800017408 737562096d657368 0 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "unicode-space",
+      "xml": "<mesh><uri>\u00a0mesh-uri\u00a0</uri></mesh>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES c2a06d6573682d757269c2a0 - 0 4607182418800017408 4607182418800017408 4607182418800017408 - 0 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "escaped-markup",
+      "xml": "<mesh><uri>a &amp; &lt;b&gt; &quot;quote&quot; &apos;x&apos;</uri></mesh>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 612026203c623e202271756f74652220277827 - 0 4607182418800017408 4607182418800017408 4607182418800017408 - 0 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "cdata-end-as-text",
+      "xml": "<mesh><uri>a ]]&gt; tail</uri></mesh>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 61205d5d3e207461696c - 0 4607182418800017408 4607182418800017408 4607182418800017408 - 0 0\n",
+        "stderr": ""
+      },
+      "export": true
+    },
+    {
+      "id": "empty-uri",
+      "xml": "<mesh><uri/></mesh>",
+      "native": {
+        "stdout": "READ 0 9 9 9 9 9 9 9\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Empty string used when setting a required parameter. Key[uri]\n"
+      },
+      "export": false
+    },
+    {
+      "id": "empty-submesh-name",
+      "xml": "<mesh><uri>mesh-uri</uri><submesh><name/></submesh></mesh>",
+      "native": {
+        "stdout": "READ 0 9 9 9 9 9 9 9 9\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Empty string used when setting a required parameter. Key[name]\n"
+      },
+      "export": false
+    },
+    {
+      "id": "reserved-submesh-name",
+      "xml": "<mesh><uri>mesh-uri</uri><submesh><name>__default__</name></submesh></mesh>",
+      "native": {
+        "stdout": "READ 1\nLOAD 8\nVALUES 6d6573682d757269 - 0 4607182418800017408 4607182418800017408 4607182418800017408 - 0 0\n",
+        "stderr": ""
+      },
+      "export": false
+    },
+    {
+      "id": "short-scale",
+      "xml": "<mesh><uri>mesh-uri</uri><scale>1 2</scale></mesh>",
+      "native": {
+        "stdout": "READ 0 9 9 9 9 9 9 9\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Unknown error. Unable to set value [1 2 ] for key[scale]\n"
+      },
+      "export": false
+    },
+    {
+      "id": "nan-scale",
+      "xml": "<mesh><uri>mesh-uri</uri><scale>nan 0 1</scale></mesh>",
+      "native": {
+        "stdout": "READ 0 9 9 9 9 9 9 9\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Unknown error. Unable to set value [nan 0 1 ] for key[scale]\n"
+      },
+      "export": false
+    },
+    {
+      "id": "bad-center",
+      "xml": "<mesh><uri>mesh-uri</uri><submesh><name>name</name><center>maybe</center></submesh></mesh>",
+      "native": {
+        "stdout": "READ 0 9 9 9 9 9 9 9 9\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Invalid boolean value\n"
+      },
+      "export": false
+    },
+    {
+      "id": "unknown-child",
+      "xml": "<mesh><uri>mesh-uri</uri><unknown/></mesh>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 6d6573682d757269 - 0 4607182418800017408 4607182418800017408 4607182418800017408 - 0 0\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/geometry/mesh/unknown:<data-string>:L1]: XML Element[unknown], child of element[mesh], not defined in SDF. Copying[unknown] as children of [mesh].\n"
+      },
+      "export": false,
+      "gap_code": "Unsupported"
+    },
+    {
+      "id": "unknown-attr",
+      "xml": "<mesh bad=\"x\"><uri>mesh-uri</uri></mesh>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 6d6573682d757269 - 0 4607182418800017408 4607182418800017408 4607182418800017408 - 0 0\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/collision[@name=\"c\"]/geometry/mesh[@bad=\"x\"]:<data-string>:L1]: XML Attribute[bad] in element[mesh] not defined in SDF.\n"
+      },
+      "export": false,
+      "gap_code": "Unsupported"
+    },
+    {
+      "id": "extra-scale",
+      "xml": "<mesh><uri>mesh-uri</uri><scale>1 2 3 4</scale></mesh>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 6d6573682d757269 - 0 4607182418800017408 4611686018427387904 4613937818241073152 - 0 0\n",
+        "stderr": ""
+      },
+      "export": false,
+      "gap_code": "InvalidValue"
+    },
+    {
+      "id": "duplicate-uri",
+      "xml": "<mesh><uri>first</uri><uri>second</uri></mesh>",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 6669727374 - 0 4607182418800017408 4607182418800017408 4607182418800017408 - 0 0\n",
+        "stderr": ""
+      },
+      "export": false,
+      "gap_code": "InvalidValue"
+    }
+  ],
+  "geometry_controls": [
+    {
+      "id": "old-corpus",
+      "xml": "<geometry><mesh><uri>mesh.dae</uri></mesh></geometry>",
+      "uri": "geometry.xml",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 6d6573682e646165 - 0 4607182418800017408 4607182418800017408 4607182418800017408 - 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "id": "old-writer",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry><mesh><uri>mesh.dae</uri></mesh></geometry></collision></link></model></sdf>",
+      "uri": "complex.xml",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 6d6573682e646165 - 0 4607182418800017408 4607182418800017408 4607182418800017408 - 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "id": "old-default",
+      "xml": "<geometry><mesh/></geometry>",
+      "uri": "caller.xml",
+      "native": {
+        "stdout": "READ 1\nLOAD\nVALUES 5f5f64656661756c745f5f - 0 4607182418800017408 4607182418800017408 4607182418800017408 - 0 0\n",
+        "stderr": ""
+      }
+    }
+  ],
+  "empty_native_producer": {
+    "stdout": "EMIT 1 34\nXML_BEGIN\n<mesh>\n  <uri>__default__</uri>\n  <scale>1 1 1</scale>\n</mesh>\nXML_END\nLOAD\nVALUES 5f5f64656661756c745f5f - 0 4607182418800017408 4607182418800017408 4607182418800017408 - 0 0\n",
+    "stderr": ""
+  }
+}

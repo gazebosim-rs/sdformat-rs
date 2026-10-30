@@ -2,6 +2,8 @@
 // SPDX-License-Identifier: Apache-2.0
 use sdformat::*;
 use serde_json::Value;
+#[path = "support/mesh_projection.rs"]
+mod mesh_projection;
 #[path = "support/geometry_projection.rs"]
 mod projection;
 fn data() -> Value {
@@ -32,6 +34,19 @@ fn native_primitive_inputs_and_current_value_outputs() {
             assert_eq!(&lines[..2], ["READ 1", "LOAD"]);
             let expected: Vec<_> = lines[2].split_whitespace().map(str::to_owned).collect();
             assert_eq!(projection::projection(&value), expected, "{}", row["id"]);
+            if matches!(value, Geometry::Mesh(_)) {
+                let d: Value = serde_json::from_str(include_str!("mesh_xml.json")).unwrap();
+                let row = &d["geometry_controls"][0];
+                assert_eq!(
+                    row["xml"],
+                    rows.iter().find(|r| r["id"] == "mesh").unwrap()["xml"]
+                );
+                mesh_projection::assert_geometry(
+                    row["xml"].as_str().unwrap(),
+                    "geometry.xml",
+                    row["native"]["stdout"].as_str().unwrap(),
+                );
+            }
             let xml = value.to_xml().unwrap();
             assert_eq!(
                 projection::projection(&load_geometry_str(&xml, "roundtrip.xml").unwrap()),
@@ -174,14 +189,28 @@ fn output_rejects_dimensions_or_types_it_cannot_preserve() {
             "<sdf version='1.12'><model name='m'><link name='l'><collision name='c'><geometry>{shape}</geometry></collision></link></model></sdf>"
         );
         let sdf = load_str(&xml, "complex.xml", &NoResources).unwrap();
-        assert_eq!(
-            sdf.models[0].links[0].collisions[0]
-                .geometry
-                .to_xml()
-                .unwrap_err()
-                .code,
-            ErrorCode::Unsupported
-        );
+        if matches!(
+            sdf.models[0].links[0].collisions[0].geometry,
+            Geometry::Mesh(_)
+        ) {
+            let d: Value = serde_json::from_str(include_str!("mesh_xml.json")).unwrap();
+            let row = &d["geometry_controls"][1];
+            assert_eq!(row["xml"], xml);
+            mesh_projection::assert_geometry(
+                &xml,
+                "complex.xml",
+                row["native"]["stdout"].as_str().unwrap(),
+            );
+        } else {
+            assert_eq!(
+                sdf.models[0].links[0].collisions[0]
+                    .geometry
+                    .to_xml()
+                    .unwrap_err()
+                    .code,
+                ErrorCode::Unsupported
+            );
+        }
     }
 }
 #[test]
@@ -191,8 +220,23 @@ fn standalone_error_locations_and_strict_xml_boundaries() {
         load_geometry_str("<surface/>", "bad.xml").unwrap_err().code,
         ErrorCode::Xml
     );
+    let d: Value = serde_json::from_str(include_str!("mesh_xml.json")).unwrap();
+    let row = &d["geometry_controls"][2];
+    let xml = "<geometry><mesh/></geometry>";
+    assert_eq!(row["xml"], xml);
+    mesh_projection::assert_geometry(xml, "caller.xml", row["native"]["stdout"].as_str().unwrap());
+    let Geometry::Mesh(value) = load_geometry_str(xml, "caller.xml").unwrap() else {
+        panic!("not Mesh")
+    };
+    assert_eq!(
+        value.source,
+        Source {
+            uri: "caller.xml".into(),
+            line: 1,
+            column: 11
+        }
+    );
     for (xml, code, column) in [
-        ("<geometry><mesh/></geometry>", ErrorCode::Unsupported, 11),
         (
             "<geometry><box bad='x'/></geometry>",
             ErrorCode::Unsupported,

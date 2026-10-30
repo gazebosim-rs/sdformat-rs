@@ -145,7 +145,7 @@ def check_ledger(root):
             print('Protected changes:', ', '.join(changed))
 
 
-def coverage(root, out, manifest):
+def coverage(root, out, manifest, changed=None):
     out.mkdir(parents=True, exist_ok=True)
     raw = out / 'raw'
     if raw.exists(): shutil.rmtree(raw)
@@ -187,35 +187,86 @@ def coverage(root, out, manifest):
         elif line.startswith('DA:') and path:
             number, count, *_ = line[3:].split(',')
             covered[(path, int(number))] = int(count) > 0
-    changed = changed_lines(root)
-    measured = [covered[key] for key in changed if key in covered]
-    if measured:
-        assert sum(measured) * 100 > len(measured) * 95, 'changed executable line coverage must exceed 95%'
-    evidence = {'source_digest': digest(root), 'toolchain': run(['rustc', '-vV'], capture=True, cwd=root).stdout, 'runner': os.uname().nodename, 'profile': 'core', 'coverage': counts, 'changed_lines': {'count': len(measured), 'covered': sum(measured)}}
+    full = check_changed_coverage(root, {'lines': all_source_lines(root)}, covered, strict=False)
+    changed = changed if changed is not None else changed_manifest(root)
+    measured = check_changed_coverage(root, changed, covered, strict=changed['mode'] != 'full-source')
+    evidence = {'source_digest': digest(root), 'toolchain': run(['rustc', '-vV'], capture=True, cwd=root).stdout, 'runner': os.uname().nodename, 'profile': 'core', 'coverage': counts, 'changed_lines': {'count': len(measured), 'covered': sum(measured), 'base': changed['base'], 'target': changed['target'], 'mode': changed['mode'], 'status': 'measured' if measured else ('no executable changes' if changed['lines'] else 'no added source lines')}, 'full_source_lines': {'count': len(full), 'covered': sum(full)}}
     (out / 'evidence.json').write_text(json.dumps(evidence, indent=2) + '\n')
     print(json.dumps(evidence, indent=2))
 
 
-def changed_lines(root):
-    if not (root / '.git').exists():
-        # In an exported staged tree every line must satisfy the gate. This is
-        # stricter than borrowing history/evidence from a different working tree.
-        return {(p.resolve(), i) for p in (root / 'src').rglob('*.rs') for i, _ in enumerate(p.read_text().splitlines(), 1)}
-    diff = run(['git', 'diff', '--no-ext-diff', '--unified=0', 'HEAD', '--', 'src'], capture=True, cwd=root).stdout
-    path, result = None, set()
+def all_source_lines(root):
+    return {(str(p.relative_to(root)), i) for p in (root / 'src').rglob('*.rs')
+            for i, _ in enumerate(p.read_text().splitlines(), 1)}
+
+
+def diff_lines(diff):
+    path, result, in_hunk = None, set(), False
     for line in diff.splitlines():
-        if line.startswith('+++ b/'): path = (root / line[6:]).resolve()
+        if line.startswith('diff --git '):
+            path, in_hunk = None, False
+        elif not in_hunk and line.startswith('+++ b/'):
+            path = line[6:]
+        elif not in_hunk and line.startswith('+++ '):
+            assert line == '+++ /dev/null', 'quoted source path cannot be measured'
+            path = None
         elif line.startswith('@@') and path:
+            in_hunk = True
             start, count = re.search(r'\+(\d+)(?:,(\d+))?', line).groups()
             result.update((path, i) for i in range(int(start), int(start) + int(count or 1)))
-    # Untracked production files have no diff yet.
-    for name in run(['git', 'ls-files', '--others', '--exclude-standard', 'src'], capture=True, cwd=root).stdout.splitlines():
-        p = root / name
-        result.update((p.resolve(), i) for i, _ in enumerate(p.read_text().splitlines(), 1))
     return result
 
 
-def verify(root):
+def changed_manifest(root, base=None, target=None):
+    if not (root / '.git').exists():
+        return {'base': None, 'target': None, 'mode': 'full-source', 'lines': all_source_lines(root)}
+    head = head_revision(root)
+    if base is None:
+        base = os.environ.get('SDF_COVERAGE_BASE')
+        if not base:
+            parents = run(['git', 'rev-list', '--parents', '-n', '1', 'HEAD'], capture=True, cwd=root).stdout.split()
+            base = parents[1] if len(parents) > 1 else None
+    if not base or set(base) == {'0'}:
+        return {'base': None, 'target': target or head, 'mode': 'full-source', 'lines': all_source_lines(root)}
+    base = run(['git', 'rev-parse', '--verify', base + '^{commit}'], capture=True, cwd=root).stdout.strip()
+    args = ['git', 'diff', '--no-ext-diff', '--unified=0', base]
+    if target is not None:
+        args.append(target)
+    diff = run(args + ['--', 'src'], capture=True, cwd=root).stdout
+    lines = diff_lines(diff)
+    if target is None:
+        for name in run(['git', 'ls-files', '--others', '--exclude-standard', 'src'], capture=True, cwd=root).stdout.splitlines():
+            lines.update((name, i) for i, _ in enumerate((root / name).read_text().splitlines(), 1))
+    return {'base': base, 'target': target or head, 'mode': 'parent-diff', 'lines': lines}
+
+
+def check_changed_coverage(root, changed, covered, strict=True):
+    instrumented = {path for path, _ in covered}
+    for name, _ in changed['lines']:
+        assert (root / name).resolve() in instrumented, 'changed source has no instrumentation'
+    measured = [covered[key] for name, line in changed['lines']
+                if (key := ((root / name).resolve(), line)) in covered]
+    if strict:
+        for name, line in changed['lines']:
+            path = (root / name).resolve()
+            if (path, line) in covered:
+                continue
+            lines = path.read_text().splitlines()
+            assert 1 <= line <= len(lines), 'changed line outside source'
+            text = lines[line - 1].strip()
+            non_executable = (not text or text.startswith('//') or text in ('{', '}', '};')
+                              or re.fullmatch(r'#\[[^\]]*\]', text)
+                              or re.fullmatch(r'(?:pub(?:\([^)]*\))?\s+)?(?:use|mod)\s+[^;]+;', text))
+            assert non_executable, 'changed source has no instrumented executable lines'
+    if measured:
+        assert sum(measured) * 100 > len(measured) * 95, 'changed executable line coverage must exceed 95%'
+    return measured
+
+
+def changed_lines(root):
+    return {((root / path).resolve(), line) for path, line in changed_manifest(root)['lines']}
+
+def verify(root, changed=None):
     check_review(root)
     manifest = json.loads((root / 'coverage.json').read_text())
     metadata = json.loads(run(['cargo', 'metadata', '--locked', '--format-version=1'], capture=True, cwd=root).stdout)
@@ -226,7 +277,7 @@ def verify(root):
     run(['cargo', 'fmt', '--all', '--check'], cwd=root)
     run(['cargo', 'clippy', '--locked', '--all-targets', '--', '-D', 'warnings'], cwd=root)
     run(['cargo', 'test', '--locked', '--doc'], cwd=root)
-    coverage(root, root / 'artifacts' / 'core', manifest)
+    coverage(root, root / 'artifacts' / 'core', manifest, changed)
 
 
 def validate_snapshot(root, tree, candidate):
@@ -291,12 +342,15 @@ def isolated_git_context(root):
 def staged():
     tree = run(['git', 'write-tree'], capture=True, cwd=ROOT).stdout.strip()
     head = head_revision(ROOT)
+    changed = changed_manifest(ROOT, head, tree) if head else {'base': None, 'target': tree, 'mode': 'full-source', 'lines': None}
     with tempfile.TemporaryDirectory(prefix='staged-', dir=ROOT / 'target') as temp:
         export_index(ROOT, temp, tree)
         assert run(['git', 'write-tree'], capture=True, cwd=ROOT).stdout.strip() == tree, 'index changed during export'
         snapshot = Path(temp)
+        if changed['lines'] is None:
+            changed['lines'] = all_source_lines(snapshot)
         with isolated_git_context(ROOT):
-            verify(snapshot)
+            verify(snapshot, changed)
         assert run(['git', 'write-tree'], capture=True, cwd=ROOT).stdout.strip() == tree, 'index changed during verification'
         assert head_revision(ROOT) == head, 'HEAD changed during verification'
         destination = ROOT / 'artifacts' / 'staged' / tree

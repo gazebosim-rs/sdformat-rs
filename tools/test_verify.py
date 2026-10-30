@@ -223,7 +223,7 @@ class FrozenExportTests(unittest.TestCase):
                     else:
                         (root / 'file').write_bytes(b'changed')
                         self.git(root, 'add', 'file')
-                def fake_verify(snapshot):
+                def fake_verify(snapshot, changed):
                     self.assertEqual((snapshot / 'file').read_bytes(), b'staged')
                     proof = snapshot / 'artifacts/core'; proof.mkdir(parents=True)
                     (proof / 'evidence.json').write_text('{}')

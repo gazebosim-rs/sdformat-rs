@@ -8,8 +8,12 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
       - run: sh tools/bootstrap.sh
-      - run: |
+      - env:
+          SDF_COVERAGE_BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: |
           mkdir -p artifacts/core
           set -o pipefail
           python3 tools/verify.py 2>&1 | tee artifacts/core/verify.log

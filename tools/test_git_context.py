@@ -49,11 +49,12 @@ class GitContextTests(unittest.TestCase):
 from pathlib import Path
 import verify
 before=dict(os.environ)
-def child(snapshot):
+def child(snapshot, changed):
     keys=subprocess.check_output(['git','rev-parse','--local-env-vars'],text=True).splitlines()
     assert not any(key in os.environ for key in keys)
     assert os.environ['GIT_SSH_COMMAND']=='nonlocal-setting-preserved'
     assert (snapshot/'src/lib.rs').read_text()=='intended staged bytes\\n'
+    assert changed['target'] and changed['base']
     foreign=Path({str(foreign)!r})
     subprocess.run(['git','init','--quiet',str(foreign)],check=True)
     (foreign/'value').write_text('independent')

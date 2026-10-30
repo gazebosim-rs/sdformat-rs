@@ -166,3 +166,7 @@ for the qualified subset and remaining Element, runtime and schema limits.
 
 Collision density presence and its native effective default are metadata only;
 see [the density contract](docs/COLLISION_DENSITY.md).
+
+The changed-line gate measures the frozen staged diff or the hosted event base,
+while retaining a separate full-source check. Initial commits use the full-source
+fallback; evidence labels empty and comment-only source diffs explicitly.

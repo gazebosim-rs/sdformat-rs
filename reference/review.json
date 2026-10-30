@@ -2,18 +2,18 @@
   "decision": "approved",
   "author": "sdformat_owner_terra",
   "reviewer": "integration_reviewer",
-  "source_digest": "1dd1ac29ac94012c17c995c97d16a7e709c528d20bf47ecf908b50f6e1d509ec",
-  "protected_digest": "9c04a65f6b0489ccf30316c3ab44531c31663ac7846edf2661559dda91b75d86",
-  "scope": "Optional Collision density metadata and effective1000 kg/m\u00b3 default; existing parser and original ownership assertions retained.",
+  "source_digest": "d816bcf54bccd00a8007922d2a50da50b2d44ce9962f5a932e2b4345472a2af9",
+  "protected_digest": "913d57ea63b6cd76d6bb46261fbf3d6083b20637fa8b85faa588ee3bea7acef4",
+  "scope": "Parent-bound staged and hosted changed-executable coverage, separate full-source check, honest non-executable N/A and robust unified-diff selection.",
   "checks": [
-    "Fresh independent source/owned target passed15 Rust controls: density3, unchanged Collision ownership6 and Link ownership6.",
-    "Fresh native helper reproduced14 complete XML profiles and10 setter states with pinned source/header/library identity.",
-    "Reviewed absentNone versus emptySome1000, exact signed zero and negative metadata, clone/edit independence, literal caller source and inherited finite/subnormal/structure failures.",
-    "Compared native optional<double>/HasElement/DensityDefault implementation. Native subnormal setter-to-emitter loss is retained as limitation, not copied or claimed equivalent.",
-    "Two old original constructors add only density:None; original assertions/ledger unchanged. Final reviewed metadata accurately separates author-wide550 checks and pending normal/hosted qualification."
+    "Fresh independent export passed22 repository tooling controls, including strict threshold, aggregate-masked changed failure, missing files/instrumentation, mixed missing executable, source-backed comments/blank N/A and diff-header/hunk guards.",
+    "Reviewer-only actual unborn-HEAD frozen-index export excluded unstaged bytes; explicit zero-base fallback measured full source. Real Git raw-string addition resembling +++ did not redirect later hunks.",
+    "Reviewed push-before/PR-base workflow/history binding, frozen HEAD-to-tree selection before export, exact evidence base/target/mode, unchanged index/HEAD race and repository-local environment isolation controls.",
+    "Full-source and strictly-greater-than95 thresholds retained. Unknown unmapped changed executable forms fail closed; only documented narrow syntax/comments/blank lines are N/A.",
+    "Two reported source-classification findings were fixed and independently replayed: source comment-only false failure and mixed covered/unmapped executable masking. Final metadata accurately states review and pending strict/hosted qualification."
   ],
   "remaining": [
-    "Normal strict staged gate and exact hosted qualification remain mandatory.",
-    "No writer, auto-inertia, physics, consumer pin, Element-origin identity or new original credit."
+    "Normal strict staged and exact hosted qualification remain mandatory.",
+    "No production behavior, original mapping credit, coverage threshold reduction or broader claim about unknown unmapped syntax."
   ]
 }

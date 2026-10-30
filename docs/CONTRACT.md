@@ -1212,3 +1212,15 @@ before dependency adoption. See [GEOMETRY_EMPTY.md](GEOMETRY_EMPTY.md).
 Collision density retains explicit optional metadata and native effective default
 1000 kg/m³ through `Collision::density` and `density()`. No mass/inertia
 calculation is implied. See [the density boundary](COLLISION_DENSITY.md).
+
+Staged coverage binds added source lines to the frozen index tree and its
+captured HEAD before exporting. The exact changed executable subset and the full
+instrumented source each must exceed 95%; missing instrumentation is an error.
+Hosted verification compares against the push-before or pull-request base from
+the event, with full history available. A true initial or new-branch zero base
+falls back to the full source. An empty diff is reported as no added source
+lines; a source-backed blank or line-comment-only change in an instrumented
+file is reported as no executable changes. Unknown unmapped source lines fail
+closed; only line comments, blank lines and narrow syntax-only forms are admitted.
+Neither empty case is measured coverage. The index and HEAD race
+checks and repository-local Git environment isolation remain in force.

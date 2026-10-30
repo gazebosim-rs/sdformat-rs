@@ -3441,3 +3441,15 @@ Author full 550 Rust checks, focused 15-check/native replay and all-target Clipp
 pass. Independent fresh-source review reproduced all 14 native profiles, ten setter
 states and 15 Rust checks with no findings. Strict/exact hosted qualification
 remains pending; no original credit is proposed. See [the density boundary](COLLISION_DENSITY.md).
+
+## Candidate changed-line gate correction
+
+The density staged export measured all source as the changed set, while the
+clean hosted checkout reported no working-tree diff. Its actual 7/7 instrumented
+changed lines were separately checked against exact hosted LCOV. A separate gate
+candidate captures a parent-bound frozen staged diff and uses the CI event base;
+full-source and crate/region checks remain. Known-bad subset and exact-95 controls
+fail as required. Independent fresh-export review passed all 22 tooling checks and additional
+initial, zero-base, diff-spoof, comment and mixed unmapped-executable controls.
+Normal staged/exact hosted qualification remains pending; accepted density
+evidence is unchanged.

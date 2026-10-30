@@ -246,7 +246,7 @@ pub struct World {
     /// Includes flattened into this world; imported source identity is retained.
     pub merged_includes: Vec<MergedInclude>,
     pub plugins: Vec<Plugin>,
-    /// Qualified opaque metadata imported by world-scope merged includes.
+    /// Qualified opaque metadata from merged includes and direct world children.
     pub extensions: Vec<ExtensionMetadata>,
     pub source: Source,
 }

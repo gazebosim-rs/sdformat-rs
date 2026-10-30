@@ -1,0 +1,93 @@
+[
+  {
+    "id": "interleaved_1.5",
+    "xml": "<sdf version='1.5'><world name='w'><v:dup k='1'/><include merge='true'><uri>@A@</uri></include><v:dup k='2'/><z:later xmlns:z='urn:z' key='α&amp;β'>π<z:child/>tail</z:later></world></sdf>",
+    "stdout": "models=1 frames=1\n<world name='w'>\n  <frame name='_merged__m__model__' attached_to='n::l'>\n    <pose relative_to='world'>0 0 0 0 0 0</pose>\n  </frame>\n  <model name='n'>\n    <link name='l'/>\n    <pose relative_to='_merged__m__model__'>0 0 0 0 0 0</pose>\n  </model>\n  <v:dup k='M'/>\n  <v:imported/>\n  <v:dup k='1'/>\n  <v:dup k='2'/>\n  <z:later xmlns:z='urn:z' key='α&β'>\n    <z:child/>\n  </z:later>\n  <gravity>0 0 -9.8000000000000007</gravity>\n  <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>\n  <atmosphere type='adiabatic'/>\n  <physics type='ode'>\n    <max_step_size>0.001</max_step_size>\n    <real_time_factor>1</real_time_factor>\n    <real_time_update_rate>1000</real_time_update_rate>\n  </physics>\n  <scene>\n    <ambient>0.400000006 0.400000006 0.400000006 1</ambient>\n    <background>0.699999988 0.699999988 0.699999988 1</background>\n    <shadows>true</shadows>\n  </scene>\n</world>\n",
+    "stderr": "",
+    "status": 0
+  },
+  {
+    "id": "prefix_1.5",
+    "xml": "<sdf version='1.5'><world name='w'><x:item xmlns:x='urn:a' x:key='v'/><x:item xmlns:x='urn:b' x:key='w'/><unbound:item k='u'/><xml:lang>en</xml:lang></world></sdf>",
+    "stdout": "models=0 frames=0\n<world name='w'>\n  <x:item xmlns:x='urn:a' x:key='v'/>\n  <x:item xmlns:x='urn:b' x:key='w'/>\n  <unbound:item k='u'/>\n  <xml:lang>en</xml:lang>\n  <gravity>0 0 -9.8000000000000007</gravity>\n  <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>\n  <atmosphere type='adiabatic'/>\n  <physics type='ode'>\n    <max_step_size>0.001</max_step_size>\n    <real_time_factor>1</real_time_factor>\n    <real_time_update_rate>1000</real_time_update_rate>\n  </physics>\n  <scene>\n    <ambient>0.400000006 0.400000006 0.400000006 1</ambient>\n    <background>0.699999988 0.699999988 0.699999988 1</background>\n    <shadows>true</shadows>\n  </scene>\n</world>\n",
+    "stderr": "",
+    "status": 0
+  },
+  {
+    "id": "unknown_1.5",
+    "xml": "<sdf version='1.5'><world name='w'><plain>keep?</plain><v:ok/><plain>twice</plain></world></sdf>",
+    "stdout": "models=0 frames=0\n<world name='w'>\n  <plain>keep?</plain>\n  <v:ok/>\n  <plain>twice</plain>\n  <gravity>0 0 -9.8000000000000007</gravity>\n  <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>\n  <atmosphere type='adiabatic'/>\n  <physics type='ode'>\n    <max_step_size>0.001</max_step_size>\n    <real_time_factor>1</real_time_factor>\n    <real_time_update_rate>1000</real_time_update_rate>\n  </physics>\n  <scene>\n    <ambient>0.400000006 0.400000006 0.400000006 1</ambient>\n    <background>0.699999988 0.699999988 0.699999988 1</background>\n    <shadows>true</shadows>\n  </scene>\n</world>\n",
+    "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/world[@name=\"w\"]/plain:@WORLD@:L1]: XML Element[plain], child of element[world], not defined in SDF. Copying[plain] as children of [world].\n\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/world[@name=\"w\"]/plain:@WORLD@:L1]: XML Element[plain], child of element[world], not defined in SDF. Copying[plain] as children of [world].\n",
+    "status": 0
+  },
+  {
+    "id": "known_1.5",
+    "xml": "<sdf version='1.5'><world name='w'><gravity>0 0 -9.8</gravity><v:gravity/><gravity>0 0 -9.8</gravity></world></sdf>",
+    "stdout": "models=0 frames=0\n<world name='w'>\n  <gravity>0 0 -9.8000000000000007</gravity>\n  <gravity>0 0 -9.8000000000000007</gravity>\n  <v:gravity/>\n  <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>\n  <atmosphere type='adiabatic'/>\n  <physics type='ode'>\n    <max_step_size>0.001</max_step_size>\n    <real_time_factor>1</real_time_factor>\n    <real_time_update_rate>1000</real_time_update_rate>\n  </physics>\n  <scene>\n    <ambient>0.400000006 0.400000006 0.400000006 1</ambient>\n    <background>0.699999988 0.699999988 0.699999988 1</background>\n    <shadows>true</shadows>\n  </scene>\n</world>\n",
+    "stderr": "",
+    "status": 0
+  },
+  {
+    "id": "interleaved_1.8",
+    "xml": "<sdf version='1.8'><world name='w'><v:dup k='1'/><include merge='true'><uri>@A@</uri></include><v:dup k='2'/><z:later xmlns:z='urn:z' key='α&amp;β'>π<z:child/>tail</z:later></world></sdf>",
+    "stdout": "models=1 frames=1\n<world name='w'>\n  <frame name='_merged__m__model__' attached_to='n::l'>\n    <pose relative_to='world'>0 0 0 0 0 0</pose>\n  </frame>\n  <model name='n'>\n    <link name='l'/>\n    <pose relative_to='_merged__m__model__'>0 0 0 0 0 0</pose>\n  </model>\n  <v:dup k='M'/>\n  <v:imported/>\n  <v:dup k='1'/>\n  <v:dup k='2'/>\n  <z:later xmlns:z='urn:z' key='α&β'>\n    <z:child/>\n  </z:later>\n  <gravity>0 0 -9.8000000000000007</gravity>\n  <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>\n  <atmosphere type='adiabatic'/>\n  <physics type='ode'>\n    <max_step_size>0.001</max_step_size>\n    <real_time_factor>1</real_time_factor>\n    <real_time_update_rate>1000</real_time_update_rate>\n  </physics>\n  <scene>\n    <ambient>0.400000006 0.400000006 0.400000006 1</ambient>\n    <background>0.699999988 0.699999988 0.699999988 1</background>\n    <shadows>true</shadows>\n  </scene>\n</world>\n",
+    "stderr": "",
+    "status": 0
+  },
+  {
+    "id": "prefix_1.8",
+    "xml": "<sdf version='1.8'><world name='w'><x:item xmlns:x='urn:a' x:key='v'/><x:item xmlns:x='urn:b' x:key='w'/><unbound:item k='u'/><xml:lang>en</xml:lang></world></sdf>",
+    "stdout": "models=0 frames=0\n<world name='w'>\n  <x:item xmlns:x='urn:a' x:key='v'/>\n  <x:item xmlns:x='urn:b' x:key='w'/>\n  <unbound:item k='u'/>\n  <xml:lang>en</xml:lang>\n  <gravity>0 0 -9.8000000000000007</gravity>\n  <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>\n  <atmosphere type='adiabatic'/>\n  <physics type='ode'>\n    <max_step_size>0.001</max_step_size>\n    <real_time_factor>1</real_time_factor>\n    <real_time_update_rate>1000</real_time_update_rate>\n  </physics>\n  <scene>\n    <ambient>0.400000006 0.400000006 0.400000006 1</ambient>\n    <background>0.699999988 0.699999988 0.699999988 1</background>\n    <shadows>true</shadows>\n  </scene>\n</world>\n",
+    "stderr": "",
+    "status": 0
+  },
+  {
+    "id": "unknown_1.8",
+    "xml": "<sdf version='1.8'><world name='w'><plain>keep?</plain><v:ok/><plain>twice</plain></world></sdf>",
+    "stdout": "models=0 frames=0\n<world name='w'>\n  <plain>keep?</plain>\n  <v:ok/>\n  <plain>twice</plain>\n  <gravity>0 0 -9.8000000000000007</gravity>\n  <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>\n  <atmosphere type='adiabatic'/>\n  <physics type='ode'>\n    <max_step_size>0.001</max_step_size>\n    <real_time_factor>1</real_time_factor>\n    <real_time_update_rate>1000</real_time_update_rate>\n  </physics>\n  <scene>\n    <ambient>0.400000006 0.400000006 0.400000006 1</ambient>\n    <background>0.699999988 0.699999988 0.699999988 1</background>\n    <shadows>true</shadows>\n  </scene>\n</world>\n",
+    "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/world[@name=\"w\"]/plain:@WORLD@:L1]: XML Element[plain], child of element[world], not defined in SDF. Copying[plain] as children of [world].\n\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/world[@name=\"w\"]/plain:@WORLD@:L1]: XML Element[plain], child of element[world], not defined in SDF. Copying[plain] as children of [world].\n",
+    "status": 0
+  },
+  {
+    "id": "known_1.8",
+    "xml": "<sdf version='1.8'><world name='w'><gravity>0 0 -9.8</gravity><v:gravity/><gravity>0 0 -9.8</gravity></world></sdf>",
+    "stdout": "models=0 frames=0\n<world name='w'>\n  <gravity>0 0 -9.8000000000000007</gravity>\n  <gravity>0 0 -9.8000000000000007</gravity>\n  <v:gravity/>\n  <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>\n  <atmosphere type='adiabatic'/>\n  <physics type='ode'>\n    <max_step_size>0.001</max_step_size>\n    <real_time_factor>1</real_time_factor>\n    <real_time_update_rate>1000</real_time_update_rate>\n  </physics>\n  <scene>\n    <ambient>0.400000006 0.400000006 0.400000006 1</ambient>\n    <background>0.699999988 0.699999988 0.699999988 1</background>\n    <shadows>true</shadows>\n  </scene>\n</world>\n",
+    "stderr": "",
+    "status": 0
+  },
+  {
+    "id": "interleaved_1.12",
+    "xml": "<sdf version='1.12'><world name='w'><v:dup k='1'/><include merge='true'><uri>@A@</uri></include><v:dup k='2'/><z:later xmlns:z='urn:z' key='α&amp;β'>π<z:child/>tail</z:later></world></sdf>",
+    "stdout": "models=1 frames=1\n<world name='w'>\n  <frame name='_merged__m__model__' attached_to='n::l'>\n    <pose relative_to='world'>0 0 0 0 0 0</pose>\n  </frame>\n  <model name='n'>\n    <link name='l'/>\n    <pose relative_to='_merged__m__model__'>0 0 0 0 0 0</pose>\n  </model>\n  <v:dup k='M'/>\n  <v:imported/>\n  <v:dup k='1'/>\n  <v:dup k='2'/>\n  <z:later xmlns:z='urn:z' key='α&β'>\n    <z:child/>\n  </z:later>\n  <gravity>0 0 -9.8000000000000007</gravity>\n  <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>\n  <atmosphere type='adiabatic'/>\n  <physics type='ode'>\n    <max_step_size>0.001</max_step_size>\n    <real_time_factor>1</real_time_factor>\n    <real_time_update_rate>1000</real_time_update_rate>\n  </physics>\n  <scene>\n    <ambient>0.400000006 0.400000006 0.400000006 1</ambient>\n    <background>0.699999988 0.699999988 0.699999988 1</background>\n    <shadows>true</shadows>\n  </scene>\n</world>\n",
+    "stderr": "",
+    "status": 0
+  },
+  {
+    "id": "prefix_1.12",
+    "xml": "<sdf version='1.12'><world name='w'><x:item xmlns:x='urn:a' x:key='v'/><x:item xmlns:x='urn:b' x:key='w'/><unbound:item k='u'/><xml:lang>en</xml:lang></world></sdf>",
+    "stdout": "models=0 frames=0\n<world name='w'>\n  <x:item xmlns:x='urn:a' x:key='v'/>\n  <x:item xmlns:x='urn:b' x:key='w'/>\n  <unbound:item k='u'/>\n  <xml:lang>en</xml:lang>\n  <gravity>0 0 -9.8000000000000007</gravity>\n  <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>\n  <atmosphere type='adiabatic'/>\n  <physics type='ode'>\n    <max_step_size>0.001</max_step_size>\n    <real_time_factor>1</real_time_factor>\n    <real_time_update_rate>1000</real_time_update_rate>\n  </physics>\n  <scene>\n    <ambient>0.400000006 0.400000006 0.400000006 1</ambient>\n    <background>0.699999988 0.699999988 0.699999988 1</background>\n    <shadows>true</shadows>\n  </scene>\n</world>\n",
+    "stderr": "",
+    "status": 0
+  },
+  {
+    "id": "unknown_1.12",
+    "xml": "<sdf version='1.12'><world name='w'><plain>keep?</plain><v:ok/><plain>twice</plain></world></sdf>",
+    "stdout": "models=0 frames=0\n<world name='w'>\n  <plain>keep?</plain>\n  <v:ok/>\n  <plain>twice</plain>\n  <gravity>0 0 -9.8000000000000007</gravity>\n  <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>\n  <atmosphere type='adiabatic'/>\n  <physics type='ode'>\n    <max_step_size>0.001</max_step_size>\n    <real_time_factor>1</real_time_factor>\n    <real_time_update_rate>1000</real_time_update_rate>\n  </physics>\n  <scene>\n    <ambient>0.400000006 0.400000006 0.400000006 1</ambient>\n    <background>0.699999988 0.699999988 0.699999988 1</background>\n    <shadows>true</shadows>\n  </scene>\n</world>\n",
+    "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/world[@name=\"w\"]/plain:@WORLD@:L1]: XML Element[plain], child of element[world], not defined in SDF. Copying[plain] as children of [world].\n\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/world[@name=\"w\"]/plain:@WORLD@:L1]: XML Element[plain], child of element[world], not defined in SDF. Copying[plain] as children of [world].\n",
+    "status": 0
+  },
+  {
+    "id": "known_1.12",
+    "xml": "<sdf version='1.12'><world name='w'><gravity>0 0 -9.8</gravity><v:gravity/><gravity>0 0 -9.8</gravity></world></sdf>",
+    "stdout": "models=0 frames=0\n<world name='w'>\n  <gravity>0 0 -9.8000000000000007</gravity>\n  <gravity>0 0 -9.8000000000000007</gravity>\n  <v:gravity/>\n  <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>\n  <atmosphere type='adiabatic'/>\n  <physics type='ode'>\n    <max_step_size>0.001</max_step_size>\n    <real_time_factor>1</real_time_factor>\n    <real_time_update_rate>1000</real_time_update_rate>\n  </physics>\n  <scene>\n    <ambient>0.400000006 0.400000006 0.400000006 1</ambient>\n    <background>0.699999988 0.699999988 0.699999988 1</background>\n    <shadows>true</shadows>\n  </scene>\n</world>\n",
+    "stderr": "",
+    "status": 0
+  },
+  {
+    "id": "multiline_1.12",
+    "xml": "<sdf version='1.12'>\n<world name='w'>\n <v:a key='α&amp;β'>\n  text<v:child/>tail\n </v:a>\n <v:b/>\n <v:a key='last'/>\n</world></sdf>",
+    "stdout": "models=0 frames=0\n<world name='w'>\n  <v:a key='α&β'>\n    <v:child/>\n  </v:a>\n  <v:b/>\n  <v:a key='last'/>\n  <gravity>0 0 -9.8000000000000007</gravity>\n  <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>\n  <atmosphere type='adiabatic'/>\n  <physics type='ode'>\n    <max_step_size>0.001</max_step_size>\n    <real_time_factor>1</real_time_factor>\n    <real_time_update_rate>1000</real_time_update_rate>\n  </physics>\n  <scene>\n    <ambient>0.400000006 0.400000006 0.400000006 1</ambient>\n    <background>0.699999988 0.699999988 0.699999988 1</background>\n    <shadows>true</shadows>\n  </scene>\n</world>\n",
+    "stderr": "",
+    "status": 0
+  }
+]

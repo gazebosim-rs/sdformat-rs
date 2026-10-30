@@ -1230,8 +1230,9 @@ Standalone Collision XML composes supported Geometry and Surface output while
 retaining optional density and actual Empty values. Unrepresentable values return
 errors. No physics or Element identity is implied; see [Collision XML](COLLISION_XML.md).
 
-World-scope merged models preserve imported qualified opaque metadata and source
-in `World::extensions`; direct world extension declarations remain unsupported.
+World-scope merged models and direct world children preserve qualified opaque
+metadata and source in `World::extensions`. Native orders merged metadata before
+direct world metadata; unqualified unknown world children remain unsupported.
 This adds a field to public `World` struct literals and exhaustive destructuring.
 Consumers must explicitly support or reject the metadata before adoption; no
 simulator dependency pin changes here. No Element identity or

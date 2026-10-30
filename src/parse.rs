@@ -809,7 +809,8 @@ impl Parser<'_> {
         for child in elements(node) {
             // An explicitly listed lexical extension name is permitted only
             // by its caller; ordinary SDF child lists contain no prefixes.
-            if !children.contains(&child.tag_name().name()) {
+            let name = child.tag_name().name();
+            if !(children.contains(&name) || name.contains(':') && extra_repeated.contains(&name)) {
                 return Err(self.err(
                     child,
                     ErrorCode::Unsupported,
@@ -1048,7 +1049,11 @@ impl Parser<'_> {
     }
 
     fn world(&mut self, node: Node<'_, '_>) -> Result<World, Diagnostic> {
-        self.allowed(
+        let extension_names: Vec<_> = elements(node)
+            .map(|member| member.tag_name().name())
+            .filter(|name| name.contains(':'))
+            .collect();
+        self.allowed_repeated(
             node,
             &[
                 "model",
@@ -1064,6 +1069,7 @@ impl Parser<'_> {
                 "atmosphere",
             ],
             &["name"],
+            &extension_names,
         )?;
         let name = self.name(node)?;
         let gravity = child(node, "gravity").map_or(Ok([0., 0., -9.8]), |n| self.values(n))?;
@@ -1105,6 +1111,7 @@ impl Parser<'_> {
         let mut joints = Vec::new();
         let mut plugins = Vec::new();
         let mut extensions = Vec::new();
+        let mut direct_extensions = Vec::new();
         let mut merged_includes = Vec::new();
         for member in elements(node) {
             match member.tag_name().name() {
@@ -1152,9 +1159,14 @@ impl Parser<'_> {
                 }
                 "joint" => joints.push(self.joint(member, false, supports_axis_mimic(member))?),
                 "plugin" => plugins.push(self.plugin(member)?),
+                _ if extension_names.contains(&member.tag_name().name()) => {
+                    direct_extensions.push(self.extension_metadata(member));
+                }
                 _ => {}
             }
         }
+        // Native merge expansion precedes direct world metadata in the Element.
+        extensions.extend(direct_extensions);
         if is_pre17(node) {
             // World reserves every model name before renaming legacy frames.
             let mut names = models.iter().map(|model| model.name.clone()).collect();

@@ -2,18 +2,18 @@
   "decision": "approved",
   "author": "sdformat_owner_terra",
   "reviewer": "integration_reviewer",
-  "source_digest": "179e773f0b63aaf952e5f0c06226fd9ff1f2181d1d1f3ad5cb74274a664fc82e",
-  "protected_digest": "4b5f64582331910a46d61cc838d48973c374fceea3ea5227025e10047f69c5f6",
-  "scope": "Local-only imported qualified world-merge metadata and exact prior-reviewed capability predicate transition.",
+  "source_digest": "253de1ed3a6daa170cb3664608d7e41a9098260673bd7eba07c2666c4a05b45a",
+  "protected_digest": "c15b8ef75e002a1efad10b8ed3fdda3abbdcb3e5789d5cb07d7534a0ba549549",
+  "scope": "Local-only direct qualified world metadata and exact pre-reviewed temporary capability transition.",
   "checks": [
-    "Fresh independent source/owned target reproduced all 14 full native observations, seven affected Rust checks and all-target Clippy.",
-    "Before the protected predicate edit, exact old full XML/resolver XML/URIs were retained and independently replayed as stronger positives for model/proxy/attachment/resolved pose/metadata/source. Final fold preserves all unrelated strict errors and proposes no original credit.",
-    "World field raw XML/source/order, qualified-only import policy, direct-world rejection and no consumer pin adoption inspected. Public struct-literal impact and native serialization differences are explicit.",
-    "Final local rebase preserves all ten executable/reference/test paths exactly and merges only two append-only docs onto the separately reviewed local tooling parent."
+    "Fresh independent source/owned target passed nine affected Rust tests and all-target Clippy; actual pinned helper replay reproduced 13 direct and 14 prior native observations.",
+    "Prior independent review checked the exact old direct-world fixture and complete prepared positive before the rejection was replaced. Final fold preserves fixture bytes, all unrelated strict assertions and complete native-backed corpus expectations.",
+    "Imported-before-direct order, duplicates, raw XML/source, namespace declarations/raw versus decoded attributes and known-singleton failure inspected. All nine executable/test paths matched the reviewed export; final docs only record actual evidence.",
+    "Shared validator refinement independently reviewed across all callers: only explicitly listed qualified extra names gain admission; all earlier extras were already in their allowed lists. Original fixed world schema slice retained. Fresh independent replay passed 29 distinct affected/reader Rust controls and all-target Clippy; failed nonexistent sensor target setup excluded."
   ],
   "remaining": [
-    "Mandatory local staged qualification remains required; exact hosted acceptance is not claimed.",
-    "Public publication/disclosure remains held pending explicit user authorization. This local receipt does not authorize a push or dashboard upload.",
-    "Consumers must explicitly reject or support World extensions before dependency pin adoption. Direct-world extensions and broader conversion/merge behavior remain unsupported."
+    "Mandatory local staged checks remain required; hosted/public acceptance is not claimed.",
+    "External publication/disclosure remains held pending explicit user authorization; no push or dashboard action is authorized by this local receipt.",
+    "No original-test credit or consumer pin adoption; consumers must explicitly support or reject World extension metadata."
   ]
 }

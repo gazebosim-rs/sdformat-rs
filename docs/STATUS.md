@@ -3512,3 +3512,19 @@ Independent final review passed seven affected Rust checks and all-target Clippy
 Direct-world custom extensions and other SDF-02 conversion/merge gaps remain.
 Normal staged/exact hosted qualification and consumer adoption are pending.
 See [world merge extensions](WORLD_MERGE_EXTENSIONS.md).
+
+
+## Candidate direct-world extension metadata
+
+A private follow-up to the locally reviewed world-merge slice preserves direct
+qualified metadata after imported metadata, including duplicates, raw XML and
+source. Thirteen pinned native observations and two Rust checks pass. Namespace
+declarations remain in raw XML but are not decoded attributes. Unqualified
+unknown children remain Unsupported. An independent pre-change review approved
+replacing the direct-world rejection with the exact native-backed positive.
+Final independent review replayed all 27 direct/prior native observations, nine
+affected Rust tests and all-target Clippy. The first local staged gate then
+rejected unmeasured opaque macro-token lines; the revised candidate uses the
+validation helper for explicitly permitted qualified repeated names. Independent review of that helper change passed 29 Rust controls across the
+affected callers and all-target Clippy. The staged gate must be rerun; hosted
+qualification, public acceptance and consumer adoption remain pending.

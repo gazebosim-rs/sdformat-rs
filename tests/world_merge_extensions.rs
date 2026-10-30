@@ -26,13 +26,6 @@ fn qualified_world_merge_metadata_tracks_native_order_and_owned_origins() {
     for row in &rows {
         let id = row["id"].as_str().unwrap();
         let xml = row["world"].as_str().unwrap();
-        if id == "direct_world" {
-            assert_eq!(
-                load_str(xml, "root.sdf", &Resolver(row)).unwrap_err().code,
-                ErrorCode::Unsupported
-            );
-            continue;
-        }
         let sdf = load_str(xml, "root.sdf", &Resolver(row)).unwrap();
         let world = &sdf.worlds[0];
         let native = row["stdout"].as_str().unwrap();
@@ -54,6 +47,13 @@ fn qualified_world_merge_metadata_tracks_native_order_and_owned_origins() {
                     "<v:gamma><child>payload</child></v:gamma>",
                     "import-b.sdf",
                 ),
+            ]
+        } else if id == "direct_world" {
+            &[
+                ("v:alpha", "<v:alpha k='1'/>", "import-a.sdf"),
+                ("v:alpha", "<v:alpha k='2'/>", "import-a.sdf"),
+                ("v:beta", "<v:beta>text</v:beta>", "import-a.sdf"),
+                ("v:parent", "<v:parent>own</v:parent>", "root.sdf"),
             ]
         } else if id == "old_rejection" {
             &[("custom:foo", "<custom:foo/>", "import-a.sdf")]
@@ -79,13 +79,11 @@ fn qualified_world_merge_metadata_tracks_native_order_and_owned_origins() {
             assert_eq!(&actual.tag, tag, "{id}");
             assert_eq!(&actual.xml, original, "{id}");
             assert_eq!(&actual.source.uri, uri, "{id}");
-            let source = if *uri == "import-a.sdf" {
-                &row["resource_a"]
-            } else {
-                &row["resource_b"]
-            }
-            .as_str()
-            .unwrap();
+            let source = match *uri {
+                "root.sdf" => xml,
+                "import-a.sdf" => row["resource_a"].as_str().unwrap(),
+                _ => row["resource_b"].as_str().unwrap(),
+            };
             let prefix = &source[..source.find(original).unwrap()];
             let line = prefix.bytes().filter(|byte| *byte == b'\n').count() + 1;
             let column = prefix.rsplit('\n').next().unwrap().chars().count() + 1;

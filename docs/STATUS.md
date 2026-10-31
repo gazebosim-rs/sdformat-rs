@@ -3812,3 +3812,25 @@ both unchanged originals remain preserved. This adds no original credit or
 dependencies. Independent review, ordinary full staged/strict coverage and exact
 hosted/source verification remain pending. Broader continuous-joint admission
 remains in its separate private candidate; no consumer pin or Fuel change occurs.
+
+
+Accepted named-target producer `8742ddc` passed the complete normal staged retry
+and exact hosted `41203744863`, with all 731 downloaded source files matched:
+649 Rust tests, 48 tools, 8336/8373 production lines, 13134/13388 regions and
+15/15 changed lines. Counts remain 205 complete/29 partial. The original failed
+stage was cleaned up; its log and the distinct persistent LLVM diagnostic remain
+retained. Consumer pins are unchanged.
+
+The separate two-link continuous-joint candidate is rebased onto that fix. It
+reuses admitted link payloads, the reviewed generated-name guard, pinned urdf-rs
+and existing SDF graphs. Native source/probes establish parent-relative joint
+origin, joint-relative identity child pose, root-first ordering, positive-X axis
+default, limit-presence semantics and owned dynamics metadata. Explicit strict
+boundaries reject unsupported graphs/joints, ignored continuous bounds and the
+native near-zero/overflowing axis normalization edge without changing shared
+math. All 82 native controls, copy/frame probes and the unchanged full original
+pass. Seven new and fourteen retained focused Rust tests pass. The candidate
+ledger maps exactly the original's five valid-load/name observations; no general
+URDF or runtime credit is claimed. Independent review, full protected staged
+coverage and exact hosted/source verification remain pending. See
+URDF_CONTINUOUS_JOINT.md. No accepted counters, dependencies or consumer pins change.

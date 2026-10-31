@@ -222,6 +222,10 @@ fn admit(root: Node<'_, '_>, uri: &str) -> Result<Extensions, Diagnostic> {
         ));
     }
     let link = links[0];
+    admit_link(link, uri)?;
+    admit_extensions(root, link, uri)
+}
+fn admit_link(link: Node<'_, '_>, uri: &str) -> Result<(), Diagnostic> {
     allowed(
         link,
         uri,
@@ -275,6 +279,14 @@ fn admit(root: Node<'_, '_>, uri: &str) -> Result<Extensions, Diagnostic> {
             view(value, uri)?;
         }
     }
+    Ok(())
+}
+fn admit_extensions(
+    root: Node<'_, '_>,
+    link: Node<'_, '_>,
+    uri: &str,
+) -> Result<Extensions, Diagnostic> {
+    let name = required(link, uri, "name")?;
     let gazebo: Vec<_> = root
         .children()
         .filter(|n| n.has_tag_name("gazebo"))
@@ -365,6 +377,163 @@ fn admit(root: Node<'_, '_>, uri: &str) -> Result<Extensions, Diagnostic> {
     }
     Ok(extensions)
 }
+struct Articulation {
+    parent: String,
+    child: String,
+    extension_link: String,
+    limit: bool,
+}
+fn admit_articulation(
+    root: Node<'_, '_>,
+    uri: &str,
+) -> Result<(Articulation, Extensions), Diagnostic> {
+    allowed(
+        root,
+        uri,
+        &["link", "joint", "gazebo"],
+        &["name", "version"],
+        &["link", "gazebo"],
+    )?;
+    required(root, uri, "name")?;
+    if root.attribute("version").is_some_and(|v| v != "1.0") {
+        return Err(error(
+            root,
+            uri,
+            ErrorCode::Version,
+            "only URDF 1.0 is supported",
+        ));
+    }
+    let links: Vec<_> = root.children().filter(|n| n.has_tag_name("link")).collect();
+    for link in &links {
+        admit_link(*link, uri)?;
+    }
+    let names = [
+        required(links[0], uri, "name")?,
+        required(links[1], uri, "name")?,
+    ];
+    if names[0] == names[1] {
+        return Err(error(
+            links[1],
+            uri,
+            ErrorCode::InvalidValue,
+            "duplicate URDF link name",
+        ));
+    }
+    let joint = child(root, "joint").unwrap();
+    allowed(
+        joint,
+        uri,
+        &["parent", "child", "origin", "axis", "limit", "dynamics"],
+        &["name", "type"],
+        &[],
+    )?;
+    required(joint, uri, "name")?;
+    if required(joint, uri, "type")? != "continuous" {
+        return Err(error(
+            joint,
+            uri,
+            ErrorCode::Unsupported,
+            "only one continuous URDF joint is supported",
+        ));
+    }
+    let mut endpoints = Vec::new();
+    for tag in ["parent", "child"] {
+        let node = child(joint, tag).ok_or_else(|| {
+            error(
+                joint,
+                uri,
+                ErrorCode::Missing,
+                "URDF joint endpoint is required",
+            )
+        })?;
+        allowed(node, uri, &[], &["link"], &[])?;
+        let name = required(node, uri, "link")?;
+        if !names.contains(&name) {
+            return Err(error(
+                node,
+                uri,
+                ErrorCode::UnknownReference,
+                "URDF joint endpoint must name a declared link",
+            ));
+        }
+        endpoints.push(name);
+    }
+    if endpoints[0] == endpoints[1] {
+        return Err(error(
+            joint,
+            uri,
+            ErrorCode::InvalidValue,
+            "URDF joint endpoints must be different links",
+        ));
+    }
+    if let Some(node) = child(joint, "origin") {
+        origin(node, uri)?;
+    }
+    if let Some(node) = child(joint, "axis") {
+        allowed(node, uri, &[], &["xyz"], &[])?;
+        let values = numeric(node, uri, "xyz", 3)?;
+        let length = glam::DVec3::from_array([values[0], values[1], values[2]]).length();
+        // Native Normalize leaves a tiny boundary interval unnormalized. Keep
+        // it outside this subset rather than change the shared SDF math policy.
+        if !length.is_finite() || length <= 1e-6 {
+            return Err(error(
+                node,
+                uri,
+                ErrorCode::InvalidValue,
+                "URDF axis norm must be finite and greater than 1e-6",
+            ));
+        }
+    }
+    let limit = child(joint, "limit");
+    if let Some(node) = limit {
+        allowed(node, uri, &[], &["effort", "velocity"], &[])?;
+        numeric(node, uri, "effort", 1)?;
+        numeric(node, uri, "velocity", 1)?;
+    }
+    if let Some(node) = child(joint, "dynamics") {
+        allowed(node, uri, &[], &["damping", "friction"], &[])?;
+        if node.attribute("damping").is_none() && node.attribute("friction").is_none() {
+            return Err(error(
+                node,
+                uri,
+                ErrorCode::Missing,
+                "URDF dynamics requires damping or friction",
+            ));
+        }
+        for attr in ["damping", "friction"] {
+            if node.attribute(attr).is_some() {
+                numeric(node, uri, attr, 1)?;
+            }
+        }
+    }
+    let target = if let Some(gazebo) = child(root, "gazebo") {
+        let name = required(gazebo, uri, "reference")?;
+        links
+            .iter()
+            .copied()
+            .find(|link| link.attribute("name") == Some(name))
+            .ok_or_else(|| {
+                error(
+                    gazebo,
+                    uri,
+                    ErrorCode::UnknownReference,
+                    "Gazebo reference must name one of the two links",
+                )
+            })?
+    } else {
+        links[0]
+    };
+    let extensions = admit_extensions(root, target, uri)?;
+    Ok((
+        Articulation {
+            parent: endpoints[0].into(),
+            child: endpoints[1].into(),
+            extension_link: required(target, uri, "name")?.into(),
+            limit: limit.is_some(),
+        },
+        extensions,
+    ))
+}
 fn decimal(value: f64) -> String {
     // Native URDF conversion suppresses negative zero in generated scalars.
     if value == 0. {
@@ -376,17 +545,17 @@ fn decimal(value: f64) -> String {
 fn element(name: &str, text: &str) -> String {
     format!("<{name}>{}</{name}>", escape(text))
 }
+fn coordinates(value: &urdf_rs::Pose) -> String {
+    value
+        .xyz
+        .iter()
+        .chain(value.rpy.iter())
+        .map(|v| decimal(*v))
+        .collect::<Vec<_>>()
+        .join(" ")
+}
 fn pose(value: &urdf_rs::Pose) -> String {
-    element(
-        "pose",
-        &value
-            .xyz
-            .iter()
-            .chain(value.rpy.iter())
-            .map(|v| decimal(*v))
-            .collect::<Vec<_>>()
-            .join(" "),
-    )
+    element("pose", &coordinates(value))
 }
 fn shape(value: &urdf_rs::Geometry) -> Option<String> {
     let xml = match value {
@@ -422,17 +591,19 @@ fn name(link: &str, explicit: Option<&str>, suffix: &str) -> String {
         format!("{link}_fixed_joint_lump__{value}")
     }
 }
-fn convert(robot: &urdf_rs::Robot, extensions: &Extensions) -> Option<String> {
-    if robot.links.len() != 1 || !robot.joints.is_empty() || !robot.materials.is_empty() {
-        return None;
-    }
-    let link = robot.links.first()?;
+fn link_xml(
+    link: &urdf_rs::Link,
+    extensions: &Extensions,
+    parent_joint: Option<&str>,
+) -> Option<String> {
     let inertial = &link.inertial;
     let moments = &inertial.inertia;
-    let mut xml = format!(
-        "<sdf version=\"1.12\"><model name=\"{}\"><link name=\"{}\"><inertial>{}{}<inertia>",
-        escape(&robot.name),
-        escape(&link.name),
+    let mut xml = format!("<link name=\"{}\">", escape(&link.name));
+    if let Some(joint) = parent_joint {
+        xml += &format!("<pose relative_to=\"{}\">0 0 0 0 0 0</pose>", escape(joint));
+    }
+    xml += &format!(
+        "<inertial>{}{}<inertia>",
         pose(&inertial.origin),
         element("mass", &decimal(inertial.mass.value))
     );
@@ -481,10 +652,89 @@ fn convert(robot: &urdf_rs::Robot, extensions: &Extensions) -> Option<String> {
         }
         xml += "</visual>";
     }
-    xml += "</link></model></sdf>";
+    xml += "</link>";
     Some(xml)
 }
-/// Import one bounded URDF 1.0 link without IO, joints or runtime activation.
+fn convert(
+    robot: &urdf_rs::Robot,
+    extensions: &Extensions,
+    articulation: Option<&Articulation>,
+) -> Option<String> {
+    if !robot.materials.is_empty() {
+        return None;
+    }
+    let mut xml = format!(
+        "<sdf version=\"1.12\"><model name=\"{}\">",
+        escape(&robot.name)
+    );
+    if let Some(admitted) = articulation {
+        if robot.links.len() != 2 || robot.joints.len() != 1 {
+            return None;
+        }
+        let joint = robot.joints.first()?;
+        if joint.joint_type != urdf_rs::JointType::Continuous
+            || joint.parent.link != admitted.parent
+            || joint.child.link != admitted.child
+        {
+            return None;
+        }
+        let empty = Extensions::default();
+        let extension = |name: &str| {
+            if name == admitted.extension_link {
+                extensions
+            } else {
+                &empty
+            }
+        };
+        let parent = robot
+            .links
+            .iter()
+            .find(|link| link.name == admitted.parent)?;
+        let child = robot
+            .links
+            .iter()
+            .find(|link| link.name == admitted.child)?;
+        xml += &link_xml(parent, extension(&parent.name), None)?;
+        xml += &format!(
+            "<joint name=\"{}\" type=\"revolute\"><pose relative_to=\"{}\">{}</pose>{}{}<axis>{}<limit>",
+            escape(&joint.name),
+            escape(&joint.parent.link),
+            coordinates(&joint.origin),
+            element("parent", &joint.parent.link),
+            element("child", &joint.child.link),
+            element(
+                "xyz",
+                &joint
+                    .axis
+                    .xyz
+                    .iter()
+                    .map(|v| decimal(*v))
+                    .collect::<Vec<_>>()
+                    .join(" ")
+            )
+        );
+        // urdf-rs has zero-valued limit defaults even when no URDF limit exists.
+        if admitted.limit {
+            xml += &element("effort", &decimal(joint.limit.effort));
+            xml += &element("velocity", &decimal(joint.limit.velocity));
+        }
+        xml += "</limit><dynamics>";
+        if let Some(dynamics) = &joint.dynamics {
+            xml += &element("damping", &decimal(dynamics.damping));
+            xml += &element("friction", &decimal(dynamics.friction));
+        }
+        xml += "</dynamics></axis></joint>";
+        xml += &link_xml(child, extension(&child.name), Some(&joint.name))?;
+    } else {
+        if robot.links.len() != 1 || !robot.joints.is_empty() {
+            return None;
+        }
+        xml += &link_xml(robot.links.first()?, extensions, None)?;
+    }
+    xml += "</model></sdf>";
+    Some(xml)
+}
+/// Import one bounded URDF link or a two-link continuous-joint model without IO.
 /// The SDF view uses an explicit generated URI; original bytes remain separate.
 pub fn load_urdf_str(xml: &str, uri: &str) -> Result<UrdfImport, Diagnostic> {
     let doc = Document::parse(xml).map_err(|e| Diagnostic {
@@ -497,14 +747,22 @@ pub fn load_urdf_str(xml: &str, uri: &str) -> Result<UrdfImport, Diagnostic> {
         message: e.to_string(),
     })?;
     let root = doc.root_element();
-    let extensions = admit(root, uri)?;
+    let pair = root.has_tag_name("robot")
+        && root.children().filter(|n| n.has_tag_name("link")).count() == 2
+        && root.children().filter(|n| n.has_tag_name("joint")).count() == 1;
+    let (articulation, extensions) = if pair {
+        let (joint, extensions) = admit_articulation(root, uri)?;
+        (Some(joint), extensions)
+    } else {
+        (None, admit(root, uri)?)
+    };
     let original_source = source(root, uri);
     let robot = urdf_rs::read_from_string(xml).map_err(|e| Diagnostic {
         code: ErrorCode::InvalidValue,
         source: original_source.clone(),
         message: format!("URDF parsing failed: {e}"),
     })?;
-    let converted_xml = convert(&robot, &extensions).ok_or_else(|| {
+    let converted_xml = convert(&robot, &extensions, articulation.as_ref()).ok_or_else(|| {
         error(
             root,
             uri,

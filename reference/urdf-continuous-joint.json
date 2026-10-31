@@ -1,0 +1,103 @@
+{
+  "upstream_sha": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+  "math_sha": "1316ed334f4d5bda7be59aae07cd6e8ff31cfe13",
+  "native_sources": {
+    "src/parser_urdf.cc": "251f8eee3c82a9ce4398ffd62c1c7daa38b5330e259bea4627a591cc17f990a5",
+    "src/parser_urdf.hh": "0467de4cb8b81c45c4ff86b5138f9d73247a22cdd69fe38202bcbad7597c8b4f",
+    "src/parser_urdf_TEST.cc": "7e5f9b729ff00ee2bcfb1c72c61354c2d5b342f1c41218b69e13095637fc27b3",
+    "src/parser.cc": "2ec95e05647c61121ced7910ca8164161a189d31f4b1d1249c9bf2d1ee93463d",
+    "src/Root.cc": "36a1c5b1861f6a42d230be5a68c94a2fd9c7aa5405b87a70bdaec5b0d6f79999",
+    "src/Model.cc": "9ce157bcd85ad233af6022192315ffa61ff5374490f8912f6750c98a0448d8d9",
+    "src/Link.cc": "ff58b54bef267f7e13a2ac5ee99e7bcece921729915d3de6906309bc237e07cc",
+    "src/Material.cc": "fb3578b29be247d462c38054c99bedb43e28cc46161001926605661733ed0180",
+    "src/Surface.cc": "6ac45bab77999ad711abb764d600347be6eab606b580a7d4b1a547605cdee2fd",
+    "src/Visual.cc": "a8d15282614dab9037029fc4d0774eae0014b77812d3d9a670a24ee4d76c04d2",
+    "src/Collision.cc": "235fe52a4df631f5c26b55eb289ea2829982bfb2fc3e27c290aca388ba8289ee",
+    "src/Sphere.cc": "9c6e5fe3236e6e9fb313e1baa1051e03373af6486efa920ecc1b1e79c0e2e4be",
+    "src/Box.cc": "19737e54d8db2cce28f44b2c27377d667157018749ebe8426ec6ec163a9799ed",
+    "src/Cylinder.cc": "f489db315887739affdb1976589b39deecaf1d1caa84e20e74c315b5c0e4e984",
+    "src/FrameSemantics.cc": "9fa1184da2130efdd3d4932ca5616de7bba347b8348ad2fcd972f4ec789992bc",
+    "src/SemanticPose.cc": "24ad139ecdf85294f205053d22d4741d106bc493236f22c1acac130602a6bedb",
+    "src/Joint.cc": "4ebe9449ca64f4011a618c01292ba6673db069c7b5ec7dd6eae70018ad4d5271",
+    "src/JointAxis.cc": "36977f34d632d6dd997ee198cfe718473476cca88f373650975b1f53fd2a445e",
+    "sdf/1.12/joint.sdf": "4a79d5104cdee19dec79e21ea4f51077f40c153a460b50bb29ae4a30dd82bbe5",
+    "test/integration/urdf_to_sdf.cc": "f1ff5e40eed9b781b9d73004bf87929f3c2191c0670893bbebe8300fc4e0d43d"
+  },
+  "installed_headers": {
+    "Root.hh": "9f740bfa027a98de449046345996b5a8544499a41b2c546d20804d67568975b7",
+    "Model.hh": "efc07cccb992ee8a0cd881e644454fb73b82260085e38567e5573573dc105e2d",
+    "Link.hh": "3d35750221ef5753a3db80264f09edefc36188f26ea2ff60c12c1b863aff3352",
+    "Collision.hh": "dacfeec41d534ede72576ac4767f467c35aa934c0368b6edf411abba88fee104",
+    "Visual.hh": "b156de0f7bd84fea3238b7d32aab59962fb029f0a8d4f0a6cb5faa541577a4da",
+    "Material.hh": "56617f0fbe7105dc4bf21117a296e0c0af6e9f2fbd39e4b6fdc4b3ae219ea50a",
+    "Geometry.hh": "f38220d86b8c1faa91aa5b93e2540bd2f3358480ae078fd54dd3449cdceb8747",
+    "Element.hh": "7fd9188523a957c8d9d96e33f31ff39ccf95fd3752a664bf3ffb60185be9da4e",
+    "Surface.hh": "3b7dbd3285f228c83ddbf43837fc06ecb535ba20a0eda910f01dccb10164942a",
+    "SemanticPose.hh": "690f3b787a0e433195e7603181e4655b680512055e05c128163573fea220073b",
+    "Box.hh": "0c1004cdd3e7ca9d0bdc1af54999d4f7458c7e14e1e9953abeefe0a4e484ce3e",
+    "Sphere.hh": "b9ee944de39b45fbd31e841098a37e6d550f9d4c0ef030c1cbdcb7d45490f063",
+    "Cylinder.hh": "2cc84842e10ca30002778b2461c5720d0bd059b6350e422bce009e2ad1fc5175",
+    "Joint.hh": "4fd4a37dc51dce993fbd375e2c4e4e29895879d171be4cc31f494f20ef2398fc",
+    "JointAxis.hh": "03da959246e4bac7c42164b4f8fe9a5459883f8af8d362c623bf56212ba849c7"
+  },
+  "math_headers": {
+    "Pose3.hh": "6bfc53f0bd22a3e1596bbdb07c24bacdac9e17bd8178b9373d8df1b01e4fc6f6",
+    "Quaternion.hh": "9170601444da93735b4d14b369cc4266fafc7655657a6af7613e31206382b873",
+    "Vector3.hh": "b4e8d01584139efba180bf530c95e18101aee4fb070aa93b8ddfe7cc38282a38",
+    "Inertial.hh": "22157a24c52529c2be13680169b1e14bd20ad0aa5adedd9ff55515cb7c7df033",
+    "MassMatrix3.hh": "115c54a0ab11714e891f0ab060fbb2350652ed0aa6dfcf19958781b162543b5b"
+  },
+  "native_urdfdom_headers": {
+    "pose.h": "00a9536d5aba761d9825f751bd69d8422ac8c99c46dc92192e6d6be559cf973b",
+    "utils.h": "8a17df29b4404090ec9773b0d96f7d011af677fdde8204176423eba0108c8f87",
+    "link.h": "2f0dfac12e86c26834195fa0ee81f6d4203261ed023afaf51bc1a07e7915f70a",
+    "joint.h": "57c69feb617b373416fcf674fd54dd93e1c17be79b0c1eec8097e93bb94004a5"
+  },
+  "compiler_sha256": "02ba98cc5feefe173cfb8c28c98089817737800537dc7189138ed66b07cf56ec",
+  "native_libraries": {
+    "libsdformat.so.17.0.0~pre2": "bcc864bcee56b49c13081e29722051e26c036260e3dd037e7736aa2b8620358f",
+    "libstdc++.so.6.0.33": "1fd75fe70354a416d75aef22bcae68c47bd25d20e2d0568c30b1a9838cf62f11",
+    "libm.so.6": "fce00b6f25f459cf4ae0b7fae4257909a1a8a86f9149e7c029a5d617baf1ccd0",
+    "libgcc_s.so.1": "d93224d2b0dab4247598be683adca02f5cf00586f99c187579cd7e92058fb7cb",
+    "libc.so.6": "3a15d66867d83762c7f2f1e37359cb8f6c5743edb369c65285cb0b1c4f7498bf",
+    "libgz-math.so.10.0.0~pre2": "288c6f52fac45359f5de67d97e0069b7f37420f5f78888e61406b8f565656c4f",
+    "libgz-utils.so.5.0.0~pre2": "2e91419fd59b6995ee8fada80e106dac5644d3d44cd2e8bc6655547433e51ae6",
+    "libtinyxml2.so.10.0.0": "f9e01d87fb78af744a426af8c992e94abf8cd3810a256e117bcc94cd84d2be6d",
+    "liburdfdom_model.so.4.0": "ac27f211accb66a3f461d8d0b09b9ff123e306e68a0bac0f7c502203d7cbb34e",
+    "libconsole_bridge.so.1.0": "bb9ced68ce1209c48b55ddcebe913542197dc745c71febd65205ff0a4d833651"
+  },
+  "helper_sha256": "35f58a2a63cfd7521ca0196a1659a166367f8cddc22ddab2ee9996995fce05aa",
+  "corpus_sha256": "bc2c6ebc8de952c3faf4c0b77ce50a78e3f49cfc096750e4e138991c5cefce84",
+  "fixtures": {
+    "tests/fixtures/urdf_continuous_original.urdf": "548c6c4a31e924255a51e27c17b956d3c7a3d2bd276dd079cb9494e3292db7d8"
+  },
+  "reference_script_sha256": "0f150213264e7f906d221733f266b3bb327f33fb3624e72388c4d9815302f08c",
+  "originals": {
+    "INTEGRATION_urdf_to_sdf": {
+      "sha256": "173c2b2fc543a78df41028b8c7ca9b5228e92ed63207fcd4710fb2c80d287b57",
+      "native_libraries": {
+        "libsdformat.so.17.0.0~pre2": "bcc864bcee56b49c13081e29722051e26c036260e3dd037e7736aa2b8620358f",
+        "libgz-utils.so.5.0.0~pre2": "2e91419fd59b6995ee8fada80e106dac5644d3d44cd2e8bc6655547433e51ae6",
+        "libstdc++.so.6.0.33": "1fd75fe70354a416d75aef22bcae68c47bd25d20e2d0568c30b1a9838cf62f11",
+        "libm.so.6": "fce00b6f25f459cf4ae0b7fae4257909a1a8a86f9149e7c029a5d617baf1ccd0",
+        "libgcc_s.so.1": "d93224d2b0dab4247598be683adca02f5cf00586f99c187579cd7e92058fb7cb",
+        "libc.so.6": "3a15d66867d83762c7f2f1e37359cb8f6c5743edb369c65285cb0b1c4f7498bf",
+        "libgz-math.so.10.0.0~pre2": "288c6f52fac45359f5de67d97e0069b7f37420f5f78888e61406b8f565656c4f",
+        "libtinyxml2.so.10.0.0": "f9e01d87fb78af744a426af8c992e94abf8cd3810a256e117bcc94cd84d2be6d",
+        "liburdfdom_model.so.4.0": "ac27f211accb66a3f461d8d0b09b9ff123e306e68a0bac0f7c502203d7cbb34e",
+        "libconsole_bridge.so.1.0": "bb9ced68ce1209c48b55ddcebe913542197dc745c71febd65205ff0a4d833651"
+      }
+    }
+  },
+  "rust_urdf_crate": {
+    "version": "0.10.0",
+    "license": "Apache-2.0",
+    "sources": {
+      "Cargo.toml.orig": "4b5fad5f801543ab0a6a5d1c891dd23fb5f771c7907b17c7aac1ac6e554b4974",
+      "LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "src/funcs.rs": "8a50704491c28d909b6e80a289c9fdf05ab2ee22df3668067bee375ec71de035",
+      "src/deserialize.rs": "bd5c2eef0a6277a31a4f1c7554680ac4bd859c8a0ae29fcd615396214027bb5d"
+    },
+    "cargo_lock_sha256": "6c352420885bcd688f511c9d55f0c5c0ce5925adc614a1c92383afa08ec4a050"
+  }
+}

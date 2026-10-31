@@ -452,6 +452,19 @@ impl<'ast> Visit<'ast> for CallAudit {
         }
         visit::visit_expr_call(self, expression);
     }
+    fn visit_local(&mut self, local: &'ast syn::Local) {
+        if self.in_function
+            && local.attrs.is_empty()
+            && let Some(init) = &local.init
+            && init.diverge.is_none()
+            && let syn::Expr::Array(array) = &*init.expr
+            && array.attrs.is_empty()
+            && array.bracket_token.span.close().start().line == local.semi_token.span.start().line
+        {
+            self.delimiters.insert(local.semi_token.span.start().line);
+        }
+        visit::visit_local(self, local);
+    }
     fn visit_expr_tuple(&mut self, expression: &'ast syn::ExprTuple) {
         if self.in_function && expression.attrs.is_empty() {
             self.delimiters
@@ -816,6 +829,9 @@ fn reserved_constructor_name(name: &str) -> bool {
         "SphericalCoordinates",
         "Gui",
         "VelocityDecayMetadata",
+        "Articulation",
+        "String",
+        "bool",
         "Result",
         "std",
         "Debug",
@@ -848,6 +864,9 @@ fn safe_macro_tokens(tokens: proc_macro2::TokenStream) -> bool {
                     "SphericalCoordinates",
                     "Gui",
                     "VelocityDecayMetadata",
+                    "Articulation",
+                    "String",
+                    "bool",
                 ]
                 .contains(&name.unraw().to_string().as_str()) =>
             {
@@ -916,19 +935,23 @@ impl ConstructorBoundary<'_> {
             "SphericalCoordinates",
             "Gui",
             "VelocityDecayMetadata",
+            "Articulation",
+            "String",
+            "bool",
             "Result",
             "std",
         ]
         .contains(&name.unraw().to_string().as_str())
             && !(scene_declaration
-                && self.role == "types"
-                && [
-                    "Scene",
-                    "SphericalCoordinates",
-                    "Gui",
-                    "VelocityDecayMetadata",
-                ]
-                .contains(&name.unraw().to_string().as_str()))
+                && (self.role == "urdf" && name == "Articulation"
+                    || self.role == "types"
+                        && [
+                            "Scene",
+                            "SphericalCoordinates",
+                            "Gui",
+                            "VelocityDecayMetadata",
+                        ]
+                        .contains(&name.unraw().to_string().as_str())))
         {
             self.bad = true;
         }
@@ -1290,6 +1313,181 @@ fn aggregate_prefixes_for(
     visitor.lines
 }
 
+// Only this module-local, non-Drop record and builtin Result tuple qualify.
+// Runtime field/tuple arguments remain outside every exclusive delimiter span.
+fn local_result_tuple(
+    source: &str,
+    target: &syn::File,
+    root: &syn::File,
+    module: &str,
+) -> BTreeSet<usize> {
+    let empty = BTreeSet::new();
+    if !standard_debug_scope(target, root, module) {
+        return empty;
+    }
+    for (role, file) in [("root", root), ("urdf", target)] {
+        let mut audit = ConstructorBoundary {
+            role,
+            bad: false,
+            root_globs: BTreeSet::new(),
+            target_globs: 0,
+        };
+        audit.visit_file(file);
+        if audit.bad {
+            return empty;
+        }
+    }
+    struct RecordAudit {
+        declarations: usize,
+        bad: bool,
+    }
+    impl<'ast> Visit<'ast> for RecordAudit {
+        fn visit_item_struct(&mut self, item: &'ast syn::ItemStruct) {
+            if item.ident == "Articulation" {
+                self.declarations += 1;
+            }
+            visit::visit_item_struct(self, item);
+        }
+        fn visit_item_impl(&mut self, item: &'ast syn::ItemImpl) {
+            if item.trait_.is_some()
+                || matches!(&*item.self_ty, Type::Path(path) if path.path.segments.last().is_some_and(|s| s.ident == "Articulation"))
+            {
+                self.bad = true;
+            }
+            visit::visit_item_impl(self, item);
+        }
+    }
+    let mut audit = RecordAudit {
+        declarations: 0,
+        bad: false,
+    };
+    audit.visit_file(target);
+    let Some(Item::Struct(record)) = target
+        .items
+        .iter()
+        .find(|item| matches!(item, Item::Struct(s) if s.ident == "Articulation"))
+    else {
+        return empty;
+    };
+    let syn::Fields::Named(fields) = &record.fields else {
+        return empty;
+    };
+    let expected = [
+        ("parent", "String"),
+        ("child", "String"),
+        ("extension_link", "String"),
+        ("limit", "bool"),
+    ];
+    if audit.bad || audit.declarations != 1 || !matches!(record.vis, Visibility::Inherited)
+        || !docs_only(&record.attrs) || !record.generics.params.is_empty() || record.generics.where_clause.is_some()
+        || fields.named.len() != expected.len()
+        || fields.named.iter().zip(expected).any(|(field, (name, ty))| {
+            field.ident.as_ref().is_none_or(|ident| ident != name) || !field.attrs.is_empty()
+                || !matches!(field.vis, Visibility::Inherited)
+                || !matches!(&field.ty, Type::Path(path) if path.qself.is_none() && path.path.is_ident(ty))
+        }) { return empty; }
+    struct Prefixes<'a> {
+        source: &'a str,
+        in_function: bool,
+        lines: BTreeSet<usize>,
+    }
+    impl<'ast> Visit<'ast> for Prefixes<'_> {
+        fn visit_item_fn(&mut self, item: &'ast syn::ItemFn) {
+            if self.in_function
+                || !docs_only(&item.attrs)
+                || !item.sig.generics.params.is_empty()
+                || item.sig.generics.where_clause.is_some()
+                || item.sig.constness.is_some()
+                || item.sig.asyncness.is_some()
+                || item.sig.abi.is_some()
+                || !matches!(item.sig.safety, syn::Safety::Default)
+            {
+                return;
+            }
+            self.in_function = true;
+            self.visit_block(&item.block);
+            self.in_function = false;
+        }
+        fn visit_item_impl(&mut self, _: &'ast syn::ItemImpl) {}
+        fn visit_item_const(&mut self, _: &'ast syn::ItemConst) {}
+        fn visit_item_static(&mut self, _: &'ast syn::ItemStatic) {}
+        fn visit_type(&mut self, _: &'ast Type) {}
+        fn visit_generic_argument(&mut self, argument: &'ast GenericArgument) {
+            if !matches!(argument, GenericArgument::Const(_)) {
+                visit::visit_generic_argument(self, argument);
+            }
+        }
+        fn visit_expr_const(&mut self, _: &'ast syn::ExprConst) {}
+        fn visit_expr_closure(&mut self, _: &'ast syn::ExprClosure) {}
+        fn visit_expr_call(&mut self, call: &'ast syn::ExprCall) {
+            if self.in_function
+                && call.attrs.is_empty()
+                && call.args.len() == 1
+                && let syn::Expr::Path(callee) = &*call.func
+                && callee.attrs.is_empty()
+                && callee.qself.is_none()
+                && callee.path.is_ident("Ok")
+                && let syn::Expr::Tuple(tuple) = &call.args[0]
+                && tuple.attrs.is_empty()
+                && tuple.elems.len() == 2
+                && let syn::Expr::Struct(value) = &tuple.elems[0]
+                && value.attrs.is_empty()
+                && value.qself.is_none()
+                && value.path.is_ident("Articulation")
+                && value.rest.is_none()
+                && value.fields.len() == 4
+                && value
+                    .fields
+                    .iter()
+                    .zip(["parent", "child", "extension_link", "limit"])
+                    .all(|(field, name)| {
+                        field.attrs.is_empty()
+                            && matches!(&field.member, syn::Member::Named(ident) if ident == name)
+                    })
+                && let syn::Expr::Path(tail) = &tuple.elems[1]
+                && tail.attrs.is_empty()
+                && tail.qself.is_none()
+                && tail.path.get_ident().is_some()
+            {
+                if let Some(open) = call.func.span().join(tuple.paren_token.span.open())
+                    && open.start().line == open.end().line
+                    && exclusive_span(self.source, open, "")
+                {
+                    self.lines.insert(open.start().line);
+                }
+                if let Some(header) = value.path.span().join(value.brace_token.span.open())
+                    && header.start().line == header.end().line
+                    && exclusive_span(self.source, header, "")
+                {
+                    self.lines.insert(header.start().line);
+                }
+                let close = value.brace_token.span.close();
+                if exclusive_span(self.source, close, ",") {
+                    self.lines.insert(close.start().line);
+                }
+                if let Some(close) = tuple
+                    .paren_token
+                    .span
+                    .close()
+                    .join(call.paren_token.span.close())
+                    && close.start().line == close.end().line
+                    && exclusive_span(self.source, close, "")
+                {
+                    self.lines.insert(close.start().line);
+                }
+            }
+            visit::visit_expr_call(self, call);
+        }
+    }
+    let mut prefixes = Prefixes {
+        source,
+        in_function: false,
+        lines: BTreeSet::new(),
+    };
+    prefixes.visit_file(target);
+    prefixes.lines
+}
+
 // Root imports do not execute code. Prove only exclusive plain declarations;
 // glob imports cannot lend evidence to any expressions or derived declarations.
 fn root_declarations(
@@ -1564,13 +1762,19 @@ fn classify(source: &str, ancestor: &str, module: &str) -> Result<Evidence, syn:
         plain_declarations(source, &syntax, &ancestor_syntax, module)
     };
     let mut items = context_lines(source, ancestor, module);
+    items.extend(local_result_tuple(
+        source,
+        &syntax,
+        &ancestor_syntax,
+        module,
+    ));
     items.extend(declarations.iter().copied());
     items.extend(calls.wildcard_prefixes);
     items.extend(
         calls
             .delimiters
             .into_iter()
-            .filter(|line| matches!(lines[line - 1].trim(), "(" | "] {")),
+            .filter(|line| matches!(lines[line - 1].trim(), "(" | "] {" | "];")),
     );
     items.extend(calls.record_updates.into_iter().filter(|line| {
         let text = lines[line - 1].trim();
@@ -2997,5 +3201,97 @@ fn compiler_accepted_callable_parentheses_do_not_receive_primitive_tuple_prefix_
             .unwrap()
             .items
             .contains(&4)
+    );
+}
+
+fn local_tuple_fixture() -> &'static str {
+    "struct Articulation { parent: String, child: String, extension_link: String, limit: bool }\nfn value() -> Result<(Articulation, u8), ()> {\n let names = [\n String::new(),\n String::new(),\n ];\n let extensions = 3;\n Ok((\n Articulation {\n parent: names[0].clone(),\n child: names[1].clone(),\n extension_link: String::new(),\n limit: runtime(),\n },\n extensions,\n ))\n}\nfn runtime() -> bool { true }\n"
+}
+#[test]
+fn local_result_tuple_and_array_prove_only_exact_exclusive_spans() {
+    let source = local_tuple_fixture();
+    let evidence = classify(source, "mod urdf;", "urdf").unwrap();
+    for line in [6, 8, 9, 14, 16] {
+        assert!(evidence.items.contains(&line), "{line}");
+    }
+    for line in [4, 5, 10, 11, 12, 13, 15] {
+        assert!(!evidence.items.contains(&line), "{line}");
+    }
+    for changed in [
+        source.replace(" Ok((", " Ok((runtime(),"),
+        source.replace(" Articulation {\n", " Articulation { parent: runtime(),\n"),
+        source.replace(" extensions,", " runtime(),"),
+    ] {
+        let evidence = classify(&changed, "mod urdf;", "urdf").unwrap();
+        assert!(!evidence.items.contains(&8), "{changed}");
+    }
+    let changed = source.replace(" ))", " )); runtime()");
+    assert!(
+        !classify(&changed, "mod urdf;", "urdf")
+            .unwrap()
+            .items
+            .contains(&16)
+    );
+    for changed in [
+        source.replace(" ];", " ]; runtime();"),
+        source
+            .replace("let names = [", "let names = custom!([")
+            .replace(" ];", " ]);"),
+        source
+            .replace("let names = [", "let names = [String::new(); 2 /*")
+            .replace(" ];", " */ ];"),
+    ] {
+        let evidence = classify(&changed, "mod urdf;", "urdf").unwrap();
+        assert!(!evidence.items.contains(&6), "{changed}");
+    }
+}
+#[test]
+fn local_result_tuple_refuses_shadowing_drop_and_transformed_contexts() {
+    let source = local_tuple_fixture();
+    for changed in [
+        format!("use hidden::Ok;\n{source}"),
+        format!("use hidden::Other as r#Ok;\n{source}"),
+        format!("use hidden::Ok::{{self}};\n{source}"),
+        format!("use hidden::*;\n{source}"),
+        format!("type String = Guard;\n{source}"),
+        format!("impl Drop for Articulation {{ fn drop(&mut self) {{ runtime(); }} }}\n{source}"),
+        source.replace("fn value()", "#[custom] fn value()"),
+        source.replace("struct Articulation", "#[derive(Custom)] struct Articulation"),
+        source.replace("parent: String", "parent: Guard"),
+        source.replace(" Ok((", " let Ok = |x| x;\n Ok(("),
+        source.replace(" Ok((", " runtime(("),
+        source.replace("fn value()", "const fn value()"),
+        format!("use self::Articulation as Alias;\nimpl Drop for Alias {{ fn drop(&mut self) {{}} }}\n{source}"),
+        source.replace(" Ok((", " fn r#Ok<T>(x: T) -> Result<T, ()> { std::result::Result::Ok(x) }\n Ok(("),
+        source.replace(" Ok((", " format!(\"{}\", unknown!());\n Ok(("),
+        source.replace(" Ok((", " macro_rules! x { () => {} }\n Ok(("),
+        source.replace(" Ok((", " struct Articulation { parent:String, child:String, extension_link:String, limit:bool }\n Ok(("),
+    ] {
+        let line = changed.lines().position(|l| matches!(l.trim(), "Ok((" | "runtime((")).unwrap() + 1;
+        let evidence = classify(&changed, "mod urdf;", "urdf").unwrap();
+        assert!(!evidence.items.contains(&line), "{changed}");
+    }
+    for root in [
+        "#[custom] mod urdf;",
+        "macro_rules! x { () => {} } mod urdf;",
+        "#[macro_use] mod hidden; mod urdf;",
+    ] {
+        assert!(!classify(source, root, "urdf").unwrap().items.contains(&8));
+    }
+}
+#[test]
+fn compiler_accepted_shadowed_result_constructor_keeps_runtime_identity() {
+    let source = local_tuple_fixture().replace("fn value()", "#[allow(non_snake_case)] fn Ok<T>(x:T) -> Result<T, ()> { std::hint::black_box(()); std::result::Result::Ok(x) }\nfn value()");
+    compiles(&source);
+    let line = source
+        .lines()
+        .position(|l| matches!(l.trim(), "Ok((" | "runtime(("))
+        .unwrap()
+        + 1;
+    assert!(
+        !classify(&source, "mod urdf;", "urdf")
+            .unwrap()
+            .items
+            .contains(&line)
     );
 }

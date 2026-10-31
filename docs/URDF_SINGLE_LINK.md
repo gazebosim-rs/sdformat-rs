@@ -1,5 +1,9 @@
 # Bounded single-link URDF import
 
+The same explicit API also admits the separately bounded
+[two-link continuous-joint subset](URDF_CONTINUOUS_JOINT.md). This document
+describes the preserved single-link branch.
+
 `load_urdf_str(xml, source_uri) -> Result<UrdfImport, Diagnostic>` imports URDF
 1.0 with exactly one ordinary link, required positive physically realizable
 inertia and zero or one visual/collision each. Sphere, box and cylinder geometry
@@ -52,7 +56,8 @@ not a native serialization contract. Quaternion physical equivalence is checked
 within 1e-12, including gimbal and very large finite input angles; scalar values,
 geometry, names and units are compared exactly in the qualified native controls.
 
-Joints, multiple links, world dummy links, root origins, multiple visuals or
+Outside that continuous-joint subset, joints and multiple links are unsupported.
+World dummy links, root origins, multiple visuals or
 collisions, URDF versions beyond 1.0, meshes/capsules, inline/global URDF materials,
 textures, arbitrary Gazebo/SDF extensions, plugins and xacro are unsupported.
 Native zero/negative dimension fallback is also outside this positive-only
@@ -76,7 +81,7 @@ ParseWhitespace checks all thirteen original selected-tree presence observations
 and the exact three GetText results: Gazebo/Orange, 100 and 1000. These checks
 read the real public converted snapshot; they do not assert whole XML equality.
 Other URDF originals, including OutputPrecision's exact generated pose text and
-all articulated/fixed-joint reduction cases, remain unported. Existing URDF
+the remaining articulated/fixed-joint reduction cases, remain unported. Existing URDF
 extension ledger rows still describe their previous native-projection-only scope.
 
 Replay `python3 tools/urdf_single_link_reference.py /path/to/pinned/sdformat`

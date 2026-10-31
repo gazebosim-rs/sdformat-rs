@@ -64,7 +64,7 @@ joint and axis plus multiplier, offset and reference; an omitted axis defaults
 to `axis`. Loading checks the leader joint and axis within the model and
 rejects a self mimic. `load_str` returns the first native mimic diagnostic for
 the three reviewed invalid fixtures. Native multi-error vectors, warning side
-effects for unknown mimic content, constraint execution, URDF joint import,
+effects for unknown mimic content, constraint execution, general URDF joint import,
 `ToElement` and general graph mutation remain unported.
 Negative effort/velocity sentinels become positive infinity. Axis resolution
 rotates into the requested frame without translation. Joint endpoint frames may
@@ -1277,9 +1277,11 @@ these fields before adopting the producer. See [MODEL_PHYSICS_FLAGS.md](MODEL_PH
 
 
 `load_urdf_str(xml, source)` returns an owned `UrdfImport` for the bounded
-single-link URDF 1.0 subset. Its public `sdf` is validated through the existing
+single-link or bounded two-link/one-continuous-joint URDF 1.0 subset. Its public
+`sdf` is validated through the existing
 SDF loader and uses the real generated SDF source URI and positions. Immutable
 original and converted XML/Source getters keep both views distinct. Selected
 Gazebo material and mu1/mu2 declarations are metadata only. Unknown content is
 rejected before the permissive dependency parser. SDF loading and resource/include
-format behavior remain unchanged. See [URDF_SINGLE_LINK.md](URDF_SINGLE_LINK.md).
+format behavior remain unchanged. See [URDF_SINGLE_LINK.md](URDF_SINGLE_LINK.md)
+and [URDF_CONTINUOUS_JOINT.md](URDF_CONTINUOUS_JOINT.md).

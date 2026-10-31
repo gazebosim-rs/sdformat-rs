@@ -2720,6 +2720,21 @@
       "baseline": "84 pinned native controls including constructor-free actual URDF conversion, exact scalar/name/geometry observations,1e-12 quaternion physical equivalence, schema/number/domain rejections and both unchanged full originals pass. Nine focused and637 retained Rust tests,46 tooling tests and Clippy pass. Independent original-mapping review and normal strict staged/exact hosted gates remain pending.",
       "status": "ported_reviewed",
       "review": "Independent transport_owner fresh-source/separate-target review approved the exact 16-path packet: nine focused Rust tests,all-target Clippy,84 native controls,both unchanged full originals and equal provenance passed. All15 newly locked dependency source/archive/license audits passed. Complete fixed-case mapping approved: ValidBasicURDF retains all three original observations; ParseWhitespace retains all thirteen selected-tree presences and three exact GetText strings through the real immutable converted view. No general URDF importer,whole XML formatting or mutable Element credit. Root independently read admission,numeric validation,generated escaping,reused SDF loader and original/generated provenance and agreed. Production,native inputs and assertions remain unchanged. Full ordinary protected staged/strict coverage and exact hosted/source-bound qualification remain pending; accepted counts and consumer pins do not advance yet."
+    },
+    {
+      "target": "INTEGRATION_urdf_to_sdf",
+      "case": "URDF2SDF.ValidContinuousJointedURDF",
+      "source": "test/integration/urdf_to_sdf.cc:56",
+      "rust_test": "tests/urdf_continuous_joint.rs::original_valid_continuous_jointed_urdf_preserves_all_five_original_observations",
+      "assertions": "Complete fixed original observable set: successful import, Model presence, link1 and link2 name existence, and joint1_2 name existence on the byte-identical original inline URDF. The explicit owned Rust import API preserves these observations through the validated generated SDF view rather than native Root method identity. Supplemental controls qualify two-node ordering, raw/resolved frames and axes, defaults, limit presence, dynamics metadata, copy values and immutable original/generated sources. No general articulated importer, fixed-joint reduction, mutable Element or exact whole generated XML formatting credit.",
+      "fixtures": {
+        "tests/fixtures/urdf_continuous_original.urdf": "548c6c4a31e924255a51e27c17b956d3c7a3d2bd276dd079cb9494e3292db7d8",
+        "tests/urdf_continuous_joint.json": "bc2c6ebc8de952c3faf4c0b77ce50a78e3f49cfc096750e4e138991c5cefce84"
+      },
+      "upstream_fixtures": {},
+      "baseline": "82 pinned native inputs, raw joint-copy mutation, four canonical/default-child/parent/model frame probes and the unchanged full original pass. Seven continuous and fourteen retained single-link/named-target Rust tests pass, preserving all 84 prior controls, 29 named-target controls and 31 generated XML byte snapshots. No new dependency or shared math policy change. Independent mapping review, ordinary full staged/strict coverage and exact hosted qualification remain pending.",
+      "status": "ported_pending_review",
+      "review": "pending"
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

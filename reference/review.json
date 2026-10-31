@@ -2,16 +2,16 @@
   "decision": "approved",
   "author": "sdf_world_owner",
   "reviewer": "root",
-  "source_digest": "aee17a131c978e2b79e77004571aaa2f671afb719f8b78beef5d78f07d35367c",
-  "protected_digest": "565027340d2443551adc8151ce05123232567012851aa9fd374c78949c44e423",
-  "scope": "Dependency-only petgraph0.8.1 to0.8.3 compatibility update enabling direct Zenoh consumers; no production Rust/test/corpus/proof/gate changes.",
+  "source_digest": "cfc14cacf4e588f16c9df56565b3c5e122bf0a3f8fc1a58eecb22aa2824552c0",
+  "protected_digest": "9b0c0c9d89fa3228452a8e612ddce8e2c9311a2ef93bf621d2c12248bcf55988",
+  "scope": "Bounded continuous-joint importer plus minimal genuine-LLVM-backed non-executable syntax proof, rebased unchanged onto accepted petgraph0.8.3.",
   "checks": [
-    "Root read the exact three-path dependency/doc diff and necessary lock closure: only petgraph version changes, unused allocator-api2/hashbrown feature edges disappear. Author source/archive/license/MSRV and actual baseline conflict/candidate co-resolution evidence reviewed.",
-    "Root fresh8742 source archive plus exact3 overlay at /tmp/gz-sdf-petgraph-root-review-9cqpjwyk passed all37 retained tests across8 graph/placement/semantic targets, own source/target. Independent source checks preserve unique-parent acyclic graph usage and unchanged assertions.",
-    "Root independently recomputed final source/protected digests. Author focused Clippy/layout/ledger pass. Full ordinary staged and exact hosted/downloaded-source checks still required."
+    "Transport owner independently approved production13 paths with fresh21 Rust/82 native/copy/frame/full-original and retained84+29 corpus replays. Separately approved final2 proof paths with fresh38 helper/49 tooling/Clippy and actual retained LLVM query; all33 genuineDA0 remain counted/refuse forged hints.",
+    "Root independently verified14/15 files byte-identical to both approved packets; STATUS is exactly accepted0437 dependency document plus the unchanged prior feature append. Cargo files equal accepted0437; no other production/test/proof/gate changes. Root recomputed both final digests.",
+    "The prior full failure and persistent diagnostic remain distinct. New full staged and exact hosted/source checks on the rebased tree are required; no carried phases or acceptance counters."
   ],
   "remaining": [
-    "No new feature or original-test credit. Root simulator must separately qualify its new public SDF pin and petgraph0.8.3 with direct Zenoh.",
-    "Frozen continuous-joint feature and proof remain separate; rebase only after this dependency slice is accepted."
+    "General articulated/non-continuous URDF remains unsupported.",
+    "Full unchanged protected staged gate and exact whole hosted/source verification are pending."
   ]
 }

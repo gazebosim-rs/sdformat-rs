@@ -72,6 +72,12 @@ errors for advanced retained optics and no rendering or image IO. See
 `Sdf::joint_pose` resolves loaded joint identities with native child-frame default
 and local target scoping. See [its contract](docs/JOINT_SEMANTIC_POSE.md).
 
+A separate `load_urdf_str` imports one bounded URDF 1.0 link, including positive
+inertia, primitive visual/collision geometry and selected Gazebo material/friction
+metadata. Its `UrdfImport` owns distinct original URDF and generated SDF snapshots;
+the converted Sdf uses the generated source URI. Joints, meshes, arbitrary Gazebo
+content and URDF includes remain unsupported. See [the URDF import contract](docs/URDF_SINGLE_LINK.md).
+
 Scalar and pose-component conversion is qualified for Linux GNU/glibc using an
 owned C locale and native range/prefix semantics. One reviewed FFI module is the
 only production unsafe exception; other platforms return Unsupported for these

@@ -222,3 +222,42 @@ three real LLVM controls and Clippy pass. A fresh helper replay accounts for
 only that absent-DA prefix against retained production data; measured counts
 remain unchanged. Independent proof review, the normal protected retry and
 exact hosted success remain required.
+
+## URDF conversion syntax diagnosed by actual LLVM output
+
+The first ordinary URDF staged gate failed closed on opaque syntax. Its temporary
+stage snapshot was cleaned up; the failure log remains. An ordinary nonstaged
+replay retained the actual production report, LCOV, profiles, binaries and
+source dep-info. It measured 8307/8357 lines, 13092/13360 regions and 421/439
+changed DA lines. Eighteen DA0 lines were genuine runtime error/fallback paths;
+none receives syntax evidence. Two reachable error-path tests now exercise
+missing visual/collision geometry and dependency parsing errors.
+
+The absent-DA lines require bounded support for private named concrete fields and
+private struct headers, exclusive root `mod`/`use` declarations, plain call
+closing `)`/`),` lines, exclusive record-update `..identifier` syntax, and standard
+`format!` positional template/delimiter lines. Private declarations retain the
+existing builtin derive/type/attribute scope. Root declarations require identical
+root/ancestor bytes and refuse transforming attributes, extern crates and item
+macros. Record-update calls, blocks, dereferences, qualified or field paths,
+attributes and shared executable lines receive no evidence.
+
+The format audit requires the existing untransformed external-module context,
+rejects macro definitions, extern crates, target import globs and reserved-name
+imports (including aliases, `self` and raw identifiers). Only standard `format!`
+and a single-identifier `vec!` token form are admitted. Parsed format arguments
+are recursively inspected for nested imports/macros/attributes. Evidence is
+limited to an exclusive single-line literal whose simple positional `{}` count
+matches its arguments, plus actual AST delimiter/call closing punctuation.
+Implicit captures, named/specifier/escaped-brace templates, custom macros and
+argument evaluation receive no template evidence. No runtime argument line is
+unmasked. Measured DA0 and region failures retain priority over every syntax hint.
+
+The new real LLVM control compiles and runs these forms, moves a Drop-bearing
+field through a record update, and retains actual uncovered Drop/format-argument
+branches. Forged hints cannot waive their DA0, the region threshold or missing
+production report/LCOV instrumentation. Existing Scene, spherical, GUI and decay
+controls remain unchanged. A fresh helper query against the retained production
+report resolves only the absent-DA syntax; all original measured counts and all
+18 DA0 failures remain unchanged. Independent review and the normal full staged
+gate are still required.

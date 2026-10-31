@@ -64,7 +64,7 @@ joint and axis plus multiplier, offset and reference; an omitted axis defaults
 to `axis`. Loading checks the leader joint and axis within the model and
 rejects a self mimic. `load_str` returns the first native mimic diagnostic for
 the three reviewed invalid fixtures. Native multi-error vectors, warning side
-effects for unknown mimic content, constraint execution, URDF import,
+effects for unknown mimic content, constraint execution, URDF joint import,
 `ToElement` and general graph mutation remain unported.
 Negative effort/velocity sentinels become positive infinity. Axis resolution
 rotates into the requested frame without translation. Joint endpoint frames may
@@ -191,7 +191,7 @@ models before applying the same frame renaming, independent of XML order.
 Same-kind raw duplicates reject, and reference strings are not rewritten.
 Modern shared names reject. Flattened names remain Unsupported; 1.3 and older
 conversions remain unavailable. Full schema/version-aware
-validation, serialization, rendering effects, mesh resource loading, legacy merge collisions, automatic inertia, URDF, other sensor families and most other
+validation, serialization, rendering effects, mesh resource loading, legacy merge collisions, automatic inertia, general URDF conversion, other sensor families and most other
 SDF features remain pending. Unknown schema features error; opaque plugin XML is the stated exception.
 XML names are lexical, matching upstream TinyXML: extension prefixes need not
 be declared. Plugin XML retains original bytes/ranges, including references,
@@ -1274,3 +1274,12 @@ own values; merging an included model leaves its parent's flags unchanged. The
 loader does not change collision filters or sleep/disable bodies. Public edits do
 not rewrite the immutable ModelElement snapshot. Consumers must support or reject
 these fields before adopting the producer. See [MODEL_PHYSICS_FLAGS.md](MODEL_PHYSICS_FLAGS.md).
+
+
+`load_urdf_str(xml, source)` returns an owned `UrdfImport` for the bounded
+single-link URDF 1.0 subset. Its public `sdf` is validated through the existing
+SDF loader and uses the real generated SDF source URI and positions. Immutable
+original and converted XML/Source getters keep both views distinct. Selected
+Gazebo material and mu1/mu2 declarations are metadata only. Unknown content is
+rejected before the permissive dependency parser. SDF loading and resource/include
+format behavior remain unchanged. See [URDF_SINGLE_LINK.md](URDF_SINGLE_LINK.md).

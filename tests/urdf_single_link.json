@@ -1,0 +1,676 @@
+{
+  "cases": [
+    {
+      "name": "original",
+      "xml": "<robot name=\"test\">\n  <link name=\"link\">\n    <inertial>\n      <mass value=\"0.1\" />\n      <origin rpy=\"1.570796326794895 0 0\" xyz=\"0.123456789123456 0 0.0\" />\n      <inertia ixx=\"0.01\" ixy=\"0\" ixz=\"0\" iyy=\"0.01\" iyz=\"0\" izz=\"0.01\" />\n    </inertial>\n    <visual>\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </visual>\n    <collision>\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </collision>\n  </link>\n  <gazebo reference=\"link\">\n    <material>\n      Gazebo/Orange\n    </material>\n    <mu1>\n      100\n    </mu1>\n    <mu2>\n\n      1000\n\n    </mu2>\n  </gazebo>\n</robot>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 74657374 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 6c696e6b 0 0 0 0 0 0 4607182418800017408 1 1\nINERTIAL 4591870180066957722 4576918229304087675 4576918229304087675 4576918229304087675 0 0 0 4593560419855048998 0 0 4604544271217802183 0 0 4604544271217802194\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nVISUAL 6c696e6b5f76697375616c 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMATERIAL 47617a65626f2f4f72616e6765 66696c653a2f2f6d656469612f6d6174657269616c732f736372697074732f67617a65626f2e6d6174657269616c\nRESOLVED visual 0 0 0 0 0 0 0 4607182418800017408\nCOLLISION 6c696e6b5f636f6c6c6973696f6e 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMU 4636737291354636288 4652007308841189376\nRESOLVED collision 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    {
+      "name": "sphere_default",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial><visual><geometry><sphere radius=\"0.25\"/></geometry></visual><collision><geometry><sphere radius=\"0.25\"/></geometry></collision></link></robot>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 1 1\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nVISUAL 626173655f76697375616c 0 0 0 0 0 0 4607182418800017408 SPHERE 4598175219545276416\nRESOLVED visual 0 0 0 0 0 0 0 4607182418800017408\nCOLLISION 626173655f636f6c6c6973696f6e 0 0 0 0 0 0 4607182418800017408 SPHERE 4598175219545276416\nMU 4607182418800017408 4607182418800017408\nRESOLVED collision 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    {
+      "name": "sphere_named",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial><visual name=\"part\"><origin xyz=\"1 2 3\" rpy=\"0.1 -0.2 0.3\"/><geometry><sphere radius=\"0.25\"/></geometry></visual><collision name=\"part\"><origin xyz=\"1 2 3\" rpy=\"0.1 -0.2 0.3\"/><geometry><sphere radius=\"0.25\"/></geometry></collision></link></robot>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 1 1\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nVISUAL 626173655f66697865645f6a6f696e745f6c756d705f5f706172745f76697375616c 4607182418800017408 4611686018427387904 4613937818241073152 4589281247825631930 13814605051201990349 4594696253757897647 4607018993733778623 SPHERE 4598175219545276416\nRESOLVED visual 0 4607182418800017408 4611686018427387904 4613937818241073152 4589281247825631930 13814605051201990349 4594696253757897647 4607018993733778623\nCOLLISION 626173655f66697865645f6a6f696e745f6c756d705f5f706172745f636f6c6c6973696f6e 4607182418800017408 4611686018427387904 4613937818241073152 4589281247825631930 13814605051201990349 4594696253757897647 4607018993733778623 SPHERE 4598175219545276416\nMU 4607182418800017408 4607182418800017408\nRESOLVED collision 0 4607182418800017408 4611686018427387904 4613937818241073152 4589281247825631930 13814605051201990349 4594696253757897647 4607018993733778623\n",
+      "stderr": ""
+    },
+    {
+      "name": "box_default",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial><visual><geometry><box size=\"1 2 3\"/></geometry></visual><collision><geometry><box size=\"1 2 3\"/></geometry></collision></link></robot>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 1 1\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nVISUAL 626173655f76697375616c 0 0 0 0 0 0 4607182418800017408 BOX 4607182418800017408 4611686018427387904 4613937818241073152\nRESOLVED visual 0 0 0 0 0 0 0 4607182418800017408\nCOLLISION 626173655f636f6c6c6973696f6e 0 0 0 0 0 0 4607182418800017408 BOX 4607182418800017408 4611686018427387904 4613937818241073152\nMU 4607182418800017408 4607182418800017408\nRESOLVED collision 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    {
+      "name": "box_named",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial><visual name=\"part\"><origin xyz=\"1 2 3\" rpy=\"0.1 -0.2 0.3\"/><geometry><box size=\"1 2 3\"/></geometry></visual><collision name=\"part\"><origin xyz=\"1 2 3\" rpy=\"0.1 -0.2 0.3\"/><geometry><box size=\"1 2 3\"/></geometry></collision></link></robot>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 1 1\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nVISUAL 626173655f66697865645f6a6f696e745f6c756d705f5f706172745f76697375616c 4607182418800017408 4611686018427387904 4613937818241073152 4589281247825631930 13814605051201990349 4594696253757897647 4607018993733778623 BOX 4607182418800017408 4611686018427387904 4613937818241073152\nRESOLVED visual 0 4607182418800017408 4611686018427387904 4613937818241073152 4589281247825631930 13814605051201990349 4594696253757897647 4607018993733778623\nCOLLISION 626173655f66697865645f6a6f696e745f6c756d705f5f706172745f636f6c6c6973696f6e 4607182418800017408 4611686018427387904 4613937818241073152 4589281247825631930 13814605051201990349 4594696253757897647 4607018993733778623 BOX 4607182418800017408 4611686018427387904 4613937818241073152\nMU 4607182418800017408 4607182418800017408\nRESOLVED collision 0 4607182418800017408 4611686018427387904 4613937818241073152 4589281247825631930 13814605051201990349 4594696253757897647 4607018993733778623\n",
+      "stderr": ""
+    },
+    {
+      "name": "cylinder_default",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial><visual><geometry><cylinder radius=\"0.2\" length=\"1.5\"/></geometry></visual><collision><geometry><cylinder radius=\"0.2\" length=\"1.5\"/></geometry></collision></link></robot>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 1 1\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nVISUAL 626173655f76697375616c 0 0 0 0 0 0 4607182418800017408 CYLINDER 4596373779694328218 4609434218613702656\nRESOLVED visual 0 0 0 0 0 0 0 4607182418800017408\nCOLLISION 626173655f636f6c6c6973696f6e 0 0 0 0 0 0 4607182418800017408 CYLINDER 4596373779694328218 4609434218613702656\nMU 4607182418800017408 4607182418800017408\nRESOLVED collision 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    {
+      "name": "cylinder_named",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial><visual name=\"part\"><origin xyz=\"1 2 3\" rpy=\"0.1 -0.2 0.3\"/><geometry><cylinder radius=\"0.2\" length=\"1.5\"/></geometry></visual><collision name=\"part\"><origin xyz=\"1 2 3\" rpy=\"0.1 -0.2 0.3\"/><geometry><cylinder radius=\"0.2\" length=\"1.5\"/></geometry></collision></link></robot>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 1 1\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nVISUAL 626173655f66697865645f6a6f696e745f6c756d705f5f706172745f76697375616c 4607182418800017408 4611686018427387904 4613937818241073152 4589281247825631930 13814605051201990349 4594696253757897647 4607018993733778623 CYLINDER 4596373779694328218 4609434218613702656\nRESOLVED visual 0 4607182418800017408 4611686018427387904 4613937818241073152 4589281247825631930 13814605051201990349 4594696253757897647 4607018993733778623\nCOLLISION 626173655f66697865645f6a6f696e745f6c756d705f5f706172745f636f6c6c6973696f6e 4607182418800017408 4611686018427387904 4613937818241073152 4589281247825631930 13814605051201990349 4594696253757897647 4607018993733778623 CYLINDER 4596373779694328218 4609434218613702656\nMU 4607182418800017408 4607182418800017408\nRESOLVED collision 0 4607182418800017408 4611686018427387904 4613937818241073152 4589281247825631930 13814605051201990349 4594696253757897647 4607018993733778623\n",
+      "stderr": ""
+    },
+    {
+      "name": "inertial_only",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link></robot>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 0 0\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    {
+      "name": "version1",
+      "xml": "<robot name=\"robot\" version=\"1.0\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link></robot>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 0 0\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    {
+      "name": "version_1.1",
+      "xml": "<robot name=\"robot\" version=\"1.1\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link></robot>",
+      "rust_policy": "Version",
+      "exit": 0,
+      "stdout": "ERRORS 2 40 30\n",
+      "stderr": "Error:   Invalid 'version' specified; only version 1.0 is currently supported\n         at line 135 in ./urdf_parser/src/model.cpp\n\u001b[1;31mError [parser_urdf.cc:3348]\u001b[0m Unable to call parseURDF on robot model\n"
+    },
+    {
+      "name": "version_1.2",
+      "xml": "<robot name=\"robot\" version=\"1.2\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link></robot>",
+      "rust_policy": "Version",
+      "exit": 0,
+      "stdout": "ERRORS 2 40 30\n",
+      "stderr": "Error:   Invalid 'version' specified; only version 1.0 is currently supported\n         at line 135 in ./urdf_parser/src/model.cpp\n\u001b[1;31mError [parser_urdf.cc:3348]\u001b[0m Unable to call parseURDF on robot model\n"
+    },
+    {
+      "name": "version_9.0",
+      "xml": "<robot name=\"robot\" version=\"9.0\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link></robot>",
+      "rust_policy": "Version",
+      "exit": 0,
+      "stdout": "ERRORS 2 40 30\n",
+      "stderr": "Error:   Invalid 'version' specified; only version 1.0 is currently supported\n         at line 135 in ./urdf_parser/src/model.cpp\n\u001b[1;31mError [parser_urdf.cc:3348]\u001b[0m Unable to call parseURDF on robot model\n"
+    },
+    {
+      "name": "gazebo_empty",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial><visual><geometry><sphere radius=\"1\"/></geometry></visual><collision><geometry><sphere radius=\"1\"/></geometry></collision></link><gazebo reference=\"base\"/></robot>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 1 1\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nVISUAL 626173655f76697375616c 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nRESOLVED visual 0 0 0 0 0 0 0 4607182418800017408\nCOLLISION 626173655f636f6c6c6973696f6e 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMU 4607182418800017408 4607182418800017408\nRESOLVED collision 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    {
+      "name": "mu1_only",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial><visual><geometry><sphere radius=\"1\"/></geometry></visual><collision><geometry><sphere radius=\"1\"/></geometry></collision></link><gazebo reference=\"base\"><mu1>0.5</mu1></gazebo></robot>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 1 1\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nVISUAL 626173655f76697375616c 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nRESOLVED visual 0 0 0 0 0 0 0 4607182418800017408\nCOLLISION 626173655f636f6c6c6973696f6e 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMU 4602678819172646912 4607182418800017408\nRESOLVED collision 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    {
+      "name": "mu2_only",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial><visual><geometry><sphere radius=\"1\"/></geometry></visual><collision><geometry><sphere radius=\"1\"/></geometry></collision></link><gazebo reference=\"base\"><mu2>0.25</mu2></gazebo></robot>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 1 1\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nVISUAL 626173655f76697375616c 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nRESOLVED visual 0 0 0 0 0 0 0 4607182418800017408\nCOLLISION 626173655f636f6c6c6973696f6e 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMU 4607182418800017408 4598175219545276416\nRESOLVED collision 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    {
+      "name": "material_only",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial><visual><geometry><sphere radius=\"1\"/></geometry></visual><collision><geometry><sphere radius=\"1\"/></geometry></collision></link><gazebo reference=\"base\"><material>  Gazebo/Blue  </material></gazebo></robot>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 1 1\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nVISUAL 626173655f76697375616c 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMATERIAL 47617a65626f2f426c7565 66696c653a2f2f6d656469612f6d6174657269616c732f736372697074732f67617a65626f2e6d6174657269616c\nRESOLVED visual 0 0 0 0 0 0 0 4607182418800017408\nCOLLISION 626173655f636f6c6c6973696f6e 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMU 4607182418800017408 4607182418800017408\nRESOLVED collision 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    {
+      "name": "mu1_0",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial><collision><geometry><sphere radius=\"1\"/></geometry></collision></link><gazebo reference=\"base\"><mu1>0</mu1></gazebo></robot>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 0 1\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nCOLLISION 626173655f636f6c6c6973696f6e 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMU 0 4607182418800017408\nRESOLVED collision 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    {
+      "name": "mu1_1",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial><collision><geometry><sphere radius=\"1\"/></geometry></collision></link><gazebo reference=\"base\"><mu1>0.7tail</mu1></gazebo></robot>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 0 1\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nCOLLISION 626173655f636f6c6c6973696f6e 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMU 4604480259023595110 4607182418800017408\nRESOLVED collision 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    {
+      "name": "mu1_2",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial><collision><geometry><sphere radius=\"1\"/></geometry></collision></link><gazebo reference=\"base\"><mu1>-1</mu1></gazebo></robot>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 10 9 9 9 9 9 9 9 9 40 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: The value [-1] is less than the minimum allowed value of [0] for key [mu]\n"
+    },
+    {
+      "name": "mu1_3",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial><collision><geometry><sphere radius=\"1\"/></geometry></collision></link><gazebo reference=\"base\"><mu1>nan</mu1></gazebo></robot>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 0 1\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nCOLLISION 626173655f636f6c6c6973696f6e 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMU 9221120237041090560 4607182418800017408\nRESOLVED collision 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    {
+      "name": "mu1_4",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial><collision><geometry><sphere radius=\"1\"/></geometry></collision></link><gazebo reference=\"base\"><mu1>inf</mu1></gazebo></robot>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 0 1\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nCOLLISION 626173655f636f6c6c6973696f6e 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMU 9218868437227405312 4607182418800017408\nRESOLVED collision 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    {
+      "name": "mu1_5",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial><collision><geometry><sphere radius=\"1\"/></geometry></collision></link><gazebo reference=\"base\"><mu1>bad</mu1></gazebo></robot>",
+      "rust_policy": "InvalidValue",
+      "exit": 2,
+      "stdout": "EXCEPTION 73746f64\n",
+      "stderr": ""
+    },
+    {
+      "name": "mu1_6",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial><collision><geometry><sphere radius=\"1\"/></geometry></collision></link><gazebo reference=\"base\"><mu1>1e999</mu1></gazebo></robot>",
+      "rust_policy": "InvalidValue",
+      "exit": 2,
+      "stdout": "EXCEPTION 73746f64\n",
+      "stderr": ""
+    },
+    {
+      "name": "mu1_7",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial><collision><geometry><sphere radius=\"1\"/></geometry></collision></link><gazebo reference=\"base\"><mu1>1e-999</mu1></gazebo></robot>",
+      "rust_policy": "InvalidValue",
+      "exit": 2,
+      "stdout": "EXCEPTION 73746f64\n",
+      "stderr": ""
+    },
+    {
+      "name": "mu1_8",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial><collision><geometry><sphere radius=\"1\"/></geometry></collision></link><gazebo reference=\"base\"><mu1><![CDATA[ 0.4 ]]></mu1></gazebo></robot>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 0 1\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nCOLLISION 626173655f636f6c6c6973696f6e 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMU 4600877379321698714 4607182418800017408\nRESOLVED collision 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    {
+      "name": "mu1_9",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial><collision><geometry><sphere radius=\"1\"/></geometry></collision></link><gazebo reference=\"base\"><mu1>  2.5  </mu1></gazebo></robot>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 0 1\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nCOLLISION 626173655f636f6c6c6973696f6e 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMU 4612811918334230528 4607182418800017408\nRESOLVED collision 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    {
+      "name": "mass_zero",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"0\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link></robot>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 3 17 17 25\nROOT 312e3132\nMODEL 726f626f74 0 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "\u001b[1;33mWarning [parser_urdf.cc:2774]\u001b[0m Error Code 19: Msg: urdf2sdf: link[base] has a mass value of less than or equal to zero. Please ensure this link has a valid mass to prevent any missing links or joints in the resulting SDF model.\n\u001b[1;33mWarning [parser_urdf.cc:2777]\u001b[0m Error Code 19: Msg: urdf2sdf: link[base] is not modeled in sdf."
+    },
+    {
+      "name": "mass_negative",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"-1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link></robot>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 3 17 17 25\nROOT 312e3132\nMODEL 726f626f74 0 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "\u001b[1;33mWarning [parser_urdf.cc:2774]\u001b[0m Error Code 19: Msg: urdf2sdf: link[base] has a mass value of less than or equal to zero. Please ensure this link has a valid mass to prevent any missing links or joints in the resulting SDF model.\n\u001b[1;33mWarning [parser_urdf.cc:2777]\u001b[0m Error Code 19: Msg: urdf2sdf: link[base] is not modeled in sdf."
+    },
+    {
+      "name": "mass_nan",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"nan\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link></robot>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 3 17 17 25\nROOT 312e3132\nMODEL 726f626f74 0 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "Error:   Inertial: mass [nan] is not a float\n         at line 299 in ./urdf_parser/src/link.cpp\nError:   Could not parse inertial element for Link [base]\n         at line 435 in ./urdf_parser/src/link.cpp\n\u001b[1;33mWarning [parser_urdf.cc:2774]\u001b[0m Error Code 19: Msg: urdf2sdf: link[base] has a mass value of less than or equal to zero. Please ensure this link has a valid mass to prevent any missing links or joints in the resulting SDF model.\n\u001b[1;33mWarning [parser_urdf.cc:2777]\u001b[0m Error Code 19: Msg: urdf2sdf: link[base] is not modeled in sdf."
+    },
+    {
+      "name": "mass_overflow",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1e999\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link></robot>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 3 17 17 25\nROOT 312e3132\nMODEL 726f626f74 0 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "Error:   Inertial: mass [1e999] is not a float\n         at line 299 in ./urdf_parser/src/link.cpp\nError:   Could not parse inertial element for Link [base]\n         at line 435 in ./urdf_parser/src/link.cpp\n\u001b[1;33mWarning [parser_urdf.cc:2774]\u001b[0m Error Code 19: Msg: urdf2sdf: link[base] has a mass value of less than or equal to zero. Please ensure this link has a valid mass to prevent any missing links or joints in the resulting SDF model.\n\u001b[1;33mWarning [parser_urdf.cc:2777]\u001b[0m Error Code 19: Msg: urdf2sdf: link[base] is not modeled in sdf."
+    },
+    {
+      "name": "mass_prefix",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1tail\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link></robot>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 3 17 17 25\nROOT 312e3132\nMODEL 726f626f74 0 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "Error:   Inertial: mass [1tail] is not a float\n         at line 299 in ./urdf_parser/src/link.cpp\nError:   Could not parse inertial element for Link [base]\n         at line 435 in ./urdf_parser/src/link.cpp\n\u001b[1;33mWarning [parser_urdf.cc:2774]\u001b[0m Error Code 19: Msg: urdf2sdf: link[base] has a mass value of less than or equal to zero. Please ensure this link has a valid mass to prevent any missing links or joints in the resulting SDF model.\n\u001b[1;33mWarning [parser_urdf.cc:2777]\u001b[0m Error Code 19: Msg: urdf2sdf: link[base] is not modeled in sdf."
+    },
+    {
+      "name": "missing_inertial",
+      "xml": "<robot name=\"robot\"><link name=\"base\"></link></robot>",
+      "rust_policy": "Missing",
+      "exit": 0,
+      "stdout": "ERRORS 3 17 17 25\nROOT 312e3132\nMODEL 726f626f74 0 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "\u001b[1;33mWarning [parser_urdf.cc:2774]\u001b[0m Error Code 19: Msg: urdf2sdf: link[base] has no <inertial> block defined. Please ensure this link has a valid mass to prevent any missing links or joints in the resulting SDF model.\n\u001b[1;33mWarning [parser_urdf.cc:2777]\u001b[0m Error Code 19: Msg: urdf2sdf: link[base] is not modeled in sdf."
+    },
+    {
+      "name": "missing_mass",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link></robot>",
+      "rust_policy": "Missing",
+      "exit": 0,
+      "stdout": "ERRORS 3 17 17 25\nROOT 312e3132\nMODEL 726f626f74 0 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "Error:   Inertial element must have a mass element\n         at line 284 in ./urdf_parser/src/link.cpp\nError:   Could not parse inertial element for Link [base]\n         at line 435 in ./urdf_parser/src/link.cpp\n\u001b[1;33mWarning [parser_urdf.cc:2774]\u001b[0m Error Code 19: Msg: urdf2sdf: link[base] has a mass value of less than or equal to zero. Please ensure this link has a valid mass to prevent any missing links or joints in the resulting SDF model.\n\u001b[1;33mWarning [parser_urdf.cc:2777]\u001b[0m Error Code 19: Msg: urdf2sdf: link[base] is not modeled in sdf."
+    },
+    {
+      "name": "missing_inertia",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1\"/></inertial></link></robot>",
+      "rust_policy": "Missing",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 0 0\nINERTIAL 4607182418800017408 0 0 0 0 0 0 0 0 0 0 0 0 4607182418800017408\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "Error:   Inertial element must have inertia element\n         at line 306 in ./urdf_parser/src/link.cpp\nError:   Could not parse inertial element for Link [base]\n         at line 435 in ./urdf_parser/src/link.cpp\n"
+    },
+    {
+      "name": "unknown_root",
+      "xml": "<robot name=\"robot\" mystery=\"1\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link></robot>",
+      "rust_policy": "Unsupported",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 0 0\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    {
+      "name": "unknown_root_child",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link><transmission/></robot>",
+      "rust_policy": "Unsupported",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 0 0\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    {
+      "name": "unknown_link_child",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial><sensor/></link></robot>",
+      "rust_policy": "Unsupported",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 0 0\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    {
+      "name": "unknown_gazebo_child",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link><gazebo reference=\"base\"><gravity>false</gravity></gazebo></robot>",
+      "rust_policy": "Unsupported",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 0 0\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    {
+      "name": "unknown_gazebo_attribute",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link><gazebo reference=\"base\" extra=\"x\"/></robot>",
+      "rust_policy": "Unsupported",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 0 0\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    {
+      "name": "unknown_origin_attribute",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><origin quat_xyzw=\"0 0 0 1\"/><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link></robot>",
+      "rust_policy": "Unsupported",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 0 0\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    {
+      "name": "inline_material",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial><visual><geometry><sphere radius=\"1\"/></geometry><material name=\"m\"><color rgba=\"1 0 0 1\"/></material></visual></link></robot>",
+      "rust_policy": "Unsupported",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 1 0\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nVISUAL 626173655f76697375616c 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMATERIAL - -\nRESOLVED visual 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    {
+      "name": "root_material",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link><material name=\"m\"><color rgba=\"1 0 0 1\"/></material></robot>",
+      "rust_policy": "Unsupported",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 0 0\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    {
+      "name": "mesh",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial><visual><geometry><mesh filename=\"not-loaded.stl\"/></geometry></visual></link></robot>",
+      "rust_policy": "Unsupported",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 1 0\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nVISUAL 626173655f76697375616c 0 0 0 0 0 0 4607182418800017408 OTHER 5\nRESOLVED visual 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    {
+      "name": "capsule",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial><visual><geometry><capsule radius=\"1\" length=\"1\"/></geometry></visual></link></robot>",
+      "rust_policy": "Unsupported",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 0 0\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "Error:   Unknown geometry type 'capsule'\n         at line 262 in ./urdf_parser/src/link.cpp\nError:   Could not parse visual element for Link [base]\n         at line 453 in ./urdf_parser/src/link.cpp\n"
+    },
+    {
+      "name": "robot_origin",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link><origin xyz=\"1 2 3\"/></robot>",
+      "rust_policy": "Unsupported",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 4607182418800017408 4611686018427387904 4613937818241073152 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 0 0\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    {
+      "name": "joint",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link><joint name=\"j\" type=\"fixed\"><parent link=\"base\"/><child link=\"base\"/></joint></robot>",
+      "rust_policy": "Unsupported",
+      "exit": 0,
+      "stdout": "ERRORS 2 40 30\n",
+      "stderr": "Error:   Failed to find root link: No root link found. The robot xml is not a valid tree.\n         at line 265 in ./urdf_parser/src/model.cpp\n\u001b[1;31mError [parser_urdf.cc:3348]\u001b[0m Unable to call parseURDF on robot model\n"
+    },
+    {
+      "name": "second_link",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link><link name=\"second\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link></robot>",
+      "rust_policy": "Unsupported",
+      "exit": 0,
+      "stdout": "ERRORS 2 40 30\n",
+      "stderr": "Error:   Failed to find root link: Two root links found: [base] and [second]\n         at line 265 in ./urdf_parser/src/model.cpp\n\u001b[1;31mError [parser_urdf.cc:3348]\u001b[0m Unable to call parseURDF on robot model\n"
+    },
+    {
+      "name": "second_visual",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial><visual><geometry><sphere radius=\"1\"/></geometry></visual><visual><geometry><sphere radius=\"1\"/></geometry></visual></link></robot>",
+      "rust_policy": "Unsupported",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 2 0\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nVISUAL 626173655f76697375616c 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nRESOLVED visual 0 0 0 0 0 0 0 4607182418800017408\nVISUAL 626173655f76697375616c5f31 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nRESOLVED visual 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    {
+      "name": "wrong_gazebo_reference",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link><gazebo reference=\"missing\"><mu1>1</mu1></gazebo></robot>",
+      "rust_policy": "UnknownReference",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 0 0\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    {
+      "name": "gazebo_no_reference",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link><gazebo><material>Gazebo/Blue</material></gazebo></robot>",
+      "rust_policy": "Missing",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 0 0\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    {
+      "name": "world_dummy",
+      "xml": "<robot name=\"robot\"><link name=\"world\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link></robot>",
+      "rust_policy": "Unsupported",
+      "exit": 0,
+      "stdout": "ERRORS 3 17 17 25\nROOT 312e3132\nMODEL 726f626f74 0 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    {
+      "name": "zero_geometry",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial><collision><geometry><sphere radius=\"0\"/></geometry></collision></link></robot>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 0 1\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nCOLLISION 626173655f636f6c6c6973696f6e 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMU 4607182418800017408 4607182418800017408\nRESOLVED collision 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "\u001b[1;33mWarning [Sphere.cc:82]\u001b[0m Value of <radius> is negative. Using default value of 1.0.\n"
+    },
+    {
+      "name": "duplicate_mass",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1\"/><mass value=\"2\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link></robot>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 0 0\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    {
+      "name": "duplicate_gazebo_mu",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link><gazebo reference=\"base\"><mu1>1</mu1><mu1>2</mu1></gazebo></robot>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 0 0\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    {
+      "name": "origin_vector_0",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><origin xyz=\"1 2 3\"/><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link></robot>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 0 0\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 4607182418800017408 4611686018427387904 4613937818241073152 0 0 0 4607182418800017408\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    {
+      "name": "origin_vector_1",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><origin xyz=\" 1 2 3 \"/><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link></robot>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 0 0\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 4607182418800017408 4611686018427387904 4613937818241073152 0 0 0 4607182418800017408\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    {
+      "name": "origin_vector_2",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><origin xyz=\"1 2 3bad\"/><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link></robot>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 3 17 17 25\nROOT 312e3132\nMODEL 726f626f74 0 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "Error:   Unable to parse component [3bad] to a double (while parsing a vector value)\n         at line 104 in ./urdf_parser/src/pose.cpp\nError:   Could not parse inertial element for Link [base]\n         at line 435 in ./urdf_parser/src/link.cpp\n\u001b[1;33mWarning [parser_urdf.cc:2774]\u001b[0m Error Code 19: Msg: urdf2sdf: link[base] has a mass value of less than or equal to zero. Please ensure this link has a valid mass to prevent any missing links or joints in the resulting SDF model.\n\u001b[1;33mWarning [parser_urdf.cc:2777]\u001b[0m Error Code 19: Msg: urdf2sdf: link[base] is not modeled in sdf."
+    },
+    {
+      "name": "origin_vector_3",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><origin xyz=\"junk 1 2 3\"/><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link></robot>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 3 17 17 25\nROOT 312e3132\nMODEL 726f626f74 0 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "Error:   Unable to parse component [junk] to a double (while parsing a vector value)\n         at line 104 in ./urdf_parser/src/pose.cpp\nError:   Could not parse inertial element for Link [base]\n         at line 435 in ./urdf_parser/src/link.cpp\n\u001b[1;33mWarning [parser_urdf.cc:2774]\u001b[0m Error Code 19: Msg: urdf2sdf: link[base] has a mass value of less than or equal to zero. Please ensure this link has a valid mass to prevent any missing links or joints in the resulting SDF model.\n\u001b[1;33mWarning [parser_urdf.cc:2777]\u001b[0m Error Code 19: Msg: urdf2sdf: link[base] is not modeled in sdf."
+    },
+    {
+      "name": "origin_vector_4",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><origin xyz=\"1 2 3 4\"/><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link></robot>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 3 17 17 25\nROOT 312e3132\nMODEL 726f626f74 0 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "Error:   Parser found 4 elements but 3 expected while parsing vector [1 2 3 4]\n         at line 104 in ./urdf_parser/src/pose.cpp\nError:   Could not parse inertial element for Link [base]\n         at line 435 in ./urdf_parser/src/link.cpp\n\u001b[1;33mWarning [parser_urdf.cc:2774]\u001b[0m Error Code 19: Msg: urdf2sdf: link[base] has a mass value of less than or equal to zero. Please ensure this link has a valid mass to prevent any missing links or joints in the resulting SDF model.\n\u001b[1;33mWarning [parser_urdf.cc:2777]\u001b[0m Error Code 19: Msg: urdf2sdf: link[base] is not modeled in sdf."
+    },
+    {
+      "name": "origin_vector_5",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><origin xyz=\"1 2\"/><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link></robot>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 3 17 17 25\nROOT 312e3132\nMODEL 726f626f74 0 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "Error:   Parser found 2 elements but 3 expected while parsing vector [1 2]\n         at line 104 in ./urdf_parser/src/pose.cpp\nError:   Could not parse inertial element for Link [base]\n         at line 435 in ./urdf_parser/src/link.cpp\n\u001b[1;33mWarning [parser_urdf.cc:2774]\u001b[0m Error Code 19: Msg: urdf2sdf: link[base] has a mass value of less than or equal to zero. Please ensure this link has a valid mass to prevent any missing links or joints in the resulting SDF model.\n\u001b[1;33mWarning [parser_urdf.cc:2777]\u001b[0m Error Code 19: Msg: urdf2sdf: link[base] is not modeled in sdf."
+    },
+    {
+      "name": "origin_vector_6",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><origin xyz=\"1&#9;2&#9;3\"/><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link></robot>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 3 17 17 25\nROOT 312e3132\nMODEL 726f626f74 0 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "Error:   Unable to parse component [1\t2\t3] to a double (while parsing a vector value)\n         at line 104 in ./urdf_parser/src/pose.cpp\nError:   Could not parse inertial element for Link [base]\n         at line 435 in ./urdf_parser/src/link.cpp\n\u001b[1;33mWarning [parser_urdf.cc:2774]\u001b[0m Error Code 19: Msg: urdf2sdf: link[base] has a mass value of less than or equal to zero. Please ensure this link has a valid mass to prevent any missing links or joints in the resulting SDF model.\n\u001b[1;33mWarning [parser_urdf.cc:2777]\u001b[0m Error Code 19: Msg: urdf2sdf: link[base] is not modeled in sdf."
+    },
+    {
+      "name": "origin_vector_7",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><origin xyz=\"&#9;1 2 3\"/><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link></robot>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 0 0\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 4607182418800017408 4611686018427387904 4613937818241073152 0 0 0 4607182418800017408\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    {
+      "name": "origin_vector_8",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><origin xyz=\"1&#9; 2 3\"/><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link></robot>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 3 17 17 25\nROOT 312e3132\nMODEL 726f626f74 0 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "Error:   Unable to parse component [1\t] to a double (while parsing a vector value)\n         at line 104 in ./urdf_parser/src/pose.cpp\nError:   Could not parse inertial element for Link [base]\n         at line 435 in ./urdf_parser/src/link.cpp\n\u001b[1;33mWarning [parser_urdf.cc:2774]\u001b[0m Error Code 19: Msg: urdf2sdf: link[base] has a mass value of less than or equal to zero. Please ensure this link has a valid mass to prevent any missing links or joints in the resulting SDF model.\n\u001b[1;33mWarning [parser_urdf.cc:2777]\u001b[0m Error Code 19: Msg: urdf2sdf: link[base] is not modeled in sdf."
+    },
+    {
+      "name": "origin_vector_9",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><origin xyz=\"&#160;1 2 3\"/><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link></robot>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 3 17 17 25\nROOT 312e3132\nMODEL 726f626f74 0 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "Error:   Unable to parse component [\u00a01] to a double (while parsing a vector value)\n         at line 104 in ./urdf_parser/src/pose.cpp\nError:   Could not parse inertial element for Link [base]\n         at line 435 in ./urdf_parser/src/link.cpp\n\u001b[1;33mWarning [parser_urdf.cc:2774]\u001b[0m Error Code 19: Msg: urdf2sdf: link[base] has a mass value of less than or equal to zero. Please ensure this link has a valid mass to prevent any missing links or joints in the resulting SDF model.\n\u001b[1;33mWarning [parser_urdf.cc:2777]\u001b[0m Error Code 19: Msg: urdf2sdf: link[base] is not modeled in sdf."
+    },
+    {
+      "name": "origin_vector_10",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><origin xyz=\"nan 2 3\"/><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link></robot>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 3 17 17 25\nROOT 312e3132\nMODEL 726f626f74 0 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "Error:   Unable to parse component [nan] to a double (while parsing a vector value)\n         at line 104 in ./urdf_parser/src/pose.cpp\nError:   Could not parse inertial element for Link [base]\n         at line 435 in ./urdf_parser/src/link.cpp\n\u001b[1;33mWarning [parser_urdf.cc:2774]\u001b[0m Error Code 19: Msg: urdf2sdf: link[base] has a mass value of less than or equal to zero. Please ensure this link has a valid mass to prevent any missing links or joints in the resulting SDF model.\n\u001b[1;33mWarning [parser_urdf.cc:2777]\u001b[0m Error Code 19: Msg: urdf2sdf: link[base] is not modeled in sdf."
+    },
+    {
+      "name": "origin_vector_11",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><origin xyz=\"1e999 2 3\"/><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link></robot>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 3 17 17 25\nROOT 312e3132\nMODEL 726f626f74 0 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "Error:   Unable to parse component [1e999] to a double (while parsing a vector value)\n         at line 104 in ./urdf_parser/src/pose.cpp\nError:   Could not parse inertial element for Link [base]\n         at line 435 in ./urdf_parser/src/link.cpp\n\u001b[1;33mWarning [parser_urdf.cc:2774]\u001b[0m Error Code 19: Msg: urdf2sdf: link[base] has a mass value of less than or equal to zero. Please ensure this link has a valid mass to prevent any missing links or joints in the resulting SDF model.\n\u001b[1;33mWarning [parser_urdf.cc:2777]\u001b[0m Error Code 19: Msg: urdf2sdf: link[base] is not modeled in sdf."
+    },
+    {
+      "name": "scalar_boundary_0",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link></robot>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 0 0\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    {
+      "name": "scalar_boundary_1",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\" 1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link></robot>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 0 0\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    {
+      "name": "scalar_boundary_2",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1 \"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link></robot>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 3 17 17 25\nROOT 312e3132\nMODEL 726f626f74 0 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "Error:   Inertial: mass [1 ] is not a float\n         at line 299 in ./urdf_parser/src/link.cpp\nError:   Could not parse inertial element for Link [base]\n         at line 435 in ./urdf_parser/src/link.cpp\n\u001b[1;33mWarning [parser_urdf.cc:2774]\u001b[0m Error Code 19: Msg: urdf2sdf: link[base] has a mass value of less than or equal to zero. Please ensure this link has a valid mass to prevent any missing links or joints in the resulting SDF model.\n\u001b[1;33mWarning [parser_urdf.cc:2777]\u001b[0m Error Code 19: Msg: urdf2sdf: link[base] is not modeled in sdf."
+    },
+    {
+      "name": "scalar_boundary_3",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"&#9;1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link></robot>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 0 0\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    {
+      "name": "scalar_boundary_4",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1&#9;\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link></robot>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 3 17 17 25\nROOT 312e3132\nMODEL 726f626f74 0 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "Error:   Inertial: mass [1\t] is not a float\n         at line 299 in ./urdf_parser/src/link.cpp\nError:   Could not parse inertial element for Link [base]\n         at line 435 in ./urdf_parser/src/link.cpp\n\u001b[1;33mWarning [parser_urdf.cc:2774]\u001b[0m Error Code 19: Msg: urdf2sdf: link[base] has a mass value of less than or equal to zero. Please ensure this link has a valid mass to prevent any missing links or joints in the resulting SDF model.\n\u001b[1;33mWarning [parser_urdf.cc:2777]\u001b[0m Error Code 19: Msg: urdf2sdf: link[base] is not modeled in sdf."
+    },
+    {
+      "name": "scalar_boundary_5",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1tail\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link></robot>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 3 17 17 25\nROOT 312e3132\nMODEL 726f626f74 0 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "Error:   Inertial: mass [1tail] is not a float\n         at line 299 in ./urdf_parser/src/link.cpp\nError:   Could not parse inertial element for Link [base]\n         at line 435 in ./urdf_parser/src/link.cpp\n\u001b[1;33mWarning [parser_urdf.cc:2774]\u001b[0m Error Code 19: Msg: urdf2sdf: link[base] has a mass value of less than or equal to zero. Please ensure this link has a valid mass to prevent any missing links or joints in the resulting SDF model.\n\u001b[1;33mWarning [parser_urdf.cc:2777]\u001b[0m Error Code 19: Msg: urdf2sdf: link[base] is not modeled in sdf."
+    },
+    {
+      "name": "basic_original",
+      "xml": "\n    <robot name='test_robot'>\n      <link name='link1'>\n        <inertial>\n          <mass value='0.1' />\n          <origin rpy='1.570796326794895 0 0' xyz='0.123456789123456 0 0.0' />\n          <inertia ixx='0.01' ixy='0' ixz='0' iyy='0.01' iyz='0' izz='0.01' />\n        </inertial>\n      </link>\n    </robot>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 746573745f726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 6c696e6b31 0 0 0 0 0 0 4607182418800017408 0 0\nINERTIAL 4591870180066957722 4576918229304087675 4576918229304087675 4576918229304087675 0 0 0 4593560419855048998 0 0 4604544271217802183 0 0 4604544271217802194\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    {
+      "name": "escaped_names",
+      "xml": "<robot name=\"robot&amp;one\"><link name=\"link&lt;one\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link></robot>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74266f6e65 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 6c696e6b3c6f6e65 0 0 0 0 0 0 4607182418800017408 0 0\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    {
+      "name": "gimbal",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><origin rpy=\"0.3 1.5707963267948966 -0.5\"/><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link></robot>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 0 0\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 4598632071006692168 4604041504609628744 13822004107861467978 4604041504609628741\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    {
+      "name": "large_angle",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><origin rpy=\"1e9 -0.2 0.3\"/><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link></robot>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 0 0\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 4598975100215120847 13811069236767076672 4595316040956209627 4606631794762842780\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    {
+      "name": "extreme_angle",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><origin rpy=\"1e300 0 0\"/><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link></robot>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 0 0\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 13829541332507599270 0 0 4601972074267241781\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    {
+      "name": "negative_zero",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><origin rpy=\"-0 0 -0\"/><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link></robot>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 0 0\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    {
+      "name": "tiny_origin_1e-999",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><origin xyz=\"1e-999 0 0\"/><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link></robot>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 0 0\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    {
+      "name": "tiny_moment_1e-999",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"1e-999\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link></robot>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 726f626f74 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 62617365 0 0 0 0 0 0 4607182418800017408 0 0\nINERTIAL 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    {
+      "name": "tiny_origin_1e-320",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><origin xyz=\"1e-320 0 0\"/><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link></robot>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 7 9 9 9 9 9 40 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Out of range. Unable to set value [9.99988867182683e-321] for key [pose].\n"
+    },
+    {
+      "name": "tiny_moment_1e-320",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"1e-320\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link></robot>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 8 9 9 9 9 9 9 40 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Out of range. Unable to set value [9.99988867182683e-321 ] for key[ixy].\n"
+    },
+    {
+      "name": "tiny_origin_5e-324",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><origin xyz=\"5e-324 0 0\"/><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"0\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link></robot>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 7 9 9 9 9 9 40 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Out of range. Unable to set value [4.940656458412465e-324] for key [pose].\n"
+    },
+    {
+      "name": "tiny_moment_5e-324",
+      "xml": "<robot name=\"robot\"><link name=\"base\"><inertial><mass value=\"1\"/><inertia ixx=\"1\" ixy=\"5e-324\" ixz=\"0\" iyy=\"1\" iyz=\"0\" izz=\"1\"/></inertial></link></robot>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 8 9 9 9 9 9 9 40 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Out of range. Unable to set value [4.940656458412465e-324 ] for key[ixy].\n"
+    }
+  ]
+}

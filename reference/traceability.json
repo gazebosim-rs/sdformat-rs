@@ -2692,6 +2692,34 @@
       "case": "DOMCollision.ToElementErrorOutput",
       "rust_test": "tests/collision_xml.rs::original_collision_to_element_error_output",
       "assertions": "Genuine Empty geometry, raw pose, name, Surface/Contact/Friction/ODE, mask 123 and mu 1.23 setup. Ok/nonempty XML and successful reload represent nonnull output and empty error vectors; direct signed pose, name, safe owned geometry/surface/contact/friction/ODE and value predicates remain. A child process captures actual stdout/stderr for the original quiet-output assertion. No Element identity or auto-inertia claim."
+    },
+    {
+      "target": "INTEGRATION_urdf_to_sdf",
+      "case": "URDF2SDF.ValidBasicURDF",
+      "source": "test/integration/urdf_to_sdf.cc:31",
+      "rust_test": "tests/urdf_single_link.rs::original_valid_basic_urdf_loads_model_and_named_link",
+      "assertions": "Complete fixed original observable set: successful import, Model presence and link1 name existence on the byte-identical original inline URDF. The explicit Rust URDF entrypoint returns a validated generated-SDF view rather than native Root method identity. Inertial values, frame queries and distinct source/XML snapshots are supplemental; no broader URDF API or generated XML formatting claim.",
+      "fixtures": {
+        "tests/fixtures/urdf_basic_original.urdf": "8eddee91133bd184d2854d3761b7a230066f35e7ee17206903f30856e6197673"
+      },
+      "upstream_fixtures": {},
+      "baseline": "84 pinned native controls including constructor-free actual URDF conversion, exact scalar/name/geometry observations,1e-12 quaternion physical equivalence, schema/number/domain rejections and both unchanged full originals pass. Nine focused and637 retained Rust tests,46 tooling tests and Clippy pass. Independent original-mapping review and normal strict staged/exact hosted gates remain pending.",
+      "status": "ported_reviewed",
+      "review": "Independent transport_owner fresh-source/separate-target review approved the exact 16-path packet: nine focused Rust tests,all-target Clippy,84 native controls,both unchanged full originals and equal provenance passed. All15 newly locked dependency source/archive/license audits passed. Complete fixed-case mapping approved: ValidBasicURDF retains all three original observations; ParseWhitespace retains all thirteen selected-tree presences and three exact GetText strings through the real immutable converted view. No general URDF importer,whole XML formatting or mutable Element credit. Root independently read admission,numeric validation,generated escaping,reused SDF loader and original/generated provenance and agreed. Production,native inputs and assertions remain unchanged. Full ordinary protected staged/strict coverage and exact hosted/source-bound qualification remain pending; accepted counts and consumer pins do not advance yet."
+    },
+    {
+      "target": "UNIT_parser_urdf_TEST",
+      "case": "URDFParser.ParseWhitespace",
+      "source": "src/parser_urdf_TEST.cc:1023",
+      "rust_test": "tests/urdf_single_link.rs::original_parse_whitespace_preserves_converted_tree_and_exact_three_text_values",
+      "assertions": "Complete fixed original observable set: thirteen selected converted XML element-presence observations (sdf/model/link/visual/collision/material/script/name/surface/friction/ode/mu/mu2) and exact GetText strings Gazebo/Orange,100,1000. The real immutable converted snapshot is queried through quick-xml, with byte-identical original input retained separately. Whole generated XML formatting, generic mutable Element identity and unrelated URDF originals remain outside the claim.",
+      "fixtures": {
+        "tests/fixtures/urdf_single_link_original.urdf": "30799507a61c043da3bfc3d31e751701928892da6929c47641f18061ba840750"
+      },
+      "upstream_fixtures": {},
+      "baseline": "84 pinned native controls including constructor-free actual URDF conversion, exact scalar/name/geometry observations,1e-12 quaternion physical equivalence, schema/number/domain rejections and both unchanged full originals pass. Nine focused and637 retained Rust tests,46 tooling tests and Clippy pass. Independent original-mapping review and normal strict staged/exact hosted gates remain pending.",
+      "status": "ported_reviewed",
+      "review": "Independent transport_owner fresh-source/separate-target review approved the exact 16-path packet: nine focused Rust tests,all-target Clippy,84 native controls,both unchanged full originals and equal provenance passed. All15 newly locked dependency source/archive/license audits passed. Complete fixed-case mapping approved: ValidBasicURDF retains all three original observations; ParseWhitespace retains all thirteen selected-tree presences and three exact GetText strings through the real immutable converted view. No general URDF importer,whole XML formatting or mutable Element credit. Root independently read admission,numeric validation,generated escaping,reused SDF loader and original/generated provenance and agreed. Production,native inputs and assertions remain unchanged. Full ordinary protected staged/strict coverage and exact hosted/source-bound qualification remain pending; accepted counts and consumer pins do not advance yet."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

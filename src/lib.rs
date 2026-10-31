@@ -47,7 +47,9 @@ mod polyline_xml;
 mod sensor_xml;
 mod surface_xml;
 mod types;
+mod urdf;
 mod visual_xml;
+pub use urdf::{UrdfImport, load_urdf_str};
 mod xml;
 pub use types::*;
 

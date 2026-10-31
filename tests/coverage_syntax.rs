@@ -340,6 +340,7 @@ struct CallAudit {
     closings: BTreeSet<usize>,
     else_delimiters: BTreeSet<usize>,
     wildcard_prefixes: BTreeSet<usize>,
+    record_updates: BTreeSet<usize>,
 }
 impl<'ast> Visit<'ast> for CallAudit {
     fn visit_attribute(&mut self, attr: &'ast syn::Attribute) {
@@ -452,6 +453,15 @@ impl<'ast> Visit<'ast> for CallAudit {
     }
     fn visit_expr_struct(&mut self, expression: &'ast syn::ExprStruct) {
         if self.in_function && docs_only(&expression.attrs) {
+            if let (Some(dots), Some(rest)) = (&expression.dot2_token, &expression.rest)
+                && let syn::Expr::Path(path) = &**rest
+                && path.attrs.is_empty()
+                && path.qself.is_none()
+                && path.path.get_ident().is_some()
+                && dots.span().start().line == path.span().end().line
+            {
+                self.record_updates.insert(dots.span().start().line);
+            }
             for pair in expression.fields.pairs() {
                 let (field, comma) = pair.into_tuple();
                 if let syn::Expr::If(branch) = &field.expr
@@ -551,12 +561,17 @@ fn plain_declarations(
                 for pair in fields.named.pairs() {
                     let (field, comma) = pair.into_tuple();
                     if !docs_only(&field.attrs)
-                        || !matches!(field.vis, Visibility::Public(_))
+                        || !matches!(field.vis, Visibility::Public(_) | Visibility::Inherited)
                         || !concrete_type(&field.ty)
                     {
                         continue;
                     }
-                    let Some(span) = field.vis.span().join(field.ty.span()) else {
+                    let start = match &field.vis {
+                        Visibility::Public(token) => token.span,
+                        Visibility::Inherited => field.ident.as_ref().unwrap().span(),
+                        _ => continue,
+                    };
+                    let Some(span) = start.join(field.ty.span()) else {
                         continue;
                     };
                     if span.start().line == span.end().line
@@ -582,8 +597,16 @@ fn plain_declarations(
                     let start = item.struct_token.span.start();
                     let open = fields.brace_token.span.open();
                     if start.line == open.end().line
-                        && lines[start.line - 1].trim() == format!("pub struct {} {{", item.ident)
-                        && matches!(item.vis, Visibility::Public(_))
+                        && match item.vis {
+                            Visibility::Public(_) => {
+                                lines[start.line - 1].trim()
+                                    == format!("pub struct {} {{", item.ident)
+                            }
+                            Visibility::Inherited => {
+                                lines[start.line - 1].trim() == format!("struct {} {{", item.ident)
+                            }
+                            _ => false,
+                        }
                     {
                         out.insert(start.line);
                     }
@@ -1242,6 +1265,179 @@ fn aggregate_prefixes_for(
     visitor.lines
 }
 
+// Root imports do not execute code. Prove only exclusive plain declarations;
+// glob imports cannot lend evidence to any expressions or derived declarations.
+fn root_declarations(
+    source: &str,
+    ancestor: &str,
+    module: &str,
+    file: &syn::File,
+) -> BTreeSet<usize> {
+    let mut audit = CallAncestorAudit { opaque: false };
+    audit.visit_file(file);
+    if !module.is_empty() || source != ancestor || audit.opaque || !docs_only(&file.attrs) {
+        return BTreeSet::new();
+    }
+    file.items
+        .iter()
+        .filter_map(|item| {
+            let valid = match item {
+                Item::Use(value) => value.attrs.is_empty(),
+                Item::Mod(value) => value.attrs.is_empty() && value.content.is_none(),
+                _ => false,
+            };
+            let span = item.span();
+            (valid && span.start().line == span.end().line && exclusive_span(source, span, ""))
+                .then_some(span.start().line)
+        })
+        .collect()
+}
+
+// Only the standard format macro's exclusive positional template and delimiter
+// lines are syntax. Argument evaluation, formatting implementations and measured
+// DA/regions remain executable, even when their spans share a proved line.
+struct FormatBoundary {
+    bad: bool,
+}
+impl<'ast> Visit<'ast> for FormatBoundary {
+    fn visit_attribute(&mut self, attr: &'ast syn::Attribute) {
+        if !string_field_derives_or_docs(std::slice::from_ref(attr)) {
+            self.bad = true;
+        }
+    }
+    fn visit_item_use(&mut self, item: &'ast syn::ItemUse) {
+        self.bad |= import_mentions_reserved(&item.tree);
+        visit::visit_item_use(self, item);
+    }
+    fn visit_item_macro(&mut self, _: &'ast syn::ItemMacro) {
+        self.bad = true;
+    }
+    fn visit_item_extern_crate(&mut self, _: &'ast syn::ItemExternCrate) {
+        self.bad = true;
+    }
+    fn visit_macro(&mut self, mac: &'ast syn::Macro) {
+        if mac.path.is_ident("format") && safe_macro_tokens(mac.tokens.clone()) {
+            let Ok(args) = format_arguments(mac) else {
+                self.bad = true;
+                return;
+            };
+            // Parsed argument blocks may contain imports or nested macros.
+            let mut nested = FormatBoundary { bad: false };
+            for arg in &args {
+                nested.visit_expr(arg);
+            }
+            self.bad |= nested.bad;
+        } else if mac.path.is_ident("vec") && syn::parse2::<syn::Ident>(mac.tokens.clone()).is_ok()
+        {
+            // The actual single-identifier vec input cannot define a macro.
+        } else {
+            self.bad = true;
+        }
+    }
+}
+fn format_arguments(
+    mac: &syn::Macro,
+) -> syn::Result<syn::punctuated::Punctuated<syn::Expr, syn::Token![,]>> {
+    use syn::parse::Parser;
+    syn::punctuated::Punctuated::<syn::Expr, syn::Token![,]>::parse_terminated
+        .parse2(mac.tokens.clone())
+}
+fn format_syntax(
+    source: &str,
+    file: &syn::File,
+    scope: bool,
+) -> (BTreeSet<usize>, BTreeSet<usize>) {
+    let mut boundary = FormatBoundary { bad: false };
+    boundary.visit_file(file);
+    if !scope || boundary.bad {
+        return (BTreeSet::new(), BTreeSet::new());
+    }
+    struct Templates<'a> {
+        source: &'a str,
+        in_function: bool,
+        items: BTreeSet<usize>,
+        closings: BTreeSet<usize>,
+    }
+    impl<'ast> Visit<'ast> for Templates<'_> {
+        fn visit_item_fn(&mut self, item: &'ast syn::ItemFn) {
+            let old = self.in_function;
+            self.in_function = true;
+            self.visit_block(&item.block);
+            self.in_function = old;
+        }
+        fn visit_impl_item_fn(&mut self, item: &'ast syn::ImplItemFn) {
+            let old = self.in_function;
+            self.in_function = true;
+            self.visit_block(&item.block);
+            self.in_function = old;
+        }
+        fn visit_macro(&mut self, mac: &'ast syn::Macro) {
+            if !self.in_function || !mac.path.is_ident("format") {
+                return;
+            }
+            let Ok(args) = format_arguments(mac) else {
+                return;
+            };
+            let Some(syn::Expr::Lit(template)) = args.first() else {
+                return;
+            };
+            let syn::Lit::Str(literal) = &template.lit else {
+                return;
+            };
+            let text = literal.value();
+            let parts: Vec<_> = text.split("{}").collect();
+            if !template.attrs.is_empty()
+                || parts.len() != args.len()
+                || parts.iter().any(|part| part.contains(['{', '}']))
+            {
+                return;
+            }
+            let span = literal.span();
+            let literal_line =
+                span.start().line == span.end().line && exclusive_span(self.source, span, ",");
+            let mut calls = CallAudit {
+                opaque: false,
+                in_function: true,
+                type_attributes: false,
+                closings: BTreeSet::new(),
+                else_delimiters: BTreeSet::new(),
+                wildcard_prefixes: BTreeSet::new(),
+                record_updates: BTreeSet::new(),
+            };
+            for arg in args.iter().skip(1) {
+                calls.visit_expr(arg);
+            }
+            if calls.opaque {
+                return;
+            }
+            if literal_line {
+                self.items.insert(span.start().line);
+            }
+            calls
+                .closings
+                .insert(mac.delimiter.span().close().start().line);
+            for line in calls.closings {
+                if self
+                    .source
+                    .split('\n')
+                    .nth(line - 1)
+                    .is_some_and(|text| matches!(text.trim(), ")" | ")," | ");"))
+                {
+                    self.closings.insert(line);
+                }
+            }
+        }
+    }
+    let mut templates = Templates {
+        source,
+        in_function: false,
+        items: BTreeSet::new(),
+        closings: BTreeSet::new(),
+    };
+    templates.visit_file(file);
+    (templates.items, templates.closings)
+}
+
 struct Evidence {
     fields: BTreeSet<usize>,
     closings: BTreeSet<usize>,
@@ -1289,6 +1485,7 @@ fn classify(source: &str, ancestor: &str, module: &str) -> Result<Evidence, syn:
         closings: BTreeSet::new(),
         else_delimiters: BTreeSet::new(),
         wildcard_prefixes: BTreeSet::new(),
+        record_updates: BTreeSet::new(),
     };
     calls.visit_file(&syntax);
     let lines: Vec<_> = source.split('\n').collect();
@@ -1324,6 +1521,7 @@ fn classify(source: &str, ancestor: &str, module: &str) -> Result<Evidence, syn:
         calls.closings.clear();
         calls.else_delimiters.clear();
         calls.wildcard_prefixes.clear();
+        calls.record_updates.clear();
     }
     if audit.opaque || audit.item_macro {
         fields.clear();
@@ -1340,11 +1538,25 @@ fn classify(source: &str, ancestor: &str, module: &str) -> Result<Evidence, syn:
     let mut items = context_lines(source, ancestor, module);
     items.extend(declarations.iter().copied());
     items.extend(calls.wildcard_prefixes);
+    items.extend(calls.record_updates.into_iter().filter(|line| {
+        let text = lines[line - 1].trim();
+        text.strip_prefix("..")
+            .is_some_and(|tail| syn::parse_str::<syn::Ident>(tail).is_ok())
+    }));
+    items.extend(root_declarations(source, ancestor, module, &syntax));
+    let (format_items, format_closings) = format_syntax(
+        source,
+        &syntax,
+        standard_scope && !calls.opaque && !ancestor_audit.opaque,
+    );
+    let mut unmasked = declarations.clone();
+    unmasked.extend(format_items.iter().copied());
+    unmasked.extend(format_closings.iter().copied());
+    items.extend(format_items);
+    calls.closings.extend(format_closings);
     // Only the exact exclusive, syntax-proved declaration lines may remove
     // literal/derive opacity. No expression or enclosing item is unmasked.
-    audit
-        .opaque_lines
-        .retain(|line| !declarations.contains(line));
+    audit.opaque_lines.retain(|line| !unmasked.contains(line));
     Ok(Evidence {
         fields,
         closings: calls.closings,
@@ -2503,5 +2715,179 @@ fn velocity_decay_constructor_requires_the_same_closed_declaration_and_callable_
         let mut changed = exports.clone();
         changed.insert("types".into(), definition.into());
         assert!(aggregate_prefixes(&source, &root, "parse", &changed).is_empty());
+    }
+}
+
+#[test]
+fn private_declarations_and_root_imports_remain_exclusive_and_untransformed() {
+    let source =
+        "#[derive(Debug, Default)]\nstruct Value {\n field: Option<f64>,\n text: String,\n}\n";
+    assert!([1, 2, 3, 4].into_iter().all(|line| {
+        classify(source, "mod body;", "body")
+            .unwrap()
+            .items
+            .contains(&line)
+    }));
+    for changed in [
+        source.replace("field: Option<f64>", "field: [u8; { runtime(); 1 }]"),
+        source.replace(" field:", " #[custom] field:"),
+        source.replace("Default", "Custom"),
+        source.replace("struct Value", "struct Value<const N: usize>"),
+        format!("use hidden::Debug;\n{source}"),
+    ] {
+        let proof = classify(&changed, "mod body;", "body").unwrap();
+        assert!(!proof.items.contains(&3), "{changed}");
+    }
+    let root = "mod body;\npub use body::*;\n";
+    assert_eq!(
+        classify(root, root, "").unwrap().items,
+        BTreeSet::from([1, 2])
+    );
+    for root in [
+        "#[custom] mod body;\n",
+        "mod body; fn runtime() {}\n",
+        "macro_rules! x { () => {} }\nmod body;\n",
+    ] {
+        assert!(classify(root, root, "").unwrap().items.is_empty());
+    }
+    assert!(
+        classify(root, "mod unrelated;", "")
+            .unwrap()
+            .items
+            .is_empty()
+    );
+}
+
+#[test]
+fn record_update_proves_only_a_plain_exclusive_local_path() {
+    let source = "fn f(e: Value) -> Value {\n Value {\n field: runtime(),\n ..e\n }\n}\n";
+    assert!(
+        classify(source, "mod body;", "body")
+            .unwrap()
+            .items
+            .contains(&4)
+    );
+    for expression in [
+        "..runtime()",
+        "..*e",
+        "..{ runtime(); e }",
+        "..path::e",
+        "..e, field: runtime()",
+    ] {
+        let changed = source.replace("..e", expression);
+        if let Ok(proof) = classify(&changed, "mod body;", "body") {
+            assert!(!proof.items.contains(&4), "{changed}");
+        }
+    }
+    for changed in [
+        source.replace("fn f", "#[custom] fn f"),
+        format!("macro_rules! x {{ () => {{}} }}\n{source}"),
+    ] {
+        let line = changed
+            .split('\n')
+            .position(|text| text.trim() == "..e")
+            .unwrap()
+            + 1;
+        assert!(
+            !classify(&changed, "mod body;", "body")
+                .unwrap()
+                .items
+                .contains(&line)
+        );
+    }
+}
+
+#[test]
+fn positional_format_templates_never_prove_arguments_or_shadowed_macros() {
+    let source =
+        "fn f(v: u8) {\n let _ = format!(\n \"<value>{}</value>\",\n runtime(\n v\n )\n );\n}\n";
+    let proof = classify(source, "mod body;", "body").unwrap();
+    assert!(proof.items.contains(&3));
+    assert!(!proof.opaque.contains(&3));
+    assert!(
+        [6, 7]
+            .into_iter()
+            .all(|line| proof.closings.contains(&line) && !proof.opaque.contains(&line))
+    );
+    for line in [2, 4, 5] {
+        assert!(!proof.items.contains(&line));
+        assert!(proof.opaque.contains(&line));
+    }
+    for changed in [
+        source.replace("<value>{}</value>", "{v}"),
+        source.replace("<value>{}</value>", "{:?}"),
+        source.replace("<value>{}</value>", "{{}}"),
+        source.replace("<value>{}</value>", "{}{}"),
+        source.replace(
+            " \"<value>{}</value>\",",
+            " runtime(); \"<value>{}</value>\",",
+        ),
+        source.replace("runtime(", "custom!("),
+        source.replace("runtime(\n v\n )", "{ use hidden::format; v }"),
+        source.replace("runtime(\n v\n )", "#[custom] { v }"),
+        source.replace("fn f", "#[custom] fn f"),
+    ] {
+        if let Ok(proof) = classify(&changed, "mod body;", "body") {
+            assert!(!proof.items.contains(&3), "{changed}");
+        }
+    }
+    for prefix in [
+        "use hidden::format;\n",
+        "use hidden::r#format;\n",
+        "use hidden::other as format;\n",
+        "use hidden::format::{self};\n",
+        "use hidden::*;\n",
+        "macro_rules! format { ($($t:tt)*) => {} }\n",
+    ] {
+        let changed = format!("{prefix}{source}");
+        assert!(
+            !classify(&changed, "mod body;", "body")
+                .unwrap()
+                .items
+                .contains(&4),
+            "{changed}"
+        );
+    }
+    for root in [
+        "macro_rules! format { ($($t:tt)*) => {} } mod body;",
+        "#[macro_use] mod other; mod body;",
+        "#[custom] mod body;",
+    ] {
+        assert!(!classify(source, root, "body").unwrap().items.contains(&3));
+    }
+}
+
+#[test]
+fn compiler_accepted_format_shadowing_and_executable_bases_are_not_syntax() {
+    for prefix in [
+        "macro_rules! format { ($($t:tt)*) => { String::from(\"custom\") } }\n",
+        "#[macro_export] macro_rules! other { ($($t:tt)*) => { String::from(\"custom\") } }\nuse crate::other as r#format;\n",
+    ] {
+        let source =
+            format!("{prefix}fn f() {{\n let _ = format!(\n  \"{{}}\",\n  runtime()\n );\n}}\n");
+        compiles(&source);
+        let line = source
+            .split('\n')
+            .position(|text| text.trim() == "\"{}\",")
+            .unwrap()
+            + 1;
+        assert!(
+            !classify(&source, "mod body;", "body")
+                .unwrap()
+                .items
+                .contains(&line)
+        );
+    }
+    for expression in ["..make()", "..{ make() }", "..holder.value"] {
+        let source = format!(
+            "struct Value {{ field: u8 }}\nstruct Holder {{ value: Value }}\nfn make() -> Value {{ Value {{ field: 1 }} }}\nfn f(holder: Holder) -> Value {{\n Value {{\n {expression}\n }}\n}}\n"
+        );
+        compiles(&source);
+        assert!(
+            !classify(&source, "mod body;", "body")
+                .unwrap()
+                .items
+                .contains(&6)
+        );
     }
 }

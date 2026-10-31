@@ -368,7 +368,7 @@ def check_changed_coverage(root, changed, covered, strict=True, syntax_provider=
                                   or (line in syntax['declarations'] and (re.fullmatch(r'impl\s+[A-Za-z_][A-Za-z0-9_]*\s*\{', text)
                                       or re.fullmatch(r'(?:pub(?:\([^)]*\))?\s+)?(?:use|mod)\s+[^;]+;', text)))
                                   or (line in syntax['fields'] and re.fullmatch(r'pub\s+[A-Za-z_][A-Za-z0-9_]*:\s*(?:Vec<[A-Za-z_][A-Za-z0-9_]*>|Option<String>|String),', text))
-                                  or (line in syntax['closings'] and text in (');', '},', '})'))
+                                  or (line in syntax['closings'] and text in (');', ')', '),', '},', '})'))
                                   or (line in syntax['else_delimiters'] and text == '} else {')
                                   or line in syntax['aggregate_prefixes'])
                 assert non_executable, 'changed source has no instrumented executable lines'

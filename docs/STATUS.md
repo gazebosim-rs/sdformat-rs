@@ -3745,3 +3745,40 @@ the narrow CR boundary and contracts and agreed. Only the pre-approved two
 empty SDF1.12/root.sdf predicates now use the complete prepared positive; all
 other branches and corpus bytes remain unchanged. Construction remains partial.
 Final fold review and normal strict staged/exact hosted gates remain pending.
+
+
+Accepted Model flag producer a6623124 passed its first ordinary protected staged
+gate and exact hosted41184733199 with downloaded source/evidence verification:
+628 Rust tests,46 tools,7864/7891 lines,12361/12603 regions and24/24 changed lines.
+Counts are203 complete/29 partial; consumer pins remain unchanged.
+
+The next private native-first slice imports one URDF1.0 link through a distinct
+UrdfImport result. It admits positive inertial/primitive visual/collision data
+and selected Gazebo material/mu fields, with immutable original and generated
+source/XML views. Unknown nodes/attributes and malformed numeric vectors are
+rejected before permissive urdf-rs0.10 parsing; existing loader/frame validation
+is reused. All637 retained Rust tests,46 tooling tests,Clippy and nine focused
+URDF tests pass. Eighty-four native controls, exact inline original fixtures and
+both unchanged full originals pass. Candidate mappings cover ValidBasicURDF and
+all selected ParseWhitespace tree/text observations; independent review and
+normal strict staged/exact hosted qualification remain pending. No old assertion
+or corpus bytes, accepted counters or consumer pins change. See URDF_SINGLE_LINK.md.
+
+Independent transport_owner review approved the exact URDF packet after fresh
+source/separate-target replay of nine focused Rust tests,Clippy,84 native
+controls,both unchanged full originals and equal provenance. All15 new dependency
+source/archive/license audits passed. Both complete fixed-case mappings were
+approved,without general importer,whole XML or mutable Element credit. Root
+reviewed the actual admission,numeric/escaping,reused loader and provenance and
+agreed. Source/native/test bytes are unchanged. Full normal protected staged
+coverage and exact hosted/source verification remain pending; accepted counts
+and consumer pins stay fixed.
+
+The first normal URDF staged gate failed closed on opaque absent-DA syntax; its
+temporary stage snapshot was cleaned up and the first failure log retained. The
+ordinary nonstaged diagnostic retains real LLVM profiles/report/LCOV/binaries:
+8307/8357 lines,13092/13360 regions,421/439 changed DA. Eighteen genuine DA0
+runtime lines remain measured. Two added error tests pass (11 focused total).
+A bounded syntax-proof delta and real LLVM negative controls are under independent
+review; production/native/dependency bytes remain frozen. No staged retry,
+publication,accepted-counter or consumer-pin update has occurred.

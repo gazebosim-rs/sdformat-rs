@@ -3605,3 +3605,17 @@ lines without a source/threshold workaround. These are not normal staged or
 hosted acceptance; the full combined hook and exact CI remain required. The
 producer's prior independent 15 Rust/47 native controls are unchanged. World.Load
 remains partial, accepted counts 203/27 and the consumer pin are unchanged.
+
+
+The private World audio-device slice retains the native string and default as
+owned metadata, without audio IO or runtime activation. Four focused Rust tests
+and 31 native string/default/error controls pass, along with unchanged native
+DOMWorld.Load and full/projected audio equality. The original audio assertion
+uses its unchanged subtree; the original case remains partial. Duplicate
+audio/device declarations retain the documented strict InvalidValue policy.
+Independent review passed five prepared Rust positives, 31 native controls,
+constructor/full-projection/original equality and all-target Clippy. Only the
+approved three known-audio corpus predicates and one schema-empty predicate now
+use the shared complete metadata assertion. Seven affected author Rust tests pass.
+Final independent fold review passed. The protected staged/hosted gates remain pending. No accepted counters or
+consumer pins advance. See WORLD_AUDIO.md.

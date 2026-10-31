@@ -1072,6 +1072,7 @@ impl Parser<'_> {
                 "physics",
                 "atmosphere",
                 "scene",
+                "audio",
             ],
             &["name"],
             &extension_names,
@@ -1193,6 +1194,10 @@ impl Parser<'_> {
         self.validate_axis_mimics(&name, &joints)?;
         Ok(World {
             scene: self.scene(node)?,
+            audio_device: child(node, "audio").map_or(Ok("default".into()), |audio| {
+                self.allowed(audio, &["device"], &[])?;
+                self.schema_string(audio, "device", "default")
+            })?,
             name,
             gravity,
             wind_linear_velocity,

@@ -1,20 +1,19 @@
 {
   "decision": "approved",
-  "author": "integration_reviewer",
+  "author": "root",
   "reviewer": "transport_owner",
-  "source_digest": "9db0982ce704664b843ba4095ef5561874c638f452e245bd372b71ff2d2f4510",
-  "protected_digest": "2cf8066cb18d3b7743fa150fffdd1c316cb156ccfba7de92fbf1d5cf3c4ed50a",
-  "scope": "Bounded World.scene native color/visibility metadata and six reviewed exact-input capability transitions. No rendering activation, consumer pin or complete original-case promotion.",
+  "source_digest": "f4047b78c0f20f310de35665853bddd428da849851aeef9fcf6553569fda7c1e",
+  "protected_digest": "0f523e667474519528dc29b2aa734c35ffa5062c71e81c2f3690704506a3d453",
+  "scope": "Owned World audio-device metadata and four exact prior-reviewed capability transitions. No audio IO, constructor parity, consumer pin or complete original-case promotion.",
   "checks": [
-    "Independent production/source review confirmed native defaults and five getters, source ownership, required-empty values, narrow parsing and retained unknown/duplicate/Sky/Fog errors.",
-    "Fresh independent reviewer source and Cargo target passed the five prepared Scene tests, then all fifteen affected tests after exact six-input folds. Existing corpus bytes, unrelated predicates and full native Light projection/resolved-pose checks are preserved.",
-    "Fresh native helper compilation and replay verified forty-seven complete controls, constructor defaults, full/projected Scene equality and two unchanged original cases with pinned source/header/library identities.",
-    "Final seventeen-path fold and partial traceability entry reviewed. World.Load remains partial; no whole-case, runtime rendering, performance or coverage-policy credit is claimed.",
-    "Root independently approved the initial reusable declaration/header and delimiter proof after a fresh nineteen-helper/forty-one-tool replay. The delegated final five-path constructor-context review independently passed twenty-three helper tests, forty-three tooling checks and all-target Clippy after correcting effective self-import and const-body scope mismatches.",
-    "Final reviewer audited exact root/types/camera context and actual production dep-info binding, compiler-first scope, unshadowed intrinsic aggregate construction and macro/runtime-call refusal. Actual DA0 and region authority remain mandatory; no producer code, assertion, numerical tolerance, coverage threshold or compiler dependency changed for this proof. Root recomputed final combined source/protected digests and reviewed the evidence prose."
+    "Independent fresh source and target passed five prepared tests, then seven final affected tests and all-target Clippy.",
+    "Fresh pinned native helper passed 31 controls, constructor, full/projected audio equality and unchanged DOMWorld.Load; all nine supported schema audio blocks agree.",
+    "Exact original 21-row corpus, XML, source URIs and all unrelated predicates are unchanged. Only four prior-approved temporary rejections became complete metadata positives.",
+    "Reviewer-only leading/trailing comment, CDATA CR/first text and empty CDATA controls agree with native; duplicate InvalidValue versus native first-wins remains explicit.",
+    "All sixteen final paths matched the independent replay; Root verified both existing source/protected digests before writing this required record."
   ],
   "remaining": [
-    "Full combined ordinary staged verification and exact hosted CI remain required; retained-data diagnostics are not a staged pass.",
-    "Sky/Fog, remaining World.Load assertions, rendering and downstream metadata consumption remain outside this slice."
+    "Normal protected staged checks and exact hosted CI remain mandatory.",
+    "Audio playback, native Element/path and remaining World.Load contracts are outside this slice."
   ]
 }

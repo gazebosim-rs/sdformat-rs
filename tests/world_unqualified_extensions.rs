@@ -3,6 +3,8 @@
 //! Direct unknown world metadata; known schema names remain explicit errors.
 use sdformat::{ErrorCode, Resource, ResourceResolver, load_str};
 use serde_json::Value;
+#[path = "support/world_audio_projection.rs"]
+mod audio_projection;
 #[path = "support/world_scene_projection.rs"]
 mod scene_projection;
 
@@ -24,6 +26,12 @@ fn unqualified_world_metadata_preserves_native_order_and_owned_source() {
     for row in &rows {
         let id = row["id"].as_str().unwrap();
         let xml = row["xml"].as_str().unwrap();
+        if id.starts_with("known_audio_") {
+            let sdf = load_str(xml, "root.sdf", &Resolver).unwrap();
+            audio_projection::assert_audio(&sdf, "root.sdf");
+            assert!(row["stderr"].as_str().unwrap().is_empty());
+            continue;
+        }
         if id.starts_with("known_scene_") {
             let sdf = load_str(xml, "root.sdf", &Resolver).unwrap();
             scene_projection::assert_scene(&sdf, xml, "root.sdf", true, 0);
@@ -146,6 +154,12 @@ fn known_schema_spellings_are_not_admitted_as_world_metadata() {
     ];
     let names = include_str!("../data/world_known_schema_names.txt");
     for name in names.lines().filter(|name| !name.starts_with('#')) {
+        if name == "audio" {
+            let xml = format!("<sdf version='1.12'><world name='w'><{name}/></world></sdf>");
+            let sdf = load_str(&xml, "root.sdf", &Resolver).unwrap();
+            audio_projection::assert_audio(&sdf, "root.sdf");
+            continue;
+        }
         if name == "scene" {
             let xml = format!("<sdf version='1.12'><world name='w'><{name}/></world></sdf>");
             let sdf = load_str(&xml, "root.sdf", &Resolver).unwrap();

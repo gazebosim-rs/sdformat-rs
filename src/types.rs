@@ -237,6 +237,8 @@ pub struct World {
     pub atmosphere: Atmosphere,
     /// Scene colors and visibility metadata; this does not activate rendering.
     pub scene: Scene,
+    /// Audio device name only; loading never opens a device or starts playback.
+    pub audio_device: String,
     /// Physics profiles in declaration order, or the implicit native default.
     pub physics: Vec<Physics>,
     pub models: Vec<Model>,

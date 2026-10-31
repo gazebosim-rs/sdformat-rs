@@ -22,7 +22,8 @@ Nested includes pass the imported parent's URI. Name, pose and static overrides
 apply at the include site. Maximum include and model depth is 64; no IO is implicit.
 Directory/model.config selection and URI/cache policy belong to the resolver.
 
-`World` has name, gravity in m/s², owned atmosphere and bounded Scene metadata, models, frames, joints, plugins, merged-include provenance and source.
+`World` has name, gravity in m/s², owned atmosphere, an audio-device name and bounded Scene metadata, models, frames, joints, plugins, merged-include provenance and source.
+`World.audio_device` retains the native string/default only; it never opens an audio device. See WORLD_AUDIO.md.
 `Scene` owns ambient/background RGBA and grid/shadows/origin-visual flags, with
 native defaults even when absent. Its optional Source records only an explicit
 caller declaration, not native Element presence. Sky/Fog and rendering remain

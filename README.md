@@ -10,7 +10,7 @@ let pose = sdf.pose_of("robot::base", "::")?;
 # Ok::<(), sdformat::Diagnostic>(())
 ```
 
-The supported subset has SDF 1.4–1.12 worlds with owned physics profile, atmosphere and bounded Scene color/visibility metadata,
+The supported subset has SDF 1.4–1.12 worlds with owned physics profile, atmosphere, audio-device name and bounded Scene color/visibility metadata,
 nested and included models,
 links with owned wind/gravity/kinematic/self-collision flags, primitive and mesh
 collision/visual metadata and poses, owned visual/material

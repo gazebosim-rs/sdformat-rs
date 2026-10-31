@@ -1,0 +1,7 @@
+<sdf version='1.12'>
+  <world name='default'>
+    <audio>
+      <device>/dev/audio</device>
+    </audio>
+  </world>
+</sdf>

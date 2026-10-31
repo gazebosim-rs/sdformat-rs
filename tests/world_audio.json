@@ -1,0 +1,263 @@
+{
+  "cases": [
+    {
+      "name": "absent",
+      "xml": "<sdf version='1.12'><world name='w'></world></sdf>",
+      "stdout": "ERRORS 0\nDEVICE 7:64656661756c74\n",
+      "stderr": "",
+      "exit": 0,
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "empty_audio",
+      "xml": "<sdf version='1.12'><world name='w'><audio/></world></sdf>",
+      "stdout": "ERRORS 0\nDEVICE 7:64656661756c74\n",
+      "stderr": "",
+      "exit": 0,
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "empty_device",
+      "xml": "<sdf version='1.12'><world name='w'><audio><device/></audio></world></sdf>",
+      "stdout": "ERRORS 5\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Empty string used when setting a required parameter. Key[device]\n",
+      "exit": 0,
+      "rust_policy": "Missing"
+    },
+    {
+      "name": "space_device",
+      "xml": "<sdf version='1.12'><world name='w'><audio><device> \t\n </device></audio></world></sdf>",
+      "stdout": "ERRORS 5\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Empty string used when setting a required parameter. Key[device]\n",
+      "exit": 0,
+      "rust_policy": "Missing"
+    },
+    {
+      "name": "path",
+      "xml": "<sdf version='1.12'><world name='w'><audio><device>/dev/audio</device></audio></world></sdf>",
+      "stdout": "ERRORS 0\nDEVICE 10:2f6465762f617564696f\n",
+      "stderr": "",
+      "exit": 0,
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "trim",
+      "xml": "<sdf version='1.12'><world name='w'><audio><device>  a  b  </device></audio></world></sdf>",
+      "stdout": "ERRORS 0\nDEVICE 3:612062\n",
+      "stderr": "",
+      "exit": 0,
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "decoded",
+      "xml": "<sdf version='1.12'><world name='w'><audio><device>a&amp;b</device></audio></world></sdf>",
+      "stdout": "ERRORS 0\nDEVICE 3:612662\n",
+      "stderr": "",
+      "exit": 0,
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "utf8",
+      "xml": "<sdf version='1.12'><world name='w'><audio><device>π 音</device></audio></world></sdf>",
+      "stdout": "ERRORS 0\nDEVICE 6:cf8020e99fb3\n",
+      "stderr": "",
+      "exit": 0,
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "cr",
+      "xml": "<sdf version='1.12'><world name='w'><audio><device>&#13;x&#13;</device></audio></world></sdf>",
+      "stdout": "ERRORS 0\nDEVICE 1:78\n",
+      "stderr": "",
+      "exit": 0,
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "duplicate_audio",
+      "xml": "<sdf version='1.12'><world name='w'><audio><device>a</device></audio><audio><device>b</device></audio></world></sdf>",
+      "stdout": "ERRORS 0\nDEVICE 1:61\n",
+      "stderr": "",
+      "exit": 0,
+      "rust_policy": "InvalidValue"
+    },
+    {
+      "name": "duplicate_device",
+      "xml": "<sdf version='1.12'><world name='w'><audio><device>a</device><device>b</device></audio></world></sdf>",
+      "stdout": "ERRORS 0\nDEVICE 1:61\n",
+      "stderr": "",
+      "exit": 0,
+      "rust_policy": "InvalidValue"
+    },
+    {
+      "name": "absent_1.4",
+      "xml": "<sdf version='1.4'><world name='w'></world></sdf>",
+      "stdout": "ERRORS 0\nDEVICE 7:64656661756c74\n",
+      "stderr": "",
+      "exit": 0,
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "empty_1.4",
+      "xml": "<sdf version='1.4'><world name='w'><audio/></world></sdf>",
+      "stdout": "ERRORS 0\nDEVICE 7:64656661756c74\n",
+      "stderr": "",
+      "exit": 0,
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "device_1.4",
+      "xml": "<sdf version='1.4'><world name='w'><audio><device>/dev/audio</device></audio></world></sdf>",
+      "stdout": "ERRORS 0\nDEVICE 10:2f6465762f617564696f\n",
+      "stderr": "",
+      "exit": 0,
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "absent_1.5",
+      "xml": "<sdf version='1.5'><world name='w'></world></sdf>",
+      "stdout": "ERRORS 0\nDEVICE 7:64656661756c74\n",
+      "stderr": "",
+      "exit": 0,
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "empty_1.5",
+      "xml": "<sdf version='1.5'><world name='w'><audio/></world></sdf>",
+      "stdout": "ERRORS 0\nDEVICE 7:64656661756c74\n",
+      "stderr": "",
+      "exit": 0,
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "device_1.5",
+      "xml": "<sdf version='1.5'><world name='w'><audio><device>/dev/audio</device></audio></world></sdf>",
+      "stdout": "ERRORS 0\nDEVICE 10:2f6465762f617564696f\n",
+      "stderr": "",
+      "exit": 0,
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "absent_1.8",
+      "xml": "<sdf version='1.8'><world name='w'></world></sdf>",
+      "stdout": "ERRORS 0\nDEVICE 7:64656661756c74\n",
+      "stderr": "",
+      "exit": 0,
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "empty_1.8",
+      "xml": "<sdf version='1.8'><world name='w'><audio/></world></sdf>",
+      "stdout": "ERRORS 0\nDEVICE 7:64656661756c74\n",
+      "stderr": "",
+      "exit": 0,
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "device_1.8",
+      "xml": "<sdf version='1.8'><world name='w'><audio><device>/dev/audio</device></audio></world></sdf>",
+      "stdout": "ERRORS 0\nDEVICE 10:2f6465762f617564696f\n",
+      "stderr": "",
+      "exit": 0,
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "absent_1.12",
+      "xml": "<sdf version='1.12'><world name='w'></world></sdf>",
+      "stdout": "ERRORS 0\nDEVICE 7:64656661756c74\n",
+      "stderr": "",
+      "exit": 0,
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "empty_1.12",
+      "xml": "<sdf version='1.12'><world name='w'><audio/></world></sdf>",
+      "stdout": "ERRORS 0\nDEVICE 7:64656661756c74\n",
+      "stderr": "",
+      "exit": 0,
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "device_1.12",
+      "xml": "<sdf version='1.12'><world name='w'><audio><device>/dev/audio</device></audio></world></sdf>",
+      "stdout": "ERRORS 0\nDEVICE 10:2f6465762f617564696f\n",
+      "stderr": "",
+      "exit": 0,
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "cdata",
+      "xml": "<sdf version='1.12'><world name='w'><audio><device><![CDATA[  a  b\t c  ]]></device></audio></world></sdf>",
+      "stdout": "ERRORS 0\nDEVICE 7:61202062092063\n",
+      "stderr": "",
+      "exit": 0,
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "mixed",
+      "xml": "<sdf version='1.12'><world name='w'><audio><device> a <![CDATA[ b  c ]]> d </device></audio></world></sdf>",
+      "stdout": "ERRORS 0\nDEVICE 1:61\n",
+      "stderr": "",
+      "exit": 0,
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "nbsp",
+      "xml": "<sdf version='1.12'><world name='w'><audio><device>a b</device></audio></world></sdf>",
+      "stdout": "ERRORS 0\nDEVICE 4:61c2a062\n",
+      "stderr": "",
+      "exit": 0,
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "tab",
+      "xml": "<sdf version='1.12'><world name='w'><audio><device>a\tb\nc</device></audio></world></sdf>",
+      "stdout": "ERRORS 0\nDEVICE 5:6120622063\n",
+      "stderr": "",
+      "exit": 0,
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "comment",
+      "xml": "<sdf version='1.12'><world name='w'><audio><device>a<!--x-->b</device></audio></world></sdf>",
+      "stdout": "ERRORS 0\nDEVICE 1:61\n",
+      "stderr": "",
+      "exit": 0,
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "known_audio_1.5",
+      "xml": "<sdf version='1.5'><world name='w'><audio><device>default</device></audio></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS 0\nDEVICE 7:64656661756c74\n",
+      "stderr": "",
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "known_audio_1.8",
+      "xml": "<sdf version='1.8'><world name='w'><audio><device>default</device></audio></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS 0\nDEVICE 7:64656661756c74\n",
+      "stderr": "",
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "known_audio_1.12",
+      "xml": "<sdf version='1.12'><world name='w'><audio><device>default</device></audio></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS 0\nDEVICE 7:64656661756c74\n",
+      "stderr": "",
+      "rust_policy": "accepted"
+    }
+  ],
+  "original_projection": {
+    "xml": "<sdf version='1.12'>\n  <world name='default'>\n    <audio>\n      <device>/dev/audio</device>\n    </audio>\n  </world>\n</sdf>\n",
+    "exit": 0,
+    "stdout": "ERRORS 0\nDEVICE 10:2f6465762f617564696f\n",
+    "stderr": ""
+  },
+  "full_original": {
+    "exit": 0,
+    "stdout": "ERRORS 0\nDEVICE 10:2f6465762f617564696f\n",
+    "stderr": ""
+  }
+}

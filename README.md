@@ -11,7 +11,8 @@ let pose = sdf.pose_of("robot::base", "::")?;
 ```
 
 The supported subset has SDF 1.4–1.12 worlds with owned physics profile, atmosphere, audio-device name and bounded Scene color/visibility metadata,
-nested and included models,
+nested and included models with owned
+[self-collision and auto-disable permission metadata](docs/MODEL_PHYSICS_FLAGS.md),
 links with owned wind/gravity/kinematic/self-collision flags, bounded
 [velocity-decay XML metadata](docs/LINK_VELOCITY_DECAY.md), primitive and mesh
 collision/visual metadata and poses, owned visual/material

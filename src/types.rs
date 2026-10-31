@@ -436,6 +436,10 @@ pub struct Model {
     pub raw_namespace: Option<String>,
     pub pose: Pose,
     pub is_static: bool,
+    /// Model self-collision metadata; consumers decide collision filtering.
+    pub self_collide: bool,
+    /// Permission metadata only; loading never sleeps or disables a model.
+    pub allow_auto_disable: bool,
     /// Model wind metadata is independent of each Link wind getter.
     pub enable_wind: bool,
     /// Opaque non-schema children, with original XML and resource provenance.

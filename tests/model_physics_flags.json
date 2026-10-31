@@ -1,0 +1,741 @@
+{
+  "cases": [
+    {
+      "name": "v4_omitted",
+      "xml": "<sdf version='1.4'><model name='m'><link name='l'/></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "v4_explicit",
+      "xml": "<sdf version='1.4'><model name='m'><link name='l'/><self_collide>true</self_collide><allow_auto_disable>false</allow_auto_disable></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 1 0 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "v4_empty",
+      "xml": "<sdf version='1.4'><model name='m'><link name='l'/><self_collide/><allow_auto_disable/></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "v5_omitted",
+      "xml": "<sdf version='1.5'><model name='m'><link name='l'/></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "v5_explicit",
+      "xml": "<sdf version='1.5'><model name='m'><link name='l'/><self_collide>true</self_collide><allow_auto_disable>false</allow_auto_disable></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 1 0 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "v5_empty",
+      "xml": "<sdf version='1.5'><model name='m'><link name='l'/><self_collide/><allow_auto_disable/></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "v6_omitted",
+      "xml": "<sdf version='1.6'><model name='m'><link name='l'/></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "v6_explicit",
+      "xml": "<sdf version='1.6'><model name='m'><link name='l'/><self_collide>true</self_collide><allow_auto_disable>false</allow_auto_disable></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 1 0 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "v6_empty",
+      "xml": "<sdf version='1.6'><model name='m'><link name='l'/><self_collide/><allow_auto_disable/></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "v7_omitted",
+      "xml": "<sdf version='1.7'><model name='m'><link name='l'/></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "v7_explicit",
+      "xml": "<sdf version='1.7'><model name='m'><link name='l'/><self_collide>true</self_collide><allow_auto_disable>false</allow_auto_disable></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 1 0 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "v7_empty",
+      "xml": "<sdf version='1.7'><model name='m'><link name='l'/><self_collide/><allow_auto_disable/></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "v8_omitted",
+      "xml": "<sdf version='1.8'><model name='m'><link name='l'/></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "v8_explicit",
+      "xml": "<sdf version='1.8'><model name='m'><link name='l'/><self_collide>true</self_collide><allow_auto_disable>false</allow_auto_disable></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 1 0 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "v8_empty",
+      "xml": "<sdf version='1.8'><model name='m'><link name='l'/><self_collide/><allow_auto_disable/></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "v9_omitted",
+      "xml": "<sdf version='1.9'><model name='m'><link name='l'/></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "v9_explicit",
+      "xml": "<sdf version='1.9'><model name='m'><link name='l'/><self_collide>true</self_collide><allow_auto_disable>false</allow_auto_disable></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 1 0 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "v9_empty",
+      "xml": "<sdf version='1.9'><model name='m'><link name='l'/><self_collide/><allow_auto_disable/></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "v10_omitted",
+      "xml": "<sdf version='1.10'><model name='m'><link name='l'/></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "v10_explicit",
+      "xml": "<sdf version='1.10'><model name='m'><link name='l'/><self_collide>true</self_collide><allow_auto_disable>false</allow_auto_disable></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 1 0 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "v10_empty",
+      "xml": "<sdf version='1.10'><model name='m'><link name='l'/><self_collide/><allow_auto_disable/></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "v11_omitted",
+      "xml": "<sdf version='1.11'><model name='m'><link name='l'/></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "v11_explicit",
+      "xml": "<sdf version='1.11'><model name='m'><link name='l'/><self_collide>true</self_collide><allow_auto_disable>false</allow_auto_disable></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 1 0 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "v11_empty",
+      "xml": "<sdf version='1.11'><model name='m'><link name='l'/><self_collide/><allow_auto_disable/></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "v12_omitted",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "v12_explicit",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><self_collide>true</self_collide><allow_auto_disable>false</allow_auto_disable></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 1 0 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "v12_empty",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><self_collide/><allow_auto_disable/></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "self_collide_0",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><self_collide></self_collide></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "self_collide_1",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><self_collide> </self_collide></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "self_collide_2",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><self_collide>\t\n</self_collide></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "self_collide_3",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><self_collide>true</self_collide></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 1 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "self_collide_4",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><self_collide>false</self_collide></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "self_collide_5",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><self_collide>1</self_collide></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 1 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "self_collide_6",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><self_collide>0</self_collide></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "self_collide_7",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><self_collide>TRUE</self_collide></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 1 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "self_collide_8",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><self_collide>False</self_collide></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "self_collide_9",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><self_collide>2</self_collide></model></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 4 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Invalid boolean value\n"
+    },
+    {
+      "name": "self_collide_10",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><self_collide>-1</self_collide></model></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 4 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Invalid boolean value\n"
+    },
+    {
+      "name": "self_collide_11",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><self_collide>truejunk</self_collide></model></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 4 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Invalid boolean value\n"
+    },
+    {
+      "name": "self_collide_12",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><self_collide>1tail</self_collide></model></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 4 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Invalid boolean value\n"
+    },
+    {
+      "name": "self_collide_13",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><self_collide>true false</self_collide></model></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 4 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Invalid boolean value\n"
+    },
+    {
+      "name": "self_collide_14",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><self_collide>&#160;true&#160;</self_collide></model></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 4 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Invalid boolean value\n"
+    },
+    {
+      "name": "self_collide_15",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><self_collide>&#13;true&#13;</self_collide></model></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 1 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "self_collide_16",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><self_collide><![CDATA[ true ]]></self_collide></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 1 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "self_collide_17",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><self_collide>tr<!--split-->ue</self_collide></model></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 4 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Invalid boolean value\n"
+    },
+    {
+      "name": "self_collide_duplicate",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><self_collide>true</self_collide><self_collide>false</self_collide></model></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 1 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "self_collide_attribute",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><self_collide extra=\"x\">true</self_collide></model></sdf>",
+      "rust_policy": "Unsupported",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 1 1 0 0\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/self_collide[@extra=\"x\"]:<data-string>:L1]: XML Attribute[extra] in element[self_collide] not defined in SDF.\n"
+    },
+    {
+      "name": "self_collide_nested",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><self_collide><extra/></self_collide></model></sdf>",
+      "rust_policy": "Unsupported",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 1 0 0\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/self_collide/extra:<data-string>:L1]: XML Element[extra], child of element[self_collide], not defined in SDF. Copying[extra] as children of [self_collide].\n"
+    },
+    {
+      "name": "self_collide_case",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><SELF_COLLIDE>true</SELF_COLLIDE></model></sdf>",
+      "rust_policy": "opaque",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 1 0 0\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/SELF_COLLIDE:<data-string>:L1]: XML Element[SELF_COLLIDE], child of element[model], not defined in SDF. Copying[SELF_COLLIDE] as children of [model].\n"
+    },
+    {
+      "name": "self_collide_old_exact",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><self_collide/></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "allow_auto_disable_0",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><allow_auto_disable></allow_auto_disable></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "allow_auto_disable_1",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><allow_auto_disable> </allow_auto_disable></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "allow_auto_disable_2",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><allow_auto_disable>\t\n</allow_auto_disable></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "allow_auto_disable_3",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><allow_auto_disable>true</allow_auto_disable></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "allow_auto_disable_4",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><allow_auto_disable>false</allow_auto_disable></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 0 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "allow_auto_disable_5",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><allow_auto_disable>1</allow_auto_disable></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "allow_auto_disable_6",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><allow_auto_disable>0</allow_auto_disable></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 0 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "allow_auto_disable_7",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><allow_auto_disable>TRUE</allow_auto_disable></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "allow_auto_disable_8",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><allow_auto_disable>False</allow_auto_disable></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 0 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "allow_auto_disable_9",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><allow_auto_disable>2</allow_auto_disable></model></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 4 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Invalid boolean value\n"
+    },
+    {
+      "name": "allow_auto_disable_10",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><allow_auto_disable>-1</allow_auto_disable></model></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 4 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Invalid boolean value\n"
+    },
+    {
+      "name": "allow_auto_disable_11",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><allow_auto_disable>truejunk</allow_auto_disable></model></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 4 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Invalid boolean value\n"
+    },
+    {
+      "name": "allow_auto_disable_12",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><allow_auto_disable>1tail</allow_auto_disable></model></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 4 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Invalid boolean value\n"
+    },
+    {
+      "name": "allow_auto_disable_13",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><allow_auto_disable>true false</allow_auto_disable></model></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 4 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Invalid boolean value\n"
+    },
+    {
+      "name": "allow_auto_disable_14",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><allow_auto_disable>&#160;true&#160;</allow_auto_disable></model></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 4 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Invalid boolean value\n"
+    },
+    {
+      "name": "allow_auto_disable_15",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><allow_auto_disable>&#13;true&#13;</allow_auto_disable></model></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "allow_auto_disable_16",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><allow_auto_disable><![CDATA[ true ]]></allow_auto_disable></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "allow_auto_disable_17",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><allow_auto_disable>tr<!--split-->ue</allow_auto_disable></model></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 4 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Invalid boolean value\n"
+    },
+    {
+      "name": "allow_auto_disable_duplicate",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><allow_auto_disable>true</allow_auto_disable><allow_auto_disable>false</allow_auto_disable></model></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "allow_auto_disable_attribute",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><allow_auto_disable extra=\"x\">true</allow_auto_disable></model></sdf>",
+      "rust_policy": "Unsupported",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 1 0 0\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/allow_auto_disable[@extra=\"x\"]:<data-string>:L1]: XML Attribute[extra] in element[allow_auto_disable] not defined in SDF.\n"
+    },
+    {
+      "name": "allow_auto_disable_nested",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><allow_auto_disable><extra/></allow_auto_disable></model></sdf>",
+      "rust_policy": "Unsupported",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 1 0 0\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/allow_auto_disable/extra:<data-string>:L1]: XML Element[extra], child of element[allow_auto_disable], not defined in SDF. Copying[extra] as children of [allow_auto_disable].\n"
+    },
+    {
+      "name": "allow_auto_disable_case",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><ALLOW_AUTO_DISABLE>true</ALLOW_AUTO_DISABLE></model></sdf>",
+      "rust_policy": "opaque",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 1 0 0\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/ALLOW_AUTO_DISABLE:<data-string>:L1]: XML Element[ALLOW_AUTO_DISABLE], child of element[model], not defined in SDF. Copying[ALLOW_AUTO_DISABLE] as children of [model].\n"
+    },
+    {
+      "name": "allow_auto_disable_old_exact",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><allow_auto_disable/></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "nested",
+      "xml": "<sdf version='1.12'><model name='parent'><self_collide>true</self_collide><allow_auto_disable>false</allow_auto_disable><link name='p'/><model name='child'><link name='l'/></model></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL parent 1 0 0 0\nMODEL parent::child 0 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "world",
+      "xml": "<sdf version='1.12'><world name='w'><model name='m'><self_collide>true</self_collide><allow_auto_disable>false</allow_auto_disable><link name='l'/></model></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL w::m 1 0 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "include_mergeFalse_parentFalse",
+      "xml": "<sdf version='1.12'><model name='parent'><link name=\"p\"/><include merge=\"false\"><uri>fixture.sdf</uri></include></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL parent 0 1 0 0\nMODEL parent::child 1 0 0 0\n",
+      "stderr": "",
+      "resource": "<sdf version='1.12'><model name='child'><self_collide>true</self_collide><allow_auto_disable>false</allow_auto_disable><link name='l'/></model></sdf>"
+    },
+    {
+      "name": "include_mergeFalse_parentTrue",
+      "xml": "<sdf version='1.12'><model name='parent'><self_collide>true</self_collide><allow_auto_disable>false</allow_auto_disable><link name=\"p\"/><include merge=\"false\"><uri>fixture.sdf</uri></include></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL parent 1 0 0 0\nMODEL parent::child 0 1 0 0\n",
+      "stderr": "",
+      "resource": "<sdf version='1.12'><model name='child'><self_collide>false</self_collide><allow_auto_disable>true</allow_auto_disable><link name='l'/></model></sdf>"
+    },
+    {
+      "name": "include_mergeTrue_parentFalse",
+      "xml": "<sdf version='1.12'><model name='parent'><link name=\"p\"/><include merge=\"true\"><uri>fixture.sdf</uri></include></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL parent 0 1 0 0\n",
+      "stderr": "",
+      "resource": "<sdf version='1.12'><model name='child'><self_collide>true</self_collide><allow_auto_disable>false</allow_auto_disable><link name='l'/></model></sdf>"
+    },
+    {
+      "name": "include_mergeTrue_parentTrue",
+      "xml": "<sdf version='1.12'><model name='parent'><self_collide>true</self_collide><allow_auto_disable>false</allow_auto_disable><link name=\"p\"/><include merge=\"true\"><uri>fixture.sdf</uri></include></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL parent 1 0 0 0\n",
+      "stderr": "",
+      "resource": "<sdf version='1.12'><model name='child'><self_collide>false</self_collide><allow_auto_disable>true</allow_auto_disable><link name='l'/></model></sdf>"
+    },
+    {
+      "name": "self_collide_cr_only",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><self_collide>&#13;</self_collide></model></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "self_collide_cr_tail",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><self_collide>true&#13;</self_collide></model></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 1 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "self_collide_literal_cr",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><self_collide>\rtrue\r</self_collide></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 1 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "self_collide_cdata_cr",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><self_collide><![CDATA[\rtrue\r]]></self_collide></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 1 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "self_collide_cdata_ref",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><self_collide><![CDATA[&#13;true&#13;]]></self_collide></model></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 4 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Invalid boolean value\n"
+    },
+    {
+      "name": "self_collide_numeric_ref",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><self_collide>&#49;</self_collide></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 1 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "allow_auto_disable_cr_only",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><allow_auto_disable>&#13;</allow_auto_disable></model></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "allow_auto_disable_cr_tail",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><allow_auto_disable>true&#13;</allow_auto_disable></model></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "allow_auto_disable_literal_cr",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><allow_auto_disable>\rtrue\r</allow_auto_disable></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "allow_auto_disable_cdata_cr",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><allow_auto_disable><![CDATA[\rtrue\r]]></allow_auto_disable></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 1 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "allow_auto_disable_cdata_ref",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><allow_auto_disable><![CDATA[&#13;true&#13;]]></allow_auto_disable></model></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 4 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Invalid boolean value\n"
+    },
+    {
+      "name": "allow_auto_disable_numeric_ref",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'/><allow_auto_disable>&#49;</allow_auto_disable></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL m 0 1 0 0\n",
+      "stderr": ""
+    }
+  ],
+  "constructor": {
+    "exit": 0,
+    "stdout": "MODEL default 0 1 0 0\nMODEL set 1 0 0 0\nMODEL original 0 1 0 0\nMODEL copy 1 0 0 0\n",
+    "stderr": ""
+  }
+}

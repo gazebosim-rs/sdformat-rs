@@ -1,6 +1,8 @@
 // Copyright (C) 2026 Open Source Robotics Foundation
 // SPDX-License-Identifier: Apache-2.0
 use sdformat::*;
+#[path = "support/model_physics_flags_projection.rs"]
+mod flags_projection;
 
 #[test]
 fn opaque_model_children_keep_xml_attributes_order_and_owned_source() {
@@ -102,6 +104,11 @@ fn known_model_schema_is_not_disguised_as_opaque_extensions() {
     ] {
         let xml =
             format!("<sdf version='1.12'><model name='m'><link name='l'/><{name}/></model></sdf>");
+        if matches!(name, "self_collide" | "allow_auto_disable") {
+            let sdf = load_str(&xml, "root.sdf", &NoResources).unwrap();
+            flags_projection::assert_empty_flag_model(&sdf, &xml, "root.sdf", name);
+            continue;
+        }
         assert_eq!(
             load_str(&xml, "root.sdf", &NoResources).unwrap_err().code,
             ErrorCode::Unsupported,

@@ -1266,3 +1266,11 @@ empty group is Some with zero scalars. This is Element-only XML metadata in the
 pinned native library, whose Link DOM has no corresponding getter. Values do
 not apply damping. Consumers must support or reject the added Link field before
 adopting this producer. See [LINK_VELOCITY_DECAY.md](LINK_VELOCITY_DECAY.md).
+
+
+`Model.self_collide` and `allow_auto_disable` own native boolean metadata,
+defaulting to false and true. Each nested or normally included model retains its
+own values; merging an included model leaves its parent's flags unchanged. The
+loader does not change collision filters or sleep/disable bodies. Public edits do
+not rewrite the immutable ModelElement snapshot. Consumers must support or reject
+these fields before adopting the producer. See [MODEL_PHYSICS_FLAGS.md](MODEL_PHYSICS_FLAGS.md).

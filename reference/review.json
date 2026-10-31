@@ -2,18 +2,17 @@
   "decision": "approved",
   "author": "sdf_world_owner",
   "reviewer": "root",
-  "source_digest": "7e9d8e0b1e61eda1ae4a616451175ec7a67218fd869f4fe05fd2da726c3328e6",
-  "protected_digest": "8a07def88286fb629d6d81065a1c0795d2529dc2e48b7237d12415939cbc8919",
-  "scope": "Optional owned Link velocity_decay XML metadata and explicitly partial original URDF extension decay assertion port. No runtime damping, Rust URDF importer, simulator pin change or whole original-case credit. Existing numeric policies and unrelated predicates retained.",
+  "source_digest": "985d76da9dd87c51463c2445d24f150f56e4baa8749394d74cf0fb18d53fd582",
+  "protected_digest": "8e7cc3ca879296d4c388f1254a38bb78e1545e7214f865b255e0715ecad7ccc0",
+  "scope": "Owned Model self_collide and allow_auto_disable boolean metadata. Exactly two empty SDF1.12/root.sdf rejection predicates become exhaustive prepared positives. No collision/sleep runtime, constructor facade, consumer pins or full original-case credit.",
   "checks": [
-    "Independent sdf_decay_reviewer examined all16 owned paths against accepted15788855, applicable guidance, native schemas/source and original assertions. Fresh isolated source and own target passed14 focused Rust tests and57 native controls, constructor/shared Element mutation, exact original URDF/projection observations and unchanged full native original; ledger and diff checks passed.",
-    "Root reviewed the production optional metadata/scalar helper diff, contract, original four-ULP assertion subset, fixture inventory addition and independent validation. Native shared mutable Element aliasing is explicitly distinguished from owned independent Rust clones. No predicate transitions or source exclusions requested.",
-    "Root verified final source and protected digests after only the approved partial ledger and status bookkeeping. Author621 retained Rust tests,45 tools, native57 and Clippy/fmt pass; these results do not replace the ordinary strict staged or exact hosted gates.",
-    "The first ordinary staged gate failed closed on the absent-instrumentation prefix Ok(VelocityDecayMetadata { at parse.rs2110. Root reviewed the minimal addition of that fixed constructor identity to all existing closed declaration/import/macro guards; no new syntax category or source exclusion is admitted.",
-    "Root independently exported final candidate source to /tmp/sdf-decay-proof-root-9bm0xdqq with its own target and passed28 syntax helper tests and all4 actual LLVM end-to-end constructor controls. Real uncovered DA0, uncovered regions and missing actual source instrumentation still fail. Actual retained production evidence reports7840/7867 lines,12322/12564 regions and14/14 changed executable lines; no threshold or denominator change."
+    "Independent sdf_flags_reviewer inspected all14 original paths against accepted19042a49. Fresh /tmp/sdf-flags-prior-review-5v7sxyy3 source and separate target passed91 actual native controls with constructor/value-copy/full unchanged DOMModel.Construction provenance,15 focused Rust tests,Clippy,fmt,ledger and46 tooling checks. No findings.",
+    "Root reviewed the production metadata diff, narrow space/tab/LF native boolean boundary preserving CR-reference rejection and unrelated legacy callers, contract and native assertions. Prior approval limited to self_collide and allow_auto_disable; gripper/model_state/wind and unrelated corpus predicates retained.",
+    "Root reviewed final tests/model_extensions.rs delta: same exact XML/root.sdf, same four names, only the two approved names call unchanged prepared exhaustive Sdf/Model/Link/source/snapshot/graph positive helper. Final ledger remains partial for exactly four flag default/toggle observations. Author19 affected tests pass; final full retained run remains mandatory.",
+    "Root independently recomputed final source/protected digests. No production/native/corpus change after independent prior review."
   ],
   "remaining": [
-    "Ordinary full staged verification and strictly greater than95% line/region/changed coverage remain mandatory, followed by complete exact hosted validation and source verification.",
-    "Only decay observations from SDFParser.UrdfGazeboExtensionURDFTest are mapped partially. Other URDF assertions/import, physical damping and native mutable Element identity remain open. Consumer pins unchanged."
+    "Full retained tests and ordinary protected strict staged verification remain mandatory before publication, followed by exact complete hosted/source verification.",
+    "Runtime collision filtering/sleep, native constructor and remaining original assertions are unported. All consumer pins remain unchanged."
   ]
 }

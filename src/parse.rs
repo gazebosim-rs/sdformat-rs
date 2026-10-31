@@ -1565,6 +1565,8 @@ impl Parser<'_> {
         let mut children = vec![
             "pose",
             "static",
+            "self_collide",
+            "allow_auto_disable",
             "enable_wind",
             "link",
             "model",
@@ -1734,6 +1736,8 @@ impl Parser<'_> {
                 .map(str::to_owned),
             pose,
             is_static: self.boolean(node, "static", false)?,
+            self_collide: self.model_boolean(node, "self_collide", false)?,
+            allow_auto_disable: self.model_boolean(node, "allow_auto_disable", true)?,
             enable_wind: self.boolean(node, "enable_wind", false)?,
             extensions,
             loaded_element: Some(Arc::new(ModelElement {
@@ -1750,6 +1754,30 @@ impl Parser<'_> {
             plugins,
             source: self.source(node),
         })
+    }
+    fn model_boolean(
+        &self,
+        node: Node<'_, '_>,
+        name: &str,
+        default: bool,
+    ) -> Result<bool, Diagnostic> {
+        let Some(value) = child(node, name) else {
+            return Ok(default);
+        };
+        self.allowed(value, &[], &[])?;
+        // Native Param does not trim carriage-return character references.
+        match value
+            .text()
+            .unwrap_or("")
+            .trim_matches([' ', '\t', '\n'])
+            .to_ascii_lowercase()
+            .as_str()
+        {
+            "true" | "1" => Ok(true),
+            "false" | "0" => Ok(false),
+            "" => Ok(default),
+            _ => Err(self.err(value, ErrorCode::InvalidValue, "expected model boolean")),
+        }
     }
     fn extension_metadata(&self, node: Node<'_, '_>) -> ExtensionMetadata {
         ExtensionMetadata {

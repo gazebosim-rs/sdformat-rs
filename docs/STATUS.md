@@ -3711,3 +3711,37 @@ data accounts for the exact prefix without changing measured coverage. DA0,
 region and missing actual report/LCOV-file controls still fail closed. Producer,
 assertions and native corpus bytes are unchanged. Independent proof review,
 the normal protected retry and exact hosted qualification remain pending.
+
+
+Accepted Link decay producer 19042a49 passed the normal protected staged retry
+and exact hosted run 41180534193, including downloaded source-bound evidence:
+622 Rust tests, 46 tooling checks, 7840/7867 production lines, 12322/12564 regions
+and 14/14 measured changed lines. Original counts are 203 complete/28 partial;
+consumer pins remain unchanged.
+
+The next private Model candidate retains self_collide and allow_auto_disable as
+boolean metadata, with false/true native defaults and independent nested/include
+values. No collision or sleeping behavior is implemented. Six new Rust tests,
+nine retained Model ownership tests and 91 native controls pass, including actual
+constructor/copy mutation and the unchanged full original. A captured native CR
+reference rejection exposed the existing shared boolean helper's broader trim;
+only the new fields use a bounded native text boundary. The four original
+construction flag observations are mapped partially; all other original assertions
+remain outside this mapping. The two old empty-group rejection predicates and
+all unrelated assertions/corpus bytes remain unchanged while complete same-input
+and URI positives await independent prior review. Normal full staged/hosted gates
+and consumer adoption remain pending. See MODEL_PHYSICS_FLAGS.md.
+
+Author all-target Clippy, formatting, 46 tooling tests and ledger validation pass.
+The unchanged old schema-rejection test was run and fails only at its first
+expected-error unwrap because the new supported flag now loads; this is evidence
+for review, not a passed retained suite. Full retained qualification waits for
+prior approval and the exact two-predicate fold.
+
+Independent sdf_flags_reviewer approved the exact candidate after fresh source
+and target replay of 15 focused Rust tests,91 native controls/constructor/copy/
+unchanged full original,Clippy,fmt,ledger and46 tools. Root reviewed production,
+the narrow CR boundary and contracts and agreed. Only the pre-approved two
+empty SDF1.12/root.sdf predicates now use the complete prepared positive; all
+other branches and corpus bytes remain unchanged. Construction remains partial.
+Final fold review and normal strict staged/exact hosted gates remain pending.

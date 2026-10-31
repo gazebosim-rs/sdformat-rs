@@ -3644,3 +3644,33 @@ unit-enum/wildcard/owned-constructor proof passes 26 helper tests, Clippy and tw
 real compiled LLVM controls, and accounts for those exact nine absent-DA lines.
 Independent proof review and the required protected/hosted gates remain pending;
 no counters, runtime admission or consumer pins advance.
+
+
+The accepted spherical producer 7f09072 passed the protected staged gate and
+exact hosted run 41162377411, with source-bound evidence and unchanged 203/27
+original-case counts. The next private World GUI declaration candidate retains
+optional presence, fullscreen, ordered opaque plugins and actual source/XML,
+without UI or plugin execution. Native-first characterization passes 54 controls,
+constructor/full-projection/original replay and the exact GUI-plus-light peer.
+Independent prior review passed five prepared Rust tests and the native replay;
+Root approved only the seven exact input/URI transitions. Those complete
+positives now live in the original branches, with all other predicates and
+corpus bytes unchanged. Author folded replay passes 19 affected Rust tests, all 615 retained Rust
+tests, 44 tooling checks, Clippy and the final 54-case native replay. The new driver reuses repository-local Git environment isolation and
+records its script hash; both actual foreign Git calls were independently
+verified under inherited caller settings. World.Load remains partial; final
+fold review, protected staged coverage and exact hosted qualification remain
+pending. No consumer pin
+or accepted-case count changes. See WORLD_GUI.md.
+
+
+Final GUI fold review passed with a fresh independent 19-test source/target
+replay and matching production/native/corpus bytes. The first normal protected
+staged hook failed closed at the sole absent-DA `Ok(Gui {` prefix. Its staged
+export was removed; its log is retained. A distinct approved-source ordinary
+diagnostic preserves actual LLVM/raw data and confirms 22/22 measured changed
+lines, 7825/7852 production lines and 12289/12531 regions. The minimal existing
+closed-constructor proof adds only Gui and passes 27 helper tests, 45 tooling
+tests, three real LLVM controls and Clippy. Producer bytes and old assertions
+are unchanged. Independent proof review, the protected retry and exact hosted
+qualification remain pending; counts 203/27 and all consumer pins stay fixed.

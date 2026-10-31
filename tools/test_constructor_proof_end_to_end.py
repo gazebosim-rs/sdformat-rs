@@ -14,6 +14,12 @@ ROOT = Path(__file__).resolve().parents[1]
 
 class ConstructorProofEndToEndTests(unittest.TestCase):
     def test_real_compiled_context_preserves_uncovered_da_and_region_failures(self):
+        self.compiled_constructor_case('Scene')
+
+    def test_gui_compiled_context_preserves_uncovered_da_and_region_failures(self):
+        self.compiled_constructor_case('Gui')
+
+    def compiled_constructor_case(self, constructor):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp); (root / 'src').mkdir()
             build = subprocess.run(['cargo', 'test', '--offline', '--locked', '--test', 'coverage_syntax', '--no-run', '--message-format=json'],
@@ -25,8 +31,9 @@ class ConstructorProofEndToEndTests(unittest.TestCase):
             source = ('use crate::*;\npub fn run() -> Result<Scene, ()> {\n Ok(Scene {\n'
                       '  value: if std::hint::black_box(true) {\n   std::hint::black_box(1)\n  } else {\n'
                       '   std::hint::black_box(2)\n  },\n })\n}\n')
+            source = source.replace('Scene', constructor)
             ancestor = 'mod types; mod camera; mod parse; pub use types::*; pub use camera::*; fn main() { let _ = parse::run(); }\n'
-            exports = {'types': 'pub struct Scene { pub value: u8 }\n', 'camera': 'pub struct Camera;\n'}
+            exports = {'types': 'pub struct Scene { pub value: u8 }\n'.replace('Scene', constructor), 'camera': 'pub struct Camera;\n'}
             for name, text in dict(exports, parse=source, main=ancestor).items():
                 (root / 'src' / (name + '.rs')).write_text(text)
             query = subprocess.run([binaries[0], '--exact', 'syntax_query', '--nocapture', '--color', 'never'],

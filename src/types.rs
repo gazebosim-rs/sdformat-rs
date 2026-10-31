@@ -237,6 +237,8 @@ pub struct World {
     pub atmosphere: Atmosphere,
     /// Scene colors and visibility metadata; this does not activate rendering.
     pub scene: Scene,
+    /// Inert GUI metadata; loading never opens a window or activates plugins.
+    pub gui: Option<Gui>,
     /// Audio device name only; loading never opens a device or starts playback.
     pub audio_device: String,
     /// Geographic reference metadata; no coordinate transformation is performed.
@@ -255,6 +257,16 @@ pub struct World {
     /// Opaque direct world metadata and qualified metadata from merged includes.
     pub extensions: Vec<ExtensionMetadata>,
     pub source: Source,
+}
+
+/// Loaded GUI configuration only; camera controls and UI execution are outside this value.
+#[derive(Debug, Clone)]
+pub struct Gui {
+    pub fullscreen: bool,
+    pub plugins: Vec<Plugin>,
+    pub source: Source,
+    /// Exact input declaration, retained as provenance after typed edits.
+    pub xml: String,
 }
 
 /// Owned Earth/Moon reference metadata, with angles in radians and elevation in metres.

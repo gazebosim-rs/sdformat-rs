@@ -180,3 +180,6 @@ The world-merge metadata boundary is documented in
 World spherical-reference metadata retains optional Earth/Moon surface, ENU orientation,
 radian reference angles and elevation without computing coordinate transforms. See
 [the bounded contract](docs/WORLD_SPHERICAL.md).
+
+Optional World GUI declarations retain fullscreen, ordered opaque plugins and actual
+input provenance as inert metadata; see [the bounded contract](docs/WORLD_GUI.md).

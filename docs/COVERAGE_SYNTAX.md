@@ -201,3 +201,24 @@ retained production export. Genuine unexecuted wildcard and conditional bodies
 still have DA0 and fail even with forged syntax hints; real uncovered regions
 still fail their original threshold. Independent proof review, a new ordinary
 protected staged run and exact hosted success remain required.
+
+The normal GUI metadata staged hook exposed one further absent-DA line:
+`src/parse.rs:1243`, the exclusive `Ok(Gui {` prefix. That failed staged snapshot
+was removed; its log is retained. A distinct approved-source ordinary diagnostic
+preserves raw profiles, merged data and both LLVM exports. It confirms all 22
+measured changed lines covered, with 7825/7852 production lines and 12289/12531
+regions. No mapped-uncovered or opaque line requires an exemption.
+
+Gui now uses the same closed owned-constructor proof as Scene and
+SphericalCoordinates. Its exact declaration/fields, fixed export paths,
+unshadowed Ok and exclusive prefix are required. Gui joins the reserved binding,
+import and macro-token checks; no arbitrary constructor or new syntax category
+is admitted. Direct controls reject raw/self imports, callable Ok, local types,
+macro injection, transformed functions, hidden field bodies and inline runtime
+calls. The existing compiled Scene program and its assertions are preserved
+through an identity substitution; an additional Gui run checks actual DA0 and
+region failures under the same proof. All 27 helper tests, 45 tooling tests,
+three real LLVM controls and Clippy pass. A fresh helper replay accounts for
+only that absent-DA prefix against retained production data; measured counts
+remain unchanged. Independent proof review, the normal protected retry and
+exact hosted success remain required.

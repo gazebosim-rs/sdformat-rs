@@ -1,0 +1,461 @@
+{
+  "cases": [
+    {
+      "name": "absent",
+      "xml": "<sdf version='1.12'><world name='w'></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nGUI 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "empty",
+      "xml": "<sdf version='1.12'><world name='w'><gui/></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nGUI 1\nFULLSCREEN 0\nELEMENT 1\nPLUGINS 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "version_1_4",
+      "xml": "<sdf version='1.4'><world name='w'><gui fullscreen='true'/></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nGUI 1\nFULLSCREEN 1\nELEMENT 1\nPLUGINS 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "version_1_5",
+      "xml": "<sdf version='1.5'><world name='w'><gui fullscreen='true'/></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nGUI 1\nFULLSCREEN 1\nELEMENT 1\nPLUGINS 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "version_1_6",
+      "xml": "<sdf version='1.6'><world name='w'><gui fullscreen='true'/></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nGUI 1\nFULLSCREEN 1\nELEMENT 1\nPLUGINS 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "version_1_7",
+      "xml": "<sdf version='1.7'><world name='w'><gui fullscreen='true'/></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nGUI 1\nFULLSCREEN 1\nELEMENT 1\nPLUGINS 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "version_1_8",
+      "xml": "<sdf version='1.8'><world name='w'><gui fullscreen='true'/></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nGUI 1\nFULLSCREEN 1\nELEMENT 1\nPLUGINS 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "version_1_9",
+      "xml": "<sdf version='1.9'><world name='w'><gui fullscreen='true'/></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nGUI 1\nFULLSCREEN 1\nELEMENT 1\nPLUGINS 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "version_1_10",
+      "xml": "<sdf version='1.10'><world name='w'><gui fullscreen='true'/></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nGUI 1\nFULLSCREEN 1\nELEMENT 1\nPLUGINS 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "version_1_11",
+      "xml": "<sdf version='1.11'><world name='w'><gui fullscreen='true'/></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nGUI 1\nFULLSCREEN 1\nELEMENT 1\nPLUGINS 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "version_1_12",
+      "xml": "<sdf version='1.12'><world name='w'><gui fullscreen='true'/></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nGUI 1\nFULLSCREEN 1\nELEMENT 1\nPLUGINS 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "fullscreen_''",
+      "xml": "<sdf version='1.12'><world name='w'><gui fullscreen=''/></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nGUI 1\nFULLSCREEN 0\nELEMENT 1\nPLUGINS 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "fullscreen_' '",
+      "xml": "<sdf version='1.12'><world name='w'><gui fullscreen=' '/></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nGUI 1\nFULLSCREEN 0\nELEMENT 1\nPLUGINS 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "fullscreen_'true'",
+      "xml": "<sdf version='1.12'><world name='w'><gui fullscreen='true'/></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nGUI 1\nFULLSCREEN 1\nELEMENT 1\nPLUGINS 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "fullscreen_'false'",
+      "xml": "<sdf version='1.12'><world name='w'><gui fullscreen='false'/></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nGUI 1\nFULLSCREEN 0\nELEMENT 1\nPLUGINS 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "fullscreen_'TRUE'",
+      "xml": "<sdf version='1.12'><world name='w'><gui fullscreen='TRUE'/></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nGUI 1\nFULLSCREEN 1\nELEMENT 1\nPLUGINS 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "fullscreen_'FALSE'",
+      "xml": "<sdf version='1.12'><world name='w'><gui fullscreen='FALSE'/></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nGUI 1\nFULLSCREEN 0\nELEMENT 1\nPLUGINS 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "fullscreen_'True'",
+      "xml": "<sdf version='1.12'><world name='w'><gui fullscreen='True'/></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nGUI 1\nFULLSCREEN 1\nELEMENT 1\nPLUGINS 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "fullscreen_'1'",
+      "xml": "<sdf version='1.12'><world name='w'><gui fullscreen='1'/></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nGUI 1\nFULLSCREEN 1\nELEMENT 1\nPLUGINS 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "fullscreen_'0'",
+      "xml": "<sdf version='1.12'><world name='w'><gui fullscreen='0'/></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nGUI 1\nFULLSCREEN 0\nELEMENT 1\nPLUGINS 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "fullscreen_'2'",
+      "xml": "<sdf version='1.12'><world name='w'><gui fullscreen='2'/></world></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 5 5 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Invalid boolean value\n"
+    },
+    {
+      "name": "fullscreen_'-1'",
+      "xml": "<sdf version='1.12'><world name='w'><gui fullscreen='-1'/></world></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 5 5 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Invalid boolean value\n"
+    },
+    {
+      "name": "fullscreen_'yes'",
+      "xml": "<sdf version='1.12'><world name='w'><gui fullscreen='yes'/></world></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 5 5 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Invalid boolean value\n"
+    },
+    {
+      "name": "fullscreen_' true '",
+      "xml": "<sdf version='1.12'><world name='w'><gui fullscreen=' true '/></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nGUI 1\nFULLSCREEN 1\nELEMENT 1\nPLUGINS 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "fullscreen_' 1 '",
+      "xml": "<sdf version='1.12'><world name='w'><gui fullscreen=' 1 '/></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nGUI 1\nFULLSCREEN 1\nELEMENT 1\nPLUGINS 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "fullscreen_'true tail'",
+      "xml": "<sdf version='1.12'><world name='w'><gui fullscreen='true tail'/></world></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 5 5 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Invalid boolean value\n"
+    },
+    {
+      "name": "fullscreen_'01'",
+      "xml": "<sdf version='1.12'><world name='w'><gui fullscreen='01'/></world></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 5 5 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Invalid boolean value\n"
+    },
+    {
+      "name": "fullscreen_'\\ttrue\\n'",
+      "xml": "<sdf version='1.12'><world name='w'><gui fullscreen='\ttrue\n'/></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nGUI 1\nFULLSCREEN 1\nELEMENT 1\nPLUGINS 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "fullscreen_'&#116;rue'",
+      "xml": "<sdf version='1.12'><world name='w'><gui fullscreen='&#116;rue'/></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nGUI 1\nFULLSCREEN 1\nELEMENT 1\nPLUGINS 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "fullscreen_'&#xA;true&#xA;'",
+      "xml": "<sdf version='1.12'><world name='w'><gui fullscreen='&#xA;true&#xA;'/></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nGUI 1\nFULLSCREEN 1\nELEMENT 1\nPLUGINS 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "fullscreen_'TrUe'",
+      "xml": "<sdf version='1.12'><world name='w'><gui fullscreen='TrUe'/></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nGUI 1\nFULLSCREEN 1\nELEMENT 1\nPLUGINS 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "ordered",
+      "xml": "<sdf version='1.12'><world name='w'><gui><plugin name='one' filename='first'/><plugin name='two' filename='second'/></gui></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nGUI 1\nFULLSCREEN 0\nELEMENT 1\nPLUGINS 2\nPLUGIN 3:6f6e65 5:6669727374\nPLUGIN 3:74776f 6:7365636f6e64\n",
+      "stderr": ""
+    },
+    {
+      "name": "duplicate_names",
+      "xml": "<sdf version='1.12'><world name='w'><gui><plugin name='same' filename='first'/><plugin name='same' filename='second'/></gui></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nGUI 1\nFULLSCREEN 0\nELEMENT 1\nPLUGINS 2\nPLUGIN 4:73616d65 5:6669727374\nPLUGIN 4:73616d65 6:7365636f6e64\n",
+      "stderr": ""
+    },
+    {
+      "name": "opaque_payload",
+      "xml": "<sdf version='1.12'><world name='w'><gui fullscreen='1'><plugin name='n' filename='f'><vendor:setting value='5'><inner> opaque </inner></vendor:setting></plugin></gui></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nGUI 1\nFULLSCREEN 1\nELEMENT 1\nPLUGINS 1\nPLUGIN 1:6e 1:66\n",
+      "stderr": ""
+    },
+    {
+      "name": "plugin_strings",
+      "xml": "<sdf version='1.12'><world name='w'><gui><plugin name='  n  ' filename='  f  '/></gui></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nGUI 1\nFULLSCREEN 0\nELEMENT 1\nPLUGINS 1\nPLUGIN 1:6e 1:66\n",
+      "stderr": ""
+    },
+    {
+      "name": "missing_filename",
+      "xml": "<sdf version='1.12'><world name='w'><gui><plugin name='n'/></gui></world></sdf>",
+      "rust_policy": "Missing",
+      "exit": 0,
+      "stdout": "ERRORS 6 4 9 9 9 9 30\n",
+      "stderr": ""
+    },
+    {
+      "name": "empty_filename",
+      "xml": "<sdf version='1.12'><world name='w'><gui><plugin name='n' filename=''/></gui></world></sdf>",
+      "rust_policy": "Missing",
+      "exit": 0,
+      "stdout": "ERRORS 6 5 9 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Empty string used when setting a required parameter. Key[filename]\n"
+    },
+    {
+      "name": "missing_name",
+      "xml": "<sdf version='1.12'><world name='w'><gui><plugin filename='f'/></gui></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nGUI 1\nFULLSCREEN 0\nELEMENT 1\nPLUGINS 1\nPLUGIN 0: 1:66\n",
+      "stderr": ""
+    },
+    {
+      "name": "unknown_child",
+      "xml": "<sdf version='1.12'><world name='w'><gui><unknown/></gui></world></sdf>",
+      "rust_policy": "Unsupported",
+      "exit": 0,
+      "stdout": "ERRORS 0\nGUI 1\nFULLSCREEN 0\nELEMENT 1\nPLUGINS 0\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/world[@name=\"w\"]/gui/unknown:<data-string>:L1]: XML Element[unknown], child of element[gui], not defined in SDF. Copying[unknown] as children of [gui].\n"
+    },
+    {
+      "name": "unknown_attribute",
+      "xml": "<sdf version='1.12'><world name='w'><gui extra='x'/></world></sdf>",
+      "rust_policy": "Unsupported",
+      "exit": 0,
+      "stdout": "ERRORS 0\nGUI 1\nFULLSCREEN 0\nELEMENT 1\nPLUGINS 0\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/world[@name=\"w\"]/gui[@extra=\"x\"]:<data-string>:L1]: XML Attribute[extra] in element[gui] not defined in SDF.\n"
+    },
+    {
+      "name": "camera",
+      "xml": "<sdf version='1.12'><world name='w'><gui><camera/></gui></world></sdf>",
+      "rust_policy": "Unsupported",
+      "exit": 0,
+      "stdout": "ERRORS 6 4 9 9 9 9 30\n",
+      "stderr": ""
+    },
+    {
+      "name": "duplicate_gui",
+      "xml": "<sdf version='1.12'><world name='w'><gui fullscreen='true'/><gui fullscreen='false'/></world></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 0\nGUI 1\nFULLSCREEN 1\nELEMENT 1\nPLUGINS 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "old_known_gui_1.5",
+      "xml": "<sdf version='1.5'><world name='w'><gui fullscreen='true'/></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nGUI 1\nFULLSCREEN 1\nELEMENT 1\nPLUGINS 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "old_known_gui_1.8",
+      "xml": "<sdf version='1.8'><world name='w'><gui fullscreen='true'/></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nGUI 1\nFULLSCREEN 1\nELEMENT 1\nPLUGINS 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "old_known_gui_1.12",
+      "xml": "<sdf version='1.12'><world name='w'><gui fullscreen='true'/></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nGUI 1\nFULLSCREEN 1\nELEMENT 1\nPLUGINS 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "old_environment",
+      "xml": "<sdf version='1.12'><world name='w'><wind/><gui/></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nGUI 1\nFULLSCREEN 0\nELEMENT 1\nPLUGINS 0\n",
+      "stderr": "",
+      "uri": "unsupported.sdf"
+    },
+    {
+      "name": "old_scene",
+      "xml": "<sdf version='1.12'><world name='w'><gui/></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nGUI 1\nFULLSCREEN 0\nELEMENT 1\nPLUGINS 0\n",
+      "stderr": "",
+      "uri": "scene.sdf"
+    },
+    {
+      "name": "old_schema",
+      "xml": "<sdf version='1.12'><world name='w'><gui/></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nGUI 1\nFULLSCREEN 0\nELEMENT 1\nPLUGINS 0\n",
+      "stderr": "",
+      "uri": "root.sdf"
+    },
+    {
+      "name": "old_light",
+      "xml": "<sdf version='1.12'><world name='w'><gui/><light name='n' type='point'/></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nGUI 1\nFULLSCREEN 0\nELEMENT 1\nPLUGINS 0\n",
+      "stderr": "",
+      "uri": "payload.sdf",
+      "light_native": {
+        "exit": 0,
+        "stdout": "OK 6e 1 0 0 0 0 0 0 4607182418800017408 - 1 1 0 1065353216 1065353216 1065353216 1065353216 1036831949 1036831949 1036831949 1065353216 4621819117588971520 0 0 0 4607182418800017408 4607182418800017408 0 0 0 13830554455654793216 4607182418800017408\nPOSE default OK 0 0 0 0 0 0 4607182418800017408\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "fullscreen_'&#xD;true&#xD;'",
+      "xml": "<sdf version='1.12'><world name='w'><gui fullscreen='&#xD;true&#xD;'/></world></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 5 5 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Invalid boolean value\n"
+    },
+    {
+      "name": "fullscreen_'\\xa0true\\xa0'",
+      "xml": "<sdf version='1.12'><world name='w'><gui fullscreen='\u00a0true\u00a0'/></world></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 5 5 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Invalid boolean value\n"
+    },
+    {
+      "name": "plugins_version_1.4",
+      "xml": "<sdf version='1.4'><world name='w'><gui><plugin name='legacy' filename='library'/></gui></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nGUI 1\nFULLSCREEN 0\nELEMENT 1\nPLUGINS 1\nPLUGIN 6:6c6567616379 7:6c696272617279\n",
+      "stderr": ""
+    },
+    {
+      "name": "plugins_version_1.5",
+      "xml": "<sdf version='1.5'><world name='w'><gui><plugin name='legacy' filename='library'/></gui></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nGUI 1\nFULLSCREEN 0\nELEMENT 1\nPLUGINS 1\nPLUGIN 6:6c6567616379 7:6c696272617279\n",
+      "stderr": ""
+    },
+    {
+      "name": "plugins_version_1.12",
+      "xml": "<sdf version='1.12'><world name='w'><gui><plugin name='legacy' filename='library'/></gui></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nGUI 1\nFULLSCREEN 0\nELEMENT 1\nPLUGINS 1\nPLUGIN 6:6c6567616379 7:6c696272617279\n",
+      "stderr": ""
+    }
+  ],
+  "constructor": {
+    "exit": 0,
+    "stdout": "GUI 0\nGUI 1\nFULLSCREEN 0\nELEMENT 0\nPLUGINS 0\n",
+    "stderr": ""
+  },
+  "original_projection": {
+    "xml": "<sdf version='1.12'>\n  <world name='default'>\n    <gui fullscreen=\"true\">\n      <plugin name=\"gui_plugin1\" filename=\"test/file/gui1\"/>\n      <plugin name=\"gui_plugin2\" filename=\"test/file/gui2\"/>\n    </gui>\n  </world>\n</sdf>\n",
+    "exit": 0,
+    "stdout": "ERRORS 0\nGUI 1\nFULLSCREEN 1\nELEMENT 1\nPLUGINS 2\nPLUGIN 11:6775695f706c7567696e31 14:746573742f66696c652f67756931\nPLUGIN 11:6775695f706c7567696e32 14:746573742f66696c652f67756932\n",
+    "stderr": ""
+  },
+  "full_original": {
+    "exit": 0,
+    "stdout": "ERRORS 0\nGUI 1\nFULLSCREEN 1\nELEMENT 1\nPLUGINS 2\nPLUGIN 11:6775695f706c7567696e31 14:746573742f66696c652f67756931\nPLUGIN 11:6775695f706c7567696e32 14:746573742f66696c652f67756932\n",
+    "stderr": ""
+  }
+}

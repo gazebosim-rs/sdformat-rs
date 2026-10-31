@@ -35,6 +35,8 @@
 // Copyright (C) 2026 Open Source Robotics Foundation
 // SPDX-License-Identifier: Apache-2.0
 use sdformat::{ErrorCode, NoResources, Scene, load_str};
+#[path = "support/world_gui_projection.rs"]
+mod gui_projection;
 fn scene(xml: &str) -> Result<Scene, sdformat::Diagnostic> {
     let sdf = load_str(xml, "scene.sdf", &NoResources)?;
     Ok(sdf.worlds[0].scene.clone())
@@ -120,11 +122,17 @@ fn required_empty_values_and_unsupported_scene_domains_remain_explicit_errors() 
         "<gui/>",
         "<Scene/>",
     ] {
-        assert_eq!(
-            scene(&world(payload)).unwrap_err().code,
-            ErrorCode::Unsupported,
-            "{payload}"
-        );
+        if payload == "<gui/>" {
+            let xml = world(payload);
+            let sdf = load_str(&xml, "scene.sdf", &NoResources).unwrap();
+            gui_projection::assert_gui(&sdf, &xml, "scene.sdf", "1.12", false, None);
+        } else {
+            assert_eq!(
+                scene(&world(payload)).unwrap_err().code,
+                ErrorCode::Unsupported,
+                "{payload}"
+            );
+        }
     }
     for payload in [
         "<scene/><scene/>",

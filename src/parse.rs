@@ -1072,6 +1072,7 @@ impl Parser<'_> {
                 "physics",
                 "atmosphere",
                 "scene",
+                "gui",
                 "audio",
                 "spherical_coordinates",
             ],
@@ -1194,6 +1195,7 @@ impl Parser<'_> {
         }
         self.validate_axis_mimics(&name, &joints)?;
         Ok(World {
+            gui: child(node, "gui").map(|node| self.gui(node)).transpose()?,
             spherical_coordinates: child(node, "spherical_coordinates")
                 .map(|n| self.spherical_coordinates(n))
                 .transpose()?,
@@ -1217,6 +1219,32 @@ impl Parser<'_> {
             plugins,
             extensions,
             source: self.source(node),
+        })
+    }
+    fn gui(&self, node: Node<'_, '_>) -> Result<Gui, Diagnostic> {
+        self.allowed(node, &["plugin"], &["fullscreen"])?;
+        let fullscreen = match node
+            .attribute("fullscreen")
+            .unwrap_or("")
+            .trim_matches([' ', '\t', '\n'])
+            .to_ascii_lowercase()
+            .as_str()
+        {
+            "true" | "1" => true,
+            "false" | "0" | "" => false,
+            _ => {
+                return Err(self.err(
+                    node,
+                    ErrorCode::InvalidValue,
+                    "invalid GUI fullscreen boolean",
+                ));
+            }
+        };
+        Ok(Gui {
+            fullscreen,
+            plugins: self.plugins(node)?,
+            source: self.source(node),
+            xml: self.xml[node.range()].into(),
         })
     }
     fn spherical_coordinates(

@@ -5,6 +5,8 @@ use sdformat::{ErrorCode, Resource, ResourceResolver, load_str};
 use serde_json::Value;
 #[path = "support/world_audio_projection.rs"]
 mod audio_projection;
+#[path = "support/world_gui_projection.rs"]
+mod gui_projection;
 #[path = "support/world_scene_projection.rs"]
 mod scene_projection;
 #[path = "support/world_spherical_projection.rs"]
@@ -28,6 +30,17 @@ fn unqualified_world_metadata_preserves_native_order_and_owned_source() {
     for row in &rows {
         let id = row["id"].as_str().unwrap();
         let xml = row["xml"].as_str().unwrap();
+        if matches!(id, "known_gui_1.5" | "known_gui_1.8" | "known_gui_1.12") {
+            let sdf = load_str(xml, "root.sdf", &Resolver).unwrap();
+            let version = match id {
+                "known_gui_1.5" => "1.5",
+                "known_gui_1.8" => "1.8",
+                _ => "1.12",
+            };
+            gui_projection::assert_gui(&sdf, xml, "root.sdf", version, true, None);
+            assert!(row["stderr"].as_str().unwrap().is_empty());
+            continue;
+        }
         if id.starts_with("known_audio_") {
             let sdf = load_str(xml, "root.sdf", &Resolver).unwrap();
             audio_projection::assert_audio(&sdf, "root.sdf");
@@ -156,6 +169,12 @@ fn known_schema_spellings_are_not_admitted_as_world_metadata() {
     ];
     let names = include_str!("../data/world_known_schema_names.txt");
     for name in names.lines().filter(|name| !name.starts_with('#')) {
+        if name == "gui" {
+            let xml = format!("<sdf version='1.12'><world name='w'><{name}/></world></sdf>");
+            let sdf = load_str(&xml, "root.sdf", &Resolver).unwrap();
+            gui_projection::assert_gui(&sdf, &xml, "root.sdf", "1.12", false, None);
+            continue;
+        }
         if name == "spherical_coordinates" {
             let xml = format!("<sdf version='1.12'><world name='w'><{name}/></world></sdf>");
             let sdf = load_str(&xml, "root.sdf", &Resolver).unwrap();

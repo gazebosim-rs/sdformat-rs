@@ -766,6 +766,7 @@ fn reserved_constructor_name(name: &str) -> bool {
         "Ok",
         "Scene",
         "SphericalCoordinates",
+        "Gui",
         "Result",
         "std",
         "Debug",
@@ -796,6 +797,7 @@ fn safe_macro_tokens(tokens: proc_macro2::TokenStream) -> bool {
                     "Ok",
                     "Scene",
                     "SphericalCoordinates",
+                    "Gui",
                 ]
                 .contains(&name.unraw().to_string().as_str()) =>
             {
@@ -858,11 +860,19 @@ struct ConstructorBoundary<'a> {
 }
 impl ConstructorBoundary<'_> {
     fn binding(&mut self, name: &syn::Ident, scene_declaration: bool) {
-        if ["Ok", "Scene", "SphericalCoordinates", "Result", "std"]
-            .contains(&name.unraw().to_string().as_str())
+        if [
+            "Ok",
+            "Scene",
+            "SphericalCoordinates",
+            "Gui",
+            "Result",
+            "std",
+        ]
+        .contains(&name.unraw().to_string().as_str())
             && !(scene_declaration
                 && self.role == "types"
-                && ["Scene", "SphericalCoordinates"].contains(&name.unraw().to_string().as_str()))
+                && ["Scene", "SphericalCoordinates", "Gui"]
+                    .contains(&name.unraw().to_string().as_str()))
         {
             self.bad = true;
         }
@@ -1008,7 +1018,7 @@ fn aggregate_prefixes(
     module: &str,
     exports: &std::collections::BTreeMap<String, String>,
 ) -> BTreeSet<usize> {
-    ["Scene", "SphericalCoordinates"]
+    ["Scene", "SphericalCoordinates", "Gui"]
         .into_iter()
         .flat_map(|constructor| {
             aggregate_prefixes_for(source, ancestor, module, exports, constructor)
@@ -2390,5 +2400,51 @@ fn spherical_constructor_uses_the_same_closed_boundary_as_scene() {
             aggregate_prefixes(&source, &root, "parse", &exports).is_empty(),
             "{source}"
         );
+    }
+}
+
+#[test]
+fn gui_constructor_requires_the_same_closed_declaration_and_callable_boundary() {
+    let (source, root, exports) = constructor_fixture();
+    let source = source.replace("Scene", "Gui");
+    let exports = exports
+        .into_iter()
+        .map(|(name, value)| (name, value.replace("Scene", "Gui")))
+        .collect();
+    assert_eq!(
+        aggregate_prefixes(&source, &root, "parse", &exports),
+        BTreeSet::from([3])
+    );
+    for source in [
+        source.replace(" Ok(Gui {", " let Ok = |v| v;\n Ok(Gui {"),
+        source.replace(
+            " Ok(Gui {",
+            " fn r#Ok(v: Gui) -> Result<Gui, ()> { std::result::Result::Ok(v) }\n Ok(Gui {",
+        ),
+        source.replace(" Ok(Gui {", " struct Gui { value: u8 }\n Ok(Gui {"),
+        source.replace("use crate::*;", "use crate::*; use hidden::Gui::{self};"),
+        source.replace("use crate::*;", "use crate::*; use hidden::r#Gui::{self};"),
+        source.replace(
+            " Ok(Gui {",
+            " format!(\"{}\", { struct Gui; 1 });\n Ok(Gui {",
+        ),
+        source.replace(" Ok(Gui {", " custom!();\n Ok(Gui {"),
+        source.replace(" Ok(Gui {", " runtime(Gui {"),
+        source.replace(" Ok(Gui {\n  value: 1,", " Ok(Gui { value: runtime(),"),
+        source.replace("pub fn", "#[custom::attribute] pub fn"),
+    ] {
+        assert!(
+            aggregate_prefixes(&source, &root, "parse", &exports).is_empty(),
+            "{source}"
+        );
+    }
+    for definition in [
+        "pub type Gui = Other;",
+        "pub struct Gui<const N: usize> { pub value: u8 }",
+        "pub struct Gui { pub value: [u8; { fn hidden() {} 1 }] }",
+    ] {
+        let mut changed = exports.clone();
+        changed.insert("types".into(), definition.into());
+        assert!(aggregate_prefixes(&source, &root, "parse", &changed).is_empty());
     }
 }

@@ -1,0 +1,8 @@
+<sdf version='1.12'>
+  <world name='default'>
+    <gui fullscreen="true">
+      <plugin name="gui_plugin1" filename="test/file/gui1"/>
+      <plugin name="gui_plugin2" filename="test/file/gui2"/>
+    </gui>
+  </world>
+</sdf>

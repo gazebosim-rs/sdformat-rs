@@ -1253,3 +1253,8 @@ this does not enable sensor runtime behavior or custom XML output.
 with ENU orientation, latitude/longitude/heading in radians, elevation in metres
 and actual declaration Source. Custom surfaces/axes and coordinate transforms
 remain unsupported. See [the spherical metadata contract](WORLD_SPHERICAL.md).
+
+`World.gui` optionally owns fullscreen, ordered opaque plugins, exact input XML
+and actual Source. It does not start a GUI or activate plugins. Camera controls
+and other GUI payloads remain unsupported; consumers must explicitly support or
+reject the added field before producer adoption. See [WORLD_GUI.md](WORLD_GUI.md).

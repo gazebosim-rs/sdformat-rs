@@ -4,8 +4,9 @@ use sdformat::*;
 use serde_json::Value;
 #[path = "support/world_environment_projection.rs"]
 mod environment;
-#[path = "support/document_light_projection.rs"]
-mod projection;
+#[path = "support/world_gui_projection.rs"]
+mod gui_projection;
+use gui_projection::light as projection;
 #[path = "support/world_scene_projection.rs"]
 mod scene_projection;
 fn data() -> Value {
@@ -202,6 +203,24 @@ fn document_schema_defaults_do_not_hide_unknown_payloads() {
             );
             assert_eq!(w.lights[0].source.as_ref().unwrap().uri, "payload.sdf");
             sdf.validate_non_frame_poses().unwrap();
+        } else if payload == "<gui/>" {
+            let sdf = load_str(&xml, "payload.sdf", &NoResources).unwrap();
+            let corpus: Value = serde_json::from_str(include_str!("world_gui.json")).unwrap();
+            let row = corpus["cases"]
+                .as_array()
+                .unwrap()
+                .iter()
+                .find(|row| row["name"] == "old_light")
+                .unwrap();
+            assert_eq!(row["xml"].as_str().unwrap(), xml);
+            gui_projection::assert_gui(
+                &sdf,
+                &xml,
+                "payload.sdf",
+                "1.12",
+                false,
+                row["light_native"]["stdout"].as_str(),
+            );
         } else {
             assert_eq!(
                 load_str(&xml, "payload.sdf", &NoResources)

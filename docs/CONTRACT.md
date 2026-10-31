@@ -22,7 +22,12 @@ Nested includes pass the imported parent's URI. Name, pose and static overrides
 apply at the include site. Maximum include and model depth is 64; no IO is implicit.
 Directory/model.config selection and URI/cache policy belong to the resolver.
 
-`World` has name, gravity in m/s², owned atmosphere metadata, models, frames, joints, plugins, merged-include provenance and source.
+`World` has name, gravity in m/s², owned atmosphere and bounded Scene metadata, models, frames, joints, plugins, merged-include provenance and source.
+`Scene` owns ambient/background RGBA and grid/shadows/origin-visual flags, with
+native defaults even when absent. Its optional Source records only an explicit
+caller declaration, not native Element presence. Sky/Fog and rendering remain
+outside this domain; consumers must support or reject this metadata before pin
+adoption. See WORLD_SCENE.md.
 `Model` has raw pose, static flag, canonical-link and placement-frame references, links, joints,
 nested models, frames, plugins, scoped name and source.
 `Link` has pose, inertial, collisions, visuals, sensors, plugins, scoped name and source.

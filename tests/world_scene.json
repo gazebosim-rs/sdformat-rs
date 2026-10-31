@@ -1,0 +1,395 @@
+{
+  "cases": [
+    {
+      "name": "omitted",
+      "xml": "<sdf version='1.12'><world name='w'></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS\nWORLD 1\nSCENE 1\nVALUES 1053609165 1053609165 1053609165 1065353216 1060320051 1060320051 1060320051 1065353216 1 1 1 0 1\n",
+      "stderr": "",
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "empty",
+      "xml": "<sdf version='1.12'><world name='w'><scene/></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS\nWORLD 1\nSCENE 1\nVALUES 1053609165 1053609165 1053609165 1065353216 1060320051 1060320051 1060320051 1065353216 1 1 1 0 1\n",
+      "stderr": "",
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "original_scene",
+      "xml": "<sdf version='1.12'><world name='w'>    <scene>\n      <ambient>0.3 0.4 0.5</ambient>\n      <background>0.6 0.7 0.8</background>\n      <grid>true</grid>\n      <shadows>true</shadows>\n      <origin_visual>true</origin_visual>\n    </scene></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS\nWORLD 1\nSCENE 1\nVALUES 1050253722 1053609165 1056964608 1065353216 1058642330 1060320051 1061997773 1065353216 1 1 1 0 1\n",
+      "stderr": "",
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "empty_values",
+      "xml": "<sdf version='1.12'><world name='w'><scene><ambient/><background/><grid/><shadows/><origin_visual/></scene></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS 9 9 9 9 30\nWORLD 0\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Empty string used when setting a required parameter. Key[ambient]\n",
+      "rust_policy": "InvalidValue"
+    },
+    {
+      "name": "whitespace_values",
+      "xml": "<sdf version='1.12'><world name='w'><scene><ambient> \t\n </ambient><background> </background></scene></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS 9 9 9 9 30\nWORLD 0\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Empty string used when setting a required parameter. Key[ambient]\n",
+      "rust_policy": "InvalidValue"
+    },
+    {
+      "name": "configured",
+      "xml": "<sdf version='1.12'><world name='w'><scene><ambient>0.1 0.2 0.3 0.4</ambient><background>0.8 0.7 0.6 0.5</background><grid>false</grid><shadows>false</shadows><origin_visual>false</origin_visual></scene></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS\nWORLD 1\nSCENE 1\nVALUES 1036831949 1045220557 1050253722 1053609165 1061997773 1060320051 1058642330 1056964608 0 0 0 0 1\n",
+      "stderr": "",
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "bool_case",
+      "xml": "<sdf version='1.12'><world name='w'><scene><grid>FALSE</grid><shadows>0</shadows><origin_visual>TRUE</origin_visual></scene></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS\nWORLD 1\nSCENE 1\nVALUES 1053609165 1053609165 1053609165 1065353216 1060320051 1060320051 1060320051 1065353216 0 0 1 0 1\n",
+      "stderr": "",
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "rgb",
+      "xml": "<sdf version='1.12'><world name='w'><scene><ambient>.1 .2 .3</ambient></scene></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS\nWORLD 1\nSCENE 1\nVALUES 1036831949 1045220557 1050253722 1065353216 1060320051 1060320051 1060320051 1065353216 1 1 1 0 1\n",
+      "stderr": "",
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "color_nan",
+      "xml": "<sdf version='1.12'><world name='w'><scene><ambient>nan 0 0 1</ambient></scene></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS\nWORLD 1\nSCENE 1\nVALUES 0 0 0 1065353216 1060320051 1060320051 1060320051 1065353216 1 1 1 0 1\n",
+      "stderr": "Color values were clamped\n",
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "color_infinite",
+      "xml": "<sdf version='1.12'><world name='w'><scene><ambient>inf 0 0 1</ambient></scene></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS 9 9 9 9 30\nWORLD 0\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: The value <ambient>inf 0 0 1</ambient> is invalid.\n",
+      "rust_policy": "InvalidValue"
+    },
+    {
+      "name": "color_range",
+      "xml": "<sdf version='1.12'><world name='w'><scene><ambient>1.1 0 0 1</ambient></scene></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS 9 9 9 9 30\nWORLD 0\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: The value <ambient>1.1 0 0 1</ambient> is invalid.\n",
+      "rust_policy": "InvalidValue"
+    },
+    {
+      "name": "color_short",
+      "xml": "<sdf version='1.12'><world name='w'><scene><ambient>1 0</ambient></scene></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS 9 9 9 9 30\nWORLD 0\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: The value <ambient>1 0</ambient> is invalid.\n",
+      "rust_policy": "InvalidValue"
+    },
+    {
+      "name": "color_trailing",
+      "xml": "<sdf version='1.12'><world name='w'><scene><ambient>.1 .2 .3 .4 .5</ambient></scene></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS 9 9 9 9 30\nWORLD 0\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: The value <ambient>.1 .2 .3 .4 .5</ambient> is invalid.\n",
+      "rust_policy": "InvalidValue"
+    },
+    {
+      "name": "color_prefix",
+      "xml": "<sdf version='1.12'><world name='w'><scene><ambient>.1junk .2 .3</ambient></scene></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS\nWORLD 1\nSCENE 1\nVALUES 1036831949 1045220557 1050253722 1065353216 1060320051 1060320051 1060320051 1065353216 1 1 1 0 1\n",
+      "stderr": "",
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "bad_bool",
+      "xml": "<sdf version='1.12'><world name='w'><scene><grid>2</grid></scene></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS 9 9 9 9 30\nWORLD 0\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Invalid boolean value\n",
+      "rust_policy": "InvalidValue"
+    },
+    {
+      "name": "duplicate_grid",
+      "xml": "<sdf version='1.12'><world name='w'><scene><grid>true</grid><grid>false</grid></scene></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS\nWORLD 1\nSCENE 1\nVALUES 1053609165 1053609165 1053609165 1065353216 1060320051 1060320051 1060320051 1065353216 1 1 1 0 1\n",
+      "stderr": "",
+      "rust_policy": "InvalidValue"
+    },
+    {
+      "name": "duplicate_scene",
+      "xml": "<sdf version='1.12'><world name='w'><scene/><scene><grid>false</grid></scene></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS\nWORLD 1\nSCENE 1\nVALUES 1053609165 1053609165 1053609165 1065353216 1060320051 1060320051 1060320051 1065353216 1 1 1 0 1\n",
+      "stderr": "",
+      "rust_policy": "InvalidValue"
+    },
+    {
+      "name": "unknown",
+      "xml": "<sdf version='1.12'><world name='w'><scene><other/></scene></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS\nWORLD 1\nSCENE 1\nVALUES 1053609165 1053609165 1053609165 1065353216 1060320051 1060320051 1060320051 1065353216 1 1 1 0 1\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/world[@name=\"w\"]/scene/other:<data-string>:L1]: XML Element[other], child of element[scene], not defined in SDF. Copying[other] as children of [scene].\n",
+      "rust_policy": "Unsupported"
+    },
+    {
+      "name": "attribute",
+      "xml": "<sdf version='1.12'><world name='w'><scene key=\"value\"/></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS\nWORLD 1\nSCENE 1\nVALUES 1053609165 1053609165 1053609165 1065353216 1060320051 1060320051 1060320051 1065353216 1 1 1 0 1\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/world[@name=\"w\"]/scene[@key=\"value\"]:<data-string>:L1]: XML Attribute[key] in element[scene] not defined in SDF.\n",
+      "rust_policy": "Unsupported"
+    },
+    {
+      "name": "sky",
+      "xml": "<sdf version='1.12'><world name='w'><scene><sky/></scene></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS\nWORLD 1\nSCENE 1\nVALUES 1053609165 1053609165 1053609165 1065353216 1060320051 1060320051 1060320051 1065353216 1 1 1 1 1\n",
+      "stderr": "",
+      "rust_policy": "Unsupported"
+    },
+    {
+      "name": "fog",
+      "xml": "<sdf version='1.12'><world name='w'><scene><fog/></scene></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS\nWORLD 1\nSCENE 1\nVALUES 1053609165 1053609165 1053609165 1065353216 1060320051 1060320051 1060320051 1065353216 1 1 1 0 1\n",
+      "stderr": "",
+      "rust_policy": "Unsupported"
+    },
+    {
+      "name": "case_scene",
+      "xml": "<sdf version='1.12'><world name='w'><Scene/></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS\nWORLD 1\nSCENE 1\nVALUES 1053609165 1053609165 1053609165 1065353216 1060320051 1060320051 1060320051 1065353216 1 1 1 0 1\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/world[@name=\"w\"]/Scene:<data-string>:L1]: XML Element[Scene], child of element[world], not defined in SDF. Copying[Scene] as children of [world].\n",
+      "rust_policy": "Unsupported"
+    },
+    {
+      "name": "exact_old_environment",
+      "xml": "<sdf version='1.12'><world name='w'><wind/><scene/></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS\nWORLD 1\nSCENE 1\nVALUES 1053609165 1053609165 1053609165 1065353216 1060320051 1060320051 1060320051 1065353216 1 1 1 0 1\n",
+      "stderr": "",
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "version_1.4",
+      "xml": "<sdf version=\"1.4\"><world name=\"w\"><scene/></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS\nWORLD 1\nSCENE 1\nVALUES 1053609165 1053609165 1053609165 1065353216 1060320051 1060320051 1060320051 1065353216 1 1 1 0 1\n",
+      "stderr": "",
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "version_1.6",
+      "xml": "<sdf version=\"1.6\"><world name=\"w\"><scene/></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS\nWORLD 1\nSCENE 1\nVALUES 1053609165 1053609165 1053609165 1065353216 1060320051 1060320051 1060320051 1065353216 1 1 1 0 1\n",
+      "stderr": "",
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "version_1.8",
+      "xml": "<sdf version=\"1.8\"><world name=\"w\"><scene/></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS\nWORLD 1\nSCENE 1\nVALUES 1053609165 1053609165 1053609165 1065353216 1060320051 1060320051 1060320051 1065353216 1 1 1 0 1\n",
+      "stderr": "",
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "version_1.10",
+      "xml": "<sdf version=\"1.10\"><world name=\"w\"><scene/></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS\nWORLD 1\nSCENE 1\nVALUES 1053609165 1053609165 1053609165 1065353216 1060320051 1060320051 1060320051 1065353216 1 1 1 0 1\n",
+      "stderr": "",
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "ambient_empty",
+      "xml": "<sdf version='1.12'><world name='w'><scene><ambient></ambient></scene></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS 9 9 9 9 30\nWORLD 0\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Empty string used when setting a required parameter. Key[ambient]\n",
+      "rust_policy": "InvalidValue"
+    },
+    {
+      "name": "ambient_whitespace",
+      "xml": "<sdf version='1.12'><world name='w'><scene><ambient> \t\n </ambient></scene></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS 9 9 9 9 30\nWORLD 0\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Empty string used when setting a required parameter. Key[ambient]\n",
+      "rust_policy": "InvalidValue"
+    },
+    {
+      "name": "background_empty",
+      "xml": "<sdf version='1.12'><world name='w'><scene><background></background></scene></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS 9 9 9 9 30\nWORLD 0\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Empty string used when setting a required parameter. Key[background]\n",
+      "rust_policy": "InvalidValue"
+    },
+    {
+      "name": "background_whitespace",
+      "xml": "<sdf version='1.12'><world name='w'><scene><background> \t\n </background></scene></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS 9 9 9 9 30\nWORLD 0\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Empty string used when setting a required parameter. Key[background]\n",
+      "rust_policy": "InvalidValue"
+    },
+    {
+      "name": "grid_empty",
+      "xml": "<sdf version='1.12'><world name='w'><scene><grid></grid></scene></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS\nWORLD 1\nSCENE 1\nVALUES 1053609165 1053609165 1053609165 1065353216 1060320051 1060320051 1060320051 1065353216 1 1 1 0 1\n",
+      "stderr": "",
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "grid_whitespace",
+      "xml": "<sdf version='1.12'><world name='w'><scene><grid> \t\n </grid></scene></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS\nWORLD 1\nSCENE 1\nVALUES 1053609165 1053609165 1053609165 1065353216 1060320051 1060320051 1060320051 1065353216 1 1 1 0 1\n",
+      "stderr": "",
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "shadows_empty",
+      "xml": "<sdf version='1.12'><world name='w'><scene><shadows></shadows></scene></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS 9 9 9 9 30\nWORLD 0\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Empty string used when setting a required parameter. Key[shadows]\n",
+      "rust_policy": "InvalidValue"
+    },
+    {
+      "name": "shadows_whitespace",
+      "xml": "<sdf version='1.12'><world name='w'><scene><shadows> \t\n </shadows></scene></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS 9 9 9 9 30\nWORLD 0\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Empty string used when setting a required parameter. Key[shadows]\n",
+      "rust_policy": "InvalidValue"
+    },
+    {
+      "name": "origin_visual_empty",
+      "xml": "<sdf version='1.12'><world name='w'><scene><origin_visual></origin_visual></scene></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS\nWORLD 1\nSCENE 1\nVALUES 1053609165 1053609165 1053609165 1065353216 1060320051 1060320051 1060320051 1065353216 1 1 1 0 1\n",
+      "stderr": "",
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "origin_visual_whitespace",
+      "xml": "<sdf version='1.12'><world name='w'><scene><origin_visual> \t\n </origin_visual></scene></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS\nWORLD 1\nSCENE 1\nVALUES 1053609165 1053609165 1053609165 1065353216 1060320051 1060320051 1060320051 1065353216 1 1 1 0 1\n",
+      "stderr": "",
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "color_special_37",
+      "xml": "<sdf version='1.12'><world name='w'><scene><ambient>nan .2 .3 1</ambient></scene></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS\nWORLD 1\nSCENE 1\nVALUES 0 1045220557 1050253722 1065353216 1060320051 1060320051 1060320051 1065353216 1 1 1 0 1\n",
+      "stderr": "Color values were clamped\n",
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "color_special_38",
+      "xml": "<sdf version='1.12'><world name='w'><scene><ambient>.1 nan .3 1</ambient></scene></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS\nWORLD 1\nSCENE 1\nVALUES 1036831949 0 1050253722 1065353216 1060320051 1060320051 1060320051 1065353216 1 1 1 0 1\n",
+      "stderr": "Color values were clamped\n",
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "color_special_39",
+      "xml": "<sdf version='1.12'><world name='w'><scene><ambient>.1 .2 nan 1</ambient></scene></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS\nWORLD 1\nSCENE 1\nVALUES 1036831949 1045220557 0 1065353216 1060320051 1060320051 1060320051 1065353216 1 1 1 0 1\n",
+      "stderr": "Color values were clamped\n",
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "color_special_40",
+      "xml": "<sdf version='1.12'><world name='w'><scene><ambient>.1 .2 .3 nan</ambient></scene></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS\nWORLD 1\nSCENE 1\nVALUES 1036831949 1045220557 1050253722 0 1060320051 1060320051 1060320051 1065353216 1 1 1 0 1\n",
+      "stderr": "Color values were clamped\n",
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "color_special_41",
+      "xml": "<sdf version='1.12'><world name='w'><scene><ambient>true .2 .3 1</ambient></scene></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS 9 9 9 9 30\nWORLD 0\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Invalid argument. Unable to set value [true] for key [ambient].\nError Code 34: Msg: The value <ambient>true .2 .3 1</ambient> is invalid.\n",
+      "rust_policy": "InvalidValue"
+    },
+    {
+      "name": "color_special_42",
+      "xml": "<sdf version='1.12'><world name='w'><scene><ambient>0.000000000000000000000000000000000000000000001 .2 .3 1</ambient></scene></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS 9 9 9 9 30\nWORLD 0\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Out of range. Unable to set value [0.000000000000000000000000000000000000000000001] for key [ambient].\nError Code 34: Msg: The value <ambient>0.000000000000000000000000000000000000000000001 .2 .3 1</ambient> is invalid.\n",
+      "rust_policy": "InvalidValue"
+    },
+    {
+      "name": "exact_old_known_scene_1.5",
+      "xml": "<sdf version='1.5'><world name='w'><scene><ambient>0.1 0.2 0.3 1</ambient></scene></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS\nWORLD 1\nSCENE 1\nVALUES 1036831949 1045220557 1050253722 1065353216 1060320051 1060320051 1060320051 1065353216 1 1 1 0 1\n",
+      "stderr": "",
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "exact_old_known_scene_1.8",
+      "xml": "<sdf version='1.8'><world name='w'><scene><ambient>0.1 0.2 0.3 1</ambient></scene></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS\nWORLD 1\nSCENE 1\nVALUES 1036831949 1045220557 1050253722 1065353216 1060320051 1060320051 1060320051 1065353216 1 1 1 0 1\n",
+      "stderr": "",
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "exact_old_known_scene_1.12",
+      "xml": "<sdf version='1.12'><world name='w'><scene><ambient>0.1 0.2 0.3 1</ambient></scene></world></sdf>",
+      "exit": 0,
+      "stdout": "ERRORS\nWORLD 1\nSCENE 1\nVALUES 1036831949 1045220557 1050253722 1065353216 1060320051 1060320051 1060320051 1065353216 1 1 1 0 1\n",
+      "stderr": "",
+      "rust_policy": "accepted"
+    },
+    {
+      "name": "old_scene_light",
+      "xml": "<sdf version='1.12'><world name='w'><scene/><light name='n' type='point'/></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS\nWORLD 1\nSCENE 1\nVALUES 1053609165 1053609165 1053609165 1065353216 1060320051 1060320051 1060320051 1065353216 1 1 1 0 1\n",
+      "stderr": "",
+      "light_native": {
+        "exit": 0,
+        "stdout": "OK 6e 1 0 0 0 0 0 0 4607182418800017408 - 1 1 0 1065353216 1065353216 1065353216 1065353216 1036831949 1036831949 1036831949 1065353216 4621819117588971520 0 0 0 4607182418800017408 4607182418800017408 0 0 0 13830554455654793216 4607182418800017408\nPOSE default OK 0 0 0 0 0 0 4607182418800017408\n",
+        "stderr": ""
+      }
+    }
+  ],
+  "constructor": {
+    "stdout": "VALUES 1053609165 1053609165 1053609165 1065353216 1060320051 1060320051 1060320051 1065353216 1 1 1 0 0\n",
+    "stderr": "",
+    "exit": 0
+  },
+  "full_original": {
+    "stdout": "ERRORS\nWORLD 1\nSCENE 1\nVALUES 1050253722 1053609165 1056964608 1065353216 1058642330 1060320051 1061997773 1065353216 1 1 1 0 1\n",
+    "stderr": "",
+    "exit": 0
+  }
+}

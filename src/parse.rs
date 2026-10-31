@@ -1071,6 +1071,7 @@ impl Parser<'_> {
                 "plugin",
                 "physics",
                 "atmosphere",
+                "scene",
             ],
             &["name"],
             &extension_names,
@@ -1191,6 +1192,7 @@ impl Parser<'_> {
         }
         self.validate_axis_mimics(&name, &joints)?;
         Ok(World {
+            scene: self.scene(node)?,
             name,
             gravity,
             wind_linear_velocity,
@@ -1206,6 +1208,47 @@ impl Parser<'_> {
             plugins,
             extensions,
             source: self.source(node),
+        })
+    }
+    fn scene(&self, world: Node<'_, '_>) -> Result<Scene, Diagnostic> {
+        let Some(node) = child(world, "scene") else {
+            return Ok(Scene::default());
+        };
+        self.allowed(
+            node,
+            &["ambient", "background", "grid", "shadows", "origin_visual"],
+            &[],
+        )?;
+        // Required schema parameters may be omitted for defaults, but an
+        // explicit empty value fails before native Scene::Load is reached.
+        for name in ["ambient", "background", "shadows"] {
+            if let Some(value) = child(node, name)
+                && param_text(value).is_empty()
+            {
+                self.allowed(value, &[], &[])?;
+                return Err(self.err(
+                    value,
+                    ErrorCode::InvalidValue,
+                    format!("empty required scene {name} value"),
+                ));
+            }
+        }
+        let defaults = Scene::default();
+        Ok(Scene {
+            ambient: if child(node, "ambient").is_some() {
+                self.color(node, "ambient")?
+            } else {
+                defaults.ambient
+            },
+            background: if child(node, "background").is_some() {
+                self.color(node, "background")?
+            } else {
+                defaults.background
+            },
+            grid: self.boolean(node, "grid", defaults.grid)?,
+            shadows: self.boolean(node, "shadows", defaults.shadows)?,
+            origin_visual: self.boolean(node, "origin_visual", defaults.origin_visual)?,
+            source: Some(self.source(node)),
         })
     }
     fn atmosphere(&self, node: Node<'_, '_>) -> Result<Atmosphere, Diagnostic> {

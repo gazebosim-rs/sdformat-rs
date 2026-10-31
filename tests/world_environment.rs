@@ -4,6 +4,8 @@ use sdformat::{ErrorCode, NoResources, load_str};
 use serde_json::Value;
 #[path = "support/world_environment_projection.rs"]
 mod environment;
+#[path = "support/world_scene_projection.rs"]
+mod scene_projection;
 
 fn data() -> Value {
     serde_json::from_str(include_str!("world_environment.json")).unwrap()
@@ -91,11 +93,16 @@ fn malformed_vectors_keep_the_callers_location_and_unrelated_features_unsupporte
     }
     for payload in ["<scene/>", "<gui/>", "<projector/>"] {
         let xml = format!("<sdf version='1.12'><world name='w'><wind/>{payload}</world></sdf>");
-        assert_eq!(
-            load_str(&xml, "unsupported.sdf", &NoResources)
-                .unwrap_err()
-                .code,
-            ErrorCode::Unsupported
-        );
+        if payload == "<scene/>" {
+            let sdf = load_str(&xml, "unsupported.sdf", &NoResources).unwrap();
+            scene_projection::assert_scene(&sdf, &xml, "unsupported.sdf", false, 0);
+        } else {
+            assert_eq!(
+                load_str(&xml, "unsupported.sdf", &NoResources)
+                    .unwrap_err()
+                    .code,
+                ErrorCode::Unsupported
+            );
+        }
     }
 }

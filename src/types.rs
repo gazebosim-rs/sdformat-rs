@@ -235,6 +235,8 @@ pub struct World {
     pub magnetic_field: [f64; 3],
     /// Atmosphere metadata, including native defaults when the element is absent.
     pub atmosphere: Atmosphere,
+    /// Scene colors and visibility metadata; this does not activate rendering.
+    pub scene: Scene,
     /// Physics profiles in declaration order, or the implicit native default.
     pub physics: Vec<Physics>,
     pub models: Vec<Model>,
@@ -249,6 +251,30 @@ pub struct World {
     /// Opaque direct world metadata and qualified metadata from merged includes.
     pub extensions: Vec<ExtensionMetadata>,
     pub source: Source,
+}
+
+/// Bounded world scene metadata. Sky, fog and rendering are outside this value.
+#[derive(Debug, Clone, PartialEq)]
+pub struct Scene {
+    pub ambient: [f32; 4],
+    pub background: [f32; 4],
+    pub grid: bool,
+    pub shadows: bool,
+    pub origin_visual: bool,
+    /// Explicit input origin; None means no scene declaration was supplied.
+    pub source: Option<Source>,
+}
+impl Default for Scene {
+    fn default() -> Self {
+        Self {
+            ambient: [0.4, 0.4, 0.4, 1.],
+            background: [0.7, 0.7, 0.7, 1.],
+            grid: true,
+            shadows: true,
+            origin_visual: true,
+            source: None,
+        }
+    }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]

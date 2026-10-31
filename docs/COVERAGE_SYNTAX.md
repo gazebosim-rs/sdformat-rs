@@ -113,3 +113,60 @@ replay passed all 16 helper tests and all 39 tooling tests, including the real
 LLVM DA0 and region controls, with no remaining findings. Full protected staged
 and exact hosted qualification remain pending. The public custom-metadata Default/Clone/Debug test belongs to
 the separate producer candidate, not this tooling test count.
+
+
+## Plain declarations, aggregate delimiters and a closed intrinsic constructor
+
+The World Scene producer's first normal staged hook passed all tests and
+aggregate coverage but stopped at the syntax guard. Retained LLVM data measures
+42/42 changed executable lines; new declarations and aggregate syntax were
+unmapped. That failure is retained, with no production rearrangement, threshold
+change or automatic source exclusion.
+
+The additional proof reuses the existing plain-type grammar for exclusive public
+field declarations and struct/impl headers under known builtin derives and
+untransformed scope. Arrays require literal integer lengths, with no const
+expression, type macro or executable generic argument. Only exact proved lines
+clear literal/derive opacity. Aggregate closing lines `},` and `})` require actual
+AST structure and exclusive spelling; they introduce no general expression rule.
+
+A separate source-bound rule covers only an opener-only intrinsic `Ok(Scene {`
+line in an ordinary unannotated function. Exact root/types/camera source bytes
+are echoed and checked; all four real source paths, including parse, must occur
+in the compiled production-library dep-info. Root public globs are exactly
+`types::*` and `camera::*`; other globs and reserved explicit bindings are
+refused. Explicit reexports of unrelated names do not supply constructor names.
+Scene must be the public named-field plain aggregate, with each unique field
+supplied exactly once and no update/rest expression. Explicit/imported/local,
+parameter and generic shadows are refused; Syn's raw-identifier spelling and
+self-import effective binding are handled. Const/static/associated const and
+const-generic bodies, types and closures are not traversed as candidate sites.
+
+This is a closed audit of the current crate, not a Rust name resolver or macro
+expander. Only the actual standard macro spellings are allowed in context;
+opaque arguments refuse attributes, definitions/exports, reserved constructor
+tokens and unknown nested macros. Unknown attributes, extra exports, externs,
+verbatim syntax and disabled implicit prelude refuse evidence. Positive normal
+library compilation is required before querying. An implicit sibling macro
+export cannot introduce a root value binding; a used standard macro name from
+`crate::*` conflicts with the default prelude (pinned compiler E0659 control).
+Explicit or textual macro overrides are refused by supplied context. No claim
+is made that the helper independently resolves arbitrary uncompiled source.
+
+Actual compiler/runner controls distinguish intrinsic construction (zero effects)
+from normal and raw-identifier callable Ok shadows (one effect each); only the
+intrinsic gains proof. Independent review found and corrected two scope gaps:
+terminal self imports and inherited item-const traversal. Compiled regressions
+cover three grouped/raw self-import shadows and five const families. Neither
+finding demonstrated an executable-code omission. Root independently approved
+19 initial helper/41 tooling checks; final fresh independent source/target
+review passed all 23 helper tests, 43 tooling tests and all-target Clippy after
+these fixes. Real LLVM DA0 remains authoritative even with forged prefix proof,
+and actual low region coverage still fails. Stale export context and missing or
+wrong compiled source dependencies also fail.
+
+Against the unchanged retained first-hook LLVM data, the final proof resolves
+the actual pending constructor line and keeps 42/42 changed DA. This is a
+diagnostic, not a staged pass. The combined ordinary protected hook and exact
+hosted checks remain required. There is no additional native-original credit,
+compiler/dependency/producer-pin change or runtime activation.

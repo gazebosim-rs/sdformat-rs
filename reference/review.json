@@ -1,19 +1,20 @@
 {
   "decision": "approved",
   "author": "integration_reviewer",
-  "reviewer": "Root",
-  "source_digest": "fdd24e6cef0c7d0b4e8979b64945b99def96be1a7e11ec5b8fec1b2e0a124cb5",
-  "protected_digest": "4863a020c6612551761385dd801e7a079da417706b47938838e920aa47410ed9",
-  "scope": "Custom sensor owned metadata and bounded existing AST proof for nonexecuting String/Option<String> declarations and exclusive else delimiters; no runtime activation or pin change.",
+  "reviewer": "transport_owner",
+  "source_digest": "9db0982ce704664b843ba4095ef5561874c638f452e245bd372b71ff2d2f4510",
+  "protected_digest": "2cf8066cb18d3b7743fa150fffdd1c316cb156ccfba7de92fbf1d5cf3c4ed50a",
+  "scope": "Bounded World.scene native color/visibility metadata and six reviewed exact-input capability transitions. No rendering activation, consumer pin or complete original-case promotion.",
   "checks": [
-    "Independent source review verified exact custom-only attribute admission, full QName allowlists, preserved singleton checks, legacy vendor metadata and source order. BTreeSet membership fixes the reviewed quadratic scan without changing duplicate retention.",
-    "Fresh independent Cargo target passed all seven environmental custom sensor tests, including 4096 distinct ordered fields and repeated values with exact source locations.",
-    "Fresh independent C++ compilation and replay matched all eleven native observations and recorded source/header/library identities. Existing test assertions, test mappings, dependencies, coverage selectors and thresholds remain unchanged.",
-    "Independent source review of the six-path proof follow-up preserved measured DA0 and actual region authority, prior Vec grammar, opaque contexts and exact helper/source/context identity. Only plain String/Option<String> declarations and exclusive real AST else delimiters are newly proved nonexecuting.",
-    "Fresh independent reviewer source/target passed sixteen Rust syntax helper tests; thirty-nine tooling controls passed, including actual rustc/LLVM uncovered-branch and region failures. The added public metadata Default/Clone/Debug ownership test was separately source reviewed; it is not a syntax proof or a native test port."
+    "Independent production/source review confirmed native defaults and five getters, source ownership, required-empty values, narrow parsing and retained unknown/duplicate/Sky/Fog errors.",
+    "Fresh independent reviewer source and Cargo target passed the five prepared Scene tests, then all fifteen affected tests after exact six-input folds. Existing corpus bytes, unrelated predicates and full native Light projection/resolved-pose checks are preserved.",
+    "Fresh native helper compilation and replay verified forty-seven complete controls, constructor defaults, full/projected Scene equality and two unchanged original cases with pinned source/header/library identities.",
+    "Final seventeen-path fold and partial traceability entry reviewed. World.Load remains partial; no whole-case, runtime rendering, performance or coverage-policy credit is claimed.",
+    "Root independently approved the initial reusable declaration/header and delimiter proof after a fresh nineteen-helper/forty-one-tool replay. The delegated final five-path constructor-context review independently passed twenty-three helper tests, forty-three tooling checks and all-target Clippy after correcting effective self-import and const-body scope mismatches.",
+    "Final reviewer audited exact root/types/camera context and actual production dep-info binding, compiler-first scope, unshadowed intrinsic aggregate construction and macro/runtime-call refusal. Actual DA0 and region authority remain mandatory; no producer code, assertion, numerical tolerance, coverage threshold or compiler dependency changed for this proof. Root recomputed final combined source/protected digests and reviewed the evidence prose."
   ],
   "remaining": [
-    "Full combined normal staged checks and exact hosted CI remain required after the retained first failed syntax-mapping gate.",
-    "No full custom sensor runtime, broad serializer or simulator consumer compatibility claim."
+    "Full combined ordinary staged verification and exact hosted CI remain required; retained-data diagnostics are not a staged pass.",
+    "Sky/Fog, remaining World.Load assertions, rendering and downstream metadata consumption remain outside this slice."
   ]
 }

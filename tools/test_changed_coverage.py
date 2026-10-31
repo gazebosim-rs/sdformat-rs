@@ -9,8 +9,8 @@ from unittest.mock import patch
 import verify
 
 
-def syntax(*, fields=(), closings=(), opaque=(), declarations=(), items=(), else_delimiters=()):
-    return lambda _path, _source: dict(fields=set(fields), closings=set(closings), opaque=set(opaque), declarations=set(declarations), items=set(items), else_delimiters=set(else_delimiters))
+def syntax(*, fields=(), closings=(), opaque=(), declarations=(), items=(), else_delimiters=(), aggregate_prefixes=()):
+    return lambda _path, _source: dict(fields=set(fields), closings=set(closings), opaque=set(opaque), declarations=set(declarations), items=set(items), else_delimiters=set(else_delimiters), aggregate_prefixes=set(aggregate_prefixes))
 
 
 class ChangedCoverageTests(unittest.TestCase):
@@ -63,12 +63,12 @@ class ChangedCoverageTests(unittest.TestCase):
     def test_syntax_helper_output_and_coverage_priority_fail_closed(self):
         import json
         source = "pub struct World {\n    pub extensions: Vec<Thing>,\n}\n"
-        value = {'source': source, 'helper_source': 'reviewed helper', 'ancestor': 'mod types;', 'module': 'types', 'fields': [2], 'closings': [], 'opaque': [], 'declarations': [], 'items': [], 'else_delimiters': []}
+        value = {'source': source, 'helper_source': 'reviewed helper', 'ancestor': 'mod types;', 'module': 'types', 'fields': [2], 'closings': [], 'opaque': [], 'declarations': [], 'items': [], 'else_delimiters': [], 'exports': {}, 'aggregate_prefixes': []}
         prefix = "\nrunning 1 test\nSDF_COVERAGE_SYNTAX_V1="
         suffix = "\ntest syntax_query ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.01s\n\n"
         output = lambda item: prefix + json.dumps(item) + suffix
         self.assertEqual(verify.parse_syntax_output(output(value), source, 'reviewed helper', 'mod types;', 'types')['fields'], {2})
-        for broken in [dict(value, source=source + ' '), dict(value, helper_source='stale helper'), dict(value, ancestor='stale context'), dict(value, module='wrong'), dict(value, fields=[2, 2]), dict(value, fields=[4]), dict(value, fields=[True]), dict(value, else_delimiters=[2, 2]), dict(value, else_delimiters=[True]), dict(value, else_delimiters=[4]), dict(value, extra=[]), dict(value, opaque='bad')]:
+        for broken in [dict(value, source=source + ' '), dict(value, helper_source='stale helper'), dict(value, ancestor='stale context'), dict(value, module='wrong'), dict(value, fields=[2, 2]), dict(value, fields=[4]), dict(value, fields=[True]), dict(value, else_delimiters=[2, 2]), dict(value, else_delimiters=[True]), dict(value, else_delimiters=[4]), dict(value, exports={'types': 'stale'}), dict(value, aggregate_prefixes=[2, 2]), dict(value, aggregate_prefixes=[True]), dict(value, aggregate_prefixes=[4]), dict(value, extra=[]), dict(value, opaque='bad')]:
             with self.subTest(broken=broken), self.assertRaises(AssertionError):
                 verify.parse_syntax_output(output(broken), source, 'reviewed helper', 'mod types;', 'types')
         for broken in [output(value).replace('SYNTAX_V1', 'SYNTAX_V0'), output(value) + 'unexpected', prefix + '{bad' + suffix, output(value).replace('{\"source\":', '{\"source\":\"duplicate\",\"source\":', 1)]:
@@ -251,3 +251,46 @@ class CustomMetadataSyntaxTests(unittest.TestCase):
                 verify.check_changed_coverage(root, {'lines': {('src/parse.rs', 2)}}, covered | {(file.resolve(), 2): False}, syntax_provider=proof)
             with self.assertRaisesRegex(AssertionError, 'opaque syntax'):
                 verify.check_changed_coverage(root, {'lines': {('src/parse.rs', 2)}}, covered, syntax_provider=syntax(else_delimiters=[2], opaque=[2]))
+
+class ConcreteDeclarationAndDelimiterTests(unittest.TestCase):
+    def test_declaration_evidence_never_overrides_measured_or_opaque_lines(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp); (root / 'src').mkdir(); file = root / 'src/types.rs'
+            file.write_text('fn measured() {}\npub field: [f32; 4],\nimpl Default for Scene {\n')
+            covered = {(file.resolve(), 1): True}
+            proof = syntax(items=[2, 3])
+            changed = {'lines': {('src/types.rs', 2), ('src/types.rs', 3)}}
+            self.assertEqual(verify.check_changed_coverage(root, changed, covered, syntax_provider=proof), [])
+            with self.assertRaisesRegex(AssertionError, 'changed executable'):
+                verify.check_changed_coverage(root, changed, covered | {(file.resolve(), 2): False}, syntax_provider=proof)
+            with self.assertRaisesRegex(AssertionError, 'opaque syntax'):
+                verify.check_changed_coverage(root, changed, covered, syntax_provider=syntax(items=[2, 3], opaque=[2]))
+
+    def test_only_exact_proved_closing_tokens_pass_and_call_prefix_stays_unproved(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp); (root / 'src').mkdir(); file = root / 'src/parse.rs'
+            file.write_text('fn measured() {}\n},\n})\n}, runtime();\nOk(Scene {\n')
+            covered = {(file.resolve(), 1): True}
+            proof = syntax(closings=[2, 3, 4])
+            for line in (2, 3):
+                self.assertEqual(verify.check_changed_coverage(root, {'lines': {('src/parse.rs', line)}}, covered, syntax_provider=proof), [])
+                with self.assertRaisesRegex(AssertionError, 'changed executable'):
+                    verify.check_changed_coverage(root, {'lines': {('src/parse.rs', line)}}, covered | {(file.resolve(), line): False}, syntax_provider=proof)
+            for line in (4, 5):
+                with self.assertRaisesRegex(AssertionError, 'no instrumented executable'):
+                    verify.check_changed_coverage(root, {'lines': {('src/parse.rs', 1), ('src/parse.rs', line)}}, covered, syntax_provider=proof)
+
+class IntrinsicAggregatePrefixTests(unittest.TestCase):
+    def test_only_source_bound_prefix_evidence_passes_without_overriding_da(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp); (root / 'src').mkdir(); file = root / 'src/parse.rs'
+            file.write_text('fn measured() {}\nOk(Scene {\n')
+            covered = {(file.resolve(), 1): True}
+            changed = {'lines': {('src/parse.rs', 2)}}
+            self.assertEqual(verify.check_changed_coverage(root, changed, covered, syntax_provider=syntax(aggregate_prefixes=[2])), [])
+            with self.assertRaisesRegex(AssertionError, 'no instrumented executable'):
+                verify.check_changed_coverage(root, changed, covered, syntax_provider=syntax())
+            with self.assertRaisesRegex(AssertionError, 'changed executable'):
+                verify.check_changed_coverage(root, changed, covered | {(file.resolve(), 2): False}, syntax_provider=syntax(aggregate_prefixes=[2]))
+            with self.assertRaisesRegex(AssertionError, 'opaque syntax'):
+                verify.check_changed_coverage(root, changed, covered, syntax_provider=syntax(aggregate_prefixes=[2], opaque=[2]))

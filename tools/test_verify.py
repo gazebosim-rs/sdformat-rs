@@ -151,7 +151,13 @@ class SnapshotAndReviewTests(unittest.TestCase):
                     'src_path': str(root / 'src/lib.rs')}, 'profile': {'test': False},
                     'filenames': [str(library)]}
             output = json.dumps(item)
-            dep.write_text('target: src/lib.rs src/../data/world_known_schema_names.txt\n')
+            dep.write_text('target: src/lib.rs src/parse.rs src/types.rs src/camera.rs src/../data/world_known_schema_names.txt\n')
+            full = dep.read_text()
+            for name in ('lib', 'parse', 'types', 'camera'):
+                dep.write_text(full.replace('src/' + name + '.rs', 'src/' + name + '.rs.fake'))
+                with self.assertRaisesRegex(AssertionError, 'constructor context'):
+                    verify.check_schema_dep_info(output, root, target)
+            dep.write_text(full)
             verify.check_schema_dep_info(output, root, target)
             for content in ('target: src/lib.rs\n', 'target: src/../data/world_known_schema_names.txt.fake\n'):
                 dep.write_text(content)

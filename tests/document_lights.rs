@@ -6,6 +6,8 @@ use serde_json::Value;
 mod environment;
 #[path = "support/document_light_projection.rs"]
 mod projection;
+#[path = "support/world_scene_projection.rs"]
+mod scene_projection;
 fn data() -> Value {
     serde_json::from_str(include_str!("document_lights.json")).unwrap()
 }
@@ -172,12 +174,42 @@ fn document_schema_defaults_do_not_hide_unknown_payloads() {
         let xml = format!(
             "<sdf version='1.12'><world name='w'>{payload}<light name='n' type='point'/></world></sdf>"
         );
-        assert_eq!(
-            load_str(&xml, "payload.sdf", &NoResources)
-                .unwrap_err()
-                .code,
-            ErrorCode::Unsupported
-        );
+        if payload == "<scene/>" {
+            let sdf = load_str(&xml, "payload.sdf", &NoResources).unwrap();
+            scene_projection::assert_scene(&sdf, &xml, "payload.sdf", false, 1);
+            let corpus: serde_json::Value =
+                serde_json::from_str(include_str!("world_scene.json")).unwrap();
+            let row = corpus["cases"]
+                .as_array()
+                .unwrap()
+                .iter()
+                .find(|row| row["name"] == "old_scene_light")
+                .unwrap();
+            assert_eq!(row["xml"].as_str().unwrap(), xml);
+            let w = &sdf.worlds[0];
+            let native: Vec<Vec<String>> = row["light_native"]["stdout"]
+                .as_str()
+                .unwrap()
+                .lines()
+                .map(|line| line.split_whitespace().map(str::to_owned).collect())
+                .collect();
+            assert_eq!(native.len(), 2);
+            projection::compare(&projection::projection(&w.lights[0]), &native[0]);
+            assert_eq!(&native[1][..3], ["POSE", "default", "OK"]);
+            projection::pose(
+                sdf.resolve_pose(&w.lights[0].pose, "w", "w", "w").unwrap(),
+                &native[1][3..],
+            );
+            assert_eq!(w.lights[0].source.as_ref().unwrap().uri, "payload.sdf");
+            sdf.validate_non_frame_poses().unwrap();
+        } else {
+            assert_eq!(
+                load_str(&xml, "payload.sdf", &NoResources)
+                    .unwrap_err()
+                    .code,
+                ErrorCode::Unsupported
+            );
+        }
     }
 
     let data: Value = serde_json::from_str(include_str!("world_environment.json")).unwrap();

@@ -192,6 +192,8 @@ def check_schema_dep_info(output, root, target):
     assert dep_info.is_file(), 'missing production dep-info'
     text = read_source(dep_info)
     assert re.search(r'(?<!\S)src/\.\./data/world_known_schema_names\.txt(?=\s|$)', text), 'production schema asset missing from dep-info'
+    for source in ('lib', 'parse', 'types', 'camera'):
+        assert re.search(r'(?<!\S)src/' + source + r'\.rs(?=\s|$)', text), 'constructor context missing from production dep-info'
 
 
 def coverage(root, out, manifest, changed=None):
@@ -233,11 +235,12 @@ def coverage(root, out, manifest, changed=None):
                          LLVM_PROFILE_FILE=str(out / 'syntax-query-%p-%m.profraw'))
         ancestor = read_source(root / 'src/lib.rs')
         module = path.stem if path.parent == (root / 'src').resolve() and path.name != 'lib.rs' else ''
-        request = json.dumps({'source': source, 'ancestor': ancestor, 'module': module})
+        exports = {name: read_source(root / 'src' / (name + '.rs')) for name in ('types', 'camera')} if module == 'parse' else {}
+        request = json.dumps({'source': source, 'ancestor': ancestor, 'module': module, 'exports': exports})
         result = subprocess.run([str(syntax_binary), '--exact', 'syntax_query', '--nocapture', '--color', 'never'],
                                 input=request, capture_output=True, text=True, env=query_env, cwd=root, check=True, timeout=30)
         assert not result.stderr, 'coverage syntax helper stderr'
-        return parse_syntax_output(result.stdout, source, read_source(root / 'tests/coverage_syntax.rs'), ancestor, module)
+        return parse_syntax_output(result.stdout, source, read_source(root / 'tests/coverage_syntax.rs'), ancestor, module, exports)
     measured = check_changed_coverage(root, changed, covered, strict=changed['mode'] != 'full-source', syntax_provider=syntax_provider)
     evidence = {'source_digest': digest(root), 'toolchain': run(['rustc', '-vV'], capture=True, cwd=root).stdout, 'runner': os.uname().nodename, 'profile': 'core', 'coverage': counts, 'changed_lines': {'count': len(measured), 'covered': sum(measured), 'base': changed['base'], 'target': changed['target'], 'mode': changed['mode'], 'status': 'measured' if measured else ('no executable changes' if changed['lines'] else 'no added source lines')}, 'full_source_lines': {'count': len(full), 'covered': sum(full)}}
     (out / 'evidence.json').write_text(json.dumps(evidence, indent=2) + '\n')
@@ -312,7 +315,7 @@ def changed_manifest(root, base=None, target=None):
     return {'base': base, 'target': target or head, 'mode': 'parent-diff', 'lines': lines}
 
 
-def parse_syntax_output(output, source, helper_source, ancestor, module):
+def parse_syntax_output(output, source, helper_source, ancestor, module, exports=None):
     prefix = '\nrunning 1 test\nSDF_COVERAGE_SYNTAX_V1='
     assert output.startswith(prefix), 'invalid coverage syntax helper output'
     def unique_object(pairs):
@@ -324,12 +327,13 @@ def parse_syntax_output(output, source, helper_source, ancestor, module):
     value, end = json.JSONDecoder(object_pairs_hook=unique_object).raw_decode(output[len(prefix):])
     suffix = output[len(prefix) + end:]
     assert re.fullmatch(r'\ntest syntax_query \.\.\. ok\n\ntest result: ok\. 1 passed; 0 failed; 0 ignored; 0 measured; \d+ filtered out; finished in [0-9.]+s\n\n', suffix), 'invalid coverage syntax helper footer'
-    assert isinstance(value, dict) and set(value) == {'source', 'ancestor', 'module', 'helper_source', 'fields', 'closings', 'opaque', 'declarations', 'items', 'else_delimiters'}, 'invalid coverage syntax helper schema'
+    assert isinstance(value, dict) and set(value) == {'source', 'ancestor', 'module', 'helper_source', 'fields', 'closings', 'opaque', 'declarations', 'items', 'else_delimiters', 'exports', 'aggregate_prefixes'}, 'invalid coverage syntax helper schema'
     assert value['source'] == source, 'stale coverage syntax source'
     assert value['helper_source'] == helper_source, 'stale coverage syntax helper'
     assert value['ancestor'] == ancestor and value['module'] == module, 'stale coverage syntax context'
+    assert value['exports'] == (exports or {}), 'stale constructor export context'
     limit = len(source_lines(source))
-    for key in ('fields', 'closings', 'opaque', 'declarations', 'items', 'else_delimiters'):
+    for key in ('fields', 'closings', 'opaque', 'declarations', 'items', 'else_delimiters', 'aggregate_prefixes'):
         lines = value[key]
         assert isinstance(lines, list) and all(type(line) is int and 1 <= line <= limit for line in lines), 'invalid coverage syntax line'
         assert lines == sorted(set(lines)), 'duplicate or unordered coverage syntax line'
@@ -364,8 +368,9 @@ def check_changed_coverage(root, changed, covered, strict=True, syntax_provider=
                                   or (line in syntax['declarations'] and (re.fullmatch(r'impl\s+[A-Za-z_][A-Za-z0-9_]*\s*\{', text)
                                       or re.fullmatch(r'(?:pub(?:\([^)]*\))?\s+)?(?:use|mod)\s+[^;]+;', text)))
                                   or (line in syntax['fields'] and re.fullmatch(r'pub\s+[A-Za-z_][A-Za-z0-9_]*:\s*(?:Vec<[A-Za-z_][A-Za-z0-9_]*>|Option<String>|String),', text))
-                                  or (line in syntax['closings'] and text == ');')
-                                  or (line in syntax['else_delimiters'] and text == '} else {'))
+                                  or (line in syntax['closings'] and text in (');', '},', '})'))
+                                  or (line in syntax['else_delimiters'] and text == '} else {')
+                                  or line in syntax['aggregate_prefixes'])
                 assert non_executable, 'changed source has no instrumented executable lines'
     return measured
 

@@ -5,6 +5,7 @@ use std::collections::BTreeSet;
 use std::io::{self, Read};
 use syn::{
     GenericArgument, Item, PathArguments, Type, Visibility,
+    ext::IdentExt,
     spanned::Spanned,
     visit::{self, Visit},
 };
@@ -430,6 +431,27 @@ impl<'ast> Visit<'ast> for CallAudit {
         }
         visit::visit_expr_call(self, expression);
     }
+    fn visit_expr_struct(&mut self, expression: &'ast syn::ExprStruct) {
+        if self.in_function && docs_only(&expression.attrs) {
+            for pair in expression.fields.pairs() {
+                let (field, comma) = pair.into_tuple();
+                if let syn::Expr::If(branch) = &field.expr
+                    && docs_only(&field.attrs)
+                    && docs_only(&branch.attrs)
+                    && let Some((_, tail)) = &branch.else_branch
+                    && let syn::Expr::Block(block) = &**tail
+                    && docs_only(&block.attrs)
+                    && comma.is_some_and(|comma| {
+                        comma.span.start().line == block.block.brace_token.span.close().start().line
+                    })
+                {
+                    self.closings
+                        .insert(block.block.brace_token.span.close().start().line);
+                }
+            }
+        }
+        visit::visit_expr_struct(self, expression);
+    }
     fn visit_expr_method_call(&mut self, expression: &'ast syn::ExprMethodCall) {
         if self.in_function {
             self.closings.insert(expression.span().end().line);
@@ -457,6 +479,131 @@ fn plain_type(ty: &syn::Type) -> bool {
         }
         _ => false,
     }
+}
+// A declaration contains no runtime body only when every type is syntax-only.
+// Arrays are limited to literal integer lengths, never arbitrary const syntax.
+fn concrete_type(ty: &Type) -> bool {
+    match ty {
+        Type::Array(array) => {
+            concrete_type(&array.elem)
+                && matches!(&array.len, syn::Expr::Lit(lit)
+                    if lit.attrs.is_empty() && matches!(lit.lit, syn::Lit::Int(_)))
+        }
+        _ => plain_type(ty),
+    }
+}
+fn exclusive_span(source: &str, span: proc_macro2::Span, suffix: &str) -> bool {
+    let (start, end) = (span.start(), span.end());
+    let lines: Vec<_> = source.split('\n').collect();
+    lines[start.line - 1]
+        .chars()
+        .take(start.column)
+        .all(char::is_whitespace)
+        && lines[end.line - 1]
+            .chars()
+            .skip(end.column)
+            .collect::<String>()
+            .trim()
+            == suffix
+}
+fn plain_declarations(
+    source: &str,
+    file: &syn::File,
+    ancestor: &syn::File,
+    module: &str,
+) -> BTreeSet<usize> {
+    let mut out = BTreeSet::new();
+    if !standard_debug_scope(file, ancestor, module) {
+        return out;
+    }
+    let lines: Vec<_> = source.split('\n').collect();
+    for item in &file.items {
+        match item {
+            Item::Struct(item)
+                if string_field_derives_or_docs(&item.attrs)
+                    && item.generics.params.is_empty()
+                    && item.generics.where_clause.is_none() =>
+            {
+                let syn::Fields::Named(fields) = &item.fields else {
+                    continue;
+                };
+                // Each field is proved independently; an opaque neighbour must
+                // not lend it an unexamined type or attribute.
+                for pair in fields.named.pairs() {
+                    let (field, comma) = pair.into_tuple();
+                    if !docs_only(&field.attrs)
+                        || !matches!(field.vis, Visibility::Public(_))
+                        || !concrete_type(&field.ty)
+                    {
+                        continue;
+                    }
+                    let Some(span) = field.vis.span().join(field.ty.span()) else {
+                        continue;
+                    };
+                    if span.start().line == span.end().line
+                        && comma.is_some_and(|comma| comma.span.start().line == span.end().line)
+                        && exclusive_span(source, span, ",")
+                    {
+                        out.insert(span.start().line);
+                    }
+                }
+                // Headers/derive lines are syntax-only, not the generated
+                // executable bodies; measured DA and regions remain mandatory.
+                if fields
+                    .named
+                    .iter()
+                    .all(|f| docs_only(&f.attrs) && concrete_type(&f.ty))
+                {
+                    for attr in &item.attrs {
+                        if attr.path().is_ident("derive") && exclusive_span(source, attr.span(), "")
+                        {
+                            out.extend(attr.span().start().line..=attr.span().end().line);
+                        }
+                    }
+                    let start = item.struct_token.span.start();
+                    let open = fields.brace_token.span.open();
+                    if start.line == open.end().line
+                        && lines[start.line - 1].trim() == format!("pub struct {} {{", item.ident)
+                        && matches!(item.vis, Visibility::Public(_))
+                    {
+                        out.insert(start.line);
+                    }
+                }
+            }
+            Item::Impl(item)
+                if docs_only(&item.attrs)
+                    && item.unsafety.is_none()
+                    && item.modifiers.require_empty().is_ok()
+                    && item.generics.params.is_empty()
+                    && item.generics.where_clause.is_none()
+                    && plain_type(&item.self_ty) =>
+            {
+                if let Some((path, _)) = &item.trait_
+                    && path
+                        .segments
+                        .iter()
+                        .any(|p| !matches!(p.arguments, PathArguments::None))
+                {
+                    continue;
+                }
+                let start = item.impl_token.span.start();
+                let open = item.brace_token.span.open();
+                if start.line == open.end().line {
+                    let end = open.end();
+                    let line = lines[start.line - 1];
+                    // Use AST token positions, preserving visibility of any
+                    // shared-line body rather than matching an impl regex.
+                    if line.chars().take(start.column).all(char::is_whitespace)
+                        && line.chars().skip(end.column).all(char::is_whitespace)
+                    {
+                        out.insert(start.line);
+                    }
+                }
+            }
+            _ => {}
+        }
+    }
+    out
 }
 fn candidate_lines(source: &str) -> BTreeSet<usize> {
     let file = syn::parse_file(source).unwrap();
@@ -552,6 +699,454 @@ fn context_lines(source: &str, ancestor: &str, module: &str) -> BTreeSet<usize> 
     candidate_lines(source)
 }
 
+// This is a closed audit of this crate's two public glob exports, not a Rust
+// name resolver. Any additional export edge or binding requires review.
+const CONTEXT_MACROS: &[&str] = &[
+    "format",
+    "vec",
+    "write",
+    "matches",
+    "unreachable",
+    "include_str",
+];
+fn reserved_constructor_name(name: &str) -> bool {
+    [
+        "Ok",
+        "Scene",
+        "Result",
+        "std",
+        "Debug",
+        "Clone",
+        "Copy",
+        "Default",
+        "default",
+        "PartialEq",
+        "Eq",
+        "allow",
+    ]
+    .contains(&name)
+        || CONTEXT_MACROS.contains(&name)
+}
+fn safe_macro_tokens(tokens: proc_macro2::TokenStream) -> bool {
+    use proc_macro2::TokenTree;
+    let tokens: Vec<_> = tokens.into_iter().collect();
+    let mut at = 0;
+    while at < tokens.len() {
+        match &tokens[at] {
+            TokenTree::Ident(name)
+                if [
+                    "macro_rules",
+                    "macro_export",
+                    "macro_use",
+                    "macro",
+                    "extern",
+                    "Ok",
+                    "Scene",
+                ]
+                .contains(&name.unraw().to_string().as_str()) =>
+            {
+                return false;
+            }
+            TokenTree::Ident(name)
+                if tokens
+                    .get(at + 1)
+                    .is_some_and(|t| matches!(t, TokenTree::Punct(p) if p.as_char() == '!')) =>
+            {
+                if !CONTEXT_MACROS.contains(&name.unraw().to_string().as_str())
+                    || at > 0
+                        && matches!(&tokens[at - 1], TokenTree::Punct(p) if p.as_char() == ':')
+                {
+                    return false;
+                }
+                let Some(TokenTree::Group(group)) = tokens.get(at + 2) else {
+                    return false;
+                };
+                if !safe_macro_tokens(group.stream()) {
+                    return false;
+                }
+                at += 3;
+                continue;
+            }
+            TokenTree::Punct(p) if ['#', '!'].contains(&p.as_char()) => return false,
+            TokenTree::Group(group) if !safe_macro_tokens(group.stream()) => return false,
+            _ => {}
+        }
+        at += 1;
+    }
+    true
+}
+fn import_mentions_reserved(tree: &syn::UseTree) -> bool {
+    fn binding(tree: &syn::UseTree, parent: Option<&syn::Ident>) -> bool {
+        match tree {
+            syn::UseTree::Path(path) => binding(&path.tree, Some(&path.ident)),
+            // `use hidden::Scene::{self}` binds Scene, not the word self.
+            syn::UseTree::Name(name) if name.ident == "self" => {
+                parent.is_none_or(|name| reserved_constructor_name(&name.unraw().to_string()))
+            }
+            syn::UseTree::Name(name) => reserved_constructor_name(&name.ident.unraw().to_string()),
+            syn::UseTree::Rename(name) => {
+                reserved_constructor_name(&name.rename.unraw().to_string())
+            }
+            syn::UseTree::Group(group) => group.items.iter().any(|tree| binding(tree, parent)),
+            syn::UseTree::Glob(_) => true,
+        }
+    }
+    binding(tree, None)
+}
+fn exact_glob(tree: &syn::UseTree, name: &str) -> bool {
+    matches!(tree, syn::UseTree::Path(path) if path.ident == name && matches!(&*path.tree, syn::UseTree::Glob(_)))
+}
+struct ConstructorBoundary<'a> {
+    role: &'a str,
+    bad: bool,
+    root_globs: BTreeSet<String>,
+    target_globs: usize,
+}
+impl ConstructorBoundary<'_> {
+    fn binding(&mut self, name: &syn::Ident, scene_declaration: bool) {
+        if ["Ok", "Scene", "Result", "std"].contains(&name.unraw().to_string().as_str())
+            && !(scene_declaration && self.role == "types" && name == "Scene")
+        {
+            self.bad = true;
+        }
+    }
+}
+impl<'ast> Visit<'ast> for ConstructorBoundary<'_> {
+    fn visit_item(&mut self, item: &'ast Item) {
+        if matches!(item, Item::Verbatim(_) | Item::ForeignMod(_)) {
+            self.bad = true;
+        } else {
+            visit::visit_item(self, item);
+        }
+    }
+    fn visit_expr(&mut self, item: &'ast syn::Expr) {
+        if matches!(item, syn::Expr::Verbatim(_)) {
+            self.bad = true;
+        } else {
+            visit::visit_expr(self, item);
+        }
+    }
+    fn visit_pat(&mut self, item: &'ast syn::Pat) {
+        if matches!(item, syn::Pat::Verbatim(_)) {
+            self.bad = true;
+        } else {
+            visit::visit_pat(self, item);
+        }
+    }
+    fn visit_impl_item_const(&mut self, item: &'ast syn::ImplItemConst) {
+        self.binding(&item.ident, false);
+        visit::visit_impl_item_const(self, item);
+    }
+    fn visit_impl_item_type(&mut self, item: &'ast syn::ImplItemType) {
+        self.binding(&item.ident, false);
+        visit::visit_impl_item_type(self, item);
+    }
+
+    fn visit_attribute(&mut self, attr: &'ast syn::Attribute) {
+        let standard = docs_only(std::slice::from_ref(attr))
+            || string_field_derives_or_docs(std::slice::from_ref(attr))
+            || attr.path().is_ident("default") && matches!(attr.meta, syn::Meta::Path(_))
+            || attr.path().is_ident("allow")
+                && attr
+                    .parse_args_with(
+                        syn::punctuated::Punctuated::<syn::Path, syn::Token![,]>::parse_terminated,
+                    )
+                    .is_ok();
+        self.bad |= !standard;
+    }
+    fn visit_item_use(&mut self, item: &'ast syn::ItemUse) {
+        if self.role == "root"
+            && item.leading_colon.is_none()
+            && matches!(item.vis, Visibility::Public(_))
+        {
+            for name in ["types", "camera"] {
+                if exact_glob(&item.tree, name) {
+                    if !docs_only(&item.attrs) || !self.root_globs.insert(name.into()) {
+                        self.bad = true;
+                    }
+                    return;
+                }
+            }
+        }
+        if self.role == "parse"
+            && item.leading_colon.is_none()
+            && matches!(item.vis, Visibility::Inherited)
+            && item.attrs.is_empty()
+            && exact_glob(&item.tree, "crate")
+        {
+            self.target_globs += 1;
+            return;
+        }
+        if self.role != "root" && matches!(item.vis, Visibility::Public(_)) {
+            self.bad = true;
+        }
+        self.bad |= import_mentions_reserved(&item.tree) || !docs_only(&item.attrs);
+    }
+    fn visit_item_macro(&mut self, _: &'ast syn::ItemMacro) {
+        self.bad = true;
+    }
+    fn visit_item_extern_crate(&mut self, _: &'ast syn::ItemExternCrate) {
+        self.bad = true;
+    }
+    fn visit_macro(&mut self, item: &'ast syn::Macro) {
+        self.bad |= item.path.segments.len() != 1
+            || !CONTEXT_MACROS.iter().any(|name| item.path.is_ident(name))
+            || !safe_macro_tokens(item.tokens.clone());
+    }
+    fn visit_item_struct(&mut self, item: &'ast syn::ItemStruct) {
+        self.binding(&item.ident, true);
+        visit::visit_item_struct(self, item);
+    }
+    fn visit_item_enum(&mut self, item: &'ast syn::ItemEnum) {
+        self.binding(&item.ident, false);
+        visit::visit_item_enum(self, item);
+    }
+    fn visit_item_union(&mut self, item: &'ast syn::ItemUnion) {
+        self.binding(&item.ident, false);
+        visit::visit_item_union(self, item);
+    }
+    fn visit_item_type(&mut self, item: &'ast syn::ItemType) {
+        self.binding(&item.ident, false);
+        visit::visit_item_type(self, item);
+    }
+    fn visit_item_const(&mut self, item: &'ast syn::ItemConst) {
+        self.binding(&item.ident, false);
+        visit::visit_item_const(self, item);
+    }
+    fn visit_item_static(&mut self, item: &'ast syn::ItemStatic) {
+        self.binding(&item.ident, false);
+        visit::visit_item_static(self, item);
+    }
+    fn visit_item_mod(&mut self, item: &'ast syn::ItemMod) {
+        self.binding(&item.ident, false);
+        if self.role != "root" {
+            self.bad = true;
+        }
+        visit::visit_item_mod(self, item);
+    }
+    fn visit_signature(&mut self, item: &'ast syn::Signature) {
+        self.binding(&item.ident, false);
+        visit::visit_signature(self, item);
+    }
+    fn visit_item_trait(&mut self, item: &'ast syn::ItemTrait) {
+        self.binding(&item.ident, false);
+        visit::visit_item_trait(self, item);
+    }
+    fn visit_type_param(&mut self, item: &'ast syn::TypeParam) {
+        self.binding(&item.ident, false);
+        visit::visit_type_param(self, item);
+    }
+    fn visit_const_param(&mut self, item: &'ast syn::ConstParam) {
+        self.binding(&item.ident, false);
+        visit::visit_const_param(self, item);
+    }
+    fn visit_pat_ident(&mut self, item: &'ast syn::PatIdent) {
+        self.binding(&item.ident, false);
+        visit::visit_pat_ident(self, item);
+    }
+}
+fn aggregate_prefixes(
+    source: &str,
+    ancestor: &str,
+    module: &str,
+    exports: &std::collections::BTreeMap<String, String>,
+) -> BTreeSet<usize> {
+    let empty = BTreeSet::new();
+    if module != "parse"
+        || exports.keys().map(String::as_str).collect::<Vec<_>>() != ["camera", "types"]
+    {
+        return empty;
+    }
+    let Ok(root) = syn::parse_file(ancestor) else {
+        return empty;
+    };
+    let Ok(target) = syn::parse_file(source) else {
+        return empty;
+    };
+    let Ok(types) = syn::parse_file(&exports["types"]) else {
+        return empty;
+    };
+    let Ok(camera) = syn::parse_file(&exports["camera"]) else {
+        return empty;
+    };
+    for (role, file) in [
+        ("root", &root),
+        ("parse", &target),
+        ("types", &types),
+        ("camera", &camera),
+    ] {
+        if !docs_only(&file.attrs) {
+            return empty;
+        }
+        let mut audit = ConstructorBoundary {
+            role,
+            bad: false,
+            root_globs: BTreeSet::new(),
+            target_globs: 0,
+        };
+        audit.visit_file(file);
+        if audit.bad
+            || role == "root"
+                && audit.root_globs != BTreeSet::from(["types".into(), "camera".into()])
+            || role == "parse" && audit.target_globs != 1
+        {
+            return empty;
+        }
+    }
+    for module in ["parse", "types", "camera"] {
+        let modules: Vec<_> = root
+            .items
+            .iter()
+            .filter_map(|item| match item {
+                Item::Mod(item) if item.ident == module => Some(item),
+                _ => None,
+            })
+            .collect();
+        if modules.len() != 1 || modules[0].content.is_some() || !docs_only(&modules[0].attrs) {
+            return empty;
+        }
+    }
+    let scenes: Vec<_> = types
+        .items
+        .iter()
+        .filter_map(|item| match item {
+            Item::Struct(item) if item.ident == "Scene" => Some(item),
+            _ => None,
+        })
+        .collect();
+    if scenes.len() != 1 {
+        return empty;
+    }
+    let scene = scenes[0];
+    let syn::Fields::Named(fields) = &scene.fields else {
+        return empty;
+    };
+    if !matches!(scene.vis, Visibility::Public(_))
+        || !string_field_derives_or_docs(&scene.attrs)
+        || !scene.generics.params.is_empty()
+        || scene.generics.where_clause.is_some()
+        || fields.named.iter().any(|field| {
+            !matches!(field.vis, Visibility::Public(_))
+                || !docs_only(&field.attrs)
+                || !concrete_type(&field.ty)
+        })
+    {
+        return empty;
+    }
+    let names: BTreeSet<_> = fields
+        .named
+        .iter()
+        .map(|field| field.ident.as_ref().unwrap().to_string())
+        .collect();
+    if names.len() != fields.named.len() {
+        return empty;
+    }
+    fn ordinary_signature(sig: &syn::Signature) -> bool {
+        sig.generics.params.is_empty()
+            && sig.generics.where_clause.is_none()
+            && sig.asyncness.is_none()
+            && sig.constness.is_none()
+            && matches!(sig.safety, syn::Safety::Default)
+            && sig.abi.is_none()
+    }
+    struct Prefixes<'a> {
+        source: &'a str,
+        fields: &'a BTreeSet<String>,
+        in_function: bool,
+        lines: BTreeSet<usize>,
+    }
+    impl<'ast> Visit<'ast> for Prefixes<'_> {
+        fn visit_item_fn(&mut self, item: &'ast syn::ItemFn) {
+            if self.in_function || !docs_only(&item.attrs) || !ordinary_signature(&item.sig) {
+                return;
+            }
+            self.in_function = true;
+            self.visit_block(&item.block);
+            self.in_function = false;
+        }
+        fn visit_item_impl(&mut self, item: &'ast syn::ItemImpl) {
+            if !docs_only(&item.attrs)
+                || item.trait_.is_some()
+                || item
+                    .generics
+                    .params
+                    .iter()
+                    .any(|p| !matches!(p, syn::GenericParam::Lifetime(_)))
+            {
+                return;
+            }
+            visit::visit_item_impl(self, item);
+        }
+        fn visit_impl_item_fn(&mut self, item: &'ast syn::ImplItemFn) {
+            if !docs_only(&item.attrs) || !ordinary_signature(&item.sig) {
+                return;
+            }
+            self.in_function = true;
+            self.visit_block(&item.block);
+            self.in_function = false;
+        }
+        fn visit_type(&mut self, _: &'ast Type) {}
+        fn visit_item_const(&mut self, _: &'ast syn::ItemConst) {}
+        fn visit_item_static(&mut self, _: &'ast syn::ItemStatic) {}
+        fn visit_impl_item_const(&mut self, _: &'ast syn::ImplItemConst) {}
+        fn visit_trait_item_const(&mut self, _: &'ast syn::TraitItemConst) {}
+        fn visit_generic_argument(&mut self, argument: &'ast GenericArgument) {
+            if !matches!(argument, GenericArgument::Const(_)) {
+                visit::visit_generic_argument(self, argument);
+            }
+        }
+        fn visit_expr_const(&mut self, _: &'ast syn::ExprConst) {}
+        fn visit_expr_closure(&mut self, _: &'ast syn::ExprClosure) {}
+        fn visit_expr_call(&mut self, call: &'ast syn::ExprCall) {
+            if self.in_function
+                && call.attrs.is_empty()
+                && call.args.len() == 1
+                && let syn::Expr::Path(callee) = &*call.func
+                && callee.attrs.is_empty()
+                && callee.qself.is_none()
+                && callee.path.is_ident("Ok")
+                && let syn::Expr::Struct(value) = &call.args[0]
+                && value.attrs.is_empty()
+                && value.qself.is_none()
+                && value.path.is_ident("Scene")
+                && value.rest.is_none()
+                && value.fields.iter().all(|f| f.attrs.is_empty())
+            {
+                let names: BTreeSet<_> = value
+                    .fields
+                    .iter()
+                    .filter_map(|f| match &f.member {
+                        syn::Member::Named(n) => Some(n.to_string()),
+                        _ => None,
+                    })
+                    .collect();
+                let start = call.func.span().start();
+                let end = value.brace_token.span.open().end();
+                if names == *self.fields
+                    && names.len() == value.fields.len()
+                    && start.line == end.line
+                {
+                    let line = self.source.split('\n').nth(start.line - 1).unwrap();
+                    if line.chars().take(start.column).all(char::is_whitespace)
+                        && line.chars().skip(end.column).all(char::is_whitespace)
+                    {
+                        self.lines.insert(start.line);
+                    }
+                }
+            }
+            visit::visit_expr_call(self, call);
+        }
+    }
+    let mut visitor = Prefixes {
+        source,
+        fields: &names,
+        in_function: false,
+        lines: BTreeSet::new(),
+    };
+    visitor.visit_file(&target);
+    visitor.lines
+}
+
 struct Evidence {
     fields: BTreeSet<usize>,
     closings: BTreeSet<usize>,
@@ -635,13 +1230,25 @@ fn classify(source: &str, ancestor: &str, module: &str) -> Result<Evidence, syn:
         audit.closings.clear();
         audit.declarations.clear();
     }
+    let declarations = if audit.opaque || audit.item_macro {
+        BTreeSet::new()
+    } else {
+        plain_declarations(source, &syntax, &ancestor_syntax, module)
+    };
+    let mut items = context_lines(source, ancestor, module);
+    items.extend(declarations.iter().copied());
+    // Only the exact exclusive, syntax-proved declaration lines may remove
+    // literal/derive opacity. No expression or enclosing item is unmasked.
+    audit
+        .opaque_lines
+        .retain(|line| !declarations.contains(line));
     Ok(Evidence {
         fields,
         closings: calls.closings,
         else_delimiters: calls.else_delimiters,
         opaque: audit.opaque_lines,
         declarations: audit.declarations,
-        items: context_lines(source, ancestor, module),
+        items,
     })
 }
 
@@ -661,9 +1268,14 @@ fn syntax_query() {
     let ancestor = request["ancestor"].as_str().unwrap();
     let module = request["module"].as_str().unwrap();
     let evidence = classify(source, ancestor, module).expect("source must parse");
+    let exports: std::collections::BTreeMap<String, String> = request
+        .get("exports")
+        .map(|value| serde_json::from_value(value.clone()).unwrap())
+        .unwrap_or_default();
+    let aggregate_prefixes = aggregate_prefixes(source, ancestor, module, &exports);
     println!(
         "SDF_COVERAGE_SYNTAX_V1={}",
-        serde_json::json!({"source": source, "ancestor": ancestor, "module": module, "helper_source": include_str!("coverage_syntax.rs"), "fields": evidence.fields, "closings": evidence.closings, "else_delimiters": evidence.else_delimiters, "opaque": evidence.opaque, "declarations": evidence.declarations, "items": evidence.items})
+        serde_json::json!({"source": source, "ancestor": ancestor, "module": module, "helper_source": include_str!("coverage_syntax.rs"), "fields": evidence.fields, "closings": evidence.closings, "else_delimiters": evidence.else_delimiters, "opaque": evidence.opaque, "declarations": evidence.declarations, "items": evidence.items, "exports": exports, "aggregate_prefixes": aggregate_prefixes})
     );
 }
 
@@ -1215,6 +1827,323 @@ fn compiler_accepted_field_bodies_and_macros_receive_no_string_field_evidence() 
                 .fields
                 .is_empty(),
             "{source}"
+        );
+    }
+}
+
+#[test]
+fn plain_concrete_declarations_and_headers_are_exclusive_and_context_bound() {
+    let source = "#[derive(Debug, Clone, PartialEq)]\npub struct Scene {\n pub ambient: [f32; 4],\n pub grid: bool,\n /// origin\n pub source: Option<Source>,\n pub other: Other,\n}\nimpl Default for Scene {\n fn default() -> Self { todo!() }\n}\n";
+    let evidence = classify(source, "mod types;", "types").unwrap();
+    assert_eq!(evidence.items, BTreeSet::from([1, 2, 3, 4, 6, 7, 9]));
+    assert!(evidence.items.is_disjoint(&evidence.opaque));
+    for replacement in [
+        "#[cfg(any())]",
+        "#[custom::transform]",
+        "#[derive(custom::Debug)]",
+    ] {
+        let source = source.replace("#[derive(Debug, Clone, PartialEq)]", replacement);
+        assert!(
+            classify(&source, "mod types;", "types")
+                .unwrap()
+                .items
+                .is_empty()
+        );
+    }
+    assert!(
+        classify(source, "#[custom::transform] mod types;", "types")
+            .unwrap()
+            .items
+            .is_empty()
+    );
+    assert_eq!(
+        classify(
+            &format!("use shadow::Debug;\n{source}"),
+            "mod types;",
+            "types"
+        )
+        .unwrap()
+        .items,
+        BTreeSet::from([1])
+    );
+    let shared = "pub struct S { pub value: bool, }\nimpl S { fn side_effect() { panic!() } }\n";
+    assert!(
+        classify(shared, "mod types;", "types")
+            .unwrap()
+            .items
+            .is_empty()
+    );
+    for ty in [
+        "[u8; { #[unsafe(no_mangle)] pub extern \"C\" fn hidden() { panic!() } 4 }]",
+        "Wrapper<{ #[unsafe(no_mangle)] pub extern \"C\" fn hidden() { panic!() } 4 }>",
+        "type_macro!()",
+        "[u8; size()]",
+        "[u8; const { 4 }]",
+    ] {
+        let source = format!("pub struct S {{\n pub field: {ty},\n}}\n");
+        assert!(
+            classify(&source, "mod types;", "types")
+                .unwrap()
+                .items
+                .is_empty(),
+            "{ty}"
+        );
+    }
+}
+
+#[test]
+fn aggregate_delimiters_prove_only_tokens_and_never_the_constructor_prefix() {
+    let source = "fn f() {\n Ok(Scene {\n  value: if ready() {\n   run()\n  } else {\n   fallback()\n  },\n })\n}\n";
+    let evidence = classify(source, "mod parse;", "parse").unwrap();
+    assert!(evidence.closings.contains(&7));
+    assert!(evidence.closings.contains(&8));
+    assert!(!evidence.items.contains(&2));
+    assert!(!evidence.closings.contains(&2));
+    for source in [
+        format!("#[custom::transform]\n{source}"),
+        format!("#[cfg(any())]\n{source}"),
+        format!("macro_rules! transform {{ () => {{ {source} }} }}"),
+    ] {
+        assert!(
+            classify(&source, "mod parse;", "parse")
+                .unwrap()
+                .closings
+                .is_empty()
+        );
+    }
+}
+
+#[test]
+fn compiler_accepts_plain_fields_and_hidden_type_body_control_but_only_plain_is_proved() {
+    use std::{fs, process::Command};
+    let temp = tempfile::tempdir().unwrap();
+    let plain = "#[derive(Debug, Clone, PartialEq)]\npub struct Scene {\n pub ambient: [f32; 4],\n pub grid: bool,\n pub source: Option<String>,\n}\nimpl Default for Scene {\n fn default() -> Self { Self { ambient: [0.; 4], grid: true, source: None } }\n}\n";
+    let hidden = "pub struct Hidden {\n pub field: [u8; { #[unsafe(no_mangle)] pub extern \"C\" fn hidden_type_body() { std::hint::black_box(42); } 4 }],\n}\n";
+    for (name, source) in [("plain", plain), ("hidden", hidden)] {
+        let path = temp.path().join(format!("{name}.rs"));
+        fs::write(&path, source).unwrap();
+        let result = Command::new("rustc")
+            .args(["--crate-type", "lib", "--edition", "2024"])
+            .arg(&path)
+            .arg("-o")
+            .arg(temp.path().join(format!("{name}.rlib")))
+            .output()
+            .unwrap();
+        assert!(
+            result.status.success(),
+            "{}",
+            String::from_utf8_lossy(&result.stderr)
+        );
+    }
+    let evidence = classify(plain, "mod types;", "types").unwrap();
+    assert!(BTreeSet::from([1, 2, 3, 4, 5, 7]).is_subset(&evidence.items));
+    assert!(
+        classify(hidden, "mod types;", "types")
+            .unwrap()
+            .items
+            .is_empty()
+    );
+}
+
+fn constructor_fixture() -> (String, String, std::collections::BTreeMap<String, String>) {
+    (
+        "use crate::*;\npub fn value() -> Result<Scene, ()> {\n Ok(Scene {\n  value: 1,\n })\n}\n"
+            .into(),
+        "mod types; mod camera; mod parse; pub use types::*; pub use camera::*;".into(),
+        std::collections::BTreeMap::from([
+            (
+                "types".into(),
+                "#[derive(Debug, Clone, PartialEq)]\npub struct Scene {\n pub value: u8,\n}\n"
+                    .into(),
+            ),
+            ("camera".into(), "pub struct Camera;".into()),
+        ]),
+    )
+}
+#[test]
+fn intrinsic_constructor_requires_exact_closed_exports_and_plain_scene() {
+    let (source, root, exports) = constructor_fixture();
+    assert_eq!(
+        aggregate_prefixes(&source, &root, "parse", &exports),
+        BTreeSet::from([3])
+    );
+    assert!(aggregate_prefixes(&source, &root, "other", &exports).is_empty());
+    assert!(
+        aggregate_prefixes(&source, &root, "parse", &std::collections::BTreeMap::new()).is_empty()
+    );
+    for root in [
+        root.replace("pub use camera::*;", ""),
+        format!("{root} pub use unknown::*;"),
+        root.replace("mod types;", "#[path=\"elsewhere.rs\"] mod types;"),
+        root.replace("pub use types::*;", "pub use ::types::*;"),
+    ] {
+        assert!(aggregate_prefixes(&source, &root, "parse", &exports).is_empty());
+    }
+    for ty in [
+        "pub type Scene = Other;",
+        "pub enum Scene { Value { value: u8 } }",
+        "pub struct Scene<const N: usize> { pub value: u8 }",
+        "pub struct Scene { pub value: [u8; { fn hidden() {} 1 }] }",
+        "#[custom::transform] pub struct Scene { pub value: u8 }",
+        "pub use unknown::Scene;",
+        "pub struct Scene { pub value: type_macro!() }",
+    ] {
+        let mut changed = exports.clone();
+        changed.insert("types".into(), ty.into());
+        assert!(
+            aggregate_prefixes(&source, &root, "parse", &changed).is_empty(),
+            "{ty}"
+        );
+    }
+    let mut changed = exports.clone();
+    changed.insert("camera".into(), "pub fn Ok() {}".into());
+    assert!(aggregate_prefixes(&source, &root, "parse", &changed).is_empty());
+}
+#[test]
+fn constructor_refuses_callable_and_raw_identifier_shadowing_and_opaque_context() {
+    let (source, root, exports) = constructor_fixture();
+    for source in [
+        source.replace("use crate::*;", "use crate::*; use other::Ok;"),
+        source.replace("use crate::*;", "use crate::*; use other::value as r#Ok;"),
+        source.replace("use crate::*;", "use crate::*; use other::*;"),
+        source.replace(" Ok(Scene {", " let Ok = |v| v;\n Ok(Scene {"),
+        source.replace(" Ok(Scene {", " let r#Ok = |v| v;\n Ok(Scene {"),
+        source.replace("value()", "value(Ok: fn(Scene) -> Result<Scene, ()>)"),
+        source.replace("value()", "value<Scene>()"),
+        source.replace(" Ok(Scene {", " struct Scene { value: u8 }\n Ok(Scene {"),
+        format!("{source}\nfn Ok(v: Scene) -> Result<Scene, ()> {{ std::result::Result::Ok(v) }}"),
+        source.replace("pub fn", "#[cfg(any())] pub fn"),
+        source.replace("pub fn", "#[custom::transform] pub fn"),
+        source.replace(
+            " Ok(Scene {",
+            " format!(\"{{}}\", { let Ok = |x| x; 1 });\n Ok(Scene {",
+        ),
+        source.replace(" Ok(Scene {", " format!(\"{{}}\", nested!());\n Ok(Scene {"),
+        source.replace(
+            " Ok(Scene {",
+            " format!(\"{{}}\", { #[custom::transform] fn injected() {} 1 });\n Ok(Scene {",
+        ),
+        source.replace(" Ok(Scene {", " Ok::<Scene, ()>(Scene {"),
+        source.replace(" Ok(Scene {", " runtime(Scene {"),
+        source.replace("  value: 1,", "  value: 1, ..base"),
+        source.replace(" Ok(Scene {\n  value: 1,", " Ok(Scene { value: runtime(),"),
+    ] {
+        assert!(
+            aggregate_prefixes(&source, &root, "parse", &exports).is_empty(),
+            "{source}"
+        );
+    }
+}
+#[test]
+fn compiler_confirms_intrinsic_and_callable_constructor_distinction_and_glob_macro_ambiguity() {
+    use std::{fs, process::Command};
+    let temp = tempfile::tempdir().unwrap();
+    let (source, root, exports) = constructor_fixture();
+    for name in ["types", "camera"] {
+        fs::write(temp.path().join(format!("{name}.rs")), &exports[name]).unwrap();
+    }
+    let root = format!(
+        "{root}\npub static HITS: std::sync::atomic::AtomicUsize = std::sync::atomic::AtomicUsize::new(0);\npub fn run() {{ let _ = parse::value(); }}\n"
+    );
+    fs::write(temp.path().join("lib.rs"), &root).unwrap();
+    for (name, source, expected) in [
+        ("intrinsic", source.clone(), 0),
+        ("callable", format!("{source}\nfn Ok(v: Scene) -> Result<Scene, ()> {{ crate::HITS.fetch_add(1, std::sync::atomic::Ordering::Relaxed); std::result::Result::Ok(v) }}"), 1),
+        ("raw_callable", source.replace(" Ok(Scene {", " fn r#Ok(v: Scene) -> Result<Scene, ()> { crate::HITS.fetch_add(1, std::sync::atomic::Ordering::Relaxed); std::result::Result::Ok(v) }\n Ok(Scene {"), 1),
+    ] {
+        fs::write(temp.path().join("parse.rs"), &source).unwrap();
+        let lib = temp.path().join("libcase.rlib");
+        let result = Command::new("rustc").args(["--crate-name", "case", "--crate-type", "lib", "--edition=2024"])
+            .arg(temp.path().join("lib.rs")).arg("-o").arg(&lib).output().unwrap();
+        assert!(result.status.success(), "{}", String::from_utf8_lossy(&result.stderr));
+        fs::write(temp.path().join("run.rs"), format!("fn main() {{ case::run(); assert_eq!(case::HITS.load(std::sync::atomic::Ordering::Relaxed), {expected}); }}")).unwrap();
+        let runner = temp.path().join("run");
+        assert!(Command::new("rustc").args(["--edition=2024", "--extern"]).arg(format!("case={}", lib.display()))
+            .arg(temp.path().join("run.rs")).arg("-o").arg(&runner).status().unwrap().success());
+        assert!(Command::new(&runner).status().unwrap().success());
+        assert_eq!(aggregate_prefixes(&source, &root, "parse", &exports).contains(&3), expected == 0, "{name}");
+    }
+    // Implicit sibling-module macro exports cannot silently replace a known
+    // prelude macro through crate::*. The already-required compilation fails.
+    fs::write(temp.path().join("lib.rs"), format!("{root} mod hidden;")).unwrap();
+    fs::write(temp.path().join("hidden.rs"), "#[macro_export] macro_rules! format { ($($x:tt)*) => { fn Ok(v:Scene)->Result<Scene,()> { std::result::Result::Ok(v) } }; }").unwrap();
+    fs::write(
+        temp.path().join("parse.rs"),
+        source.replace(" Ok(Scene {", " format!(\"unused\");\n Ok(Scene {"),
+    )
+    .unwrap();
+    let output = Command::new("rustc")
+        .args([
+            "--crate-type",
+            "lib",
+            "--edition=2024",
+            "--error-format=json",
+        ])
+        .arg(temp.path().join("lib.rs"))
+        .arg("-o")
+        .arg(temp.path().join("bad.rlib"))
+        .output()
+        .unwrap();
+    assert!(!output.status.success());
+    let codes: Vec<_> = String::from_utf8(output.stderr)
+        .unwrap()
+        .lines()
+        .filter_map(|line| serde_json::from_str::<serde_json::Value>(line).ok())
+        .filter_map(|value| value["code"]["code"].as_str().map(str::to_owned))
+        .collect();
+    assert!(codes.contains(&"E0659".to_owned()));
+}
+
+#[test]
+fn compiled_self_import_bindings_and_const_bodies_never_prove_constructor_prefixes() {
+    use std::{fs, process::Command};
+    let temp = tempfile::tempdir().unwrap();
+    let (source, root, exports) = constructor_fixture();
+    for name in ["types", "camera"] {
+        fs::write(temp.path().join(format!("{name}.rs")), &exports[name]).unwrap();
+    }
+    fs::write(
+        temp.path().join("hidden.rs"),
+        "pub struct Scene { pub value: u8 }",
+    )
+    .unwrap();
+    let compile = |source: &str, root: &str| {
+        fs::write(temp.path().join("parse.rs"), source).unwrap();
+        fs::write(temp.path().join("lib.rs"), root).unwrap();
+        let result = Command::new("rustc")
+            .args(["--crate-type=lib", "--edition=2024"])
+            .arg(temp.path().join("lib.rs"))
+            .arg("-o")
+            .arg(temp.path().join("case.rlib"))
+            .output()
+            .unwrap();
+        assert!(
+            result.status.success(),
+            "{}",
+            String::from_utf8_lossy(&result.stderr)
+        );
+        assert!(
+            aggregate_prefixes(source, root, "parse", &exports).is_empty(),
+            "{source}\n{root}"
+        );
+    };
+    for import in [
+        "pub use hidden::Scene::{self};",
+        "pub use hidden::{Scene::{self}};",
+        "pub use hidden::r#Scene::{self};",
+    ] {
+        compile(&source, &format!("{root} mod hidden; {import}"));
+    }
+    for body in [
+        " const X: Result<Scene, ()> =\n Ok(Scene {\n value:1,\n });\n X\n",
+        " static X: Result<Scene, ()> =\n Ok(Scene {\n value:1,\n });\n std::result::Result::Ok(Scene {value:1})\n",
+        " struct Holder;\n impl Holder { const X: Result<Scene, ()> =\n Ok(Scene {\n value:1,\n });\n }\n Holder::X\n",
+        " trait Holder { const X: Result<Scene, ()> =\n Ok(Scene {\n value:1,\n });\n }\n struct Value; impl Holder for Value {}\n Value::X\n",
+        " fn scalar<const N:u8>() -> u8 { N }\n let value = scalar::<{\n let result: Result<Scene, ()> =\n Ok(Scene {\n value:1,\n });\n match result { Ok(v) => v.value, Err(()) => 0 }\n }>();\n std::result::Result::Ok(Scene {value})\n",
+    ] {
+        compile(
+            &format!("use crate::*;\npub fn value() -> Result<Scene, ()> {{\n{body}}}\n"),
+            &root,
         );
     }
 }

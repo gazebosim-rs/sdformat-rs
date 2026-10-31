@@ -3579,3 +3579,29 @@ seven-Rust/eleven-native replay; its additional Default/Clone/Debug ownership te
 also passed author focused replay and independent source review. The first failed
 staged hook is retained; a full combined protected staged run and exact hosted CI
 remain required. No thresholds, consumer pin or original-case counts changed.
+
+
+The bounded World Scene candidate preserves ambient/background RGBA and the
+three visibility flags with native defaults and explicit input source. Root
+independent replay passed five prepared Rust controls and 47 native observations,
+constructor/full-versus-projection controls and two unchanged originals; only
+six exact old temporary rejection predicates were approved for transition.
+After folding those positives, author 15 affected Rust tests and Clippy pass.
+All other old assertions and corpus bytes remain; World.Load stays partial and
+accepted counts stay 203/27. Root final source/fold review and fresh independent
+15-test replay passed. Author full suite passes 593 Rust and 39 tooling checks.
+Full protected staging and exact hosted qualification remain pending; no runtime
+activation or consumer pin change.
+See WORLD_SCENE.md.
+
+
+The first World Scene staged hook failed closed on unmapped declaration and
+aggregate syntax after tests and aggregate coverage passed. Its real LLVM
+42/42 changed DA and failure log are retained. The separate bounded proof now
+has final independent fresh-source/target approval: 23 helper tests, 43 tooling
+checks and Clippy pass, including corrected self-import/const scope regressions
+and real DA0/region precedence. Retained-data diagnostics resolve the pending
+lines without a source/threshold workaround. These are not normal staged or
+hosted acceptance; the full combined hook and exact CI remain required. The
+producer's prior independent 15 Rust/47 native controls are unchanged. World.Load
+remains partial, accepted counts 203/27 and the consumer pin are unchanged.

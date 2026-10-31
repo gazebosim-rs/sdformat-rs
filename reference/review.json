@@ -2,21 +2,18 @@
   "decision": "approved",
   "author": "sdf_world_owner",
   "reviewer": "root",
-  "source_digest": "350f120f9e806a45e3ffbac066b07bbcf00d4902f68deefce2a7c9d1a9f2de3a",
-  "protected_digest": "436714d4bc3800f0f31d0a178ee612c12cb66dfb6bd77be62140bf24870214d1",
-  "scope": "Inert optional World GUI metadata and exactly seven prior-approved same-input/same-URI capability transitions. No GUI runtime, plugin activation, camera controls, dependency/pin changes or complete original-case credit. Minimal independently reviewed extension of the existing closed aggregate-prefix proof to Gui; no production formatting, source exclusion or threshold change.",
+  "source_digest": "7e9d8e0b1e61eda1ae4a616451175ec7a67218fd869f4fe05fd2da726c3328e6",
+  "protected_digest": "8a07def88286fb629d6d81065a1c0795d2529dc2e48b7237d12415939cbc8919",
+  "scope": "Optional owned Link velocity_decay XML metadata and explicitly partial original URDF extension decay assertion port. No runtime damping, Rust URDF importer, simulator pin change or whole original-case credit. Existing numeric policies and unrelated predicates retained.",
   "checks": [
-    "Independent fresh accepted-source export and owned target passed five prepared Rust tests, all-target Clippy,54 pinned native controls, constructor/full-projection getters, unchanged DOMWorld.Load and complete GUI-plus-Light semantic pose.",
-    "Prior review approved only known_gui1.5/1.8/1.12 root.sdf, emptygui1.12 root.sdf, wind+gui unsupported.sdf, emptygui scene.sdf and gui+pointlight payload.sdf. All other rejection predicates/corpus values/URIs remain unchanged.",
-    "Root reviewed the final four-file fold and shared Light helper alias; all original Light and unrelated negative assertions remain. Fresh Root-owned accepted-source export and target independently passed19 final affected tests, zero failed/ignored, with source/test/native bytes matching the candidate.",
-    "Root independently reviewed the reviewer-authored foreign Git-context wrapper and matching driver SHA. Both actual native Git checks passed under Rust GitDir/WorkTree/bogusIndex; caller environment/index were restored, nonlocal SSH setting retained, and bogus index remained absent.",
-    "Author final615 retained Rust tests,44 tooling checks,19 affected tests,Clippy,ledger and54 native observations passed. This receipt does not claim mandatory coverage or staged/hosted success.",
-    "The first ordinary protected attempt failed closed on parse.rs:1243, exclusive Ok(Gui{ prefix. Its log remains; automatic cleanup removed that failed snapshot. A separate ordinary approved-source diagnostic retains the actual raw/merged LLVM, source and dep-info evidence.",
-    "Independent fresh proof source and owned target passed27 helper tests,45 tooling checks including all three real LLVM controls, Clippy and formatting. Root reviewed the fixed-constructor/reserved/import/macro-only diff; no new syntax category or arbitrary constructor is admitted.",
-    "Actual retained source/dep-info/LLVM replay proves only Gui prefix1243 has DA absent, not DA0. Changed22/22, production7825/7852 lines and12289/12531 regions remain unchanged. Actual mapped-uncovered DA0, uncovered regions and missing-source instrumentation still fail, including forged constructor hints."
+    "Independent sdf_decay_reviewer examined all16 owned paths against accepted15788855, applicable guidance, native schemas/source and original assertions. Fresh isolated source and own target passed14 focused Rust tests and57 native controls, constructor/shared Element mutation, exact original URDF/projection observations and unchanged full native original; ledger and diff checks passed.",
+    "Root reviewed the production optional metadata/scalar helper diff, contract, original four-ULP assertion subset, fixture inventory addition and independent validation. Native shared mutable Element aliasing is explicitly distinguished from owned independent Rust clones. No predicate transitions or source exclusions requested.",
+    "Root verified final source and protected digests after only the approved partial ledger and status bookkeeping. Author621 retained Rust tests,45 tools, native57 and Clippy/fmt pass; these results do not replace the ordinary strict staged or exact hosted gates.",
+    "The first ordinary staged gate failed closed on the absent-instrumentation prefix Ok(VelocityDecayMetadata { at parse.rs2110. Root reviewed the minimal addition of that fixed constructor identity to all existing closed declaration/import/macro guards; no new syntax category or source exclusion is admitted.",
+    "Root independently exported final candidate source to /tmp/sdf-decay-proof-root-9bm0xdqq with its own target and passed28 syntax helper tests and all4 actual LLVM end-to-end constructor controls. Real uncovered DA0, uncovered regions and missing actual source instrumentation still fail. Actual retained production evidence reports7840/7867 lines,12322/12564 regions and14/14 changed executable lines; no threshold or denominator change."
   ],
   "remaining": [
-    "Ordinary protected staged checks, strictly greater than95% line/region/changed coverage, and exact whole hosted/source verification remain mandatory.",
-    "World.Load remains partial; GUI runtime, GUI cameras, native Element/path identity and remaining original assertions are outside this slice. Consumer pins remain unchanged."
+    "Ordinary full staged verification and strictly greater than95% line/region/changed coverage remain mandatory, followed by complete exact hosted validation and source verification.",
+    "Only decay observations from SDFParser.UrdfGazeboExtensionURDFTest are mapped partially. Other URDF assertions/import, physical damping and native mutable Element identity remain open. Consumer pins unchanged."
   ]
 }

@@ -19,6 +19,9 @@ class ConstructorProofEndToEndTests(unittest.TestCase):
     def test_gui_compiled_context_preserves_uncovered_da_and_region_failures(self):
         self.compiled_constructor_case('Gui')
 
+    def test_velocity_decay_compiled_context_preserves_uncovered_da_and_region_failures(self):
+        self.compiled_constructor_case('VelocityDecayMetadata')
+
     def compiled_constructor_case(self, constructor):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp); (root / 'src').mkdir()
@@ -59,6 +62,16 @@ class ConstructorProofEndToEndTests(unittest.TestCase):
             covered = verify.lcov_records(lcov); file = (root / 'src/parse.rs').resolve()
             self.assertFalse(covered[file, 7])
             self.assertEqual(verify.check_changed_coverage(root, {'lines': {('src/parse.rs', 3)}}, covered, syntax_provider=lambda *_: evidence), [])
+            if constructor == 'VelocityDecayMetadata':
+                self.assertNotIn((file, 3), covered)
+                absent = {key: value for key, value in covered.items() if key[0] != file}
+                with self.assertRaisesRegex(AssertionError, 'no instrumentation'):
+                    verify.check_changed_coverage(root, {'lines': {('src/parse.rs', 3)}}, absent, syntax_provider=lambda *_: evidence)
+                missing = copy.deepcopy(report)
+                for data in missing['data']:
+                    data['files'] = [item for item in data['files'] if Path(item['filename']).resolve() != file]
+                with self.assertRaisesRegex(AssertionError, 'production files'):
+                    verify.check_report(missing, root, json.loads((ROOT / 'coverage.json').read_text()))
             forged = copy.deepcopy(evidence); forged['aggregate_prefixes'].add(7)
             with self.assertRaisesRegex(AssertionError, 'changed executable'):
                 verify.check_changed_coverage(root, {'lines': {('src/parse.rs', 7)}}, covered, syntax_provider=lambda *_: forged)

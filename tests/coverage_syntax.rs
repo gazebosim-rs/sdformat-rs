@@ -767,6 +767,7 @@ fn reserved_constructor_name(name: &str) -> bool {
         "Scene",
         "SphericalCoordinates",
         "Gui",
+        "VelocityDecayMetadata",
         "Result",
         "std",
         "Debug",
@@ -798,6 +799,7 @@ fn safe_macro_tokens(tokens: proc_macro2::TokenStream) -> bool {
                     "Scene",
                     "SphericalCoordinates",
                     "Gui",
+                    "VelocityDecayMetadata",
                 ]
                 .contains(&name.unraw().to_string().as_str()) =>
             {
@@ -865,14 +867,20 @@ impl ConstructorBoundary<'_> {
             "Scene",
             "SphericalCoordinates",
             "Gui",
+            "VelocityDecayMetadata",
             "Result",
             "std",
         ]
         .contains(&name.unraw().to_string().as_str())
             && !(scene_declaration
                 && self.role == "types"
-                && ["Scene", "SphericalCoordinates", "Gui"]
-                    .contains(&name.unraw().to_string().as_str()))
+                && [
+                    "Scene",
+                    "SphericalCoordinates",
+                    "Gui",
+                    "VelocityDecayMetadata",
+                ]
+                .contains(&name.unraw().to_string().as_str()))
         {
             self.bad = true;
         }
@@ -1018,12 +1026,15 @@ fn aggregate_prefixes(
     module: &str,
     exports: &std::collections::BTreeMap<String, String>,
 ) -> BTreeSet<usize> {
-    ["Scene", "SphericalCoordinates", "Gui"]
-        .into_iter()
-        .flat_map(|constructor| {
-            aggregate_prefixes_for(source, ancestor, module, exports, constructor)
-        })
-        .collect()
+    [
+        "Scene",
+        "SphericalCoordinates",
+        "Gui",
+        "VelocityDecayMetadata",
+    ]
+    .into_iter()
+    .flat_map(|constructor| aggregate_prefixes_for(source, ancestor, module, exports, constructor))
+    .collect()
 }
 
 fn aggregate_prefixes_for(
@@ -2442,6 +2453,52 @@ fn gui_constructor_requires_the_same_closed_declaration_and_callable_boundary() 
         "pub type Gui = Other;",
         "pub struct Gui<const N: usize> { pub value: u8 }",
         "pub struct Gui { pub value: [u8; { fn hidden() {} 1 }] }",
+    ] {
+        let mut changed = exports.clone();
+        changed.insert("types".into(), definition.into());
+        assert!(aggregate_prefixes(&source, &root, "parse", &changed).is_empty());
+    }
+}
+
+#[test]
+fn velocity_decay_constructor_requires_the_same_closed_declaration_and_callable_boundary() {
+    let (source, root, exports) = constructor_fixture();
+    let source = source.replace("Scene", "VelocityDecayMetadata");
+    let exports = exports
+        .into_iter()
+        .map(|(name, value)| (name, value.replace("Scene", "VelocityDecayMetadata")))
+        .collect();
+    assert_eq!(
+        aggregate_prefixes(&source, &root, "parse", &exports),
+        BTreeSet::from([3])
+    );
+    for source in [
+        source.replace(" Ok(VelocityDecayMetadata {", " let Ok = |v| v;\n Ok(VelocityDecayMetadata {"),
+        source.replace(
+            " Ok(VelocityDecayMetadata {",
+            " fn r#Ok(v: VelocityDecayMetadata) -> Result<VelocityDecayMetadata, ()> { std::result::Result::Ok(v) }\n Ok(VelocityDecayMetadata {",
+        ),
+        source.replace(" Ok(VelocityDecayMetadata {", " struct VelocityDecayMetadata { value: u8 }\n Ok(VelocityDecayMetadata {"),
+        source.replace("use crate::*;", "use crate::*; use hidden::VelocityDecayMetadata::{self};"),
+        source.replace("use crate::*;", "use crate::*; use hidden::r#VelocityDecayMetadata::{self};"),
+        source.replace(
+            " Ok(VelocityDecayMetadata {",
+            " format!(\"{}\", { struct VelocityDecayMetadata; 1 });\n Ok(VelocityDecayMetadata {",
+        ),
+        source.replace(" Ok(VelocityDecayMetadata {", " custom!();\n Ok(VelocityDecayMetadata {"),
+        source.replace(" Ok(VelocityDecayMetadata {", " runtime(VelocityDecayMetadata {"),
+        source.replace(" Ok(VelocityDecayMetadata {\n  value: 1,", " Ok(VelocityDecayMetadata { value: runtime(),"),
+        source.replace("pub fn", "#[custom::attribute] pub fn"),
+    ] {
+        assert!(
+            aggregate_prefixes(&source, &root, "parse", &exports).is_empty(),
+            "{source}"
+        );
+    }
+    for definition in [
+        "pub type VelocityDecayMetadata = Other;",
+        "pub struct VelocityDecayMetadata<const N: usize> { pub value: u8 }",
+        "pub struct VelocityDecayMetadata { pub value: [u8; { fn hidden() {} 1 }] }",
     ] {
         let mut changed = exports.clone();
         changed.insert("types".into(), definition.into());

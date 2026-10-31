@@ -3089,6 +3089,22 @@
       "baseline": "Author helper passes 48 actual native inputs, seven byte-identical native fixtures, six Plane setter/reload profiles, 43 actual Rust-to-native exchanges and both unchanged full native cases; expected required-URI stderr for ToElement and empty stderr for ToElementErrorOutput are checked separately.",
       "status": "partial_reviewed",
       "review": "Independent integration_reviewer fresh source/owned Cargo target passed all 23 relevant Rust checks (six new and seventeen unchanged geometry/basic-primitive/shape checks). Fresh helper passed 48 actual native inputs, seven byte-identical constructor fixtures, six Plane setter/reload profiles, 43 actual Rust/native exchanges and both unchanged full originals with their distinct exact stderr. Audited every selected seven-block type/presence/other-absence/empty-Polyline/output/error assertion; enum/native-mask mapping is sound. Private stdout/stderr injections each failed quiet capture; restored source passed all 23. No findings. Both originals remain partial for Mesh/Heightmap/Polyline; no physical/resource/pointer identity or arbitrary-normal bit-roundtrip claim."
+    },
+    {
+      "target": "INTEGRATION_urdf_gazebo_extensions",
+      "case": "SDFParser.UrdfGazeboExtensionURDFTest",
+      "source": "test/integration/urdf_gazebo_extensions.cc:32",
+      "rust_test": "tests/link_velocity_decay.rs::original_urdf_extension_velocity_decay_xml_subset",
+      "assertions": "Only velocity_decay Element observations at original lines 135\u2013156: link1/link2 group presence, linear 0.1 and angular 0.2/0.1 within the original four-ULP double-equality bound, and group absence for other applicable links. Six-link name/order and link0 absence are supplemental. Exact native effective scalar bits are also compared. Rust loads the minimal native-converted SDF projection, not URDF. All other extension assertions, native Element mutation and Rust URDF conversion remain unported; explicitly partial.",
+      "fixtures": {
+        "tests/fixtures/link_velocity_decay_native.sdf": "acdc6432b9002b683a9f9b45cb1ddf80f9b090d6a7c230937f10e7a6cbf756ec"
+      },
+      "upstream_fixtures": {
+        "test/integration/urdf_gazebo_extensions.urdf": "23461eb70ecd7e4a8922d6a90d7db2982788858acd24ac6cae7ba437ea7ab70a"
+      },
+      "baseline": "57 pinned native XML controls, constructor and shared-Element clone mutation, exact full original URDF/projection getter equality and unchanged full native original pass. Fourteen focused Rust tests pass. Bad-syntax original fixture supplies only supplemental malformed-linear/source-position coverage; no second original case credit. Final author checks pass all 621 retained Rust tests, 45 tooling tests, all-target Clippy, formatting and ordinary native replay; ledger validates. Independent review and strict protected/hosted gates remain pending.",
+      "status": "partial_reviewed",
+      "review": "Independent sdf_decay_reviewer fresh source and separate Cargo target passed all 14 focused Rust tests, 57 native controls, exact full native URDF/projection equality, constructor/shared-Element clone mutation and unchanged full original. No findings. Source and protected digests matched the frozen candidate; ledger and diff checks passed. Root independently reviewed production, contract, exact original assertion subset and inventory and approved metadata-only semantics, existing strict policies and partial credit. Rust URDF conversion, other original assertions and physical damping remain unported. Ordinary protected staged and exact hosted gates remain pending; no accepted counts or consumer pins advance. The first normal staged attempt failed closed on one absent-DA aggregate prefix; its export was removed and only the log retained. A distinct approved-source persistent LLVM diagnostic confirms changed14/14, production7840/7867 lines and12322/12564 regions. The minimum existing closed-constructor proof adds only VelocityDecayMetadata; 28 helper tests,46 tooling tests,four real LLVM controls and Clippy pass; actual retained production query accounts the prefix with measured counts unchanged. Independent proof review and normal protected retry/exact hosted qualification remain pending. Producer/assertion/native bytes are unchanged."
     }
   ]
 }

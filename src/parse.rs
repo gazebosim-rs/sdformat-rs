@@ -2035,6 +2035,7 @@ impl Parser<'_> {
                 "gravity",
                 "kinematic",
                 "self_collide",
+                "velocity_decay",
             ],
             &["name"],
         )?;
@@ -2094,8 +2095,23 @@ impl Parser<'_> {
                 kinematic: self.boolean(node, "kinematic", false)?,
                 self_collide: self.boolean(node, "self_collide", false)?,
             },
+            velocity_decay: child(node, "velocity_decay")
+                .map(|value| self.velocity_decay_metadata(value))
+                .transpose()?,
             plugins: self.plugins(node)?,
             source: self.source(node),
+        })
+    }
+    fn velocity_decay_metadata(
+        &self,
+        node: Node<'_, '_>,
+    ) -> Result<VelocityDecayMetadata, Diagnostic> {
+        self.allowed(node, &["linear", "angular"], &[])?;
+        Ok(VelocityDecayMetadata {
+            linear: self.scalar(node, "linear", 0.)?,
+            angular: self.scalar(node, "angular", 0.)?,
+            source: self.source(node),
+            xml: self.xml[node.range()].into(),
         })
     }
     fn light(&self, node: Node<'_, '_>) -> Result<Light, Diagnostic> {

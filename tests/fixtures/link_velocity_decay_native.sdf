@@ -1,0 +1,24 @@
+<sdf version='1.12'>
+  <model name='urdf_gazebo_extension_test'>
+    <link name='link0'>
+    </link>
+    <link name='link1'>
+      <velocity_decay>
+        <linear>0.10000000000000001</linear>
+        <angular>0.20000000000000001</angular>
+      </velocity_decay>
+    </link>
+    <link name='link2'>
+      <velocity_decay>
+        <linear>0.10000000000000001</linear>
+        <angular>0.10000000000000001</angular>
+      </velocity_decay>
+    </link>
+    <link name='link3'>
+    </link>
+    <link name='link4'>
+    </link>
+    <link name='link1a'>
+    </link>
+  </model>
+</sdf>

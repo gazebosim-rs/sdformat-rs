@@ -28593,6 +28593,7 @@
     "sdf/1.9/urdf.sdf": "b340e0686fccaff10d5e59098c1958a1a8ae27abb428aae6bfb4af4834dfe58f",
     "sdf/1.9/visual.sdf": "e93cc29ec101955f463981232dde8048ca7373b2fb85d298d936ec7c55c7d4c4",
     "sdf/1.9/world.sdf": "443dd6070790d87c7515f24f0a1f042865430064b5953b2b5865efbc6a6329a1",
-    "sdf/embedSdf.py": "960274d1b94ad9e73d2eaecb78260e437b1893df4cdc1b724b9a83bdfd627940"
+    "sdf/embedSdf.py": "960274d1b94ad9e73d2eaecb78260e437b1893df4cdc1b724b9a83bdfd627940",
+    "test/integration/urdf_gazebo_extensions.urdf": "23461eb70ecd7e4a8922d6a90d7db2982788858acd24ac6cae7ba437ea7ab70a"
   }
 }

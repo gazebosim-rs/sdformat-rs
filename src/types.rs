@@ -724,6 +724,8 @@ pub struct Link {
     pub projectors: Vec<Projector>,
     pub sensors: Vec<Sensor>,
     pub properties: LinkProperties,
+    /// Explicit velocity_decay XML metadata; no physical damping is applied.
+    pub velocity_decay: Option<VelocityDecayMetadata>,
     pub plugins: Vec<Plugin>,
     pub source: Source,
 }
@@ -788,6 +790,16 @@ impl Link {
         self.sensors.clear();
     }
 }
+/// Owned velocity_decay XML scalars; the native Link DOM has no decay getter.
+#[derive(Debug, Clone, PartialEq)]
+pub struct VelocityDecayMetadata {
+    pub linear: f64,
+    pub angular: f64,
+    pub source: Source,
+    /// Exact input declaration, retained as provenance after typed edits.
+    pub xml: String,
+}
+
 /// Link flags retained as data; consumers implement or reject their physical use.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct LinkProperties {

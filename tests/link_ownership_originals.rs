@@ -43,6 +43,7 @@ fn link(name: &str) -> Link {
         projectors: Vec::new(),
         sensors: Vec::new(),
         properties: LinkProperties::default(),
+        velocity_decay: None,
         plugins: Vec::new(),
         source: source(),
     }

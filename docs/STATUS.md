@@ -3674,3 +3674,40 @@ closed-constructor proof adds only Gui and passes 27 helper tests, 45 tooling
 tests, three real LLVM controls and Clippy. Producer bytes and old assertions
 are unchanged. Independent proof review, the protected retry and exact hosted
 qualification remain pending; counts 203/27 and all consumer pins stay fixed.
+
+
+The accepted GUI producer 15788855 passed the protected staged gate and exact
+hosted run 41175822969 with source-bound evidence: 616 Rust tests, 45 tooling
+checks, 7825/7852 production lines, 12289/12531 regions and 22/22 measured changed
+lines. Original counts remain 203 complete and 27 partial.
+
+The next private Link velocity-decay candidate retains Element-only XML metadata,
+not a native Link DOM getter or physical damping API. Fourteen focused Rust tests
+and 57 pinned native controls pass, including constructor/copy behavior, exact
+full native URDF/projection equality and the unchanged original extension test.
+The new retained mapping covers only its decay presence/scalar assertions on the
+native SDF projection; Rust URDF conversion and all other original assertions
+remain unported. No old predicates or corpus dispositions change. Independent
+review, full protected staging and exact hosted qualification remain pending;
+accepted counts and consumer pins stay fixed. All 621 retained Rust tests, 45
+tooling tests, all-target Clippy, formatting and the ordinary 57-case native replay
+pass; the ledger validates. See LINK_VELOCITY_DECAY.md.
+
+Independent fresh-source/target review passed all 14 focused Rust tests and the
+57-control native replay with full original/projection, constructor, shared-Element
+clone mutation and unchanged original checks; no findings. Root reviewed the
+production, contract and original subset and approved the partial mapping. The
+ordinary protected staged and exact hosted gates remain pending.
+
+The normal protected staged decay hook failed closed on the sole unclassified
+absent-DA `Ok(VelocityDecayMetadata {` prefix at parse.rs:2110. Its temporary
+export was removed; the failure log is retained. A distinct approved-source
+ordinary diagnostic preserves raw profiles, merged data and actual LLVM exports
+and confirms 14/14 measured changed lines, 7840/7867 production lines and
+12322/12564 regions. The minimum existing closed-constructor proof adds only
+VelocityDecayMetadata; 28 helper tests, 46 tooling tests, four real LLVM controls
+and all-target Clippy pass. A fresh helper query against retained production
+data accounts for the exact prefix without changing measured coverage. DA0,
+region and missing actual report/LCOV-file controls still fail closed. Producer,
+assertions and native corpus bytes are unchanged. Independent proof review,
+the normal protected retry and exact hosted qualification remain pending.

@@ -1,0 +1,487 @@
+{
+  "cases": [
+    {
+      "name": "absent_1_4",
+      "xml": "<sdf version='1.4'><model name='m'><link name='l'></link></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "empty_1_4",
+      "xml": "<sdf version='1.4'><model name='m'><link name='l'><velocity_decay/></link></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 1\nCHILDREN 0 0 VALUES 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "explicit_1_4",
+      "xml": "<sdf version='1.4'><model name='m'><link name='l'><velocity_decay><linear>0.1</linear><angular>0.2</angular></velocity_decay></link></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 1\nCHILDREN 1 1 VALUES 4591870180066957722 4596373779694328218\n",
+      "stderr": ""
+    },
+    {
+      "name": "absent_1_5",
+      "xml": "<sdf version='1.5'><model name='m'><link name='l'></link></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "empty_1_5",
+      "xml": "<sdf version='1.5'><model name='m'><link name='l'><velocity_decay/></link></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 1\nCHILDREN 0 0 VALUES 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "explicit_1_5",
+      "xml": "<sdf version='1.5'><model name='m'><link name='l'><velocity_decay><linear>0.1</linear><angular>0.2</angular></velocity_decay></link></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 1\nCHILDREN 1 1 VALUES 4591870180066957722 4596373779694328218\n",
+      "stderr": ""
+    },
+    {
+      "name": "absent_1_6",
+      "xml": "<sdf version='1.6'><model name='m'><link name='l'></link></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "empty_1_6",
+      "xml": "<sdf version='1.6'><model name='m'><link name='l'><velocity_decay/></link></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 1\nCHILDREN 0 0 VALUES 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "explicit_1_6",
+      "xml": "<sdf version='1.6'><model name='m'><link name='l'><velocity_decay><linear>0.1</linear><angular>0.2</angular></velocity_decay></link></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 1\nCHILDREN 1 1 VALUES 4591870180066957722 4596373779694328218\n",
+      "stderr": ""
+    },
+    {
+      "name": "absent_1_7",
+      "xml": "<sdf version='1.7'><model name='m'><link name='l'></link></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "empty_1_7",
+      "xml": "<sdf version='1.7'><model name='m'><link name='l'><velocity_decay/></link></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 1\nCHILDREN 0 0 VALUES 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "explicit_1_7",
+      "xml": "<sdf version='1.7'><model name='m'><link name='l'><velocity_decay><linear>0.1</linear><angular>0.2</angular></velocity_decay></link></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 1\nCHILDREN 1 1 VALUES 4591870180066957722 4596373779694328218\n",
+      "stderr": ""
+    },
+    {
+      "name": "absent_1_8",
+      "xml": "<sdf version='1.8'><model name='m'><link name='l'></link></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "empty_1_8",
+      "xml": "<sdf version='1.8'><model name='m'><link name='l'><velocity_decay/></link></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 1\nCHILDREN 0 0 VALUES 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "explicit_1_8",
+      "xml": "<sdf version='1.8'><model name='m'><link name='l'><velocity_decay><linear>0.1</linear><angular>0.2</angular></velocity_decay></link></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 1\nCHILDREN 1 1 VALUES 4591870180066957722 4596373779694328218\n",
+      "stderr": ""
+    },
+    {
+      "name": "absent_1_9",
+      "xml": "<sdf version='1.9'><model name='m'><link name='l'></link></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "empty_1_9",
+      "xml": "<sdf version='1.9'><model name='m'><link name='l'><velocity_decay/></link></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 1\nCHILDREN 0 0 VALUES 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "explicit_1_9",
+      "xml": "<sdf version='1.9'><model name='m'><link name='l'><velocity_decay><linear>0.1</linear><angular>0.2</angular></velocity_decay></link></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 1\nCHILDREN 1 1 VALUES 4591870180066957722 4596373779694328218\n",
+      "stderr": ""
+    },
+    {
+      "name": "absent_1_10",
+      "xml": "<sdf version='1.10'><model name='m'><link name='l'></link></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "empty_1_10",
+      "xml": "<sdf version='1.10'><model name='m'><link name='l'><velocity_decay/></link></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 1\nCHILDREN 0 0 VALUES 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "explicit_1_10",
+      "xml": "<sdf version='1.10'><model name='m'><link name='l'><velocity_decay><linear>0.1</linear><angular>0.2</angular></velocity_decay></link></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 1\nCHILDREN 1 1 VALUES 4591870180066957722 4596373779694328218\n",
+      "stderr": ""
+    },
+    {
+      "name": "absent_1_11",
+      "xml": "<sdf version='1.11'><model name='m'><link name='l'></link></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "empty_1_11",
+      "xml": "<sdf version='1.11'><model name='m'><link name='l'><velocity_decay/></link></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 1\nCHILDREN 0 0 VALUES 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "explicit_1_11",
+      "xml": "<sdf version='1.11'><model name='m'><link name='l'><velocity_decay><linear>0.1</linear><angular>0.2</angular></velocity_decay></link></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 1\nCHILDREN 1 1 VALUES 4591870180066957722 4596373779694328218\n",
+      "stderr": ""
+    },
+    {
+      "name": "absent_1_12",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'></link></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "empty_1_12",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><velocity_decay/></link></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 1\nCHILDREN 0 0 VALUES 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "explicit_1_12",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><velocity_decay><linear>0.1</linear><angular>0.2</angular></velocity_decay></link></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 1\nCHILDREN 1 1 VALUES 4591870180066957722 4596373779694328218\n",
+      "stderr": ""
+    },
+    {
+      "name": "linear_only",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><velocity_decay><linear>0.4</linear></velocity_decay></link></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 1\nCHILDREN 1 0 VALUES 4600877379321698714 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "angular_only",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><velocity_decay><angular>0.6</angular></velocity_decay></link></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 1\nCHILDREN 0 1 VALUES 0 4603579539098121011\n",
+      "stderr": ""
+    },
+    {
+      "name": "empty_scalar",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><velocity_decay><linear/></velocity_decay></link></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 1\nCHILDREN 1 0 VALUES 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "space_scalar",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><velocity_decay><angular>  </angular></velocity_decay></link></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 1\nCHILDREN 0 1 VALUES 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "duplicate_group",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><velocity_decay/><velocity_decay><linear>0.3</linear></velocity_decay></link></model></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 1\nCHILDREN 0 0 VALUES 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "duplicate_scalar",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><velocity_decay><linear>0.2</linear><linear>0.3</linear></velocity_decay></link></model></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 1\nCHILDREN 1 0 VALUES 4596373779694328218 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "unknown_child",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><velocity_decay><unknown/></velocity_decay></link></model></sdf>",
+      "rust_policy": "Unsupported",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 1\nCHILDREN 0 0 VALUES 0 0\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/velocity_decay/unknown:<data-string>:L1]: XML Element[unknown], child of element[velocity_decay], not defined in SDF. Copying[unknown] as children of [velocity_decay].\n"
+    },
+    {
+      "name": "unknown_attribute",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><velocity_decay extra='x'/></link></model></sdf>",
+      "rust_policy": "Unsupported",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 1\nCHILDREN 0 0 VALUES 0 0\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/velocity_decay[@extra=\"x\"]:<data-string>:L1]: XML Attribute[extra] in element[velocity_decay] not defined in SDF.\n"
+    },
+    {
+      "name": "nested_scalar",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><velocity_decay><linear><unknown/></linear></velocity_decay></link></model></sdf>",
+      "rust_policy": "Unsupported",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 1\nCHILDREN 1 0 VALUES 0 0\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/velocity_decay/linear/unknown:<data-string>:L1]: XML Element[unknown], child of element[linear], not defined in SDF. Copying[unknown] as children of [linear].\n"
+    },
+    {
+      "name": "linear_-1",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><velocity_decay><linear>-1</linear></velocity_decay></link></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 1\nCHILDREN 1 0 VALUES 13830554455654793216 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "linear_1.5",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><velocity_decay><linear>1.5</linear></velocity_decay></link></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 1\nCHILDREN 1 0 VALUES 4609434218613702656 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "linear_25.2",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><velocity_decay><linear>25.2</linear></velocity_decay></link></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 1\nCHILDREN 1 0 VALUES 4627786387095237427 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "linear_0",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><velocity_decay><linear>0</linear></velocity_decay></link></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 1\nCHILDREN 1 0 VALUES 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "linear_-0",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><velocity_decay><linear>-0</linear></velocity_decay></link></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 1\nCHILDREN 1 0 VALUES 9223372036854775808 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "linear_1e-300",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><velocity_decay><linear>1e-300</linear></velocity_decay></link></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 1\nCHILDREN 1 0 VALUES 118622047889322841 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "linear_nan",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><velocity_decay><linear>nan</linear></velocity_decay></link></model></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 1\nCHILDREN 1 0 VALUES 9221120237041090560 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "linear_inf",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><velocity_decay><linear>inf</linear></velocity_decay></link></model></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 1\nCHILDREN 1 0 VALUES 9218868437227405312 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "linear_-inf",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><velocity_decay><linear>-inf</linear></velocity_decay></link></model></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 1\nCHILDREN 1 0 VALUES 18442240474082181120 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "linear_1e999",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><velocity_decay><linear>1e999</linear></velocity_decay></link></model></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 6 9 9 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Out of range. Unable to set value [1e999 ] for key[linear].\n"
+    },
+    {
+      "name": "linear_1e-999",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><velocity_decay><linear>1e-999</linear></velocity_decay></link></model></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 6 9 9 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Out of range. Unable to set value [1e-999 ] for key[linear].\n"
+    },
+    {
+      "name": "linear_true",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><velocity_decay><linear>true</linear></velocity_decay></link></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 1\nCHILDREN 1 0 VALUES 4607182418800017408 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "linear_false",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><velocity_decay><linear>false</linear></velocity_decay></link></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 1\nCHILDREN 1 0 VALUES 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "linear_0.3tail",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><velocity_decay><linear>0.3tail</linear></velocity_decay></link></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 1\nCHILDREN 1 0 VALUES 4599075939470750515 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "linear_bad",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><velocity_decay><linear>bad</linear></velocity_decay></link></model></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 6 9 9 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Invalid argument. Unable to set value [bad] for key[linear].\n"
+    },
+    {
+      "name": "linear_<![CDATA[0.7]]>",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><velocity_decay><linear><![CDATA[0.7]]></linear></velocity_decay></link></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 1\nCHILDREN 1 0 VALUES 4604480259023595110 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "linear_1<!--split-->2",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><velocity_decay><linear>1<!--split-->2</linear></velocity_decay></link></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 1\nCHILDREN 1 0 VALUES 4607182418800017408 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "empty14_linear",
+      "xml": "<sdf version='1.4'><model name='m'><link name='l'><velocity_decay><linear/></velocity_decay></link></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 1\nCHILDREN 1 0 VALUES 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "empty14_angular",
+      "xml": "<sdf version='1.4'><model name='m'><link name='l'><velocity_decay><angular/></velocity_decay></link></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 1\nCHILDREN 0 1 VALUES 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "model_opaque_scope",
+      "xml": "<sdf version='1.12'><model name='m'><velocity_decay/><link name='l'/></model></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 0\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/velocity_decay:<data-string>:L1]: XML Element[velocity_decay], child of element[model], not defined in SDF. Copying[velocity_decay] as children of [model].\n"
+    },
+    {
+      "name": "world_wrong_scope",
+      "xml": "<sdf version='1.12'><world name='w'><velocity_decay/></world></sdf>",
+      "rust_policy": "Unsupported",
+      "exit": 0,
+      "stdout": "ERRORS 0\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/world[@name=\"w\"]/velocity_decay:<data-string>:L1]: XML Element[velocity_decay], child of element[world], not defined in SDF. Copying[velocity_decay] as children of [world].\n"
+    }
+  ],
+  "original_urdf": {
+    "exit": 0,
+    "stdout": "ERRORS 0\nMODEL 26:757264665f67617a65626f5f657874656e73696f6e5f74657374 LINKS 6\nLINK 5:6c696e6b30 DECAY 0\nLINK 5:6c696e6b31 DECAY 1\nCHILDREN 1 1 VALUES 4591870180066957722 4596373779694328218\nLINK 5:6c696e6b32 DECAY 1\nCHILDREN 1 1 VALUES 4591870180066957722 4591870180066957722\nLINK 5:6c696e6b33 DECAY 0\nLINK 5:6c696e6b34 DECAY 0\nLINK 6:6c696e6b3161 DECAY 0\n",
+    "stderr": "\u001b[1;33mWarning [parser_urdf.cc:1512]\u001b[0m Note that cfmDamping is being deprecated by implicitSpringDamper, please replace instances of cfmDamping with implicitSpringDamper in your model.\n\u001b[1;33mWarning [parser_urdf.cc:1220]\u001b[0m Attribute value string not set\n\u001b[1;31mError [parser_urdf.cc:3730]\u001b[0m no slash in projector reference tag [], expecting linkName/projector_name.\n\u001b[1;33mWarning [parser_urdf.cc:1220]\u001b[0m Attribute value string not set\n\u001b[1;31mError [parser_urdf.cc:3730]\u001b[0m no slash in projector reference tag [], expecting linkName/projector_name.\n\u001b[1;31mError [parser_urdf.cc:3730]\u001b[0m no slash in projector reference tag [], expecting linkName/projector_name.\n\u001b[1;33mWarning [parser_urdf.cc:1220]\u001b[0m Attribute value string not set\n\u001b[1;31mError [parser_urdf.cc:3730]\u001b[0m no slash in projector reference tag [], expecting linkName/projector_name.\n\u001b[1;33mWarning [parser_urdf.cc:1220]\u001b[0m Attribute value string not set\n\u001b[1;31mError [parser_urdf.cc:3730]\u001b[0m no slash in projector reference tag [], expecting linkName/projector_name.\n\u001b[1;33mWarning [parser_urdf.cc:1220]\u001b[0m Attribute value string not set\n\u001b[1;31mError [parser_urdf.cc:3730]\u001b[0m no slash in projector reference tag [], expecting linkName/projector_name.\n\u001b[1;33mWarning [parser_urdf.cc:1220]\u001b[0m Attribute value string not set\n\u001b[1;31mError [parser_urdf.cc:3730]\u001b[0m no slash in projector reference tag [], expecting linkName/projector_name.\n\u001b[1;33mWarning [parser_urdf.cc:1220]\u001b[0m Attribute value string not set\n\u001b[1;31mError [parser_urdf.cc:3730]\u001b[0m no slash in projector reference tag [], expecting linkName/projector_name.\n\u001b[1;31mError [parser_urdf.cc:3730]\u001b[0m no slash in projector reference tag [], expecting linkName/projector_name.\n\u001b[1;33mWarning [parser_urdf.cc:1220]\u001b[0m Attribute value string not set\n\u001b[1;31mError [parser_urdf.cc:3730]\u001b[0m no slash in projector reference tag [], expecting linkName/projector_name.\n\u001b[1;33mWarning [parser_urdf.cc:1220]\u001b[0m Attribute value string not set\n\u001b[1;31mError [parser_urdf.cc:3730]\u001b[0m no slash in projector reference tag [], expecting linkName/projector_name.\n\u001b[1;33mWarning [parser_urdf.cc:1220]\u001b[0m Attribute value string not set\n\u001b[1;31mError [parser_urdf.cc:3730]\u001b[0m no slash in projector reference tag [], expecting linkName/projector_name.\n\u001b[1;33mWarning [parser_urdf.cc:1220]\u001b[0m Attribute value string not set\n\u001b[1;31mError [parser_urdf.cc:3730]\u001b[0m no slash in projector reference tag [], expecting linkName/projector_name.\n\u001b[1;33mWarning [parser_urdf.cc:1220]\u001b[0m Attribute value string not set\n\u001b[1;31mError [parser_urdf.cc:3730]\u001b[0m no slash in projector reference tag [], expecting linkName/projector_name.\n\u001b[1;33mWarning [parser_urdf.cc:1220]\u001b[0m Attribute value string not set\n\u001b[1;31mError [parser_urdf.cc:3730]\u001b[0m no slash in projector reference tag [], expecting linkName/projector_name.\n\u001b[1;33mWarning [parser_urdf.cc:1220]\u001b[0m Attribute value string not set\n\u001b[1;31mError [parser_urdf.cc:3730]\u001b[0m no slash in projector reference tag [], expecting linkName/projector_name.\n\u001b[1;33mWarning [parser_urdf.cc:1220]\u001b[0m Attribute value string not set\n\u001b[1;31mError [parser_urdf.cc:3730]\u001b[0m no slash in projector reference tag [], expecting linkName/projector_name.\n\u001b[1;33mWarning [parser_urdf.cc:1220]\u001b[0m Attribute value string not set\n\u001b[1;31mError [parser_urdf.cc:3730]\u001b[0m no slash in projector reference tag [], expecting linkName/projector_name.\n\u001b[1;33mWarning [parser_urdf.cc:1220]\u001b[0m Attribute value string not set\n\u001b[1;31mError [parser_urdf.cc:3730]\u001b[0m no slash in projector reference tag [], expecting linkName/projector_name.\n\u001b[1;33mWarning [parser_urdf.cc:1220]\u001b[0m Attribute value string not set\n\u001b[1;31mError [parser_urdf.cc:3730]\u001b[0m no slash in projector reference tag [], expecting linkName/projector_name.\n\u001b[1;33mWarning [parser_urdf.cc:1220]\u001b[0m Attribute value string not set\n\u001b[1;31mError [parser_urdf.cc:3730]\u001b[0m no slash in projector reference tag [], expecting linkName/projector_name.\n\u001b[1;33mWarning [parser_urdf.cc:1220]\u001b[0m Attribute value string not set\n\u001b[1;31mError [parser_urdf.cc:3730]\u001b[0m no slash in projector reference tag [], expecting linkName/projector_name.\n\u001b[1;33mWarning [parser_urdf.cc:1220]\u001b[0m Attribute value string not set\n\u001b[1;31mError [parser_urdf.cc:3730]\u001b[0m no slash in projector reference tag [], expecting linkName/projector_name.\n\u001b[1;33mWarning [parser_urdf.cc:1220]\u001b[0m Attribute value string not set\n\u001b[1;31mError [parser_urdf.cc:3730]\u001b[0m no slash in projector reference tag [], expecting linkName/projector_name.\n\u001b[1;33mWarning [parser_urdf.cc:1220]\u001b[0m Attribute value string not set\n\u001b[1;31mError [parser_urdf.cc:3730]\u001b[0m no slash in projector reference tag [], expecting linkName/projector_name.\n\u001b[1;33mWarning [parser_urdf.cc:1220]\u001b[0m Attribute value string not set\n\u001b[1;31mError [parser_urdf.cc:3730]\u001b[0m no slash in projector reference tag [], expecting linkName/projector_name.\n\u001b[1;33mWarning [parser_urdf.cc:1220]\u001b[0m Attribute value string not set\n\u001b[1;31mError [parser_urdf.cc:3730]\u001b[0m no slash in projector reference tag [], expecting linkName/projector_name.\n\u001b[1;33mWarning [parser_urdf.cc:1220]\u001b[0m Attribute value string not set\n\u001b[1;31mError [parser_urdf.cc:3730]\u001b[0m no slash in projector reference tag [], expecting linkName/projector_name.\n\u001b[1;33mWarning [parser_urdf.cc:1220]\u001b[0m Attribute value string not set\n\u001b[1;31mError [parser_urdf.cc:3730]\u001b[0m no slash in projector reference tag [], expecting linkName/projector_name.\n\u001b[1;33mWarning [parser_urdf.cc:1220]\u001b[0m Attribute value string not set\n\u001b[1;31mError [parser_urdf.cc:3730]\u001b[0m no slash in projector reference tag [], expecting linkName/projector_name.\n\u001b[1;33mWarning [parser_urdf.cc:1220]\u001b[0m Attribute value string not set\n\u001b[1;31mError [parser_urdf.cc:3730]\u001b[0m no slash in projector reference tag [], expecting linkName/projector_name.\n\u001b[1;33mWarning [parser_urdf.cc:1220]\u001b[0m Attribute value string not set\n\u001b[1;31mError [parser_urdf.cc:3730]\u001b[0m no slash in projector reference tag [], expecting linkName/projector_name.\n\u001b[1;33mWarning [parser_urdf.cc:1220]\u001b[0m Attribute value string not set\n\u001b[1;31mError [parser_urdf.cc:3730]\u001b[0m no slash in projector reference tag [], expecting linkName/projector_name.\n\u001b[1;33mWarning [parser_urdf.cc:1220]\u001b[0m Attribute value string not set\n\u001b[1;31mError [parser_urdf.cc:3730]\u001b[0m no slash in projector reference tag [], expecting linkName/projector_name.\n\u001b[1;33mWarning [parser_urdf.cc:1220]\u001b[0m Attribute value string not set\n\u001b[1;31mError [parser_urdf.cc:3730]\u001b[0m no slash in projector reference tag [], expecting linkName/projector_name.\n\u001b[1;33mWarning [parser_urdf.cc:1220]\u001b[0m Attribute value string not set\n\u001b[1;31mError [parser_urdf.cc:3730]\u001b[0m no slash in projector reference tag [], expecting linkName/projector_name.\n\u001b[1;33mWarning [parser_urdf.cc:1220]\u001b[0m Attribute value string not set\n\u001b[1;31mError [parser_urdf.cc:3730]\u001b[0m no slash in projector reference tag [], expecting linkName/projector_name.\n\u001b[1;33mWarning [parser_urdf.cc:1220]\u001b[0m Attribute value string not set\n\u001b[1;31mError [parser_urdf.cc:3730]\u001b[0m no slash in projector reference tag [], expecting linkName/projector_name.\n\u001b[1;33mWarning [parser_urdf.cc:1220]\u001b[0m Attribute value string not set\n\u001b[1;31mError [parser_urdf.cc:3730]\u001b[0m no slash in projector reference tag [], expecting linkName/projector_name.\n\u001b[1;33mWarning [parser_urdf.cc:1220]\u001b[0m Attribute value string not set\n\u001b[1;31mError [parser_urdf.cc:3730]\u001b[0m no slash in projector reference tag [], expecting linkName/projector_name.\n\u001b[1;33mWarning [parser_urdf.cc:1220]\u001b[0m Attribute value string not set\n\u001b[1;31mError [parser_urdf.cc:3730]\u001b[0m no slash in projector reference tag [], expecting linkName/projector_name.\n\u001b[1;33mWarning [parser_urdf.cc:1220]\u001b[0m Attribute value string not set\n\u001b[1;31mError [parser_urdf.cc:3730]\u001b[0m no slash in projector reference tag [], expecting linkName/projector_name.\n\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"urdf_gazebo_extension_test\"]/joint[@name=\"joint01\"]/physics/ode/provide_feedback:<urdf-string>:L0]: XML Element[provide_feedback], child of element[ode], not defined in SDF. Copying[provide_feedback] as children of [ode].\n"
+  },
+  "original_projection": {
+    "xml": "<sdf version='1.12'>\n  <model name='urdf_gazebo_extension_test'>\n    <link name='link0'>\n    </link>\n    <link name='link1'>\n      <velocity_decay>\n        <linear>0.10000000000000001</linear>\n        <angular>0.20000000000000001</angular>\n      </velocity_decay>\n    </link>\n    <link name='link2'>\n      <velocity_decay>\n        <linear>0.10000000000000001</linear>\n        <angular>0.10000000000000001</angular>\n      </velocity_decay>\n    </link>\n    <link name='link3'>\n    </link>\n    <link name='link4'>\n    </link>\n    <link name='link1a'>\n    </link>\n  </model>\n</sdf>\n",
+    "exit": 0,
+    "stdout": "ERRORS 0\nMODEL 26:757264665f67617a65626f5f657874656e73696f6e5f74657374 LINKS 6\nLINK 5:6c696e6b30 DECAY 0\nLINK 5:6c696e6b31 DECAY 1\nCHILDREN 1 1 VALUES 4591870180066957722 4596373779694328218\nLINK 5:6c696e6b32 DECAY 1\nCHILDREN 1 1 VALUES 4591870180066957722 4591870180066957722\nLINK 5:6c696e6b33 DECAY 0\nLINK 5:6c696e6b34 DECAY 0\nLINK 6:6c696e6b3161 DECAY 0\n",
+    "stderr": ""
+  },
+  "clone": {
+    "exit": 0,
+    "stdout": "ERRORS 0\nMODEL 1:6d LINKS 1\nLINK 1:6c DECAY 1\nCHILDREN 1 1 VALUES 4591870180066957722 4596373779694328218\nCOPY\nLINK 1:6c DECAY 1\nCHILDREN 1 1 VALUES 4591870180066957722 4596373779694328218\nSHARED 1\nAFTER\nLINK 1:6c DECAY 1\nCHILDREN 1 1 VALUES 4604930618986332160 4596373779694328218\nLINK 1:6c DECAY 1\nCHILDREN 1 1 VALUES 4604930618986332160 4596373779694328218\n",
+    "stderr": "",
+    "xml": "<sdf version='1.12'><model name='m'><link name='l'><velocity_decay><linear>0.1</linear><angular>0.2</angular></velocity_decay></link></model></sdf>"
+  },
+  "constructor": {
+    "exit": 0,
+    "stdout": "LINK 0: DECAY 0\n",
+    "stderr": ""
+  },
+  "bad_syntax": {
+    "exit": 0,
+    "stdout": "ERRORS 7 9 9 9 9 9 9 30\n",
+    "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Invalid argument. Unable to set value [bad] for key[linear].\n"
+  }
+}

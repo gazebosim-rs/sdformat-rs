@@ -1258,3 +1258,11 @@ remain unsupported. See [the spherical metadata contract](WORLD_SPHERICAL.md).
 and actual Source. It does not start a GUI or activate plugins. Camera controls
 and other GUI payloads remain unsupported; consumers must explicitly support or
 reject the added field before producer adoption. See [WORLD_GUI.md](WORLD_GUI.md).
+
+
+`Link.velocity_decay` optionally owns `VelocityDecayMetadata`: linear/angular
+XML scalars, declaration Source and exact input XML. Omission is None; an explicit
+empty group is Some with zero scalars. This is Element-only XML metadata in the
+pinned native library, whose Link DOM has no corresponding getter. Values do
+not apply damping. Consumers must support or reject the added Link field before
+adopting this producer. See [LINK_VELOCITY_DECAY.md](LINK_VELOCITY_DECAY.md).

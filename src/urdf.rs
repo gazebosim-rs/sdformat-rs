@@ -341,6 +341,28 @@ fn admit(root: Node<'_, '_>, uri: &str) -> Result<Extensions, Diagnostic> {
             "Gazebo metadata requires its visual/collision target",
         ));
     }
+    for (tag, applied) in [
+        ("visual", extensions.material.is_some()),
+        (
+            "collision",
+            extensions.mu1.is_some() || extensions.mu2.is_some(),
+        ),
+    ] {
+        if applied
+            && child(link, tag).is_some_and(|view| {
+                self::name(name, view.attribute("name"), tag).contains("_fixed_joint_lump__")
+            })
+        {
+            // Native skips ordinary link extensions on lump-prefixed view
+            // names, including prefixes introduced without any fixed joint.
+            return Err(error(
+                child(root, "gazebo").unwrap(),
+                uri,
+                ErrorCode::Unsupported,
+                "Gazebo metadata cannot target a native lump-prefixed view name",
+            ));
+        }
+    }
     Ok(extensions)
 }
 fn decimal(value: f64) -> String {

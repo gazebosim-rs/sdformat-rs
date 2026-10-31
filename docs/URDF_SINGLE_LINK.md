@@ -35,11 +35,18 @@ default to one. Material requires a visual, friction requires a collision, and
 an absent or different reference is an error. Unknown or unapplied declarations
 are never silently discarded. Native nonfinite coefficients are explicitly
 outside the existing finite Surface policy; native scalar exceptions become
-source-located errors. No friction or damping law is implemented.
+source-located errors. A visual receiving material, or collision receiving mu1/mu2, must have a native
+generated name without the exact `_fixed_joint_lump__` token. Native conversion
+otherwise leaves that metadata unapplied. The importer returns a source-located
+Unsupported error instead of applying metadata that native conversion would
+ignore. Names alone, or a name on the other view when it receives no such
+metadata, remain admitted.
+No friction or damping law is implemented.
 
-Names follow the observed native converter: absent names use link_visual or
-link_collision; an explicit name not starting with the link name gains the
-native `_fixed_joint_lump__` prefix even without a joint. Signed scalar zero is
+Names follow the observed native converter: choose the explicit nonempty name
+or the link name, then append `_visual` or `_collision`. If that generated name
+does not start with the link name, it gains the native `_fixed_joint_lump__`
+prefix even without a joint. Signed scalar zero is
 printed as zero, matching native conversion. Other generated XML formatting is
 not a native serialization contract. Quaternion physical equivalence is checked
 within 1e-12, including gimbal and very large finite input angles; scalar values,
@@ -79,3 +86,18 @@ hashes, native urdfdom headers/transitive linkage, imported fixture bytes and
 the exact Rust dependency source/lock. No performance claim is made. Consumer
 adoption must explicitly handle the new import result and generated provenance;
 this slice changes no simulator pin or runtime behavior.
+
+The named-target regression corpus captures twenty-nine actual native inputs and
+Rust projections from accepted revision `74fa759`. An outside visual name loses
+native material while old Rust applied Gazebo/Orange. An outside collision name
+leaves native mu1/mu2 at one while old Rust applied 100 and 1000. The correction
+rejects only these unapplied target combinations. Empty/default names, matching
+byte prefixes (including `linkage` for link `link`), suffix-completed link
+prefixes, case-sensitive tokens, decoded tokens, tokens completed by the suffix,
+tokens in the link name and unrelated view names are qualified. Rejection also
+preserves an unapplied declaration when its numeric value equals the default. All 84 prior controls/assertions stay intact. All 31 accepted generated
+XML snapshots captured from `74fa759` remain byte-identical.
+Replay `python3 tools/urdf_named_extensions_reference.py /path/to/pinned/sdformat`
+for the twenty-nine native regressions and both unchanged full originals. The
+native helper is the unchanged single-link DOM probe. This fix adds no original
+case credit, dependencies, mutable Element semantics or runtime behavior.

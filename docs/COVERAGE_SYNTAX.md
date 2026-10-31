@@ -261,3 +261,31 @@ controls remain unchanged. A fresh helper query against the retained production
 report resolves only the absent-DA syntax; all original measured counts and all
 18 DA0 failures remain unchanged. Independent review and the normal full staged
 gate are still required.
+
+## Named-target admission loop delimiters
+
+The first ordinary named-target staged gate failed closed on unclassified source
+syntax. Its temporary export was cleaned up; the original failure log remains.
+One ordinary persistent diagnostic retained raw profiles, merged data, compiled
+ELFs, dep-info, LLVM JSON and LCOV. It measured 8336/8373 production lines,
+13134/13388 regions, 15/15 changed DA lines and 7957/7986 full-source lines.
+There are no changed DA0 records. Only urdf.rs:346 `(`, :349 `),` and :350 `] {`
+lack both DA records and mapped regions; surrounding runtime expressions retain
+their measured counters.
+
+The callable audit now recognizes primitive `ExprTuple` opening/closing tokens
+and an `ExprForLoop` whose iterator is an explicit `ExprArray`. Only an exclusive
+`(` line, a pure closing line accepted by the existing gate, or the exact array
+close / loop-block open line `] {` receives evidence. The bracket and brace must
+be ordered AST tokens on the same line. Loop labels and expression attributes
+remain outside this proof. Existing callable/ancestor transformation guards,
+opaque macro spans and measured DA/region precedence are unchanged. No Python
+gate predicate, production formatting, threshold or denominator changes.
+
+Controls refuse callable constructor parentheses, repeat-array iterators,
+macro-owned token streams, custom attributes, transformed ancestry and shared
+runtime lines. A real compiled LLVM control reproduces all three absent-DA forms,
+moves Drop-bearing tuples through the loop, and verifies an executed Drop branch
+alongside actual uncovered Drop, tuple-element and loop-body branches. Forged
+syntax hints cannot waive DA0, region coverage or a missing actual source file.
+The prior URDF LLVM control and all earlier controls remain unchanged.

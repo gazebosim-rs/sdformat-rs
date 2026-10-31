@@ -2,21 +2,18 @@
   "decision": "approved",
   "author": "sdf_world_owner",
   "reviewer": "root",
-  "source_digest": "256aa7710d0dd60c03d27f06f300570907975de51e9e291e88687dd3c1645d51",
-  "protected_digest": "b6fa27d9521b631424bebdff97c2761993e9c17377466136173838437834e0b4",
-  "scope": "Explicit bounded single-link URDF1.0 importer with separate immutable original/generated snapshots, fail-closed XML/numeric admission, maintained urdf-rs and existing SDF loader/graph validation. Exactly two fixed original cases mapped; no general URDF, joints, includes, mutable Element or formatted-XML parity claim.",
+  "source_digest": "d9636543eea66234ad66914ad6bdcdc09230ed5886f06ec69d30817caf4ef95f",
+  "protected_digest": "47283ebb0195ad745cf61d042fad14ee4d0796e71ed9143abff7657e4c3cb773",
+  "scope": "Correct accepted single-link URDF import admission: reject material/friction target declarations when the actual native-generated view name contains the fixed-joint-lump token and native would leave them unapplied. Reuse existing name helper, including suffix-completed prefixes and decoded/literal tokens. No native-ignore or accidental physical metadata application claim.",
   "checks": [
-    "Independent transport_owner fresh a6623124 archive plus exact16path overlay and own target passed9 focused Rust tests,Clippy,84 actual native controls and both unchanged originals with equal source/runtime provenance. Audited15 added crate archives/checksums/extracted files/licenses; existing versions unchanged. No findings.",
-    "Independent assertion audit approves complete ValidBasicURDF three observations and ParseWhitespace thirteen selected-tree presences plus three exact GetText values on byte-identical original inputs and actual generated public snapshot. This is fixed-case credit, not generic conversion fidelity.",
-    "Root read production admission,numeric-token filtering prevention,generated XML escaping,existing-loader validation and honest source separation; source and dependency scope agree with reviewed contract. Existing SDF loader/includes/graphs and all prior predicates remain unchanged.",
-    "Only reviewed ledger/status bookkeeping followed review. Root independently recomputed final source/protected digests. Author637 retained Rust,46 tools,84 native/two originals andClippy pass; these do not replace mandatory full staged/coverage/hosted checks.",
-    "The first ordinary gate failed closed on opaque syntax; its snapshot was removed and log retained. A separate persistent actual LLVM/LCOV run measured8307/8357 lines,13092/13360 regions,421/439 changed and18 genuine DA0 lines. No DA0 waiver, source-format edit, denominator or threshold change is approved.",
-    "Root inspected the bounded AST/private declaration/root import/call-closing/plain record-update/builtin format literal-delimiter changes and actual diagnostic. Builtin identity and transform/import/macro/argument boundaries remain fail-closed; only exclusive absent-DA syntax is classified. Executable DA0 and region/file instrumentation checks take precedence. Two meaningful public error-path tests address reachable failures.",
-    "Independent msgs_performance_owner fresh a662 plus21-overlay own source/target passed32 helper controls,helperClippy and actual LLVM control, replayed all27 actual absent-DA entries with unchanged measured counts and all18 DA0 rejecting forged hints. It caught an ineffective Default(None) Drop control; corrected Some(Guard) now proves actual then execution and uncovered else. Author47 tools/all-target Clippy pass.",
-    "Root recomputed final source/protected digests after the independently reviewed proof and control correction. Ordinary full protected staged retry and exact hosted qualification are still required."
+    "Root read native CreateVisual/CreateCollision and extension insertion rules, the22line production guard and public regression assertions. Earlier base-only predicate was withdrawn because suffix-completed names could match the link; final helper reuse follows actual generated-name semantics.",
+    "Root independent fresh74fa759 archive plus exact8overlay and own target /tmp/sdf-named-root-review-8mi9k0j0 passed all14 focused Rust tests,29 actual native regressions and both unchanged originals. Canonical native provenance driver passed. Source bytes remained frozen during replay.",
+    "Historical accepted74fa759 material/friction mismatches are captured separately from corrected strict rejection: native material absent or mu defaults1 versus old Rust applied Orange/100/1000. Prior84 corpus/helper/assertions and31 generated XML snapshots remain unchanged. No predicate retirement or new original credit.",
+    "Root independently recomputed final source/protected digests. Author focused Clippy/fmt/ledger pass. Full protected staged and exact whole hosted/source verification remain required.",
+    "Transport owner independently reviewed the final three-path AST proof delta on a fresh74fa759 archive and exact11 source overlays:35 helper tests,48 tooling tests including real LLVM controls, all-target Clippy pass. Actual production LLVM has no DA or spanning regions on the three exclusive punctuation lines346/349/350. Exact replay preserves measured15/15 and all29 genuine DA0 refusals; runtime elements, Drop, transformed callables and missing-file/region controls remain fail-closed. Producer8paths and Python gate predicates remain unchanged. Root read the helper/control delta and independently recomputed both final digests."
   ],
   "remaining": [
-    "Ordinary protected staged tests and strictly greater than95% line/region/changed coverage, then whole exact hosted and downloaded source verification remain mandatory.",
-    "URDF joints,multiple links,meshes,xacro,world dummy,URDF include conversion and broad native Element behavior remain unsupported. Simulator consumer pins unchanged."
+    "Ordinary full retained/strictcoverage/staged and exact hosted/downloadedsource checks mandatory before acceptance.",
+    "This narrows unsupported named-target declarations in the explicit importer; broader URDF/articulated import and simulator pins remain unchanged."
   ]
 }

@@ -1,0 +1,702 @@
+{
+  "cases": [
+    {
+      "name": "absent_names",
+      "xml": "<robot name=\"test\">\n  <link name=\"link\">\n    <inertial>\n      <mass value=\"0.1\" />\n      <origin rpy=\"1.570796326794895 0 0\" xyz=\"0.123456789123456 0 0.0\" />\n      <inertia ixx=\"0.01\" ixy=\"0\" ixz=\"0\" iyy=\"0.01\" iyz=\"0\" izz=\"0.01\" />\n    </inertial>\n    <visual>\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </visual>\n    <collision>\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </collision>\n  </link>\n  <gazebo reference=\"link\">\n    <material>\n      Gazebo/Orange\n    </material>\n    <mu1>\n      100\n    </mu1>\n    <mu2>\n\n      1000\n\n    </mu2>\n  </gazebo>\n</robot>",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 74657374 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 6c696e6b 0 0 0 0 0 0 4607182418800017408 1 1\nINERTIAL 4591870180066957722 4576918229304087675 4576918229304087675 4576918229304087675 0 0 0 4593560419855048998 0 0 4604544271217802183 0 0 4604544271217802194\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nVISUAL 6c696e6b5f76697375616c 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMATERIAL 47617a65626f2f4f72616e6765 66696c653a2f2f6d656469612f6d6174657269616c732f736372697074732f67617a65626f2e6d6174657269616c\nRESOLVED visual 0 0 0 0 0 0 0 4607182418800017408\nCOLLISION 6c696e6b5f636f6c6c6973696f6e 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMU 4636737291354636288 4652007308841189376\nRESOLVED collision 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "",
+      "rust_policy": "accepted",
+      "native_projection": {
+        "visual_name": "link_visual",
+        "collision_name": "link_collision",
+        "material_name": "Gazebo/Orange",
+        "material_uri": "file://media/materials/scripts/gazebo.material",
+        "mu1_bits": 4636737291354636288,
+        "mu2_bits": 4652007308841189376
+      },
+      "accepted_74fa759_projection": {
+        "collision_name": "link_collision",
+        "material_name": "Gazebo/Orange",
+        "material_uri": "file://media/materials/scripts/gazebo.material",
+        "mu1_bits": 4636737291354636288,
+        "mu2_bits": 4652007308841189376,
+        "visual_name": "link_visual"
+      }
+    },
+    {
+      "name": "empty_names",
+      "xml": "<robot name=\"test\">\n  <link name=\"link\">\n    <inertial>\n      <mass value=\"0.1\" />\n      <origin rpy=\"1.570796326794895 0 0\" xyz=\"0.123456789123456 0 0.0\" />\n      <inertia ixx=\"0.01\" ixy=\"0\" ixz=\"0\" iyy=\"0.01\" iyz=\"0\" izz=\"0.01\" />\n    </inertial>\n    <visual name=\"\">\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </visual>\n    <collision name=\"\">\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </collision>\n  </link>\n  <gazebo reference=\"link\">\n    <material>\n      Gazebo/Orange\n    </material>\n    <mu1>\n      100\n    </mu1>\n    <mu2>\n\n      1000\n\n    </mu2>\n  </gazebo>\n</robot>",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 74657374 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 6c696e6b 0 0 0 0 0 0 4607182418800017408 1 1\nINERTIAL 4591870180066957722 4576918229304087675 4576918229304087675 4576918229304087675 0 0 0 4593560419855048998 0 0 4604544271217802183 0 0 4604544271217802194\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nVISUAL 6c696e6b5f76697375616c 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMATERIAL 47617a65626f2f4f72616e6765 66696c653a2f2f6d656469612f6d6174657269616c732f736372697074732f67617a65626f2e6d6174657269616c\nRESOLVED visual 0 0 0 0 0 0 0 4607182418800017408\nCOLLISION 6c696e6b5f636f6c6c6973696f6e 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMU 4636737291354636288 4652007308841189376\nRESOLVED collision 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "",
+      "rust_policy": "accepted",
+      "native_projection": {
+        "visual_name": "link_visual",
+        "collision_name": "link_collision",
+        "material_name": "Gazebo/Orange",
+        "material_uri": "file://media/materials/scripts/gazebo.material",
+        "mu1_bits": 4636737291354636288,
+        "mu2_bits": 4652007308841189376
+      },
+      "accepted_74fa759_projection": {
+        "collision_name": "link_collision",
+        "material_name": "Gazebo/Orange",
+        "material_uri": "file://media/materials/scripts/gazebo.material",
+        "mu1_bits": 4636737291354636288,
+        "mu2_bits": 4652007308841189376,
+        "visual_name": "link_visual"
+      }
+    },
+    {
+      "name": "prefixed_names",
+      "xml": "<robot name=\"test\">\n  <link name=\"link\">\n    <inertial>\n      <mass value=\"0.1\" />\n      <origin rpy=\"1.570796326794895 0 0\" xyz=\"0.123456789123456 0 0.0\" />\n      <inertia ixx=\"0.01\" ixy=\"0\" ixz=\"0\" iyy=\"0.01\" iyz=\"0\" izz=\"0.01\" />\n    </inertial>\n    <visual name=\"link_visual\">\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </visual>\n    <collision name=\"link_collision\">\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </collision>\n  </link>\n  <gazebo reference=\"link\">\n    <material>\n      Gazebo/Orange\n    </material>\n    <mu1>\n      100\n    </mu1>\n    <mu2>\n\n      1000\n\n    </mu2>\n  </gazebo>\n</robot>",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 74657374 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 6c696e6b 0 0 0 0 0 0 4607182418800017408 1 1\nINERTIAL 4591870180066957722 4576918229304087675 4576918229304087675 4576918229304087675 0 0 0 4593560419855048998 0 0 4604544271217802183 0 0 4604544271217802194\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nVISUAL 6c696e6b5f76697375616c5f76697375616c 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMATERIAL 47617a65626f2f4f72616e6765 66696c653a2f2f6d656469612f6d6174657269616c732f736372697074732f67617a65626f2e6d6174657269616c\nRESOLVED visual 0 0 0 0 0 0 0 4607182418800017408\nCOLLISION 6c696e6b5f636f6c6c6973696f6e5f636f6c6c6973696f6e 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMU 4636737291354636288 4652007308841189376\nRESOLVED collision 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "",
+      "rust_policy": "accepted",
+      "native_projection": {
+        "visual_name": "link_visual_visual",
+        "collision_name": "link_collision_collision",
+        "material_name": "Gazebo/Orange",
+        "material_uri": "file://media/materials/scripts/gazebo.material",
+        "mu1_bits": 4636737291354636288,
+        "mu2_bits": 4652007308841189376
+      },
+      "accepted_74fa759_projection": {
+        "collision_name": "link_collision_collision",
+        "material_name": "Gazebo/Orange",
+        "material_uri": "file://media/materials/scripts/gazebo.material",
+        "mu1_bits": 4636737291354636288,
+        "mu2_bits": 4652007308841189376,
+        "visual_name": "link_visual_visual"
+      }
+    },
+    {
+      "name": "byte_prefix_not_word_prefix",
+      "xml": "<robot name=\"test\">\n  <link name=\"link\">\n    <inertial>\n      <mass value=\"0.1\" />\n      <origin rpy=\"1.570796326794895 0 0\" xyz=\"0.123456789123456 0 0.0\" />\n      <inertia ixx=\"0.01\" ixy=\"0\" ixz=\"0\" iyy=\"0.01\" iyz=\"0\" izz=\"0.01\" />\n    </inertial>\n    <visual name=\"linkage_visual\">\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </visual>\n    <collision name=\"linkage_collision\">\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </collision>\n  </link>\n  <gazebo reference=\"link\">\n    <material>\n      Gazebo/Orange\n    </material>\n    <mu1>\n      100\n    </mu1>\n    <mu2>\n\n      1000\n\n    </mu2>\n  </gazebo>\n</robot>",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 74657374 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 6c696e6b 0 0 0 0 0 0 4607182418800017408 1 1\nINERTIAL 4591870180066957722 4576918229304087675 4576918229304087675 4576918229304087675 0 0 0 4593560419855048998 0 0 4604544271217802183 0 0 4604544271217802194\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nVISUAL 6c696e6b6167655f76697375616c5f76697375616c 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMATERIAL 47617a65626f2f4f72616e6765 66696c653a2f2f6d656469612f6d6174657269616c732f736372697074732f67617a65626f2e6d6174657269616c\nRESOLVED visual 0 0 0 0 0 0 0 4607182418800017408\nCOLLISION 6c696e6b6167655f636f6c6c6973696f6e5f636f6c6c6973696f6e 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMU 4636737291354636288 4652007308841189376\nRESOLVED collision 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "",
+      "rust_policy": "accepted",
+      "native_projection": {
+        "visual_name": "linkage_visual_visual",
+        "collision_name": "linkage_collision_collision",
+        "material_name": "Gazebo/Orange",
+        "material_uri": "file://media/materials/scripts/gazebo.material",
+        "mu1_bits": 4636737291354636288,
+        "mu2_bits": 4652007308841189376
+      },
+      "accepted_74fa759_projection": {
+        "collision_name": "linkage_collision_collision",
+        "material_name": "Gazebo/Orange",
+        "material_uri": "file://media/materials/scripts/gazebo.material",
+        "mu1_bits": 4636737291354636288,
+        "mu2_bits": 4652007308841189376,
+        "visual_name": "linkage_visual_visual"
+      }
+    },
+    {
+      "name": "outside_visual",
+      "xml": "<robot name=\"test\">\n  <link name=\"link\">\n    <inertial>\n      <mass value=\"0.1\" />\n      <origin rpy=\"1.570796326794895 0 0\" xyz=\"0.123456789123456 0 0.0\" />\n      <inertia ixx=\"0.01\" ixy=\"0\" ixz=\"0\" iyy=\"0.01\" iyz=\"0\" izz=\"0.01\" />\n    </inertial>\n    <visual name=\"outside\">\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </visual>\n    <collision>\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </collision>\n  </link>\n  <gazebo reference=\"link\">\n    <material>\n      Gazebo/Orange\n    </material>\n    <mu1>\n      100\n    </mu1>\n    <mu2>\n\n      1000\n\n    </mu2>\n  </gazebo>\n</robot>",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 74657374 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 6c696e6b 0 0 0 0 0 0 4607182418800017408 1 1\nINERTIAL 4591870180066957722 4576918229304087675 4576918229304087675 4576918229304087675 0 0 0 4593560419855048998 0 0 4604544271217802183 0 0 4604544271217802194\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nVISUAL 6c696e6b5f66697865645f6a6f696e745f6c756d705f5f6f7574736964655f76697375616c 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nRESOLVED visual 0 0 0 0 0 0 0 4607182418800017408\nCOLLISION 6c696e6b5f636f6c6c6973696f6e 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMU 4636737291354636288 4652007308841189376\nRESOLVED collision 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "",
+      "rust_policy": "Unsupported",
+      "native_projection": {
+        "visual_name": "link_fixed_joint_lump__outside_visual",
+        "collision_name": "link_collision",
+        "material_name": null,
+        "material_uri": null,
+        "mu1_bits": 4636737291354636288,
+        "mu2_bits": 4652007308841189376
+      },
+      "accepted_74fa759_projection": {
+        "collision_name": "link_collision",
+        "material_name": "Gazebo/Orange",
+        "material_uri": "file://media/materials/scripts/gazebo.material",
+        "mu1_bits": 4636737291354636288,
+        "mu2_bits": 4652007308841189376,
+        "visual_name": "link_fixed_joint_lump__outside_visual"
+      }
+    },
+    {
+      "name": "outside_collision",
+      "xml": "<robot name=\"test\">\n  <link name=\"link\">\n    <inertial>\n      <mass value=\"0.1\" />\n      <origin rpy=\"1.570796326794895 0 0\" xyz=\"0.123456789123456 0 0.0\" />\n      <inertia ixx=\"0.01\" ixy=\"0\" ixz=\"0\" iyy=\"0.01\" iyz=\"0\" izz=\"0.01\" />\n    </inertial>\n    <visual>\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </visual>\n    <collision name=\"outside\">\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </collision>\n  </link>\n  <gazebo reference=\"link\">\n    <material>\n      Gazebo/Orange\n    </material>\n    <mu1>\n      100\n    </mu1>\n    <mu2>\n\n      1000\n\n    </mu2>\n  </gazebo>\n</robot>",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 74657374 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 6c696e6b 0 0 0 0 0 0 4607182418800017408 1 1\nINERTIAL 4591870180066957722 4576918229304087675 4576918229304087675 4576918229304087675 0 0 0 4593560419855048998 0 0 4604544271217802183 0 0 4604544271217802194\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nVISUAL 6c696e6b5f76697375616c 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMATERIAL 47617a65626f2f4f72616e6765 66696c653a2f2f6d656469612f6d6174657269616c732f736372697074732f67617a65626f2e6d6174657269616c\nRESOLVED visual 0 0 0 0 0 0 0 4607182418800017408\nCOLLISION 6c696e6b5f66697865645f6a6f696e745f6c756d705f5f6f7574736964655f636f6c6c6973696f6e 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMU 4607182418800017408 4607182418800017408\nRESOLVED collision 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "",
+      "rust_policy": "Unsupported",
+      "native_projection": {
+        "visual_name": "link_visual",
+        "collision_name": "link_fixed_joint_lump__outside_collision",
+        "material_name": "Gazebo/Orange",
+        "material_uri": "file://media/materials/scripts/gazebo.material",
+        "mu1_bits": 4607182418800017408,
+        "mu2_bits": 4607182418800017408
+      },
+      "accepted_74fa759_projection": {
+        "collision_name": "link_fixed_joint_lump__outside_collision",
+        "material_name": "Gazebo/Orange",
+        "material_uri": "file://media/materials/scripts/gazebo.material",
+        "mu1_bits": 4636737291354636288,
+        "mu2_bits": 4652007308841189376,
+        "visual_name": "link_visual"
+      }
+    },
+    {
+      "name": "outside_both",
+      "xml": "<robot name=\"test\">\n  <link name=\"link\">\n    <inertial>\n      <mass value=\"0.1\" />\n      <origin rpy=\"1.570796326794895 0 0\" xyz=\"0.123456789123456 0 0.0\" />\n      <inertia ixx=\"0.01\" ixy=\"0\" ixz=\"0\" iyy=\"0.01\" iyz=\"0\" izz=\"0.01\" />\n    </inertial>\n    <visual name=\"outside\">\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </visual>\n    <collision name=\"outside\">\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </collision>\n  </link>\n  <gazebo reference=\"link\">\n    <material>\n      Gazebo/Orange\n    </material>\n    <mu1>\n      100\n    </mu1>\n    <mu2>\n\n      1000\n\n    </mu2>\n  </gazebo>\n</robot>",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 74657374 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 6c696e6b 0 0 0 0 0 0 4607182418800017408 1 1\nINERTIAL 4591870180066957722 4576918229304087675 4576918229304087675 4576918229304087675 0 0 0 4593560419855048998 0 0 4604544271217802183 0 0 4604544271217802194\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nVISUAL 6c696e6b5f66697865645f6a6f696e745f6c756d705f5f6f7574736964655f76697375616c 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nRESOLVED visual 0 0 0 0 0 0 0 4607182418800017408\nCOLLISION 6c696e6b5f66697865645f6a6f696e745f6c756d705f5f6f7574736964655f636f6c6c6973696f6e 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMU 4607182418800017408 4607182418800017408\nRESOLVED collision 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "",
+      "rust_policy": "Unsupported",
+      "native_projection": {
+        "visual_name": "link_fixed_joint_lump__outside_visual",
+        "collision_name": "link_fixed_joint_lump__outside_collision",
+        "material_name": null,
+        "material_uri": null,
+        "mu1_bits": 4607182418800017408,
+        "mu2_bits": 4607182418800017408
+      },
+      "accepted_74fa759_projection": {
+        "collision_name": "link_fixed_joint_lump__outside_collision",
+        "material_name": "Gazebo/Orange",
+        "material_uri": "file://media/materials/scripts/gazebo.material",
+        "mu1_bits": 4636737291354636288,
+        "mu2_bits": 4652007308841189376,
+        "visual_name": "link_fixed_joint_lump__outside_visual"
+      }
+    },
+    {
+      "name": "link_occurs_later",
+      "xml": "<robot name=\"test\">\n  <link name=\"link\">\n    <inertial>\n      <mass value=\"0.1\" />\n      <origin rpy=\"1.570796326794895 0 0\" xyz=\"0.123456789123456 0 0.0\" />\n      <inertia ixx=\"0.01\" ixy=\"0\" ixz=\"0\" iyy=\"0.01\" iyz=\"0\" izz=\"0.01\" />\n    </inertial>\n    <visual name=\"outside_link\">\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </visual>\n    <collision>\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </collision>\n  </link>\n  <gazebo reference=\"link\">\n    <material>\n      Gazebo/Orange\n    </material>\n    <mu1>\n      100\n    </mu1>\n    <mu2>\n\n      1000\n\n    </mu2>\n  </gazebo>\n</robot>",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 74657374 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 6c696e6b 0 0 0 0 0 0 4607182418800017408 1 1\nINERTIAL 4591870180066957722 4576918229304087675 4576918229304087675 4576918229304087675 0 0 0 4593560419855048998 0 0 4604544271217802183 0 0 4604544271217802194\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nVISUAL 6c696e6b5f66697865645f6a6f696e745f6c756d705f5f6f7574736964655f6c696e6b5f76697375616c 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nRESOLVED visual 0 0 0 0 0 0 0 4607182418800017408\nCOLLISION 6c696e6b5f636f6c6c6973696f6e 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMU 4636737291354636288 4652007308841189376\nRESOLVED collision 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "",
+      "rust_policy": "Unsupported",
+      "native_projection": {
+        "visual_name": "link_fixed_joint_lump__outside_link_visual",
+        "collision_name": "link_collision",
+        "material_name": null,
+        "material_uri": null,
+        "mu1_bits": 4636737291354636288,
+        "mu2_bits": 4652007308841189376
+      },
+      "accepted_74fa759_projection": {
+        "collision_name": "link_collision",
+        "material_name": "Gazebo/Orange",
+        "material_uri": "file://media/materials/scripts/gazebo.material",
+        "mu1_bits": 4636737291354636288,
+        "mu2_bits": 4652007308841189376,
+        "visual_name": "link_fixed_joint_lump__outside_link_visual"
+      }
+    },
+    {
+      "name": "case_sensitive_visual",
+      "xml": "<robot name=\"test\">\n  <link name=\"link\">\n    <inertial>\n      <mass value=\"0.1\" />\n      <origin rpy=\"1.570796326794895 0 0\" xyz=\"0.123456789123456 0 0.0\" />\n      <inertia ixx=\"0.01\" ixy=\"0\" ixz=\"0\" iyy=\"0.01\" iyz=\"0\" izz=\"0.01\" />\n    </inertial>\n    <visual name=\"Link_visual\">\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </visual>\n    <collision>\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </collision>\n  </link>\n  <gazebo reference=\"link\">\n    <material>\n      Gazebo/Orange\n    </material>\n    <mu1>\n      100\n    </mu1>\n    <mu2>\n\n      1000\n\n    </mu2>\n  </gazebo>\n</robot>",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 74657374 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 6c696e6b 0 0 0 0 0 0 4607182418800017408 1 1\nINERTIAL 4591870180066957722 4576918229304087675 4576918229304087675 4576918229304087675 0 0 0 4593560419855048998 0 0 4604544271217802183 0 0 4604544271217802194\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nVISUAL 6c696e6b5f66697865645f6a6f696e745f6c756d705f5f4c696e6b5f76697375616c5f76697375616c 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nRESOLVED visual 0 0 0 0 0 0 0 4607182418800017408\nCOLLISION 6c696e6b5f636f6c6c6973696f6e 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMU 4636737291354636288 4652007308841189376\nRESOLVED collision 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "",
+      "rust_policy": "Unsupported",
+      "native_projection": {
+        "visual_name": "link_fixed_joint_lump__Link_visual_visual",
+        "collision_name": "link_collision",
+        "material_name": null,
+        "material_uri": null,
+        "mu1_bits": 4636737291354636288,
+        "mu2_bits": 4652007308841189376
+      },
+      "accepted_74fa759_projection": {
+        "collision_name": "link_collision",
+        "material_name": "Gazebo/Orange",
+        "material_uri": "file://media/materials/scripts/gazebo.material",
+        "mu1_bits": 4636737291354636288,
+        "mu2_bits": 4652007308841189376,
+        "visual_name": "link_fixed_joint_lump__Link_visual_visual"
+      }
+    },
+    {
+      "name": "literal_lump_visual",
+      "xml": "<robot name=\"test\">\n  <link name=\"link\">\n    <inertial>\n      <mass value=\"0.1\" />\n      <origin rpy=\"1.570796326794895 0 0\" xyz=\"0.123456789123456 0 0.0\" />\n      <inertia ixx=\"0.01\" ixy=\"0\" ixz=\"0\" iyy=\"0.01\" iyz=\"0\" izz=\"0.01\" />\n    </inertial>\n    <visual name=\"link_fixed_joint_lump__visual\">\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </visual>\n    <collision>\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </collision>\n  </link>\n  <gazebo reference=\"link\">\n    <material>\n      Gazebo/Orange\n    </material>\n    <mu1>\n      100\n    </mu1>\n    <mu2>\n\n      1000\n\n    </mu2>\n  </gazebo>\n</robot>",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 74657374 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 6c696e6b 0 0 0 0 0 0 4607182418800017408 1 1\nINERTIAL 4591870180066957722 4576918229304087675 4576918229304087675 4576918229304087675 0 0 0 4593560419855048998 0 0 4604544271217802183 0 0 4604544271217802194\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nVISUAL 6c696e6b5f66697865645f6a6f696e745f6c756d705f5f76697375616c5f76697375616c 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nRESOLVED visual 0 0 0 0 0 0 0 4607182418800017408\nCOLLISION 6c696e6b5f636f6c6c6973696f6e 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMU 4636737291354636288 4652007308841189376\nRESOLVED collision 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "",
+      "rust_policy": "Unsupported",
+      "native_projection": {
+        "visual_name": "link_fixed_joint_lump__visual_visual",
+        "collision_name": "link_collision",
+        "material_name": null,
+        "material_uri": null,
+        "mu1_bits": 4636737291354636288,
+        "mu2_bits": 4652007308841189376
+      },
+      "accepted_74fa759_projection": {
+        "collision_name": "link_collision",
+        "material_name": "Gazebo/Orange",
+        "material_uri": "file://media/materials/scripts/gazebo.material",
+        "mu1_bits": 4636737291354636288,
+        "mu2_bits": 4652007308841189376,
+        "visual_name": "link_fixed_joint_lump__visual_visual"
+      }
+    },
+    {
+      "name": "literal_lump_collision",
+      "xml": "<robot name=\"test\">\n  <link name=\"link\">\n    <inertial>\n      <mass value=\"0.1\" />\n      <origin rpy=\"1.570796326794895 0 0\" xyz=\"0.123456789123456 0 0.0\" />\n      <inertia ixx=\"0.01\" ixy=\"0\" ixz=\"0\" iyy=\"0.01\" iyz=\"0\" izz=\"0.01\" />\n    </inertial>\n    <visual>\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </visual>\n    <collision name=\"link_fixed_joint_lump__collision\">\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </collision>\n  </link>\n  <gazebo reference=\"link\">\n    <material>\n      Gazebo/Orange\n    </material>\n    <mu1>\n      100\n    </mu1>\n    <mu2>\n\n      1000\n\n    </mu2>\n  </gazebo>\n</robot>",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 74657374 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 6c696e6b 0 0 0 0 0 0 4607182418800017408 1 1\nINERTIAL 4591870180066957722 4576918229304087675 4576918229304087675 4576918229304087675 0 0 0 4593560419855048998 0 0 4604544271217802183 0 0 4604544271217802194\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nVISUAL 6c696e6b5f76697375616c 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMATERIAL 47617a65626f2f4f72616e6765 66696c653a2f2f6d656469612f6d6174657269616c732f736372697074732f67617a65626f2e6d6174657269616c\nRESOLVED visual 0 0 0 0 0 0 0 4607182418800017408\nCOLLISION 6c696e6b5f66697865645f6a6f696e745f6c756d705f5f636f6c6c6973696f6e5f636f6c6c6973696f6e 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMU 4607182418800017408 4607182418800017408\nRESOLVED collision 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "",
+      "rust_policy": "Unsupported",
+      "native_projection": {
+        "visual_name": "link_visual",
+        "collision_name": "link_fixed_joint_lump__collision_collision",
+        "material_name": "Gazebo/Orange",
+        "material_uri": "file://media/materials/scripts/gazebo.material",
+        "mu1_bits": 4607182418800017408,
+        "mu2_bits": 4607182418800017408
+      },
+      "accepted_74fa759_projection": {
+        "collision_name": "link_fixed_joint_lump__collision_collision",
+        "material_name": "Gazebo/Orange",
+        "material_uri": "file://media/materials/scripts/gazebo.material",
+        "mu1_bits": 4636737291354636288,
+        "mu2_bits": 4652007308841189376,
+        "visual_name": "link_visual"
+      }
+    },
+    {
+      "name": "case_sensitive_lump_token",
+      "xml": "<robot name=\"test\">\n  <link name=\"link\">\n    <inertial>\n      <mass value=\"0.1\" />\n      <origin rpy=\"1.570796326794895 0 0\" xyz=\"0.123456789123456 0 0.0\" />\n      <inertia ixx=\"0.01\" ixy=\"0\" ixz=\"0\" iyy=\"0.01\" iyz=\"0\" izz=\"0.01\" />\n    </inertial>\n    <visual name=\"link_FIXED_JOINT_LUMP__visual\">\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </visual>\n    <collision>\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </collision>\n  </link>\n  <gazebo reference=\"link\">\n    <material>\n      Gazebo/Orange\n    </material>\n    <mu1>\n      100\n    </mu1>\n    <mu2>\n\n      1000\n\n    </mu2>\n  </gazebo>\n</robot>",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 74657374 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 6c696e6b 0 0 0 0 0 0 4607182418800017408 1 1\nINERTIAL 4591870180066957722 4576918229304087675 4576918229304087675 4576918229304087675 0 0 0 4593560419855048998 0 0 4604544271217802183 0 0 4604544271217802194\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nVISUAL 6c696e6b5f46495845445f4a4f494e545f4c554d505f5f76697375616c5f76697375616c 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMATERIAL 47617a65626f2f4f72616e6765 66696c653a2f2f6d656469612f6d6174657269616c732f736372697074732f67617a65626f2e6d6174657269616c\nRESOLVED visual 0 0 0 0 0 0 0 4607182418800017408\nCOLLISION 6c696e6b5f636f6c6c6973696f6e 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMU 4636737291354636288 4652007308841189376\nRESOLVED collision 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "",
+      "rust_policy": "accepted",
+      "native_projection": {
+        "visual_name": "link_FIXED_JOINT_LUMP__visual_visual",
+        "collision_name": "link_collision",
+        "material_name": "Gazebo/Orange",
+        "material_uri": "file://media/materials/scripts/gazebo.material",
+        "mu1_bits": 4636737291354636288,
+        "mu2_bits": 4652007308841189376
+      },
+      "accepted_74fa759_projection": {
+        "collision_name": "link_collision",
+        "material_name": "Gazebo/Orange",
+        "material_uri": "file://media/materials/scripts/gazebo.material",
+        "mu1_bits": 4636737291354636288,
+        "mu2_bits": 4652007308841189376,
+        "visual_name": "link_FIXED_JOINT_LUMP__visual_visual"
+      }
+    },
+    {
+      "name": "material_only_unrelated_collision",
+      "xml": "<robot name=\"test\">\n  <link name=\"link\">\n    <inertial>\n      <mass value=\"0.1\" />\n      <origin rpy=\"1.570796326794895 0 0\" xyz=\"0.123456789123456 0 0.0\" />\n      <inertia ixx=\"0.01\" ixy=\"0\" ixz=\"0\" iyy=\"0.01\" iyz=\"0\" izz=\"0.01\" />\n    </inertial>\n    <visual>\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </visual>\n    <collision name=\"outside\">\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </collision>\n  </link>\n  <gazebo reference=\"link\">\n    <material>\n      Gazebo/Orange\n    </material>\n    \n    \n  </gazebo>\n</robot>",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 74657374 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 6c696e6b 0 0 0 0 0 0 4607182418800017408 1 1\nINERTIAL 4591870180066957722 4576918229304087675 4576918229304087675 4576918229304087675 0 0 0 4593560419855048998 0 0 4604544271217802183 0 0 4604544271217802194\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nVISUAL 6c696e6b5f76697375616c 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMATERIAL 47617a65626f2f4f72616e6765 66696c653a2f2f6d656469612f6d6174657269616c732f736372697074732f67617a65626f2e6d6174657269616c\nRESOLVED visual 0 0 0 0 0 0 0 4607182418800017408\nCOLLISION 6c696e6b5f66697865645f6a6f696e745f6c756d705f5f6f7574736964655f636f6c6c6973696f6e 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMU 4607182418800017408 4607182418800017408\nRESOLVED collision 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "",
+      "rust_policy": "accepted",
+      "native_projection": {
+        "visual_name": "link_visual",
+        "collision_name": "link_fixed_joint_lump__outside_collision",
+        "material_name": "Gazebo/Orange",
+        "material_uri": "file://media/materials/scripts/gazebo.material",
+        "mu1_bits": 4607182418800017408,
+        "mu2_bits": 4607182418800017408
+      },
+      "accepted_74fa759_projection": {
+        "collision_name": "link_fixed_joint_lump__outside_collision",
+        "material_name": "Gazebo/Orange",
+        "material_uri": "file://media/materials/scripts/gazebo.material",
+        "mu1_bits": 4607182418800017408,
+        "mu2_bits": 4607182418800017408,
+        "visual_name": "link_visual"
+      }
+    },
+    {
+      "name": "friction_only_unrelated_visual",
+      "xml": "<robot name=\"test\">\n  <link name=\"link\">\n    <inertial>\n      <mass value=\"0.1\" />\n      <origin rpy=\"1.570796326794895 0 0\" xyz=\"0.123456789123456 0 0.0\" />\n      <inertia ixx=\"0.01\" ixy=\"0\" ixz=\"0\" iyy=\"0.01\" iyz=\"0\" izz=\"0.01\" />\n    </inertial>\n    <visual name=\"outside\">\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </visual>\n    <collision>\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </collision>\n  </link>\n  <gazebo reference=\"link\">\n    \n    <mu1>\n      100\n    </mu1>\n    <mu2>\n\n      1000\n\n    </mu2>\n  </gazebo>\n</robot>",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 74657374 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 6c696e6b 0 0 0 0 0 0 4607182418800017408 1 1\nINERTIAL 4591870180066957722 4576918229304087675 4576918229304087675 4576918229304087675 0 0 0 4593560419855048998 0 0 4604544271217802183 0 0 4604544271217802194\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nVISUAL 6c696e6b5f66697865645f6a6f696e745f6c756d705f5f6f7574736964655f76697375616c 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nRESOLVED visual 0 0 0 0 0 0 0 4607182418800017408\nCOLLISION 6c696e6b5f636f6c6c6973696f6e 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMU 4636737291354636288 4652007308841189376\nRESOLVED collision 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "",
+      "rust_policy": "accepted",
+      "native_projection": {
+        "visual_name": "link_fixed_joint_lump__outside_visual",
+        "collision_name": "link_collision",
+        "material_name": null,
+        "material_uri": null,
+        "mu1_bits": 4636737291354636288,
+        "mu2_bits": 4652007308841189376
+      },
+      "accepted_74fa759_projection": {
+        "collision_name": "link_collision",
+        "material_name": null,
+        "material_uri": null,
+        "mu1_bits": 4636737291354636288,
+        "mu2_bits": 4652007308841189376,
+        "visual_name": "link_fixed_joint_lump__outside_visual"
+      }
+    },
+    {
+      "name": "mu1_only_outside_collision",
+      "xml": "<robot name=\"test\">\n  <link name=\"link\">\n    <inertial>\n      <mass value=\"0.1\" />\n      <origin rpy=\"1.570796326794895 0 0\" xyz=\"0.123456789123456 0 0.0\" />\n      <inertia ixx=\"0.01\" ixy=\"0\" ixz=\"0\" iyy=\"0.01\" iyz=\"0\" izz=\"0.01\" />\n    </inertial>\n    <visual>\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </visual>\n    <collision name=\"outside\">\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </collision>\n  </link>\n  <gazebo reference=\"link\">\n    \n    <mu1>\n      100\n    </mu1>\n    \n  </gazebo>\n</robot>",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 74657374 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 6c696e6b 0 0 0 0 0 0 4607182418800017408 1 1\nINERTIAL 4591870180066957722 4576918229304087675 4576918229304087675 4576918229304087675 0 0 0 4593560419855048998 0 0 4604544271217802183 0 0 4604544271217802194\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nVISUAL 6c696e6b5f76697375616c 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nRESOLVED visual 0 0 0 0 0 0 0 4607182418800017408\nCOLLISION 6c696e6b5f66697865645f6a6f696e745f6c756d705f5f6f7574736964655f636f6c6c6973696f6e 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMU 4607182418800017408 4607182418800017408\nRESOLVED collision 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "",
+      "rust_policy": "Unsupported",
+      "native_projection": {
+        "visual_name": "link_visual",
+        "collision_name": "link_fixed_joint_lump__outside_collision",
+        "material_name": null,
+        "material_uri": null,
+        "mu1_bits": 4607182418800017408,
+        "mu2_bits": 4607182418800017408
+      },
+      "accepted_74fa759_projection": {
+        "collision_name": "link_fixed_joint_lump__outside_collision",
+        "material_name": null,
+        "material_uri": null,
+        "mu1_bits": 4636737291354636288,
+        "mu2_bits": 4607182418800017408,
+        "visual_name": "link_visual"
+      }
+    },
+    {
+      "name": "mu2_only_outside_collision",
+      "xml": "<robot name=\"test\">\n  <link name=\"link\">\n    <inertial>\n      <mass value=\"0.1\" />\n      <origin rpy=\"1.570796326794895 0 0\" xyz=\"0.123456789123456 0 0.0\" />\n      <inertia ixx=\"0.01\" ixy=\"0\" ixz=\"0\" iyy=\"0.01\" iyz=\"0\" izz=\"0.01\" />\n    </inertial>\n    <visual>\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </visual>\n    <collision name=\"outside\">\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </collision>\n  </link>\n  <gazebo reference=\"link\">\n    \n    \n    <mu2>\n\n      1000\n\n    </mu2>\n  </gazebo>\n</robot>",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 74657374 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 6c696e6b 0 0 0 0 0 0 4607182418800017408 1 1\nINERTIAL 4591870180066957722 4576918229304087675 4576918229304087675 4576918229304087675 0 0 0 4593560419855048998 0 0 4604544271217802183 0 0 4604544271217802194\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nVISUAL 6c696e6b5f76697375616c 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nRESOLVED visual 0 0 0 0 0 0 0 4607182418800017408\nCOLLISION 6c696e6b5f66697865645f6a6f696e745f6c756d705f5f6f7574736964655f636f6c6c6973696f6e 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMU 4607182418800017408 4607182418800017408\nRESOLVED collision 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "",
+      "rust_policy": "Unsupported",
+      "native_projection": {
+        "visual_name": "link_visual",
+        "collision_name": "link_fixed_joint_lump__outside_collision",
+        "material_name": null,
+        "material_uri": null,
+        "mu1_bits": 4607182418800017408,
+        "mu2_bits": 4607182418800017408
+      },
+      "accepted_74fa759_projection": {
+        "collision_name": "link_fixed_joint_lump__outside_collision",
+        "material_name": null,
+        "material_uri": null,
+        "mu1_bits": 4607182418800017408,
+        "mu2_bits": 4652007308841189376,
+        "visual_name": "link_visual"
+      }
+    },
+    {
+      "name": "no_extensions_outside_names",
+      "xml": "<robot name=\"test\">\n  <link name=\"link\">\n    <inertial>\n      <mass value=\"0.1\" />\n      <origin rpy=\"1.570796326794895 0 0\" xyz=\"0.123456789123456 0 0.0\" />\n      <inertia ixx=\"0.01\" ixy=\"0\" ixz=\"0\" iyy=\"0.01\" iyz=\"0\" izz=\"0.01\" />\n    </inertial>\n    <visual name=\"outside\">\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </visual>\n    <collision name=\"outside\">\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </collision>\n  </link>\n  \n</robot>",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 74657374 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 6c696e6b 0 0 0 0 0 0 4607182418800017408 1 1\nINERTIAL 4591870180066957722 4576918229304087675 4576918229304087675 4576918229304087675 0 0 0 4593560419855048998 0 0 4604544271217802183 0 0 4604544271217802194\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nVISUAL 6c696e6b5f66697865645f6a6f696e745f6c756d705f5f6f7574736964655f76697375616c 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nRESOLVED visual 0 0 0 0 0 0 0 4607182418800017408\nCOLLISION 6c696e6b5f66697865645f6a6f696e745f6c756d705f5f6f7574736964655f636f6c6c6973696f6e 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMU 4607182418800017408 4607182418800017408\nRESOLVED collision 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "",
+      "rust_policy": "accepted",
+      "native_projection": {
+        "visual_name": "link_fixed_joint_lump__outside_visual",
+        "collision_name": "link_fixed_joint_lump__outside_collision",
+        "material_name": null,
+        "material_uri": null,
+        "mu1_bits": 4607182418800017408,
+        "mu2_bits": 4607182418800017408
+      },
+      "accepted_74fa759_projection": {
+        "collision_name": "link_fixed_joint_lump__outside_collision",
+        "material_name": null,
+        "material_uri": null,
+        "mu1_bits": 4607182418800017408,
+        "mu2_bits": 4607182418800017408,
+        "visual_name": "link_fixed_joint_lump__outside_visual"
+      }
+    },
+    {
+      "name": "lump_token_in_link_name",
+      "xml": "<robot name=\"test\">\n  <link name=\"link_fixed_joint_lump__base\">\n    <inertial>\n      <mass value=\"0.1\" />\n      <origin rpy=\"1.570796326794895 0 0\" xyz=\"0.123456789123456 0 0.0\" />\n      <inertia ixx=\"0.01\" ixy=\"0\" ixz=\"0\" iyy=\"0.01\" iyz=\"0\" izz=\"0.01\" />\n    </inertial>\n    <visual>\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </visual>\n    <collision>\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </collision>\n  </link>\n  <gazebo reference=\"link_fixed_joint_lump__base\">\n    <material>\n      Gazebo/Orange\n    </material>\n    <mu1>\n      100\n    </mu1>\n    <mu2>\n\n      1000\n\n    </mu2>\n  </gazebo>\n</robot>",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 74657374 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 6c696e6b5f66697865645f6a6f696e745f6c756d705f5f62617365 0 0 0 0 0 0 4607182418800017408 1 1\nINERTIAL 4591870180066957722 4576918229304087675 4576918229304087675 4576918229304087675 0 0 0 4593560419855048998 0 0 4604544271217802183 0 0 4604544271217802194\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nVISUAL 6c696e6b5f66697865645f6a6f696e745f6c756d705f5f626173655f76697375616c 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nRESOLVED visual 0 0 0 0 0 0 0 4607182418800017408\nCOLLISION 6c696e6b5f66697865645f6a6f696e745f6c756d705f5f626173655f636f6c6c6973696f6e 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMU 4607182418800017408 4607182418800017408\nRESOLVED collision 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "",
+      "rust_policy": "Unsupported",
+      "native_projection": {
+        "visual_name": "link_fixed_joint_lump__base_visual",
+        "collision_name": "link_fixed_joint_lump__base_collision",
+        "material_name": null,
+        "material_uri": null,
+        "mu1_bits": 4607182418800017408,
+        "mu2_bits": 4607182418800017408
+      },
+      "accepted_74fa759_projection": {
+        "collision_name": "link_fixed_joint_lump__base_collision",
+        "material_name": "Gazebo/Orange",
+        "material_uri": "file://media/materials/scripts/gazebo.material",
+        "mu1_bits": 4636737291354636288,
+        "mu2_bits": 4652007308841189376,
+        "visual_name": "link_fixed_joint_lump__base_visual"
+      }
+    },
+    {
+      "name": "lump_link_with_empty_view_names",
+      "xml": "<robot name=\"test\">\n  <link name=\"link_fixed_joint_lump__base\">\n    <inertial>\n      <mass value=\"0.1\" />\n      <origin rpy=\"1.570796326794895 0 0\" xyz=\"0.123456789123456 0 0.0\" />\n      <inertia ixx=\"0.01\" ixy=\"0\" ixz=\"0\" iyy=\"0.01\" iyz=\"0\" izz=\"0.01\" />\n    </inertial>\n    <visual name=\"\">\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </visual>\n    <collision name=\"\">\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </collision>\n  </link>\n  <gazebo reference=\"link_fixed_joint_lump__base\">\n    <material>\n      Gazebo/Orange\n    </material>\n    <mu1>\n      100\n    </mu1>\n    <mu2>\n\n      1000\n\n    </mu2>\n  </gazebo>\n</robot>",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 74657374 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 6c696e6b5f66697865645f6a6f696e745f6c756d705f5f62617365 0 0 0 0 0 0 4607182418800017408 1 1\nINERTIAL 4591870180066957722 4576918229304087675 4576918229304087675 4576918229304087675 0 0 0 4593560419855048998 0 0 4604544271217802183 0 0 4604544271217802194\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nVISUAL 6c696e6b5f66697865645f6a6f696e745f6c756d705f5f626173655f76697375616c 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nRESOLVED visual 0 0 0 0 0 0 0 4607182418800017408\nCOLLISION 6c696e6b5f66697865645f6a6f696e745f6c756d705f5f626173655f636f6c6c6973696f6e 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMU 4607182418800017408 4607182418800017408\nRESOLVED collision 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "",
+      "rust_policy": "Unsupported",
+      "native_projection": {
+        "visual_name": "link_fixed_joint_lump__base_visual",
+        "collision_name": "link_fixed_joint_lump__base_collision",
+        "material_name": null,
+        "material_uri": null,
+        "mu1_bits": 4607182418800017408,
+        "mu2_bits": 4607182418800017408
+      },
+      "accepted_74fa759_projection": {
+        "collision_name": "link_fixed_joint_lump__base_collision",
+        "material_name": "Gazebo/Orange",
+        "material_uri": "file://media/materials/scripts/gazebo.material",
+        "mu1_bits": 4636737291354636288,
+        "mu2_bits": 4652007308841189376,
+        "visual_name": "link_fixed_joint_lump__base_visual"
+      }
+    },
+    {
+      "name": "escaped_lump_token_in_view_name",
+      "xml": "<robot name=\"test\">\n  <link name=\"link\">\n    <inertial>\n      <mass value=\"0.1\" />\n      <origin rpy=\"1.570796326794895 0 0\" xyz=\"0.123456789123456 0 0.0\" />\n      <inertia ixx=\"0.01\" ixy=\"0\" ixz=\"0\" iyy=\"0.01\" iyz=\"0\" izz=\"0.01\" />\n    </inertial>\n    <visual name=\"link_fixed_joint_lump&#95;&#95;visual\">\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </visual>\n    <collision>\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </collision>\n  </link>\n  <gazebo reference=\"link\">\n    <material>\n      Gazebo/Orange\n    </material>\n    <mu1>\n      100\n    </mu1>\n    <mu2>\n\n      1000\n\n    </mu2>\n  </gazebo>\n</robot>",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 74657374 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 6c696e6b 0 0 0 0 0 0 4607182418800017408 1 1\nINERTIAL 4591870180066957722 4576918229304087675 4576918229304087675 4576918229304087675 0 0 0 4593560419855048998 0 0 4604544271217802183 0 0 4604544271217802194\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nVISUAL 6c696e6b5f66697865645f6a6f696e745f6c756d705f5f76697375616c5f76697375616c 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nRESOLVED visual 0 0 0 0 0 0 0 4607182418800017408\nCOLLISION 6c696e6b5f636f6c6c6973696f6e 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMU 4636737291354636288 4652007308841189376\nRESOLVED collision 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "",
+      "rust_policy": "Unsupported",
+      "native_projection": {
+        "visual_name": "link_fixed_joint_lump__visual_visual",
+        "collision_name": "link_collision",
+        "material_name": null,
+        "material_uri": null,
+        "mu1_bits": 4636737291354636288,
+        "mu2_bits": 4652007308841189376
+      },
+      "accepted_74fa759_projection": {
+        "collision_name": "link_collision",
+        "material_name": "Gazebo/Orange",
+        "material_uri": "file://media/materials/scripts/gazebo.material",
+        "mu1_bits": 4636737291354636288,
+        "mu2_bits": 4652007308841189376,
+        "visual_name": "link_fixed_joint_lump__visual_visual"
+      }
+    },
+    {
+      "name": "escaped_lump_token_in_link_name",
+      "xml": "<robot name=\"test\">\n  <link name=\"link_fixed_joint_lump&#95;&#95;base\">\n    <inertial>\n      <mass value=\"0.1\" />\n      <origin rpy=\"1.570796326794895 0 0\" xyz=\"0.123456789123456 0 0.0\" />\n      <inertia ixx=\"0.01\" ixy=\"0\" ixz=\"0\" iyy=\"0.01\" iyz=\"0\" izz=\"0.01\" />\n    </inertial>\n    <visual>\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </visual>\n    <collision>\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </collision>\n  </link>\n  <gazebo reference=\"link_fixed_joint_lump&#95;&#95;base\">\n    <material>\n      Gazebo/Orange\n    </material>\n    <mu1>\n      100\n    </mu1>\n    <mu2>\n\n      1000\n\n    </mu2>\n  </gazebo>\n</robot>",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 74657374 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 6c696e6b5f66697865645f6a6f696e745f6c756d705f5f62617365 0 0 0 0 0 0 4607182418800017408 1 1\nINERTIAL 4591870180066957722 4576918229304087675 4576918229304087675 4576918229304087675 0 0 0 4593560419855048998 0 0 4604544271217802183 0 0 4604544271217802194\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nVISUAL 6c696e6b5f66697865645f6a6f696e745f6c756d705f5f626173655f76697375616c 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nRESOLVED visual 0 0 0 0 0 0 0 4607182418800017408\nCOLLISION 6c696e6b5f66697865645f6a6f696e745f6c756d705f5f626173655f636f6c6c6973696f6e 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMU 4607182418800017408 4607182418800017408\nRESOLVED collision 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "",
+      "rust_policy": "Unsupported",
+      "native_projection": {
+        "visual_name": "link_fixed_joint_lump__base_visual",
+        "collision_name": "link_fixed_joint_lump__base_collision",
+        "material_name": null,
+        "material_uri": null,
+        "mu1_bits": 4607182418800017408,
+        "mu2_bits": 4607182418800017408
+      },
+      "accepted_74fa759_projection": {
+        "collision_name": "link_fixed_joint_lump__base_collision",
+        "material_name": "Gazebo/Orange",
+        "material_uri": "file://media/materials/scripts/gazebo.material",
+        "mu1_bits": 4636737291354636288,
+        "mu2_bits": 4652007308841189376,
+        "visual_name": "link_fixed_joint_lump__base_visual"
+      }
+    },
+    {
+      "name": "visual_suffix_completes_link_prefix",
+      "xml": "<robot name=\"test\">\n  <link name=\"a_visual\">\n    <inertial>\n      <mass value=\"0.1\" />\n      <origin rpy=\"1.570796326794895 0 0\" xyz=\"0.123456789123456 0 0.0\" />\n      <inertia ixx=\"0.01\" ixy=\"0\" ixz=\"0\" iyy=\"0.01\" iyz=\"0\" izz=\"0.01\" />\n    </inertial>\n    <visual name=\"a\">\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </visual>\n    <collision>\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </collision>\n  </link>\n  <gazebo reference=\"a_visual\">\n    <material>\n      Gazebo/Orange\n    </material>\n    <mu1>\n      100\n    </mu1>\n    <mu2>\n\n      1000\n\n    </mu2>\n  </gazebo>\n</robot>",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 74657374 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 615f76697375616c 0 0 0 0 0 0 4607182418800017408 1 1\nINERTIAL 4591870180066957722 4576918229304087675 4576918229304087675 4576918229304087675 0 0 0 4593560419855048998 0 0 4604544271217802183 0 0 4604544271217802194\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nVISUAL 615f76697375616c 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMATERIAL 47617a65626f2f4f72616e6765 66696c653a2f2f6d656469612f6d6174657269616c732f736372697074732f67617a65626f2e6d6174657269616c\nRESOLVED visual 0 0 0 0 0 0 0 4607182418800017408\nCOLLISION 615f76697375616c5f636f6c6c6973696f6e 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMU 4636737291354636288 4652007308841189376\nRESOLVED collision 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "",
+      "rust_policy": "accepted",
+      "native_projection": {
+        "visual_name": "a_visual",
+        "collision_name": "a_visual_collision",
+        "material_name": "Gazebo/Orange",
+        "material_uri": "file://media/materials/scripts/gazebo.material",
+        "mu1_bits": 4636737291354636288,
+        "mu2_bits": 4652007308841189376
+      },
+      "accepted_74fa759_projection": {
+        "collision_name": "a_visual_collision",
+        "material_name": "Gazebo/Orange",
+        "material_uri": "file://media/materials/scripts/gazebo.material",
+        "mu1_bits": 4636737291354636288,
+        "mu2_bits": 4652007308841189376,
+        "visual_name": "a_visual"
+      }
+    },
+    {
+      "name": "collision_suffix_completes_link_prefix",
+      "xml": "<robot name=\"test\">\n  <link name=\"a_collision\">\n    <inertial>\n      <mass value=\"0.1\" />\n      <origin rpy=\"1.570796326794895 0 0\" xyz=\"0.123456789123456 0 0.0\" />\n      <inertia ixx=\"0.01\" ixy=\"0\" ixz=\"0\" iyy=\"0.01\" iyz=\"0\" izz=\"0.01\" />\n    </inertial>\n    <visual>\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </visual>\n    <collision name=\"a\">\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </collision>\n  </link>\n  <gazebo reference=\"a_collision\">\n    <material>\n      Gazebo/Orange\n    </material>\n    <mu1>\n      100\n    </mu1>\n    <mu2>\n\n      1000\n\n    </mu2>\n  </gazebo>\n</robot>",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 74657374 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 615f636f6c6c6973696f6e 0 0 0 0 0 0 4607182418800017408 1 1\nINERTIAL 4591870180066957722 4576918229304087675 4576918229304087675 4576918229304087675 0 0 0 4593560419855048998 0 0 4604544271217802183 0 0 4604544271217802194\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nVISUAL 615f636f6c6c6973696f6e5f76697375616c 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMATERIAL 47617a65626f2f4f72616e6765 66696c653a2f2f6d656469612f6d6174657269616c732f736372697074732f67617a65626f2e6d6174657269616c\nRESOLVED visual 0 0 0 0 0 0 0 4607182418800017408\nCOLLISION 615f636f6c6c6973696f6e 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMU 4636737291354636288 4652007308841189376\nRESOLVED collision 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "",
+      "rust_policy": "accepted",
+      "native_projection": {
+        "visual_name": "a_collision_visual",
+        "collision_name": "a_collision",
+        "material_name": "Gazebo/Orange",
+        "material_uri": "file://media/materials/scripts/gazebo.material",
+        "mu1_bits": 4636737291354636288,
+        "mu2_bits": 4652007308841189376
+      },
+      "accepted_74fa759_projection": {
+        "collision_name": "a_collision",
+        "material_name": "Gazebo/Orange",
+        "material_uri": "file://media/materials/scripts/gazebo.material",
+        "mu1_bits": 4636737291354636288,
+        "mu2_bits": 4652007308841189376,
+        "visual_name": "a_collision_visual"
+      }
+    },
+    {
+      "name": "suffix_does_not_complete_link_prefix",
+      "xml": "<robot name=\"test\">\n  <link name=\"a_visual_extra\">\n    <inertial>\n      <mass value=\"0.1\" />\n      <origin rpy=\"1.570796326794895 0 0\" xyz=\"0.123456789123456 0 0.0\" />\n      <inertia ixx=\"0.01\" ixy=\"0\" ixz=\"0\" iyy=\"0.01\" iyz=\"0\" izz=\"0.01\" />\n    </inertial>\n    <visual name=\"a\">\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </visual>\n    <collision>\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </collision>\n  </link>\n  <gazebo reference=\"a_visual_extra\">\n    <material>\n      Gazebo/Orange\n    </material>\n    <mu1>\n      100\n    </mu1>\n    <mu2>\n\n      1000\n\n    </mu2>\n  </gazebo>\n</robot>",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 74657374 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 615f76697375616c5f6578747261 0 0 0 0 0 0 4607182418800017408 1 1\nINERTIAL 4591870180066957722 4576918229304087675 4576918229304087675 4576918229304087675 0 0 0 4593560419855048998 0 0 4604544271217802183 0 0 4604544271217802194\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nVISUAL 615f76697375616c5f65787472615f66697865645f6a6f696e745f6c756d705f5f615f76697375616c 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nRESOLVED visual 0 0 0 0 0 0 0 4607182418800017408\nCOLLISION 615f76697375616c5f65787472615f636f6c6c6973696f6e 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMU 4636737291354636288 4652007308841189376\nRESOLVED collision 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "",
+      "rust_policy": "Unsupported",
+      "native_projection": {
+        "visual_name": "a_visual_extra_fixed_joint_lump__a_visual",
+        "collision_name": "a_visual_extra_collision",
+        "material_name": null,
+        "material_uri": null,
+        "mu1_bits": 4636737291354636288,
+        "mu2_bits": 4652007308841189376
+      },
+      "accepted_74fa759_projection": {
+        "collision_name": "a_visual_extra_collision",
+        "material_name": "Gazebo/Orange",
+        "material_uri": "file://media/materials/scripts/gazebo.material",
+        "mu1_bits": 4636737291354636288,
+        "mu2_bits": 4652007308841189376,
+        "visual_name": "a_visual_extra_fixed_joint_lump__a_visual"
+      }
+    },
+    {
+      "name": "visual_suffix_completes_lump_token",
+      "xml": "<robot name=\"test\">\n  <link name=\"link\">\n    <inertial>\n      <mass value=\"0.1\" />\n      <origin rpy=\"1.570796326794895 0 0\" xyz=\"0.123456789123456 0 0.0\" />\n      <inertia ixx=\"0.01\" ixy=\"0\" ixz=\"0\" iyy=\"0.01\" iyz=\"0\" izz=\"0.01\" />\n    </inertial>\n    <visual name=\"link_fixed_joint_lump_\">\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </visual>\n    <collision>\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </collision>\n  </link>\n  <gazebo reference=\"link\">\n    <material>\n      Gazebo/Orange\n    </material>\n    <mu1>\n      100\n    </mu1>\n    <mu2>\n\n      1000\n\n    </mu2>\n  </gazebo>\n</robot>",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 74657374 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 6c696e6b 0 0 0 0 0 0 4607182418800017408 1 1\nINERTIAL 4591870180066957722 4576918229304087675 4576918229304087675 4576918229304087675 0 0 0 4593560419855048998 0 0 4604544271217802183 0 0 4604544271217802194\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nVISUAL 6c696e6b5f66697865645f6a6f696e745f6c756d705f5f76697375616c 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nRESOLVED visual 0 0 0 0 0 0 0 4607182418800017408\nCOLLISION 6c696e6b5f636f6c6c6973696f6e 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMU 4636737291354636288 4652007308841189376\nRESOLVED collision 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "",
+      "rust_policy": "Unsupported",
+      "native_projection": {
+        "visual_name": "link_fixed_joint_lump__visual",
+        "collision_name": "link_collision",
+        "material_name": null,
+        "material_uri": null,
+        "mu1_bits": 4636737291354636288,
+        "mu2_bits": 4652007308841189376
+      },
+      "accepted_74fa759_projection": {
+        "collision_name": "link_collision",
+        "material_name": "Gazebo/Orange",
+        "material_uri": "file://media/materials/scripts/gazebo.material",
+        "mu1_bits": 4636737291354636288,
+        "mu2_bits": 4652007308841189376,
+        "visual_name": "link_fixed_joint_lump__visual"
+      }
+    },
+    {
+      "name": "collision_suffix_completes_lump_token",
+      "xml": "<robot name=\"test\">\n  <link name=\"link\">\n    <inertial>\n      <mass value=\"0.1\" />\n      <origin rpy=\"1.570796326794895 0 0\" xyz=\"0.123456789123456 0 0.0\" />\n      <inertia ixx=\"0.01\" ixy=\"0\" ixz=\"0\" iyy=\"0.01\" iyz=\"0\" izz=\"0.01\" />\n    </inertial>\n    <visual>\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </visual>\n    <collision name=\"link_fixed_joint_lump_\">\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </collision>\n  </link>\n  <gazebo reference=\"link\">\n    <material>\n      Gazebo/Orange\n    </material>\n    <mu1>\n      100\n    </mu1>\n    <mu2>\n\n      1000\n\n    </mu2>\n  </gazebo>\n</robot>",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 74657374 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 6c696e6b 0 0 0 0 0 0 4607182418800017408 1 1\nINERTIAL 4591870180066957722 4576918229304087675 4576918229304087675 4576918229304087675 0 0 0 4593560419855048998 0 0 4604544271217802183 0 0 4604544271217802194\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nVISUAL 6c696e6b5f76697375616c 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMATERIAL 47617a65626f2f4f72616e6765 66696c653a2f2f6d656469612f6d6174657269616c732f736372697074732f67617a65626f2e6d6174657269616c\nRESOLVED visual 0 0 0 0 0 0 0 4607182418800017408\nCOLLISION 6c696e6b5f66697865645f6a6f696e745f6c756d705f5f636f6c6c6973696f6e 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMU 4607182418800017408 4607182418800017408\nRESOLVED collision 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "",
+      "rust_policy": "Unsupported",
+      "native_projection": {
+        "visual_name": "link_visual",
+        "collision_name": "link_fixed_joint_lump__collision",
+        "material_name": "Gazebo/Orange",
+        "material_uri": "file://media/materials/scripts/gazebo.material",
+        "mu1_bits": 4607182418800017408,
+        "mu2_bits": 4607182418800017408
+      },
+      "accepted_74fa759_projection": {
+        "collision_name": "link_fixed_joint_lump__collision",
+        "material_name": "Gazebo/Orange",
+        "material_uri": "file://media/materials/scripts/gazebo.material",
+        "mu1_bits": 4636737291354636288,
+        "mu2_bits": 4652007308841189376,
+        "visual_name": "link_visual"
+      }
+    },
+    {
+      "name": "link_suffix_completes_lump_token",
+      "xml": "<robot name=\"test\">\n  <link name=\"link_fixed_joint_lump_\">\n    <inertial>\n      <mass value=\"0.1\" />\n      <origin rpy=\"1.570796326794895 0 0\" xyz=\"0.123456789123456 0 0.0\" />\n      <inertia ixx=\"0.01\" ixy=\"0\" ixz=\"0\" iyy=\"0.01\" iyz=\"0\" izz=\"0.01\" />\n    </inertial>\n    <visual>\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </visual>\n    <collision>\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </collision>\n  </link>\n  <gazebo reference=\"link_fixed_joint_lump_\">\n    <material>\n      Gazebo/Orange\n    </material>\n    <mu1>\n      100\n    </mu1>\n    <mu2>\n\n      1000\n\n    </mu2>\n  </gazebo>\n</robot>",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 74657374 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 6c696e6b5f66697865645f6a6f696e745f6c756d705f 0 0 0 0 0 0 4607182418800017408 1 1\nINERTIAL 4591870180066957722 4576918229304087675 4576918229304087675 4576918229304087675 0 0 0 4593560419855048998 0 0 4604544271217802183 0 0 4604544271217802194\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nVISUAL 6c696e6b5f66697865645f6a6f696e745f6c756d705f5f76697375616c 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nRESOLVED visual 0 0 0 0 0 0 0 4607182418800017408\nCOLLISION 6c696e6b5f66697865645f6a6f696e745f6c756d705f5f636f6c6c6973696f6e 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMU 4607182418800017408 4607182418800017408\nRESOLVED collision 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "",
+      "rust_policy": "Unsupported",
+      "native_projection": {
+        "visual_name": "link_fixed_joint_lump__visual",
+        "collision_name": "link_fixed_joint_lump__collision",
+        "material_name": null,
+        "material_uri": null,
+        "mu1_bits": 4607182418800017408,
+        "mu2_bits": 4607182418800017408
+      },
+      "accepted_74fa759_projection": {
+        "collision_name": "link_fixed_joint_lump__collision",
+        "material_name": "Gazebo/Orange",
+        "material_uri": "file://media/materials/scripts/gazebo.material",
+        "mu1_bits": 4636737291354636288,
+        "mu2_bits": 4652007308841189376,
+        "visual_name": "link_fixed_joint_lump__visual"
+      }
+    },
+    {
+      "name": "one_underscore_is_not_lump_token",
+      "xml": "<robot name=\"test\">\n  <link name=\"link_fixed_joint_lump\">\n    <inertial>\n      <mass value=\"0.1\" />\n      <origin rpy=\"1.570796326794895 0 0\" xyz=\"0.123456789123456 0 0.0\" />\n      <inertia ixx=\"0.01\" ixy=\"0\" ixz=\"0\" iyy=\"0.01\" iyz=\"0\" izz=\"0.01\" />\n    </inertial>\n    <visual>\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </visual>\n    <collision>\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </collision>\n  </link>\n  <gazebo reference=\"link_fixed_joint_lump\">\n    <material>\n      Gazebo/Orange\n    </material>\n    <mu1>\n      100\n    </mu1>\n    <mu2>\n\n      1000\n\n    </mu2>\n  </gazebo>\n</robot>",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 74657374 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 6c696e6b5f66697865645f6a6f696e745f6c756d70 0 0 0 0 0 0 4607182418800017408 1 1\nINERTIAL 4591870180066957722 4576918229304087675 4576918229304087675 4576918229304087675 0 0 0 4593560419855048998 0 0 4604544271217802183 0 0 4604544271217802194\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nVISUAL 6c696e6b5f66697865645f6a6f696e745f6c756d705f76697375616c 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMATERIAL 47617a65626f2f4f72616e6765 66696c653a2f2f6d656469612f6d6174657269616c732f736372697074732f67617a65626f2e6d6174657269616c\nRESOLVED visual 0 0 0 0 0 0 0 4607182418800017408\nCOLLISION 6c696e6b5f66697865645f6a6f696e745f6c756d705f636f6c6c6973696f6e 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMU 4636737291354636288 4652007308841189376\nRESOLVED collision 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "",
+      "rust_policy": "accepted",
+      "native_projection": {
+        "visual_name": "link_fixed_joint_lump_visual",
+        "collision_name": "link_fixed_joint_lump_collision",
+        "material_name": "Gazebo/Orange",
+        "material_uri": "file://media/materials/scripts/gazebo.material",
+        "mu1_bits": 4636737291354636288,
+        "mu2_bits": 4652007308841189376
+      },
+      "accepted_74fa759_projection": {
+        "collision_name": "link_fixed_joint_lump_collision",
+        "material_name": "Gazebo/Orange",
+        "material_uri": "file://media/materials/scripts/gazebo.material",
+        "mu1_bits": 4636737291354636288,
+        "mu2_bits": 4652007308841189376,
+        "visual_name": "link_fixed_joint_lump_visual"
+      }
+    },
+    {
+      "name": "outside_collision_default_mu1",
+      "xml": "<robot name=\"test\">\n  <link name=\"link\">\n    <inertial>\n      <mass value=\"0.1\" />\n      <origin rpy=\"1.570796326794895 0 0\" xyz=\"0.123456789123456 0 0.0\" />\n      <inertia ixx=\"0.01\" ixy=\"0\" ixz=\"0\" iyy=\"0.01\" iyz=\"0\" izz=\"0.01\" />\n    </inertial>\n    <visual>\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </visual>\n    <collision name=\"outside\">\n      <geometry>\n        <sphere radius=\"1.0\"/>\n      </geometry>\n    </collision>\n  </link>\n  <gazebo reference=\"link\">\n    \n    <mu1>1</mu1>\n    \n  </gazebo>\n</robot>",
+      "exit": 0,
+      "stdout": "ERRORS 0\nROOT 312e3132\nMODEL 74657374 1 0 0 0 0 0 0 0 4607182418800017408\nLINK 6c696e6b 0 0 0 0 0 0 4607182418800017408 1 1\nINERTIAL 4591870180066957722 4576918229304087675 4576918229304087675 4576918229304087675 0 0 0 4593560419855048998 0 0 4604544271217802183 0 0 4604544271217802194\nRESOLVED link 0 0 0 0 0 0 0 4607182418800017408\nVISUAL 6c696e6b5f76697375616c 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nRESOLVED visual 0 0 0 0 0 0 0 4607182418800017408\nCOLLISION 6c696e6b5f66697865645f6a6f696e745f6c756d705f5f6f7574736964655f636f6c6c6973696f6e 0 0 0 0 0 0 4607182418800017408 SPHERE 4607182418800017408\nMU 4607182418800017408 4607182418800017408\nRESOLVED collision 0 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": "",
+      "rust_policy": "Unsupported",
+      "native_projection": {
+        "visual_name": "link_visual",
+        "collision_name": "link_fixed_joint_lump__outside_collision",
+        "material_name": null,
+        "material_uri": null,
+        "mu1_bits": 4607182418800017408,
+        "mu2_bits": 4607182418800017408
+      },
+      "accepted_74fa759_projection": {
+        "collision_name": "link_fixed_joint_lump__outside_collision",
+        "material_name": null,
+        "material_uri": null,
+        "mu1_bits": 4607182418800017408,
+        "mu2_bits": 4607182418800017408,
+        "visual_name": "link_visual"
+      }
+    }
+  ],
+  "accepted_revision": "74fa759fd11c019c72eac1b596e62273e77478fd",
+  "accepted_production_urdf_sha256": "d09123d37bf50ace64d1fa350976f9bb01208f24277cd7ab2bdcfeb19d899909"
+}

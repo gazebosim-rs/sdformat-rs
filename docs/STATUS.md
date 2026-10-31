@@ -3782,3 +3782,22 @@ runtime lines remain measured. Two added error tests pass (11 focused total).
 A bounded syntax-proof delta and real LLVM negative controls are under independent
 review; production/native/dependency bytes remain frozen. No staged retry,
 publication,accepted-counter or consumer-pin update has occurred.
+
+
+Accepted74fa759 passed the ordinary full staged gate and exact hosted41194860350,
+with all726 downloaded source files and coverage/test evidence matched:
+643 Rust tests,47 tools,8320/8357 lines,13106/13360 regions,431/439 changed lines.
+Counts are205 complete/29 partial; consumer pins remain unchanged.
+
+A separate named-extension regression candidate fixes a native mismatch found
+while characterizing two-link continuous URDF import. Actual accepted74fa759
+applied Gazebo material/mu to names that native conversion treats as lump-prefixed
+and leaves unapplied. Twenty-nine pinned native inputs capture the concrete
+material-null versus script and mu1/mu2=1 versus100/1000 differences. The narrow
+correction rejects only affected metadata targets, preserving names alone and
+unrelated-target metadata. Three new plus eleven retained focused Rust tests
+pass; all84 prior native controls,31 accepted generated-XML byte snapshots and
+both unchanged originals remain preserved. This adds no original credit or
+dependencies. Independent review, ordinary full staged/strict coverage and exact
+hosted/source verification remain pending. Broader continuous-joint admission
+remains in its separate private candidate; no consumer pin or Fuel change occurs.

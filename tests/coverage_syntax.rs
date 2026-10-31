@@ -341,6 +341,7 @@ struct CallAudit {
     else_delimiters: BTreeSet<usize>,
     wildcard_prefixes: BTreeSet<usize>,
     record_updates: BTreeSet<usize>,
+    delimiters: BTreeSet<usize>,
 }
 impl<'ast> Visit<'ast> for CallAudit {
     fn visit_attribute(&mut self, attr: &'ast syn::Attribute) {
@@ -450,6 +451,30 @@ impl<'ast> Visit<'ast> for CallAudit {
             self.closings.insert(expression.span().end().line);
         }
         visit::visit_expr_call(self, expression);
+    }
+    fn visit_expr_tuple(&mut self, expression: &'ast syn::ExprTuple) {
+        if self.in_function && expression.attrs.is_empty() {
+            self.delimiters
+                .insert(expression.paren_token.span.open().start().line);
+            self.closings
+                .insert(expression.paren_token.span.close().start().line);
+        }
+        visit::visit_expr_tuple(self, expression);
+    }
+    fn visit_expr_for_loop(&mut self, expression: &'ast syn::ExprForLoop) {
+        if self.in_function
+            && expression.attrs.is_empty()
+            && expression.label.is_none()
+            && let syn::Expr::Array(array) = &*expression.expr
+            && array.attrs.is_empty()
+        {
+            let close = array.bracket_token.span.close();
+            let open = expression.body.brace_token.span.open();
+            if close.start().line == open.end().line && close.end().column <= open.start().column {
+                self.delimiters.insert(close.start().line);
+            }
+        }
+        visit::visit_expr_for_loop(self, expression);
     }
     fn visit_expr_struct(&mut self, expression: &'ast syn::ExprStruct) {
         if self.in_function && docs_only(&expression.attrs) {
@@ -1403,6 +1428,7 @@ fn format_syntax(
                 else_delimiters: BTreeSet::new(),
                 wildcard_prefixes: BTreeSet::new(),
                 record_updates: BTreeSet::new(),
+                delimiters: BTreeSet::new(),
             };
             for arg in args.iter().skip(1) {
                 calls.visit_expr(arg);
@@ -1486,6 +1512,7 @@ fn classify(source: &str, ancestor: &str, module: &str) -> Result<Evidence, syn:
         else_delimiters: BTreeSet::new(),
         wildcard_prefixes: BTreeSet::new(),
         record_updates: BTreeSet::new(),
+        delimiters: BTreeSet::new(),
     };
     calls.visit_file(&syntax);
     let lines: Vec<_> = source.split('\n').collect();
@@ -1522,6 +1549,7 @@ fn classify(source: &str, ancestor: &str, module: &str) -> Result<Evidence, syn:
         calls.else_delimiters.clear();
         calls.wildcard_prefixes.clear();
         calls.record_updates.clear();
+        calls.delimiters.clear();
     }
     if audit.opaque || audit.item_macro {
         fields.clear();
@@ -1538,6 +1566,12 @@ fn classify(source: &str, ancestor: &str, module: &str) -> Result<Evidence, syn:
     let mut items = context_lines(source, ancestor, module);
     items.extend(declarations.iter().copied());
     items.extend(calls.wildcard_prefixes);
+    items.extend(
+        calls
+            .delimiters
+            .into_iter()
+            .filter(|line| matches!(lines[line - 1].trim(), "(" | "] {")),
+    );
     items.extend(calls.record_updates.into_iter().filter(|line| {
         let text = lines[line - 1].trim();
         text.strip_prefix("..")
@@ -2890,4 +2924,78 @@ fn compiler_accepted_format_shadowing_and_executable_bases_are_not_syntax() {
                 .contains(&6)
         );
     }
+}
+
+#[test]
+fn primitive_tuple_and_for_array_delimiters_prove_only_exclusive_tokens() {
+    let source = "fn f() {\n for (tag, value) in [\n (\"first\", true),\n (\n \"second\",\n runtime(),\n ),\n ] {\n consume(tag, value);\n }\n}\n";
+    let proof = classify(source, "mod body;", "body").unwrap();
+    assert!(proof.items.contains(&4));
+    assert!(proof.closings.contains(&7));
+    assert!(proof.items.contains(&8));
+    assert!(!proof.items.contains(&6));
+    assert!(!proof.items.contains(&9));
+    assert!(!proof.opaque.contains(&4));
+    for changed in [
+        source.replace(" (\n", " (runtime(),\n"),
+        source.replace(" ] {", " ] { consume();"),
+    ] {
+        let proof = classify(&changed, "mod body;", "body").unwrap();
+        let line = if changed.contains("(runtime()") { 4 } else { 8 };
+        assert!(!proof.items.contains(&line), "{changed}");
+    }
+}
+
+#[test]
+fn tuple_and_for_array_tokens_refuse_transformed_contexts_and_other_iterators() {
+    let source =
+        "fn f() {\n for value in [\n (\n runtime(),\n true,\n ),\n ] {\n consume(value);\n }\n}\n";
+    for changed in [
+        source.replace("fn f", "#[custom] fn f"),
+        source.replace(" (\n", " #[cfg(feature=\"x\")] (\n"),
+        format!("macro_rules! hidden {{ () => {{}} }}\n{source}"),
+    ] {
+        let proof = classify(&changed, "mod body;", "body").unwrap();
+        assert!(proof.items.is_empty());
+        assert!(proof.closings.is_empty());
+    }
+    for root in [
+        "#[custom] mod body;",
+        "macro_rules! hidden { () => {} } mod body;",
+    ] {
+        let proof = classify(source, root, "body").unwrap();
+        assert!(proof.items.is_empty());
+        assert!(proof.closings.is_empty());
+    }
+    for changed in [
+        "fn f() { for value in [\n runtime(); 2\n ] {\n consume(value); } }",
+        "fn f() { for value in custom!([\n (1, true),\n ]) {\n consume(value); } }",
+        "fn f() { 'label: for value in [\n (1, true),\n ] {\n consume(value); } }",
+        "fn f() { let text = r#\"\n (\n ),\n ] {\n\"#; }",
+    ] {
+        assert!(
+            classify(changed, "mod body;", "body")
+                .unwrap()
+                .items
+                .is_empty(),
+            "{changed}"
+        );
+    }
+}
+
+#[test]
+fn compiler_accepted_callable_parentheses_do_not_receive_primitive_tuple_prefix_evidence() {
+    let source = "fn Pair(value: u8, flag: bool) -> (u8, bool) { (value, flag) }\nfn f() {\n for pair in [\n Pair\n (\n 1,\n true,\n ),\n ] {\n std::hint::black_box(pair);\n }\n}\n";
+    compiles(source);
+    let proof = classify(source, "mod body;", "body").unwrap();
+    assert!(!proof.items.contains(&5));
+    assert!(proof.items.contains(&9));
+    let source = "fn f() {\n for value in [\n std::hint::black_box(1); 2\n ] {\n std::hint::black_box(value);\n }\n}\n";
+    compiles(source);
+    assert!(
+        !classify(source, "mod body;", "body")
+            .unwrap()
+            .items
+            .contains(&4)
+    );
 }

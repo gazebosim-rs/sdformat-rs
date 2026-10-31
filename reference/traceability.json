@@ -3162,6 +3162,34 @@
       "baseline": "91 pinned native controls across SDF1.4\u20131.12, constructor/value-copy mutation and unchanged full native DOMModel.Construction pass. Six new Rust tests and nine retained Model ownership tests pass. Two complete exact-input/root.sdf positives are prepared; old rejection predicates remain unchanged pending prior independent review. All-target Clippy, formatting,46 tooling tests and ledger checks pass. The unchanged old known-model-schema test fails at expected-error unwrap on successful self_collide load; no rejection assertion is changed or retired before independent prior review. Full retained checks remain pending the approved exact fold.",
       "status": "partial_reviewed",
       "review": "Independent sdf_flags_reviewer fresh source/separate target review approved the exact 14-path candidate: 15 focused Rust tests,91 native controls/constructor/value-copy mutation/unchanged full original,all-target Clippy,fmt,ledger and46 tooling checks passed. No findings. Root independently reviewed production, the narrow native CR-text boundary and contracts and agreed. Prior approval covers only the two empty SDF1.12/root.sdf self_collide and allow_auto_disable rejection transitions; each now uses the prepared exhaustive Sdf/Model/Link/source/snapshot/graph positive. Gripper/model_state/wind and all other predicates and corpus bytes remain unchanged. Only four construction flag value observations are mapped; all remaining original assertions stay unported. Final fold review and ordinary strict staged/exact hosted gates remain pending; accepted counts and consumer pins remain unchanged."
+    },
+    {
+      "target": "INTEGRATION_converter",
+      "case": "ConverterIntegration.ParserStringConverter",
+      "source": "test/integration/converter.cc:92-151",
+      "rust_test": "tests/legacy_world_fields.rs::original_parser_string_converter_typed_world_values",
+      "assertions": "Exact inline XML, successful typed load, world/physics presence and name/type, gravity (1,0,-9.8) and magnetic field (1,2,3) retain component-wise native <=1e-3 bounds plus exact bits. Typed collection presence replaces nonnull world/physics only. Actual input version/source/XML stay original; conversion-to1.6, root/descendant OriginalVersion and moved/removed Element observations remain unported. Explicitly partial.",
+      "fixtures": {
+        "tests/fixtures/legacy_world_fields_15.sdf": "3eb000e56b07b90e4559c539aa2ace000d6cf27f631d8103ef575eac47a5ccb1"
+      },
+      "upstream_fixtures": {},
+      "baseline": "83 pinned native DOM controls, both exact-inline DOM/convert projections and both unchanged full originals pass, two runs and zero failures/skips. Five prepared Rust tests passed; Root prior-reviewed only the exact old gravity rejection transition to the exhaustive same-input/URI positive. Historical corpus unchanged. All 663 retained Rust tests and all-target Clippy pass after the fold. Independent final review passed; normal strict staged/hosted gates remain pending.",
+      "status": "partial_reviewed",
+      "review": "Independent msgs_performance_owner final15 review approved after fresh3e9e archive/own target: four new and both retained version15 tests,83 pinned native controls,both unchanged full converter originals,hostile-Git replay with caller index absent,all-target Clippy and fmt passed. Exact same-input/unsupported-conversion URI gravity-only transition and exhaustive World/Physics/source/XML/version positive were prior-approved by Root and rechecked independently. Historical corpus and unrelated old assertions remain byte-identical. Root reviewed the narrow transition. Only typed-load/value observations are mapped; converted Element/version/OriginalVersion and general conversion remain unported. Ordinary strict staged and exact hosted/source qualification remain pending."
+    },
+    {
+      "target": "INTEGRATION_converter",
+      "case": "ConverterIntegration.ParserStringConverterFrom14",
+      "source": "test/integration/converter.cc:92-151",
+      "rust_test": "tests/legacy_world_fields.rs::original_parser_string_converter_from14_typed_world_values",
+      "assertions": "Exact inline XML, successful typed load, world/physics presence and name/type, gravity (1,0,-9.8) and magnetic field (1,2,3) retain component-wise native <=1e-3 bounds plus exact bits. Typed collection presence replaces nonnull world/physics only. Actual input version/source/XML stay original; conversion-to1.6, root/descendant OriginalVersion and moved/removed Element observations remain unported. Explicitly partial.",
+      "fixtures": {
+        "tests/fixtures/legacy_world_fields_14.sdf": "fe3e2575d9d729419387c91da3d5a1f019484232214864930d0897e0cf7ae69b"
+      },
+      "upstream_fixtures": {},
+      "baseline": "83 pinned native DOM controls, both exact-inline DOM/convert projections and both unchanged full originals pass, two runs and zero failures/skips. Five prepared Rust tests passed; Root prior-reviewed only the exact old gravity rejection transition to the exhaustive same-input/URI positive. Historical corpus unchanged. All 663 retained Rust tests and all-target Clippy pass after the fold. Independent final review passed; normal strict staged/hosted gates remain pending.",
+      "status": "partial_reviewed",
+      "review": "Independent msgs_performance_owner final15 review approved after fresh3e9e archive/own target: four new and both retained version15 tests,83 pinned native controls,both unchanged full converter originals,hostile-Git replay with caller index absent,all-target Clippy and fmt passed. Exact same-input/unsupported-conversion URI gravity-only transition and exhaustive World/Physics/source/XML/version positive were prior-approved by Root and rechecked independently. Historical corpus and unrelated old assertions remain byte-identical. Root reviewed the narrow transition. Only typed-load/value observations are mapped; converted Element/version/OriginalVersion and general conversion remain unported. Ordinary strict staged and exact hosted/source qualification remain pending."
     }
   ]
 }

@@ -18,6 +18,8 @@
 // NestedModel.IncludeElements.
 // IncludeElements uses the exact original raw-string input and unchanged resources.
 use sdformat::*;
+#[path = "support/legacy_world_fields_projection.rs"]
+mod legacy_world_fields_projection;
 struct OriginalResources;
 impl ResourceResolver for OriginalResources {
     fn resolve(&self, uri: &str, parent: &str) -> Result<Resource, String> {
@@ -75,6 +77,15 @@ fn unimplemented_15_conversion_actions_fail_explicitly() {
         serde_json::from_str(include_str!("version15_unsupported.json")).unwrap();
     for case in cases.as_array().unwrap() {
         let xml = case["xml"].as_str().unwrap();
+        if case["id"] == "physics_gravity_move" {
+            assert_eq!(
+                xml,
+                "<sdf version='1.5'><world name='w'><physics type='ode'><gravity>1 2 3</gravity></physics></world></sdf>"
+            );
+            let sdf = load_str(xml, "unsupported-conversion", &NoResources).unwrap();
+            legacy_world_fields_projection::assert_gravity_conversion(&sdf);
+            continue;
+        }
         assert_eq!(
             load_str(xml, "unsupported-conversion", &NoResources)
                 .unwrap_err()

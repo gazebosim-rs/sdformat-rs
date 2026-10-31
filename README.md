@@ -193,3 +193,7 @@ radian reference angles and elevation without computing coordinate transforms. S
 
 Optional World GUI declarations retain fullscreen, ordered opaque plugins and actual
 input provenance as inert metadata; see [the bounded contract](docs/WORLD_GUI.md).
+
+SDF1.4/1.5 first-physics gravity and magnetic metadata have a bounded typed-load
+projection; input version and raw XML remain original. See
+[legacy world-vector scope](docs/LEGACY_WORLD_FIELDS.md).

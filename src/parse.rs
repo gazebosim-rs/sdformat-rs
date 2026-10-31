@@ -1080,7 +1080,7 @@ impl Parser<'_> {
             &extension_names,
         )?;
         let name = self.name(node)?;
-        let gravity = child(node, "gravity").map_or(Ok([0., 0., -9.8]), |n| self.values(n))?;
+        let gravity = self.world_vector(node, "gravity", [0., 0., -9.8])?;
         let wind_linear_velocity = child(node, "wind").map_or(Ok([0.; 3]), |wind| {
             self.allowed(wind, &["linear_velocity"], &[])?;
             child(wind, "linear_velocity").map_or(Ok([0.; 3]), |velocity| {
@@ -1092,8 +1092,8 @@ impl Parser<'_> {
                 }
             })
         })?;
-        let magnetic_field = child(node, "magnetic_field")
-            .map_or(Ok([5.5645e-6, 22.8758e-6, -42.3884e-6]), |n| self.values(n))?;
+        let magnetic_field =
+            self.world_vector(node, "magnetic_field", [5.5645e-6, 22.8758e-6, -42.3884e-6])?;
         let mut physics = elements(node)
             .filter(|n| n.has_tag_name("physics"))
             .map(|n| self.physics(n))
@@ -1377,17 +1377,53 @@ impl Parser<'_> {
             xml: Some(self.xml[node.range()].into()),
         })
     }
+    fn world_vector(
+        &self,
+        node: Node<'_, '_>,
+        name: &str,
+        default: [f64; 3],
+    ) -> Result<[f64; 3], Diagnostic> {
+        let direct = child(node, name);
+        let mut legacy = None;
+        if is_pre16(node) {
+            for (index, physics) in elements(node)
+                .filter(|n| n.has_tag_name("physics"))
+                .enumerate()
+            {
+                if let Some(value) = child(physics, name) {
+                    // Native moves only the first physics group's field, then
+                    // silently retains conflicts and later fields as XML.
+                    if index != 0 || direct.is_some() {
+                        return Err(self.err(
+                            value,
+                            ErrorCode::Unsupported,
+                            "legacy world vector requires the first physics group and no world override",
+                        ));
+                    }
+                    self.allowed(value, &[], &[])?;
+                    legacy = Some(value);
+                }
+            }
+        }
+        direct
+            .or(legacy)
+            .map_or(Ok(default), |value| self.values(value))
+    }
     fn physics(&self, node: Node<'_, '_>) -> Result<Physics, Diagnostic> {
-        self.allowed(
-            node,
-            &[
-                "max_step_size",
-                "real_time_factor",
-                "real_time_update_rate",
-                "max_contacts",
-            ],
-            &["name", "default", "type"],
-        )?;
+        let children = [
+            "max_step_size",
+            "real_time_factor",
+            "real_time_update_rate",
+            "max_contacts",
+            "gravity",
+            "magnetic_field",
+        ];
+        let allowed_children = if is_pre16(node) {
+            &children[..]
+        } else {
+            &children[..4]
+        };
+        self.allowed(node, allowed_children, &["name", "default", "type"])?;
         let name = node
             .attribute("name")
             .unwrap_or("")
@@ -4358,6 +4394,10 @@ fn known_schema_name(name: &str) -> bool {
             && names.contains(name.to_ascii_lowercase().as_str()))
 }
 
+fn is_pre16(node: Node<'_, '_>) -> bool {
+    let version = node.document().root_element().attribute("version");
+    version == Some("1.4") || version == Some("1.5")
+}
 fn is_pre17(node: Node<'_, '_>) -> bool {
     matches!(
         node.document().root_element().attribute("version"),

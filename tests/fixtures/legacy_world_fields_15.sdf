@@ -1,0 +1,10 @@
+
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <world name="default">
+    <physics type="ode">
+      <gravity>1 0 -9.8</gravity>
+      <magnetic_field>1 2 3</magnetic_field>
+    </physics>
+  </world>
+</sdf>

@@ -1,0 +1,836 @@
+{
+  "cases": [
+    {
+      "name": "original-1.4",
+      "xml": "<sdf version='1.4'><world name='w'><physics type='ode'><gravity>1 0 -9.8</gravity><magnetic_field>1 2 3</magnetic_field></physics></world></sdf>",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 4607182418800017408 0 13845078564453063066 4607182418800017408 4611686018427387904 4613937818241073152\nPHYSICS 1\nELEMENT 1 1 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.4-gravity-valid",
+      "xml": "<sdf version='1.4'><world name='w'><physics type='ode'><gravity>1 -2 3</gravity></physics></world></sdf>",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 4607182418800017408 13835058055282163712 4613937818241073152 4528183427953460019 4537372969584020815 13764752285348817520\nPHYSICS 1\nELEMENT 1 1 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.4-gravity-signed-zero",
+      "xml": "<sdf version='1.4'><world name='w'><physics type='ode'><gravity>-0 0 -0</gravity></physics></world></sdf>",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 9223372036854775808 0 9223372036854775808 4528183427953460019 4537372969584020815 13764752285348817520\nPHYSICS 1\nELEMENT 1 1 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.4-gravity-normal-small",
+      "xml": "<sdf version='1.4'><world name='w'><physics type='ode'><gravity>1e-300 2 3</gravity></physics></world></sdf>",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 118622047889322841 4611686018427387904 4613937818241073152 4528183427953460019 4537372969584020815 13764752285348817520\nPHYSICS 1\nELEMENT 1 1 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.4-gravity-whitespace",
+      "xml": "<sdf version='1.4'><world name='w'><physics type='ode'><gravity>1\t2\n3</gravity></physics></world></sdf>",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 4607182418800017408 4611686018427387904 4613937818241073152 4528183427953460019 4537372969584020815 13764752285348817520\nPHYSICS 1\nELEMENT 1 1 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.4-gravity-empty",
+      "xml": "<sdf version='1.4'><world name='w'><physics type='ode'><gravity></gravity></physics></world></sdf>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS 9 9 9 30\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Empty string used when setting a required parameter. Key[gravity]\n"
+      }
+    },
+    {
+      "name": "1.4-gravity-few",
+      "xml": "<sdf version='1.4'><world name='w'><physics type='ode'><gravity>1 2</gravity></physics></world></sdf>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS 9 9 9 30\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Unknown error. Unable to set value [1 2 ] for key[gravity]\n"
+      }
+    },
+    {
+      "name": "1.4-gravity-many",
+      "xml": "<sdf version='1.4'><world name='w'><physics type='ode'><gravity>1 2 3 4</gravity></physics></world></sdf>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 4607182418800017408 4611686018427387904 4613937818241073152 4528183427953460019 4537372969584020815 13764752285348817520\nPHYSICS 1\nELEMENT 1 1 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.4-gravity-bad",
+      "xml": "<sdf version='1.4'><world name='w'><physics type='ode'><gravity>bad</gravity></physics></world></sdf>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS 9 9 9 30\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Unknown error. Unable to set value [bad ] for key[gravity]\n"
+      }
+    },
+    {
+      "name": "1.4-gravity-nan",
+      "xml": "<sdf version='1.4'><world name='w'><physics type='ode'><gravity>nan 0 1</gravity></physics></world></sdf>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS 9 9 9 30\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Unknown error. Unable to set value [nan 0 1 ] for key[gravity]\n"
+      }
+    },
+    {
+      "name": "1.4-gravity-infinity",
+      "xml": "<sdf version='1.4'><world name='w'><physics type='ode'><gravity>inf 0 1</gravity></physics></world></sdf>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS 9 9 9 30\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Unknown error. Unable to set value [inf 0 1 ] for key[gravity]\n"
+      }
+    },
+    {
+      "name": "1.4-gravity-range",
+      "xml": "<sdf version='1.4'><world name='w'><physics type='ode'><gravity>1e999 0 1</gravity></physics></world></sdf>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS 9 9 9 30\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Unknown error. Unable to set value [1e999 0 1 ] for key[gravity]\n"
+      }
+    },
+    {
+      "name": "1.4-gravity-subnormal",
+      "xml": "<sdf version='1.4'><world name='w'><physics type='ode'><gravity>1e-310 0 1</gravity></physics></world></sdf>",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 20240225330731 0 4607182418800017408 4528183427953460019 4537372969584020815 13764752285348817520\nPHYSICS 1\nELEMENT 1 1 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.4-gravity-attr",
+      "xml": "<sdf version='1.4'><world name='w'><physics type='ode'><gravity unknown=\"x\">1 2 3</gravity></physics></world></sdf>",
+      "rust_error": "Unsupported",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 4607182418800017408 4611686018427387904 4613937818241073152 4528183427953460019 4537372969584020815 13764752285348817520\nPHYSICS 1\nELEMENT 1 1 0 0\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/world[@name=\"w\"]/gravity[@unknown=\"x\"]:<data-string>:L0]: XML Attribute[unknown] in element[gravity] not defined in SDF.\n"
+      }
+    },
+    {
+      "name": "1.4-gravity-child",
+      "xml": "<sdf version='1.4'><world name='w'><physics type='ode'><gravity><unknown/></gravity></physics></world></sdf>",
+      "rust_error": "Unsupported",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS 9 9 9 30\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Empty string used when setting a required parameter. Key[gravity]\n"
+      }
+    },
+    {
+      "name": "1.4-gravity-duplicate",
+      "xml": "<sdf version='1.4'><world name='w'><physics type='ode'><gravity>1 2 3</gravity><gravity>4 5 6</gravity></physics></world></sdf>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 4607182418800017408 4611686018427387904 4613937818241073152 4528183427953460019 4537372969584020815 13764752285348817520\nPHYSICS 1\nELEMENT 1 1 1 0\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/world[@name=\"w\"]/physics/gravity:<data-string>:L1]: XML Element[gravity], child of element[physics], not defined in SDF. Copying[gravity] as children of [physics].\n"
+      }
+    },
+    {
+      "name": "1.4-gravity-direct-conflict",
+      "xml": "<sdf version='1.4'><world name='w'><gravity>4 5 6</gravity><physics type='ode'><gravity>1 2 3</gravity></physics></world></sdf>",
+      "rust_error": "Unsupported",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 4616189618054758400 4617315517961601024 4618441417868443648 4528183427953460019 4537372969584020815 13764752285348817520\nPHYSICS 1\nELEMENT 2 1 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.4-magnetic_field-valid",
+      "xml": "<sdf version='1.4'><world name='w'><physics type='ode'><magnetic_field>1 -2 3</magnetic_field></physics></world></sdf>",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 0 0 13845078564453063066 4607182418800017408 13835058055282163712 4613937818241073152\nPHYSICS 1\nELEMENT 1 1 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.4-magnetic_field-signed-zero",
+      "xml": "<sdf version='1.4'><world name='w'><physics type='ode'><magnetic_field>-0 0 -0</magnetic_field></physics></world></sdf>",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 0 0 13845078564453063066 9223372036854775808 0 9223372036854775808\nPHYSICS 1\nELEMENT 1 1 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.4-magnetic_field-normal-small",
+      "xml": "<sdf version='1.4'><world name='w'><physics type='ode'><magnetic_field>1e-300 2 3</magnetic_field></physics></world></sdf>",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 0 0 13845078564453063066 118622047889322841 4611686018427387904 4613937818241073152\nPHYSICS 1\nELEMENT 1 1 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.4-magnetic_field-whitespace",
+      "xml": "<sdf version='1.4'><world name='w'><physics type='ode'><magnetic_field>1\t2\n3</magnetic_field></physics></world></sdf>",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 0 0 13845078564453063066 4607182418800017408 4611686018427387904 4613937818241073152\nPHYSICS 1\nELEMENT 1 1 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.4-magnetic_field-empty",
+      "xml": "<sdf version='1.4'><world name='w'><physics type='ode'><magnetic_field></magnetic_field></physics></world></sdf>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS 9 9 9 30\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Empty string used when setting a required parameter. Key[magnetic_field]\n"
+      }
+    },
+    {
+      "name": "1.4-magnetic_field-few",
+      "xml": "<sdf version='1.4'><world name='w'><physics type='ode'><magnetic_field>1 2</magnetic_field></physics></world></sdf>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS 9 9 9 30\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Unknown error. Unable to set value [1 2 ] for key[magnetic_field]\n"
+      }
+    },
+    {
+      "name": "1.4-magnetic_field-many",
+      "xml": "<sdf version='1.4'><world name='w'><physics type='ode'><magnetic_field>1 2 3 4</magnetic_field></physics></world></sdf>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 0 0 13845078564453063066 4607182418800017408 4611686018427387904 4613937818241073152\nPHYSICS 1\nELEMENT 1 1 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.4-magnetic_field-bad",
+      "xml": "<sdf version='1.4'><world name='w'><physics type='ode'><magnetic_field>bad</magnetic_field></physics></world></sdf>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS 9 9 9 30\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Unknown error. Unable to set value [bad ] for key[magnetic_field]\n"
+      }
+    },
+    {
+      "name": "1.4-magnetic_field-nan",
+      "xml": "<sdf version='1.4'><world name='w'><physics type='ode'><magnetic_field>nan 0 1</magnetic_field></physics></world></sdf>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS 9 9 9 30\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Unknown error. Unable to set value [nan 0 1 ] for key[magnetic_field]\n"
+      }
+    },
+    {
+      "name": "1.4-magnetic_field-infinity",
+      "xml": "<sdf version='1.4'><world name='w'><physics type='ode'><magnetic_field>inf 0 1</magnetic_field></physics></world></sdf>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS 9 9 9 30\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Unknown error. Unable to set value [inf 0 1 ] for key[magnetic_field]\n"
+      }
+    },
+    {
+      "name": "1.4-magnetic_field-range",
+      "xml": "<sdf version='1.4'><world name='w'><physics type='ode'><magnetic_field>1e999 0 1</magnetic_field></physics></world></sdf>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS 9 9 9 30\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Unknown error. Unable to set value [1e999 0 1 ] for key[magnetic_field]\n"
+      }
+    },
+    {
+      "name": "1.4-magnetic_field-subnormal",
+      "xml": "<sdf version='1.4'><world name='w'><physics type='ode'><magnetic_field>1e-310 0 1</magnetic_field></physics></world></sdf>",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 0 0 13845078564453063066 20240225330731 0 4607182418800017408\nPHYSICS 1\nELEMENT 1 1 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.4-magnetic_field-attr",
+      "xml": "<sdf version='1.4'><world name='w'><physics type='ode'><magnetic_field unknown=\"x\">1 2 3</magnetic_field></physics></world></sdf>",
+      "rust_error": "Unsupported",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 0 0 13845078564453063066 4607182418800017408 4611686018427387904 4613937818241073152\nPHYSICS 1\nELEMENT 1 1 0 0\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/world[@name=\"w\"]/magnetic_field[@unknown=\"x\"]:<data-string>:L0]: XML Attribute[unknown] in element[magnetic_field] not defined in SDF.\n"
+      }
+    },
+    {
+      "name": "1.4-magnetic_field-child",
+      "xml": "<sdf version='1.4'><world name='w'><physics type='ode'><magnetic_field><unknown/></magnetic_field></physics></world></sdf>",
+      "rust_error": "Unsupported",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS 9 9 9 30\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Empty string used when setting a required parameter. Key[magnetic_field]\n"
+      }
+    },
+    {
+      "name": "1.4-magnetic_field-duplicate",
+      "xml": "<sdf version='1.4'><world name='w'><physics type='ode'><magnetic_field>1 2 3</magnetic_field><magnetic_field>4 5 6</magnetic_field></physics></world></sdf>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 0 0 13845078564453063066 4607182418800017408 4611686018427387904 4613937818241073152\nPHYSICS 1\nELEMENT 1 1 0 1\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/world[@name=\"w\"]/physics/magnetic_field:<data-string>:L1]: XML Element[magnetic_field], child of element[physics], not defined in SDF. Copying[magnetic_field] as children of [physics].\n"
+      }
+    },
+    {
+      "name": "1.4-magnetic_field-direct-conflict",
+      "xml": "<sdf version='1.4'><world name='w'><magnetic_field>4 5 6</magnetic_field><physics type='ode'><magnetic_field>1 2 3</magnetic_field></physics></world></sdf>",
+      "rust_error": "Unsupported",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 0 0 13845078564453063066 4616189618054758400 4617315517961601024 4618441417868443648\nPHYSICS 1\nELEMENT 1 2 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "mixed-direct-1.4",
+      "xml": "<sdf version='1.4'><world name='w'><magnetic_field>4 5 6</magnetic_field><physics type='ode'><gravity>1 2 3</gravity></physics></world></sdf>",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 4607182418800017408 4611686018427387904 4613937818241073152 4616189618054758400 4617315517961601024 4618441417868443648\nPHYSICS 1\nELEMENT 1 1 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.4-profiles-first-only",
+      "xml": "<sdf version='1.4'><world name='w'><physics name='a' type='ode'><gravity>1 2 3</gravity></physics><physics name='b' type='dart'></physics></world></sdf>",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 4607182418800017408 4611686018427387904 4613937818241073152 4528183427953460019 4537372969584020815 13764752285348817520\nPHYSICS 2\nELEMENT 1 1 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.4-profiles-second-only",
+      "xml": "<sdf version='1.4'><world name='w'><physics name='a' type='ode'></physics><physics name='b' type='dart'><gravity>4 5 6</gravity></physics></world></sdf>",
+      "rust_error": "Unsupported",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 0 0 13845078564453063066 4528183427953460019 4537372969584020815 13764752285348817520\nPHYSICS 2\nELEMENT 1 1 0 0 1 0\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/world[@name=\"w\"]/physics[@name=\"b\"]/gravity:<data-string>:L1]: XML Element[gravity], child of element[physics], not defined in SDF. Copying[gravity] as children of [physics].\n"
+      }
+    },
+    {
+      "name": "1.4-profiles-both",
+      "xml": "<sdf version='1.4'><world name='w'><physics name='a' type='ode'><gravity>1 2 3</gravity></physics><physics name='b' type='dart'><gravity>4 5 6</gravity></physics></world></sdf>",
+      "rust_error": "Unsupported",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 4607182418800017408 4611686018427387904 4613937818241073152 4528183427953460019 4537372969584020815 13764752285348817520\nPHYSICS 2\nELEMENT 1 1 0 0 1 0\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/world[@name=\"w\"]/physics[@name=\"b\"]/gravity:<data-string>:L1]: XML Element[gravity], child of element[physics], not defined in SDF. Copying[gravity] as children of [physics].\n"
+      }
+    },
+    {
+      "name": "original-1.5",
+      "xml": "<sdf version='1.5'><world name='w'><physics type='ode'><gravity>1 0 -9.8</gravity><magnetic_field>1 2 3</magnetic_field></physics></world></sdf>",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 4607182418800017408 0 13845078564453063066 4607182418800017408 4611686018427387904 4613937818241073152\nPHYSICS 1\nELEMENT 1 1 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.5-gravity-valid",
+      "xml": "<sdf version='1.5'><world name='w'><physics type='ode'><gravity>1 -2 3</gravity></physics></world></sdf>",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 4607182418800017408 13835058055282163712 4613937818241073152 4528183427953460019 4537372969584020815 13764752285348817520\nPHYSICS 1\nELEMENT 1 1 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.5-gravity-signed-zero",
+      "xml": "<sdf version='1.5'><world name='w'><physics type='ode'><gravity>-0 0 -0</gravity></physics></world></sdf>",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 9223372036854775808 0 9223372036854775808 4528183427953460019 4537372969584020815 13764752285348817520\nPHYSICS 1\nELEMENT 1 1 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.5-gravity-normal-small",
+      "xml": "<sdf version='1.5'><world name='w'><physics type='ode'><gravity>1e-300 2 3</gravity></physics></world></sdf>",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 118622047889322841 4611686018427387904 4613937818241073152 4528183427953460019 4537372969584020815 13764752285348817520\nPHYSICS 1\nELEMENT 1 1 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.5-gravity-whitespace",
+      "xml": "<sdf version='1.5'><world name='w'><physics type='ode'><gravity>1\t2\n3</gravity></physics></world></sdf>",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 4607182418800017408 4611686018427387904 4613937818241073152 4528183427953460019 4537372969584020815 13764752285348817520\nPHYSICS 1\nELEMENT 1 1 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.5-gravity-empty",
+      "xml": "<sdf version='1.5'><world name='w'><physics type='ode'><gravity></gravity></physics></world></sdf>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS 9 9 9 30\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Empty string used when setting a required parameter. Key[gravity]\n"
+      }
+    },
+    {
+      "name": "1.5-gravity-few",
+      "xml": "<sdf version='1.5'><world name='w'><physics type='ode'><gravity>1 2</gravity></physics></world></sdf>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS 9 9 9 30\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Unknown error. Unable to set value [1 2 ] for key[gravity]\n"
+      }
+    },
+    {
+      "name": "1.5-gravity-many",
+      "xml": "<sdf version='1.5'><world name='w'><physics type='ode'><gravity>1 2 3 4</gravity></physics></world></sdf>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 4607182418800017408 4611686018427387904 4613937818241073152 4528183427953460019 4537372969584020815 13764752285348817520\nPHYSICS 1\nELEMENT 1 1 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.5-gravity-bad",
+      "xml": "<sdf version='1.5'><world name='w'><physics type='ode'><gravity>bad</gravity></physics></world></sdf>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS 9 9 9 30\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Unknown error. Unable to set value [bad ] for key[gravity]\n"
+      }
+    },
+    {
+      "name": "1.5-gravity-nan",
+      "xml": "<sdf version='1.5'><world name='w'><physics type='ode'><gravity>nan 0 1</gravity></physics></world></sdf>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS 9 9 9 30\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Unknown error. Unable to set value [nan 0 1 ] for key[gravity]\n"
+      }
+    },
+    {
+      "name": "1.5-gravity-infinity",
+      "xml": "<sdf version='1.5'><world name='w'><physics type='ode'><gravity>inf 0 1</gravity></physics></world></sdf>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS 9 9 9 30\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Unknown error. Unable to set value [inf 0 1 ] for key[gravity]\n"
+      }
+    },
+    {
+      "name": "1.5-gravity-range",
+      "xml": "<sdf version='1.5'><world name='w'><physics type='ode'><gravity>1e999 0 1</gravity></physics></world></sdf>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS 9 9 9 30\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Unknown error. Unable to set value [1e999 0 1 ] for key[gravity]\n"
+      }
+    },
+    {
+      "name": "1.5-gravity-subnormal",
+      "xml": "<sdf version='1.5'><world name='w'><physics type='ode'><gravity>1e-310 0 1</gravity></physics></world></sdf>",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 20240225330731 0 4607182418800017408 4528183427953460019 4537372969584020815 13764752285348817520\nPHYSICS 1\nELEMENT 1 1 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.5-gravity-attr",
+      "xml": "<sdf version='1.5'><world name='w'><physics type='ode'><gravity unknown=\"x\">1 2 3</gravity></physics></world></sdf>",
+      "rust_error": "Unsupported",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 4607182418800017408 4611686018427387904 4613937818241073152 4528183427953460019 4537372969584020815 13764752285348817520\nPHYSICS 1\nELEMENT 1 1 0 0\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/world[@name=\"w\"]/gravity[@unknown=\"x\"]:<data-string>:L0]: XML Attribute[unknown] in element[gravity] not defined in SDF.\n"
+      }
+    },
+    {
+      "name": "1.5-gravity-child",
+      "xml": "<sdf version='1.5'><world name='w'><physics type='ode'><gravity><unknown/></gravity></physics></world></sdf>",
+      "rust_error": "Unsupported",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS 9 9 9 30\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Empty string used when setting a required parameter. Key[gravity]\n"
+      }
+    },
+    {
+      "name": "1.5-gravity-duplicate",
+      "xml": "<sdf version='1.5'><world name='w'><physics type='ode'><gravity>1 2 3</gravity><gravity>4 5 6</gravity></physics></world></sdf>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 4607182418800017408 4611686018427387904 4613937818241073152 4528183427953460019 4537372969584020815 13764752285348817520\nPHYSICS 1\nELEMENT 1 1 1 0\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/world[@name=\"w\"]/physics/gravity:<data-string>:L1]: XML Element[gravity], child of element[physics], not defined in SDF. Copying[gravity] as children of [physics].\n"
+      }
+    },
+    {
+      "name": "1.5-gravity-direct-conflict",
+      "xml": "<sdf version='1.5'><world name='w'><gravity>4 5 6</gravity><physics type='ode'><gravity>1 2 3</gravity></physics></world></sdf>",
+      "rust_error": "Unsupported",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 4616189618054758400 4617315517961601024 4618441417868443648 4528183427953460019 4537372969584020815 13764752285348817520\nPHYSICS 1\nELEMENT 2 1 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.5-magnetic_field-valid",
+      "xml": "<sdf version='1.5'><world name='w'><physics type='ode'><magnetic_field>1 -2 3</magnetic_field></physics></world></sdf>",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 0 0 13845078564453063066 4607182418800017408 13835058055282163712 4613937818241073152\nPHYSICS 1\nELEMENT 1 1 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.5-magnetic_field-signed-zero",
+      "xml": "<sdf version='1.5'><world name='w'><physics type='ode'><magnetic_field>-0 0 -0</magnetic_field></physics></world></sdf>",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 0 0 13845078564453063066 9223372036854775808 0 9223372036854775808\nPHYSICS 1\nELEMENT 1 1 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.5-magnetic_field-normal-small",
+      "xml": "<sdf version='1.5'><world name='w'><physics type='ode'><magnetic_field>1e-300 2 3</magnetic_field></physics></world></sdf>",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 0 0 13845078564453063066 118622047889322841 4611686018427387904 4613937818241073152\nPHYSICS 1\nELEMENT 1 1 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.5-magnetic_field-whitespace",
+      "xml": "<sdf version='1.5'><world name='w'><physics type='ode'><magnetic_field>1\t2\n3</magnetic_field></physics></world></sdf>",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 0 0 13845078564453063066 4607182418800017408 4611686018427387904 4613937818241073152\nPHYSICS 1\nELEMENT 1 1 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.5-magnetic_field-empty",
+      "xml": "<sdf version='1.5'><world name='w'><physics type='ode'><magnetic_field></magnetic_field></physics></world></sdf>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS 9 9 9 30\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Empty string used when setting a required parameter. Key[magnetic_field]\n"
+      }
+    },
+    {
+      "name": "1.5-magnetic_field-few",
+      "xml": "<sdf version='1.5'><world name='w'><physics type='ode'><magnetic_field>1 2</magnetic_field></physics></world></sdf>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS 9 9 9 30\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Unknown error. Unable to set value [1 2 ] for key[magnetic_field]\n"
+      }
+    },
+    {
+      "name": "1.5-magnetic_field-many",
+      "xml": "<sdf version='1.5'><world name='w'><physics type='ode'><magnetic_field>1 2 3 4</magnetic_field></physics></world></sdf>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 0 0 13845078564453063066 4607182418800017408 4611686018427387904 4613937818241073152\nPHYSICS 1\nELEMENT 1 1 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.5-magnetic_field-bad",
+      "xml": "<sdf version='1.5'><world name='w'><physics type='ode'><magnetic_field>bad</magnetic_field></physics></world></sdf>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS 9 9 9 30\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Unknown error. Unable to set value [bad ] for key[magnetic_field]\n"
+      }
+    },
+    {
+      "name": "1.5-magnetic_field-nan",
+      "xml": "<sdf version='1.5'><world name='w'><physics type='ode'><magnetic_field>nan 0 1</magnetic_field></physics></world></sdf>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS 9 9 9 30\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Unknown error. Unable to set value [nan 0 1 ] for key[magnetic_field]\n"
+      }
+    },
+    {
+      "name": "1.5-magnetic_field-infinity",
+      "xml": "<sdf version='1.5'><world name='w'><physics type='ode'><magnetic_field>inf 0 1</magnetic_field></physics></world></sdf>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS 9 9 9 30\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Unknown error. Unable to set value [inf 0 1 ] for key[magnetic_field]\n"
+      }
+    },
+    {
+      "name": "1.5-magnetic_field-range",
+      "xml": "<sdf version='1.5'><world name='w'><physics type='ode'><magnetic_field>1e999 0 1</magnetic_field></physics></world></sdf>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS 9 9 9 30\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Unknown error. Unable to set value [1e999 0 1 ] for key[magnetic_field]\n"
+      }
+    },
+    {
+      "name": "1.5-magnetic_field-subnormal",
+      "xml": "<sdf version='1.5'><world name='w'><physics type='ode'><magnetic_field>1e-310 0 1</magnetic_field></physics></world></sdf>",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 0 0 13845078564453063066 20240225330731 0 4607182418800017408\nPHYSICS 1\nELEMENT 1 1 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.5-magnetic_field-attr",
+      "xml": "<sdf version='1.5'><world name='w'><physics type='ode'><magnetic_field unknown=\"x\">1 2 3</magnetic_field></physics></world></sdf>",
+      "rust_error": "Unsupported",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 0 0 13845078564453063066 4607182418800017408 4611686018427387904 4613937818241073152\nPHYSICS 1\nELEMENT 1 1 0 0\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/world[@name=\"w\"]/magnetic_field[@unknown=\"x\"]:<data-string>:L0]: XML Attribute[unknown] in element[magnetic_field] not defined in SDF.\n"
+      }
+    },
+    {
+      "name": "1.5-magnetic_field-child",
+      "xml": "<sdf version='1.5'><world name='w'><physics type='ode'><magnetic_field><unknown/></magnetic_field></physics></world></sdf>",
+      "rust_error": "Unsupported",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS 9 9 9 30\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Empty string used when setting a required parameter. Key[magnetic_field]\n"
+      }
+    },
+    {
+      "name": "1.5-magnetic_field-duplicate",
+      "xml": "<sdf version='1.5'><world name='w'><physics type='ode'><magnetic_field>1 2 3</magnetic_field><magnetic_field>4 5 6</magnetic_field></physics></world></sdf>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 0 0 13845078564453063066 4607182418800017408 4611686018427387904 4613937818241073152\nPHYSICS 1\nELEMENT 1 1 0 1\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/world[@name=\"w\"]/physics/magnetic_field:<data-string>:L1]: XML Element[magnetic_field], child of element[physics], not defined in SDF. Copying[magnetic_field] as children of [physics].\n"
+      }
+    },
+    {
+      "name": "1.5-magnetic_field-direct-conflict",
+      "xml": "<sdf version='1.5'><world name='w'><magnetic_field>4 5 6</magnetic_field><physics type='ode'><magnetic_field>1 2 3</magnetic_field></physics></world></sdf>",
+      "rust_error": "Unsupported",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 0 0 13845078564453063066 4616189618054758400 4617315517961601024 4618441417868443648\nPHYSICS 1\nELEMENT 1 2 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "mixed-direct-1.5",
+      "xml": "<sdf version='1.5'><world name='w'><magnetic_field>4 5 6</magnetic_field><physics type='ode'><gravity>1 2 3</gravity></physics></world></sdf>",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 4607182418800017408 4611686018427387904 4613937818241073152 4616189618054758400 4617315517961601024 4618441417868443648\nPHYSICS 1\nELEMENT 1 1 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.5-profiles-first-only",
+      "xml": "<sdf version='1.5'><world name='w'><physics name='a' type='ode'><gravity>1 2 3</gravity></physics><physics name='b' type='dart'></physics></world></sdf>",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 4607182418800017408 4611686018427387904 4613937818241073152 4528183427953460019 4537372969584020815 13764752285348817520\nPHYSICS 2\nELEMENT 1 1 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.5-profiles-second-only",
+      "xml": "<sdf version='1.5'><world name='w'><physics name='a' type='ode'></physics><physics name='b' type='dart'><gravity>4 5 6</gravity></physics></world></sdf>",
+      "rust_error": "Unsupported",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 0 0 13845078564453063066 4528183427953460019 4537372969584020815 13764752285348817520\nPHYSICS 2\nELEMENT 1 1 0 0 1 0\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/world[@name=\"w\"]/physics[@name=\"b\"]/gravity:<data-string>:L1]: XML Element[gravity], child of element[physics], not defined in SDF. Copying[gravity] as children of [physics].\n"
+      }
+    },
+    {
+      "name": "1.5-profiles-both",
+      "xml": "<sdf version='1.5'><world name='w'><physics name='a' type='ode'><gravity>1 2 3</gravity></physics><physics name='b' type='dart'><gravity>4 5 6</gravity></physics></world></sdf>",
+      "rust_error": "Unsupported",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 4607182418800017408 4611686018427387904 4613937818241073152 4528183427953460019 4537372969584020815 13764752285348817520\nPHYSICS 2\nELEMENT 1 1 0 0 1 0\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/world[@name=\"w\"]/physics[@name=\"b\"]/gravity:<data-string>:L1]: XML Element[gravity], child of element[physics], not defined in SDF. Copying[gravity] as children of [physics].\n"
+      }
+    },
+    {
+      "name": "1.6-gravity-not-converted",
+      "xml": "<sdf version='1.6'><world name='w'><physics type='ode'><gravity>1 2 3</gravity></physics></world></sdf>",
+      "rust_error": "Unsupported",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 0 0 13845078564453063066 4528183427953460019 4537372969584020815 13764752285348817520\nPHYSICS 1\nELEMENT 1 1 1 0\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/world[@name=\"w\"]/physics/gravity:<data-string>:L1]: XML Element[gravity], child of element[physics], not defined in SDF. Copying[gravity] as children of [physics].\n"
+      }
+    },
+    {
+      "name": "1.6-magnetic_field-not-converted",
+      "xml": "<sdf version='1.6'><world name='w'><physics type='ode'><magnetic_field>1 2 3</magnetic_field></physics></world></sdf>",
+      "rust_error": "Unsupported",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 0 0 13845078564453063066 4528183427953460019 4537372969584020815 13764752285348817520\nPHYSICS 1\nELEMENT 1 1 0 1\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/world[@name=\"w\"]/physics/magnetic_field:<data-string>:L1]: XML Element[magnetic_field], child of element[physics], not defined in SDF. Copying[magnetic_field] as children of [physics].\n"
+      }
+    },
+    {
+      "name": "1.8-gravity-not-converted",
+      "xml": "<sdf version='1.8'><world name='w'><physics type='ode'><gravity>1 2 3</gravity></physics></world></sdf>",
+      "rust_error": "Unsupported",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 0 0 13845078564453063066 4528183427953460019 4537372969584020815 13764752285348817520\nPHYSICS 1\nELEMENT 1 1 1 0\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/world[@name=\"w\"]/physics/gravity:<data-string>:L1]: XML Element[gravity], child of element[physics], not defined in SDF. Copying[gravity] as children of [physics].\n"
+      }
+    },
+    {
+      "name": "1.8-magnetic_field-not-converted",
+      "xml": "<sdf version='1.8'><world name='w'><physics type='ode'><magnetic_field>1 2 3</magnetic_field></physics></world></sdf>",
+      "rust_error": "Unsupported",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 0 0 13845078564453063066 4528183427953460019 4537372969584020815 13764752285348817520\nPHYSICS 1\nELEMENT 1 1 0 1\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/world[@name=\"w\"]/physics/magnetic_field:<data-string>:L1]: XML Element[magnetic_field], child of element[physics], not defined in SDF. Copying[magnetic_field] as children of [physics].\n"
+      }
+    },
+    {
+      "name": "1.12-gravity-not-converted",
+      "xml": "<sdf version='1.12'><world name='w'><physics type='ode'><gravity>1 2 3</gravity></physics></world></sdf>",
+      "rust_error": "Unsupported",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 0 0 13845078564453063066 4528183427953460019 4537372969584020815 13764752285348817520\nPHYSICS 1\nELEMENT 1 1 1 0\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/world[@name=\"w\"]/physics/gravity:<data-string>:L1]: XML Element[gravity], child of element[physics], not defined in SDF. Copying[gravity] as children of [physics].\n"
+      }
+    },
+    {
+      "name": "1.12-magnetic_field-not-converted",
+      "xml": "<sdf version='1.12'><world name='w'><physics type='ode'><magnetic_field>1 2 3</magnetic_field></physics></world></sdf>",
+      "rust_error": "Unsupported",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 0 0 13845078564453063066 4528183427953460019 4537372969584020815 13764752285348817520\nPHYSICS 1\nELEMENT 1 1 0 1\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/world[@name=\"w\"]/physics/magnetic_field:<data-string>:L1]: XML Element[magnetic_field], child of element[physics], not defined in SDF. Copying[magnetic_field] as children of [physics].\n"
+      }
+    },
+    {
+      "name": "1.5-unknown-physics",
+      "xml": "<sdf version='1.5'><world name='w'><physics type='ode'><gravity>1 2 3</gravity><unknown/></physics></world></sdf>",
+      "rust_error": "Unsupported",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 4607182418800017408 4611686018427387904 4613937818241073152 4528183427953460019 4537372969584020815 13764752285348817520\nPHYSICS 1\nELEMENT 1 1 0 0\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/world[@name=\"w\"]/physics/unknown:<data-string>:L1]: XML Element[unknown], child of element[physics], not defined in SDF. Copying[unknown] as children of [physics].\n"
+      }
+    },
+    {
+      "name": "1.5-known-physics",
+      "xml": "<sdf version='1.5'><world name='w'><physics type='ode'><gravity>1 2 3</gravity><max_step_size>0.01</max_step_size><real_time_update_rate>100</real_time_update_rate></physics></world></sdf>",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 4607182418800017408 4611686018427387904 4613937818241073152 4528183427953460019 4537372969584020815 13764752285348817520\nPHYSICS 1\nELEMENT 1 1 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "prepared-exact-old-gravity-conversion",
+      "xml": "<sdf version='1.5'><world name='w'><physics type='ode'><gravity>1 2 3</gravity></physics></world></sdf>",
+      "native": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 4607182418800017408 4611686018427387904 4613937818241073152 4528183427953460019 4537372969584020815 13764752285348817520\nPHYSICS 1\nELEMENT 1 1 0 0\n",
+        "stderr": ""
+      }
+    }
+  ],
+  "original_fixtures": {
+    "1.4": "tests/fixtures/legacy_world_fields_14.sdf",
+    "1.5": "tests/fixtures/legacy_world_fields_15.sdf"
+  },
+  "originals": {
+    "1.4": {
+      "root": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 4607182418800017408 0 13845078564453063066 4607182418800017408 4611686018427387904 4613937818241073152\nPHYSICS 1\nELEMENT 1 1 0 0\n",
+        "stderr": ""
+      },
+      "convert": {
+        "exit": 0,
+        "stdout": "CONVERT 1\nVERSION 1.6 1.4 1.4 1.4 1.4\nVALUES 4607182418800017408 0 13845078564453063066 4607182418800017408 4611686018427387904 4613937818241073152\nELEMENT 1 1 0 0\n",
+        "stderr": ""
+      }
+    },
+    "1.5": {
+      "root": {
+        "exit": 0,
+        "stdout": "ERRORS\nVALUES 4607182418800017408 0 13845078564453063066 4607182418800017408 4611686018427387904 4613937818241073152\nPHYSICS 1\nELEMENT 1 1 0 0\n",
+        "stderr": ""
+      },
+      "convert": {
+        "exit": 0,
+        "stdout": "CONVERT 1\nVERSION 1.6 1.5 1.5 1.5 1.5\nVALUES 4607182418800017408 0 13845078564453063066 4607182418800017408 4611686018427387904 4613937818241073152\nELEMENT 1 1 0 0\n",
+        "stderr": ""
+      }
+    }
+  }
+}

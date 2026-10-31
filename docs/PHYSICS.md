@@ -57,3 +57,7 @@ presence assertion. The ErrorOutput port checks actual empty library stdout/stde
 in a child process and successful emit/load Results. See
 [XML_ASSERTION_MAPPINGS.md](XML_ASSERTION_MAPPINGS.md). Full schema, native XML
 byte identity, engine execution and general error-vector parity remain unqualified.
+
+Legacy SDF1.4/1.5 world gravity and magnetic fields inside the first physics group
+project into World metadata while preserving the original Physics snapshot.
+Ambiguous/later declarations remain unsupported; see [the conversion boundary](LEGACY_WORLD_FIELDS.md).

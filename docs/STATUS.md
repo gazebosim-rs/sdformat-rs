@@ -3834,3 +3834,33 @@ ledger maps exactly the original's five valid-load/name observations; no general
 URDF or runtime credit is claimed. Independent review, full protected staged
 coverage and exact hosted/source verification remain pending. See
 URDF_CONTINUOUS_JOINT.md. No accepted counters, dependencies or consumer pins change.
+
+
+The next private legacy-world conversion slice projects SDF1.4/1.5 first-physics
+gravity and magnetic fields into existing typed World metadata. Eighty-three pinned
+native controls and both unchanged ConverterIntegration string originals pass.
+Exact inline fixtures retain original versions/XML/source, with ambiguous direct,
+duplicate and later-profile metadata explicitly refused rather than silently
+ignored. Both original mappings remain partial: converted Element/output-version
+and OriginalVersion APIs are unported. Five prepared Rust tests passed. Root independently approved only the exact
+gravity row transition: the historical corpus is unchanged and that branch now
+uses the complete same-input/URI positive. All 663 retained Rust tests and
+all-target Clippy pass. The original expected rejection failure remains separate.
+Independent final review passed with fresh six-test,83-control/two-original,
+hostile-Git integrity,Clippy and fmt replays. Ordinary strict staged/exact hosted
+checks remain pending.
+No other existing assertion, corpus, dependency, consumer pin or accepted counter changes.
+See LEGACY_WORLD_FIELDS.md.
+
+
+The first ordinary staged gate passed49 tooling checks and the instrumented Rust
+suite, then failed closed on two absent-DA source delimiters. Its temporary raw
+snapshot was cleaned; its log is retained. The distinct persistent diagnostic
+retains actual source/raw/profdata/LLVM/ELF evidence:8611/8652 lines,13609/13879
+regions and47/47 measured changed lines against accepted3e9e, with no changed DA0.
+The actual unclassified lines had no overlapping LLVM regions. Independent prior
+review approved replacing the inline child-slice argument with a named local and
+the new matches macro with ordinary exact input-version comparisons. No proof,
+coverage rule, assertion or unsupported input changes. The refactored source
+requires the ordinary strict retry and exact hosted qualification; earlier663-test
+and native evidence remains separately bound to its original source.

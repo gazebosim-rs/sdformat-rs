@@ -1,17 +1,19 @@
 {
   "decision": "approved",
   "author": "sdf_world_owner",
-  "reviewer": "root",
-  "source_digest": "cfc14cacf4e588f16c9df56565b3c5e122bf0a3f8fc1a58eecb22aa2824552c0",
-  "protected_digest": "9b0c0c9d89fa3228452a8e612ddce8e2c9311a2ef93bf621d2c12248bcf55988",
-  "scope": "Bounded continuous-joint importer plus minimal genuine-LLVM-backed non-executable syntax proof, rebased unchanged onto accepted petgraph0.8.3.",
+  "reviewer": "msgs_performance_owner (independent replay); root (final assertion transition and bookkeeping review)",
+  "source_digest": "051580ecaf2a58125773c992763806e2d3dcdb9f89357b2295c6cfc7de9971fa",
+  "protected_digest": "1f033aa8f90ea3ad8ce982fe95f4c1e0f00902494062cb49782a7f643ba3ffae",
+  "scope": "Bounded SDF1.4/1.5 first-physics gravity and magnetic-field typed loading; exact historical gravity rejection becomes a stronger same-input positive. Full Element/XML/version conversion remains partial.",
   "checks": [
-    "Transport owner independently approved production13 paths with fresh21 Rust/82 native/copy/frame/full-original and retained84+29 corpus replays. Separately approved final2 proof paths with fresh38 helper/49 tooling/Clippy and actual retained LLVM query; all33 genuineDA0 remain counted/refuse forged hints.",
-    "Root independently verified14/15 files byte-identical to both approved packets; STATUS is exactly accepted0437 dependency document plus the unchanged prior feature append. Cargo files equal accepted0437; no other production/test/proof/gate changes. Root recomputed both final digests.",
-    "The prior full failure and persistent diagnostic remain distinct. New full staged and exact hosted/source checks on the rebased tree are required; no carried phases or acceptance counters."
+    "Independent fresh accepted3e9e source archive and separate target passed four new Rust tests, both retained version15 tests,83 pinned native controls,both unchanged full C++ originals,hostile-Git replay,all-target Clippy and formatting.",
+    "Reviewer verified that removing only the authorized gravity branch/module declaration reproduces historical version15.rs byte-for-byte; the corpus and every other assertion remain unchanged. Exhaustive positive covers typed World/Physics,source URI/location,raw XML,input version and validation.",
+    "Root rechecked parser delta and exact transition, all12 unchanged independently reviewed path hashes, final two partial ledger records and truthful review-only documentation. Recomputed final digests. No gate/dependency/coverage policy changes.",
+    "Author full retained663 Rust pass is separate from independent focused replay; ordinary full strict staged and exact hosted gates are still required.",
+    "Independent Msgs recheck approved exactly two idiomatic source refactors: local allowed_children binding and direct input-version comparisons. Tests, native producer, coverage policy and verifier are unchanged. Prior actual LLVM showed no regions on the two syntactic closings; no new syntax exemption or source exclusion is added. New statements and all existing DA0/regions require full strict remeasurement."
   ],
   "remaining": [
-    "General articulated/non-continuous URDF remains unsupported.",
-    "Full unchanged protected staged gate and exact whole hosted/source verification are pending."
+    "General converted Element/XML/output-version and OriginalVersion behavior remains unported.",
+    "Normal strict staged and exact hosted/source qualification remain pending."
   ]
 }

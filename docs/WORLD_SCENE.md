@@ -28,8 +28,9 @@ empty grid/origin_visual retain true. Native color prefixes and per-component
 NaN-to-zero behavior remain observable through the existing color conversion.
 Infinity, out-of-range components and malformed colors remain invalid.
 
-Sky, fog, unknown scene children/attributes and unrelated world GUI/
-spherical data remain Unsupported. Duplicate scene or singleton fields retain
+Sky, fog, unknown scene children/attributes and world GUI data remain
+Unsupported. Bounded spherical-reference metadata is described in
+[WORLD_SPHERICAL.md](WORLD_SPHERICAL.md). Duplicate scene or singleton fields retain
 the existing Rust InvalidValue policy even where native keeps the first value.
 Case-mismatched known world names remain Unsupported. There is no scene writer,
 resource loading, rendering, color-space conversion or simulator activation.

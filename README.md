@@ -176,3 +176,7 @@ Bounded Collision metadata can be read and emitted independently; see
 
 The world-merge metadata boundary is documented in
 [WORLD_MERGE_EXTENSIONS.md](docs/WORLD_MERGE_EXTENSIONS.md).
+
+World spherical-reference metadata retains optional Earth/Moon surface, ENU orientation,
+radian reference angles and elevation without computing coordinate transforms. See
+[the bounded contract](docs/WORLD_SPHERICAL.md).

@@ -339,6 +339,7 @@ struct CallAudit {
     type_attributes: bool,
     closings: BTreeSet<usize>,
     else_delimiters: BTreeSet<usize>,
+    wildcard_prefixes: BTreeSet<usize>,
 }
 impl<'ast> Visit<'ast> for CallAudit {
     fn visit_attribute(&mut self, attr: &'ast syn::Attribute) {
@@ -401,6 +402,24 @@ impl<'ast> Visit<'ast> for CallAudit {
     }
     fn visit_item_macro(&mut self, _: &'ast syn::ItemMacro) {
         self.opaque = true;
+    }
+    fn visit_arm(&mut self, arm: &'ast syn::Arm) {
+        if self.in_function
+            && arm.attrs.is_empty()
+            && let syn::Pat::Wild(pattern) = &arm.pat
+            && pattern.attrs.is_empty()
+            && let syn::Expr::Block(block) = &*arm.body
+            && block.attrs.is_empty()
+            && block.label.is_none()
+        {
+            let line = pattern.underscore_token.span.start().line;
+            if arm.fat_arrow_token.span().start().line == line
+                && block.block.brace_token.span.open().end().line == line
+            {
+                self.wildcard_prefixes.insert(line);
+            }
+        }
+        visit::visit_arm(self, arm);
     }
     fn visit_expr_if(&mut self, expression: &'ast syn::ExprIf) {
         if self.in_function
@@ -570,6 +589,39 @@ fn plain_declarations(
                     }
                 }
             }
+            Item::Enum(item)
+                if string_field_derives_or_docs(&item.attrs)
+                    && matches!(item.vis, Visibility::Public(_))
+                    && item.generics.params.is_empty()
+                    && item.generics.where_clause.is_none()
+                    && item.variants.iter().all(|variant| {
+                        docs_only(&variant.attrs)
+                            && matches!(variant.fields, syn::Fields::Unit)
+                            && variant.discriminant.is_none()
+                    }) =>
+            {
+                for attr in &item.attrs {
+                    if attr.path().is_ident("derive") && exclusive_span(source, attr.span(), "") {
+                        out.extend(attr.span().start().line..=attr.span().end().line);
+                    }
+                }
+                let start = item.enum_token.span.start();
+                let open = item.brace_token.span.open();
+                if start.line == open.end().line
+                    && lines[start.line - 1].trim() == format!("pub enum {} {{", item.ident)
+                {
+                    out.insert(start.line);
+                }
+                for pair in item.variants.pairs() {
+                    let (variant, comma) = pair.into_tuple();
+                    let span = variant.ident.span();
+                    if comma.is_some_and(|comma| comma.span.start().line == span.end().line)
+                        && exclusive_span(source, span, ",")
+                    {
+                        out.insert(span.start().line);
+                    }
+                }
+            }
             Item::Impl(item)
                 if docs_only(&item.attrs)
                     && item.unsafety.is_none()
@@ -713,6 +765,7 @@ fn reserved_constructor_name(name: &str) -> bool {
     [
         "Ok",
         "Scene",
+        "SphericalCoordinates",
         "Result",
         "std",
         "Debug",
@@ -742,6 +795,7 @@ fn safe_macro_tokens(tokens: proc_macro2::TokenStream) -> bool {
                     "extern",
                     "Ok",
                     "Scene",
+                    "SphericalCoordinates",
                 ]
                 .contains(&name.unraw().to_string().as_str()) =>
             {
@@ -804,8 +858,11 @@ struct ConstructorBoundary<'a> {
 }
 impl ConstructorBoundary<'_> {
     fn binding(&mut self, name: &syn::Ident, scene_declaration: bool) {
-        if ["Ok", "Scene", "Result", "std"].contains(&name.unraw().to_string().as_str())
-            && !(scene_declaration && self.role == "types" && name == "Scene")
+        if ["Ok", "Scene", "SphericalCoordinates", "Result", "std"]
+            .contains(&name.unraw().to_string().as_str())
+            && !(scene_declaration
+                && self.role == "types"
+                && ["Scene", "SphericalCoordinates"].contains(&name.unraw().to_string().as_str()))
         {
             self.bad = true;
         }
@@ -951,6 +1008,21 @@ fn aggregate_prefixes(
     module: &str,
     exports: &std::collections::BTreeMap<String, String>,
 ) -> BTreeSet<usize> {
+    ["Scene", "SphericalCoordinates"]
+        .into_iter()
+        .flat_map(|constructor| {
+            aggregate_prefixes_for(source, ancestor, module, exports, constructor)
+        })
+        .collect()
+}
+
+fn aggregate_prefixes_for(
+    source: &str,
+    ancestor: &str,
+    module: &str,
+    exports: &std::collections::BTreeMap<String, String>,
+    constructor: &str,
+) -> BTreeSet<usize> {
     let empty = BTreeSet::new();
     if module != "parse"
         || exports.keys().map(String::as_str).collect::<Vec<_>>() != ["camera", "types"]
@@ -1010,7 +1082,7 @@ fn aggregate_prefixes(
         .items
         .iter()
         .filter_map(|item| match item {
-            Item::Struct(item) if item.ident == "Scene" => Some(item),
+            Item::Struct(item) if item.ident == constructor => Some(item),
             _ => None,
         })
         .collect();
@@ -1052,6 +1124,7 @@ fn aggregate_prefixes(
     struct Prefixes<'a> {
         source: &'a str,
         fields: &'a BTreeSet<String>,
+        constructor: &'a str,
         in_function: bool,
         lines: BTreeSet<usize>,
     }
@@ -1108,7 +1181,7 @@ fn aggregate_prefixes(
                 && let syn::Expr::Struct(value) = &call.args[0]
                 && value.attrs.is_empty()
                 && value.qself.is_none()
-                && value.path.is_ident("Scene")
+                && value.path.is_ident(self.constructor)
                 && value.rest.is_none()
                 && value.fields.iter().all(|f| f.attrs.is_empty())
             {
@@ -1140,6 +1213,7 @@ fn aggregate_prefixes(
     let mut visitor = Prefixes {
         source,
         fields: &names,
+        constructor,
         in_function: false,
         lines: BTreeSet::new(),
     };
@@ -1193,6 +1267,7 @@ fn classify(source: &str, ancestor: &str, module: &str) -> Result<Evidence, syn:
         type_attributes: false,
         closings: BTreeSet::new(),
         else_delimiters: BTreeSet::new(),
+        wildcard_prefixes: BTreeSet::new(),
     };
     calls.visit_file(&syntax);
     let lines: Vec<_> = source.split('\n').collect();
@@ -1200,6 +1275,11 @@ fn classify(source: &str, ancestor: &str, module: &str) -> Result<Evidence, syn:
         lines
             .get(line - 1)
             .is_some_and(|text| text.trim() == "} else {")
+    });
+    calls.wildcard_prefixes.retain(|line| {
+        lines
+            .get(line - 1)
+            .is_some_and(|text| text.trim() == "_ => {")
     });
     // AncestorAudit rejects attributes, extern crates and item macros across
     // the entire ancestor, independent of any builtin-name imports.
@@ -1222,6 +1302,7 @@ fn classify(source: &str, ancestor: &str, module: &str) -> Result<Evidence, syn:
     {
         calls.closings.clear();
         calls.else_delimiters.clear();
+        calls.wildcard_prefixes.clear();
     }
     if audit.opaque || audit.item_macro {
         fields.clear();
@@ -1237,6 +1318,7 @@ fn classify(source: &str, ancestor: &str, module: &str) -> Result<Evidence, syn:
     };
     let mut items = context_lines(source, ancestor, module);
     items.extend(declarations.iter().copied());
+    items.extend(calls.wildcard_prefixes);
     // Only the exact exclusive, syntax-proved declaration lines may remove
     // literal/derive opacity. No expression or enclosing item is unmasked.
     audit
@@ -2144,6 +2226,169 @@ fn compiled_self_import_bindings_and_const_bodies_never_prove_constructor_prefix
         compile(
             &format!("use crate::*;\npub fn value() -> Result<Scene, ()> {{\n{body}}}\n"),
             &root,
+        );
+    }
+}
+
+#[test]
+fn plain_unit_enums_prove_only_exclusive_declarations() {
+    let source =
+        "#[derive(Debug, Clone, Copy, PartialEq, Eq)]\npub enum Surface {\n Earth,\n Moon,\n}\n";
+    compiles(source);
+    let proof = classify(source, "mod types;", "types").unwrap();
+    assert_eq!(proof.items, BTreeSet::from([1, 2, 3, 4]));
+    assert!(proof.items.is_disjoint(&proof.opaque));
+    for source in [
+        source.replace(
+            "Earth,",
+            "Earth = { const fn code() -> isize { 1 } code() },",
+        ),
+        source
+            .replace(
+                "Earth,",
+                "Earth([u8; { const fn size() -> usize { 1 } size() }]),",
+            )
+            .replace("#[derive(Debug, Clone, Copy, PartialEq, Eq)]", ""),
+        source.replace("Earth,", "#[cfg(any())] Earth,"),
+        format!("macro_rules! hidden {{ () => {{}} }}\n{source}"),
+        source.replace(
+            "#[derive(Debug, Clone, Copy, PartialEq, Eq)]",
+            "#[derive(custom::Debug)]",
+        ),
+    ] {
+        assert!(
+            classify(&source, "mod types;", "types")
+                .unwrap()
+                .items
+                .is_empty(),
+            "{source}"
+        );
+    }
+    for declaration in [
+        "pub enum Surface { Earth = { const fn value() -> isize { 1 } value() }, Moon, }",
+        "pub enum Surface { Earth([u8; { const fn size() -> usize { 1 } size() }]), Moon, }",
+    ] {
+        compiles(declaration);
+        assert!(
+            classify(declaration, "mod types;", "types")
+                .unwrap()
+                .items
+                .is_empty()
+        );
+    }
+    let shared = source
+        .replace("Earth,", "Earth, Moon,")
+        .replace(" Moon,\n}", "}");
+    compiles(&shared);
+    assert!(
+        !classify(&shared, "mod types;", "types")
+            .unwrap()
+            .items
+            .contains(&3)
+    );
+    assert!(
+        classify(source, "#[custom::attribute] mod types;", "types")
+            .unwrap()
+            .items
+            .is_empty()
+    );
+    let shadowed = format!("use hidden::Debug;\n{source}");
+    assert!(
+        !classify(&shadowed, "mod types;", "types")
+            .unwrap()
+            .items
+            .contains(&2)
+    );
+}
+
+#[test]
+fn wildcard_block_prefix_is_exclusive_and_refuses_guards_attributes_and_macros() {
+    let source =
+        "pub fn value(x: u8) -> u8 {\n match x {\n _ => {\n  std::hint::black_box(1)\n }\n }\n}\n";
+    compiles(source);
+    assert_eq!(
+        classify(source, "mod parse;", "parse").unwrap().items,
+        BTreeSet::from([3])
+    );
+    for source in [
+        source.replace("_ => {", "_ if std::hint::black_box(true) => {"),
+        source.replace("_ => {", "0 => {"),
+        source.replace("_ => {", "_ => { std::hint::black_box(2);"),
+        source.replace("_ => {", "#[custom::attribute] _ => {"),
+        source.replace("pub fn", "#[custom::attribute] pub fn"),
+        format!("macro_rules! hidden {{ () => {{}} }}\n{source}"),
+    ] {
+        assert!(
+            classify(&source, "mod parse;", "parse")
+                .unwrap()
+                .items
+                .is_empty(),
+            "{source}"
+        );
+    }
+    for ancestor in [
+        "#[custom::attribute] mod parse;",
+        "macro_rules! hidden { () => {} } mod parse;",
+        "mod parse {}",
+    ] {
+        assert!(
+            classify(source, ancestor, "parse")
+                .unwrap()
+                .items
+                .is_empty()
+        );
+    }
+}
+
+#[test]
+fn spherical_constructor_uses_the_same_closed_boundary_as_scene() {
+    let (source, root, exports) = constructor_fixture();
+    let source = source.replace("Scene", "SphericalCoordinates");
+    let exports = exports
+        .into_iter()
+        .map(|(name, value)| (name, value.replace("Scene", "SphericalCoordinates")))
+        .collect();
+    assert_eq!(
+        aggregate_prefixes(&source, &root, "parse", &exports),
+        BTreeSet::from([3])
+    );
+    for source in [
+        source.replace(
+            " Ok(SphericalCoordinates {",
+            " let Ok = |v| v;\n Ok(SphericalCoordinates {",
+        ),
+        source.replace(
+            " Ok(SphericalCoordinates {",
+            " struct SphericalCoordinates { value: u8 }\n Ok(SphericalCoordinates {",
+        ),
+        source.replace(
+            "use crate::*;",
+            "use crate::*; use hidden::SphericalCoordinates::{self};",
+        ),
+        source.replace(
+            "use crate::*;",
+            "use crate::*; use hidden::r#SphericalCoordinates::{self};",
+        ),
+        source.replace(
+            " Ok(SphericalCoordinates {",
+            " format!(\"{}\", { struct SphericalCoordinates; 1 });\n Ok(SphericalCoordinates {",
+        ),
+        source.replace(
+            " Ok(SphericalCoordinates {",
+            " custom!();\n Ok(SphericalCoordinates {",
+        ),
+        source.replace(
+            " Ok(SphericalCoordinates {",
+            " Ok::<SphericalCoordinates, ()>(SphericalCoordinates {",
+        ),
+        source.replace(
+            " Ok(SphericalCoordinates {",
+            " runtime(SphericalCoordinates {",
+        ),
+    ] {
+        assert!(
+            aggregate_prefixes(&source, &root, "parse", &exports).is_empty(),
+            "{source}"
         );
     }
 }

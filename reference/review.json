@@ -1,19 +1,22 @@
 {
   "decision": "approved",
-  "author": "root",
-  "reviewer": "transport_owner",
-  "source_digest": "f4047b78c0f20f310de35665853bddd428da849851aeef9fcf6553569fda7c1e",
-  "protected_digest": "0f523e667474519528dc29b2aa734c35ffa5062c71e81c2f3690704506a3d453",
-  "scope": "Owned World audio-device metadata and four exact prior-reviewed capability transitions. No audio IO, constructor parity, consumer pin or complete original-case promotion.",
+  "author": "sdf_world_owner",
+  "reviewer": "msgs_performance_owner",
+  "source_digest": "beafbdf26be84a6c1c294c5db07a004bfec411556dbf0b4c985bd33f19c40bf4",
+  "protected_digest": "481284bf5f2a4eed99ceafd7a13a0eeda20f935a5c539d584154e326d7d38c7b",
+  "scope": "Optional Earth/Moon/ENU spherical reference metadata and one exact prior-approved capability transition. No geodesy, custom axes, runtime activation, constructor or complete original-case credit. Minimal independently reviewed syntax proof for the exact nine genuinely absent-DA declaration/delimiter/closed-constructor lines.",
   "checks": [
-    "Independent fresh source and target passed five prepared tests, then seven final affected tests and all-target Clippy.",
-    "Fresh pinned native helper passed 31 controls, constructor, full/projected audio equality and unchanged DOMWorld.Load; all nine supported schema audio blocks agree.",
-    "Exact original 21-row corpus, XML, source URIs and all unrelated predicates are unchanged. Only four prior-approved temporary rejections became complete metadata positives.",
-    "Reviewer-only leading/trailing comment, CDATA CR/first text and empty CDATA controls agree with native; duplicate InvalidValue versus native first-wins remains explicit.",
-    "All sixteen final paths matched the independent replay; Root verified both existing source/protected digests before writing this required record."
+    "Independent fresh source and owned target passed seven affected Rust tests, all-target Clippy,57 pinned native controls, constructor absence/presence, full/projected getter equality and unchanged DOMWorld.Load.",
+    "Reviewer approved only exact spherical_coordinates empty1.12/root.sdf predicate before fold; full World/default/physics/source assertions retained, other old predicates/corpus unchanged.",
+    "Removed synthetic unowned axis constants from Rust projection while retaining full raw native observations; original2017 notices and exact four-ULP assertions remain.",
+    "Explicit native differences cover duplicate singleton policy and finite angle multiplication overflow; no normalized/clamped/fabricated coordinate values.",
+    "Final narrow recheck approved two additive Missing-error controls and corrected validation-order prose; source/protected digests match both independent and author copies.",
+    "First ordinary staged attempt failed closed on opaque syntax; its log is retained. Existing temporary cleanup removed its raw snapshot. A reviewed-receipt ordinary private diagnostic retains the actual production LLVM report/profiles.",
+    "Independent fresh proof source/target passed26 helper tests,44 tooling tests and Clippy, including real compiled DA0/region/missing-file-instrumentation controls. Exact nine lines have absent DA, not DA0; measured62/62 and production coverage remain unchanged.",
+    "Unit enums refuse payloads/discriminants/custom attributes/derive shadowing/macros; wildcard requires an unguarded AST wildcard and exclusive block delimiter. Spherical aggregate proof retains closed export/type/function context and actual dep-info binding. No production source, original assertions, thresholds or exclusions changed."
   ],
   "remaining": [
-    "Normal protected staged checks and exact hosted CI remain mandatory.",
-    "Audio playback, native Element/path and remaining World.Load contracts are outside this slice."
+    "The ordinary protected staged gate and exact hosted CI remain mandatory.",
+    "Custom surfaces/axes, geodesy, GUI, remaining World.Load and native Element/path contracts remain outside this slice."
   ]
 }

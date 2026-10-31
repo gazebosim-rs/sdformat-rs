@@ -3619,3 +3619,28 @@ approved three known-audio corpus predicates and one schema-empty predicate now
 use the shared complete metadata assertion. Seven affected author Rust tests pass.
 Final independent fold review passed. The protected staged/hosted gates remain pending. No accepted counters or
 consumer pins advance. See WORLD_AUDIO.md.
+
+
+The private World spherical-reference candidate retains optional Earth/Moon
+surface, ENU orientation, native radian reference angles, elevation and owned
+declaration source. Five focused Rust tests, all-target Clippy and 57 pinned
+native controls pass, including constructor absence, explicit empty presence,
+full/projected getter equality and unchanged DOMWorld.Load. The original
+spherical subtree and four-ULP angle/elevation intent are retained; the case
+stays partial. Independent fresh-source/target review passed five prepared Rust tests, 57
+native controls and all-target Clippy. Root approved only the exact empty-group
+SDF 1.12/root.sdf rejection transition. Its complete supported World positive
+is now folded, and author replay passes seven affected Rust tests. Final fold
+review, protected staged and exact hosted qualification remain pending; no accepted counters or consumer pins change.
+See WORLD_SPHERICAL.md.
+
+The normal protected spherical-reference staged hook failed closed on unmapped
+syntax after tests and aggregate checks passed. Its staged export was cleaned
+up; only its failure log is retained. A second approved-source ordinary diagnostic
+preserves actual raw profiles, merged data and LLVM reports in the private
+worktree. Nine changed lines have no DA record; all 62 measured changed lines
+are covered, with production 7802/7829 lines and 12245/12487 regions. A bounded
+unit-enum/wildcard/owned-constructor proof passes 26 helper tests, Clippy and two
+real compiled LLVM controls, and accounts for those exact nine absent-DA lines.
+Independent proof review and the required protected/hosted gates remain pending;
+no counters, runtime admission or consumer pins advance.

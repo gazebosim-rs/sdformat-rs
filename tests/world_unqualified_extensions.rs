@@ -7,6 +7,8 @@ use serde_json::Value;
 mod audio_projection;
 #[path = "support/world_scene_projection.rs"]
 mod scene_projection;
+#[path = "support/world_spherical_projection.rs"]
+mod spherical_projection;
 
 struct Resolver;
 impl ResourceResolver for Resolver {
@@ -154,6 +156,12 @@ fn known_schema_spellings_are_not_admitted_as_world_metadata() {
     ];
     let names = include_str!("../data/world_known_schema_names.txt");
     for name in names.lines().filter(|name| !name.starts_with('#')) {
+        if name == "spherical_coordinates" {
+            let xml = format!("<sdf version='1.12'><world name='w'><{name}/></world></sdf>");
+            let sdf = load_str(&xml, "root.sdf", &Resolver).unwrap();
+            spherical_projection::assert_spherical(&sdf, "root.sdf");
+            continue;
+        }
         if name == "audio" {
             let xml = format!("<sdf version='1.12'><world name='w'><{name}/></world></sdf>");
             let sdf = load_str(&xml, "root.sdf", &Resolver).unwrap();

@@ -170,3 +170,34 @@ the actual pending constructor line and keeps 42/42 changed DA. This is a
 diagnostic, not a staged pass. The combined ordinary protected hook and exact
 hosted checks remain required. There is no additional native-original credit,
 compiler/dependency/producer-pin change or runtime activation.
+
+The spherical-reference candidate exposed nine genuinely uninstrumented source
+lines in a normal staged run: two enum derives, two enum headers, three unit
+variants, an exclusive wildcard-block prefix and an owned constructor prefix.
+The failed staged export was cleaned up; an approved-source ordinary diagnostic
+retains its actual profiles and LLVM export under the author's artifacts/core.
+All 62 measured changed lines are covered. Aggregate production coverage remains
+7802/7829 lines and 12245/12487 regions; syntax evidence does not alter those counts.
+
+The bounded proof now recognizes public, nongeneric, unit-only enum declarations
+with the existing audited builtin derives and source/module/ancestor checks.
+Discriminants, payload types, conditional/custom attributes and opaque macros
+refuse the entire enum proof. Derive/header/variant lines must have exclusive
+AST-backed spans; shared-line declarations receive no exemption.
+
+An exclusive `_ => {` line is recognized only as a genuine wildcard match arm
+with an unlabeled plain block inside an untransformed function. Guards, other
+patterns, attributes, macros and inline body statements are refused. Only that
+prefix line receives evidence; its branch body keeps normal LLVM accounting.
+The existing closed constructor audit also covers SphericalCoordinates alongside
+Scene, validating its actual owned declaration and fields through the same two
+public exports. Both names are protected against imports, local bindings and
+macro-token injection. Callable Ok, unknown constructors and transformed contexts
+remain unproved.
+
+Author checks pass 26 helper tests, all-target Clippy and both real compiled LLVM
+controls. A fresh helper query accounts for the exact nine lines against the
+retained production export. Genuine unexecuted wildcard and conditional bodies
+still have DA0 and fail even with forged syntax hints; real uncovered regions
+still fail their original threshold. Independent proof review, a new ordinary
+protected staged run and exact hosted success remain required.

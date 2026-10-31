@@ -1073,6 +1073,7 @@ impl Parser<'_> {
                 "atmosphere",
                 "scene",
                 "audio",
+                "spherical_coordinates",
             ],
             &["name"],
             &extension_names,
@@ -1193,6 +1194,9 @@ impl Parser<'_> {
         }
         self.validate_axis_mimics(&name, &joints)?;
         Ok(World {
+            spherical_coordinates: child(node, "spherical_coordinates")
+                .map(|n| self.spherical_coordinates(n))
+                .transpose()?,
             scene: self.scene(node)?,
             audio_device: child(node, "audio").map_or(Ok("default".into()), |audio| {
                 self.allowed(audio, &["device"], &[])?;
@@ -1212,6 +1216,72 @@ impl Parser<'_> {
             merged_includes,
             plugins,
             extensions,
+            source: self.source(node),
+        })
+    }
+    fn spherical_coordinates(
+        &self,
+        node: Node<'_, '_>,
+    ) -> Result<SphericalCoordinates, Diagnostic> {
+        self.allowed(
+            node,
+            &[
+                "surface_model",
+                "world_frame_orientation",
+                "latitude_deg",
+                "longitude_deg",
+                "elevation",
+                "heading_deg",
+            ],
+            &[],
+        )?;
+        let surface = match self
+            .schema_string(node, "surface_model", "EARTH_WGS84")?
+            .as_str()
+        {
+            "EARTH_WGS84" => SphericalSurface::EarthWgs84,
+            "MOON_SCS" => SphericalSurface::MoonScs,
+            "CUSTOM_SURFACE" => {
+                return Err(self.err(
+                    node,
+                    ErrorCode::Unsupported,
+                    "custom spherical surfaces are not implemented",
+                ));
+            }
+            _ => {
+                return Err(self.err(
+                    node,
+                    ErrorCode::InvalidValue,
+                    "invalid spherical surface model",
+                ));
+            }
+        };
+        if let Some(orientation) = child(node, "world_frame_orientation") {
+            self.allowed(orientation, &[], &[])?;
+            let text = param_text(orientation);
+            if !text.is_empty() && text != "ENU" {
+                return Err(self.err(
+                    orientation,
+                    ErrorCode::InvalidValue,
+                    "unsupported world frame orientation",
+                ));
+            }
+        }
+        // Preserve gz-math Angle's operation order, including signed zero.
+        let angle = |name| {
+            let radians = self.required_scalar(node, name, 0.)? * std::f64::consts::PI / 180.;
+            if !radians.is_finite() {
+                return Err(self.err(node, ErrorCode::InvalidValue, "spherical angle overflow"));
+            }
+            Ok(radians)
+        };
+        Ok(SphericalCoordinates {
+            surface,
+            orientation: WorldFrameOrientation::EastNorthUp,
+            latitude_radians: angle("latitude_deg")?,
+            longitude_radians: angle("longitude_deg")?,
+            elevation: self.required_scalar(node, "elevation", 0.)?,
+            heading_radians: angle("heading_deg")?,
             source: self.source(node),
         })
     }

@@ -1248,3 +1248,8 @@ Custom sensor subtype and opaque direct-child metadata are described in
 [CUSTOM_SENSOR_METADATA.md](CUSTOM_SENSOR_METADATA.md). The parser preserves
 arbitrary custom subtype names, original XML and ordered unknown child subtrees;
 this does not enable sensor runtime behavior or custom XML output.
+
+`World.spherical_coordinates` is optional owned Earth/Moon reference metadata,
+with ENU orientation, latitude/longitude/heading in radians, elevation in metres
+and actual declaration Source. Custom surfaces/axes and coordinate transforms
+remain unsupported. See [the spherical metadata contract](WORLD_SPHERICAL.md).

@@ -239,6 +239,8 @@ pub struct World {
     pub scene: Scene,
     /// Audio device name only; loading never opens a device or starts playback.
     pub audio_device: String,
+    /// Geographic reference metadata; no coordinate transformation is performed.
+    pub spherical_coordinates: Option<SphericalCoordinates>,
     /// Physics profiles in declaration order, or the implicit native default.
     pub physics: Vec<Physics>,
     pub models: Vec<Model>,
@@ -253,6 +255,29 @@ pub struct World {
     /// Opaque direct world metadata and qualified metadata from merged includes.
     pub extensions: Vec<ExtensionMetadata>,
     pub source: Source,
+}
+
+/// Owned Earth/Moon reference metadata, with angles in radians and elevation in metres.
+#[derive(Debug, Clone, PartialEq)]
+pub struct SphericalCoordinates {
+    pub surface: SphericalSurface,
+    pub orientation: WorldFrameOrientation,
+    pub latitude_radians: f64,
+    pub longitude_radians: f64,
+    pub elevation: f64,
+    pub heading_radians: f64,
+    pub source: Source,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum SphericalSurface {
+    EarthWgs84,
+    MoonScs,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum WorldFrameOrientation {
+    EastNorthUp,
 }
 
 /// Bounded world scene metadata. Sky, fog and rendering are outside this value.

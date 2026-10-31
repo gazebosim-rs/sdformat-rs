@@ -1,0 +1,471 @@
+{
+  "cases": [
+    {
+      "name": "absent",
+      "xml": "<sdf version='1.12'><world name='w'></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nCOORDS 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "empty",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates></spherical_coordinates></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nCOORDS 1\nSURFACE 1\nRADIANS 0 0 0\nDEGREES 0 0 0\nMETRES 0 4708606483430899712 4708583521799411471\n",
+      "stderr": ""
+    },
+    {
+      "name": "version_1_4",
+      "xml": "<sdf version='1.4'><world name='w'><spherical_coordinates><surface_model>EARTH_WGS84</surface_model><latitude_deg>-22.9</latitude_deg><longitude_deg>-43.2</longitude_deg><elevation>100</elevation><heading_deg>90</heading_deg></spherical_coordinates></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nCOORDS 1\nSURFACE 1\nRADIANS 13824243658751412895 13828338524641999526 4609753056924675352\nDEGREES 13850511031503578726 13854648713661225370 4636033603912859648\nMETRES 4636737291354636288 4708606483430899712 4708583521799411471\n",
+      "stderr": ""
+    },
+    {
+      "name": "version_1_5",
+      "xml": "<sdf version='1.5'><world name='w'><spherical_coordinates><surface_model>EARTH_WGS84</surface_model><latitude_deg>-22.9</latitude_deg><longitude_deg>-43.2</longitude_deg><elevation>100</elevation><heading_deg>90</heading_deg></spherical_coordinates></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nCOORDS 1\nSURFACE 1\nRADIANS 13824243658751412895 13828338524641999526 4609753056924675352\nDEGREES 13850511031503578726 13854648713661225370 4636033603912859648\nMETRES 4636737291354636288 4708606483430899712 4708583521799411471\n",
+      "stderr": ""
+    },
+    {
+      "name": "version_1_6",
+      "xml": "<sdf version='1.6'><world name='w'><spherical_coordinates><surface_model>EARTH_WGS84</surface_model><latitude_deg>-22.9</latitude_deg><longitude_deg>-43.2</longitude_deg><elevation>100</elevation><heading_deg>90</heading_deg></spherical_coordinates></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nCOORDS 1\nSURFACE 1\nRADIANS 13824243658751412895 13828338524641999526 4609753056924675352\nDEGREES 13850511031503578726 13854648713661225370 4636033603912859648\nMETRES 4636737291354636288 4708606483430899712 4708583521799411471\n",
+      "stderr": ""
+    },
+    {
+      "name": "version_1_7",
+      "xml": "<sdf version='1.7'><world name='w'><spherical_coordinates><surface_model>EARTH_WGS84</surface_model><latitude_deg>-22.9</latitude_deg><longitude_deg>-43.2</longitude_deg><elevation>100</elevation><heading_deg>90</heading_deg></spherical_coordinates></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nCOORDS 1\nSURFACE 1\nRADIANS 13824243658751412895 13828338524641999526 4609753056924675352\nDEGREES 13850511031503578726 13854648713661225370 4636033603912859648\nMETRES 4636737291354636288 4708606483430899712 4708583521799411471\n",
+      "stderr": ""
+    },
+    {
+      "name": "version_1_8",
+      "xml": "<sdf version='1.8'><world name='w'><spherical_coordinates><surface_model>EARTH_WGS84</surface_model><latitude_deg>-22.9</latitude_deg><longitude_deg>-43.2</longitude_deg><elevation>100</elevation><heading_deg>90</heading_deg></spherical_coordinates></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nCOORDS 1\nSURFACE 1\nRADIANS 13824243658751412895 13828338524641999526 4609753056924675352\nDEGREES 13850511031503578726 13854648713661225370 4636033603912859648\nMETRES 4636737291354636288 4708606483430899712 4708583521799411471\n",
+      "stderr": ""
+    },
+    {
+      "name": "version_1_9",
+      "xml": "<sdf version='1.9'><world name='w'><spherical_coordinates><surface_model>EARTH_WGS84</surface_model><latitude_deg>-22.9</latitude_deg><longitude_deg>-43.2</longitude_deg><elevation>100</elevation><heading_deg>90</heading_deg></spherical_coordinates></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nCOORDS 1\nSURFACE 1\nRADIANS 13824243658751412895 13828338524641999526 4609753056924675352\nDEGREES 13850511031503578726 13854648713661225370 4636033603912859648\nMETRES 4636737291354636288 4708606483430899712 4708583521799411471\n",
+      "stderr": ""
+    },
+    {
+      "name": "version_1_10",
+      "xml": "<sdf version='1.10'><world name='w'><spherical_coordinates><surface_model>EARTH_WGS84</surface_model><latitude_deg>-22.9</latitude_deg><longitude_deg>-43.2</longitude_deg><elevation>100</elevation><heading_deg>90</heading_deg></spherical_coordinates></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nCOORDS 1\nSURFACE 1\nRADIANS 13824243658751412895 13828338524641999526 4609753056924675352\nDEGREES 13850511031503578726 13854648713661225370 4636033603912859648\nMETRES 4636737291354636288 4708606483430899712 4708583521799411471\n",
+      "stderr": ""
+    },
+    {
+      "name": "version_1_11",
+      "xml": "<sdf version='1.11'><world name='w'><spherical_coordinates><surface_model>EARTH_WGS84</surface_model><latitude_deg>-22.9</latitude_deg><longitude_deg>-43.2</longitude_deg><elevation>100</elevation><heading_deg>90</heading_deg></spherical_coordinates></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nCOORDS 1\nSURFACE 1\nRADIANS 13824243658751412895 13828338524641999526 4609753056924675352\nDEGREES 13850511031503578726 13854648713661225370 4636033603912859648\nMETRES 4636737291354636288 4708606483430899712 4708583521799411471\n",
+      "stderr": ""
+    },
+    {
+      "name": "version_1_12",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates><surface_model>EARTH_WGS84</surface_model><latitude_deg>-22.9</latitude_deg><longitude_deg>-43.2</longitude_deg><elevation>100</elevation><heading_deg>90</heading_deg></spherical_coordinates></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nCOORDS 1\nSURFACE 1\nRADIANS 13824243658751412895 13828338524641999526 4609753056924675352\nDEGREES 13850511031503578726 13854648713661225370 4636033603912859648\nMETRES 4636737291354636288 4708606483430899712 4708583521799411471\n",
+      "stderr": ""
+    },
+    {
+      "name": "omitted_surface_model",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates><latitude_deg>-22.9</latitude_deg><longitude_deg>-43.2</longitude_deg><elevation>100</elevation><heading_deg>90</heading_deg></spherical_coordinates></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nCOORDS 1\nSURFACE 1\nRADIANS 13824243658751412895 13828338524641999526 4609753056924675352\nDEGREES 13850511031503578726 13854648713661225370 4636033603912859648\nMETRES 4636737291354636288 4708606483430899712 4708583521799411471\n",
+      "stderr": ""
+    },
+    {
+      "name": "empty_surface_model''",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates><surface_model></surface_model><latitude_deg>-22.9</latitude_deg><longitude_deg>-43.2</longitude_deg><elevation>100</elevation><heading_deg>90</heading_deg></spherical_coordinates></world></sdf>",
+      "rust_policy": "Missing",
+      "exit": 0,
+      "stdout": "ERRORS 5 9 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Empty string used when setting a required parameter. Key[surface_model]\n"
+    },
+    {
+      "name": "empty_surface_model'  '",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates><surface_model>  </surface_model><latitude_deg>-22.9</latitude_deg><longitude_deg>-43.2</longitude_deg><elevation>100</elevation><heading_deg>90</heading_deg></spherical_coordinates></world></sdf>",
+      "rust_policy": "Missing",
+      "exit": 0,
+      "stdout": "ERRORS 5 9 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Empty string used when setting a required parameter. Key[surface_model]\n"
+    },
+    {
+      "name": "omitted_latitude_deg",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates><surface_model>EARTH_WGS84</surface_model><longitude_deg>-43.2</longitude_deg><elevation>100</elevation><heading_deg>90</heading_deg></spherical_coordinates></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nCOORDS 1\nSURFACE 1\nRADIANS 0 13828338524641999526 4609753056924675352\nDEGREES 0 13854648713661225370 4636033603912859648\nMETRES 4636737291354636288 4708606483430899712 4708583521799411471\n",
+      "stderr": ""
+    },
+    {
+      "name": "empty_latitude_deg''",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates><surface_model>EARTH_WGS84</surface_model><latitude_deg></latitude_deg><longitude_deg>-43.2</longitude_deg><elevation>100</elevation><heading_deg>90</heading_deg></spherical_coordinates></world></sdf>",
+      "rust_policy": "Missing",
+      "exit": 0,
+      "stdout": "ERRORS 5 9 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Empty string used when setting a required parameter. Key[latitude_deg]\n"
+    },
+    {
+      "name": "empty_latitude_deg'  '",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates><surface_model>EARTH_WGS84</surface_model><latitude_deg>  </latitude_deg><longitude_deg>-43.2</longitude_deg><elevation>100</elevation><heading_deg>90</heading_deg></spherical_coordinates></world></sdf>",
+      "rust_policy": "Missing",
+      "exit": 0,
+      "stdout": "ERRORS 5 9 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Empty string used when setting a required parameter. Key[latitude_deg]\n"
+    },
+    {
+      "name": "omitted_longitude_deg",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates><surface_model>EARTH_WGS84</surface_model><latitude_deg>-22.9</latitude_deg><elevation>100</elevation><heading_deg>90</heading_deg></spherical_coordinates></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nCOORDS 1\nSURFACE 1\nRADIANS 13824243658751412895 0 4609753056924675352\nDEGREES 13850511031503578726 0 4636033603912859648\nMETRES 4636737291354636288 4708606483430899712 4708583521799411471\n",
+      "stderr": ""
+    },
+    {
+      "name": "empty_longitude_deg''",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates><surface_model>EARTH_WGS84</surface_model><latitude_deg>-22.9</latitude_deg><longitude_deg></longitude_deg><elevation>100</elevation><heading_deg>90</heading_deg></spherical_coordinates></world></sdf>",
+      "rust_policy": "Missing",
+      "exit": 0,
+      "stdout": "ERRORS 5 9 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Empty string used when setting a required parameter. Key[longitude_deg]\n"
+    },
+    {
+      "name": "empty_longitude_deg'  '",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates><surface_model>EARTH_WGS84</surface_model><latitude_deg>-22.9</latitude_deg><longitude_deg>  </longitude_deg><elevation>100</elevation><heading_deg>90</heading_deg></spherical_coordinates></world></sdf>",
+      "rust_policy": "Missing",
+      "exit": 0,
+      "stdout": "ERRORS 5 9 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Empty string used when setting a required parameter. Key[longitude_deg]\n"
+    },
+    {
+      "name": "omitted_elevation",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates><surface_model>EARTH_WGS84</surface_model><latitude_deg>-22.9</latitude_deg><longitude_deg>-43.2</longitude_deg><heading_deg>90</heading_deg></spherical_coordinates></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nCOORDS 1\nSURFACE 1\nRADIANS 13824243658751412895 13828338524641999526 4609753056924675352\nDEGREES 13850511031503578726 13854648713661225370 4636033603912859648\nMETRES 0 4708606483430899712 4708583521799411471\n",
+      "stderr": ""
+    },
+    {
+      "name": "empty_elevation''",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates><surface_model>EARTH_WGS84</surface_model><latitude_deg>-22.9</latitude_deg><longitude_deg>-43.2</longitude_deg><elevation></elevation><heading_deg>90</heading_deg></spherical_coordinates></world></sdf>",
+      "rust_policy": "Missing",
+      "exit": 0,
+      "stdout": "ERRORS 5 9 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Empty string used when setting a required parameter. Key[elevation]\n"
+    },
+    {
+      "name": "empty_elevation'  '",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates><surface_model>EARTH_WGS84</surface_model><latitude_deg>-22.9</latitude_deg><longitude_deg>-43.2</longitude_deg><elevation>  </elevation><heading_deg>90</heading_deg></spherical_coordinates></world></sdf>",
+      "rust_policy": "Missing",
+      "exit": 0,
+      "stdout": "ERRORS 5 9 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Empty string used when setting a required parameter. Key[elevation]\n"
+    },
+    {
+      "name": "omitted_heading_deg",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates><surface_model>EARTH_WGS84</surface_model><latitude_deg>-22.9</latitude_deg><longitude_deg>-43.2</longitude_deg><elevation>100</elevation></spherical_coordinates></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nCOORDS 1\nSURFACE 1\nRADIANS 13824243658751412895 13828338524641999526 0\nDEGREES 13850511031503578726 13854648713661225370 0\nMETRES 4636737291354636288 4708606483430899712 4708583521799411471\n",
+      "stderr": ""
+    },
+    {
+      "name": "empty_heading_deg''",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates><surface_model>EARTH_WGS84</surface_model><latitude_deg>-22.9</latitude_deg><longitude_deg>-43.2</longitude_deg><elevation>100</elevation><heading_deg></heading_deg></spherical_coordinates></world></sdf>",
+      "rust_policy": "Missing",
+      "exit": 0,
+      "stdout": "ERRORS 5 9 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Empty string used when setting a required parameter. Key[heading_deg]\n"
+    },
+    {
+      "name": "empty_heading_deg'  '",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates><surface_model>EARTH_WGS84</surface_model><latitude_deg>-22.9</latitude_deg><longitude_deg>-43.2</longitude_deg><elevation>100</elevation><heading_deg>  </heading_deg></spherical_coordinates></world></sdf>",
+      "rust_policy": "Missing",
+      "exit": 0,
+      "stdout": "ERRORS 5 9 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Empty string used when setting a required parameter. Key[heading_deg]\n"
+    },
+    {
+      "name": "surface_MOON_SCS",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates><surface_model>MOON_SCS</surface_model><latitude_deg>-22.9</latitude_deg><longitude_deg>-43.2</longitude_deg><elevation>100</elevation><heading_deg>90</heading_deg></spherical_coordinates></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nCOORDS 1\nSURFACE 2\nRADIANS 13824243658751412895 13828338524641999526 4609753056924675352\nDEGREES 13850511031503578726 13854648713661225370 4636033603912859648\nMETRES 4636737291354636288 4700215894377234432 4700206874945912832\n",
+      "stderr": ""
+    },
+    {
+      "name": "surface_CUSTOM_SURFACE",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates><surface_model>CUSTOM_SURFACE</surface_model><latitude_deg>-22.9</latitude_deg><longitude_deg>-43.2</longitude_deg><elevation>100</elevation><heading_deg>90</heading_deg></spherical_coordinates></world></sdf>",
+      "rust_policy": "Unsupported",
+      "exit": 0,
+      "stdout": "ERRORS 3 8 8 9\nCOORDS 1\nSURFACE 10\nRADIANS 13824243658751412895 13828338524641999526 4609753056924675352\nDEGREES 13850511031503578726 13854648713661225370 4636033603912859648\nMETRES 4636737291354636288 4708606483430899712 4708583521799411471\n",
+      "stderr": "Invalid parameters found, defaulting to Earth's parameters\n"
+    },
+    {
+      "name": "surface_earth_wgs84",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates><surface_model>earth_wgs84</surface_model><latitude_deg>-22.9</latitude_deg><longitude_deg>-43.2</longitude_deg><elevation>100</elevation><heading_deg>90</heading_deg></spherical_coordinates></world></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 2 9 9\nCOORDS 1\nSURFACE 1\nRADIANS 13824243658751412895 13828338524641999526 4609753056924675352\nDEGREES 13850511031503578726 13854648713661225370 4636033603912859648\nMETRES 4636737291354636288 4708606483430899712 4708583521799411471\n",
+      "stderr": "SurfaceType string not recognized, EARTH_WGS84 returned by default\n"
+    },
+    {
+      "name": "surface_ EARTH_WGS84 ",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates><surface_model> EARTH_WGS84 </surface_model><latitude_deg>-22.9</latitude_deg><longitude_deg>-43.2</longitude_deg><elevation>100</elevation><heading_deg>90</heading_deg></spherical_coordinates></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nCOORDS 1\nSURFACE 1\nRADIANS 13824243658751412895 13828338524641999526 4609753056924675352\nDEGREES 13850511031503578726 13854648713661225370 4636033603912859648\nMETRES 4636737291354636288 4708606483430899712 4708583521799411471\n",
+      "stderr": ""
+    },
+    {
+      "name": "surface_<![CDATA[EARTH_WGS84]]>",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates><surface_model><![CDATA[EARTH_WGS84]]></surface_model><latitude_deg>-22.9</latitude_deg><longitude_deg>-43.2</longitude_deg><elevation>100</elevation><heading_deg>90</heading_deg></spherical_coordinates></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nCOORDS 1\nSURFACE 1\nRADIANS 13824243658751412895 13828338524641999526 4609753056924675352\nDEGREES 13850511031503578726 13854648713661225370 4636033603912859648\nMETRES 4636737291354636288 4708606483430899712 4708583521799411471\n",
+      "stderr": ""
+    },
+    {
+      "name": "orientation_ENU",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates><surface_model>EARTH_WGS84</surface_model><latitude_deg>-22.9</latitude_deg><longitude_deg>-43.2</longitude_deg><elevation>100</elevation><heading_deg>90</heading_deg><world_frame_orientation>ENU</world_frame_orientation></spherical_coordinates></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nCOORDS 1\nSURFACE 1\nRADIANS 13824243658751412895 13828338524641999526 4609753056924675352\nDEGREES 13850511031503578726 13854648713661225370 4636033603912859648\nMETRES 4636737291354636288 4708606483430899712 4708583521799411471\n",
+      "stderr": ""
+    },
+    {
+      "name": "orientation_ ENU ",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates><surface_model>EARTH_WGS84</surface_model><latitude_deg>-22.9</latitude_deg><longitude_deg>-43.2</longitude_deg><elevation>100</elevation><heading_deg>90</heading_deg><world_frame_orientation> ENU </world_frame_orientation></spherical_coordinates></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nCOORDS 1\nSURFACE 1\nRADIANS 13824243658751412895 13828338524641999526 4609753056924675352\nDEGREES 13850511031503578726 13854648713661225370 4636033603912859648\nMETRES 4636737291354636288 4708606483430899712 4708583521799411471\n",
+      "stderr": ""
+    },
+    {
+      "name": "orientation_NED",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates><surface_model>EARTH_WGS84</surface_model><latitude_deg>-22.9</latitude_deg><longitude_deg>-43.2</longitude_deg><elevation>100</elevation><heading_deg>90</heading_deg><world_frame_orientation>NED</world_frame_orientation></spherical_coordinates></world></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 2 9 9\nCOORDS 1\nSURFACE 1\nRADIANS 13824243658751412895 13828338524641999526 4609753056924675352\nDEGREES 13850511031503578726 13854648713661225370 4636033603912859648\nMETRES 4636737291354636288 4708606483430899712 4708583521799411471\n",
+      "stderr": ""
+    },
+    {
+      "name": "orientation_enu",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates><surface_model>EARTH_WGS84</surface_model><latitude_deg>-22.9</latitude_deg><longitude_deg>-43.2</longitude_deg><elevation>100</elevation><heading_deg>90</heading_deg><world_frame_orientation>enu</world_frame_orientation></spherical_coordinates></world></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 2 9 9\nCOORDS 1\nSURFACE 1\nRADIANS 13824243658751412895 13828338524641999526 4609753056924675352\nDEGREES 13850511031503578726 13854648713661225370 4636033603912859648\nMETRES 4636737291354636288 4708606483430899712 4708583521799411471\n",
+      "stderr": ""
+    },
+    {
+      "name": "orientation_",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates><surface_model>EARTH_WGS84</surface_model><latitude_deg>-22.9</latitude_deg><longitude_deg>-43.2</longitude_deg><elevation>100</elevation><heading_deg>90</heading_deg><world_frame_orientation></world_frame_orientation></spherical_coordinates></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nCOORDS 1\nSURFACE 1\nRADIANS 13824243658751412895 13828338524641999526 4609753056924675352\nDEGREES 13850511031503578726 13854648713661225370 4636033603912859648\nMETRES 4636737291354636288 4708606483430899712 4708583521799411471\n",
+      "stderr": ""
+    },
+    {
+      "name": "latitude_450",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates><surface_model>EARTH_WGS84</surface_model><latitude_deg>450</latitude_deg><longitude_deg>-43.2</longitude_deg><elevation>100</elevation><heading_deg>90</heading_deg></spherical_coordinates></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nCOORDS 1\nSURFACE 1\nRADIANS 4620528815617423454 13828338524641999526 4609753056924675352\nDEGREES 4646624099911598080 13854648713661225370 4636033603912859648\nMETRES 4636737291354636288 4708606483430899712 4708583521799411471\n",
+      "stderr": ""
+    },
+    {
+      "name": "latitude_-450",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates><surface_model>EARTH_WGS84</surface_model><latitude_deg>-450</latitude_deg><longitude_deg>-43.2</longitude_deg><elevation>100</elevation><heading_deg>90</heading_deg></spherical_coordinates></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nCOORDS 1\nSURFACE 1\nRADIANS 13843900852472199262 13828338524641999526 4609753056924675352\nDEGREES 13869996136766373888 13854648713661225370 4636033603912859648\nMETRES 4636737291354636288 4708606483430899712 4708583521799411471\n",
+      "stderr": ""
+    },
+    {
+      "name": "latitude_-0",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates><surface_model>EARTH_WGS84</surface_model><latitude_deg>-0</latitude_deg><longitude_deg>-43.2</longitude_deg><elevation>100</elevation><heading_deg>90</heading_deg></spherical_coordinates></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nCOORDS 1\nSURFACE 1\nRADIANS 9223372036854775808 13828338524641999526 4609753056924675352\nDEGREES 9223372036854775808 13854648713661225370 4636033603912859648\nMETRES 4636737291354636288 4708606483430899712 4708583521799411471\n",
+      "stderr": ""
+    },
+    {
+      "name": "latitude_true",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates><surface_model>EARTH_WGS84</surface_model><latitude_deg>true</latitude_deg><longitude_deg>-43.2</longitude_deg><elevation>100</elevation><heading_deg>90</heading_deg></spherical_coordinates></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nCOORDS 1\nSURFACE 1\nRADIANS 4580687790476533049 13828338524641999526 4609753056924675352\nDEGREES 4607182418800017408 13854648713661225370 4636033603912859648\nMETRES 4636737291354636288 4708606483430899712 4708583521799411471\n",
+      "stderr": ""
+    },
+    {
+      "name": "latitude_1.5tail",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates><surface_model>EARTH_WGS84</surface_model><latitude_deg>1.5tail</latitude_deg><longitude_deg>-43.2</longitude_deg><elevation>100</elevation><heading_deg>90</heading_deg></spherical_coordinates></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nCOORDS 1\nSURFACE 1\nRADIANS 4583203075010587605 13828338524641999526 4609753056924675352\nDEGREES 4609434218613702656 13854648713661225370 4636033603912859648\nMETRES 4636737291354636288 4708606483430899712 4708583521799411471\n",
+      "stderr": ""
+    },
+    {
+      "name": "latitude_nan",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates><surface_model>EARTH_WGS84</surface_model><latitude_deg>nan</latitude_deg><longitude_deg>-43.2</longitude_deg><elevation>100</elevation><heading_deg>90</heading_deg></spherical_coordinates></world></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 0\nCOORDS 1\nSURFACE 1\nRADIANS 9221120237041090560 13828338524641999526 4609753056924675352\nDEGREES 9221120237041090560 13854648713661225370 4636033603912859648\nMETRES 4636737291354636288 4708606483430899712 4708583521799411471\n",
+      "stderr": ""
+    },
+    {
+      "name": "latitude_inf",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates><surface_model>EARTH_WGS84</surface_model><latitude_deg>inf</latitude_deg><longitude_deg>-43.2</longitude_deg><elevation>100</elevation><heading_deg>90</heading_deg></spherical_coordinates></world></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 0\nCOORDS 1\nSURFACE 1\nRADIANS 9218868437227405312 13828338524641999526 4609753056924675352\nDEGREES 9218868437227405312 13854648713661225370 4636033603912859648\nMETRES 4636737291354636288 4708606483430899712 4708583521799411471\n",
+      "stderr": ""
+    },
+    {
+      "name": "latitude_1e999",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates><surface_model>EARTH_WGS84</surface_model><latitude_deg>1e999</latitude_deg><longitude_deg>-43.2</longitude_deg><elevation>100</elevation><heading_deg>90</heading_deg></spherical_coordinates></world></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 5 9 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Out of range. Unable to set value [1e999 ] for key[latitude_deg].\n"
+    },
+    {
+      "name": "latitude_1e-999",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates><surface_model>EARTH_WGS84</surface_model><latitude_deg>1e-999</latitude_deg><longitude_deg>-43.2</longitude_deg><elevation>100</elevation><heading_deg>90</heading_deg></spherical_coordinates></world></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 5 9 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Out of range. Unable to set value [1e-999 ] for key[latitude_deg].\n"
+    },
+    {
+      "name": "latitude_<![CDATA[12.5]]>",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates><surface_model>EARTH_WGS84</surface_model><latitude_deg><![CDATA[12.5]]></latitude_deg><longitude_deg>-43.2</longitude_deg><elevation>100</elevation><heading_deg>90</heading_deg></spherical_coordinates></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nCOORDS 1\nSURFACE 1\nRADIANS 4597028284459455913 13828338524641999526 4609753056924675352\nDEGREES 4623226492472524800 13854648713661225370 4636033603912859648\nMETRES 4636737291354636288 4708606483430899712 4708583521799411471\n",
+      "stderr": ""
+    },
+    {
+      "name": "latitude_1<!--split-->2",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates><surface_model>EARTH_WGS84</surface_model><latitude_deg>1<!--split-->2</latitude_deg><longitude_deg>-43.2</longitude_deg><elevation>100</elevation><heading_deg>90</heading_deg></spherical_coordinates></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nCOORDS 1\nSURFACE 1\nRADIANS 4580687790476533049 13828338524641999526 4609753056924675352\nDEGREES 4607182418800017408 13854648713661225370 4636033603912859648\nMETRES 4636737291354636288 4708606483430899712 4708583521799411471\n",
+      "stderr": ""
+    },
+    {
+      "name": "custom_valid",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates><surface_model>CUSTOM_SURFACE</surface_model><latitude_deg>-22.9</latitude_deg><longitude_deg>-43.2</longitude_deg><elevation>100</elevation><heading_deg>90</heading_deg><surface_axis_equatorial>12000</surface_axis_equatorial><surface_axis_polar>10000</surface_axis_polar></spherical_coordinates></world></sdf>",
+      "rust_policy": "Unsupported",
+      "exit": 0,
+      "stdout": "ERRORS 0\nCOORDS 1\nSURFACE 10\nRADIANS 13824243658751412895 13828338524641999526 4609753056924675352\nDEGREES 13850511031503578726 13854648713661225370 4636033603912859648\nMETRES 4636737291354636288 4667822684095119360 4666723172467343360\n",
+      "stderr": ""
+    },
+    {
+      "name": "earth_axes_ignored",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates><surface_model>EARTH_WGS84</surface_model><latitude_deg>-22.9</latitude_deg><longitude_deg>-43.2</longitude_deg><elevation>100</elevation><heading_deg>90</heading_deg><surface_axis_equatorial>12000</surface_axis_equatorial><surface_axis_polar>10000</surface_axis_polar></spherical_coordinates></world></sdf>",
+      "rust_policy": "Unsupported",
+      "exit": 0,
+      "stdout": "ERRORS 0\nCOORDS 1\nSURFACE 1\nRADIANS 13824243658751412895 13828338524641999526 4609753056924675352\nDEGREES 13850511031503578726 13854648713661225370 4636033603912859648\nMETRES 4636737291354636288 4708606483430899712 4708583521799411471\n",
+      "stderr": ""
+    },
+    {
+      "name": "extra_attribute",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates extra=\"x\"><surface_model>EARTH_WGS84</surface_model><latitude_deg>-22.9</latitude_deg><longitude_deg>-43.2</longitude_deg><elevation>100</elevation><heading_deg>90</heading_deg></spherical_coordinates></world></sdf>",
+      "rust_policy": "Unsupported",
+      "exit": 0,
+      "stdout": "ERRORS 0\nCOORDS 1\nSURFACE 1\nRADIANS 13824243658751412895 13828338524641999526 4609753056924675352\nDEGREES 13850511031503578726 13854648713661225370 4636033603912859648\nMETRES 4636737291354636288 4708606483430899712 4708583521799411471\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/world[@name=\"w\"]/spherical_coordinates[@extra=\"x\"]:<data-string>:L1]: XML Attribute[extra] in element[spherical_coordinates] not defined in SDF.\n"
+    },
+    {
+      "name": "extra_child",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates><surface_model>EARTH_WGS84</surface_model><latitude_deg>-22.9</latitude_deg><longitude_deg>-43.2</longitude_deg><elevation>100</elevation><heading_deg>90</heading_deg><extra/></spherical_coordinates></world></sdf>",
+      "rust_policy": "Unsupported",
+      "exit": 0,
+      "stdout": "ERRORS 0\nCOORDS 1\nSURFACE 1\nRADIANS 13824243658751412895 13828338524641999526 4609753056924675352\nDEGREES 13850511031503578726 13854648713661225370 4636033603912859648\nMETRES 4636737291354636288 4708606483430899712 4708583521799411471\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/world[@name=\"w\"]/spherical_coordinates/extra:<data-string>:L1]: XML Element[extra], child of element[spherical_coordinates], not defined in SDF. Copying[extra] as children of [spherical_coordinates].\n"
+    },
+    {
+      "name": "duplicate",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates><surface_model>EARTH_WGS84</surface_model><latitude_deg>-22.9</latitude_deg><longitude_deg>-43.2</longitude_deg><elevation>100</elevation><heading_deg>90</heading_deg><heading_deg>1</heading_deg></spherical_coordinates></world></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 0\nCOORDS 1\nSURFACE 1\nRADIANS 13824243658751412895 13828338524641999526 4609753056924675352\nDEGREES 13850511031503578726 13854648713661225370 4636033603912859648\nMETRES 4636737291354636288 4708606483430899712 4708583521799411471\n",
+      "stderr": ""
+    },
+    {
+      "name": "latitude_overflow",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates><latitude_deg>1e308</latitude_deg></spherical_coordinates></world></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 0\nCOORDS 1\nSURFACE 1\nRADIANS 9218868437227405312 0 0\nDEGREES 9218868437227405312 0 0\nMETRES 0 4708606483430899712 4708583521799411471\n",
+      "stderr": ""
+    },
+    {
+      "name": "latitude_near_large_finite",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates><latitude_deg>5.722234971514056e307</latitude_deg></spherical_coordinates></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nCOORDS 1\nSURFACE 1\nRADIANS 9184741160051108886 0 0\nDEGREES 9211091799484516482 0 0\nMETRES 0 4708606483430899712 4708583521799411471\n",
+      "stderr": ""
+    },
+    {
+      "name": "latitude_adjacent_large_finite",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates><latitude_deg>5.722234971514055e307</latitude_deg></spherical_coordinates></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nCOORDS 1\nSURFACE 1\nRADIANS 9184741160051108885 0 0\nDEGREES 9211091799484516482 0 0\nMETRES 0 4708606483430899712 4708583521799411471\n",
+      "stderr": ""
+    },
+    {
+      "name": "latitude_negative_subnormal",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates><latitude_deg>-5e-324</latitude_deg></spherical_coordinates></world></sdf>",
+      "rust_policy": "InvalidValue",
+      "exit": 0,
+      "stdout": "ERRORS 5 9 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Out of range. Unable to set value [-5e-324 ] for key[latitude_deg].\n"
+    },
+    {
+      "name": "latitude_tiny_normal",
+      "xml": "<sdf version='1.12'><world name='w'><spherical_coordinates><latitude_deg>1e-300</latitude_deg></spherical_coordinates></world></sdf>",
+      "rust_policy": "accepted",
+      "exit": 0,
+      "stdout": "ERRORS 0\nCOORDS 1\nSURFACE 1\nRADIANS 92306265489444316 0 0\nDEGREES 118622047889322840 0 0\nMETRES 0 4708606483430899712 4708583521799411471\n",
+      "stderr": ""
+    }
+  ],
+  "original_projection": {
+    "xml": "<sdf version='1.12'>\n  <world name='default'>\n    <spherical_coordinates>\n      <surface_model>EARTH_WGS84</surface_model>\n      <world_frame_orientation>ENU</world_frame_orientation>\n      <latitude_deg>-22.9</latitude_deg>\n      <longitude_deg>-43.2</longitude_deg>\n      <elevation>100</elevation>\n      <heading_deg>90</heading_deg>\n    </spherical_coordinates>\n  </world>\n</sdf>\n",
+    "exit": 0,
+    "stdout": "ERRORS 0\nCOORDS 1\nSURFACE 1\nRADIANS 13824243658751412895 13828338524641999526 4609753056924675352\nDEGREES 13850511031503578726 13854648713661225370 4636033603912859648\nMETRES 4636737291354636288 4708606483430899712 4708583521799411471\n",
+    "stderr": ""
+  },
+  "full_original": {
+    "exit": 0,
+    "stdout": "ERRORS 0\nCOORDS 1\nSURFACE 1\nRADIANS 13824243658751412895 13828338524641999526 4609753056924675352\nDEGREES 13850511031503578726 13854648713661225370 4636033603912859648\nMETRES 4636737291354636288 4708606483430899712 4708583521799411471\n",
+    "stderr": ""
+  }
+}

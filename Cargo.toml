@@ -8,7 +8,7 @@ description = "Independent validated SDFormat semantic model"
 
 [dependencies]
 urdf-rs = "=0.10.0"
-petgraph = "=0.8.1"
+petgraph = "=0.8.3"
 quick-xml = "=0.38.3"
 xmlparser = "=0.13.6"
 glam = { version = "=0.30.9", default-features = false, features = ["std"] }

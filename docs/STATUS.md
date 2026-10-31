@@ -52,7 +52,7 @@ reviewer. Hosting branch protection remains a repository-admin task.
 
 Dependencies: quick-xml0.38.3 (tokenization and matched elements),
 xmlparser0.13.6 (XML names/references/source positions), glam0.30.9
-(f64 rigid transformations), petgraph 0.8.1 (cycle detection/topological order).
+(f64 rigid transformations), petgraph 0.8.3 (cycle detection/topological order).
 Exact versions plus transitives are locked. Custom code is SDF graph scoping and
 schema/domain validation, not generic XML, quaternion or graph algorithms.
 serde_json 1.0.150 is a test-only corpus dependency.
@@ -110,6 +110,17 @@ with consumer-compatible patch selections. Root integration downgraded its glam
 lock entry from 0.30.10 to this library's exact 0.30.9. Evaluate compatible semver
 requirements with locked repository validation and explicit integration pins;
 this slice does not change the established dependency selection.
+
+The petgraph requirement is now `=0.8.3`, allowing Cargo to co-resolve
+consumers that require `^0.8.3`. Its declared Rust minimum remains 1.64, below
+this crate's 1.94, and its `MIT OR Apache-2.0` licenses are unchanged. The lock
+update removes unused allocator-api2 and its hashbrown feature edges; no other
+package version changes. Upstream [0.8.3](https://github.com/petgraph/petgraph/releases/tag/petgraph%40v0.8.3)
+changes A* tie-breaking and its score bookkeeping. Both owned calls use unit
+edge costs, a zero heuristic and validated single-parent acyclic pose graphs,
+so their paths are unique; retained placement, graph and semantic-pose assertions
+remain the compatibility check. No graph algorithm, source semantics, consumer
+pin, feature selection or coverage policy changes here.
 
 Placement slice verified production coverage:1300/1314 lines and 2261/2352 regions;
 changed executable lines42/42. Independent review:/root. Both canonical coverage

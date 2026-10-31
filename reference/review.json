@@ -2,18 +2,16 @@
   "decision": "approved",
   "author": "sdf_world_owner",
   "reviewer": "root",
-  "source_digest": "d9636543eea66234ad66914ad6bdcdc09230ed5886f06ec69d30817caf4ef95f",
-  "protected_digest": "47283ebb0195ad745cf61d042fad14ee4d0796e71ed9143abff7657e4c3cb773",
-  "scope": "Correct accepted single-link URDF import admission: reject material/friction target declarations when the actual native-generated view name contains the fixed-joint-lump token and native would leave them unapplied. Reuse existing name helper, including suffix-completed prefixes and decoded/literal tokens. No native-ignore or accidental physical metadata application claim.",
+  "source_digest": "aee17a131c978e2b79e77004571aaa2f671afb719f8b78beef5d78f07d35367c",
+  "protected_digest": "565027340d2443551adc8151ce05123232567012851aa9fd374c78949c44e423",
+  "scope": "Dependency-only petgraph0.8.1 to0.8.3 compatibility update enabling direct Zenoh consumers; no production Rust/test/corpus/proof/gate changes.",
   "checks": [
-    "Root read native CreateVisual/CreateCollision and extension insertion rules, the22line production guard and public regression assertions. Earlier base-only predicate was withdrawn because suffix-completed names could match the link; final helper reuse follows actual generated-name semantics.",
-    "Root independent fresh74fa759 archive plus exact8overlay and own target /tmp/sdf-named-root-review-8mi9k0j0 passed all14 focused Rust tests,29 actual native regressions and both unchanged originals. Canonical native provenance driver passed. Source bytes remained frozen during replay.",
-    "Historical accepted74fa759 material/friction mismatches are captured separately from corrected strict rejection: native material absent or mu defaults1 versus old Rust applied Orange/100/1000. Prior84 corpus/helper/assertions and31 generated XML snapshots remain unchanged. No predicate retirement or new original credit.",
-    "Root independently recomputed final source/protected digests. Author focused Clippy/fmt/ledger pass. Full protected staged and exact whole hosted/source verification remain required.",
-    "Transport owner independently reviewed the final three-path AST proof delta on a fresh74fa759 archive and exact11 source overlays:35 helper tests,48 tooling tests including real LLVM controls, all-target Clippy pass. Actual production LLVM has no DA or spanning regions on the three exclusive punctuation lines346/349/350. Exact replay preserves measured15/15 and all29 genuine DA0 refusals; runtime elements, Drop, transformed callables and missing-file/region controls remain fail-closed. Producer8paths and Python gate predicates remain unchanged. Root read the helper/control delta and independently recomputed both final digests."
+    "Root read the exact three-path dependency/doc diff and necessary lock closure: only petgraph version changes, unused allocator-api2/hashbrown feature edges disappear. Author source/archive/license/MSRV and actual baseline conflict/candidate co-resolution evidence reviewed.",
+    "Root fresh8742 source archive plus exact3 overlay at /tmp/gz-sdf-petgraph-root-review-9cqpjwyk passed all37 retained tests across8 graph/placement/semantic targets, own source/target. Independent source checks preserve unique-parent acyclic graph usage and unchanged assertions.",
+    "Root independently recomputed final source/protected digests. Author focused Clippy/layout/ledger pass. Full ordinary staged and exact hosted/downloaded-source checks still required."
   ],
   "remaining": [
-    "Ordinary full retained/strictcoverage/staged and exact hosted/downloadedsource checks mandatory before acceptance.",
-    "This narrows unsupported named-target declarations in the explicit importer; broader URDF/articulated import and simulator pins remain unchanged."
+    "No new feature or original-test credit. Root simulator must separately qualify its new public SDF pin and petgraph0.8.3 with direct Zenoh.",
+    "Frozen continuous-joint feature and proof remain separate; rebase only after this dependency slice is accepted."
   ]
 }

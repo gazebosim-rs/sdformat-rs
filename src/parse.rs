@@ -131,7 +131,7 @@ pub(crate) fn load_sensor_element_into(
         sensor.enable_metrics = parser.boolean(root, "enable_metrics", sensor.enable_metrics)?;
         return Err(parser.err(root, ErrorCode::InvalidValue, "sensor type none is invalid"));
     }
-    *sensor = parser.sensor(root)?;
+    *sensor = parser.sensor(root, false)?;
     Ok(())
 }
 
@@ -487,7 +487,7 @@ pub(crate) fn load_imu_element(xml: &str, uri: &str) -> Result<Imu, Diagnostic> 
     if !root.has_tag_name("imu") {
         return Err(parser.err(root, ErrorCode::Xml, "root element must be imu"));
     }
-    parser.imu_node(root)
+    parser.imu_node(root, false)
 }
 
 pub(crate) fn load_altimeter_element(xml: &str, uri: &str) -> Result<Altimeter, Diagnostic> {
@@ -1638,6 +1638,7 @@ impl Parser<'_> {
         let mut element_children = Vec::new();
         let mut names = BTreeSet::new();
         let mut typed_names = BTreeSet::new();
+        let legacy_imu_noise = is_pre16(node) && direct_model(node);
         // Legacy collisions rename only the element loaded later. Future names
         // must not be reserved early; references retain their declared strings.
         for member in elements(node) {
@@ -1647,7 +1648,7 @@ impl Parser<'_> {
             };
             match member.tag_name().name() {
                 "link" => {
-                    let mut link = self.link(member, &scoped_name)?;
+                    let mut link = self.link(member, &scoped_name, legacy_imu_noise)?;
                     if is_pre17(node) {
                         link.name = self.legacy_name(
                             member,
@@ -2084,7 +2085,12 @@ impl Parser<'_> {
         }
         Ok((model, frame, provenance))
     }
-    fn link(&self, node: Node<'_, '_>, scope: &str) -> Result<Link, Diagnostic> {
+    fn link(
+        &self,
+        node: Node<'_, '_>,
+        scope: &str,
+        legacy_imu_noise: bool,
+    ) -> Result<Link, Diagnostic> {
         self.allowed(
             node,
             &[
@@ -2114,7 +2120,7 @@ impl Parser<'_> {
             .collect::<Result<Vec<_>, _>>()?;
         let sensors = elements(node)
             .filter(|n| n.has_tag_name("sensor"))
-            .map(|n| self.sensor(n))
+            .map(|n| self.sensor(n, legacy_imu_noise))
             .collect::<Result<Vec<_>, _>>()?;
         let lights = elements(node)
             .filter(|n| n.has_tag_name("light"))
@@ -3302,7 +3308,7 @@ impl Parser<'_> {
             sensors: {
                 let sensors = elements(node)
                     .filter(|value| value.has_tag_name("sensor"))
-                    .map(|value| self.sensor(value))
+                    .map(|value| self.sensor(value, false))
                     .collect::<Result<Vec<_>, _>>()?;
                 if sensors
                     .iter()
@@ -3498,30 +3504,55 @@ impl Parser<'_> {
         }
         Ok(())
     }
-    fn imu(&self, sensor: Node<'_, '_>) -> Result<Imu, Diagnostic> {
+    fn imu(&self, sensor: Node<'_, '_>, legacy_noise: bool) -> Result<Imu, Diagnostic> {
         let Some(node) = child(sensor, "imu") else {
             return Ok(Imu::default());
         };
-        self.imu_node(node)
+        self.imu_node(node, legacy_noise)
     }
-    fn imu_node(&self, node: Node<'_, '_>) -> Result<Imu, Diagnostic> {
-        self.allowed(
-            node,
-            &[
-                "angular_velocity",
-                "linear_acceleration",
-                "orientation_reference_frame",
-                "enable_orientation",
-            ],
-            &[],
-        )?;
+    fn imu_node(&self, node: Node<'_, '_>, legacy_noise: bool) -> Result<Imu, Diagnostic> {
+        let children = [
+            "angular_velocity",
+            "linear_acceleration",
+            "orientation_reference_frame",
+            "enable_orientation",
+            "noise",
+        ];
+        let allowed_children = if legacy_noise {
+            &children[..]
+        } else {
+            &children[..4]
+        };
+        self.allowed(node, allowed_children, &[])?;
         let mut imu = Imu {
             source: Some(self.source(node)),
             enable_orientation: self.boolean(node, "enable_orientation", true)?,
             ..Imu::default()
         };
-        imu.angular_velocity = self.noise_vector(node, "angular_velocity")?;
-        imu.linear_acceleration = self.noise_vector(node, "linear_acceleration")?;
+        if let Some(noise) = child(node, "noise") {
+            if child(node, "angular_velocity").is_some()
+                || child(node, "linear_acceleration").is_some()
+            {
+                return Err(self.err(
+                    node,
+                    ErrorCode::Unsupported,
+                    "mixed legacy and per-axis IMU noise",
+                ));
+            }
+            self.allowed(noise, &["type", "rate", "accel"], &[])?;
+            let kind = self
+                .optional_text(noise, "type")?
+                .filter(|value| !value.trim_matches([' ', '\t', '\n']).is_empty())
+                .ok_or_else(|| {
+                    self.err(noise, ErrorCode::Missing, "missing legacy IMU noise type")
+                })?;
+            let kind = self.noise_kind(noise, &kind)?;
+            imu.angular_velocity = [self.legacy_imu_noise(noise, "rate", kind)?; 3];
+            imu.linear_acceleration = [self.legacy_imu_noise(noise, "accel", kind)?; 3];
+        } else {
+            imu.angular_velocity = self.noise_vector(node, "angular_velocity")?;
+            imu.linear_acceleration = self.noise_vector(node, "linear_acceleration")?;
+        }
         if let Some(reference) = child(node, "orientation_reference_frame") {
             self.allowed(
                 reference,
@@ -3542,6 +3573,21 @@ impl Parser<'_> {
             }
         }
         Ok(imu)
+    }
+    fn legacy_imu_noise(
+        &self,
+        node: Node<'_, '_>,
+        name: &str,
+        kind: NoiseKind,
+    ) -> Result<Noise, Diagnostic> {
+        let Some(group) = child(node, name) else {
+            return Ok(Noise {
+                kind,
+                ..Noise::default()
+            });
+        };
+        self.allowed(group, &["mean", "stddev", "bias_mean", "bias_stddev"], &[])?;
+        self.noise_values(group, kind)
     }
     fn noise_vector(&self, node: Node<'_, '_>, name: &str) -> Result<[Noise; 3], Diagnostic> {
         match child(node, name) {
@@ -3625,19 +3671,26 @@ impl Parser<'_> {
             ],
             &["type"],
         )?;
-        let kind = match node
+        let kind = node
             .attribute("type")
             .map(|value| value.trim_matches([' ', '\t', '\n']))
             .filter(|value| !value.is_empty())
-            .ok_or_else(|| self.err(node, ErrorCode::Missing, "missing noise type attribute"))?
+            .ok_or_else(|| self.err(node, ErrorCode::Missing, "missing noise type attribute"))?;
+        self.noise_values(node, self.noise_kind(node, kind)?)
+    }
+    fn noise_kind(&self, node: Node<'_, '_>, kind: &str) -> Result<NoiseKind, Diagnostic> {
+        match kind
+            .trim_matches([' ', '\t', '\n'])
             .to_ascii_lowercase()
             .as_str()
         {
-            "none" => NoiseKind::None,
-            "gaussian" => NoiseKind::Gaussian,
-            "gaussian_quantized" => NoiseKind::GaussianQuantized,
-            _ => return Err(self.err(node, ErrorCode::InvalidValue, "invalid noise type")),
-        };
+            "none" => Ok(NoiseKind::None),
+            "gaussian" => Ok(NoiseKind::Gaussian),
+            "gaussian_quantized" => Ok(NoiseKind::GaussianQuantized),
+            _ => Err(self.err(node, ErrorCode::InvalidValue, "invalid noise type")),
+        }
+    }
+    fn noise_values(&self, node: Node<'_, '_>, kind: NoiseKind) -> Result<Noise, Diagnostic> {
         let noise = Noise {
             kind,
             mean: self.scalar(node, "mean", 0.)?,
@@ -4100,7 +4153,7 @@ impl Parser<'_> {
             source: Some(self.source(node)),
         })
     }
-    fn sensor(&self, node: Node<'_, '_>) -> Result<Sensor, Diagnostic> {
+    fn sensor(&self, node: Node<'_, '_>, legacy_imu_noise: bool) -> Result<Sensor, Diagnostic> {
         let kind = self
             .attr(node, "type")?
             .trim_matches([' ', '\t', '\n'])
@@ -4274,7 +4327,7 @@ impl Parser<'_> {
         let always_on = self.boolean(node, "always_on", false)?;
         let enable_metrics = self.boolean(node, "enable_metrics", false)?;
         let config = match kind.as_str() {
-            "imu" => SensorConfig::Imu(Box::new(self.imu(node)?)),
+            "imu" => SensorConfig::Imu(Box::new(self.imu(node, legacy_imu_noise)?)),
             "contact" => SensorConfig::Contact(self.contact(node)?),
             "force_torque" => SensorConfig::ForceTorque(Box::new(self.force_torque(node)?)),
             "magnetometer" => SensorConfig::Magnetometer(Box::new(self.magnetometer(node)?)),
@@ -4368,16 +4421,18 @@ fn child<'a, 'b>(node: Node<'a, 'b>, tag: &str) -> Option<Node<'a, 'b>> {
 // The 1.4 -> 1.5 table adds this default only to direct root/world model
 // joints, not nested models. Imported documents use their own XML root scope.
 fn converted_14_model(model: Node<'_, '_>) -> bool {
+    model.document().root_element().attribute("version") == Some("1.4") && direct_model(model)
+}
+fn direct_model(model: Node<'_, '_>) -> bool {
     let root = model.document().root_element();
-    root.attribute("version") == Some("1.4")
-        && elements(root).any(|node| {
-            if node.has_tag_name("world") {
-                elements(node)
-                    .any(|child| child.has_tag_name("model") && child.range() == model.range())
-            } else {
-                node.has_tag_name("model") && node.range() == model.range()
-            }
-        })
+    elements(root).any(|node| {
+        if node.has_tag_name("world") {
+            elements(node)
+                .any(|child| child.has_tag_name("model") && child.range() == model.range())
+        } else {
+            node.has_tag_name("model") && node.range() == model.range()
+        }
+    })
 }
 // Names from pinned schema declarations and conversion paths remain reserved,
 // even when they are not valid direct children of this particular world.

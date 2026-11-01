@@ -1,0 +1,1 @@
+<sdf version="1.5"><model name="m"><link name="l"><sensor name="s" type="imu"><imu><noise><type>gaussian</type><rate><mean>2</mean><stddev>0.2</stddev><bias_mean>0.3</bias_mean><bias_stddev>0.4</bias_stddev></rate><accel><mean>6</mean><stddev>0.6</stddev><bias_mean>0.7</bias_mean><bias_stddev>0.8</bias_stddev></accel></noise></imu></sensor></link></model></sdf>

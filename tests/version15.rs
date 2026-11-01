@@ -18,6 +18,8 @@
 // NestedModel.IncludeElements.
 // IncludeElements uses the exact original raw-string input and unchanged resources.
 use sdformat::*;
+#[path = "support/legacy_imu_projection.rs"]
+mod legacy_imu_projection;
 #[path = "support/legacy_world_fields_projection.rs"]
 mod legacy_world_fields_projection;
 struct OriginalResources;
@@ -84,6 +86,15 @@ fn unimplemented_15_conversion_actions_fail_explicitly() {
             );
             let sdf = load_str(xml, "unsupported-conversion", &NoResources).unwrap();
             legacy_world_fields_projection::assert_gravity_conversion(&sdf);
+            continue;
+        }
+        if case["id"] == "legacy_imu_noise" {
+            assert_eq!(
+                xml,
+                "<sdf version='1.5'><model name='m'><link name='l'><sensor name='s' type='imu'><imu><noise><type>gaussian</type><rate><mean>2</mean></rate><accel><mean>6</mean></accel></noise></imu></sensor></link></model></sdf>"
+            );
+            let sdf = load_str(xml, "unsupported-conversion", &NoResources).unwrap();
+            legacy_imu_projection::assert_same_input_positive(&sdf);
             continue;
         }
         assert_eq!(

@@ -3190,6 +3190,22 @@
       "baseline": "83 pinned native DOM controls, both exact-inline DOM/convert projections and both unchanged full originals pass, two runs and zero failures/skips. Five prepared Rust tests passed; Root prior-reviewed only the exact old gravity rejection transition to the exhaustive same-input/URI positive. Historical corpus unchanged. All 663 retained Rust tests and all-target Clippy pass after the fold. Independent final review passed; normal strict staged/hosted gates remain pending.",
       "status": "partial_reviewed",
       "review": "Independent msgs_performance_owner final15 review approved after fresh3e9e archive/own target: four new and both retained version15 tests,83 pinned native controls,both unchanged full converter originals,hostile-Git replay with caller index absent,all-target Clippy and fmt passed. Exact same-input/unsupported-conversion URI gravity-only transition and exhaustive World/Physics/source/XML/version positive were prior-approved by Root and rechecked independently. Historical corpus and unrelated old assertions remain byte-identical. Root reviewed the narrow transition. Only typed-load/value observations are mapped; converted Element/version/OriginalVersion and general conversion remain unported. Ordinary strict staged and exact hosted/source qualification remain pending."
+    },
+    {
+      "target": "UNIT_Converter_TEST",
+      "case": "Converter.IMU_15_to_16",
+      "source": "src/Converter_TEST.cc:3017-3145",
+      "rust_test": "tests/legacy_imu_noise.rs::original_converter_imu_noise_values_keep_original_xml_version_and_source",
+      "assertions": "Partial typed-load projection only: the exact inline original XML loads; world/model/link/sensor/IMU presence and Gaussian kinds map to typed children/configuration. All six complete Noise records preserve the original rate/accel assignments with exact native f64 bits. Original decimal spellings remain in the immutable input snapshot, but this is not a mapping of the converted-output string assertions. Native converted TinyXML order, six output text copies, error vector and console assertions remain unported. Version/source/raw XML, clone/canonical readback and imported-resource checks are supplemental, with no full converter or runtime credit.",
+      "fixtures": {
+        "tests/fixtures/legacy_imu_original.sdf": "a8634efefe406222cc29a7efa182acb86b8d05c651f99656d2edbeb8f5a97a27",
+        "tests/fixtures/legacy_imu_resource.sdf": "252a057d6fad42b0586847d88c0765dacd02ae1a43631a64ff45cda5581dbdca",
+        "tests/legacy_imu_noise.json": "cd0d8a7465c0fb00092237cb1871e6b0b36c9b247ca710734d8ba23e4db204fa"
+      },
+      "upstream_fixtures": {},
+      "baseline": "Author native69 controls, exact original/old unsupported-row projections and unchanged full Converter.IMU_15_to_16 pass. Independent fresh source/target passed17 focused Rust tests, native69 and the unchanged original, hostile-Git replay, Clippy and fmt. Only the exact legacy_imu_noise XML/unsupported-conversion URI rejection transition was prior-approved; the exhaustive positive now runs in version15.rs, with the historical corpus and every other predicate unchanged. Final fold review and ordinary strict staged/hosted qualification remain pending.",
+      "status": "partial_reviewed",
+      "review": "Independent msgs_performance_owner prior review approved the exact bounded parser/native semantics and only the same-input/URI legacy_imu_noise transition after fresh accepted419 archive/own target:17 Rust tests,69 native controls, exact original/old-row projections, unchanged full converter original, hostile-Git replay with caller index absent, all-target Clippy and fmt passed. The unchanged old version15 test independently reproduced its expected successful-load/unwrap_err failure. Original converted XML/text/order/error-vector/console assertions remain unported; this is partial typed-load/value credit. Root authorized the narrow fold. Final fold review and ordinary strict staged/hosted qualification remain pending."
     }
   ]
 }

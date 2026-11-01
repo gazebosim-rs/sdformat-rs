@@ -199,3 +199,7 @@ input provenance as inert metadata; see [the bounded contract](docs/WORLD_GUI.md
 SDF1.4/1.5 first-physics gravity and magnetic metadata have a bounded typed-load
 projection; input version and raw XML remain original. See
 [legacy world-vector scope](docs/LEGACY_WORLD_FIELDS.md).
+
+SDF 1.4/1.5 direct-model legacy IMU rate/acceleration Noise also projects into
+the six existing owned axis records while retaining original input provenance.
+See [the bounded conversion contract](docs/LEGACY_IMU_NOISE.md).

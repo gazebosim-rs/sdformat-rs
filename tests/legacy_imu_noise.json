@@ -1,0 +1,593 @@
+{
+  "original_fixture": "tests/fixtures/legacy_imu_original.sdf",
+  "cases": [
+    {
+      "name": "1.4_root_none_full",
+      "xml": "<sdf version=\"1.4\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>none</type><rate><mean>2</mean><stddev>0.2</stddev><bias_mean>0.3</bias_mean><bias_stddev>0.4</bias_stddev></rate><accel><mean>6</mean><stddev>0.6</stddev><bias_mean>0.7</bias_mean><bias_stddev>0.8</bias_stddev></accel></noise></imu></sensor></link></model></sdf>",
+      "native": {
+        "stdout": "ERRORS\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 0 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 0 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 0 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 0 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0 0 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0 0 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.4_root_none_type_only",
+      "xml": "<sdf version=\"1.4\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>none</type></noise></imu></sensor></link></model></sdf>",
+      "native": {
+        "stdout": "ERRORS\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.4_root_gaussian_full",
+      "xml": "<sdf version=\"1.4\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian</type><rate><mean>2</mean><stddev>0.2</stddev><bias_mean>0.3</bias_mean><bias_stddev>0.4</bias_stddev></rate><accel><mean>6</mean><stddev>0.6</stddev><bias_mean>0.7</bias_mean><bias_stddev>0.8</bias_stddev></accel></noise></imu></sensor></link></model></sdf>",
+      "native": {
+        "stdout": "ERRORS\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 1 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 1 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 1 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 1 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0 1 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0 1 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.4_root_gaussian_type_only",
+      "xml": "<sdf version=\"1.4\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian</type></noise></imu></sensor></link></model></sdf>",
+      "native": {
+        "stdout": "ERRORS\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.4_root_gaussian_quantized_full",
+      "xml": "<sdf version=\"1.4\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian_quantized</type><rate><mean>2</mean><stddev>0.2</stddev><bias_mean>0.3</bias_mean><bias_stddev>0.4</bias_stddev></rate><accel><mean>6</mean><stddev>0.6</stddev><bias_mean>0.7</bias_mean><bias_stddev>0.8</bias_stddev></accel></noise></imu></sensor></link></model></sdf>",
+      "native": {
+        "stdout": "ERRORS\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 2 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 2 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 2 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 2 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0 2 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0 2 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.4_root_gaussian_quantized_type_only",
+      "xml": "<sdf version=\"1.4\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian_quantized</type></noise></imu></sensor></link></model></sdf>",
+      "native": {
+        "stdout": "ERRORS\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 2 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.4_root_rate_only",
+      "xml": "<sdf version=\"1.4\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian</type><rate><mean>-2</mean><bias_mean>-3</bias_mean></rate></noise></imu></sensor></link></model></sdf>",
+      "native": {
+        "stdout": "ERRORS\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 1 13835058055282163712 0 13837309855095848960 0 0 0 0 1 13835058055282163712 0 13837309855095848960 0 0 0 0 1 13835058055282163712 0 13837309855095848960 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.4_root_accel_only",
+      "xml": "<sdf version=\"1.4\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian</type><accel><mean>6</mean><bias_stddev>0.5</bias_stddev></accel></noise></imu></sensor></link></model></sdf>",
+      "native": {
+        "stdout": "ERRORS\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 4618441417868443648 0 0 4602678819172646912 0 0 0 1 4618441417868443648 0 0 4602678819172646912 0 0 0 1 4618441417868443648 0 0 4602678819172646912 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.4_root_signed_zero",
+      "xml": "<sdf version=\"1.4\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian</type><rate><mean>-0</mean><stddev>-0</stddev><bias_mean>-0</bias_mean><bias_stddev>-0</bias_stddev></rate><accel><mean>-0</mean><stddev>-0</stddev><bias_mean>-0</bias_mean><bias_stddev>-0</bias_stddev></accel></noise></imu></sensor></link></model></sdf>",
+      "native": {
+        "stdout": "ERRORS\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 1 9223372036854775808 9223372036854775808 9223372036854775808 9223372036854775808 0 0 0 1 9223372036854775808 9223372036854775808 9223372036854775808 9223372036854775808 0 0 0 1 9223372036854775808 9223372036854775808 9223372036854775808 9223372036854775808 0 0 0 1 9223372036854775808 9223372036854775808 9223372036854775808 9223372036854775808 0 0 0 1 9223372036854775808 9223372036854775808 9223372036854775808 9223372036854775808 0 0 0 1 9223372036854775808 9223372036854775808 9223372036854775808 9223372036854775808 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.4_world_none_full",
+      "xml": "<sdf version=\"1.4\"><world name=\"w\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>none</type><rate><mean>2</mean><stddev>0.2</stddev><bias_mean>0.3</bias_mean><bias_stddev>0.4</bias_stddev></rate><accel><mean>6</mean><stddev>0.6</stddev><bias_mean>0.7</bias_mean><bias_stddev>0.8</bias_stddev></accel></noise></imu></sensor></link></model></world></sdf>",
+      "native": {
+        "stdout": "ERRORS\nWORLD w\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 0 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 0 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 0 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 0 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0 0 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0 0 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.4_world_none_type_only",
+      "xml": "<sdf version=\"1.4\"><world name=\"w\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>none</type></noise></imu></sensor></link></model></world></sdf>",
+      "native": {
+        "stdout": "ERRORS\nWORLD w\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.4_world_gaussian_full",
+      "xml": "<sdf version=\"1.4\"><world name=\"w\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian</type><rate><mean>2</mean><stddev>0.2</stddev><bias_mean>0.3</bias_mean><bias_stddev>0.4</bias_stddev></rate><accel><mean>6</mean><stddev>0.6</stddev><bias_mean>0.7</bias_mean><bias_stddev>0.8</bias_stddev></accel></noise></imu></sensor></link></model></world></sdf>",
+      "native": {
+        "stdout": "ERRORS\nWORLD w\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 1 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 1 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 1 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 1 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0 1 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0 1 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.4_world_gaussian_type_only",
+      "xml": "<sdf version=\"1.4\"><world name=\"w\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian</type></noise></imu></sensor></link></model></world></sdf>",
+      "native": {
+        "stdout": "ERRORS\nWORLD w\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.4_world_gaussian_quantized_full",
+      "xml": "<sdf version=\"1.4\"><world name=\"w\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian_quantized</type><rate><mean>2</mean><stddev>0.2</stddev><bias_mean>0.3</bias_mean><bias_stddev>0.4</bias_stddev></rate><accel><mean>6</mean><stddev>0.6</stddev><bias_mean>0.7</bias_mean><bias_stddev>0.8</bias_stddev></accel></noise></imu></sensor></link></model></world></sdf>",
+      "native": {
+        "stdout": "ERRORS\nWORLD w\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 2 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 2 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 2 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 2 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0 2 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0 2 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.4_world_gaussian_quantized_type_only",
+      "xml": "<sdf version=\"1.4\"><world name=\"w\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian_quantized</type></noise></imu></sensor></link></model></world></sdf>",
+      "native": {
+        "stdout": "ERRORS\nWORLD w\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 2 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.4_world_rate_only",
+      "xml": "<sdf version=\"1.4\"><world name=\"w\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian</type><rate><mean>-2</mean><bias_mean>-3</bias_mean></rate></noise></imu></sensor></link></model></world></sdf>",
+      "native": {
+        "stdout": "ERRORS\nWORLD w\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 1 13835058055282163712 0 13837309855095848960 0 0 0 0 1 13835058055282163712 0 13837309855095848960 0 0 0 0 1 13835058055282163712 0 13837309855095848960 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.4_world_accel_only",
+      "xml": "<sdf version=\"1.4\"><world name=\"w\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian</type><accel><mean>6</mean><bias_stddev>0.5</bias_stddev></accel></noise></imu></sensor></link></model></world></sdf>",
+      "native": {
+        "stdout": "ERRORS\nWORLD w\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 4618441417868443648 0 0 4602678819172646912 0 0 0 1 4618441417868443648 0 0 4602678819172646912 0 0 0 1 4618441417868443648 0 0 4602678819172646912 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.4_world_signed_zero",
+      "xml": "<sdf version=\"1.4\"><world name=\"w\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian</type><rate><mean>-0</mean><stddev>-0</stddev><bias_mean>-0</bias_mean><bias_stddev>-0</bias_stddev></rate><accel><mean>-0</mean><stddev>-0</stddev><bias_mean>-0</bias_mean><bias_stddev>-0</bias_stddev></accel></noise></imu></sensor></link></model></world></sdf>",
+      "native": {
+        "stdout": "ERRORS\nWORLD w\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 1 9223372036854775808 9223372036854775808 9223372036854775808 9223372036854775808 0 0 0 1 9223372036854775808 9223372036854775808 9223372036854775808 9223372036854775808 0 0 0 1 9223372036854775808 9223372036854775808 9223372036854775808 9223372036854775808 0 0 0 1 9223372036854775808 9223372036854775808 9223372036854775808 9223372036854775808 0 0 0 1 9223372036854775808 9223372036854775808 9223372036854775808 9223372036854775808 0 0 0 1 9223372036854775808 9223372036854775808 9223372036854775808 9223372036854775808 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.5_root_none_full",
+      "xml": "<sdf version=\"1.5\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>none</type><rate><mean>2</mean><stddev>0.2</stddev><bias_mean>0.3</bias_mean><bias_stddev>0.4</bias_stddev></rate><accel><mean>6</mean><stddev>0.6</stddev><bias_mean>0.7</bias_mean><bias_stddev>0.8</bias_stddev></accel></noise></imu></sensor></link></model></sdf>",
+      "native": {
+        "stdout": "ERRORS\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 0 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 0 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 0 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 0 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0 0 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0 0 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.5_root_none_type_only",
+      "xml": "<sdf version=\"1.5\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>none</type></noise></imu></sensor></link></model></sdf>",
+      "native": {
+        "stdout": "ERRORS\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.5_root_gaussian_full",
+      "xml": "<sdf version=\"1.5\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian</type><rate><mean>2</mean><stddev>0.2</stddev><bias_mean>0.3</bias_mean><bias_stddev>0.4</bias_stddev></rate><accel><mean>6</mean><stddev>0.6</stddev><bias_mean>0.7</bias_mean><bias_stddev>0.8</bias_stddev></accel></noise></imu></sensor></link></model></sdf>",
+      "native": {
+        "stdout": "ERRORS\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 1 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 1 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 1 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 1 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0 1 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0 1 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.5_root_gaussian_type_only",
+      "xml": "<sdf version=\"1.5\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian</type></noise></imu></sensor></link></model></sdf>",
+      "native": {
+        "stdout": "ERRORS\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.5_root_gaussian_quantized_full",
+      "xml": "<sdf version=\"1.5\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian_quantized</type><rate><mean>2</mean><stddev>0.2</stddev><bias_mean>0.3</bias_mean><bias_stddev>0.4</bias_stddev></rate><accel><mean>6</mean><stddev>0.6</stddev><bias_mean>0.7</bias_mean><bias_stddev>0.8</bias_stddev></accel></noise></imu></sensor></link></model></sdf>",
+      "native": {
+        "stdout": "ERRORS\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 2 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 2 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 2 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 2 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0 2 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0 2 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.5_root_gaussian_quantized_type_only",
+      "xml": "<sdf version=\"1.5\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian_quantized</type></noise></imu></sensor></link></model></sdf>",
+      "native": {
+        "stdout": "ERRORS\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 2 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.5_root_rate_only",
+      "xml": "<sdf version=\"1.5\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian</type><rate><mean>-2</mean><bias_mean>-3</bias_mean></rate></noise></imu></sensor></link></model></sdf>",
+      "native": {
+        "stdout": "ERRORS\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 1 13835058055282163712 0 13837309855095848960 0 0 0 0 1 13835058055282163712 0 13837309855095848960 0 0 0 0 1 13835058055282163712 0 13837309855095848960 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.5_root_accel_only",
+      "xml": "<sdf version=\"1.5\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian</type><accel><mean>6</mean><bias_stddev>0.5</bias_stddev></accel></noise></imu></sensor></link></model></sdf>",
+      "native": {
+        "stdout": "ERRORS\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 4618441417868443648 0 0 4602678819172646912 0 0 0 1 4618441417868443648 0 0 4602678819172646912 0 0 0 1 4618441417868443648 0 0 4602678819172646912 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.5_root_signed_zero",
+      "xml": "<sdf version=\"1.5\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian</type><rate><mean>-0</mean><stddev>-0</stddev><bias_mean>-0</bias_mean><bias_stddev>-0</bias_stddev></rate><accel><mean>-0</mean><stddev>-0</stddev><bias_mean>-0</bias_mean><bias_stddev>-0</bias_stddev></accel></noise></imu></sensor></link></model></sdf>",
+      "native": {
+        "stdout": "ERRORS\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 1 9223372036854775808 9223372036854775808 9223372036854775808 9223372036854775808 0 0 0 1 9223372036854775808 9223372036854775808 9223372036854775808 9223372036854775808 0 0 0 1 9223372036854775808 9223372036854775808 9223372036854775808 9223372036854775808 0 0 0 1 9223372036854775808 9223372036854775808 9223372036854775808 9223372036854775808 0 0 0 1 9223372036854775808 9223372036854775808 9223372036854775808 9223372036854775808 0 0 0 1 9223372036854775808 9223372036854775808 9223372036854775808 9223372036854775808 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.5_world_none_full",
+      "xml": "<sdf version=\"1.5\"><world name=\"w\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>none</type><rate><mean>2</mean><stddev>0.2</stddev><bias_mean>0.3</bias_mean><bias_stddev>0.4</bias_stddev></rate><accel><mean>6</mean><stddev>0.6</stddev><bias_mean>0.7</bias_mean><bias_stddev>0.8</bias_stddev></accel></noise></imu></sensor></link></model></world></sdf>",
+      "native": {
+        "stdout": "ERRORS\nWORLD w\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 0 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 0 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 0 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 0 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0 0 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0 0 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.5_world_none_type_only",
+      "xml": "<sdf version=\"1.5\"><world name=\"w\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>none</type></noise></imu></sensor></link></model></world></sdf>",
+      "native": {
+        "stdout": "ERRORS\nWORLD w\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.5_world_gaussian_full",
+      "xml": "<sdf version=\"1.5\"><world name=\"w\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian</type><rate><mean>2</mean><stddev>0.2</stddev><bias_mean>0.3</bias_mean><bias_stddev>0.4</bias_stddev></rate><accel><mean>6</mean><stddev>0.6</stddev><bias_mean>0.7</bias_mean><bias_stddev>0.8</bias_stddev></accel></noise></imu></sensor></link></model></world></sdf>",
+      "native": {
+        "stdout": "ERRORS\nWORLD w\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 1 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 1 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 1 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 1 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0 1 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0 1 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.5_world_gaussian_type_only",
+      "xml": "<sdf version=\"1.5\"><world name=\"w\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian</type></noise></imu></sensor></link></model></world></sdf>",
+      "native": {
+        "stdout": "ERRORS\nWORLD w\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.5_world_gaussian_quantized_full",
+      "xml": "<sdf version=\"1.5\"><world name=\"w\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian_quantized</type><rate><mean>2</mean><stddev>0.2</stddev><bias_mean>0.3</bias_mean><bias_stddev>0.4</bias_stddev></rate><accel><mean>6</mean><stddev>0.6</stddev><bias_mean>0.7</bias_mean><bias_stddev>0.8</bias_stddev></accel></noise></imu></sensor></link></model></world></sdf>",
+      "native": {
+        "stdout": "ERRORS\nWORLD w\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 2 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 2 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 2 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 2 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0 2 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0 2 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.5_world_gaussian_quantized_type_only",
+      "xml": "<sdf version=\"1.5\"><world name=\"w\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian_quantized</type></noise></imu></sensor></link></model></world></sdf>",
+      "native": {
+        "stdout": "ERRORS\nWORLD w\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 2 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.5_world_rate_only",
+      "xml": "<sdf version=\"1.5\"><world name=\"w\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian</type><rate><mean>-2</mean><bias_mean>-3</bias_mean></rate></noise></imu></sensor></link></model></world></sdf>",
+      "native": {
+        "stdout": "ERRORS\nWORLD w\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 1 13835058055282163712 0 13837309855095848960 0 0 0 0 1 13835058055282163712 0 13837309855095848960 0 0 0 0 1 13835058055282163712 0 13837309855095848960 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.5_world_accel_only",
+      "xml": "<sdf version=\"1.5\"><world name=\"w\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian</type><accel><mean>6</mean><bias_stddev>0.5</bias_stddev></accel></noise></imu></sensor></link></model></world></sdf>",
+      "native": {
+        "stdout": "ERRORS\nWORLD w\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 4618441417868443648 0 0 4602678819172646912 0 0 0 1 4618441417868443648 0 0 4602678819172646912 0 0 0 1 4618441417868443648 0 0 4602678819172646912 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "1.5_world_signed_zero",
+      "xml": "<sdf version=\"1.5\"><world name=\"w\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian</type><rate><mean>-0</mean><stddev>-0</stddev><bias_mean>-0</bias_mean><bias_stddev>-0</bias_stddev></rate><accel><mean>-0</mean><stddev>-0</stddev><bias_mean>-0</bias_mean><bias_stddev>-0</bias_stddev></accel></noise></imu></sensor></link></model></world></sdf>",
+      "native": {
+        "stdout": "ERRORS\nWORLD w\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 1 9223372036854775808 9223372036854775808 9223372036854775808 9223372036854775808 0 0 0 1 9223372036854775808 9223372036854775808 9223372036854775808 9223372036854775808 0 0 0 1 9223372036854775808 9223372036854775808 9223372036854775808 9223372036854775808 0 0 0 1 9223372036854775808 9223372036854775808 9223372036854775808 9223372036854775808 0 0 0 1 9223372036854775808 9223372036854775808 9223372036854775808 9223372036854775808 0 0 0 1 9223372036854775808 9223372036854775808 9223372036854775808 9223372036854775808 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "type_36",
+      "xml": "<sdf version=\"1.5\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>GaUsSiAn</type><rate><mean>2</mean><stddev>0.2</stddev><bias_mean>0.3</bias_mean><bias_stddev>0.4</bias_stddev></rate><accel><mean>6</mean><stddev>0.6</stddev><bias_mean>0.7</bias_mean><bias_stddev>0.8</bias_stddev></accel></noise></imu></sensor></link></model></sdf>",
+      "native": {
+        "stdout": "ERRORS\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 1 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 1 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 1 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 1 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0 1 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0 1 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "type_37",
+      "xml": "<sdf version=\"1.5\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type> gaussian </type><rate><mean>2</mean><stddev>0.2</stddev><bias_mean>0.3</bias_mean><bias_stddev>0.4</bias_stddev></rate><accel><mean>6</mean><stddev>0.6</stddev><bias_mean>0.7</bias_mean><bias_stddev>0.8</bias_stddev></accel></noise></imu></sensor></link></model></sdf>",
+      "native": {
+        "stdout": "ERRORS\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 1 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 1 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 1 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 1 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0 1 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0 1 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "type_38",
+      "xml": "<sdf version=\"1.5\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>\tgaussian\n</type><rate><mean>2</mean><stddev>0.2</stddev><bias_mean>0.3</bias_mean><bias_stddev>0.4</bias_stddev></rate><accel><mean>6</mean><stddev>0.6</stddev><bias_mean>0.7</bias_mean><bias_stddev>0.8</bias_stddev></accel></noise></imu></sensor></link></model></sdf>",
+      "native": {
+        "stdout": "ERRORS\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 1 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 1 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 1 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 1 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0 1 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0 1 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "refused_1.4_nested",
+      "xml": "<sdf version=\"1.4\"><model name=\"outer\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian</type><rate><mean>2</mean><stddev>0.2</stddev><bias_mean>0.3</bias_mean><bias_stddev>0.4</bias_stddev></rate><accel><mean>6</mean><stddev>0.6</stddev><bias_mean>0.7</bias_mean><bias_stddev>0.8</bias_stddev></accel></noise></imu></sensor></link></model></model></sdf>",
+      "rust_error": "Unsupported",
+      "native": {
+        "stdout": "ERRORS\nMODEL outer\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"outer\"]/model[@name=\"m\"]/link[@name=\"l\"]/sensor[@name=\"s\"]/imu/noise:<data-string>:L1]: XML Element[noise], child of element[imu], not defined in SDF. Copying[noise] as children of [imu].\n"
+      }
+    },
+    {
+      "name": "refused_1.5_nested",
+      "xml": "<sdf version=\"1.5\"><model name=\"outer\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian</type><rate><mean>2</mean><stddev>0.2</stddev><bias_mean>0.3</bias_mean><bias_stddev>0.4</bias_stddev></rate><accel><mean>6</mean><stddev>0.6</stddev><bias_mean>0.7</bias_mean><bias_stddev>0.8</bias_stddev></accel></noise></imu></sensor></link></model></model></sdf>",
+      "rust_error": "Unsupported",
+      "native": {
+        "stdout": "ERRORS\nMODEL outer\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"outer\"]/model[@name=\"m\"]/link[@name=\"l\"]/sensor[@name=\"s\"]/imu/noise:<data-string>:L1]: XML Element[noise], child of element[imu], not defined in SDF. Copying[noise] as children of [imu].\n"
+      }
+    },
+    {
+      "name": "refused_1.4_world_nested",
+      "xml": "<sdf version=\"1.4\"><world name=\"w\"><model name=\"outer\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian</type><rate><mean>2</mean><stddev>0.2</stddev><bias_mean>0.3</bias_mean><bias_stddev>0.4</bias_stddev></rate><accel><mean>6</mean><stddev>0.6</stddev><bias_mean>0.7</bias_mean><bias_stddev>0.8</bias_stddev></accel></noise></imu></sensor></link></model></model></world></sdf>",
+      "rust_error": "Unsupported",
+      "native": {
+        "stdout": "ERRORS\nWORLD w\nMODEL outer\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/world[@name=\"w\"]/model[@name=\"outer\"]/model[@name=\"m\"]/link[@name=\"l\"]/sensor[@name=\"s\"]/imu/noise:<data-string>:L1]: XML Element[noise], child of element[imu], not defined in SDF. Copying[noise] as children of [imu].\n"
+      }
+    },
+    {
+      "name": "refused_1.5_world_nested",
+      "xml": "<sdf version=\"1.5\"><world name=\"w\"><model name=\"outer\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian</type><rate><mean>2</mean><stddev>0.2</stddev><bias_mean>0.3</bias_mean><bias_stddev>0.4</bias_stddev></rate><accel><mean>6</mean><stddev>0.6</stddev><bias_mean>0.7</bias_mean><bias_stddev>0.8</bias_stddev></accel></noise></imu></sensor></link></model></model></world></sdf>",
+      "rust_error": "Unsupported",
+      "native": {
+        "stdout": "ERRORS\nWORLD w\nMODEL outer\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/world[@name=\"w\"]/model[@name=\"outer\"]/model[@name=\"m\"]/link[@name=\"l\"]/sensor[@name=\"s\"]/imu/noise:<data-string>:L1]: XML Element[noise], child of element[imu], not defined in SDF. Copying[noise] as children of [imu].\n"
+      }
+    },
+    {
+      "name": "refused_1.4_joint",
+      "xml": "<sdf version=\"1.4\"><model name=\"m\"><link name=\"parent\"/><link name=\"child\"/><joint name=\"j\" type=\"fixed\"><parent>parent</parent><child>child</child><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian</type><rate><mean>2</mean><stddev>0.2</stddev><bias_mean>0.3</bias_mean><bias_stddev>0.4</bias_stddev></rate><accel><mean>6</mean><stddev>0.6</stddev><bias_mean>0.7</bias_mean><bias_stddev>0.8</bias_stddev></accel></noise></imu></sensor></joint></model></sdf>",
+      "rust_error": "Unsupported",
+      "native": {
+        "stdout": "ERRORS\nMODEL m\nLINK parent\nLINK child\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/joint[@name=\"j\"]/sensor[@name=\"s\"]/imu/noise:<data-string>:L1]: XML Element[noise], child of element[imu], not defined in SDF. Copying[noise] as children of [imu].\n"
+      }
+    },
+    {
+      "name": "refused_1.5_joint",
+      "xml": "<sdf version=\"1.5\"><model name=\"m\"><link name=\"parent\"/><link name=\"child\"/><joint name=\"j\" type=\"fixed\"><parent>parent</parent><child>child</child><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian</type><rate><mean>2</mean><stddev>0.2</stddev><bias_mean>0.3</bias_mean><bias_stddev>0.4</bias_stddev></rate><accel><mean>6</mean><stddev>0.6</stddev><bias_mean>0.7</bias_mean><bias_stddev>0.8</bias_stddev></accel></noise></imu></sensor></joint></model></sdf>",
+      "rust_error": "Unsupported",
+      "native": {
+        "stdout": "ERRORS\nMODEL m\nLINK parent\nLINK child\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/joint[@name=\"j\"]/sensor[@name=\"s\"]/imu/noise:<data-string>:L1]: XML Element[noise], child of element[imu], not defined in SDF. Copying[noise] as children of [imu].\n"
+      }
+    },
+    {
+      "name": "refused_modern_1.6",
+      "xml": "<sdf version=\"1.6\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian</type><rate><mean>2</mean><stddev>0.2</stddev><bias_mean>0.3</bias_mean><bias_stddev>0.4</bias_stddev></rate><accel><mean>6</mean><stddev>0.6</stddev><bias_mean>0.7</bias_mean><bias_stddev>0.8</bias_stddev></accel></noise></imu></sensor></link></model></sdf>",
+      "rust_error": "Unsupported",
+      "native": {
+        "stdout": "ERRORS\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/sensor[@name=\"s\"]/imu/noise:<data-string>:L1]: XML Element[noise], child of element[imu], not defined in SDF. Copying[noise] as children of [imu].\n"
+      }
+    },
+    {
+      "name": "refused_modern_1.8",
+      "xml": "<sdf version=\"1.8\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian</type><rate><mean>2</mean><stddev>0.2</stddev><bias_mean>0.3</bias_mean><bias_stddev>0.4</bias_stddev></rate><accel><mean>6</mean><stddev>0.6</stddev><bias_mean>0.7</bias_mean><bias_stddev>0.8</bias_stddev></accel></noise></imu></sensor></link></model></sdf>",
+      "rust_error": "Unsupported",
+      "native": {
+        "stdout": "ERRORS\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/sensor[@name=\"s\"]/imu/noise:<data-string>:L1]: XML Element[noise], child of element[imu], not defined in SDF. Copying[noise] as children of [imu].\n"
+      }
+    },
+    {
+      "name": "refused_modern_1.12",
+      "xml": "<sdf version=\"1.12\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian</type><rate><mean>2</mean><stddev>0.2</stddev><bias_mean>0.3</bias_mean><bias_stddev>0.4</bias_stddev></rate><accel><mean>6</mean><stddev>0.6</stddev><bias_mean>0.7</bias_mean><bias_stddev>0.8</bias_stddev></accel></noise></imu></sensor></link></model></sdf>",
+      "rust_error": "Unsupported",
+      "native": {
+        "stdout": "ERRORS\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/sensor[@name=\"s\"]/imu/noise:<data-string>:L1]: XML Element[noise], child of element[imu], not defined in SDF. Copying[noise] as children of [imu].\n"
+      }
+    },
+    {
+      "name": "missing_type",
+      "xml": "<sdf version=\"1.5\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><rate><mean>2</mean></rate></noise></imu></sensor></link></model></sdf>",
+      "rust_error": "Missing",
+      "native": {
+        "stdout": "ERRORS 4 9 9 9 9 9 9 9 9 30\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "empty_type",
+      "xml": "<sdf version=\"1.5\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type/></noise></imu></sensor></link></model></sdf>",
+      "rust_error": "Missing",
+      "native": {
+        "stdout": "ERRORS 4 9 9 9 9 9 9 9 9 30\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "empty",
+      "xml": "<sdf version=\"1.5\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise/></imu></sensor></link></model></sdf>",
+      "rust_error": "Missing",
+      "native": {
+        "stdout": "ERRORS 4 9 9 9 9 9 9 9 9 30\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "invalid_type",
+      "xml": "<sdf version=\"1.5\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>bad</type><rate><mean>2</mean><stddev>0.2</stddev><bias_mean>0.3</bias_mean><bias_stddev>0.4</bias_stddev></rate><accel><mean>6</mean><stddev>0.6</stddev><bias_mean>0.7</bias_mean><bias_stddev>0.8</bias_stddev></accel></noise></imu></sensor></link></model></sdf>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "stdout": "ERRORS 8 8 8 8 8 8\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 0 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 0 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 0 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 0 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0 0 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0 0 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "negative_stddev",
+      "xml": "<sdf version=\"1.5\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian</type><rate><mean>2</mean><stddev>-0.2</stddev><bias_mean>0.3</bias_mean><bias_stddev>0.4</bias_stddev></rate><accel><mean>6</mean><stddev>0.6</stddev><bias_mean>0.7</bias_mean><bias_stddev>0.8</bias_stddev></accel></noise></imu></sensor></link></model></sdf>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "stdout": "ERRORS 9 9 9 9 9 9 9 9 9 30\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: The value [-0.2] is less than the minimum allowed value of [0] for key [stddev]\n"
+      }
+    },
+    {
+      "name": "negative_bias_stddev",
+      "xml": "<sdf version=\"1.5\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian</type><rate><mean>2</mean><stddev>0.2</stddev><bias_mean>0.3</bias_mean><bias_stddev>-0.4</bias_stddev></rate><accel><mean>6</mean><stddev>0.6</stddev><bias_mean>0.7</bias_mean><bias_stddev>0.8</bias_stddev></accel></noise></imu></sensor></link></model></sdf>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "stdout": "ERRORS 9 9 9 9 9 9 9 9 9 30\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: The value [-0.4] is less than the minimum allowed value of [0] for key [bias_stddev]\n"
+      }
+    },
+    {
+      "name": "nonfinite_mean",
+      "xml": "<sdf version=\"1.5\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian</type><rate><mean>nan</mean><stddev>0.2</stddev><bias_mean>0.3</bias_mean><bias_stddev>0.4</bias_stddev></rate><accel><mean>6</mean><stddev>0.6</stddev><bias_mean>0.7</bias_mean><bias_stddev>0.8</bias_stddev></accel></noise></imu></sensor></link></model></sdf>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "stdout": "ERRORS\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 1 9221120237041090560 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 1 9221120237041090560 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 1 9221120237041090560 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 1 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0 1 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0 1 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "bad_scalar",
+      "xml": "<sdf version=\"1.5\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian</type><rate><mean>bad</mean><stddev>0.2</stddev><bias_mean>0.3</bias_mean><bias_stddev>0.4</bias_stddev></rate><accel><mean>6</mean><stddev>0.6</stddev><bias_mean>0.7</bias_mean><bias_stddev>0.8</bias_stddev></accel></noise></imu></sensor></link></model></sdf>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "stdout": "ERRORS 9 9 9 9 9 9 9 9 9 30\n",
+        "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Invalid argument. Unable to set value [bad] for key[mean].\n"
+      }
+    },
+    {
+      "name": "advanced_rate",
+      "xml": "<sdf version=\"1.5\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian</type><rate><dynamic_bias_stddev>0.1</dynamic_bias_stddev></rate></noise></imu></sensor></link></model></sdf>",
+      "rust_error": "Unsupported",
+      "native": {
+        "stdout": "ERRORS\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "unknown_group",
+      "xml": "<sdf version=\"1.5\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian</type><unknown/></noise></imu></sensor></link></model></sdf>",
+      "rust_error": "Unsupported",
+      "native": {
+        "stdout": "ERRORS\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "unknown_attribute",
+      "xml": "<sdf version=\"1.5\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise extra=\"x\"><type>gaussian</type></noise></imu></sensor></link></model></sdf>",
+      "rust_error": "Unsupported",
+      "native": {
+        "stdout": "ERRORS\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "duplicate_type",
+      "xml": "<sdf version=\"1.5\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian</type><type>none</type></noise></imu></sensor></link></model></sdf>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "stdout": "ERRORS\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "duplicate_rate",
+      "xml": "<sdf version=\"1.5\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian</type><rate/><rate/></noise></imu></sensor></link></model></sdf>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "stdout": "ERRORS\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "duplicate_mean",
+      "xml": "<sdf version=\"1.5\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian</type><rate><mean>1</mean><mean>2</mean></rate></noise></imu></sensor></link></model></sdf>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "stdout": "ERRORS\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 1 4607182418800017408 0 0 0 0 0 0 1 4607182418800017408 0 0 0 0 0 0 1 4607182418800017408 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "scalar_attribute",
+      "xml": "<sdf version=\"1.5\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian</type><rate><mean unit=\"x\">2</mean></rate></noise></imu></sensor></link></model></sdf>",
+      "rust_error": "Unsupported",
+      "native": {
+        "stdout": "ERRORS\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 1 4611686018427387904 0 0 0 0 0 0 1 4611686018427387904 0 0 0 0 0 0 1 4611686018427387904 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/sensor[@name=\"s\"]/imu/angular_velocity/x/noise/mean[@unit=\"x\"]:<data-string>:L0]: XML Attribute[unit] in element[mean] not defined in SDF.\n\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/sensor[@name=\"s\"]/imu/angular_velocity/y/noise/mean[@unit=\"x\"]:<data-string>:L0]: XML Attribute[unit] in element[mean] not defined in SDF.\n\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/sensor[@name=\"s\"]/imu/angular_velocity/z/noise/mean[@unit=\"x\"]:<data-string>:L0]: XML Attribute[unit] in element[mean] not defined in SDF.\n"
+      }
+    },
+    {
+      "name": "type_attribute",
+      "xml": "<sdf version=\"1.5\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type extra=\"x\">gaussian</type></noise></imu></sensor></link></model></sdf>",
+      "rust_error": "Unsupported",
+      "native": {
+        "stdout": "ERRORS\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "mixed_angular_velocity",
+      "xml": "<sdf version=\"1.5\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian</type><rate><mean>2</mean><stddev>0.2</stddev><bias_mean>0.3</bias_mean><bias_stddev>0.4</bias_stddev></rate><accel><mean>6</mean><stddev>0.6</stddev><bias_mean>0.7</bias_mean><bias_stddev>0.8</bias_stddev></accel></noise><angular_velocity><x><noise type=\"gaussian\"><mean>9</mean></noise></x></angular_velocity></imu></sensor></link></model></sdf>",
+      "rust_error": "Unsupported",
+      "native": {
+        "stdout": "ERRORS\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 1 4621256167635550208 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 1 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 1 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 1 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0 1 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0 1 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/sensor[@name=\"s\"]/imu/angular_velocity/x[@type=\"gaussian\"]:<data-string>:L1]: XML Attribute[type] in element[x] not defined in SDF.\n"
+      }
+    },
+    {
+      "name": "mixed_linear_acceleration",
+      "xml": "<sdf version=\"1.5\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><imu><noise><type>gaussian</type><rate><mean>2</mean><stddev>0.2</stddev><bias_mean>0.3</bias_mean><bias_stddev>0.4</bias_stddev></rate><accel><mean>6</mean><stddev>0.6</stddev><bias_mean>0.7</bias_mean><bias_stddev>0.8</bias_stddev></accel></noise><linear_acceleration><x><noise type=\"gaussian\"><mean>9</mean></noise></x></linear_acceleration></imu></sensor></link></model></sdf>",
+      "rust_error": "Unsupported",
+      "native": {
+        "stdout": "ERRORS\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 1 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 1 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 1 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 1 4621256167635550208 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0 1 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0 1 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"m\"]/link[@name=\"l\"]/sensor[@name=\"s\"]/imu/linear_acceleration/x[@type=\"gaussian\"]:<data-string>:L1]: XML Attribute[type] in element[x] not defined in SDF.\n"
+      }
+    },
+    {
+      "name": "imported_15_resource",
+      "xml": "<sdf version=\"1.12\"><world name=\"w\"><include><uri>fixture.sdf</uri></include></world></sdf>",
+      "resource": "tests/fixtures/legacy_imu_resource.sdf",
+      "native": {
+        "stdout": "ERRORS\nWORLD w\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 1 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 1 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 1 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 1 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0 1 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0 1 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "retained_orientation_root",
+      "xml": "<sdf version=\"1.5\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><update_rate>25</update_rate><topic>/imu/data</topic><frame_id>body</frame_id><always_on>true</always_on><visualize>true</visualize><enable_metrics>true</enable_metrics><imu><noise><type>gaussian</type><rate><mean>2</mean><stddev>0.2</stddev><bias_mean>0.3</bias_mean><bias_stddev>0.4</bias_stddev></rate><accel><mean>6</mean><stddev>0.6</stddev><bias_mean>0.7</bias_mean><bias_stddev>0.8</bias_stddev></accel></noise><enable_orientation>false</enable_orientation><orientation_reference_frame><localization>NED</localization><custom_rpy parent_frame=\"world\">0.1 0.2 0.3</custom_rpy><grav_dir_x parent_frame=\"world\">0.4 0.5 0.6</grav_dir_x></orientation_reference_frame></imu></sensor></link></model></sdf>",
+      "native": {
+        "stdout": "ERRORS\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE 2f696d752f64617461 626f6479 4627730092099895296 1 1 1\nNOISE 1 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 1 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 1 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 1 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0 1 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0 1 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0\nORIENTATION 0 4e4544 4591870180066957722 4596373779694328218 4599075939470750515 776f726c64 4600877379321698714 4602678819172646912 4603579539098121011 776f726c64\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "retained_orientation_world",
+      "xml": "<sdf version=\"1.5\"><world name=\"w\"><model name=\"m\"><link name=\"l\"><sensor name=\"s\" type=\"imu\"><update_rate>25</update_rate><topic>/imu/data</topic><frame_id>body</frame_id><always_on>true</always_on><visualize>true</visualize><enable_metrics>true</enable_metrics><imu><noise><type>gaussian</type><rate><mean>2</mean><stddev>0.2</stddev><bias_mean>0.3</bias_mean><bias_stddev>0.4</bias_stddev></rate><accel><mean>6</mean><stddev>0.6</stddev><bias_mean>0.7</bias_mean><bias_stddev>0.8</bias_stddev></accel></noise><enable_orientation>false</enable_orientation><orientation_reference_frame><localization>NED</localization><custom_rpy parent_frame=\"world\">0.1 0.2 0.3</custom_rpy><grav_dir_x parent_frame=\"world\">0.4 0.5 0.6</grav_dir_x></orientation_reference_frame></imu></sensor></link></model></world></sdf>",
+      "native": {
+        "stdout": "ERRORS\nWORLD w\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE 2f696d752f64617461 626f6479 4627730092099895296 1 1 1\nNOISE 1 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 1 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 1 4611686018427387904 4596373779694328218 4599075939470750515 4600877379321698714 0 0 0 1 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0 1 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0 1 4618441417868443648 4603579539098121011 4604480259023595110 4605380978949069210 0 0 0\nORIENTATION 0 4e4544 4591870180066957722 4596373779694328218 4599075939470750515 776f726c64 4600877379321698714 4602678819172646912 4603579539098121011 776f726c64\n",
+        "stderr": ""
+      }
+    }
+  ],
+  "original": {
+    "stdout": "ERRORS\nWORLD default\nMODEL box_old_imu_noise\nLINK link\nSENSOR imu_sensor imu 1\nENVELOPE - - 0 0 0 0\nNOISE 1 0 4551510721646314285 4530468463035358569 4515659013370457928 0 0 0 1 0 4551510721646314285 4530468463035358569 4515659013370457928 0 0 0 1 0 4551510721646314285 4530468463035358569 4515659013370457928 0 0 0 1 0 4580557137803003036 4591870180066957722 4562254508917369340 0 0 0 1 0 4580557137803003036 4591870180066957722 4562254508917369340 0 0 0 1 0 4580557137803003036 4591870180066957722 4562254508917369340 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+    "stderr": ""
+  },
+  "retained_unsupported_row": {
+    "stdout": "ERRORS\nMODEL m\nLINK l\nSENSOR s imu 1\nENVELOPE - - 0 0 0 0\nNOISE 1 4611686018427387904 0 0 0 0 0 0 1 4611686018427387904 0 0 0 0 0 0 1 4611686018427387904 0 0 0 0 0 0 1 4618441417868443648 0 0 0 0 0 0 1 4618441417868443648 0 0 0 0 0 0 1 4618441417868443648 0 0 0 0 0 0\nORIENTATION 1 435553544f4d 0 0 0 - 4607182418800017408 0 0 -\n",
+    "stderr": ""
+  }
+}

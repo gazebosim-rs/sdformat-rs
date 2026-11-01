@@ -400,9 +400,10 @@ The SDF 1.5 common model subset uses the existing 1.6-to-current semantic
 conversion chain, including pose frame, axis expressed-in and legacy shared-name
 rules. It loads original 1.5 box resources through the injected resolver without
 rewriting fixtures and retains the root Sdf.version and original resource source positions.
-The changed 1.5-to-1.6 actions remain explicit boundaries: physics-contained world
-gravity/magnetic-field moves and legacy IMU noise redistribution are Unsupported,
-as are unimplemented schema fields at newer versions. No full 1.5 conversion or
+Bounded first-physics world-vector and direct-model legacy IMU Noise projections
+retain original version/XML/source; see LEGACY_WORLD_FIELDS.md and
+LEGACY_IMU_NOISE.md. Ambiguous, nested and newer-schema legacy fields remain
+explicit errors, as do other unimplemented fields. No full 1.5 conversion or
 serialization claim is made. Empty 1.5 roots now report Missing after version
 acceptance; 1.3 roots remain Version errors.
 

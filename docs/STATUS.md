@@ -3877,3 +3877,19 @@ and exact native error-enum observations remain unported; no original-case credi
 is added. Independent review and ordinary strict staged/hosted qualification are
 pending. Accepted quality and the simulator pin remain unchanged. See
 LIDAR_ALIASES.md.
+
+
+A private conversion follow-up on accepted419 projects SDF1.4/1.5 direct-model
+legacy IMU Noise into the existing six owned records. It preserves original
+version, sensor XML and caller/imported sources; nested, mixed and modern-schema
+legacy configurations remain explicit errors. Author native69 controls, exact
+original/old-row projections and the unchanged full converter original pass.
+Independent review passed seventeen focused Rust tests, native69 controls, both
+exact projections, the unchanged full converter original, hostile-Git replay,
+Clippy and formatting in fresh source/target. Only the prior-approved exact old
+legacy_imu_noise row now uses the exhaustive same-input/URI positive; its corpus
+and every other assertion remain unchanged. The earlier rejection failure stays
+recorded separately. The new Converter.IMU_15_to_16 mapping is partial, with
+converted tree/text/order/console APIs still unported. Final fold review and
+ordinary strict staged/hosted qualification remain pending. No accepted counters
+or simulator consumer pin change. See LEGACY_IMU_NOISE.md.

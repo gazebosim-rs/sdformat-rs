@@ -2,18 +2,18 @@
   "decision": "approved",
   "author": "sdf_world_owner",
   "reviewer": "msgs_performance_owner; root (final scope and unchanged-policy check)",
-  "source_digest": "0329d344b30a9bbaaac41bb6a65d57fd50ee5d80e4259f821b69f167e81c9c22",
-  "protected_digest": "6919aabb3a89f342eb65573e9aca9a3772dda758324f8a279acb799ae50c8a45",
-  "scope": "Standalone lidar configuration root aliases lidar, ray, gpu_lidar and gpu_ray through the existing typed parser. No sensor runtime, type/dependency, simulator or writer change.",
+  "source_digest": "acf327c5ec922c5cd39cfb4a066d1b55d4b68f13219fe08e2f92c76eda29b4b1",
+  "protected_digest": "505f57c30439002bfdabefc7b15c35ccd542b4cf3ff20524282cac3ce782de24",
+  "scope": "Bounded SDF1.4/1.5 direct-model legacy IMU noise projection to existing six Noise records. Only the exact legacy_imu_noise old rejection row becomes an exhaustive same-input/URI positive. No sampling, runtime, dependency or full converter API change.",
   "checks": [
-    "Independent fresh accepted486 source and reviewer-owned target passed eleven focused Rust tests,64 native controls,two null/bad-root controls and all four unchanged native DOMLidar originals, including hostile Git-context replay, all-target Clippy and formatting.",
-    "All existing tests, corpora, traceability mappings, Cargo files and verifier/policy bytes remain unchanged. Four root names reuse the same scan/range/noise/source validation. Empty aliases still fail required groups.",
-    "Root inspected the exact two-line root predicate and actual pinned roxmltree has_tag_name semantics; local-name matching preserves the previous namespace behavior for lidar. No broader parser or namespace policy is introduced.",
-    "Author reports full667 Rust tests; independent focused replay is separate. Ordinary strict staged and exact hosted/source checks remain required."
+    "Independent fresh accepted419 source and own target passed seventeen focused Rust tests,69 native controls,exact original and old-row projections,the unchanged full Converter.IMU_15_to_16 original,hostile-Git replay,all-target Clippy and formatting.",
+    "Independent final fold review passed five affected Rust tests,all-target Clippy and formatting. Exact old ID/XML/unsupported-conversion URI/NoResources calls the unchanged exhaustive helper; only the duplicate prepared test is removed. Gravity branch,Unsupported fallback,all unrelated predicates and historical corpus remain unchanged.",
+    "Root inspected the production direct-model/version scope,shared Noise parser extraction,exhaustive Model/Link/Sensor/Imu defaults/source/raw XML/graph helper and narrow version15 transition. No broader rejection retirement,policy,coverage or numerical tolerance change is approved.",
+    "Author reports all670 retained Rust tests passing. Root independently recomputed both final digests and verified the independent final-review report. Public simulator pin0437 and private integration pin486 are distinguished in the reviewed documentation. Ordinary strict staged and exact hosted checks remain required."
   ],
   "remaining": [
-    "This is bounded standalone configuration parsing. Mutable/null Element ownership and full DOMLidar.Load equivalence remain outside the value API and are not claimed complete.",
-    "No simulator consumer pin change or sensor runtime acceptance follows from this producer slice.",
-    "Normal strict staged and exact hosted/source qualification are pending."
+    "This is partial typed-load/value projection. Converted Element/tree/text/order/error-vector/console behavior and full original-case equivalence remain unported and are not claimed complete.",
+    "Nested,mixed and newer-schema legacy inputs remain explicit refusal boundaries. No sensor runtime or simulator consumer pin change is accepted here.",
+    "Normal strict staged,per-crate/workspace line and region coverage,changed-line coverage and exact hosted/source qualification remain pending."
   ]
 }

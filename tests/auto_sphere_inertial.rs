@@ -18,6 +18,8 @@
 use sdformat::*;
 #[path = "common/auto_sphere.rs"]
 mod common;
+#[path = "common/auto_default_density.rs"]
+mod default_density;
 
 #[test]
 fn original_sphere_inertial_values_stay_exact() {
@@ -49,6 +51,32 @@ fn sphere_loader_native_domains_and_oracle_roundoff() {
         let xml = row["xml"].as_str().unwrap();
         let uri = row["uri"].as_str().unwrap_or("sphere.sdf");
         let result = load_str(xml, uri, &NoResources);
+        if matches!(
+            row["name"].as_str().unwrap(),
+            "no_density" | "empty_density"
+        ) {
+            assert_eq!(row["rust_error"], "Unsupported");
+            let lines: Vec<_> = row["stdout"].as_str().unwrap().lines().collect();
+            assert_eq!(lines.len(), 4);
+            assert_eq!(lines[0], "LOAD");
+            assert_eq!(lines[2], "RESOLVE");
+            assert_eq!(lines[1], lines[3]);
+            let expected: Vec<u64> = lines[1]
+                .strip_prefix("VALUES ")
+                .unwrap()
+                .split_whitespace()
+                .map(|value| value.parse().unwrap())
+                .collect();
+            default_density::assert_complete_default_density(
+                row["xml"].as_str().unwrap(),
+                "sphere.sdf",
+                "1.12",
+                "sphere_default",
+                (row["name"] == "empty_density").then_some(1000.),
+                &expected,
+            );
+            continue;
+        }
         if let Some(error) = row.get("rust_error") {
             let code = match error.as_str().unwrap() {
                 "Unsupported" => ErrorCode::Unsupported,

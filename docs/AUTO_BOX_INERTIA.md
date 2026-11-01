@@ -4,8 +4,9 @@
 # Bounded automatic box inertia
 
 A bare `inertial auto="true"` or `auto="1"` computes owned mass and diagonal
-inertia for exactly one box collision with an explicit, nonempty positive
-density and an omitted collision pose. The existing boolean parser also keeps
+inertia for exactly one box collision with positive effective density and an
+omitted collision pose. Explicit-density qualification is described here;
+AUTO_DEFAULT_DENSITY.md covers omission and empty density. The existing boolean parser also keeps
 its case/padding behavior. SDF1.4–1.12 retains its original input version and
 source positions. Units are metres, kg/m³, kg and kg·m². Inertial pose is the
 link origin, products of inertia are zero, and fluid added mass is absent.
@@ -17,11 +18,12 @@ full native Root computes automatic inertia from that normalized size. Empty
 size remains an error. Native normalization warnings are retained in the
 reference corpus but not reproduced as Rust console output.
 
-Default collision density, an empty density, any explicit collision pose,
+The subsequent default-density extension is described in AUTO_DEFAULT_DENSITY.md.
+Any explicit collision pose,
 multiple collisions, shapes outside the box or bounded sphere domain, link-level density, auto parameters and
 manual inertial overrides remain Unsupported. Manual false/default behavior
-and every old assertion/corpus remain unchanged, including the old valid
-unit-box refusal whose density is omitted. There is no collision aggregation,
+and the corpus remain unchanged. Only the omitted/empty-density refusals now use
+separately reviewed same-input positives; no other old assertion changes. There is no collision aggregation,
 parallel-axis calculation, mesh IO or runtime physics operation.
 
 The implementation calls maintained `parry3d-f64 =0.31.1` with default features

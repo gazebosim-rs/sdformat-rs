@@ -3,8 +3,9 @@
 
 # Bounded automatic sphere inertia
 
-A bare inertial auto=true/1 supports one origin sphere collision with explicit,
-nonempty positive density, alongside the existing box domain. The loader reuses
+A bare inertial auto=true/1 supports one origin sphere collision with positive
+effective density, alongside the existing box domain. Explicit-density
+qualification is described here; AUTO_DEFAULT_DENSITY.md covers fallback. The loader reuses
 Parry 0.31.1's public `MassProperties::from_ball`, `mass` and `principal_inertia`.
 No dependency, public type, handwritten mass formula or runtime is added. Units
 are metres, kg/m³, kg and kg·m². Pose is the link origin, products of inertia are
@@ -17,7 +18,8 @@ computes inertia from that normalized sphere. Empty radius stays Missing.
 This differs from the native mutable Sphere setter: setting radius -2 makes
 CalculateInertial return nullopt. The loader does not claim setter semantics.
 
-Default/empty density, any explicit collision pose, multiple collisions,
+The subsequent default/empty-density extension is described in
+AUTO_DEFAULT_DENSITY.md. Any explicit collision pose, multiple collisions,
 other shapes, link density, auto parameters and manual inertial overrides remain
 Unsupported. Numeric extraction must be finite and positive and pass the
 unchanged manual physical-inertia validator. Native-valid density DBL_MIN with

@@ -3974,3 +3974,27 @@ parser admission or consumer pin changes. All three focused Rust controls, all-t
 Independent review and normal strict/hosted qualification remain pending; no new
 original credit yet.
 See [WORLD_LIGHT_MUTATION.md](WORLD_LIGHT_MUTATION.md).
+
+## Prepared default-density automatic inertia
+
+An isolated follow-up from accepted `fc5d4d4` reuses effective collision density
+for the existing single origin box/sphere automatic-inertia path. Omission keeps
+metadata absent; empty density keeps explicit default presence. Native
+characterization passed 86 controls and the unchanged full density original,
+with exact old-input values/warnings and actual mapped-library bindings.
+The initial radius-1 oracle, four focused tests, postfold five affected tests
+and selected Clippy passed before the first complete gate. That gate failed its
+instrumented test command; one persistent same-tree diagnostic captured the old
+sphere `no_density` rejection conflicting with the admitted fallback. A source
+audit found the sphere `empty_density` and manual unit-box expectations also
+depend on that refusal. Independently source-reviewed stronger branches now
+cover all three exact inputs with their original names, URIs and native bits.
+Corpora and old counts remain unchanged. The radius-0.1 cases have a separate
+fixed-input oracle record. Both fixed-input oracles and all 40 native projections
+passed in the consolidated batch; 50 tooling tests passed before the mandatory
+hook stopped at formatting. The formatting/idiom correction is source-only;
+amended runtime paths and complete mandatory qualification remain pending.
+No amended Rust-runtime pass is claimed.
+No complete original credit, new math kernel, dependency, compiler, Fuel or
+consumer-pin change is claimed. Ordinary strict/hosted qualification is pending.
+See [AUTO_DEFAULT_DENSITY.md](AUTO_DEFAULT_DENSITY.md).

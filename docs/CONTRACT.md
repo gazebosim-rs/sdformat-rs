@@ -35,8 +35,10 @@ nested models, frames, plugins, scoped name and source.
 `Inertial` has mass in kg, six inertia components (ixx, iyy, izz, ixy, ixz, iyz)
 in kg·m² and inertial-frame pose. Positive physical inertia is required.
 Explicit inertial auto=false/0 and the omitted/empty false default use this
-manual path. Bare automatic true/1 supports one origin box or sphere with explicit
-collision density through maintained Parry; see AUTO_BOX_INERTIA.md for numeric
+manual path. Bare automatic true/1 supports one origin box or sphere with effective
+collision density through maintained Parry. Omission uses 1000 kg/m³ while
+preserving `None`; empty density retains `Some(1000)`. See AUTO_DEFAULT_DENSITY.md
+for fallback and warning-policy scope, and AUTO_BOX_INERTIA.md for numeric
 and structural bounds; AUTO_SPHERE_INERTIA.md records the sphere roundoff contract. Link density and auto_inertia_params remain Unsupported.
 No automatic state or presence getter is invented. See MANUAL_INERTIA.md.
 `Collision` has pose and box/sphere/cylinder/plane geometry, with SI dimensions.

@@ -1,0 +1,877 @@
+{
+  "copyright": "Copyright (C) 2026 Open Source Robotics Foundation",
+  "license": "Apache-2.0",
+  "scope": "Single origin box/sphere density fallback; no runtime or complete auto-inertial framework",
+  "cases": [
+    {
+      "name": "old_default_density",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "auto-box.sdf",
+      "old_name": "default_density",
+      "strict_warning": false,
+      "shape": "box",
+      "density_presence": false,
+      "stdout": "LOAD\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 0 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 0 4652007308841189376 4652007308841189376\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:115]\u001b[0m Collision is missing a <density> child element. Using a default density value of 1000.000000 kg/m^3. "
+    },
+    {
+      "name": "old_empty_density",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density></density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "auto-box.sdf",
+      "old_name": "empty_density",
+      "strict_warning": false,
+      "shape": "box",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v4_box_absent",
+      "xml": "<sdf version='1.4'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "box",
+      "density_presence": false,
+      "stdout": "LOAD\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 0 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 0 4652007308841189376 4652007308841189376\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:115]\u001b[0m Collision is missing a <density> child element. Using a default density value of 1000.000000 kg/m^3. "
+    },
+    {
+      "name": "v4_box_empty",
+      "xml": "<sdf version='1.4'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density/><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "box",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v4_box_space",
+      "xml": "<sdf version='1.4'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density> \t </density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "box",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v4_box_explicit",
+      "xml": "<sdf version='1.4'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density>1000</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "box",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v4_sphere_absent",
+      "xml": "<sdf version='1.4'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "sphere",
+      "density_presence": false,
+      "stdout": "LOAD\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 0 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 0 4652007308841189376 4652007308841189376\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:115]\u001b[0m Collision is missing a <density> child element. Using a default density value of 1000.000000 kg/m^3. "
+    },
+    {
+      "name": "v4_sphere_empty",
+      "xml": "<sdf version='1.4'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density/><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "sphere",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v4_sphere_space",
+      "xml": "<sdf version='1.4'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density> \t </density><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "sphere",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v4_sphere_explicit",
+      "xml": "<sdf version='1.4'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density>1000</density><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "sphere",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v5_box_absent",
+      "xml": "<sdf version='1.5'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "box",
+      "density_presence": false,
+      "stdout": "LOAD\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 0 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 0 4652007308841189376 4652007308841189376\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:115]\u001b[0m Collision is missing a <density> child element. Using a default density value of 1000.000000 kg/m^3. "
+    },
+    {
+      "name": "v5_box_empty",
+      "xml": "<sdf version='1.5'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density/><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "box",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v5_box_space",
+      "xml": "<sdf version='1.5'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density> \t </density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "box",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v5_box_explicit",
+      "xml": "<sdf version='1.5'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density>1000</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "box",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v5_sphere_absent",
+      "xml": "<sdf version='1.5'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "sphere",
+      "density_presence": false,
+      "stdout": "LOAD\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 0 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 0 4652007308841189376 4652007308841189376\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:115]\u001b[0m Collision is missing a <density> child element. Using a default density value of 1000.000000 kg/m^3. "
+    },
+    {
+      "name": "v5_sphere_empty",
+      "xml": "<sdf version='1.5'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density/><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "sphere",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v5_sphere_space",
+      "xml": "<sdf version='1.5'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density> \t </density><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "sphere",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v5_sphere_explicit",
+      "xml": "<sdf version='1.5'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density>1000</density><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "sphere",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v6_box_absent",
+      "xml": "<sdf version='1.6'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "box",
+      "density_presence": false,
+      "stdout": "LOAD\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 0 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 0 4652007308841189376 4652007308841189376\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:115]\u001b[0m Collision is missing a <density> child element. Using a default density value of 1000.000000 kg/m^3. "
+    },
+    {
+      "name": "v6_box_empty",
+      "xml": "<sdf version='1.6'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density/><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "box",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v6_box_space",
+      "xml": "<sdf version='1.6'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density> \t </density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "box",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v6_box_explicit",
+      "xml": "<sdf version='1.6'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density>1000</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "box",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v6_sphere_absent",
+      "xml": "<sdf version='1.6'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "sphere",
+      "density_presence": false,
+      "stdout": "LOAD\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 0 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 0 4652007308841189376 4652007308841189376\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:115]\u001b[0m Collision is missing a <density> child element. Using a default density value of 1000.000000 kg/m^3. "
+    },
+    {
+      "name": "v6_sphere_empty",
+      "xml": "<sdf version='1.6'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density/><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "sphere",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v6_sphere_space",
+      "xml": "<sdf version='1.6'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density> \t </density><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "sphere",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v6_sphere_explicit",
+      "xml": "<sdf version='1.6'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density>1000</density><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "sphere",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v7_box_absent",
+      "xml": "<sdf version='1.7'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "box",
+      "density_presence": false,
+      "stdout": "LOAD\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 0 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 0 4652007308841189376 4652007308841189376\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:115]\u001b[0m Collision is missing a <density> child element. Using a default density value of 1000.000000 kg/m^3. "
+    },
+    {
+      "name": "v7_box_empty",
+      "xml": "<sdf version='1.7'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density/><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "box",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v7_box_space",
+      "xml": "<sdf version='1.7'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density> \t </density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "box",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v7_box_explicit",
+      "xml": "<sdf version='1.7'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density>1000</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "box",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v7_sphere_absent",
+      "xml": "<sdf version='1.7'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "sphere",
+      "density_presence": false,
+      "stdout": "LOAD\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 0 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 0 4652007308841189376 4652007308841189376\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:115]\u001b[0m Collision is missing a <density> child element. Using a default density value of 1000.000000 kg/m^3. "
+    },
+    {
+      "name": "v7_sphere_empty",
+      "xml": "<sdf version='1.7'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density/><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "sphere",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v7_sphere_space",
+      "xml": "<sdf version='1.7'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density> \t </density><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "sphere",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v7_sphere_explicit",
+      "xml": "<sdf version='1.7'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density>1000</density><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "sphere",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v8_box_absent",
+      "xml": "<sdf version='1.8'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "box",
+      "density_presence": false,
+      "stdout": "LOAD\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 0 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 0 4652007308841189376 4652007308841189376\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:115]\u001b[0m Collision is missing a <density> child element. Using a default density value of 1000.000000 kg/m^3. "
+    },
+    {
+      "name": "v8_box_empty",
+      "xml": "<sdf version='1.8'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density/><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "box",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v8_box_space",
+      "xml": "<sdf version='1.8'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density> \t </density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "box",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v8_box_explicit",
+      "xml": "<sdf version='1.8'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density>1000</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "box",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v8_sphere_absent",
+      "xml": "<sdf version='1.8'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "sphere",
+      "density_presence": false,
+      "stdout": "LOAD\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 0 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 0 4652007308841189376 4652007308841189376\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:115]\u001b[0m Collision is missing a <density> child element. Using a default density value of 1000.000000 kg/m^3. "
+    },
+    {
+      "name": "v8_sphere_empty",
+      "xml": "<sdf version='1.8'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density/><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "sphere",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v8_sphere_space",
+      "xml": "<sdf version='1.8'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density> \t </density><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "sphere",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v8_sphere_explicit",
+      "xml": "<sdf version='1.8'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density>1000</density><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "sphere",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v9_box_absent",
+      "xml": "<sdf version='1.9'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "box",
+      "density_presence": false,
+      "stdout": "LOAD\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 0 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 0 4652007308841189376 4652007308841189376\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:115]\u001b[0m Collision is missing a <density> child element. Using a default density value of 1000.000000 kg/m^3. "
+    },
+    {
+      "name": "v9_box_empty",
+      "xml": "<sdf version='1.9'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density/><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "box",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v9_box_space",
+      "xml": "<sdf version='1.9'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density> \t </density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "box",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v9_box_explicit",
+      "xml": "<sdf version='1.9'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density>1000</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "box",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v9_sphere_absent",
+      "xml": "<sdf version='1.9'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "sphere",
+      "density_presence": false,
+      "stdout": "LOAD\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 0 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 0 4652007308841189376 4652007308841189376\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:115]\u001b[0m Collision is missing a <density> child element. Using a default density value of 1000.000000 kg/m^3. "
+    },
+    {
+      "name": "v9_sphere_empty",
+      "xml": "<sdf version='1.9'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density/><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "sphere",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v9_sphere_space",
+      "xml": "<sdf version='1.9'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density> \t </density><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "sphere",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v9_sphere_explicit",
+      "xml": "<sdf version='1.9'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density>1000</density><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "sphere",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v10_box_absent",
+      "xml": "<sdf version='1.10'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "box",
+      "density_presence": false,
+      "stdout": "LOAD\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 0 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 0 4652007308841189376 4652007308841189376\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:115]\u001b[0m Collision is missing a <density> child element. Using a default density value of 1000.000000 kg/m^3. "
+    },
+    {
+      "name": "v10_box_empty",
+      "xml": "<sdf version='1.10'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density/><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "box",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v10_box_space",
+      "xml": "<sdf version='1.10'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density> \t </density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "box",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v10_box_explicit",
+      "xml": "<sdf version='1.10'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density>1000</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "box",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v10_sphere_absent",
+      "xml": "<sdf version='1.10'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "sphere",
+      "density_presence": false,
+      "stdout": "LOAD\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 0 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 0 4652007308841189376 4652007308841189376\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:115]\u001b[0m Collision is missing a <density> child element. Using a default density value of 1000.000000 kg/m^3. "
+    },
+    {
+      "name": "v10_sphere_empty",
+      "xml": "<sdf version='1.10'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density/><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "sphere",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v10_sphere_space",
+      "xml": "<sdf version='1.10'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density> \t </density><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "sphere",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v10_sphere_explicit",
+      "xml": "<sdf version='1.10'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density>1000</density><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "sphere",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v11_box_absent",
+      "xml": "<sdf version='1.11'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "box",
+      "density_presence": false,
+      "stdout": "LOAD\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 0 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 0 4652007308841189376 4652007308841189376\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:115]\u001b[0m Collision is missing a <density> child element. Using a default density value of 1000.000000 kg/m^3. "
+    },
+    {
+      "name": "v11_box_empty",
+      "xml": "<sdf version='1.11'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density/><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "box",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v11_box_space",
+      "xml": "<sdf version='1.11'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density> \t </density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "box",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v11_box_explicit",
+      "xml": "<sdf version='1.11'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density>1000</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "box",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v11_sphere_absent",
+      "xml": "<sdf version='1.11'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "sphere",
+      "density_presence": false,
+      "stdout": "LOAD\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 0 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 0 4652007308841189376 4652007308841189376\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:115]\u001b[0m Collision is missing a <density> child element. Using a default density value of 1000.000000 kg/m^3. "
+    },
+    {
+      "name": "v11_sphere_empty",
+      "xml": "<sdf version='1.11'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density/><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "sphere",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v11_sphere_space",
+      "xml": "<sdf version='1.11'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density> \t </density><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "sphere",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v11_sphere_explicit",
+      "xml": "<sdf version='1.11'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density>1000</density><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "sphere",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v12_box_absent",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "box",
+      "density_presence": false,
+      "stdout": "LOAD\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 0 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 0 4652007308841189376 4652007308841189376\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:115]\u001b[0m Collision is missing a <density> child element. Using a default density value of 1000.000000 kg/m^3. "
+    },
+    {
+      "name": "v12_box_empty",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density/><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "box",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v12_box_space",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density> \t </density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "box",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v12_box_explicit",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density>1000</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "box",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v12_sphere_absent",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "sphere",
+      "density_presence": false,
+      "stdout": "LOAD\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 0 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 0 4652007308841189376 4652007308841189376\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:115]\u001b[0m Collision is missing a <density> child element. Using a default density value of 1000.000000 kg/m^3. "
+    },
+    {
+      "name": "v12_sphere_empty",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density/><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "sphere",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v12_sphere_space",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density> \t </density><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "sphere",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "v12_sphere_explicit",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density>1000</density><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "sphere",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "strict_box_absent",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": true,
+      "shape": "box",
+      "density_presence": false,
+      "stdout": "LOAD 8\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 0 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 0 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "strict_box_empty",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density/><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": true,
+      "shape": "box",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4665518107723300864 4662586076715898197 4662586076715898197 4662586076715898197 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "strict_sphere_absent",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": true,
+      "shape": "sphere",
+      "density_presence": false,
+      "stdout": "LOAD 8\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 0 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 0 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "strict_sphere_empty",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density/><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": true,
+      "shape": "sphere",
+      "density_presence": true,
+      "stdout": "LOAD\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\nRESOLVE\nVALUES 1 1 4661327638237569713 4655083813104714831 4655083813104714831 4655083813104714831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 4652007308841189376 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "box_zero",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density>0</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "box",
+      "density_presence": true,
+      "rust_error": "InvalidValue",
+      "stdout": "LOAD 19\nVALUES 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 0 4652007308841189376\nRESOLVE\nVALUES 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 0 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "box_negative",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density>-1</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "box",
+      "density_presence": true,
+      "rust_error": "InvalidValue",
+      "stdout": "LOAD 19\nVALUES 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 13830554455654793216 4652007308841189376\nRESOLVE\nVALUES 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 13830554455654793216 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "box_nan",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density>nan</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "box",
+      "density_presence": true,
+      "rust_error": "InvalidValue",
+      "stdout": "LOAD 19\nVALUES 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 9221120237041090560 4652007308841189376\nRESOLVE\nVALUES 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 9221120237041090560 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "box_inf",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density>inf</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "box",
+      "density_presence": true,
+      "rust_error": "InvalidValue",
+      "stdout": "LOAD 19\nVALUES 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 9218868437227405312 4652007308841189376\nRESOLVE\nVALUES 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 9218868437227405312 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "sphere_zero",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density>0</density><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "sphere",
+      "density_presence": true,
+      "rust_error": "InvalidValue",
+      "stdout": "LOAD 19\nVALUES 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 0 4652007308841189376\nRESOLVE\nVALUES 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 0 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "sphere_negative",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density>-1</density><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "sphere",
+      "density_presence": true,
+      "rust_error": "InvalidValue",
+      "stdout": "LOAD 19\nVALUES 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 13830554455654793216 4652007308841189376\nRESOLVE\nVALUES 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 13830554455654793216 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "sphere_nan",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density>nan</density><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "sphere",
+      "density_presence": true,
+      "rust_error": "InvalidValue",
+      "stdout": "LOAD 19\nVALUES 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 9221120237041090560 4652007308841189376\nRESOLVE\nVALUES 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 9221120237041090560 4652007308841189376\n",
+      "stderr": ""
+    },
+    {
+      "name": "sphere_inf",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density>inf</density><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "auto-default-density.sdf",
+      "strict_warning": false,
+      "shape": "sphere",
+      "density_presence": true,
+      "rust_error": "InvalidValue",
+      "stdout": "LOAD 19\nVALUES 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 9218868437227405312 4652007308841189376\nRESOLVE\nVALUES 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nDENSITY 1 9218868437227405312 4652007308841189376\n",
+      "stderr": ""
+    }
+  ]
+}

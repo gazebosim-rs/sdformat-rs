@@ -2462,16 +2462,14 @@ impl Parser<'_> {
         collisions: &[Collision],
     ) -> Result<Inertial, Diagnostic> {
         self.allowed(node, &[], &["auto"])?;
-        let message = "automatic inertia requires one origin box or sphere with explicit density and no overrides";
+        let message = "automatic inertia requires one origin box or sphere and no overrides";
         let unsupported = || self.err(node, ErrorCode::Unsupported, message);
         let [collision] = collisions else {
             return Err(unsupported());
         };
-        let density = collision.density.ok_or_else(unsupported)?;
+        let density = collision.density();
         for collision in elements(link).filter(|n| n.has_tag_name("collision")) {
-            if child(collision, "pose").is_some()
-                || child(collision, "density").is_none_or(|n| param_text(n).is_empty())
-            {
+            if child(collision, "pose").is_some() {
                 return Err(unsupported());
             }
         }

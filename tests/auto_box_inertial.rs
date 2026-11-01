@@ -16,6 +16,8 @@
 // Copyright (C) 2026 Open Source Robotics Foundation
 // SPDX-License-Identifier: Apache-2.0
 use sdformat::*;
+#[path = "common/auto_default_density.rs"]
+mod default_density;
 #[path = "common/auto_sphere.rs"]
 mod sphere;
 
@@ -127,6 +129,33 @@ fn native_auto_box_corpus_retains_numeric_domains_and_source() {
                 "1.12",
                 "box_col",
                 (1240., 1., 4662432987886324156, 4656787193621907402),
+            );
+            continue;
+        }
+        if matches!(
+            row["name"].as_str(),
+            Some("default_density" | "empty_density")
+        ) {
+            assert_eq!(row["rust_error"], "Unsupported");
+            let lines: Vec<_> = row["stdout"]
+                .as_str()
+                .unwrap()
+                .lines()
+                .filter_map(|line| line.strip_prefix("VALUES "))
+                .collect();
+            assert_eq!(lines.len(), 2);
+            assert_eq!(lines[0], lines[1]);
+            let native: Vec<u64> = lines[0]
+                .split_whitespace()
+                .map(|v| v.parse().unwrap())
+                .collect();
+            default_density::assert_complete_default_density(
+                row["xml"].as_str().unwrap(),
+                "auto-box.sdf",
+                "1.12",
+                "box",
+                (row["name"] == "empty_density").then_some(1000.),
+                &native,
             );
             continue;
         }

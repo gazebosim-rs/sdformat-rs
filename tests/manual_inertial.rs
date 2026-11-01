@@ -16,6 +16,8 @@
 // Copyright (C) 2026 Open Source Robotics Foundation
 // SPDX-License-Identifier: Apache-2.0
 use sdformat::*;
+#[path = "common/auto_default_density.rs"]
+mod default_density;
 use serde_json::Value;
 
 fn bits(value: &Inertial) -> Vec<u64> {
@@ -34,6 +36,29 @@ fn native_manual_inertial_defaults_values_and_boolean_domain() {
     let mut manual = None;
     for row in data["cases"].as_array().unwrap() {
         let result = load_str(row["xml"].as_str().unwrap(), "manual.sdf", &NoResources);
+        if row["name"] == "true_valid_box" {
+            assert_eq!(row["rust_error"], "Unsupported");
+            let lines: Vec<_> = row["stdout"].as_str().unwrap().lines().collect();
+            assert_eq!(lines.len(), 4);
+            assert_eq!(lines[0], "LOAD");
+            assert_eq!(lines[2], "RESOLVE");
+            assert_eq!(lines[1], lines[3]);
+            let expected: Vec<u64> = lines[1]
+                .strip_prefix("VALUES ")
+                .unwrap()
+                .split_whitespace()
+                .map(|value| value.parse().unwrap())
+                .collect();
+            default_density::assert_complete_default_density(
+                row["xml"].as_str().unwrap(),
+                "manual.sdf",
+                "1.12",
+                "manual_box",
+                None,
+                &expected,
+            );
+            continue;
+        }
         if let Some(expected) = row.get("rust_error") {
             let code = match expected.as_str().unwrap() {
                 "Unsupported" => ErrorCode::Unsupported,

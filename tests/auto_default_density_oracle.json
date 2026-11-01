@@ -1,0 +1,96 @@
+{
+  "copyright": "Copyright (C) 2026 Open Source Robotics Foundation",
+  "license": "Apache-2.0",
+  "scope": "Existing normal-forward sphere roundoff contract at density1000/radius1 only; no retained tolerance changes",
+  "input_bits": [
+    4652007308841189376,
+    4607182418800017408
+  ],
+  "bound_factors": {
+    "native": [
+      5,
+      9
+    ],
+    "parry": [
+      8,
+      11
+    ],
+    "differential": [
+      13,
+      20
+    ]
+  },
+  "oracle_intervals": {
+    "native": [
+      [
+        4661327638237569710,
+        4661327638237569717
+      ],
+      [
+        4655083813104714822,
+        4655083813104714839
+      ]
+    ],
+    "parry": [
+      [
+        4661327638237569708,
+        4661327638237569718
+      ],
+      [
+        4655083813104714821,
+        4655083813104714841
+      ]
+    ]
+  },
+  "differential_absolute_bounds": [
+    4439026171579342956,
+    4436147656869044924
+  ],
+  "dependent_sphere": {
+    "scope": "Existing normal-forward sphere roundoff contract for retained no_density/empty_density inputs, density1000/radius0.1; generated not yet independently validated",
+    "input_bits": [
+      4652007308841189376,
+      4591870180066957722
+    ],
+    "bound_factors": {
+      "native": [
+        5,
+        9
+      ],
+      "parry": [
+        8,
+        11
+      ],
+      "differential": [
+        13,
+        20
+      ]
+    },
+    "oracle_intervals": {
+      "native": [
+        [
+          4616402176928740195,
+          4616402176928740202
+        ],
+        [
+          4580486567713808680,
+          4580486567713808692
+        ]
+      ],
+      "parry": [
+        [
+          4616402176928740193,
+          4616402176928740203
+        ],
+        [
+          4580486567713808679,
+          4580486567713808693
+        ]
+      ]
+    },
+    "differential_absolute_bounds": [
+      4394169794623560594,
+      4361017522549000584
+    ]
+  }
+}

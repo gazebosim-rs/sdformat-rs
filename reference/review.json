@@ -1,18 +1,20 @@
 {
   "decision": "approved",
   "author": "sdf_world_owner",
-  "reviewer": "root",
-  "source_digest": "42107c923d1daa1b628f2bdeeeba8df7a1e6fe627bc79485e0bd8e344cc1b3c7",
-  "protected_digest": "e4f3edf4da59e1e4dea2aa98cff5cd613dab6dd18b41bacc932c92f3edabcc93",
-  "scope": "Explicit manual inertial auto=false/0 and existing omitted/empty defaults reuse the current value parser. Automatic true/density remain unsupported. Partial loader/default-value mapping only.",
+  "reviewer": "msgs_performance_owner; root (bounded source and final metadata review)",
+  "source_digest": "39ffa3e6f5a5152368b87899aacf5370d1424e031b97dc46cd3a947b8d37ae10",
+  "protected_digest": "fc6b0b33ba65b17c98f807add19a6c2d99e29b1fe556690f57e4072c2b9adcf1",
+  "scope": "Bounded automatic inertia for one origin box with explicit positive nonempty density and bare auto=true/1, using public pinned Parry mass properties. Existing normalized geometry and manual physical validation remain authoritative. No custom formula, generalized math or consumer adoption.",
   "checks": [
-    "Independent Root accepted6bd archive with the exact twelve-file overlay and separate target passed sixteen focused Rust tests, sixty native controls, the unchanged DOMLink.ResolveAutoInertialsCalledWithAutoFalse original, all-target Clippy and formatting.",
-    "All 583 preexisting tests/tools bytes are unchanged. Production adds only auto attribute and native false/default lexical admission; existing mass, inertia, pose and finite validation are unchanged. New original/default, unknown-domain, invalid-boolean and supplemental value/source checks were reviewed.",
-    "The first new exact supplemental quaternion comparison exposed an existing one-ULP difference even with auto omitted. Only the new positive nonzero-Euler quaternion controls use native gtest four-ULP semantics; all retained bounds and new mass/inertia/translation/default values plus omitted/false/0 Rust bit identity remain exact. No math code change.",
-    "Root separately inspected the three final documentation/ledger-only changes and recomputed both final digests. Author full673 retained Rust tests pass. No complete original-case, automatic computation, Root.Element identity or ResolveAutoInertials API credit."
+    "Independent reviewer fresh accepted1b archive and exact sixteen-file overlay passed six focused Rust tests, all-target Clippy, formatting, 53 native DOM controls, unchanged full box original and hostile-Git replay. Author full676 Rust and49 tooling tests pass; all old test assertions/corpora and lock identities remain unchanged.",
+    "Independent dependency/license audit verified32 registry archives and1684 extracted source files, with published dirty-VCS disclosure retained. Compiler remains1.94.1. No simulator/Bevy dependency cycle or exposed Parry type is introduced.",
+    "Independent2067-row public extraction replay is bit-identical under producer minimal and actual simulator mathematical feature/version graphs. Actual loader replay matches1792 positive admissions and two existing geometry normalizations. Native-valid kernel reciprocal gaps remain explicit Unsupported; all old physical validation and numerical tolerance contracts are unchanged.",
+    "Root inspected actual parser/manifest/type-documentation changes, shared validator extraction and all three final review-only metadata deltas. Calculation calls public from_cuboid/mass/principal_inertia only. No raw-size rejection or local formula added. Old default-density refusal remains intact.",
+    "Root and independent reviewer inspected the minimal constant-message binding before the existing lazy error closure. Exact error text, code, source, call sites and allocation timing remain unchanged. The prior strict opaque-syntax failure is not relabeled as passing; no syntax classification or coverage rule changed."
   ],
   "remaining": [
-    "Ordinary strict staged and exact hosted/source qualification remain pending, including unchanged per-crate/workspace line and region thresholds, changed-line and full-source checks.",
-    "No simulator consumer pin or sensor/physics runtime change follows from this producer slice."
+    "Ordinary strict staged and exact hosted/source qualification remain pending, with unchanged owned per-crate/workspace lines and regions, changed-line and all-source checks.",
+    "This is partial loader/value mapping; mutable Element identity, separate ResolveAutoInertials/error vectors, broader collision domains and full original-case completion are not claimed.",
+    "Scene still explicitly rejects collision density, so this producer work does not enable simulator admission or change any consumer/Fuel pin."
   ]
 }

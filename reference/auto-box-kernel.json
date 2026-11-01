@@ -1,0 +1,1325 @@
+{
+  "registry_packages": 32,
+  "new_version_identities_vs_current_sdf": 24,
+  "packages": [
+    {
+      "name": "approx",
+      "version": "0.5.1",
+      "license": "Apache-2.0",
+      "rust_version": null,
+      "features": [],
+      "new_version_identity": true,
+      "archive_sha256": "cab112f0a86d568ea0e627cc1d6be74a1e9cd55214684db5561995f6dad897c6",
+      "manifest_sha256": "78766a0a5bf02b991509fcd5423e2b845f526f28ea6b670f8b77bcbe531ac3d1",
+      "notices": [
+        {
+          "path": "LICENSE",
+          "sha256": "3ddf9be5c28fe27dad143a5dc76eea25222ad1dd68934a047064e56ed2fa40c5"
+        }
+      ],
+      "archive_source_files": 20,
+      "archive_source_tree_sha256": "bcaa8a8ee882e3ae840857d4f1966df626b1b5b8b70ed01d905cf914634dbabc"
+    },
+    {
+      "name": "arrayvec",
+      "version": "0.7.8",
+      "license": "MIT OR Apache-2.0",
+      "rust_version": "1.51",
+      "features": [],
+      "new_version_identity": true,
+      "archive_sha256": "d3fb67a6e08acf24fdeccbac2cb6ac4305825bd1f117462e0e6f2f193345ad56",
+      "manifest_sha256": "20e9a4f27b17531ac0c3ab9f403e52c9d567eea254703df3b3b18ca36d5f7927",
+      "notices": [
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "4da95ec4ecb65b738d470b7d762894ad9c97da93e6cbfb18b570fc2c96f4b871"
+        },
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+        }
+      ],
+      "archive_source_files": 22,
+      "archive_source_tree_sha256": "f7fb091d552ec177e72bcd0890f23d0fb7d085d299b052cb91f18f3019254c6e"
+    },
+    {
+      "name": "autocfg",
+      "version": "1.5.1",
+      "license": "Apache-2.0 OR MIT",
+      "rust_version": "1.0",
+      "features": [],
+      "new_version_identity": true,
+      "archive_sha256": "f2032f911046de80f0a198e0901378627c33f59ea0ac00e363d481118bd70a53",
+      "manifest_sha256": "ed7c832b4250c3be736e040d68688c2b83a5b164a93ef533e61532cbe0d44e99",
+      "notices": [
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "27995d58ad5c1145c1a8cd86244ce844886958a35eb2b78c6b772748669999ac"
+        },
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+        }
+      ],
+      "archive_source_files": 23,
+      "archive_source_tree_sha256": "43b8a4c4dc9b355ee65971d70adf1eb5b4c96545a8e43efeef26cf40bd6e00fa"
+    },
+    {
+      "name": "bitflags",
+      "version": "2.13.2",
+      "license": "MIT OR Apache-2.0",
+      "rust_version": "1.56.0",
+      "features": [],
+      "new_version_identity": false,
+      "archive_sha256": "3ded4057c258ba199e2d26386d3af3780957ecaee6c4ef4041c6b4b8b97c0b06",
+      "manifest_sha256": "562e660adbb084de042fc9ecc5ac7ba32b5f565d53188823bab9159a027b2b44",
+      "notices": [
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "6485b8ed310d3f0340bf1ad1f47645069ce4069dcc6bb46c7d5c6faf41de1fdb"
+        },
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+        }
+      ],
+      "archive_source_files": 64,
+      "archive_source_tree_sha256": "219065a0377879218dcbce7f6410b8f50ff794dd6ce100618bcfa28ac033e72d"
+    },
+    {
+      "name": "bytemuck",
+      "version": "1.25.2",
+      "license": "Zlib OR Apache-2.0 OR MIT",
+      "rust_version": null,
+      "features": [],
+      "new_version_identity": true,
+      "archive_sha256": "95832e849adfb21180ccb6826a99da14e5d266ae5c2e668e1602cf234f153797",
+      "manifest_sha256": "7b99bce6fd19ac16efd0fa94051b95f6cee7945f9d76842e072e4176a152794c",
+      "notices": [
+        {
+          "path": "LICENSE-ZLIB",
+          "sha256": "84b34dd7608f7fb9b17bd588a6bf392bf7de504e2716f024a77d89f1b145a151"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "9df9ba60a11af705f2e451b53762686e615d86f76b169cf075c3237730dbd7e2"
+        },
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "e3ba223bb1423f0aad8c3dfce0fe3148db48926d41e6fbc3afbbf5ff9e1c89cb"
+        }
+      ],
+      "archive_source_files": 38,
+      "archive_source_tree_sha256": "f2068d56f0b25bb0874f49d38bfa0c642d5b272346b37c1c4a7c2e0795b98a4a"
+    },
+    {
+      "name": "byteorder",
+      "version": "1.5.0",
+      "license": "Unlicense OR MIT",
+      "rust_version": "1.60",
+      "features": [],
+      "new_version_identity": true,
+      "archive_sha256": "1fd0f2584146f6f2ef48085050886acf353beff7305ebd1ae69500e27c67f64b",
+      "manifest_sha256": "94ba374cb26f3c68fb83da2e5e7dce85920fc4fb827620b06b39d71a9d0e1e18",
+      "notices": [
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "0f96a83840e146e43c0ec96a22ec1f392e0680e6c1226e6f3ba87e0740af850f"
+        },
+        {
+          "path": "COPYING",
+          "sha256": "01c266bced4a434da0051174d6bee16a4c82cf634e2679b6155d40d75012390f"
+        }
+      ],
+      "archive_source_files": 14,
+      "archive_source_tree_sha256": "19f60c300a4750e1c5fc311d0abc16c8da5916357900a928606c2f570acf23a3"
+    },
+    {
+      "name": "downcast-rs",
+      "version": "2.0.2",
+      "license": "MIT OR Apache-2.0",
+      "rust_version": "1.56",
+      "features": [
+        "sync"
+      ],
+      "new_version_identity": true,
+      "archive_sha256": "117240f60069e65410b3ae1bb213295bd828f707b5bec6596a1afc8793ce0cbc",
+      "manifest_sha256": "e791d7026a3747242cea4a3b4102b7c453dba45cde02ce798483bbcc4991acc4",
+      "notices": [
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "fb252fecf98d9af8f1d9201c5860319a514f5a8a24700dc84fc6ea287a7a4958"
+        },
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "8173d5c29b4f956d532781d2b86e4e30f83e6b7878dce18c919451d6ba707c90"
+        }
+      ],
+      "archive_source_files": 14,
+      "archive_source_tree_sha256": "c43c5cd8405dbec930c1fce34d8809867a46240cc00ffb4bab5835ef8872e4b4"
+    },
+    {
+      "name": "either",
+      "version": "1.19.0",
+      "license": "MIT OR Apache-2.0",
+      "rust_version": "1.63.0",
+      "features": [],
+      "new_version_identity": true,
+      "archive_sha256": "0e9c71c2167ca323c882b99918929403426e2373ea17242ff5653e0d5e1058be",
+      "manifest_sha256": "a245f305b622e445db7b93c14dda11a8157741a7f119d9b7cd0a532fa4e66834",
+      "notices": [
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "7576269ea71f767b99297934c0b2367532690f8c4badc695edf8e04ab6a1e545"
+        },
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+        }
+      ],
+      "archive_source_files": 15,
+      "archive_source_tree_sha256": "8f6486b9e33b6fcbb15ecfc20a9da5ebfe515658fafaa682edc5ed16378a6991"
+    },
+    {
+      "name": "foldhash",
+      "version": "0.2.0",
+      "license": "Zlib",
+      "rust_version": "1.60",
+      "features": [],
+      "new_version_identity": true,
+      "archive_sha256": "77ce24cb58228fbb8aa041425bb1050850ac19177686ea6e0f41a70416f56fdb",
+      "manifest_sha256": "0a76cc29da1c33f4bdb505f5828ecdc20859c4cb9faa402e000f5f10511a27cc",
+      "notices": [
+        {
+          "path": "LICENSE",
+          "sha256": "b1181a40b2a7b25cf66fd01481713bc1005df082c53ef73e851e55071b102744"
+        }
+      ],
+      "archive_source_files": 12,
+      "archive_source_tree_sha256": "05711dc7d91562859de13b5abf1a909bde186be6338d9ed6a56914b36bd7ca01"
+    },
+    {
+      "name": "glam",
+      "version": "0.33.12",
+      "license": "MIT OR Apache-2.0",
+      "rust_version": "1.68.2",
+      "features": [
+        "approx",
+        "approx-05",
+        "f64",
+        "i64",
+        "nostd-libm"
+      ],
+      "new_version_identity": true,
+      "archive_sha256": "37bfe73dc8ec21f54d181e5a60554327ec3f1c600c455a75ccbfc65d2106a6c4",
+      "manifest_sha256": "08a35c14efa4b083210613451d339b9c9921b3b6fd7464a998b246a1980e0690",
+      "notices": [
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+        },
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "be33ddb87a30fd321ab100e2d922cba512e50ec7a63d8e62e5bfc0798dd4b585"
+        }
+      ],
+      "archive_source_files": 255,
+      "archive_source_tree_sha256": "a0e9d255622a8ae917cb12c8ec0902b23f24be38e323be97ad20860a0792e389"
+    },
+    {
+      "name": "glamx",
+      "version": "0.3.1",
+      "license": "MIT OR Apache-2.0",
+      "rust_version": null,
+      "features": [
+        "approx",
+        "f64",
+        "i64",
+        "nostd-libm"
+      ],
+      "new_version_identity": true,
+      "archive_sha256": "28d74079318e3a077bd3d15faa90fde24fa37bb9f157f92f853e6019a15fd413",
+      "manifest_sha256": "3bf5bfbcfcfdc2fb1d1bf2daab11108e7809bf1832777cb432a63fb29cf88c8d",
+      "notices": [
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+        },
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "be33ddb87a30fd321ab100e2d922cba512e50ec7a63d8e62e5bfc0798dd4b585"
+        }
+      ],
+      "archive_source_files": 20,
+      "archive_source_tree_sha256": "13f7162b00c7fda62b8e4ca0cc892f52e4db86f18295a2b821f818a73a7bf78f"
+    },
+    {
+      "name": "hash32",
+      "version": "0.3.1",
+      "license": "MIT OR Apache-2.0",
+      "rust_version": null,
+      "features": [],
+      "new_version_identity": true,
+      "archive_sha256": "47d60b12902ba28e2730cd37e95b8c9223af2808df9e902d4df49588d1470606",
+      "manifest_sha256": "167a05eea579dd60a0489ef2ecfe5dcc1353eca2189d7c10fb010fa28a5f7974",
+      "notices": [
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "c986bcdb83103d4ddf58aeb7b5302359782e54dc4eea14a0cc27c62dcbd50729"
+        },
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+        }
+      ],
+      "archive_source_files": 16,
+      "archive_source_tree_sha256": "7577eacbde1d295cea4b4af3bde1797600fe01437b670e00b005778fb4ea9062"
+    },
+    {
+      "name": "heapless",
+      "version": "0.8.0",
+      "license": "MIT OR Apache-2.0",
+      "rust_version": null,
+      "features": [],
+      "new_version_identity": true,
+      "archive_sha256": "0bfb9eb618601c89945a70e254898da93b13be0388091d42117462b265bb3fad",
+      "manifest_sha256": "98cbfa5f1ea18ccf182e3069c49ecbb74eb0bf7a664dde9bbf238255d95a4f26",
+      "notices": [
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "035e70219855119df4273b3c5b97543ae82e0dd60c520416e759107c602f651b"
+        },
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+        }
+      ],
+      "archive_source_files": 42,
+      "archive_source_tree_sha256": "f7edc366e1d6bf06f5f7cce7e51d3c835433420cdb484a856778f153da21bc8e"
+    },
+    {
+      "name": "libm",
+      "version": "0.2.16",
+      "license": "MIT",
+      "rust_version": "1.63",
+      "features": [
+        "arch",
+        "default"
+      ],
+      "new_version_identity": true,
+      "archive_sha256": "b6d2cec3eae94f9f509c767b45932f1ada8350c4bdb85af2fcab4a3c14807981",
+      "manifest_sha256": "a2d94f9cbaa4a177bacde9737bfcc7b2ed9de5bddadafe507923a5b5748f9bd7",
+      "notices": [
+        {
+          "path": "LICENSE.txt",
+          "sha256": "3823dda7cf046602f4b4e77ec8e227863dc4736037cc85bb33d9f19febe16bb7"
+        }
+      ],
+      "archive_source_files": 155,
+      "archive_source_tree_sha256": "d42694b25f4520e874bd1b5e5023d1e0093bf470e9a102dc1f9c6bb72d284611"
+    },
+    {
+      "name": "log",
+      "version": "0.4.35",
+      "license": "MIT OR Apache-2.0",
+      "rust_version": "1.71.0",
+      "features": [],
+      "new_version_identity": false,
+      "archive_sha256": "5d15f86d12da44cd8d4ec3c73984537eb7f4cadcb9776a575a0a8a05ca11005c",
+      "manifest_sha256": "00ae82a037e32cc43c0f0826fb9e72e52b6b19ce109217c2f6f769537bac4145",
+      "notices": [
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "6485b8ed310d3f0340bf1ad1f47645069ce4069dcc6bb46c7d5c6faf41de1fdb"
+        },
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+        }
+      ],
+      "archive_source_files": 25,
+      "archive_source_tree_sha256": "436882a6d3f07ee2c5c93426e3589b45d2d3849644eedda2588e2d266e22a29c"
+    },
+    {
+      "name": "num-complex",
+      "version": "0.4.6",
+      "license": "MIT OR Apache-2.0",
+      "rust_version": "1.60",
+      "features": [],
+      "new_version_identity": true,
+      "archive_sha256": "73f88a1307638156682bada9d7604135552957b7818057dcef22705b4d509495",
+      "manifest_sha256": "c3eb0628759922920b1ad0c233f2977ac6fd609876e27d88f6088400887aa937",
+      "notices": [
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "6485b8ed310d3f0340bf1ad1f47645069ce4069dcc6bb46c7d5c6faf41de1fdb"
+        },
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+        }
+      ],
+      "archive_source_files": 13,
+      "archive_source_tree_sha256": "0bea67058381bd08ed2484500aedf0d3af480c95bdf9746df9cf118dc71e2533"
+    },
+    {
+      "name": "num-derive",
+      "version": "0.5.1",
+      "license": "MIT OR Apache-2.0",
+      "rust_version": "1.71.0",
+      "features": [],
+      "new_version_identity": true,
+      "archive_sha256": "e4e98dc3b890f6c23a0f9d3d491a2823d0dea0fa656302a13dd225fa924112a8",
+      "manifest_sha256": "ae5cc2fba0564ded4d5d911a539ff7d948765a4d5fa39dbbea52a3f0e4a48339",
+      "notices": [
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "6485b8ed310d3f0340bf1ad1f47645069ce4069dcc6bb46c7d5c6faf41de1fdb"
+        },
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+        }
+      ],
+      "archive_source_files": 23,
+      "archive_source_tree_sha256": "613e2edcc79bbc406a837b1b6ddc6d09531723171822541ffc05a71518d07580"
+    },
+    {
+      "name": "num-traits",
+      "version": "0.2.19",
+      "license": "MIT OR Apache-2.0",
+      "rust_version": "1.60",
+      "features": [
+        "i128",
+        "libm"
+      ],
+      "new_version_identity": true,
+      "archive_sha256": "071dfc062690e90b734c0b2273ce72ad0ffa95f0c74596bc250dcfd960262841",
+      "manifest_sha256": "dd701a0da6cce7e6e047cc944b2330f3c5e48cd64329e10942ea7d9299d435be",
+      "notices": [
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "6485b8ed310d3f0340bf1ad1f47645069ce4069dcc6bb46c7d5c6faf41de1fdb"
+        },
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+        }
+      ],
+      "archive_source_files": 29,
+      "archive_source_tree_sha256": "343bf3acec0b2a1a1dac0412db0bb8d03f980aa32e77578eb218ec377a9f77bd"
+    },
+    {
+      "name": "ordered-float",
+      "version": "5.5.1",
+      "license": "MIT",
+      "rust_version": "1.90",
+      "features": [],
+      "new_version_identity": true,
+      "archive_sha256": "7f59006ce1e204c30956638535b74d317bca99477b9356dfaec54c37f6f600ab",
+      "manifest_sha256": "32d799fdab88cc213706e9642ca0f55f56b8acce114d35eb60c0e0acda14b303",
+      "notices": [
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "f7715d38a3fa1b4ac97c5729740752505a39cb92ee83ab5b102aeb5eaa7cdea4"
+        }
+      ],
+      "archive_source_files": 13,
+      "archive_source_tree_sha256": "429031bdb401b984b470d4e4e9ad33decc1a9cb20986e22cac6112fad0ca1d93"
+    },
+    {
+      "name": "parry3d-f64",
+      "version": "0.31.1",
+      "license": "Apache-2.0",
+      "rust_version": null,
+      "features": [
+        "dim3",
+        "f64",
+        "required-features"
+      ],
+      "new_version_identity": true,
+      "archive_sha256": "ffb9e04261f1783d8f66f36767b2b73132a63c9b30b12a5ed47e1faa240f7591",
+      "manifest_sha256": "0f1a3c3cdb38a224a27e0383f4dc748ebb81b3d47d1a54a6cf5db10454373adc",
+      "notices": [],
+      "archive_source_files": 349,
+      "archive_source_tree_sha256": "461dc0e6d7cb1de3e5a545be20bbf42f620869569a42b8c36a80cc0d423b3d57"
+    },
+    {
+      "name": "proc-macro2",
+      "version": "1.0.107",
+      "license": "MIT OR Apache-2.0",
+      "rust_version": "1.71",
+      "features": [
+        "default",
+        "proc-macro"
+      ],
+      "new_version_identity": false,
+      "archive_sha256": "985e7ec9bb745e6ce6535b544d84d6cd6f7ad8bd711c398938ae983b91a766d9",
+      "manifest_sha256": "6bdbe54a7f052e552dcfca90351764476e2767237ec3f954df8bd9f602861056",
+      "notices": [
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+        },
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a"
+        }
+      ],
+      "archive_source_files": 33,
+      "archive_source_tree_sha256": "ee793c83b55353af8accd7e6c65fbbc686eee2aefcb4717852e4223d31247c45"
+    },
+    {
+      "name": "quote",
+      "version": "1.0.47",
+      "license": "MIT OR Apache-2.0",
+      "rust_version": "1.71",
+      "features": [
+        "default",
+        "proc-macro"
+      ],
+      "new_version_identity": false,
+      "archive_sha256": "1fbf4db142a473a8d80c26bbf18454ed458bf8d26c8219c331daecfdbd079001",
+      "manifest_sha256": "13d8c50837f14aff48cd622349f98fb2c46350b7a0c08fd574cf7de4def27d06",
+      "notices": [
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+        },
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a"
+        }
+      ],
+      "archive_source_files": 35,
+      "archive_source_tree_sha256": "608bf46e13612b2721911c92a9fe9b1b9234e436d498826e351a65e20d12f2d0"
+    },
+    {
+      "name": "rstar",
+      "version": "0.13.0",
+      "license": "MIT OR Apache-2.0",
+      "rust_version": "1.85",
+      "features": [
+        "default"
+      ],
+      "new_version_identity": true,
+      "archive_sha256": "5912b862fa5ffb462607bfd1e35036c458c537921f508c8235a83d5f3987edfe",
+      "manifest_sha256": "82f946f76c798ac5bd9eaa0349abf997d5616825ce77bff7497091160d75265e",
+      "notices": [],
+      "archive_source_files": 33,
+      "archive_source_tree_sha256": "a42987641581217564d6adb8abd99ae8fe8cbba3dfedb63c09e3f66ad4d4c17e"
+    },
+    {
+      "name": "safe_arch",
+      "version": "1.2.0",
+      "license": "Zlib OR Apache-2.0 OR MIT",
+      "rust_version": "1.89",
+      "features": [
+        "bytemuck",
+        "default"
+      ],
+      "new_version_identity": true,
+      "archive_sha256": "42c6efa15875e6ecb39ca61fb0b0c1a40b84fac5a5ffe71eef7d1000c8eb3f5f",
+      "manifest_sha256": "2b6d8bb3d10aaf57629b49332915b50f768c7ad7f329ff04526261e25a1d6c6f",
+      "notices": [
+        {
+          "path": "LICENSE-APACHE.md",
+          "sha256": "e3ba223bb1423f0aad8c3dfce0fe3148db48926d41e6fbc3afbbf5ff9e1c89cb"
+        },
+        {
+          "path": "LICENSE-ZLIB.md",
+          "sha256": "c43b9a9b1387ed53d2c49263838261129a010e280e3a174a792242c3e2c98db9"
+        },
+        {
+          "path": "LICENSE-MIT.md",
+          "sha256": "e57011537d230b14e790f6666dc00816f7b371ebbd7da8a12491e51086fec278"
+        }
+      ],
+      "archive_source_files": 56,
+      "archive_source_tree_sha256": "35225f8e9f54bfe4c0357315e4adfaf516c56928169c51e70db1aeb3e92ddeae"
+    },
+    {
+      "name": "simba",
+      "version": "0.10.2",
+      "license": "Apache-2.0",
+      "rust_version": null,
+      "features": [
+        "libm",
+        "wide"
+      ],
+      "new_version_identity": true,
+      "archive_sha256": "f1a7200d82ff1c7b4235efd12f11e2537a402c91cf83a5cb97ce80eef787fde7",
+      "manifest_sha256": "0770f19ec7af5df8ea21e60b1cca05c6c777ec6012e69a4df78b57777400ca9f",
+      "notices": [
+        {
+          "path": "LICENSE",
+          "sha256": "ceacfa4d7fa67df64ab09a56fe248c50a3bfc9bc00374d69bd74ad763b14b89c"
+        }
+      ],
+      "archive_source_files": 31,
+      "archive_source_tree_sha256": "f0c3c92c1ba2fa61eaa4f3d4f300abce20ac20fcf1205f02a72bfc449aa72353"
+    },
+    {
+      "name": "smallvec",
+      "version": "1.16.4",
+      "license": "MIT OR Apache-2.0",
+      "rust_version": null,
+      "features": [],
+      "new_version_identity": true,
+      "archive_sha256": "d0d5d4b1981b8bbbb7aed204cae5726d683d5d6ac7e74ec54122ea28f315e7c8",
+      "manifest_sha256": "01b4c86d677ccf162137a6ce62ff6f243fdb6996322ad1863da1481d514a2cbb",
+      "notices": [
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "0b28172679e0009b655da42797c03fd163a3379d5cfa67ba1f1655e974a2a1a9"
+        },
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+        }
+      ],
+      "archive_source_files": 11,
+      "archive_source_tree_sha256": "cff5b1ebf3ca81ac34271d128ccb8974845842e6fef30a54ac322162802f24bc"
+    },
+    {
+      "name": "stable_deref_trait",
+      "version": "1.2.1",
+      "license": "MIT OR Apache-2.0",
+      "rust_version": null,
+      "features": [],
+      "new_version_identity": true,
+      "archive_sha256": "6ce2be8dc25455e1f91df71bfa12ad37d7af1092ae736f3a6cd0e37bc7810596",
+      "manifest_sha256": "5cddd84a243940e60e772ecba2f05b28b00cbd825d341d9e0b0881dcae7847dc",
+      "notices": [
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "5e05b024f653a5ce199e77cbbbd42fb5553562ec714b819421ed0c3e552a75d7"
+        },
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+        }
+      ],
+      "archive_source_files": 9,
+      "archive_source_tree_sha256": "626e86bb558c78c7fe8a07a2074198d6e751d24736df84b9d5679ae36e0b7886"
+    },
+    {
+      "name": "syn",
+      "version": "3.0.9",
+      "license": "MIT OR Apache-2.0",
+      "rust_version": "1.71",
+      "features": [
+        "clone-impls",
+        "default",
+        "derive",
+        "parsing",
+        "printing",
+        "proc-macro"
+      ],
+      "new_version_identity": false,
+      "archive_sha256": "d78c8dee4c7bf0e14673097256fed6142ce9d3b85a408189d07482442145823b",
+      "manifest_sha256": "b6f7f6069d92142d3e294f84855a68049bebc5b886c557ed4ae980ddbc866e1c",
+      "notices": [
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+        },
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a"
+        }
+      ],
+      "archive_source_files": 104,
+      "archive_source_tree_sha256": "43a3374f37d100aeb550d9205c7dd82ca53bcbc81af5de4afd3038ad60acef19"
+    },
+    {
+      "name": "thiserror",
+      "version": "2.0.21",
+      "license": "MIT OR Apache-2.0",
+      "rust_version": "1.77",
+      "features": [],
+      "new_version_identity": false,
+      "archive_sha256": "09e52cb86a36cede5cb101bf8908837b3e4c6e5e59fe7fd85c23fb56200d189e",
+      "manifest_sha256": "4ab1fdd3cba041dbaa5b813dff268978a93b1542dcc31935fb903772cc700a47",
+      "notices": [
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+        },
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a"
+        }
+      ],
+      "archive_source_files": 105,
+      "archive_source_tree_sha256": "edbc8e35e5d912571d852096237667fd06acb74cd02d1066380cc15c6d34efb0"
+    },
+    {
+      "name": "thiserror-impl",
+      "version": "2.0.21",
+      "license": "MIT OR Apache-2.0",
+      "rust_version": "1.77",
+      "features": [],
+      "new_version_identity": false,
+      "archive_sha256": "fe5197923287db20a58125f0bc85c062f7f2c892de97b18c356f9efb14b28524",
+      "manifest_sha256": "cc5e3660d65270da1302d5b24cbefb50b4993b258d344a9ac9b4b69a612aa27f",
+      "notices": [
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+        },
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a"
+        }
+      ],
+      "archive_source_files": 17,
+      "archive_source_tree_sha256": "2c91fd9754200bc1db9ff39a4105de023ac01dc639e85adbcf5fef509414145d"
+    },
+    {
+      "name": "unicode-ident",
+      "version": "1.0.27",
+      "license": "(MIT OR Apache-2.0) AND Unicode-3.0",
+      "rust_version": "1.71",
+      "features": [],
+      "new_version_identity": false,
+      "archive_sha256": "a2c754d6c33795a1c324727428e5a7dedb5b06195f9890bdbcba760d3e246563",
+      "manifest_sha256": "c0e96a9c7ee62f5f9ab12de69e0ad44826ad753911d47638f605c936f7ea2c1c",
+      "notices": [
+        {
+          "path": "LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+        },
+        {
+          "path": "LICENSE-UNICODE",
+          "sha256": "f7db81051789b729fea528a63ec4c938fdcb93d9d61d97dc8cc2e9df6d47f2a1"
+        },
+        {
+          "path": "LICENSE-APACHE",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a"
+        }
+      ],
+      "archive_source_files": 26,
+      "archive_source_tree_sha256": "81e05565e7fbd0098fa681da71973a1593f4ee16422d62996ae0103c9a9b12dd"
+    },
+    {
+      "name": "wide",
+      "version": "1.7.1",
+      "license": "Zlib OR Apache-2.0 OR MIT",
+      "rust_version": "1.89",
+      "features": [],
+      "new_version_identity": true,
+      "archive_sha256": "d920ac99c3c8edce110cb8d07dbb324d6d026011dce85b1e9355b70f0adacc4f",
+      "manifest_sha256": "8b39f6e7126bbfbda260a50438fc4c20ba4d579aa0560a7b11368fdac75ed6b1",
+      "notices": [
+        {
+          "path": "LICENSE-ZLIB.txt",
+          "sha256": "3c6921f3dfec0bed0cfa2d632616edd7380a875c8ad76c7b23dc59892259f62c"
+        },
+        {
+          "path": "LICENSE-MIT.txt",
+          "sha256": "69c62cda6938d510467c134dc0b5c83fb9c8ca847b9cd9d9d2fe9ab427c82100"
+        },
+        {
+          "path": "LICENSE-APACHE.txt",
+          "sha256": "d64ac6ba60c7352115244dcfcb46c24f934603dd92e64835beafe7631c485abc"
+        }
+      ],
+      "archive_source_files": 62,
+      "archive_source_tree_sha256": "9045fdb736efa2916073c5bb38de65360338be7a34d70b685398087b3826402c"
+    }
+  ],
+  "target_allocated_bytes": 128995328,
+  "elf_bytes": 502160,
+  "old_package_identities_preserved": true,
+  "added_package_identities": 24,
+  "upstream_license_texts": [
+    {
+      "file": "parry-LICENSE",
+      "url": "https://raw.githubusercontent.com/dimforge/parry/3383f51cbbe9af70565427e7a66c605e1557c1fc/LICENSE",
+      "sha256": "ceacfa4d7fa67df64ab09a56fe248c50a3bfc9bc00374d69bd74ad763b14b89c"
+    },
+    {
+      "file": "rstar-LICENSE-MIT",
+      "url": "https://raw.githubusercontent.com/georust/rstar/82c969d4677a6f624900056e044d7e7ec8439c18/LICENSE-MIT",
+      "sha256": "9b3a76c27bac8f3e0ff2d1f64f65941c50310ae3ff69318cea230bd4a36822c5"
+    },
+    {
+      "file": "rstar-LICENSE-APACHE",
+      "url": "https://raw.githubusercontent.com/georust/rstar/82c969d4677a6f624900056e044d7e7ec8439c18/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+    }
+  ],
+  "parry_archive_vcs_info": {
+    "git": {
+      "sha1": "3383f51cbbe9af70565427e7a66c605e1557c1fc",
+      "dirty": true
+    },
+    "path_in_vcs": "crates/parry3d-f64"
+  },
+  "evaluation_build": {
+    "status": 0,
+    "guard_stop": false,
+    "elapsed_build_seconds": 10.001872225024272,
+    "features": [
+      "required-features"
+    ],
+    "compiler": "rustc 1.94.1 (e408947bf 2026-03-25)\nbinary: rustc\ncommit-hash: e408947bfd200af42db322daf0fadfe7e26d3bd1\ncommit-date: 2026-03-25\nhost: x86_64-unknown-linux-gnu\nrelease: 1.94.1\nLLVM version: 21.1.8\n"
+  },
+  "numeric_summary": {
+    "count": 2067,
+    "native_has_matrix": 1975,
+    "native_finite_positive": 1929,
+    "normal": {
+      "count": 1000,
+      "all_four_exact": 122,
+      "all_four_within4ulp": 1000,
+      "max_ulp_by_field": [
+        1,
+        3,
+        3,
+        3
+      ]
+    },
+    "native_positive_parry_nonpositive": [
+      {
+        "id": "density_2e-1050",
+        "input_bits": [
+          16777216,
+          4607182418800017408,
+          4607182418800017408,
+          4607182418800017408
+        ],
+        "native": [
+          1,
+          1,
+          16777216,
+          2796202,
+          2796202,
+          2796202,
+          0,
+          0,
+          0
+        ],
+        "parry": [
+          0,
+          0,
+          0,
+          0,
+          9218868437227405312,
+          9218868437227405312,
+          9218868437227405312,
+          9218868437227405312
+        ]
+      },
+      {
+        "id": "one_axis_2e-1050",
+        "input_bits": [
+          4607182418800017408,
+          16777216,
+          4607182418800017408,
+          4607182418800017408
+        ],
+        "native": [
+          1,
+          1,
+          16777216,
+          2796202,
+          1398101,
+          1398101,
+          0,
+          0,
+          0
+        ],
+        "parry": [
+          0,
+          0,
+          0,
+          0,
+          9218868437227405312,
+          9218868437227405312,
+          9218868437227405312,
+          9218868437227405312
+        ]
+      },
+      {
+        "id": "density_2e-1022",
+        "input_bits": [
+          4503599627370496,
+          4607182418800017408,
+          4607182418800017408,
+          4607182418800017408
+        ],
+        "native": [
+          1,
+          1,
+          4503599627370496,
+          750599937895082,
+          750599937895082,
+          750599937895082,
+          0,
+          0,
+          0
+        ],
+        "parry": [
+          4503599627370496,
+          0,
+          0,
+          0,
+          9209861237972664320,
+          9218868437227405312,
+          9218868437227405312,
+          9218868437227405312
+        ]
+      },
+      {
+        "id": "one_axis_2e-1022",
+        "input_bits": [
+          4607182418800017408,
+          4503599627370496,
+          4607182418800017408,
+          4607182418800017408
+        ],
+        "native": [
+          1,
+          1,
+          4503599627370496,
+          750599937895082,
+          375299968947541,
+          375299968947541,
+          0,
+          0,
+          0
+        ],
+        "parry": [
+          4503599627370496,
+          0,
+          0,
+          0,
+          9209861237972664320,
+          9218868437227405312,
+          9218868437227405312,
+          9218868437227405312
+        ]
+      },
+      {
+        "id": "max_density",
+        "input_bits": [
+          9218868437227405311,
+          4607182418800017408,
+          4607182418800017408,
+          4607182418800017408
+        ],
+        "native": [
+          1,
+          1,
+          9218868437227405311,
+          9206858838221083989,
+          9206858838221083989,
+          9206858838221083989,
+          0,
+          0,
+          0
+        ],
+        "parry": [
+          9218868437227405312,
+          9206858838221083988,
+          9206858838221083988,
+          9206858838221083988,
+          1125899906842624,
+          6755399441055746,
+          6755399441055746,
+          6755399441055746
+        ]
+      },
+      {
+        "id": "exponent_37",
+        "input_bits": [
+          3280711082870207596,
+          5238046740040387460,
+          3690306327301504894,
+          3350140191981057636
+        ],
+        "native": [
+          1,
+          1,
+          1738615615602349027,
+          93758949,
+          2984235333410568250,
+          2984235333410568250,
+          0,
+          0,
+          0
+        ],
+        "parry": [
+          1738615615602349027,
+          0,
+          2984235333410568251,
+          2984235333410568251,
+          7475544690761868459,
+          9218868437227405312,
+          6229489221601533526,
+          6229489221601533526
+        ]
+      },
+      {
+        "id": "exponent_114",
+        "input_bits": [
+          5455704655123795000,
+          3613316287178261118,
+          3512856477633513498,
+          3370823770747715863
+        ],
+        "native": [
+          1,
+          1,
+          2131926971873901945,
+          32366738070,
+          128802965800416441,
+          128802965800416682,
+          0,
+          0,
+          0
+        ],
+        "parry": [
+          2131926971873901945,
+          0,
+          128802965800416440,
+          128802965800416681,
+          7081668367119477039,
+          9218868437227405312,
+          9084886335455646598,
+          9084886335455646410
+        ]
+      },
+      {
+        "id": "exponent_132",
+        "input_bits": [
+          3460864431530923570,
+          3873411713471217881,
+          3705395575380517502,
+          4049472669556369447
+        ],
+        "native": [
+          1,
+          1,
+          1268256662341065339,
+          137146979575956971,
+          137146979575956971,
+          10,
+          0,
+          0,
+          0
+        ],
+        "parry": [
+          1268256662341065338,
+          137146979575956971,
+          137146979575956971,
+          0,
+          7945442242502961953,
+          9076449765508451376,
+          9076449765508451376,
+          9218868437227405312
+        ]
+      },
+      {
+        "id": "exponent_291",
+        "input_bits": [
+          3898403967484453378,
+          4419103395243023800,
+          3657202598541369357,
+          3617711119266797308
+        ],
+        "native": [
+          1,
+          1,
+          1771612875675472517,
+          542971,
+          1379935367500122103,
+          1379935367500122103,
+          0,
+          0,
+          0
+        ],
+        "parry": [
+          1771612875675472517,
+          0,
+          1379935367500122102,
+          1379935367500122102,
+          7441983775683220691,
+          9218868437227405312,
+          7833656931833183793,
+          7833656931833183793
+        ]
+      },
+      {
+        "id": "exponent_581",
+        "input_bits": [
+          3605590636103700294,
+          4143075330518174283,
+          3952444685710502656,
+          3422241091530548692
+        ],
+        "native": [
+          1,
+          1,
+          1302411393724435406,
+          73376472207931,
+          358075921957336411,
+          358075921957336411,
+          0,
+          0,
+          0
+        ],
+        "parry": [
+          1302411393724435406,
+          0,
+          358075921957336410,
+          358075921957336410,
+          7911364708928957747,
+          9218868437227405312,
+          8855542939255131369,
+          8855542939255131369
+        ]
+      },
+      {
+        "id": "exponent_714",
+        "input_bits": [
+          4313874734434022186,
+          4337854866798891627,
+          3374179976761613548,
+          3657021269447798340
+        ],
+        "native": [
+          1,
+          1,
+          1861768909567293518,
+          534136238586,
+          1307547296668054761,
+          1307547296668054761,
+          0,
+          0,
+          0
+        ],
+        "parry": [
+          1861768909567293518,
+          0,
+          1307547296668054761,
+          1307547296668054761,
+          7351824333432824726,
+          9218868437227405312,
+          7906066666297679175,
+          7906066666297679175
+        ]
+      },
+      {
+        "id": "exponent_853",
+        "input_bits": [
+          4217715496834101622,
+          3525354913361450179,
+          3517511549272405256,
+          4692849240019071084
+        ],
+        "native": [
+          1,
+          1,
+          2132227682228273638,
+          2287869778022380729,
+          2287869778022380729,
+          1839723851895,
+          0,
+          0,
+          0
+        ],
+        "parry": [
+          2132227682228273638,
+          2287869778022380729,
+          2287869778022380729,
+          0,
+          7081368361741381700,
+          6926454638061461760,
+          6926454638061461760,
+          9218868437227405312
+        ]
+      },
+      {
+        "id": "exponent_860",
+        "input_bits": [
+          4325542983854120532,
+          3658451957676673556,
+          4335400070457060664,
+          3305094390027412812
+        ],
+        "native": [
+          1,
+          1,
+          1803786101075119056,
+          1244722692454014818,
+          122097854,
+          1244722692454014818,
+          0,
+          0,
+          0
+        ],
+        "parry": [
+          1803786101075119056,
+          1244722692454014818,
+          0,
+          1244722692454014818,
+          7409839788705502391,
+          7968872428352987950,
+          9218868437227405312,
+          7968872428352987950
+        ]
+      }
+    ],
+    "retained_original": {
+      "id": "original_box",
+      "input": [
+        1240.0,
+        2.0,
+        2.0,
+        2.0
+      ],
+      "input_bits": [
+        4653168393120120832,
+        4611686018427387904,
+        4611686018427387904,
+        4611686018427387904
+      ],
+      "native": [
+        1,
+        1,
+        4666679192002232320,
+        4663993451599451477,
+        4663993451599451477,
+        4663993451599451477,
+        0,
+        0,
+        0
+      ],
+      "parry": [
+        4666679192002232320,
+        4663993451599451477,
+        4663993451599451477,
+        4663993451599451477,
+        4547066627644988013,
+        4549710676458476498,
+        4549710676458476498,
+        4549710676458476498
+      ],
+      "native_finite_positive": true,
+      "parry_finite_positive": true,
+      "ulp": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "first_finite_above4ulp": {
+      "id": "density_2e-1050",
+      "input": [
+        8.289046e-317,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "input_bits": [
+        16777216,
+        4607182418800017408,
+        4607182418800017408,
+        4607182418800017408
+      ],
+      "native": [
+        1,
+        1,
+        16777216,
+        2796202,
+        2796202,
+        2796202,
+        0,
+        0,
+        0
+      ],
+      "parry": [
+        0,
+        0,
+        0,
+        0,
+        9218868437227405312,
+        9218868437227405312,
+        9218868437227405312,
+        9218868437227405312
+      ],
+      "native_finite_positive": true,
+      "parry_finite_positive": false,
+      "ulp": [
+        16777216,
+        2796202,
+        2796202,
+        2796202
+      ]
+    }
+  },
+  "actual_loader_evaluation": {
+    "rlib_sha256": "7a1a9a907866290522aef7a8840720e569f6f716a07e433c25f619944a3d4c2c",
+    "loader_source_sha256": "7d5b731a57c8849f2abdd5781534b1aa324cbaf2b3eb0f1cabebe537dfeb4ec9",
+    "loader_elf_sha256": "360b790f7ea0f6bb1f739239707477c5d57506c873e2bb0f7fb30ee47b9c26d2",
+    "production_source_sha256": {
+      "src/visual_xml.rs": "99070acb1eddd63b364a51f2358f21392b3e084fdcd1513ad951dbd368a552af",
+      "src/model_config.rs": "c6de6ae7682164594f5cad47c82f8901e5350c431787be4cf76664b14ea70cc5",
+      "src/polyline_xml.rs": "ea383bb0cdef5981b43d053915e7dd5922e02fdfcfd793d7b374deecf565136a",
+      "src/graph.rs": "75e9c063966668f50d04737e070691d85dd61618c49040b5f721d09d86331695",
+      "src/xml.rs": "2136fb30ec4faaae02379156d63393c3b8b9a70c1f9088002acaba5f5d5c6819",
+      "src/air_speed_xml.rs": "1be2d440d50075e2fadacd3f153eb43124cc02dcc6646197dd4874fee8d37186",
+      "src/mesh_xml.rs": "217827d04c1ab06298c0f4b40cb4640459917686979c8a4e34fdabadda873df3",
+      "src/physics_xml.rs": "471e1410cf19f9193f96cfd89ea3760c613c81e2a043ceae85442092fdb76e52",
+      "src/lidar_xml.rs": "31efc739dc84017443fa34918fb7f54c537ff0bbd0b00a54b16c0be66aab6c10",
+      "src/heightmap_xml.rs": "361a09e1a1fa1dd219259e9410cf1ee617cf0ff79e39cb6b4ecf71193772104c",
+      "src/contact_xml.rs": "75a26ac4dc3cdd8d329cbe744ca0e2ed98e0a533f4f457f633c9a60f3fcaac70",
+      "src/light_xml.rs": "3b3626531a6fb85e2f6c864e9bd5ddcb5e05aaa5f2fd8dc79e423b4775e09254",
+      "src/navsat_xml.rs": "feeb0391c7c183d90b17b9ab881dcf274877636a1e6def2023d6a60c08a00b3e",
+      "src/types.rs": "714037aafaf067373a1b597a412c054d657ee695eaa2f548ad74da20cdc525a4",
+      "src/altimeter_xml.rs": "3498173634ac9c5d707090e755d9f49d8f6b995935e3d999a2f93230a8e5b474",
+      "src/collision_xml.rs": "edc172e8e50e17744bef9eeffacbfab10f5613f826872a622a0f2a08b2b0ebd9",
+      "src/noise_xml.rs": "c245304b8cf0d496748125b0149d1b9c5b7aa47f6ad68aa8fc9b8077b72e851c",
+      "src/parse.rs": "8dcb8846a9fa44b8773a2a4a4b3ba35e873d3d6b5ad47e2d4bb3ab5d6ebc2f28",
+      "src/plugin_xml.rs": "7e5c0c3e5c00eb546a53d8e159cd9eae2789c9b0d54d0428a5ae5dcd1aebd4a6",
+      "src/atmosphere_xml.rs": "dcc7d4cda978db76dac1b7419b714b197363b6e8955b0a92f751df325ff4511a",
+      "src/magnetometer_xml.rs": "fce5a298c629b48b64d2a8cd2ee0ddfb9308ecdcf96f4ab02cafdc16836ee65c",
+      "src/lib.rs": "43375d973f8c6e421cde3c8061a1fe472f28db0d7905059d29e57dc47ddea0ce",
+      "src/sensor_xml.rs": "437b86d605875e5acf7795731b752d05596e4dd05c26d438044b724fe5a14ee3",
+      "src/geometry_xml.rs": "ca56cc9ede1cc27f9b0a2c3629deb22dcca39a6d8ab7f3a5604f54f03c6ef9e5",
+      "src/force_torque_xml.rs": "0b0baf49dc9d3dc23d6cf00d971f01aebf47e83e475a771f103c9059540e3c15",
+      "src/joint_xml.rs": "39836e7caceb5ddedd23899ca339876ad0527be521c460473bf71ad1ff21d563",
+      "src/surface_xml.rs": "dd9a9d992da71d2a7d3194fb2c5ad35cab13ca46617e5b6f56ef7ed8a8b33035",
+      "src/air_pressure_xml.rs": "3c8061a863a05df7fd44f7eb7fbc0d5394726eea15dfd13480034b7aa7bd385f",
+      "src/param_xml.rs": "f885053eb0a8c0cce5ca1a53831e1b4e1ad919d1462b5c447a7df093a3a9a152",
+      "src/camera_xml.rs": "5536032449bf4e612183e3932a2a656f07928559579fb08473b89805e62d846e",
+      "src/number.rs": "dd277f2034cc43ce7a4cd6085ce5357244392c26c2a459d3adbc0cc58f1216a5",
+      "src/material_xml.rs": "3b47a8bf051244164eccd8f091f66f4cab8ef850ead338a11c17f8dda6b03f46",
+      "src/frame_xml.rs": "c9e2a8c63fec9355636905e214e48271611b0a2ade0d2f19e4b3b155d97f7599",
+      "src/camera.rs": "b7cd180cf35cbb19aee1fdb58a481b3e13dabc4fcef7a7988d09c1fabd91e619",
+      "src/imu_xml.rs": "222a8d786d2411e4fd3a3e12bc111a1f6ab2f30b7ed12f6c5a3701de596dc26c",
+      "src/axis_xml.rs": "e1fb922f0d2194e02be6456f439dad2022ccecd6d79abc955175c960d29deb4c",
+      "src/urdf.rs": "de4c55a88831db4de7d0ec9e9daaebcec14ddc4d34372a701dd3850dbf7436a5"
+    },
+    "outcomes": {
+      "OK": 1794,
+      "InvalidValue": 130,
+      "Unsupported": 143
+    },
+    "admitted_positive_inputs": 1792,
+    "normalized_nonpositive_inputs": [
+      "zero_axis",
+      "negative_axis"
+    ],
+    "max_ulp": [
+      1,
+      3,
+      3,
+      3
+    ]
+  }
+}

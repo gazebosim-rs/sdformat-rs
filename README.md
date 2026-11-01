@@ -17,7 +17,8 @@ links with owned wind/gravity/kinematic/self-collision flags, bounded
 [velocity-decay XML metadata](docs/LINK_VELOCITY_DECAY.md), primitive and mesh
 collision/visual metadata and poses, owned visual/material
 metadata with metallic/specular PBR declarations, physical mass/inertia with
-[explicit manual auto=false/0 admission](docs/MANUAL_INERTIA.md),
+[explicit manual auto=false/0 admission](docs/MANUAL_INERTIA.md) and bounded
+[automatic origin-box inertia](docs/AUTO_BOX_INERTIA.md),
 fixed/revolute/prismatic/continuous/universal/revolute2 joints with owned axis
 dynamics and stop metadata, typed IMU/contact/force-torque/magnetometer/altimeter/air-pressure/NavSat/air-speed/Lidar sensor configuration, frames, and opaque plugin content.
 Borrowed model/link/joint/frame DOM lookups follow explicit relative nested scopes.
@@ -25,7 +26,8 @@ Model and include placement frames resolve through nested links, frames, joints,
 and models. Pose and attachment graphs are separate. Loading is atomic; non-frame
 pose errors remain deferred until resolution, matching the native DOM. Scene
 builders can call `validate_non_frame_poses` before constructing objects. Unsupported elements,
-attributes, versions, merge features, DTD declarations and automatic inertia produce
+attributes, versions, merge features, DTD declarations and automatic inertia
+outside the bounded origin-box domain produce
 explicit diagnostics. IMU noise, orientation settings and original XML are retained together. SensorConfig
 selects boxed IMU/ForceTorque/Magnetometer/Altimeter/AirPressure/NavSat/AirSpeed/Lidar/Camera or owned Contact settings; optional accessors
 expose the chosen configuration without dummy values. Contact collision names

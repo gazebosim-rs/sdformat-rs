@@ -2152,7 +2152,7 @@ impl Parser<'_> {
             scoped_name: join(scope, &name),
             name,
             pose: self.pose(node)?,
-            inertial: self.inertial(node)?,
+            inertial: self.inertial(node, &collisions)?,
             collisions,
             visuals,
             lights,
@@ -2317,7 +2317,11 @@ impl Parser<'_> {
         }
         Ok(light)
     }
-    fn inertial(&self, link: Node<'_, '_>) -> Result<Inertial, Diagnostic> {
+    fn inertial(
+        &self,
+        link: Node<'_, '_>,
+        collisions: &[Collision],
+    ) -> Result<Inertial, Diagnostic> {
         let Some(node) = child(link, "inertial") else {
             return Ok(Inertial::default());
         };
@@ -2344,11 +2348,7 @@ impl Parser<'_> {
             }
         };
         if automatic {
-            return Err(self.err(
-                node,
-                ErrorCode::Unsupported,
-                "automatic inertia is unsupported",
-            ));
+            return self.auto_box_inertial(link, node, collisions);
         }
         let mut result = Inertial {
             mass: self.scalar(node, "mass", 1.)?,
@@ -2379,6 +2379,65 @@ impl Parser<'_> {
             }
             result.fluid_added_mass = Some(Box::new(matrix));
         }
+        self.validate_inertial(node, &result)?;
+        Ok(result)
+    }
+    fn auto_box_inertial(
+        &self,
+        link: Node<'_, '_>,
+        node: Node<'_, '_>,
+        collisions: &[Collision],
+    ) -> Result<Inertial, Diagnostic> {
+        self.allowed(node, &[], &["auto"])?;
+        let message =
+            "automatic inertia requires one origin box with explicit density and no overrides";
+        let unsupported = || self.err(node, ErrorCode::Unsupported, message);
+        let [collision] = collisions else {
+            return Err(unsupported());
+        };
+        let Geometry::Box { size } = &collision.geometry else {
+            return Err(unsupported());
+        };
+        let density = collision.density.ok_or_else(unsupported)?;
+        for collision in elements(link).filter(|n| n.has_tag_name("collision")) {
+            if child(collision, "pose").is_some()
+                || child(collision, "density").is_none_or(|n| param_text(n).is_empty())
+            {
+                return Err(unsupported());
+            }
+        }
+        if density <= 0. {
+            return Err(self.err(
+                node,
+                ErrorCode::InvalidValue,
+                "box density must be positive",
+            ));
+        }
+        let properties = parry3d_f64::mass_properties::MassProperties::from_cuboid(
+            density,
+            parry3d_f64::math::Vector::new(size[0] / 2., size[1] / 2., size[2] / 2.),
+        );
+        let diagonal = properties.principal_inertia().to_array();
+        let result = Inertial {
+            mass: properties.mass(),
+            inertia: [diagonal[0], diagonal[1], diagonal[2], 0., 0., 0.],
+            ..Inertial::default()
+        };
+        // Reciprocal mass properties cannot retain every native finite extreme.
+        if !result.mass.is_finite()
+            || result.mass <= 0.
+            || diagonal.iter().any(|v| !v.is_finite() || *v <= 0.)
+        {
+            return Err(self.err(
+                node,
+                ErrorCode::Unsupported,
+                "automatic box inertia exceeds the mass-properties kernel's numeric domain",
+            ));
+        }
+        self.validate_inertial(node, &result)?;
+        Ok(result)
+    }
+    fn validate_inertial(&self, node: Node<'_, '_>, result: &Inertial) -> Result<(), Diagnostic> {
         let [a, b, c, d, e, f] = result.inertia;
         // Sylvester's criterion and triangle inequalities on the second moment
         // matrix enforce physical inertia, including products of inertia.
@@ -2410,7 +2469,7 @@ impl Parser<'_> {
                 "mass/inertia must be positive and physically realizable",
             ));
         }
-        Ok(result)
+        Ok(())
     }
     fn collision(&self, node: Node<'_, '_>) -> Result<Collision, Diagnostic> {
         self.allowed(node, &["pose", "geometry", "surface", "density"], &["name"])?;

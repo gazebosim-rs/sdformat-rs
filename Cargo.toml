@@ -12,6 +12,7 @@ petgraph = "=0.8.3"
 quick-xml = "=0.38.3"
 xmlparser = "=0.13.6"
 glam = { version = "=0.30.9", default-features = false, features = ["std"] }
+parry3d-f64 = { version = "=0.31.1", default-features = false, features = ["required-features"] }
 
 [target.'cfg(all(target_os = "linux", target_env = "gnu"))'.dependencies]
 libc = "=0.2.191"

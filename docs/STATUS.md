@@ -3910,3 +3910,20 @@ Author full673 Rust tests pass with zero failures/ignored tests. Only partial
 loader/default-value credit is reviewed; ordinary strict staged/hosted gates
 remain pending. No consumer pin,dependency or automatic-inertia algorithm changes.
 See MANUAL_INERTIA.md.
+
+
+The private automatic origin-box slice calls minimal pinned Parry 0.31.1 on
+Rust 1.94.1. Exactly one normalized box, explicit collision density and omitted
+collision pose admit computed owned inertia; all manual overrides and broader
+automatic domains remain unsupported. Concrete native-finite DBL_MIN/MAX kernel
+loss returns Unsupported. Existing geometry normalization/manual physical
+validation and every old test/corpus remain unchanged. Six focused Rust tests,
+53 native DOM controls and the unchanged full original pass. The sampled 2,067-row
+kernel evaluation and dependency/source/license checks are recorded separately.
+All 676 retained Rust tests and 49 tooling tests pass. Independent
+msgs_performance_owner fresh source/target review passed six focused tests, 53 native controls
+and the unchanged original, hostile Git, Clippy/fmt, dependency/license/source
+audits, all 2,067 feature-unified extractions and actual loader replay. Root
+inspected the bounded production/dependency scope. Ordinary strict staged
+hook and exact hosted/source qualification remain pending; no accepted counters
+or consumer pins change. See AUTO_BOX_INERTIA.md.

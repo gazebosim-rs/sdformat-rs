@@ -11,8 +11,9 @@ The canonical pinned Root loader admits these spellings across SDF 1.4–1.12,
 including older documents converted before DOM loading. This does not claim
 historical-schema validation or expose a new automatic-inertia API.
 
-True/1 remains Unsupported, including a native-valid box whose automatic
-inertia can be computed. Link-level density and auto_inertia_params remain
+Outside the bounded [explicit-density origin-box path](AUTO_BOX_INERTIA.md),
+true/1 remains Unsupported, including the historical native-valid unit box
+whose collision density is omitted. Link-level density and auto_inertia_params remain
 Unsupported even with auto=false; their metadata is not silently discarded.
 Unknown attributes/children, duplicate elements and all existing finite,
 positive-mass and physically realizable inertia checks remain unchanged.

@@ -2735,6 +2735,21 @@
       "baseline": "82 pinned native inputs, raw joint-copy mutation, four canonical/default-child/parent/model frame probes and the unchanged full original pass. Seven continuous and fourteen retained single-link/named-target Rust tests pass, preserving all 84 prior controls, 29 named-target controls and 31 generated XML byte snapshots. No new dependency or shared math policy change. Independent mapping review, ordinary full staged/strict coverage and exact hosted qualification remain pending.",
       "status": "ported_pending_review",
       "review": "pending"
+    },
+    {
+      "target": "UNIT_Collision_TEST",
+      "case": "DOMCollision.CorrectBoxCollisionCalculateInertial",
+      "source": "src/Collision_TEST.cc:226-282",
+      "rust_test": "tests/auto_box_inertial.rs::original_correct_box_collision_calculates_owned_inertial",
+      "assertions": "Partial typed loader/value mapping: byte-identical original inline SDF1.11 loads; collision density1240, box(2,2,2), mass9920, full diagonal/products of inertia and identity inertial pose match exact native bits. Root.Element identity/presence and separately invoked ResolveAutoInertials/error-vector observations remain unported. Source/version/default fields, clone/include/frames and strict numeric/structural domains are supplemental. No complete original, general automatic inertia or runtime credit.",
+      "fixtures": {
+        "tests/fixtures/auto_box_inertial_original.sdf": "dc0092ec967c668a3e23bc4e5ec8652044abd6eb6ab59fceb498b6db6694c511",
+        "tests/auto_box_inertial.json": "3f3d3cc6eae292a844ecc9bccbd4a18ab892e9963fb19088e467fe8a7c367e59"
+      },
+      "upstream_fixtures": {},
+      "baseline": "Author full 676 Rust and 49 tooling tests pass, with zero Rust failures/ignored; 53 native controls and the unchanged full original pass. Independent fresh accepted1b source / own target passed six focused tests, 53 native controls+original, hostile-Git replay, all-target Clippy/fmt and dependency/archive/license checks. All2067 public extractions are bit-identical under minimal1.94.1, std/enhanced1.97.1 and actual simulator math features; own actual loader replay matches1792 positive admissions plus 2 geometry normalizations. Ordinary strict staged and exact hosted/source qualification remain pending.",
+      "status": "partial_reviewed",
+      "review": "Independent msgs_performance_owner final16 review approved with no findings after fresh accepted1b archive+exact16 overlay and own target. Replayed six focused Rust tests,53 native DOM controls,unchanged full C++ original and hostile-Git isolation; Clippy/fmt pass. Verified 32 registry archives / 1,684 source files, retained old lock identities/license provenance and old-input integrity. Feature-unified public extraction for 2,067 rows is bit-identical across minimal Rust 1.94.1 and actual simulator Rust 1.97.1 graph; actual loader admissions match the author and native finite positives within 4 ULP. Root independently inspected public-Parry-only calculation, unchanged manual validator extraction, normalized geometry, bounded refusals and numeric Unsupported gaps. Root.Element identity and separate ResolveAutoInertials/error-vector contract remain unported; partial loader/value mapping only. Ordinary strict staged and exact hosted/source checks remain pending."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

@@ -1,0 +1,1 @@
+<?xml version="1.0"?> <sdf version="1.11">   <model name='shapes'>     <link name='link'>       <inertial auto='true' />       <collision name='box_col'>         <density>1240.0</density>         <geometry>           <box>             <size>2 2 2</size>           </box>         </geometry>       </collision>     </link>   </model> </sdf>

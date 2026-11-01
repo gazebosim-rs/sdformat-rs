@@ -881,7 +881,8 @@ impl Default for Inertial {
 #[derive(Debug, Clone)]
 pub struct Collision {
     /// Explicit density in kg/m³; None retains the native omitted default.
-    /// Metadata only: no automatic inertia or physics calculation is performed.
+    /// Used by the bounded single origin-box automatic-inertia loader;
+    /// other collision density declarations remain metadata.
     pub density: Option<f64>,
     pub name: String,
     pub pose: Pose,

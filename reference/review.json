@@ -1,20 +1,19 @@
 {
   "decision": "approved",
   "author": "sdf_world_owner",
-  "reviewer": "msgs_performance_owner; root (bounded source and final metadata review)",
-  "source_digest": "39ffa3e6f5a5152368b87899aacf5370d1424e031b97dc46cd3a947b8d37ae10",
-  "protected_digest": "fc6b0b33ba65b17c98f807add19a6c2d99e29b1fe556690f57e4072c2b9adcf1",
-  "scope": "Bounded automatic inertia for one origin box with explicit positive nonempty density and bare auto=true/1, using public pinned Parry mass properties. Existing normalized geometry and manual physical validation remain authoritative. No custom formula, generalized math or consumer adoption.",
+  "reviewer": "msgs_performance_owner; root (source and exact prior-approved fold check)",
+  "source_digest": "857527a1e7761acbda074fde798a23e3a6026e1596624af66f8a64d85cbcd442",
+  "protected_digest": "9cf1ac01989df395e31214f0a6332b743c5453608af7fb0d8b5e2efcf29e86ab",
+  "scope": "Bounded automatic origin-sphere inertia via pinned public Parry, extending the accepted box loader. Exact original values and retained tolerances preserved; no new dependency, formula, geometry cutoff or consumer adoption.",
   "checks": [
-    "Independent reviewer fresh accepted1b archive and exact sixteen-file overlay passed six focused Rust tests, all-target Clippy, formatting, 53 native DOM controls, unchanged full box original and hostile-Git replay. Author full676 Rust and49 tooling tests pass; all old test assertions/corpora and lock identities remain unchanged.",
-    "Independent dependency/license audit verified32 registry archives and1684 extracted source files, with published dirty-VCS disclosure retained. Compiler remains1.94.1. No simulator/Bevy dependency cycle or exposed Parry type is introduced.",
-    "Independent2067-row public extraction replay is bit-identical under producer minimal and actual simulator mathematical feature/version graphs. Actual loader replay matches1792 positive admissions and two existing geometry normalizations. Native-valid kernel reciprocal gaps remain explicit Unsupported; all old physical validation and numerical tolerance contracts are unchanged.",
-    "Root inspected actual parser/manifest/type-documentation changes, shared validator extraction and all three final review-only metadata deltas. Calculation calls public from_cuboid/mass/principal_inertia only. No raw-size rejection or local formula added. Old default-density refusal remains intact.",
-    "Root and independent reviewer inspected the minimal constant-message binding before the existing lazy error closure. Exact error text, code, source, call sites and allocation timing remain unchanged. The prior strict opaque-syntax failure is not relabeled as passing; no syntax classification or coverage rule changed."
+    "Independent fresh source/target review passes focused nine tests, native88 controls and unchanged sphere original, Clippy/formatting; all retained679 Rust tests pass.",
+    "Independent high-precision exact-binary-input replay verifies sampled operation traces and conditional roundoff bounds. New-case numerical qualification does not relax original exact assertions.",
+    "Prior review and final recheck authorize only the exact historical sphere rejection to exhaustive same-input/URI positive; corpus and every unrelated old assertion/count remain unchanged.",
+    "Root inspected the actual public from_ball dispatch and exact old-test fold; all16 reviewed hashes and both current verifier digests match."
   ],
   "remaining": [
-    "Ordinary strict staged and exact hosted/source qualification remain pending, with unchanged owned per-crate/workspace lines and regions, changed-line and all-source checks.",
-    "This is partial loader/value mapping; mutable Element identity, separate ResolveAutoInertials/error vectors, broader collision domains and full original-case completion are not claimed.",
-    "Scene still explicitly rejects collision density, so this producer work does not enable simulator admission or change any consumer/Fuel pin."
+    "Complete normal staged hook, strict owned coverage and exact hosted/source qualification remain required.",
+    "Loader/value semantics only; mutable setter APIs and complete original-case parity are not claimed.",
+    "Simulator retains its accepted1b producer pin and collision-density refusal. No automatic primitive admission or Fuel change follows."
   ]
 }

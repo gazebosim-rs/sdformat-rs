@@ -1,0 +1,1 @@
+<sdf version='1.11'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>

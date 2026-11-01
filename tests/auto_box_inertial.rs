@@ -16,6 +16,8 @@
 // Copyright (C) 2026 Open Source Robotics Foundation
 // SPDX-License-Identifier: Apache-2.0
 use sdformat::*;
+#[path = "common/auto_sphere.rs"]
+mod sphere;
 
 fn values(inertial: &Inertial) -> Vec<u64> {
     std::iter::once(inertial.mass)
@@ -117,6 +119,17 @@ fn native_auto_box_corpus_retains_numeric_domains_and_source() {
         serde_json::from_str(include_str!("auto_box_inertial.json")).unwrap();
     let mut positives = 0;
     for row in corpus["cases"].as_array().unwrap() {
+        if row["name"] == "sphere" {
+            assert_eq!(row["rust_error"], "Unsupported");
+            sphere::assert_complete_sphere(
+                row["xml"].as_str().unwrap(),
+                "auto-box.sdf",
+                "1.12",
+                "box_col",
+                (1240., 1., 4662432987886324156, 4656787193621907402),
+            );
+            continue;
+        }
         let result = load_str(row["xml"].as_str().unwrap(), "auto-box.sdf", &NoResources);
         if let Some(expected) = row.get("rust_error") {
             let code = match expected.as_str().unwrap() {

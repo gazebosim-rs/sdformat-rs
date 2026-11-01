@@ -3927,3 +3927,22 @@ audits, all 2,067 feature-unified extractions and actual loader replay. Root
 inspected the bounded production/dependency scope. Ordinary strict staged
 hook and exact hosted/source qualification remain pending; no accepted counters
 or consumer pins change. See AUTO_BOX_INERTIA.md.
+
+
+A private follow-up on accepted dd87 admits bounded origin spheres through public
+Parry, with no new dependency, formula or public API. The original radius 0.1 /
+density 2170 mass, diagonals and pose remain exact. New differential cases use
+operation-count relative bounds against an independent 200/400-digit oracle;
+the sampled five-ULP witnesses are admitted. Before the fold, four new Rust tests, 88 native DOM
+controls, the unchanged full native original, Clippy and formatting passed.
+Reciprocal/intermediate-volume losses return Unsupported; the existing manual
+physical policy and geometry normalization remain unchanged. The accepted box
+corpus remains untouched; independent PRIOR review approved only its exact
+sphere-row transition to the exhaustive same-input/URI positive. Every other
+old assertion stays unchanged. The duplicate prepared test was removed only
+after folding the same helper into the retained corpus test. Independent fresh
+source/target passed seven focused Rust tests, native88 plus the unchanged
+original, Clippy/fmt, 1,006 fresh public/native traces and 842 independent
+high-precision cases. The original mapping remains partial; final fold review
+and ordinary strict staged/hosted checks remain pending;
+accepted quality stays dd87 and no consumer pin changes. See AUTO_SPHERE_INERTIA.md.

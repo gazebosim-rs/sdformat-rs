@@ -3236,6 +3236,21 @@
       "baseline": "Author full673 Rust tests pass, zero failures/ignored. Independent Root fresh accepted6bd archive+exact12 overlay/own target passed16 focused Rust tests,60 native controls,unchanged full original,all-target Clippy and fmt. All583 preexisting test/tool bytes remain exact. Initial exact positive Quaternion one-ULP failure is retained; only new supplemental positive nonzero-Euler Quaternion uses native four-ULP convention, with every retained bound and other exact value unchanged. Ordinary strict staged/hosted qualification remains pending.",
       "status": "partial_reviewed",
       "review": "Independent Root final12 review approved: fresh accepted6bd source with exact 12-file overlay and separate target passed16 focused Rust tests,60 native controls,the unchanged original and all-target Clippy/fmt. All583 preexisting tests/tools are byte-identical. Root source inspection confirmed manual/default/false/0 handling, strict automatic/density refusal and the exact original subset. Native gtest four-ULP convention is approved only for new positive nonzero-Euler Quaternion projection; original/default/mass/inertia/translation and all omitted/false/0 Rust bit identities stay exact. Earlier exact failure is retained; no math or retained tolerance changes. Root.Element/mutable identity and separate ResolveAutoInertials/error-vector APIs remain unported; partial mapping only. Ordinary strict staged and exact hosted/source gates remain pending."
+    },
+    {
+      "target": "UNIT_Sphere_TEST",
+      "case": "DOMSphere.CalculateInertial",
+      "source": "src/Sphere_TEST.cc:165-202",
+      "rust_test": "tests/auto_sphere_inertial.rs::original_sphere_inertial_values_stay_exact",
+      "assertions": "Partial positive value mapping only: density2170/radius0.1 mass, all three diagonal moments, zero products and identity pose stay exact, including the scalar EXPECT_EQ mass assertion. The loader fixture is derived because the original has no XML. Mutable Sphere setter/material-density mutation, negative setter nullopt and native object equality APIs remain unported. New normal-forward oracle bounds, strict loader/numeric domains, normalization, immutable model snapshot, source/version, clone/include and frame checks are supplemental; no full automatic-inertia or simulator credit.",
+      "fixtures": {
+        "tests/fixtures/auto_sphere_inertial.sdf": "0be2a512e6b30faf653dfedeaf4597d2213b0ff672aae557c159c980574a3c46",
+        "tests/auto_sphere_inertial.json": "efed68535c9b2ebf66937125dd1e695a79500cfab03ee28ae3e32befa7dd806e"
+      },
+      "upstream_fixtures": {},
+      "baseline": "Three new sphere tests and the retained box/manual tests supply the final folded controls. Prior author four new Rust controls,88 native inputs and unchanged full original passed. Independent prior review replayed seven focused Rust tests,native88+original,Clippy/fmt and1006 traces/842 high-precision cases. The initial expected old sphere rejection failure remains recorded. Only the prior-approved same-input/auto-box.sdf sphere row now uses the exhaustive positive; historical corpus and all other predicates remain unchanged. Final fold/full retained/strict hosted checks pending.",
+      "status": "partial_reviewed",
+      "review": "Independent msgs_performance_owner PRIOR review approved with no findings after fresh accepted dd87 source and separate target: four new plus three retained manual Rust tests,88 native DOM controls,the unchanged full original,Clippy and fmt passed. Fresh1006 public/native operation traces are byte-equal; independent400-digit oracle checked842 qualified cases and56 stored intervals. All592 prior tests/tools and dependency/license inputs were unchanged; all349 Parry archive files matched. Original EXPECT_EQ mass/diagonal/pose values remain exact; new relative error bounds are limited to supplemental normal-forward cases, with no geometry cutoff or custom formula. Only the exact old sphere corpus row/XML and auto-box.sdf URI rejection transition was approved into the exhaustive helper. Root authorized that fold; every other old predicate/corpus/native stream stays unchanged. Final fold review and ordinary strict/hosted qualification remain pending; no complete original or simulator pin credit."
     }
   ]
 }

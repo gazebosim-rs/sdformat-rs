@@ -6,6 +6,7 @@ use crate::types::normalized_axis_direction;
 use crate::xml::{Document, Node, legacy_whitespace};
 use crate::*;
 use glam::{DQuat, DVec3, EulerRot};
+use parry3d_f64::mass_properties::MassProperties;
 use std::{
     borrow::Cow,
     collections::BTreeSet,
@@ -2348,7 +2349,7 @@ impl Parser<'_> {
             }
         };
         if automatic {
-            return self.auto_box_inertial(link, node, collisions);
+            return self.auto_primitive_inertial(link, node, collisions);
         }
         let mut result = Inertial {
             mass: self.scalar(node, "mass", 1.)?,
@@ -2382,20 +2383,16 @@ impl Parser<'_> {
         self.validate_inertial(node, &result)?;
         Ok(result)
     }
-    fn auto_box_inertial(
+    fn auto_primitive_inertial(
         &self,
         link: Node<'_, '_>,
         node: Node<'_, '_>,
         collisions: &[Collision],
     ) -> Result<Inertial, Diagnostic> {
         self.allowed(node, &[], &["auto"])?;
-        let message =
-            "automatic inertia requires one origin box with explicit density and no overrides";
+        let message = "automatic inertia requires one origin box or sphere with explicit density and no overrides";
         let unsupported = || self.err(node, ErrorCode::Unsupported, message);
         let [collision] = collisions else {
-            return Err(unsupported());
-        };
-        let Geometry::Box { size } = &collision.geometry else {
             return Err(unsupported());
         };
         let density = collision.density.ok_or_else(unsupported)?;
@@ -2406,17 +2403,21 @@ impl Parser<'_> {
                 return Err(unsupported());
             }
         }
+        let properties = match &collision.geometry {
+            Geometry::Box { size } => MassProperties::from_cuboid(
+                density,
+                parry3d_f64::math::Vector::new(size[0] / 2., size[1] / 2., size[2] / 2.),
+            ),
+            Geometry::Sphere { radius } => MassProperties::from_ball(density, *radius),
+            _ => return Err(unsupported()),
+        };
         if density <= 0. {
             return Err(self.err(
                 node,
                 ErrorCode::InvalidValue,
-                "box density must be positive",
+                "collision density must be positive",
             ));
         }
-        let properties = parry3d_f64::mass_properties::MassProperties::from_cuboid(
-            density,
-            parry3d_f64::math::Vector::new(size[0] / 2., size[1] / 2., size[2] / 2.),
-        );
         let diagonal = properties.principal_inertia().to_array();
         let result = Inertial {
             mass: properties.mass(),
@@ -2431,7 +2432,7 @@ impl Parser<'_> {
             return Err(self.err(
                 node,
                 ErrorCode::Unsupported,
-                "automatic box inertia exceeds the mass-properties kernel's numeric domain",
+                "automatic primitive inertia exceeds the mass-properties kernel's numeric domain",
             ));
         }
         self.validate_inertial(node, &result)?;

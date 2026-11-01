@@ -1,0 +1,3081 @@
+{
+  "description": "Supplemental loader/native cases. Oracle bounds apply only to new qualified normal-forward cases; retained original assertions are exact.",
+  "cases": [
+    {
+      "name": "version_1_4",
+      "xml": "<sdf version='1.4'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 1 1 4621306650028725639 4585400661777136886 4585400661777136886 4585400661777136886 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4621306650028725639 4585400661777136886 4585400661777136886 4585400661777136886 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "version_1_5",
+      "xml": "<sdf version='1.5'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 1 1 4621306650028725639 4585400661777136886 4585400661777136886 4585400661777136886 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4621306650028725639 4585400661777136886 4585400661777136886 4585400661777136886 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "version_1_6",
+      "xml": "<sdf version='1.6'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 1 1 4621306650028725639 4585400661777136886 4585400661777136886 4585400661777136886 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4621306650028725639 4585400661777136886 4585400661777136886 4585400661777136886 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "version_1_7",
+      "xml": "<sdf version='1.7'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 1 1 4621306650028725639 4585400661777136886 4585400661777136886 4585400661777136886 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4621306650028725639 4585400661777136886 4585400661777136886 4585400661777136886 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "version_1_8",
+      "xml": "<sdf version='1.8'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 1 1 4621306650028725639 4585400661777136886 4585400661777136886 4585400661777136886 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4621306650028725639 4585400661777136886 4585400661777136886 4585400661777136886 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "version_1_9",
+      "xml": "<sdf version='1.9'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 1 1 4621306650028725639 4585400661777136886 4585400661777136886 4585400661777136886 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4621306650028725639 4585400661777136886 4585400661777136886 4585400661777136886 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "version_1_10",
+      "xml": "<sdf version='1.10'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 1 1 4621306650028725639 4585400661777136886 4585400661777136886 4585400661777136886 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4621306650028725639 4585400661777136886 4585400661777136886 4585400661777136886 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "version_1_11",
+      "xml": "<sdf version='1.11'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 1 1 4621306650028725639 4585400661777136886 4585400661777136886 4585400661777136886 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4621306650028725639 4585400661777136886 4585400661777136886 4585400661777136886 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "version_1_12",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 1 1 4621306650028725639 4585400661777136886 4585400661777136886 4585400661777136886 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4621306650028725639 4585400661777136886 4585400661777136886 4585400661777136886 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "auto_1",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='1'/><collision name='sphere_col'><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 1 1 4621306650028725639 4585400661777136886 4585400661777136886 4585400661777136886 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4621306650028725639 4585400661777136886 4585400661777136886 4585400661777136886 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "auto_TRUE",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='TRUE'/><collision name='sphere_col'><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 1 1 4621306650028725639 4585400661777136886 4585400661777136886 4585400661777136886 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4621306650028725639 4585400661777136886 4585400661777136886 4585400661777136886 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "auto_true",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto=' true '/><collision name='sphere_col'><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 1 1 4621306650028725639 4585400661777136886 4585400661777136886 4585400661777136886 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4621306650028725639 4585400661777136886 4585400661777136886 4585400661777136886 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "zero_radius",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>2170</density><geometry><sphere><radius>0</radius></sphere></geometry></collision></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 1 1 4666222715865540741 4660213777533046178 4660213777533046178 4660213777533046178 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4666222715865540741 4660213777533046178 4660213777533046178 4660213777533046178 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "\u001b[1;33mWarning [Sphere.cc:82]\u001b[0m Value of <radius> is negative. Using default value of 1.0.\n"
+    },
+    {
+      "name": "negative_radius",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>2170</density><geometry><sphere><radius>-2</radius></sphere></geometry></collision></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 1 1 4666222715865540741 4660213777533046178 4660213777533046178 4660213777533046178 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4666222715865540741 4660213777533046178 4660213777533046178 4660213777533046178 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "\u001b[1;33mWarning [Sphere.cc:82]\u001b[0m Value of <radius> is negative. Using default value of 1.0.\n"
+    },
+    {
+      "name": "default_radius",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>2170</density><geometry><sphere></sphere></geometry></collision></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 1 1 4666222715865540741 4660213777533046178 4660213777533046178 4660213777533046178 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4666222715865540741 4660213777533046178 4660213777533046178 4660213777533046178 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "empty_radius",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>2170</density><geometry><sphere><radius></radius></sphere></geometry></collision></link></model></sdf>",
+      "rust_error": "Missing",
+      "stdout": "LOAD 9 9 9 9 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Empty string used when setting a required parameter. Key[radius]\n"
+    },
+    {
+      "name": "numeric_original",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>2170.0</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "original",
+      "stdout": "LOAD\nVALUES 1 1 4621306650028725639 4585400661777136886 4585400661777136886 4585400661777136886 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4621306650028725639 4585400661777136886 4585400661777136886 4585400661777136886 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4656990295538270208,
+        4591870180066957722
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4621306650028725635,
+            4621306650028725643
+          ],
+          [
+            4585400661777136879,
+            4585400661777136892
+          ]
+        ],
+        "parry": [
+          [
+            4621306650028725634,
+            4621306650028725645
+          ],
+          [
+            4585400661777136878,
+            4585400661777136893
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4399324813643930377,
+        4366034240221318211
+      ]
+    },
+    {
+      "name": "numeric_normal_167",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>7917.05362631725</density><geometry><sphere><radius>63.06172103545816</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_167",
+      "stdout": "LOAD\nVALUES 1 1 4755514671499815935 4803107073645002831 4803107073645002831 4803107073645002831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4755514671499815935 4803107073645002831 4803107073645002831 4803107073645002831 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4665426907220954827,
+        4634071965539394128
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4755514671499815931,
+            4755514671499815943
+          ],
+          [
+            4803107073645002824,
+            4803107073645002839
+          ]
+        ],
+        "parry": [
+          [
+            4755514671499815928,
+            4755514671499815946
+          ],
+          [
+            4803107073645002822,
+            4803107073645002841
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4533203165211540428,
+        4584124059527704695
+      ]
+    },
+    {
+      "name": "numeric_normal_457",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>8472.454526959747</density><geometry><sphere><radius>83.65631673644477</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_457",
+      "stdout": "LOAD\nVALUES 1 1 4761247913281697151 4812785747743069212 4812785747743069212 4812785747743069212 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4761247913281697151 4812785747743069212 4812785747743069212 4812785747743069212 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4665883395462561186,
+        4635587206888142401
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4761247913281697149,
+            4761247913281697157
+          ],
+          [
+            4812785747743069207,
+            4812785747743069223
+          ]
+        ],
+        "parry": [
+          [
+            4761247913281697147,
+            4761247913281697159
+          ],
+          [
+            4812785747743069205,
+            4812785747743069225
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4539472123649705727,
+        4593821111127254175
+      ]
+    },
+    {
+      "name": "numeric_robot_scale_gap",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>7917.05362631725</density><geometry><sphere><radius>0.4926696955895169</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "robot_scale_gap",
+      "stdout": "LOAD\nVALUES 1 1 4660939079325035519 4645481086687035471 4645481086687035471 4645481086687035471 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4660939079325035519 4645481086687035471 4645481086687035471 4645481086687035471 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4665426907220954827,
+        4602546768147800656
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4660939079325035515,
+            4660939079325035527
+          ],
+          [
+            4645481086687035464,
+            4645481086687035479
+          ]
+        ],
+        "parry": [
+          [
+            4660939079325035512,
+            4660939079325035530
+          ],
+          [
+            4645481086687035462,
+            4645481086687035481
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4438627573036760012,
+        4426498072569737335
+      ]
+    },
+    {
+      "name": "numeric_subnormal_inverse",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>1.7976931348623157e+308</density><geometry><sphere><radius>0.49</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "subnormal_inverse",
+      "stdout": "LOAD\nVALUES 1 1 9214235259649703357 9198667693463786268 9198667693463786268 9198667693463786268 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 9214235259649703357 9198667693463786268 9198667693463786268 9198667693463786268 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        9218868437227405311,
+        4602498675187552092
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          11,
+          11
+        ],
+        "differential": [
+          16,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            9214235259649703352,
+            9214235259649703364
+          ],
+          [
+            9198667693463786261,
+            9198667693463786277
+          ]
+        ],
+        "parry": [
+          [
+            9214235259649703346,
+            9214235259649703370
+          ],
+          [
+            9198667693463786260,
+            9198667693463786278
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        8993558877908549071,
+        8979696525222782968
+      ]
+    },
+    {
+      "name": "numeric_inverse_overflow",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>2.2250738585072014e-308</density><geometry><sphere><radius>0.5</radius></sphere></geometry></collision></link></model></sdf>",
+      "rust_error": "Unsupported",
+      "oracle_input": "inverse_overflow",
+      "stdout": "LOAD\nVALUES 1 1 2358079250676146 235807925067614 235807925067614 235807925067614 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 2358079250676146 235807925067614 235807925067614 235807925067614 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4503599627370496,
+        4602678819172646912
+      ]
+    },
+    {
+      "name": "numeric_volume_intermediate_overflow",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>2.2250738585072014e-308</density><geometry><sphere><radius>3e+102</radius></sphere></geometry></collision></link></model></sdf>",
+      "rust_error": "Unsupported",
+      "oracle_input": "volume_intermediate_overflow",
+      "stdout": "LOAD\nVALUES 1 1 4612849071336742569 7673259776584312851 7673259776584312851 7673259776584312851 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4612849071336742569 7673259776584312851 7673259776584312851 7673259776584312851 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4503599627370496,
+        6139934986528773398
+      ]
+    },
+    {
+      "name": "numeric_manual_determinant_underflow",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>2170.0</density><geometry><sphere><radius>1e-30</radius></sphere></geometry></collision></link></model></sdf>",
+      "rust_error": "InvalidValue",
+      "oracle_input": "manual_determinant_underflow",
+      "stdout": "LOAD\nVALUES 1 1 3319738963548896548 2415968786738484351 2415968786738484351 2415968786738484351 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 3319738963548896548 2415968786738484351 2415968786738484351 2415968786738484351 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4656990295538270208,
+        4158027847206421152
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            3319738963548896546,
+            3319738963548896553
+          ],
+          [
+            2415968786738484345,
+            2415968786738484360
+          ]
+        ],
+        "parry": [
+          [
+            3319738963548896544,
+            3319738963548896555
+          ],
+          [
+            2415968786738484343,
+            2415968786738484361
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        3097740005808003946,
+        2196928151521147316
+      ]
+    },
+    {
+      "name": "numeric_normal_0",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>8502.59885389045</density><geometry><sphere><radius>80.94674572424248</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_0",
+      "stdout": "LOAD\nVALUES 1 1 4760753181030812627 4811678145623246543 4811678145623246543 4811678145623246543 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4760753181030812627 4811678145623246543 4811678145623246543 4811678145623246543 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4665899967481547080,
+        4635396537778753524
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4760753181030812624,
+            4760753181030812632
+          ],
+          [
+            4811678145623246537,
+            4811678145623246552
+          ]
+        ],
+        "parry": [
+          [
+            4760753181030812623,
+            4760753181030812634
+          ],
+          [
+            4811678145623246536,
+            4811678145623246553
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4538668183742018373,
+        4592586099686824087
+      ]
+    },
+    {
+      "name": "numeric_normal_10",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>2380.81258231632</density><geometry><sphere><radius>57.42872554352419</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_10",
+      "stdout": "LOAD\nVALUES 1 1 4745709289947307242 4792429686919652461 4792429686919652461 4792429686919652461 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4745709289947307242 4792429686919652461 4792429686919652461 4792429686919652461 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4657453877309346766,
+        4633279191901942455
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4745709289947307237,
+            4745709289947307248
+          ],
+          [
+            4792429686919652455,
+            4792429686919652467
+          ]
+        ],
+        "parry": [
+          [
+            4745709289947307234,
+            4745709289947307250
+          ],
+          [
+            4792429686919652454,
+            4792429686919652468
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4523547442839863177,
+        4573029125934701975
+      ]
+    },
+    {
+      "name": "numeric_normal_20",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>9464.97541119741</density><geometry><sphere><radius>74.35885509699106</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_20",
+      "stdout": "LOAD\nVALUES 1 1 4759843866853491704 4809955481779716171 4809955481779716171 4809955481779716171 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4759843866853491704 4809955481779716171 4809955481779716171 4809955481779716171 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4666429039589076100,
+        4634932956188534039
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4759843866853491699,
+            4759843866853491711
+          ],
+          [
+            4809955481779716165,
+            4809955481779716177
+          ]
+        ],
+        "parry": [
+          [
+            4759843866853491696,
+            4759843866853491714
+          ],
+          [
+            4809955481779716164,
+            4809955481779716178
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4537565061366533957,
+        4590432769882411116
+      ]
+    },
+    {
+      "name": "numeric_normal_30",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>6801.010535940076</density><geometry><sphere><radius>4.850353760221785</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_30",
+      "stdout": "LOAD\nVALUES 1 1 4704235323413448159 4718976833217834688 4718976833217834688 4718976833217834688 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4704235323413448159 4718976833217834688 4718976833217834688 4718976833217834688 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4664199804865986063,
+        4617147031274175383
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4704235323413448154,
+            4704235323413448164
+          ],
+          [
+            4718976833217834679,
+            4718976833217834697
+          ]
+        ],
+        "parry": [
+          [
+            4704235323413448152,
+            4704235323413448166
+          ],
+          [
+            4718976833217834677,
+            4718976833217834699
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4482250020659914958,
+        4499724692483439940
+      ]
+    },
+    {
+      "name": "numeric_normal_40",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>2999.3297850934446</density><geometry><sphere><radius>30.051450886442073</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_40",
+      "stdout": "LOAD\nVALUES 1 1 4734500043794966193 4772880383852857186 4772880383852857186 4772880383852857186 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4734500043794966193 4772880383852857186 4772880383852857186 4772880383852857186 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4658814011022212635,
+        4629151949120511601
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4734500043794966189,
+            4734500043794966198
+          ],
+          [
+            4772880383852857176,
+            4772880383852857195
+          ]
+        ],
+        "parry": [
+          [
+            4734500043794966188,
+            4734500043794966200
+          ],
+          [
+            4772880383852857175,
+            4772880383852857196
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4512751080480822136,
+        4553680609953496233
+      ]
+    },
+    {
+      "name": "numeric_normal_50",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>7028.964436180472</density><geometry><sphere><radius>56.84120229526486</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_50",
+      "stdout": "LOAD\nVALUES 1 1 4752463831993022298 4798985770350929824 4798985770350929824 4798985770350929824 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4752463831993022298 4798985770350929824 4798985770350929824 4798985770350929824 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4664450442829897269,
+        4633196505355632073
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4752463831993022295,
+            4752463831993022303
+          ],
+          [
+            4798985770350929817,
+            4798985770350929833
+          ]
+        ],
+        "parry": [
+          [
+            4752463831993022293,
+            4752463831993022305
+          ],
+          [
+            4798985770350929815,
+            4798985770350929835
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4530724358112270593,
+        4580098330316956062
+      ]
+    },
+    {
+      "name": "numeric_normal_60",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>9980.223740534653</density><geometry><sphere><radius>66.08159333306699</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_60",
+      "stdout": "LOAD\nVALUES 1 1 4757622312584752370 4806231456542299631 4806231456542299631 4806231456542299631 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4757622312584752370 4806231456542299631 4806231456542299631 4806231456542299631 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4666712300353725328,
+        4634350495672976906
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4757622312584752367,
+            4757622312584752376
+          ],
+          [
+            4806231456542299626,
+            4806231456542299639
+          ]
+        ],
+        "parry": [
+          [
+            4757622312584752365,
+            4757622312584752378
+          ],
+          [
+            4806231456542299625,
+            4806231456542299640
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4535760048523183246,
+        4586903638242483069
+      ]
+    },
+    {
+      "name": "numeric_normal_70",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>2629.3704359231033</density><geometry><sphere><radius>23.11359467756741</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_70",
+      "stdout": "LOAD\nVALUES 1 1 4728839453431628750 4763419851966301598 4763419851966301598 4763419851966301598 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4728839453431628750 4763419851966301598 4763419851966301598 4763419851966301598 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4658000461809778172,
+        4627199116205696725
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4728839453431628747,
+            4728839453431628754
+          ],
+          [
+            4763419851966301590,
+            4763419851966301607
+          ]
+        ],
+        "parry": [
+          [
+            4728839453431628745,
+            4728839453431628755
+          ],
+          [
+            4763419851966301588,
+            4763419851966301608
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4506511624763090491,
+        4544390077803871118
+      ]
+    },
+    {
+      "name": "numeric_normal_80",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>9721.36315962829</density><geometry><sphere><radius>95.01650959972228</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_80",
+      "stdout": "LOAD\nVALUES 1 1 4764883302994393281 4817917702301642232 4817917702301642232 4817917702301642232 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4764883302994393281 4817917702301642232 4817917702301642232 4817917702301642232 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4666569990244385630,
+        4636386609393547301
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4764883302994393278,
+            4764883302994393285
+          ],
+          [
+            4817917702301642223,
+            4817917702301642241
+          ]
+        ],
+        "parry": [
+          [
+            4764883302994393277,
+            4764883302994393287
+          ],
+          [
+            4817917702301642221,
+            4817917702301642243
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4542564882165730375,
+        4598717432586626247
+      ]
+    },
+    {
+      "name": "numeric_normal_90",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>9948.748106262987</density><geometry><sphere><radius>59.311867961266096</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_90",
+      "stdout": "LOAD\nVALUES 1 1 4755856419765905274 4802598227092627327 4802598227092627327 4802598227092627327 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4755856419765905274 4802598227092627327 4802598227092627327 4802598227092627327 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4666694996440788667,
+        4633544220636030831
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4755856419765905270,
+            4755856419765905278
+          ],
+          [
+            4802598227092627319,
+            4802598227092627333
+          ]
+        ],
+        "parry": [
+          [
+            4755856419765905269,
+            4755856419765905279
+          ],
+          [
+            4802598227092627318,
+            4802598227092627335
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4533525696453650482,
+        4583488001337235312
+      ]
+    },
+    {
+      "name": "numeric_normal_100",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>8422.683193694218</density><geometry><sphere><radius>62.12794319335578</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_100",
+      "stdout": "LOAD\nVALUES 1 1 4755665565664737348 4803021720856286415 4803021720856286415 4803021720856286415 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4755665565664737348 4803021720856286415 4803021720856286415 4803021720856286415 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4665856033382733504,
+        4633940547991214781
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4755665565664737343,
+            4755665565664737355
+          ],
+          [
+            4803021720856286407,
+            4803021720856286423
+          ]
+        ],
+        "parry": [
+          [
+            4755665565664737340,
+            4755665565664737358
+          ],
+          [
+            4803021720856286406,
+            4803021720856286424
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4533325766720539076,
+        4584017368541809174
+      ]
+    },
+    {
+      "name": "numeric_normal_110",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>6863.538660318878</density><geometry><sphere><radius>10.365995641974656</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_110",
+      "stdout": "LOAD\nVALUES 1 1 4719361472117218078 4743559942806049718 4743559942806049718 4743559942806049718 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4719361472117218078 4743559942806049718 4743559942806049718 4743559942806049718 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4664268555265803580,
+        4622025154818573556
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4719361472117218074,
+            4719361472117218086
+          ],
+          [
+            4743559942806049711,
+            4743559942806049725
+          ]
+        ],
+        "parry": [
+          [
+            4719361472117218071,
+            4719361472117218088
+          ],
+          [
+            4743559942806049710,
+            4743559942806049726
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4497073291272123925,
+        4524326844767967413
+      ]
+    },
+    {
+      "name": "numeric_normal_120",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>1513.6274483965865</density><geometry><sphere><radius>86.00927546543758</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_120",
+      "stdout": "LOAD\nVALUES 1 1 4750750466403418814 4802445330931872543 4802445330931872543 4802445330931872543 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4750750466403418814 4802445330931872543 4802445330931872543 4802445330931872543 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4654371819364883729,
+        4635752781639003498
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4750750466403418808,
+            4750750466403418819
+          ],
+          [
+            4802445330931872535,
+            4802445330931872549
+          ]
+        ],
+        "parry": [
+          [
+            4750750466403418805,
+            4750750466403418822
+          ],
+          [
+            4802445330931872534,
+            4802445330931872551
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4528487823640585797,
+        4583296881136291832
+      ]
+    },
+    {
+      "name": "numeric_normal_130",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>595.3082883740647</density><geometry><sphere><radius>71.59056729402934</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_130",
+      "stdout": "LOAD\nVALUES 1 1 4740958375657365291 4790505780629639843 4790505780629639843 4790505780629639843 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4740958375657365291 4790505780629639843 4790505780629639843 4790505780629639843 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4648447602900411074,
+        4634738155252317278
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4740958375657365286,
+            4740958375657365297
+          ],
+          [
+            4790505780629639836,
+            4790505780629639853
+          ]
+        ],
+        "parry": [
+          [
+            4740958375657365284,
+            4740958375657365299
+          ],
+          [
+            4790505780629639834,
+            4790505780629639855
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4518842900049153373,
+        4571451882380041138
+      ]
+    },
+    {
+      "name": "numeric_normal_140",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>1513.5782366878966</density><geometry><sphere><radius>63.28190754820682</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_140",
+      "stdout": "LOAD\nVALUES 1 1 4744525755511620659 4792597260933278301 4792597260933278301 4792597260933278301 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4744525755511620659 4792597260933278301 4792597260933278301 4792597260933278301 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4654371602929500020,
+        4634102954036168092
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4744525755511620655,
+            4744525755511620665
+          ],
+          [
+            4792597260933278295,
+            4792597260933278308
+          ]
+        ],
+        "parry": [
+          [
+            4744525755511620653,
+            4744525755511620667
+          ],
+          [
+            4792597260933278294,
+            4792597260933278309
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4522585821110867827,
+        4573238593451734276
+      ]
+    },
+    {
+      "name": "numeric_normal_150",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>6105.479198882109</density><geometry><sphere><radius>5.483330749828825</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_150",
+      "stdout": "LOAD\nVALUES 1 1 4706285334848944091 4722074943213703999 4722074943213703999 4722074943213703999 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4706285334848944091 4722074943213703999 4722074943213703999 4722074943213703999 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4663435060073408240,
+        4617859700007807474
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4706285334848944089,
+            4706285334848944096
+          ],
+          [
+            4722074943213703992,
+            4722074943213704007
+          ]
+        ],
+        "parry": [
+          [
+            4706285334848944087,
+            4706285334848944097
+          ],
+          [
+            4722074943213703990,
+            4722074943213704009
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4483934930901760721,
+        4503100094811748387
+      ]
+    },
+    {
+      "name": "numeric_normal_160",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>1176.2827703981284</density><geometry><sphere><radius>49.16954340356379</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_160",
+      "stdout": "LOAD\nVALUES 1 1 4738196570465700999 4782959345418192697 4782959345418192697 4782959345418192697 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4738196570465700999 4782959345418192697 4782959345418192697 4782959345418192697 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4652888161780773108,
+        4632116815351695246
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4738196570465700995,
+            4738196570465701003
+          ],
+          [
+            4782959345418192691,
+            4782959345418192702
+          ]
+        ],
+        "parry": [
+          [
+            4738196570465700994,
+            4738196570465701004
+          ],
+          [
+            4782959345418192690,
+            4782959345418192704
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4516087440409244776,
+        4563442998871562517
+      ]
+    },
+    {
+      "name": "numeric_normal_170",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>4193.400634728779</density><geometry><sphere><radius>3.852782150515497</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_170",
+      "stdout": "LOAD\nVALUES 1 1 4696876365352689285 4708162538451484178 4708162538451484178 4708162538451484178 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4696876365352689285 4708162538451484178 4708162538451484178 4708162538451484178 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4661332707458900415,
+        4615858112928718053
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4696876365352689281,
+            4696876365352689292
+          ],
+          [
+            4708162538451484171,
+            4708162538451484186
+          ]
+        ],
+        "parry": [
+          [
+            4696876365352689278,
+            4696876365352689295
+          ],
+          [
+            4708162538451484170,
+            4708162538451484188
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4474582017375284441,
+        4489087288579501482
+      ]
+    },
+    {
+      "name": "numeric_normal_180",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>5885.005782088849</density><geometry><sphere><radius>50.08710178713631</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_180",
+      "stdout": "LOAD\nVALUES 1 1 4748786364301117660 4793692232772405671 4793692232772405671 4793692232772405671 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4748786364301117660 4793692232772405671 4793692232772405671 4793692232772405671 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4663192646988028546,
+        4632245950214018617
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4748786364301117656,
+            4748786364301117665
+          ],
+          [
+            4793692232772405664,
+            4793692232772405679
+          ]
+        ],
+        "parry": [
+          [
+            4748786364301117654,
+            4748786364301117667
+          ],
+          [
+            4793692232772405662,
+            4793692232772405680
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4526891990682466108,
+        4574607308250643492
+      ]
+    },
+    {
+      "name": "numeric_normal_190",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>6644.470808795191</density><geometry><sphere><radius>87.44841811697077</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_190",
+      "stdout": "LOAD\nVALUES 1 1 4760680363609636798 4812628305579768304 4812628305579768304 4812628305579768304 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4760680363609636798 4812628305579768304 4812628305579768304 4812628305579768304 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4664027687615781380,
+        4635854052300084402
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4760680363609636794,
+            4760680363609636802
+          ],
+          [
+            4812628305579768295,
+            4812628305579768311
+          ]
+        ],
+        "parry": [
+          [
+            4760680363609636793,
+            4760680363609636803
+          ],
+          [
+            4812628305579768293,
+            4812628305579768313
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4538549855432607649,
+        4593722709775191104
+      ]
+    },
+    {
+      "name": "numeric_normal_200",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>4505.3146613854215</density><geometry><sphere><radius>1.8027785477256102</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_200",
+      "stdout": "LOAD\nVALUES 1 1 4682334788261376346 4684178972565608763 4684178972565608763 4684178972565608763 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4682334788261376346 4684178972565608763 4684178972565608763 4684178972565608763 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4661675660558075827,
+        4610797811968415494
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4682334788261376342,
+            4682334788261376353
+          ],
+          [
+            4684178972565608757,
+            4684178972565608769
+          ]
+        ],
+        "parry": [
+          [
+            4682334788261376340,
+            4682334788261376355
+          ],
+          [
+            4684178972565608756,
+            4684178972565608770
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4460233711198196772,
+        4464737330756370329
+      ]
+    },
+    {
+      "name": "numeric_normal_210",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>3281.9059821062597</density><geometry><sphere><radius>50.06205038882216</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_210",
+      "stdout": "LOAD\nVALUES 1 1 4745021175188386567 4789905161834037278 4789905161834037278 4789905161834037278 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4745021175188386567 4789905161834037278 4789905161834037278 4789905161834037278 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4659435402650909259,
+        4632242424543140094
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4745021175188386563,
+            4745021175188386573
+          ],
+          [
+            4789905161834037272,
+            4789905161834037288
+          ]
+        ],
+        "parry": [
+          [
+            4745021175188386561,
+            4745021175188386575
+          ],
+          [
+            4789905161834037270,
+            4789905161834037290
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4522988349598240128,
+        4570999369484525629
+      ]
+    },
+    {
+      "name": "numeric_normal_220",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>6874.532177878894</density><geometry><sphere><radius>24.297610500501893</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_220",
+      "stdout": "LOAD\nVALUES 1 1 4735709754226121314 4771201182090328136 4771201182090328136 4771201182090328136 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4735709754226121314 4771201182090328136 4771201182090328136 4771201182090328136 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4664280642766190977,
+        4627532387031882257
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4735709754226121310,
+            4735709754226121319
+          ],
+          [
+            4771201182090328129,
+            4771201182090328144
+          ]
+        ],
+        "parry": [
+          [
+            4735709754226121307,
+            4735709754226121322
+          ],
+          [
+            4771201182090328127,
+            4771201182090328145
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4513733970206135673,
+        4552122994432259693
+      ]
+    },
+    {
+      "name": "numeric_normal_230",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>6091.505368772952</density><geometry><sphere><radius>96.19014199135795</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_230",
+      "stdout": "LOAD\nVALUES 1 1 4761754329561376128 4815223457652593147 4815223457652593147 4815223457652593147 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4761754329561376128 4815223457652593147 4815223457652593147 4815223457652593147 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4663419695684718656,
+        4636469196431072931
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4761754329561376124,
+            4761754329561376132
+          ],
+          [
+            4815223457652593141,
+            4815223457652593153
+          ]
+        ],
+        "parry": [
+          [
+            4761754329561376122,
+            4761754329561376134
+          ],
+          [
+            4815223457652593139,
+            4815223457652593155
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4539961737246822016,
+        4595891839816664714
+      ]
+    },
+    {
+      "name": "numeric_normal_240",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>5782.694613311247</density><geometry><sphere><radius>4.241258224224817</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_240",
+      "stdout": "LOAD\nVALUES 1 1 4700687930370844479 4713400362793445885 4713400362793445885 4713400362793445885 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4700687930370844479 4713400362793445885 4713400362793445885 4713400362793445885 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4663080154668306220,
+        4616461250666938138
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4700687930370844474,
+            4700687930370844485
+          ],
+          [
+            4713400362793445877,
+            4713400362793445893
+          ]
+        ],
+        "parry": [
+          [
+            4700687930370844472,
+            4700687930370844488
+          ],
+          [
+            4713400362793445875,
+            4713400362793445895
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4478523338882667502,
+        4494508669100110993
+      ]
+    },
+    {
+      "name": "numeric_normal_250",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>7398.112443762121</density><geometry><sphere><radius>78.44794498314123</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_250",
+      "stdout": "LOAD\nVALUES 1 1 4759141364562456019 4810054778270452738 4810054778270452738 4810054778270452738 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4759141364562456019 4810054778270452738 4810054778270452738 4810054778270452738 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4664856325356603635,
+        4635220700308652013
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4759141364562456015,
+            4759141364562456026
+          ],
+          [
+            4810054778270452733,
+            4810054778270452744
+          ]
+        ],
+        "parry": [
+          [
+            4759141364562456012,
+            4759141364562456028
+          ],
+          [
+            4810054778270452732,
+            4810054778270452745
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4536994278255067463,
+        4590556890495831825
+      ]
+    },
+    {
+      "name": "numeric_normal_260",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>2832.9563465277256</density><geometry><sphere><radius>51.53326651751492</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_260",
+      "stdout": "LOAD\nVALUES 1 1 4744598443673814376 4789889018333306923 4789889018333306923 4789889018333306923 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4744598443673814376 4789889018333306923 4789889018333306923 4789889018333306923 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4658448151961700467,
+        4632449479805920162
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4744598443673814372,
+            4744598443673814382
+          ],
+          [
+            4789889018333306915,
+            4789889018333306931
+          ]
+        ],
+        "parry": [
+          [
+            4744598443673814370,
+            4744598443673814384
+          ],
+          [
+            4789889018333306913,
+            4789889018333306932
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4522644880242650222,
+        4570979190108612682
+      ]
+    },
+    {
+      "name": "numeric_normal_270",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>3788.3190028557506</density><geometry><sphere><radius>22.856935726497536</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_270",
+      "stdout": "LOAD\nVALUES 1 1 4730634280554674092 4765495137727895947 4765495137727895947 4765495137727895947 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4730634280554674092 4765495137727895947 4765495137727895947 4765495137727895947 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4660549016660451727,
+        4627126873133421751
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4730634280554674088,
+            4730634280554674098
+          ],
+          [
+            4765495137727895941,
+            4765495137727895953
+          ]
+        ],
+        "parry": [
+          [
+            4730634280554674086,
+            4730634280554674100
+          ],
+          [
+            4765495137727895940,
+            4765495137727895955
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4508765722917952837,
+        4546116338886062077
+      ]
+    },
+    {
+      "name": "numeric_normal_280",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>6674.567991417804</density><geometry><sphere><radius>24.906076719940593</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_280",
+      "stdout": "LOAD\nVALUES 1 1 4736026431360078597 4771832305444041150 4771832305444041150 4771832305444041150 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4736026431360078597 4771832305444041150 4771832305444041150 4771832305444041150 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4664060779818038240,
+        4627703655046827986
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4736026431360078593,
+            4736026431360078603
+          ],
+          [
+            4771832305444041142,
+            4771832305444041158
+          ]
+        ],
+        "parry": [
+          [
+            4736026431360078591,
+            4736026431360078606
+          ],
+          [
+            4771832305444041140,
+            4771832305444041160
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4513991270377475966,
+        4552911898624400962
+      ]
+    },
+    {
+      "name": "numeric_normal_290",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>1963.1171117903116</density><geometry><sphere><radius>52.86264280342464</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_290",
+      "stdout": "LOAD\nVALUES 1 1 4742881774538837821 4788384396118167621 4788384396118167621 4788384396118167621 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4742881774538837821 4788384396118167621 4788384396118167621 4788384396118167621 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4656348695810749813,
+        4632636572885478231
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4742881774538837818,
+            4742881774538837825
+          ],
+          [
+            4788384396118167615,
+            4788384396118167628
+          ]
+        ],
+        "parry": [
+          [
+            4742881774538837816,
+            4742881774538837827
+          ],
+          [
+            4788384396118167614,
+            4788384396118167630
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4520886147260985553,
+        4569098412339688552
+      ]
+    },
+    {
+      "name": "numeric_normal_300",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>8793.733776123214</density><geometry><sphere><radius>12.393409274820819</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_300",
+      "stdout": "LOAD\nVALUES 1 1 4724478000584600105 4751311274518458796 4751311274518458796 4751311274518458796 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4724478000584600105 4751311274518458796 4751311274518458796 4751311274518458796 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4666060020597670373,
+        4623166487228750036
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4724478000584600102,
+            4724478000584600109
+          ],
+          [
+            4751311274518458790,
+            4751311274518458801
+          ]
+        ],
+        "parry": [
+          [
+            4724478000584600100,
+            4724478000584600111
+          ],
+          [
+            4751311274518458789,
+            4751311274518458802
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4502239013653775503,
+        4531764209594793508
+      ]
+    },
+    {
+      "name": "numeric_normal_310",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>8953.592522421182</density><geometry><sphere><radius>37.64225392513185</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_310",
+      "stdout": "LOAD\nVALUES 1 1 4746177015457773022 4787466716192404114 4787466716192404114 4787466716192404114 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4746177015457773022 4787466716192404114 4787466716192404114 4787466716192404114 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4666147903872848528,
+        4630494493582955935
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4746177015457773018,
+            4746177015457773029
+          ],
+          [
+            4787466716192404109,
+            4787466716192404121
+          ]
+        ],
+        "parry": [
+          [
+            4746177015457773015,
+            4746177015457773032
+          ],
+          [
+            4787466716192404108,
+            4787466716192404122
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4523927469817116624,
+        4567951312432484166
+      ]
+    },
+    {
+      "name": "numeric_normal_320",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>6327.412730705938</density><geometry><sphere><radius>57.13852060775297</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_320",
+      "stdout": "LOAD\nVALUES 1 1 4751978444968814623 4798441803092110929 4798441803092110929 4798441803092110929 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4751978444968814623 4798441803092110929 4798441803092110929 4798441803092110929 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4663679078572241935,
+        4633238349188173695
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4751978444968814620,
+            4751978444968814627
+          ],
+          [
+            4798441803092110922,
+            4798441803092110937
+          ]
+        ],
+        "parry": [
+          [
+            4751978444968814618,
+            4751978444968814629
+          ],
+          [
+            4798441803092110920,
+            4798441803092110939
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4530038737175484736,
+        4579418371243432441
+      ]
+    },
+    {
+      "name": "numeric_normal_330",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>8515.65409800371</density><geometry><sphere><radius>75.37766689101305</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_330",
+      "stdout": "LOAD\nVALUES 1 1 4759307092237271528 4809725529961379691 4809725529961379691 4809725529961379691 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4759307092237271528 4809725529961379691 4809725529961379691 4809725529961379691 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4665907144677900072,
+        4635004648695032759
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4759307092237271524,
+            4759307092237271535
+          ],
+          [
+            4809725529961379681,
+            4809725529961379701
+          ]
+        ],
+        "parry": [
+          [
+            4759307092237271521,
+            4759307092237271537
+          ],
+          [
+            4809725529961379679,
+            4809725529961379703
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4537128931990855064,
+        4590219625153434288
+      ]
+    },
+    {
+      "name": "numeric_normal_340",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>1798.2376501456672</density><geometry><sphere><radius>87.95295615899838</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_340",
+      "stdout": "LOAD\nVALUES 1 1 4752167874473163942 4804452889396897696 4804452889396897696 4804452889396897696 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4752167874473163942 4804452889396897696 4804452889396897696 4804452889396897696 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4655623548269710879,
+        4635889556008491742
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4752167874473163938,
+            4752167874473163946
+          ],
+          [
+            4804452889396897687,
+            4804452889396897705
+          ]
+        ],
+        "parry": [
+          [
+            4752167874473163937,
+            4752167874473163948
+          ],
+          [
+            4804452889396897685,
+            4804452889396897707
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4530346560120052380,
+        4585235374940369104
+      ]
+    },
+    {
+      "name": "numeric_normal_350",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>7258.705559663465</density><geometry><sphere><radius>4.869952606594601</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_350",
+      "stdout": "LOAD\nVALUES 1 1 4704795809310889038 4719707965238464440 4719707965238464440 4719707965238464440 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4704795809310889038 4719707965238464440 4719707965238464440 4719707965238464440 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4664703045866545141,
+        4617169097613480759
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4704795809310889033,
+            4704795809310889043
+          ],
+          [
+            4719707965238464431,
+            4719707965238464451
+          ]
+        ],
+        "parry": [
+          [
+            4704795809310889031,
+            4704795809310889046
+          ],
+          [
+            4719707965238464429,
+            4719707965238464453
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4482705415451585673,
+        4500181649996333537
+      ]
+    },
+    {
+      "name": "numeric_normal_360",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>6915.225741993409</density><geometry><sphere><radius>41.574579182148575</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_360",
+      "stdout": "LOAD\nVALUES 1 1 4746517294827756043 4788717402647318301 4788717402647318301 4788717402647318301 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4746517294827756043 4788717402647318301 4788717402647318301 4788717402647318301 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4664325385813110535,
+        4631047919163024689
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4746517294827756037,
+            4746517294827756049
+          ],
+          [
+            4788717402647318294,
+            4788717402647318308
+          ]
+        ],
+        "parry": [
+          [
+            4746517294827756034,
+            4746517294827756051
+          ],
+          [
+            4788717402647318292,
+            4788717402647318309
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4524203946805227828,
+        4569514670501126901
+      ]
+    },
+    {
+      "name": "numeric_normal_370",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>4315.709344954611</density><geometry><sphere><radius>24.14787222676737</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_370",
+      "stdout": "LOAD\nVALUES 1 1 4732817374417301533 4768087054032446355 4768087054032446355 4768087054032446355 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4732817374417301533 4768087054032446355 4768087054032446355 4768087054032446355 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4661467187307972003,
+        4627490239454770138
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4732817374417301528,
+            4732817374417301540
+          ],
+          [
+            4768087054032446347,
+            4768087054032446365
+          ]
+        ],
+        "parry": [
+          [
+            4732817374417301526,
+            4732817374417301543
+          ],
+          [
+            4768087054032446346,
+            4768087054032446367
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4510539486681337636,
+        4548995928955475528
+      ]
+    },
+    {
+      "name": "numeric_normal_380",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>6335.144799627949</density><geometry><sphere><radius>93.42733424302985</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_380",
+      "stdout": "LOAD\nVALUES 1 1 4761474130289863384 4814680052561285614 4814680052561285614 4814680052561285614 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4761474130289863384 4814680052561285614 4814680052561285614 4814680052561285614 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4663687580071928452,
+        4636274781119418763
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4761474130289863381,
+            4761474130289863389
+          ],
+          [
+            4814680052561285609,
+            4814680052561285620
+          ]
+        ],
+        "parry": [
+          [
+            4761474130289863379,
+            4761474130289863391
+          ],
+          [
+            4814680052561285607,
+            4814680052561285621
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4539734075338717912,
+        4595212583452530296
+      ]
+    },
+    {
+      "name": "numeric_normal_390",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>6454.2024019828905</density><geometry><sphere><radius>32.736261144120526</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_390",
+      "stdout": "LOAD\nVALUES 1 1 4741239456511082618 4780476866820599947 4780476866820599947 4780476866820599947 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4741239456511082618 4780476866820599947 4780476866820599947 4780476866820599947 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4663818485290092841,
+        4629804036481067031
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4741239456511082613,
+            4741239456511082623
+          ],
+          [
+            4780476866820599939,
+            4780476866820599954
+          ]
+        ],
+        "parry": [
+          [
+            4741239456511082610,
+            4741239456511082626
+          ],
+          [
+            4780476866820599938,
+            4780476866820599956
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4519071278242798701,
+        4561465800531414209
+      ]
+    },
+    {
+      "name": "numeric_normal_400",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>9977.679436687753</density><geometry><sphere><radius>78.96935075273156</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_400",
+      "stdout": "LOAD\nVALUES 1 1 4761196732388991000 4811912551203121855 4811912551203121855 4811912551203121855 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4761196732388991000 4811912551203121855 4811912551203121855 4811912551203121855 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4666710901607893197,
+        4635257390977865073
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4761196732388990997,
+            4761196732388991005
+          ],
+          [
+            4811912551203121848,
+            4811912551203121863
+          ]
+        ],
+        "parry": [
+          [
+            4761196732388990995,
+            4761196732388991007
+          ],
+          [
+            4811912551203121846,
+            4811912551203121864
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4539388954699058230,
+        4592879106661668226
+      ]
+    },
+    {
+      "name": "numeric_normal_410",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>4254.095664839432</density><geometry><sphere><radius>14.523331634523196</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_410",
+      "stdout": "LOAD\nVALUES 1 1 4722595444032724264 4751623338973518195 4751623338973518195 4751623338973518195 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4722595444032724264 4751623338973518195 4751623338973518195 4751623338973518195 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4661399442350255293,
+        4624365526921935500
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4722595444032724260,
+            4722595444032724270
+          ],
+          [
+            4751623338973518190,
+            4751623338973518202
+          ]
+        ],
+        "parry": [
+          [
+            4722595444032724258,
+            4722595444032724273
+          ],
+          [
+            4751623338973518189,
+            4751623338973518203
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4500545318383604667,
+        4532154290163617760
+      ]
+    },
+    {
+      "name": "numeric_normal_420",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>5966.079896067406</density><geometry><sphere><radius>20.956042541714456</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_420",
+      "stdout": "LOAD\nVALUES 1 1 4731993131362069670 4765600147334633199 4765600147334633199 4765600147334633199 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4731993131362069670 4765600147334633199 4765600147334633199 4765600147334633199 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4663281788919059606,
+        4626591819268505489
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4731993131362069666,
+            4731993131362069676
+          ],
+          [
+            4765600147334633193,
+            4765600147334633206
+          ]
+        ],
+        "parry": [
+          [
+            4731993131362069663,
+            4731993131362069679
+          ],
+          [
+            4765600147334633192,
+            4765600147334633207
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4509869789198961746,
+        4546247600894483643
+      ]
+    },
+    {
+      "name": "numeric_normal_430",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>9220.753337368807</density><geometry><sphere><radius>73.73961344422578</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_430",
+      "stdout": "LOAD\nVALUES 1 1 4759417073505884345 4809460220000094850 4809460220000094850 4809460220000094850 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4759417073505884345 4809460220000094850 4809460220000094850 4809460220000094850 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4666294777084109041,
+        4634889380931086445
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4759417073505884340,
+            4759417073505884352
+          ],
+          [
+            4809460220000094842,
+            4809460220000094861
+          ]
+        ],
+        "parry": [
+          [
+            4759417073505884338,
+            4759417073505884354
+          ],
+          [
+            4809460220000094840,
+            4809460220000094863
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4537218291771602978,
+        4590053806427631263
+      ]
+    },
+    {
+      "name": "numeric_normal_440",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>9509.104434981195</density><geometry><sphere><radius>90.621849934506</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_440",
+      "stdout": "LOAD\nVALUES 1 1 4763572027750189296 4816076479014033225 4816076479014033225 4816076479014033225 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4763572027750189296 4816076479014033225 4816076479014033225 4816076479014033225 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4666453299776462437,
+        4636077362711817798
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4763572027750189291,
+            4763572027750189301
+          ],
+          [
+            4816076479014033218,
+            4816076479014033232
+          ]
+        ],
+        "parry": [
+          [
+            4763572027750189288,
+            4763572027750189304
+          ],
+          [
+            4816076479014033216,
+            4816076479014033234
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4541438617025232717,
+        4596958116518464814
+      ]
+    },
+    {
+      "name": "numeric_normal_450",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>4165.144396349473</density><geometry><sphere><radius>97.02918293694844</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_450",
+      "stdout": "LOAD\nVALUES 1 1 4759653554552048710 4813023265872453639 4813023265872453639 4813023265872453639 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4759653554552048710 4813023265872453639 4813023265872453639 4813023265872453639 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4661301639396245158,
+        4636528238688727774
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4759653554552048706,
+            4759653554552048717
+          ],
+          [
+            4813023265872453631,
+            4813023265872453649
+          ]
+        ],
+        "parry": [
+          [
+            4759653554552048703,
+            4759653554552048720
+          ],
+          [
+            4813023265872453630,
+            4813023265872453650
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4537410432621611525,
+        4593969559958119441
+      ]
+    },
+    {
+      "name": "numeric_normal_460",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>2270.61520112502</density><geometry><sphere><radius>20.76650830205344</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_460",
+      "stdout": "LOAD\nVALUES 1 1 4725488544491657792 4759000953843856063 4759000953843856063 4759000953843856063 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4725488544491657792 4759000953843856063 4759000953843856063 4759000953843856063 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4657211550705406169,
+        4626538470122811032
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4725488544491657788,
+            4725488544491657796
+          ],
+          [
+            4759000953843856056,
+            4759000953843856073
+          ]
+        ],
+        "parry": [
+          [
+            4725488544491657786,
+            4725488544491657798
+          ],
+          [
+            4759000953843856054,
+            4759000953843856075
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4503740387436620124,
+        4539939416617078724
+      ]
+    },
+    {
+      "name": "numeric_normal_470",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>2585.625548806334</density><geometry><sphere><radius>23.548946647290336</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_470",
+      "stdout": "LOAD\nVALUES 1 1 4729021909172249825 4764025745833554509 4764025745833554509 4764025745833554509 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4729021909172249825 4764025745833554509 4764025745833554509 4764025745833554509 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4657904265785696899,
+        4627321656891235424
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4729021909172249822,
+            4729021909172249830
+          ],
+          [
+            4764025745833554500,
+            4764025745833554518
+          ]
+        ],
+        "parry": [
+          [
+            4729021909172249821,
+            4729021909172249831
+          ],
+          [
+            4764025745833554498,
+            4764025745833554520
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4506808115341599739,
+        4544768761470904189
+      ]
+    },
+    {
+      "name": "numeric_normal_480",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>8223.739685322651</density><geometry><sphere><radius>68.33333880934491</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_480",
+      "stdout": "LOAD\nVALUES 1 1 4757060304139262538 4806092788525832186 4806092788525832186 4806092788525832186 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4757060304139262538 4806092788525832186 4806092788525832186 4806092788525832186 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4665746663032370959,
+        4634508948174350319
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4757060304139262535,
+            4757060304139262543
+          ],
+          [
+            4806092788525832180,
+            4806092788525832192
+          ]
+        ],
+        "parry": [
+          [
+            4757060304139262533,
+            4757060304139262545
+          ],
+          [
+            4806092788525832179,
+            4806092788525832194
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4535303416661222757,
+        4586730303221898760
+      ]
+    },
+    {
+      "name": "numeric_normal_490",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>8299.611855031038</density><geometry><sphere><radius>41.44528297064605</radius></sphere></geometry></collision></link></model></sdf>",
+      "oracle_input": "normal_490",
+      "stdout": "LOAD\nVALUES 1 1 4747480817180837467 4789788137149724858 4789788137149724858 4789788137149724858 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4747480817180837467 4789788137149724858 4789788137149724858 4789788137149724858 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "oracle_input_bits": [
+        4665788374198780442,
+        4631029722338963964
+      ],
+      "bound_factors": {
+        "native": [
+          5,
+          9
+        ],
+        "parry": [
+          8,
+          11
+        ],
+        "differential": [
+          13,
+          20
+        ]
+      },
+      "oracle_intervals": {
+        "native": [
+          [
+            4747480817180837464,
+            4747480817180837472
+          ],
+          [
+            4789788137149724851,
+            4789788137149724867
+          ]
+        ],
+        "parry": [
+          [
+            4747480817180837462,
+            4747480817180837473
+          ],
+          [
+            4789788137149724849,
+            4789788137149724868
+          ]
+        ]
+      },
+      "differential_absolute_bounds": [
+        4525544841787128418,
+        4570853088629135102
+      ]
+    },
+    {
+      "name": "no_density",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "rust_error": "Unsupported",
+      "stdout": "LOAD\nVALUES 1 1 4616402176928740198 4580486567713808686 4580486567713808686 4580486567713808686 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4616402176928740198 4580486567713808686 4580486567713808686 4580486567713808686 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:115]\u001b[0m Collision is missing a <density> child element. Using a default density value of 1000.000000 kg/m^3. "
+    },
+    {
+      "name": "empty_density",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density></density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "rust_error": "Unsupported",
+      "stdout": "LOAD\nVALUES 1 1 4616402176928740198 4580486567713808686 4580486567713808686 4580486567713808686 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4616402176928740198 4580486567713808686 4580486567713808686 4580486567713808686 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "zero_density",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>0</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "rust_error": "InvalidValue",
+      "stdout": "LOAD 19\nVALUES 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "negative_density",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>-1</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "rust_error": "InvalidValue",
+      "stdout": "LOAD 19\nVALUES 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "nonfinite_density",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>inf</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "rust_error": "InvalidValue",
+      "stdout": "LOAD 19\nVALUES 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "nonfinite_radius",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>2170</density><geometry><sphere><radius>inf</radius></sphere></geometry></collision></link></model></sdf>",
+      "rust_error": "InvalidValue",
+      "stdout": "LOAD 19\nVALUES 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "explicit_pose",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose>0 0 0 0 0 0</pose><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "rust_error": "Unsupported",
+      "stdout": "LOAD\nVALUES 1 1 4621306650028725639 4585400661777136886 4585400661777136886 4585400661777136886 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4621306650028725639 4585400661777136886 4585400661777136886 4585400661777136886 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "manual_override",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'><mass>1</mass></inertial><collision name='sphere_col'><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "rust_error": "Unsupported",
+      "stdout": "LOAD\nVALUES 1 1 4607182418800017408 4571261708172110333 4571261708172110333 4571261708172110333 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4607182418800017408 4571261708172110333 4571261708172110333 4571261708172110333 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "link_density",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><density>2170</density><inertial auto='true'/><collision name='sphere_col'><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "rust_error": "Unsupported",
+      "stdout": "LOAD\nVALUES 1 1 4621306650028725639 4585400661777136886 4585400661777136886 4585400661777136886 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4621306650028725639 4585400661777136886 4585400661777136886 4585400661777136886 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"shapes\"]/link[@name=\"link\"]/density:<data-string>:L1]: XML Element[density], child of element[link], not defined in SDF. Copying[density] as children of [link].\n"
+    },
+    {
+      "name": "auto_params",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><auto_inertia_params/><inertial auto='true'/><collision name='sphere_col'><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "rust_error": "Unsupported",
+      "stdout": "LOAD\nVALUES 1 1 4621306650028725639 4585400661777136886 4585400661777136886 4585400661777136886 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4621306650028725639 4585400661777136886 4585400661777136886 4585400661777136886 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"shapes\"]/link[@name=\"link\"]/auto_inertia_params:<data-string>:L1]: XML Element[auto_inertia_params], child of element[link], not defined in SDF. Copying[auto_inertia_params] as children of [link].\n"
+    },
+    {
+      "name": "unknown_sphere",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>2170</density><geometry><sphere bad=\"1\"><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "rust_error": "Unsupported",
+      "stdout": "LOAD\nVALUES 1 1 4621306650028725639 4585400661777136886 4585400661777136886 4585400661777136886 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4621306650028725639 4585400661777136886 4585400661777136886 4585400661777136886 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/model[@name=\"shapes\"]/link[@name=\"link\"]/collision[@name=\"sphere_col\"]/geometry/sphere[@bad=\"1\"]:<data-string>:L1]: XML Attribute[bad] in element[sphere] not defined in SDF.\n"
+    },
+    {
+      "name": "duplicate_radius",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>2170</density><geometry><sphere><radius>0.1</radius><radius>0.2</radius></sphere></geometry></collision></link></model></sdf>",
+      "rust_error": "InvalidValue",
+      "stdout": "LOAD\nVALUES 1 1 4621306650028725639 4585400661777136886 4585400661777136886 4585400661777136886 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4621306650028725639 4585400661777136886 4585400661777136886 4585400661777136886 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "multiple_collisions",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision><collision name='other'><geometry><sphere/></geometry></collision></link></model></sdf>",
+      "rust_error": "Unsupported",
+      "stdout": "LOAD\nVALUES 1 1 4661337632440643868 4655083973011964017 4655083973011964017 4655083973011964017 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4661337632440643868 4655083973011964017 4655083973011964017 4655083973011964017 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:115]\u001b[0m Collision is missing a <density> child element. Using a default density value of 1000.000000 kg/m^3. "
+    },
+    {
+      "name": "prepared_old_sphere",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density>1240</density><geometry><sphere><radius>1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "auto-box.sdf",
+      "stdout": "LOAD\nVALUES 1 1 4662432987886324156 4656787193621907402 4656787193621907402 4656787193621907402 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4662432987886324156 4656787193621907402 4656787193621907402 4656787193621907402 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    }
+  ]
+}

@@ -18,7 +18,7 @@ size remains an error. Native normalization warnings are retained in the
 reference corpus but not reproduced as Rust console output.
 
 Default collision density, an empty density, any explicit collision pose,
-multiple collisions, other shapes, link-level density, auto parameters and
+multiple collisions, shapes outside the box or bounded sphere domain, link-level density, auto parameters and
 manual inertial overrides remain Unsupported. Manual false/default behavior
 and every old assertion/corpus remain unchanged, including the old valid
 unit-box refusal whose density is omitted. There is no collision aggregation,
@@ -76,3 +76,6 @@ This is standalone producer work. Current Scene admission explicitly refuses
 Some(collision.density), so every newly admitted automatic box is rejected
 there. Computed Inertial and retained density require consumer review before
 that guard or a dependency pin changes. This slice changes neither.
+
+The subsequent bounded sphere extension is documented in AUTO_SPHERE_INERTIA.md;
+its new numerical comparisons do not change any retained box tolerance.

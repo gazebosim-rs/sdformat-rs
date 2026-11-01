@@ -3251,6 +3251,26 @@
       "baseline": "Three new sphere tests and the retained box/manual tests supply the final folded controls. Prior author four new Rust controls,88 native inputs and unchanged full original passed. Independent prior review replayed seven focused Rust tests,native88+original,Clippy/fmt and1006 traces/842 high-precision cases. The initial expected old sphere rejection failure remains recorded. Only the prior-approved same-input/auto-box.sdf sphere row now uses the exhaustive positive; historical corpus and all other predicates remain unchanged. Final fold/full retained/strict hosted checks pending.",
       "status": "partial_reviewed",
       "review": "Independent msgs_performance_owner PRIOR review approved with no findings after fresh accepted dd87 source and separate target: four new plus three retained manual Rust tests,88 native DOM controls,the unchanged full original,Clippy and fmt passed. Fresh1006 public/native operation traces are byte-equal; independent400-digit oracle checked842 qualified cases and56 stored intervals. All592 prior tests/tools and dependency/license inputs were unchanged; all349 Parry archive files matched. Original EXPECT_EQ mass/diagonal/pose values remain exact; new relative error bounds are limited to supplemental normal-forward cases, with no geometry cutoff or custom formula. Only the exact old sphere corpus row/XML and auto-box.sdf URI rejection transition was approved into the exhaustive helper. Root authorized that fold; every other old predicate/corpus/native stream stays unchanged. Final fold review and ordinary strict/hosted qualification remain pending; no complete original or simulator pin credit."
+    },
+    {
+      "target": "INTEGRATION_includes",
+      "case": "IncludesTest.Includes",
+      "source": "test/integration/includes.cc:123-151",
+      "rust_test": "tests/include_lights.rs::original_includes_light_subtrees_retain_exact_assertions",
+      "assertions": "Partial Light observations only: two Lights; absent empty name; both indexed-presence observations; original and overridden names; Point type; shadow flag; exact original/override translation and identity quaternion, both pose frames; original four-ULP bounds for all four attenuation scalars. Exact original include subtrees and complete resource bytes retained. Root/world generic Element presence/OriginalVersion, actors, models and all other original observations remain unported by this row. Supplemental complete getter/source/order/clone/strict/error/semantic tests add no full original credit.",
+      "fixtures": {
+        "tests/fixtures/include_lights_original.sdf": "729adf1902c460286de907854e7d836f5856229abc4e5e3e87dd0c1b87eea136",
+        "tests/fixtures/include_lights_full_original.sdf": "c1a6587cbcf31d17bd7d43393d138b4e31f4fe041e75b8de55d975bcf445c555",
+        "tests/fixtures/included_light_original.sdf": "d460cc01d78e4deac37ec04c48d3c8b40a0885012e01b3c8aa6f0b3d9f345bb5",
+        "tests/include_lights.json": "b1d2ac7660bd1cacfa15f57d9f745ba8ba343d4c1370fe72162e152125ea4706"
+      },
+      "upstream_fixtures": {
+        "test/sdf/includes.sdf": "c1a6587cbcf31d17bd7d43393d138b4e31f4fe041e75b8de55d975bcf445c555",
+        "test/integration/model/test_light/model.sdf": "d460cc01d78e4deac37ec04c48d3c8b40a0885012e01b3c8aa6f0b3d9f345bb5"
+      },
+      "baseline": "Final author focused35 Rust checks (new4 plus retained includes/root/merge/semantics/depth), all-target Clippy and fmt pass. Final native replay reproduces23 observations:22 normal exits and one separately preserved native empty-name abort; the unchanged full native Includes original passes. Initial64-depth regression and exact b246 clean control remain distinct; corrected normal debug depth passes with unchanged bounds/stack/assertions. Independent review and full instrumented strict staged/hosted checks remain pending. No old assertion/corpus changed.",
+      "status": "partial_pending_review",
+      "review": "pending"
     }
   ]
 }

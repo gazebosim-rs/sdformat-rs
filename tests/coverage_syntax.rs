@@ -718,6 +718,102 @@ fn plain_declarations(
     }
     out
 }
+// With no derives or payload expressions, these declarations do not rely
+// on builtin names supplied by imports. No other evidence uses this view.
+fn pure_tuple_declarations(
+    source: &str,
+    file: &syn::File,
+    ancestor: &syn::File,
+    module: &str,
+) -> BTreeSet<usize> {
+    let mut out = BTreeSet::new();
+    if file
+        .items
+        .iter()
+        .any(|item| matches!(item, Item::Use(item) if !docs_only(&item.attrs)))
+    {
+        return out;
+    }
+    let mut context = file.clone();
+    context.items.retain(|item| !matches!(item, Item::Use(_)));
+    let standard_scope = standard_debug_scope(&context, ancestor, module);
+    if !standard_scope {
+        return out;
+    }
+    let mut audit = Audit {
+        opaque: false,
+        closings: BTreeSet::new(),
+        opaque_lines: BTreeSet::new(),
+        declarations: BTreeSet::new(),
+        item_macro: false,
+        standard_scope,
+        default_variant: false,
+    };
+    audit.visit_file(&context);
+    if audit.opaque || audit.item_macro {
+        return out;
+    }
+    let lines: Vec<_> = source.split('\n').collect();
+    for item in &file.items {
+        match item {
+            Item::Enum(item)
+                if docs_only(&item.attrs)
+                    && matches!(item.vis, Visibility::Inherited)
+                    && item.generics.params.is_empty()
+                    && item.generics.where_clause.is_none()
+                    && !item.variants.is_empty()
+                    && item.variants.iter().all(|variant| {
+                        let syn::Fields::Unnamed(fields) = &variant.fields else {
+                            return false;
+                        };
+                        docs_only(&variant.attrs)
+                            && variant.discriminant.is_none()
+                            && !fields.unnamed.is_empty()
+                            && fields.unnamed.iter().all(|field| {
+                                docs_only(&field.attrs)
+                                    && matches!(field.vis, Visibility::Inherited)
+                                    && concrete_type(&field.ty)
+                            })
+                    }) =>
+            {
+                let Some(header) = item.enum_token.span.join(item.brace_token.span.open()) else {
+                    continue;
+                };
+                if header.start().line != header.end().line
+                    || lines[header.start().line - 1].trim() != format!("enum {} {{", item.ident)
+                    || !exclusive_span(source, header, "")
+                    || !exclusive_span(source, item.brace_token.span.close(), "")
+                {
+                    continue;
+                }
+                // Prove the entire declaration before emitting any line. A
+                // neighbouring expression or shared-line item cannot borrow it.
+                let variants = item
+                    .variants
+                    .pairs()
+                    .map(|pair| {
+                        let (variant, comma) = pair.into_tuple();
+                        let syn::Fields::Unnamed(fields) = &variant.fields else {
+                            return None;
+                        };
+                        let span = variant.ident.span().join(fields.paren_token.span.close())?;
+                        (span.start().line == span.end().line
+                            && comma
+                                .is_some_and(|comma| comma.span.start().line == span.end().line)
+                            && exclusive_span(source, span, ","))
+                        .then_some(span.start().line)
+                    })
+                    .collect::<Option<Vec<_>>>();
+                if let Some(variants) = variants {
+                    out.insert(header.start().line);
+                    out.extend(variants);
+                }
+            }
+            _ => {}
+        }
+    }
+    out
+}
 fn candidate_lines(source: &str) -> BTreeSet<usize> {
     let file = syn::parse_file(source).unwrap();
     let lines: Vec<_> = source.split('\n').collect();
@@ -1761,7 +1857,9 @@ fn classify(source: &str, ancestor: &str, module: &str) -> Result<Evidence, syn:
     } else {
         plain_declarations(source, &syntax, &ancestor_syntax, module)
     };
+    let tuples = pure_tuple_declarations(source, &syntax, &ancestor_syntax, module);
     let mut items = context_lines(source, ancestor, module);
+    items.extend(tuples.iter().copied());
     items.extend(local_result_tuple(
         source,
         &syntax,
@@ -1788,6 +1886,7 @@ fn classify(source: &str, ancestor: &str, module: &str) -> Result<Evidence, syn:
         standard_scope && !calls.opaque && !ancestor_audit.opaque,
     );
     let mut unmasked = declarations.clone();
+    unmasked.extend(tuples);
     unmasked.extend(format_items.iter().copied());
     unmasked.extend(format_closings.iter().copied());
     items.extend(format_items);
@@ -3294,4 +3393,144 @@ fn compiler_accepted_shadowed_result_constructor_keeps_runtime_identity() {
             .items
             .contains(&line)
     );
+}
+
+#[test]
+fn private_tuple_enums_prove_only_complete_exclusive_pure_declarations() {
+    let source = "enum Included {\n Model(Box<u8>, bool),\n Light(Box<u16>),\n}\n";
+    compiles(source);
+    let proof = classify(source, "mod parse;", "parse").unwrap();
+    assert_eq!(proof.items, BTreeSet::from([1, 2, 3]));
+    assert!(proof.items.is_disjoint(&proof.opaque));
+    let documented = "/// Payloads\nenum Data {\n /// Array\n Array([u8; 4]),\n /// Reference\n Reference(&'static u8),\n}\n";
+    compiles(documented);
+    assert_eq!(
+        classify(documented, "mod parse;", "parse").unwrap().items,
+        BTreeSet::from([2, 4, 6])
+    );
+}
+
+#[test]
+fn private_tuple_enums_refuse_attributes_expressions_generics_and_other_shapes() {
+    let source = "enum Included {\n Model(Box<u8>, bool),\n Light(Box<u16>),\n}\n";
+    for changed in [
+        source.replace("enum Included", "pub enum Included"),
+        source.replace("enum Included", "enum Included<T>"),
+        source.replace("enum Included {", "enum Included where Box<u8>: Sized {"),
+        format!("#[repr(u8)]\n{source}"),
+        format!("#[derive(Debug)]\n{source}"),
+        source.replace("Model(Box<u8>, bool)", "#[cfg(any())] Model(Box<u8>, bool)"),
+        source.replace("Box<u8>", "#[cfg(any())] Box<u8>"),
+        source.replace("Model(Box<u8>, bool),", "Model(Box<u8>, bool) = 0,"),
+        source.replace("Box<u8>", "[u8; 1 + 1]"),
+        source.replace("Box<u8>", "[u8; { const fn size() -> usize { 1 } size() }]"),
+        source.replace("Box<u8>", "[u8; size()]"),
+        source.replace("Box<u8>", "Array<{ size() }>"),
+        source.replace("Box<u8>", "payload!()"),
+        source.replace("Light(Box<u16>)", "Light { value: u16 }"),
+        source.replace("Light(Box<u16>)", "Light"),
+        source.replace("Light(Box<u16>)", "Light()"),
+    ] {
+        assert!(
+            classify(&changed, "mod parse;", "parse")
+                .unwrap()
+                .items
+                .is_empty(),
+            "{changed}"
+        );
+    }
+    for changed in [
+        source.replace("Box<u8>", "[u8; { const fn size() -> usize { 1 } size() }]"),
+        source.replace("Box<u8>", "[u8; 1 + 1]"),
+    ] {
+        compiles(&changed);
+        assert!(
+            classify(&changed, "mod parse;", "parse")
+                .unwrap()
+                .items
+                .is_empty()
+        );
+    }
+}
+
+#[test]
+fn private_tuple_enum_evidence_refuses_overlaps_multiline_rows_and_opaque_scope() {
+    let source = "enum Included {\n Model(Box<u8>, bool),\n Light(Box<u16>),\n}\n";
+    for changed in [
+        source.replace("{\n Model", "{ Model"),
+        source.replace("bool),\n Light", "bool), Light"),
+        source.replace("}\n", "} fn hidden() { std::hint::black_box(1); }\n"),
+        source.replace("Model(Box<u8>, bool),", "Model(\n Box<u8>,\n bool,\n),"),
+        source.replace("Light(Box<u16>),", "Light(Box<u16>)"),
+        format!("macro_rules! payload {{ () => {{ u8 }} }}\n{source}"),
+    ] {
+        compiles(&changed);
+        assert!(
+            classify(&changed, "mod parse;", "parse")
+                .unwrap()
+                .items
+                .is_empty(),
+            "{changed}"
+        );
+    }
+    assert!(
+        classify(source, "#[custom::attribute] mod parse;", "parse")
+            .unwrap()
+            .items
+            .is_empty()
+    );
+}
+
+#[test]
+fn pure_tuple_import_scope_does_not_lend_proof_to_old_derive_classes() {
+    let source = "use crate::*;\nenum Included {\n Model(Box<Model>, bool),\n Light(Box<Light>),\n}\n#[derive(Debug)]\npub struct Record {\n pub raw: String,\n}\n#[derive(Clone)]\npub enum Surface {\n Earth,\n Moon,\n}\n";
+    for ancestor in [
+        "mod parse;",
+        "mod parse; struct Box<T>(T); type Model = u8; type Light = u16;",
+        "mod parse; struct Box<T>(T); type Model = [u8; { fn hidden() {} 1 }]; type Light = u16;",
+    ] {
+        let proof = classify(source, ancestor, "parse").unwrap();
+        assert_eq!(proof.items, BTreeSet::from([1, 2, 3, 4]));
+        assert!(proof.fields.is_empty());
+        assert!(proof.declarations.is_empty());
+        assert!(proof.opaque.contains(&6));
+        assert!(proof.opaque.contains(&10));
+    }
+}
+
+#[test]
+fn pure_tuple_import_scope_keeps_transforming_contexts_opaque() {
+    let source = "use crate::*;\nenum Included {\n Model(Box<u8>, bool),\n Light(Box<u16>),\n}\n";
+    for changed in [
+        format!("#![custom::attribute]\n{source}"),
+        format!("#[custom::attribute]\n{source}"),
+        format!("{source}#[custom::attribute] fn hidden() {{}}\n"),
+        format!("{source}#[derive(custom::Debug)] struct Other;\n"),
+        format!("{source}macro_rules! payload {{ () => {{ u8 }} }}\n"),
+        source.replace("Box<u8>", "payload!()"),
+    ] {
+        let proof = classify(&changed, "mod parse;", "parse").unwrap();
+        let header = changed
+            .lines()
+            .position(|line| line == "enum Included {")
+            .unwrap()
+            + 1;
+        assert!(
+            proof
+                .items
+                .is_disjoint(&BTreeSet::from([header, header + 1, header + 2])),
+            "{changed}"
+        );
+    }
+    for ancestor in [
+        "#[custom::attribute] mod parse;",
+        "#![custom::attribute] mod parse;",
+        "mod parse; macro_rules! payload { () => { u8 } }",
+    ] {
+        let proof = classify(source, ancestor, "parse").unwrap();
+        assert!(
+            proof.items.is_disjoint(&BTreeSet::from([2, 3, 4])),
+            "{ancestor}"
+        );
+    }
 }

@@ -19,6 +19,11 @@ enum LightContext {
     Document,
 }
 
+enum Included {
+    Model(Box<Model>, bool),
+    Light(Box<Light>),
+}
+
 pub(crate) fn load(
     xml: &str,
     uri: &str,
@@ -50,7 +55,8 @@ pub(crate) fn load(
         } else if child.has_tag_name("model") {
             models.push(parser.model(child, "::", None)?);
         } else {
-            let (model, merge) = parser.include(child, "::")?;
+            let included = parser.include(child, "::")?;
+            let (model, merge) = parser.included_model(child, included)?;
             if merge {
                 return Err(parser.err(
                     child,
@@ -1128,7 +1134,13 @@ impl Parser<'_> {
                     let (model, merge) = if member.has_tag_name("model") {
                         (self.model(member, &name, None)?, false)
                     } else {
-                        self.include(member, &name)?
+                        match self.include(member, &name)? {
+                            Included::Model(model, merge) => (*model, merge),
+                            Included::Light(light) => {
+                                lights.push(*light);
+                                continue;
+                            }
+                        }
                     };
                     if merge {
                         let (imported, proxy, provenance) =
@@ -1696,7 +1708,8 @@ impl Parser<'_> {
                     let (nested, merge) = if member.has_tag_name("model") {
                         (self.model(member, &scoped_name, None)?, false)
                     } else {
-                        self.include(member, &scoped_name)?
+                        let included = self.include(member, &scoped_name)?;
+                        self.included_model(member, included)?
                     };
                     if merge {
                         let (imported, proxy, provenance) =
@@ -1836,7 +1849,23 @@ impl Parser<'_> {
             source: self.source(node),
         }
     }
-    fn include(&mut self, node: Node<'_, '_>, scope: &str) -> Result<(Model, bool), Diagnostic> {
+    // Unbox only after recursive loading returns, keeping this temporary
+    // Model out of the recursive caller's stack frame.
+    fn included_model(
+        &self,
+        node: Node<'_, '_>,
+        included: Included,
+    ) -> Result<(Model, bool), Diagnostic> {
+        match included {
+            Included::Model(model, merge) => Ok((*model, merge)),
+            Included::Light(_) => Err(self.err(
+                node,
+                ErrorCode::Unsupported,
+                "light include requires a world parent",
+            )),
+        }
+    }
+    fn include(&mut self, node: Node<'_, '_>, scope: &str) -> Result<Included, Diagnostic> {
         self.allowed(
             node,
             &[
@@ -1898,13 +1927,13 @@ impl Parser<'_> {
         })?;
         let root = doc.root_element();
         imported.check_root(root)?;
-        imported.allowed(root, &["model"], &["version"])?;
+        imported.allowed(root, &["model", "light"], &["version"])?;
         let all = elements(root).collect::<Vec<_>>();
         if all.len() != 1 {
             return Err(self.err(
                 node,
                 ErrorCode::InvalidValue,
-                "include requires exactly one model",
+                "include requires exactly one model or light",
             ));
         }
         let rename = self.optional_text(node, "name")?;
@@ -1916,6 +1945,9 @@ impl Parser<'_> {
         {
             return Err(self.err(node, ErrorCode::InvalidValue, "invalid include name"));
         }
+        if all[0].has_tag_name("light") {
+            return self.include_light(node, &imported, all[0], rename, merge);
+        }
         // The resource is a standalone document before include overrides are
         // applied. Its root pose cannot acquire the including parent's scope.
         if !imported.pose(all[0])?.relative_to.is_empty() {
@@ -1926,7 +1958,47 @@ impl Parser<'_> {
             ));
         }
         let model = imported.model(all[0], scope, rename.as_deref())?;
-        self.apply_include_overrides(node, model, uri, rename, merge)
+        self.finish_model_include(node, model, uri, rename, merge)
+    }
+    fn include_light(
+        &self,
+        node: Node<'_, '_>,
+        imported: &Parser<'_>,
+        declaration: Node<'_, '_>,
+        rename: Option<String>,
+        merge: bool,
+    ) -> Result<Included, Diagnostic> {
+        if merge
+            || ["namespace", "static", "placement_frame", "plugin"]
+                .iter()
+                .any(|tag| child(node, tag).is_some())
+        {
+            return Err(self.err(
+                node,
+                ErrorCode::Unsupported,
+                "unsupported light include override",
+            ));
+        }
+        let mut light = imported.light_in(declaration, LightContext::Document)?;
+        if let Some(name) = rename {
+            light.name = name;
+        }
+        if child(node, "pose").is_some() {
+            light.pose = self.pose(node)?;
+        }
+        Ok(Included::Light(Box::new(light)))
+    }
+    // Keep the owned Model move/box off the recursively live include frame.
+    fn finish_model_include(
+        &self,
+        node: Node<'_, '_>,
+        model: Model,
+        uri: String,
+        rename: Option<String>,
+        merge: bool,
+    ) -> Result<Included, Diagnostic> {
+        let (model, merge) = self.apply_include_overrides(node, model, uri, rename, merge)?;
+        Ok(Included::Model(Box::new(model), merge))
     }
     // Applying overrides after recursive loading keeps their temporaries off
     // the stack while loading deeply nested resources.

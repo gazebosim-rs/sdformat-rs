@@ -3946,3 +3946,19 @@ original, Clippy/fmt, 1,006 fresh public/native traces and 842 independent
 high-precision cases. The original mapping remains partial; final fold review
 and ordinary strict staged/hosted checks remain pending;
 accepted quality stays dd87 and no consumer pin changes. See AUTO_SPHERE_INERTIA.md.
+
+
+A private follow-up on accepted b246 prepares world-only external Light includes
+through the existing injected resolver and typed document reader. Name/pose
+overrides, imported source identity and frame policy follow the pinned parser;
+root/model Light includes and model-only overrides remain explicitly Unsupported.
+Initial native characterization retains 23 observations: 22 normal exits and one
+genuine native empty-name abort, which Rust does not copy. The final focused run passes 35 Rust tests including the four new controls and
+retained model/root/merge/semantic/depth cases; all-target Clippy passes. Final
+native replay reproduces the 23 observations and the unchanged full Includes
+original passes. The initial 64-depth stack overflow remains separate from the
+clean b246 baseline and corrected focused pass; no bound, stack setting, old
+assertion or tolerance changed. All 598 preexisting test/tool files are unchanged. The IncludesTest.Includes mapping is pending and
+partial: only its Light value observations are proposed, with generic Element,
+OriginalVersion, actor/model and partial-DOM-on-error behavior still unported.
+No public type, dependency, Fuel or simulator pin changes. See INCLUDE_LIGHTS.md.

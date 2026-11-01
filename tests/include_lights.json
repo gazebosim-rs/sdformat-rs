@@ -1,0 +1,278 @@
+[
+  {
+    "id": "original",
+    "xml": "<sdf version='1.12'><world name='default'><frame name='f'><pose>10 0 0 0 0 0</pose></frame><include><uri>test_light</uri></include></world></sdf>",
+    "resource": "included_light_original.sdf",
+    "resource_xml": "<?xml version=\"1.0\" ?>\n<sdf version=\"1.6\">\n  <light name=\"point_light\" type=\"point\">\n    <cast_shadows>false</cast_shadows>\n    <pose frame=\"world\">1 2 10 0 0 0</pose>\n    <diffuse>1.0 0.0 0.5 1.0</diffuse>\n    <specular>0.2 0.1 0.0 1.0</specular>\n    <attenuation>\n      <range>123.5</range>\n      <linear>2.0</linear>\n      <constant>-2.0</constant>\n      <quadratic>20.2</quadratic>\n    </attenuation>\n  </light>\n</sdf>\n",
+    "native": {
+      "exit_code": 0,
+      "stdout": "REQUEST 746573745f6c69676874\nERRORS 0\nCOUNT 1\nOK 706f696e745f6c69676874 1 4607182418800017408 4611686018427387904 4621819117588971520 0 0 0 4607182418800017408 776f726c64 1 1 0 1065353216 0 1056964608 1065353216 1045220557 1036831949 0 1065353216 4638390956842811392 0 0 0 4607182418800017408 0 4626379012211684147 0 0 13830554455654793216 4607182418800017408\nSOURCE @RESOURCE@ 3 312e36\nPOSE world OK 4607182418800017408 4611686018427387904 4621819117588971520 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    "rust_error": null
+  },
+  {
+    "id": "rename",
+    "xml": "<sdf version='1.12'><world name='default'><frame name='f'><pose>10 0 0 0 0 0</pose></frame><include><uri>test_light</uri><name>renamed</name></include></world></sdf>",
+    "resource": "included_light_original.sdf",
+    "resource_xml": "<?xml version=\"1.0\" ?>\n<sdf version=\"1.6\">\n  <light name=\"point_light\" type=\"point\">\n    <cast_shadows>false</cast_shadows>\n    <pose frame=\"world\">1 2 10 0 0 0</pose>\n    <diffuse>1.0 0.0 0.5 1.0</diffuse>\n    <specular>0.2 0.1 0.0 1.0</specular>\n    <attenuation>\n      <range>123.5</range>\n      <linear>2.0</linear>\n      <constant>-2.0</constant>\n      <quadratic>20.2</quadratic>\n    </attenuation>\n  </light>\n</sdf>\n",
+    "native": {
+      "exit_code": 0,
+      "stdout": "REQUEST 746573745f6c69676874\nERRORS 0\nCOUNT 1\nOK 72656e616d6564 1 4607182418800017408 4611686018427387904 4621819117588971520 0 0 0 4607182418800017408 776f726c64 1 1 0 1065353216 0 1056964608 1065353216 1045220557 1036831949 0 1065353216 4638390956842811392 0 0 0 4607182418800017408 0 4626379012211684147 0 0 13830554455654793216 4607182418800017408\nSOURCE @RESOURCE@ 3 312e36\nPOSE world OK 4607182418800017408 4611686018427387904 4621819117588971520 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    "rust_error": null
+  },
+  {
+    "id": "pose",
+    "xml": "<sdf version='1.12'><world name='default'><frame name='f'><pose>10 0 0 0 0 0</pose></frame><include><uri>test_light</uri><pose>4 5 6 0 0 0</pose></include></world></sdf>",
+    "resource": "included_light_original.sdf",
+    "resource_xml": "<?xml version=\"1.0\" ?>\n<sdf version=\"1.6\">\n  <light name=\"point_light\" type=\"point\">\n    <cast_shadows>false</cast_shadows>\n    <pose frame=\"world\">1 2 10 0 0 0</pose>\n    <diffuse>1.0 0.0 0.5 1.0</diffuse>\n    <specular>0.2 0.1 0.0 1.0</specular>\n    <attenuation>\n      <range>123.5</range>\n      <linear>2.0</linear>\n      <constant>-2.0</constant>\n      <quadratic>20.2</quadratic>\n    </attenuation>\n  </light>\n</sdf>\n",
+    "native": {
+      "exit_code": 0,
+      "stdout": "REQUEST 746573745f6c69676874\nERRORS 0\nCOUNT 1\nOK 706f696e745f6c69676874 1 4616189618054758400 4617315517961601024 4618441417868443648 0 0 0 4607182418800017408 - 1 1 0 1065353216 0 1056964608 1065353216 1045220557 1036831949 0 1065353216 4638390956842811392 0 0 0 4607182418800017408 0 4626379012211684147 0 0 13830554455654793216 4607182418800017408\nSOURCE @RESOURCE@ 3 312e36\nPOSE world OK 4616189618054758400 4617315517961601024 4618441417868443648 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    "rust_error": null
+  },
+  {
+    "id": "empty_pose",
+    "xml": "<sdf version='1.12'><world name='default'><frame name='f'><pose>10 0 0 0 0 0</pose></frame><include><uri>test_light</uri><pose/></include></world></sdf>",
+    "resource": "included_light_original.sdf",
+    "resource_xml": "<?xml version=\"1.0\" ?>\n<sdf version=\"1.6\">\n  <light name=\"point_light\" type=\"point\">\n    <cast_shadows>false</cast_shadows>\n    <pose frame=\"world\">1 2 10 0 0 0</pose>\n    <diffuse>1.0 0.0 0.5 1.0</diffuse>\n    <specular>0.2 0.1 0.0 1.0</specular>\n    <attenuation>\n      <range>123.5</range>\n      <linear>2.0</linear>\n      <constant>-2.0</constant>\n      <quadratic>20.2</quadratic>\n    </attenuation>\n  </light>\n</sdf>\n",
+    "native": {
+      "exit_code": 0,
+      "stdout": "REQUEST 746573745f6c69676874\nERRORS 0\nCOUNT 1\nOK 706f696e745f6c69676874 1 0 0 0 0 0 0 4607182418800017408 - 1 1 0 1065353216 0 1056964608 1065353216 1045220557 1036831949 0 1065353216 4638390956842811392 0 0 0 4607182418800017408 0 4626379012211684147 0 0 13830554455654793216 4607182418800017408\nSOURCE @RESOURCE@ 3 312e36\nPOSE world OK 0 0 0 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    "rust_error": null
+  },
+  {
+    "id": "relative",
+    "xml": "<sdf version='1.12'><world name='default'><frame name='f'><pose>10 0 0 0 0 0</pose></frame><include><uri>test_light</uri><pose relative_to='f'>4 5 6 0 0 0</pose></include></world></sdf>",
+    "resource": "included_light_original.sdf",
+    "resource_xml": "<?xml version=\"1.0\" ?>\n<sdf version=\"1.6\">\n  <light name=\"point_light\" type=\"point\">\n    <cast_shadows>false</cast_shadows>\n    <pose frame=\"world\">1 2 10 0 0 0</pose>\n    <diffuse>1.0 0.0 0.5 1.0</diffuse>\n    <specular>0.2 0.1 0.0 1.0</specular>\n    <attenuation>\n      <range>123.5</range>\n      <linear>2.0</linear>\n      <constant>-2.0</constant>\n      <quadratic>20.2</quadratic>\n    </attenuation>\n  </light>\n</sdf>\n",
+    "native": {
+      "exit_code": 0,
+      "stdout": "REQUEST 746573745f6c69676874\nERRORS 0\nCOUNT 1\nOK 706f696e745f6c69676874 1 4616189618054758400 4617315517961601024 4618441417868443648 0 0 0 4607182418800017408 66 1 1 0 1065353216 0 1056964608 1065353216 1045220557 1036831949 0 1065353216 4638390956842811392 0 0 0 4607182418800017408 0 4626379012211684147 0 0 13830554455654793216 4607182418800017408\nSOURCE @RESOURCE@ 3 312e36\nPOSE world OK 4624070917402656768 4617315517961601024 4618441417868443648 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    "rust_error": null
+  },
+  {
+    "id": "degrees",
+    "xml": "<sdf version='1.12'><world name='default'><frame name='f'><pose>10 0 0 0 0 0</pose></frame><include><uri>test_light</uri><pose degrees='true'>4 5 6 0 0 90</pose></include></world></sdf>",
+    "resource": "included_light_original.sdf",
+    "resource_xml": "<?xml version=\"1.0\" ?>\n<sdf version=\"1.6\">\n  <light name=\"point_light\" type=\"point\">\n    <cast_shadows>false</cast_shadows>\n    <pose frame=\"world\">1 2 10 0 0 0</pose>\n    <diffuse>1.0 0.0 0.5 1.0</diffuse>\n    <specular>0.2 0.1 0.0 1.0</specular>\n    <attenuation>\n      <range>123.5</range>\n      <linear>2.0</linear>\n      <constant>-2.0</constant>\n      <quadratic>20.2</quadratic>\n    </attenuation>\n  </light>\n</sdf>\n",
+    "native": {
+      "exit_code": 0,
+      "stdout": "REQUEST 746573745f6c69676874\nERRORS 0\nCOUNT 1\nOK 706f696e745f6c69676874 1 4616189618054758400 4617315517961601024 4618441417868443648 0 0 4604544271217802188 4604544271217802189 - 1 1 0 1065353216 0 1056964608 1065353216 1045220557 1036831949 0 1065353216 4638390956842811392 0 0 0 4607182418800017408 0 4626379012211684147 0 0 13830554455654793216 4607182418800017408\nSOURCE @RESOURCE@ 3 312e36\nPOSE world OK 4616189618054758400 4617315517961601024 4618441417868443648 0 0 4604544271217802188 4604544271217802189\n",
+      "stderr": ""
+    },
+    "rust_error": null
+  },
+  {
+    "id": "quaternion",
+    "xml": "<sdf version='1.12'><world name='default'><frame name='f'><pose>10 0 0 0 0 0</pose></frame><include><uri>test_light</uri><pose rotation_format='quat_xyzw'>4 5 6 0 0 0 1</pose></include></world></sdf>",
+    "resource": "included_light_original.sdf",
+    "resource_xml": "<?xml version=\"1.0\" ?>\n<sdf version=\"1.6\">\n  <light name=\"point_light\" type=\"point\">\n    <cast_shadows>false</cast_shadows>\n    <pose frame=\"world\">1 2 10 0 0 0</pose>\n    <diffuse>1.0 0.0 0.5 1.0</diffuse>\n    <specular>0.2 0.1 0.0 1.0</specular>\n    <attenuation>\n      <range>123.5</range>\n      <linear>2.0</linear>\n      <constant>-2.0</constant>\n      <quadratic>20.2</quadratic>\n    </attenuation>\n  </light>\n</sdf>\n",
+    "native": {
+      "exit_code": 0,
+      "stdout": "REQUEST 746573745f6c69676874\nERRORS 0\nCOUNT 1\nOK 706f696e745f6c69676874 1 4616189618054758400 4617315517961601024 4618441417868443648 0 0 0 4607182418800017408 - 1 1 0 1065353216 0 1056964608 1065353216 1045220557 1036831949 0 1065353216 4638390956842811392 0 0 0 4607182418800017408 0 4626379012211684147 0 0 13830554455654793216 4607182418800017408\nSOURCE @RESOURCE@ 3 312e36\nPOSE world OK 4616189618054758400 4617315517961601024 4618441417868443648 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    "rust_error": null
+  },
+  {
+    "id": "static",
+    "xml": "<sdf version='1.12'><world name='default'><frame name='f'><pose>10 0 0 0 0 0</pose></frame><include><uri>test_light</uri><static>true</static></include></world></sdf>",
+    "resource": "included_light_original.sdf",
+    "resource_xml": "<?xml version=\"1.0\" ?>\n<sdf version=\"1.6\">\n  <light name=\"point_light\" type=\"point\">\n    <cast_shadows>false</cast_shadows>\n    <pose frame=\"world\">1 2 10 0 0 0</pose>\n    <diffuse>1.0 0.0 0.5 1.0</diffuse>\n    <specular>0.2 0.1 0.0 1.0</specular>\n    <attenuation>\n      <range>123.5</range>\n      <linear>2.0</linear>\n      <constant>-2.0</constant>\n      <quadratic>20.2</quadratic>\n    </attenuation>\n  </light>\n</sdf>\n",
+    "native": {
+      "exit_code": 0,
+      "stdout": "REQUEST 746573745f6c69676874\nERRORS 0\nCOUNT 1\nOK 706f696e745f6c69676874 1 4607182418800017408 4611686018427387904 4621819117588971520 0 0 0 4607182418800017408 776f726c64 1 1 0 1065353216 0 1056964608 1065353216 1045220557 1036831949 0 1065353216 4638390956842811392 0 0 0 4607182418800017408 0 4626379012211684147 0 0 13830554455654793216 4607182418800017408\nSOURCE @RESOURCE@ 3 312e36\nPOSE world OK 4607182418800017408 4611686018427387904 4621819117588971520 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    "rust_error": "Unsupported"
+  },
+  {
+    "id": "namespace",
+    "xml": "<sdf version='1.12'><world name='default'><frame name='f'><pose>10 0 0 0 0 0</pose></frame><include><uri>test_light</uri><namespace>ignored</namespace></include></world></sdf>",
+    "resource": "included_light_original.sdf",
+    "resource_xml": "<?xml version=\"1.0\" ?>\n<sdf version=\"1.6\">\n  <light name=\"point_light\" type=\"point\">\n    <cast_shadows>false</cast_shadows>\n    <pose frame=\"world\">1 2 10 0 0 0</pose>\n    <diffuse>1.0 0.0 0.5 1.0</diffuse>\n    <specular>0.2 0.1 0.0 1.0</specular>\n    <attenuation>\n      <range>123.5</range>\n      <linear>2.0</linear>\n      <constant>-2.0</constant>\n      <quadratic>20.2</quadratic>\n    </attenuation>\n  </light>\n</sdf>\n",
+    "native": {
+      "exit_code": 0,
+      "stdout": "REQUEST 746573745f6c69676874\nERRORS 0\nCOUNT 1\nOK 706f696e745f6c69676874 1 4607182418800017408 4611686018427387904 4621819117588971520 0 0 0 4607182418800017408 776f726c64 1 1 0 1065353216 0 1056964608 1065353216 1045220557 1036831949 0 1065353216 4638390956842811392 0 0 0 4607182418800017408 0 4626379012211684147 0 0 13830554455654793216 4607182418800017408\nSOURCE @RESOURCE@ 3 312e36\nPOSE world OK 4607182418800017408 4611686018427387904 4621819117588971520 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    "rust_error": "Unsupported"
+  },
+  {
+    "id": "plugin",
+    "xml": "<sdf version='1.12'><world name='default'><frame name='f'><pose>10 0 0 0 0 0</pose></frame><include><uri>test_light</uri><plugin name='p' filename='p.so'/></include></world></sdf>",
+    "resource": "included_light_original.sdf",
+    "resource_xml": "<?xml version=\"1.0\" ?>\n<sdf version=\"1.6\">\n  <light name=\"point_light\" type=\"point\">\n    <cast_shadows>false</cast_shadows>\n    <pose frame=\"world\">1 2 10 0 0 0</pose>\n    <diffuse>1.0 0.0 0.5 1.0</diffuse>\n    <specular>0.2 0.1 0.0 1.0</specular>\n    <attenuation>\n      <range>123.5</range>\n      <linear>2.0</linear>\n      <constant>-2.0</constant>\n      <quadratic>20.2</quadratic>\n    </attenuation>\n  </light>\n</sdf>\n",
+    "native": {
+      "exit_code": 0,
+      "stdout": "REQUEST 746573745f6c69676874\nERRORS 0\nCOUNT 1\nOK 706f696e745f6c69676874 1 4607182418800017408 4611686018427387904 4621819117588971520 0 0 0 4607182418800017408 776f726c64 1 1 0 1065353216 0 1056964608 1065353216 1045220557 1036831949 0 1065353216 4638390956842811392 0 0 0 4607182418800017408 0 4626379012211684147 0 0 13830554455654793216 4607182418800017408\nSOURCE @RESOURCE@ 3 312e36\nPOSE world OK 4607182418800017408 4611686018427387904 4621819117588971520 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    "rust_error": "Unsupported"
+  },
+  {
+    "id": "placement",
+    "xml": "<sdf version='1.12'><world name='default'><frame name='f'><pose>10 0 0 0 0 0</pose></frame><include><uri>test_light</uri><placement_frame>f</placement_frame></include></world></sdf>",
+    "resource": "included_light_original.sdf",
+    "resource_xml": "<?xml version=\"1.0\" ?>\n<sdf version=\"1.6\">\n  <light name=\"point_light\" type=\"point\">\n    <cast_shadows>false</cast_shadows>\n    <pose frame=\"world\">1 2 10 0 0 0</pose>\n    <diffuse>1.0 0.0 0.5 1.0</diffuse>\n    <specular>0.2 0.1 0.0 1.0</specular>\n    <attenuation>\n      <range>123.5</range>\n      <linear>2.0</linear>\n      <constant>-2.0</constant>\n      <quadratic>20.2</quadratic>\n    </attenuation>\n  </light>\n</sdf>\n",
+    "native": {
+      "exit_code": 0,
+      "stdout": "REQUEST 746573745f6c69676874\nERRORS 0\nCOUNT 1\nOK 706f696e745f6c69676874 1 4607182418800017408 4611686018427387904 4621819117588971520 0 0 0 4607182418800017408 776f726c64 1 1 0 1065353216 0 1056964608 1065353216 1045220557 1036831949 0 1065353216 4638390956842811392 0 0 0 4607182418800017408 0 4626379012211684147 0 0 13830554455654793216 4607182418800017408\nSOURCE @RESOURCE@ 3 312e36\nPOSE world OK 4607182418800017408 4611686018427387904 4621819117588971520 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    "rust_error": "Unsupported"
+  },
+  {
+    "id": "emptyname",
+    "xml": "<sdf version='1.12'><world name='default'><frame name='f'><pose>10 0 0 0 0 0</pose></frame><include><uri>test_light</uri><name/></include></world></sdf>",
+    "resource": "included_light_original.sdf",
+    "resource_xml": "<?xml version=\"1.0\" ?>\n<sdf version=\"1.6\">\n  <light name=\"point_light\" type=\"point\">\n    <cast_shadows>false</cast_shadows>\n    <pose frame=\"world\">1 2 10 0 0 0</pose>\n    <diffuse>1.0 0.0 0.5 1.0</diffuse>\n    <specular>0.2 0.1 0.0 1.0</specular>\n    <attenuation>\n      <range>123.5</range>\n      <linear>2.0</linear>\n      <constant>-2.0</constant>\n      <quadratic>20.2</quadratic>\n    </attenuation>\n  </light>\n</sdf>\n",
+    "native": {
+      "exit_code": -6,
+      "stdout": "",
+      "stderr": "terminate called after throwing an instance of 'std::logic_error'\n  what():  basic_string::_M_construct null not valid\n"
+    },
+    "rust_error": "Missing"
+  },
+  {
+    "id": "scopedname",
+    "xml": "<sdf version='1.12'><world name='default'><frame name='f'><pose>10 0 0 0 0 0</pose></frame><include><uri>test_light</uri><name>a::b</name></include></world></sdf>",
+    "resource": "included_light_original.sdf",
+    "resource_xml": "<?xml version=\"1.0\" ?>\n<sdf version=\"1.6\">\n  <light name=\"point_light\" type=\"point\">\n    <cast_shadows>false</cast_shadows>\n    <pose frame=\"world\">1 2 10 0 0 0</pose>\n    <diffuse>1.0 0.0 0.5 1.0</diffuse>\n    <specular>0.2 0.1 0.0 1.0</specular>\n    <attenuation>\n      <range>123.5</range>\n      <linear>2.0</linear>\n      <constant>-2.0</constant>\n      <quadratic>20.2</quadratic>\n    </attenuation>\n  </light>\n</sdf>\n",
+    "native": {
+      "exit_code": 0,
+      "stdout": "REQUEST 746573745f6c69676874\nERRORS 3\nERROR 3 4572726f723a2044657465637465642064656c696d6974657220273a3a2720696e20656c656d656e74206e616d6520696e3c6c69676874206e616d653d27613a3a622720747970653d27706f696e74273e0a20203c636173745f736861646f77733e66616c73653c2f636173745f736861646f77733e0a20203c706f73652072656c61746976655f746f3d27776f726c64273e3120322031302030203020303c2f706f73653e0a20203c646966667573653e31203020302e3520313c2f646966667573653e0a20203c73706563756c61723e302e32303030303030303320302e313030303030303031203020313c2f73706563756c61723e0a20203c617474656e756174696f6e3e0a202020203c72616e67653e3132332e353c2f72616e67653e0a202020203c6c696e6561723e323c2f6c696e6561723e0a202020203c636f6e7374616e743e2d323c2f636f6e7374616e743e0a202020203c7175616472617469633e32302e3139393939393939393939393939393c2f7175616472617469633e0a20203c2f617474656e756174696f6e3e0a20203c646972656374696f6e3e302030202d313c2f646972656374696f6e3e0a3c2f6c696768743e0a\nERROR 3 44656c696d6974657220273a3a2720666f756e6420696e20617474726962757465206e616d6573206f6620656c656d656e74203c7364663e2c207768696368206973206e6f7420616c6c6f77656420696e205344466f726d6174203e3d20312e38\nERROR 30 556e61626c6520746f20726561642053444620737472696e673a203c7364662076657273696f6e3d27312e3132273e3c776f726c64206e616d653d2764656661756c74273e3c6672616d65206e616d653d2766273e3c706f73653e3130203020302030203020303c2f706f73653e3c2f6672616d653e3c696e636c7564653e3c7572693e746573745f6c696768743c2f7572693e3c6e616d653e613a3a623c2f6e616d653e3c2f696e636c7564653e3c2f776f726c643e3c2f7364663e\n",
+      "stderr": ""
+    },
+    "rust_error": "InvalidValue"
+  },
+  {
+    "id": "reservedname",
+    "xml": "<sdf version='1.12'><world name='default'><frame name='f'><pose>10 0 0 0 0 0</pose></frame><include><uri>test_light</uri><name>__bad__</name></include></world></sdf>",
+    "resource": "included_light_original.sdf",
+    "resource_xml": "<?xml version=\"1.0\" ?>\n<sdf version=\"1.6\">\n  <light name=\"point_light\" type=\"point\">\n    <cast_shadows>false</cast_shadows>\n    <pose frame=\"world\">1 2 10 0 0 0</pose>\n    <diffuse>1.0 0.0 0.5 1.0</diffuse>\n    <specular>0.2 0.1 0.0 1.0</specular>\n    <attenuation>\n      <range>123.5</range>\n      <linear>2.0</linear>\n      <constant>-2.0</constant>\n      <quadratic>20.2</quadratic>\n    </attenuation>\n  </light>\n</sdf>\n",
+    "native": {
+      "exit_code": 0,
+      "stdout": "REQUEST 746573745f6c69676874\nERRORS 2\nERROR 3 54686520737570706c696564206c69676874206e616d65205b5f5f6261645f5f5d2069732072657365727665642e\nERROR 9 4661696c656420746f206c6f6164206120776f726c642e\nCOUNT 1\nOK 5f5f6261645f5f 1 4607182418800017408 4611686018427387904 4621819117588971520 0 0 0 4607182418800017408 776f726c64 1 1 0 1065353216 0 1056964608 1065353216 1045220557 1036831949 0 1065353216 4638390956842811392 0 0 0 4607182418800017408 0 4626379012211684147 0 0 13830554455654793216 4607182418800017408\nSOURCE @RESOURCE@ 3 312e36\nPOSE world OK 4607182418800017408 4611686018427387904 4621819117588971520 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    "rust_error": "InvalidValue"
+  },
+  {
+    "id": "merge_true",
+    "xml": "<sdf version='1.12'><world name='default'><include merge='true'><uri>test_light</uri></include></world></sdf>",
+    "resource": "included_light_original.sdf",
+    "resource_xml": "<?xml version=\"1.0\" ?>\n<sdf version=\"1.6\">\n  <light name=\"point_light\" type=\"point\">\n    <cast_shadows>false</cast_shadows>\n    <pose frame=\"world\">1 2 10 0 0 0</pose>\n    <diffuse>1.0 0.0 0.5 1.0</diffuse>\n    <specular>0.2 0.1 0.0 1.0</specular>\n    <attenuation>\n      <range>123.5</range>\n      <linear>2.0</linear>\n      <constant>-2.0</constant>\n      <quadratic>20.2</quadratic>\n    </attenuation>\n  </light>\n</sdf>\n",
+    "native": {
+      "exit_code": 0,
+      "stdout": "REQUEST 746573745f6c69676874\nERRORS 1\nERROR 33 4d657267652d696e636c756465206973206f6e6c7920737570706f7274656420666f7220696e636c75646564206d6f64656c73\nCOUNT 0\n",
+      "stderr": ""
+    },
+    "rust_error": "Unsupported"
+  },
+  {
+    "id": "merge_false",
+    "xml": "<sdf version='1.12'><world name='default'><include merge='false'><uri>test_light</uri></include></world></sdf>",
+    "resource": "included_light_original.sdf",
+    "resource_xml": "<?xml version=\"1.0\" ?>\n<sdf version=\"1.6\">\n  <light name=\"point_light\" type=\"point\">\n    <cast_shadows>false</cast_shadows>\n    <pose frame=\"world\">1 2 10 0 0 0</pose>\n    <diffuse>1.0 0.0 0.5 1.0</diffuse>\n    <specular>0.2 0.1 0.0 1.0</specular>\n    <attenuation>\n      <range>123.5</range>\n      <linear>2.0</linear>\n      <constant>-2.0</constant>\n      <quadratic>20.2</quadratic>\n    </attenuation>\n  </light>\n</sdf>\n",
+    "native": {
+      "exit_code": 0,
+      "stdout": "REQUEST 746573745f6c69676874\nERRORS 0\nCOUNT 1\nOK 706f696e745f6c69676874 1 4607182418800017408 4611686018427387904 4621819117588971520 0 0 0 4607182418800017408 776f726c64 1 1 0 1065353216 0 1056964608 1065353216 1045220557 1036831949 0 1065353216 4638390956842811392 0 0 0 4607182418800017408 0 4626379012211684147 0 0 13830554455654793216 4607182418800017408\nSOURCE @RESOURCE@ 3 312e36\nPOSE world OK 4607182418800017408 4611686018427387904 4621819117588971520 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    "rust_error": null
+  },
+  {
+    "id": "merge_1",
+    "xml": "<sdf version='1.12'><world name='default'><include merge='1'><uri>test_light</uri></include></world></sdf>",
+    "resource": "included_light_original.sdf",
+    "resource_xml": "<?xml version=\"1.0\" ?>\n<sdf version=\"1.6\">\n  <light name=\"point_light\" type=\"point\">\n    <cast_shadows>false</cast_shadows>\n    <pose frame=\"world\">1 2 10 0 0 0</pose>\n    <diffuse>1.0 0.0 0.5 1.0</diffuse>\n    <specular>0.2 0.1 0.0 1.0</specular>\n    <attenuation>\n      <range>123.5</range>\n      <linear>2.0</linear>\n      <constant>-2.0</constant>\n      <quadratic>20.2</quadratic>\n    </attenuation>\n  </light>\n</sdf>\n",
+    "native": {
+      "exit_code": 0,
+      "stdout": "REQUEST 746573745f6c69676874\nERRORS 1\nERROR 33 4d657267652d696e636c756465206973206f6e6c7920737570706f7274656420666f7220696e636c75646564206d6f64656c73\nCOUNT 0\n",
+      "stderr": ""
+    },
+    "rust_error": "Unsupported"
+  },
+  {
+    "id": "merge_0",
+    "xml": "<sdf version='1.12'><world name='default'><include merge='0'><uri>test_light</uri></include></world></sdf>",
+    "resource": "included_light_original.sdf",
+    "resource_xml": "<?xml version=\"1.0\" ?>\n<sdf version=\"1.6\">\n  <light name=\"point_light\" type=\"point\">\n    <cast_shadows>false</cast_shadows>\n    <pose frame=\"world\">1 2 10 0 0 0</pose>\n    <diffuse>1.0 0.0 0.5 1.0</diffuse>\n    <specular>0.2 0.1 0.0 1.0</specular>\n    <attenuation>\n      <range>123.5</range>\n      <linear>2.0</linear>\n      <constant>-2.0</constant>\n      <quadratic>20.2</quadratic>\n    </attenuation>\n  </light>\n</sdf>\n",
+    "native": {
+      "exit_code": 0,
+      "stdout": "REQUEST 746573745f6c69676874\nERRORS 0\nCOUNT 1\nOK 706f696e745f6c69676874 1 4607182418800017408 4611686018427387904 4621819117588971520 0 0 0 4607182418800017408 776f726c64 1 1 0 1065353216 0 1056964608 1065353216 1045220557 1036831949 0 1065353216 4638390956842811392 0 0 0 4607182418800017408 0 4626379012211684147 0 0 13830554455654793216 4607182418800017408\nSOURCE @RESOURCE@ 3 312e36\nPOSE world OK 4607182418800017408 4611686018427387904 4621819117588971520 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    "rust_error": null
+  },
+  {
+    "id": "original_projection",
+    "xml": "<?xml version=\"1.0\" ?>\n<sdf version=\"1.8\">\n  <world name=\"default\">\n\n    <include>\n      <uri>test_light</uri>\n    </include>\n\n    <include>\n      <uri>test_light</uri>\n      <name>override_light_name</name>\n      <pose>4 5 6 0 0 0</pose>\n    </include>\n\n  </world>\n</sdf>\n",
+    "resource": "included_light_original.sdf",
+    "resource_xml": "<?xml version=\"1.0\" ?>\n<sdf version=\"1.6\">\n  <light name=\"point_light\" type=\"point\">\n    <cast_shadows>false</cast_shadows>\n    <pose frame=\"world\">1 2 10 0 0 0</pose>\n    <diffuse>1.0 0.0 0.5 1.0</diffuse>\n    <specular>0.2 0.1 0.0 1.0</specular>\n    <attenuation>\n      <range>123.5</range>\n      <linear>2.0</linear>\n      <constant>-2.0</constant>\n      <quadratic>20.2</quadratic>\n    </attenuation>\n  </light>\n</sdf>\n",
+    "native": {
+      "exit_code": 0,
+      "stdout": "REQUEST 746573745f6c69676874\nREQUEST 746573745f6c69676874\nERRORS 0\nCOUNT 2\nOK 706f696e745f6c69676874 1 4607182418800017408 4611686018427387904 4621819117588971520 0 0 0 4607182418800017408 776f726c64 1 1 0 1065353216 0 1056964608 1065353216 1045220557 1036831949 0 1065353216 4638390956842811392 0 0 0 4607182418800017408 0 4626379012211684147 0 0 13830554455654793216 4607182418800017408\nSOURCE @RESOURCE@ 3 312e36\nPOSE world OK 4607182418800017408 4611686018427387904 4621819117588971520 0 0 0 4607182418800017408\nOK 6f766572726964655f6c696768745f6e616d65 1 4616189618054758400 4617315517961601024 4618441417868443648 0 0 0 4607182418800017408 - 1 1 0 1065353216 0 1056964608 1065353216 1045220557 1036831949 0 1065353216 4638390956842811392 0 0 0 4607182418800017408 0 4626379012211684147 0 0 13830554455654793216 4607182418800017408\nSOURCE @RESOURCE@ 3 312e36\nPOSE world OK 4616189618054758400 4617315517961601024 4618441417868443648 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    "rust_error": null
+  },
+  {
+    "id": "resource_two_lights",
+    "xml": "<sdf version='1.12'><world name='default'><include><uri>test_light</uri></include></world></sdf>",
+    "resource": "two_lights.sdf",
+    "resource_xml": "<?xml version=\"1.0\" ?>\n<sdf version=\"1.6\">\n  <light name=\"point_light\" type=\"point\">\n    <cast_shadows>false</cast_shadows>\n    <pose frame=\"world\">1 2 10 0 0 0</pose>\n    <diffuse>1.0 0.0 0.5 1.0</diffuse>\n    <specular>0.2 0.1 0.0 1.0</specular>\n    <attenuation>\n      <range>123.5</range>\n      <linear>2.0</linear>\n      <constant>-2.0</constant>\n      <quadratic>20.2</quadratic>\n    </attenuation>\n  </light>\n  <light name=\"point_light\" type=\"point\">\n    <cast_shadows>false</cast_shadows>\n    <pose frame=\"world\">1 2 10 0 0 0</pose>\n    <diffuse>1.0 0.0 0.5 1.0</diffuse>\n    <specular>0.2 0.1 0.0 1.0</specular>\n    <attenuation>\n      <range>123.5</range>\n      <linear>2.0</linear>\n      <constant>-2.0</constant>\n      <quadratic>20.2</quadratic>\n    </attenuation>\n  </light></sdf>\n",
+    "native": {
+      "exit_code": 0,
+      "stdout": "REQUEST 746573745f6c69676874\nERRORS 1\nERROR 11 466f756e64206d6f7265207468616e206f6e65206c6967687420666f72203c696e636c7564653e2e\nCOUNT 1\nOK 706f696e745f6c69676874 1 4607182418800017408 4611686018427387904 4621819117588971520 0 0 0 4607182418800017408 776f726c64 1 1 0 1065353216 0 1056964608 1065353216 1045220557 1036831949 0 1065353216 4638390956842811392 0 0 0 4607182418800017408 0 4626379012211684147 0 0 13830554455654793216 4607182418800017408\nSOURCE @RESOURCE@ 3 312e36\nPOSE world OK 4607182418800017408 4611686018427387904 4621819117588971520 0 0 0 4607182418800017408\n",
+      "stderr": ""
+    },
+    "rust_error": "InvalidValue"
+  },
+  {
+    "id": "resource_empty",
+    "xml": "<sdf version='1.12'><world name='default'><include><uri>test_light</uri></include></world></sdf>",
+    "resource": "empty.sdf",
+    "resource_xml": "<sdf version='1.12'/>",
+    "native": {
+      "exit_code": 0,
+      "stdout": "REQUEST 746573745f6c69676874\nERRORS 1\nERROR 8 4661696c656420746f2066696e6420746f70206c6576656c203c6d6f64656c3e202f203c6163746f723e202f203c6c696768743e20666f72203c696e636c7564653e0a\nCOUNT 0\n",
+      "stderr": ""
+    },
+    "rust_error": "InvalidValue"
+  },
+  {
+    "id": "resource_missing_type",
+    "xml": "<sdf version='1.12'><world name='default'><include><uri>test_light</uri></include></world></sdf>",
+    "resource": "missing_type.sdf",
+    "resource_xml": "<sdf version='1.12'><light name='lamp'/></sdf>",
+    "native": {
+      "exit_code": 0,
+      "stdout": "REQUEST 746573745f6c69676874\nERRORS 7\nERROR 4 5265717569726564206174747269627574655b747970655d20696e20656c656d656e745b6c696768745d206973206e6f742073706563696669656420696e205344462e\nERROR 9 4572726f722072656164696e6720656c656d656e74203c6c696768743e\nERROR 9 4572726f722072656164696e6720656c656d656e74203c7364663e\nERROR 1 556e61626c6520746f20726561642066696c653a205b@RESOURCE@5d\nERROR 9 4572726f722072656164696e6720656c656d656e74203c776f726c643e\nERROR 9 4572726f722072656164696e6720656c656d656e74203c7364663e\nERROR 30 556e61626c6520746f20726561642053444620737472696e673a203c7364662076657273696f6e3d27312e3132273e3c776f726c64206e616d653d2764656661756c74273e3c696e636c7564653e3c7572693e746573745f6c696768743c2f7572693e3c2f696e636c7564653e3c2f776f726c643e3c2f7364663e\n",
+      "stderr": ""
+    },
+    "rust_error": "Missing"
+  },
+  {
+    "id": "resource_unknown_frame",
+    "xml": "<sdf version='1.12'><world name='default'><include><uri>test_light</uri></include></world></sdf>",
+    "resource": "unknown_frame.sdf",
+    "resource_xml": "<sdf version='1.12'><light name='lamp' type='point'><pose relative_to='missing'/></light></sdf>",
+    "native": {
+      "exit_code": 0,
+      "stdout": "REQUEST 746573745f6c69676874\nERRORS 0\nCOUNT 1\nOK 6c616d70 1 0 0 0 0 0 0 4607182418800017408 6d697373696e67 1 1 0 1065353216 1065353216 1065353216 1065353216 1036831949 1036831949 1036831949 1065353216 4621819117588971520 0 0 0 4607182418800017408 4607182418800017408 0 0 0 13830554455654793216 4607182418800017408\nSOURCE @RESOURCE@ 1 312e3132\nPOSE world REJECT\n",
+      "stderr": ""
+    },
+    "rust_error": null
+  }
+]

@@ -1,19 +1,21 @@
 {
   "decision": "approved",
-  "author": "sdf_world_owner",
-  "reviewer": "msgs_performance_owner; root (source and exact prior-approved fold check)",
-  "source_digest": "857527a1e7761acbda074fde798a23e3a6026e1596624af66f8a64d85cbcd442",
-  "protected_digest": "9cf1ac01989df395e31214f0a6332b743c5453608af7fb0d8b5e2efcf29e86ab",
-  "scope": "Bounded automatic origin-sphere inertia via pinned public Parry, extending the accepted box loader. Exact original values and retained tolerances preserved; no new dependency, formula, geometry cutoff or consumer adoption.",
+  "author": "sdf_world_owner and msgs_performance_owner",
+  "reviewer": "root",
+  "source_digest": "658be843a997d7933e24fa2c2bee8f5e22fd58c78d658741f991f3ec43da64d5",
+  "protected_digest": "ffbe3238624d2b72d790969539997f7edeb99dd2bd2d3b9e243d5dc73099e3b6",
+  "scope": "World-only includes of exactly one external Light using existing resolver, Light parser and frame policy. Name/pose overrides and canonical resource Source retained; private finishing helpers preserve the existing64-depth contract. The separate syntax classifier proves only complete private tuple declaration rows without runtime expressions; old classes and executable coverage rules are unchanged.",
   "checks": [
-    "Independent fresh source/target review passes focused nine tests, native88 controls and unchanged sphere original, Clippy/formatting; all retained679 Rust tests pass.",
-    "Independent high-precision exact-binary-input replay verifies sampled operation traces and conditional roundoff bounds. New-case numerical qualification does not relax original exact assertions.",
-    "Prior review and final recheck authorize only the exact historical sphere rejection to exhaustive same-input/URI positive; corpus and every unrelated old assertion/count remain unchanged.",
-    "Root inspected the actual public from_ball dispatch and exact old-test fold; all16 reviewed hashes and both current verifier digests match."
+    "Root independently reviewed parser branches, recursive-frame fixes, all four new tests, native replay/provenance tool, imported original fixtures and explicit partial mapping.",
+    "Root verified all598 existing test/tool files remain byte-exact; no Cargo, dependency, API, numerical tolerance, depth or thread-stack change.",
+    "Author retained35/35 focused and existing controls plus all-target Clippy; source-bound ELF/log records and native23-observation replay/full original evidence inspected. Known native empty-name abort is separate from22 normal exits, not Rust success or full original-case credit.",
+    "Doc correction explicitly distinguishes unsupported merge=true from accepted false/0.",
+    "Root independently reviewed the separate pure-tuple helper and its import-only cloned context, complete exclusive span and expression-free type rules, and all new Rust and compiler-backed Python controls. Existing helper classes and 38 old tests reconstruct byte-exact; original Python controls are an exact prefix.",
+    "The focused author packet passes 43 helper and 50 tooling controls plus Clippy and formatting. Its actual retained-source replay adds only syntax rows 22\u201324 with no DA entries or LLVM regions; all 33 executable cold lines and aggregate coverage denominators remain intact. This replay is not a new full-policy acceptance run."
   ],
   "remaining": [
-    "Complete normal staged hook, strict owned coverage and exact hosted/source qualification remain required.",
-    "Loader/value semantics only; mutable setter APIs and complete original-case parity are not claimed.",
-    "Simulator retains its accepted1b producer pin and collision-density refusal. No automatic primitive admission or Fuel change follows."
+    "Complete unchanged normal staged hook, owned line/region coverage and exact hosted/source qualification remain required before acceptance.",
+    "Root/model Light includes, model-only options, generic Element/OriginalVersion/partial-DOM behavior and complete Includes original parity remain unported.",
+    "No simulator producer pin, B03 runtime, Fuel or performance acceptance follows."
   ]
 }

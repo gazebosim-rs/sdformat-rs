@@ -294,3 +294,117 @@ class IntrinsicAggregatePrefixTests(unittest.TestCase):
                 verify.check_changed_coverage(root, changed, covered | {(file.resolve(), 2): False}, syntax_provider=syntax(aggregate_prefixes=[2]))
             with self.assertRaisesRegex(AssertionError, 'opaque syntax'):
                 verify.check_changed_coverage(root, changed, covered, syntax_provider=syntax(aggregate_prefixes=[2], opaque=[2]))
+
+
+class PrivateTupleEnumEndToEndTests(unittest.TestCase):
+    def test_real_tuple_declarations_cannot_hide_same_or_adjacent_runtime_lines(self):
+        import copy
+        import json
+
+        repository = Path(__file__).resolve().parents[1]
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp); (root / 'src').mkdir()
+            build = subprocess.run(
+                ['cargo', 'test', '--locked', '--offline', '--test', 'coverage_syntax',
+                 '--no-run', '--message-format=json'],
+                cwd=repository, env=dict(os.environ, CARGO_TARGET_DIR=str(root / 'cargo-target')),
+                capture_output=True, text=True, check=True)
+            artifacts = [json.loads(line) for line in build.stdout.splitlines() if line.startswith('{')]
+            helpers = [item['executable'] for item in artifacts
+                       if item.get('reason') == 'compiler-artifact'
+                       and item['target']['name'] == 'coverage_syntax' and item.get('executable')]
+            self.assertEqual(len(helpers), 1)
+            contexts = [
+                ('standard', '', 'u8', 'Box::new(1)', 'Box::new(2)',
+                 'mod parse;\nfn main() { parse::run(); }\n'),
+                ('shadowed', 'use crate::*;\n', 'Payload', 'Box([0])', 'Box(2)',
+                 'mod parse;\npub struct Box<T>(pub T);\n'
+                 'impl<T> Drop for Box<T> {\n fn drop(&mut self) {\n'
+                 '  if std::hint::black_box(false) { std::hint::black_box(&self.0); }\n }\n}\n'
+                 'pub type Payload = [u8; { fn alias_hidden() { std::hint::black_box(7); } 1 }];\n'
+                 'fn main() { parse::run(); }\n'),
+            ]
+            for name, imports, payload, model, light, ancestor in contexts:
+                with self.subTest(context=name):
+                    source = (imports + 'enum Included {\n Model(Box<' + payload + '>, bool),\n Light(Box<u16>),\n}\n'
+                              'enum Bad {\n Value([u8; { fn hidden() { std::hint::black_box(7); } 1 }]),\n}\n'
+                              'fn adjacent_cold() {\n let value = std::hint::black_box(u8::MAX);\n'
+                              ' if value > 0 {\n  std::hint::black_box(value + 1);\n'
+                              ' } else {\n  std::hint::black_box(value - 1);\n }\n}\n'
+                              'pub fn run() {\n let values = [Included::Model(' + model + ', false), Included::Light(' + light + ')];\n'
+                              ' for value in values {\n  match value {\n'
+                              '   Included::Model(value, merge) => { std::hint::black_box((value, merge)); }\n'
+                              '   Included::Light(value) => { std::hint::black_box(value); }\n  }\n }\n'
+                              ' std::hint::black_box(Bad::Value([0]));\n}\n')
+                    if imports:
+                        source += '#[derive(Debug)]\npub struct Record {\n pub raw: String,\n}\n'
+                    path = root / 'src/parse.rs'; path.write_text(source)
+                    (root / 'src/main.rs').write_text(ancestor)
+                    query = subprocess.run(
+                        [helpers[0], '--exact', 'syntax_query', '--nocapture', '--color', 'never'],
+                        input=json.dumps(dict(source=source, ancestor=ancestor, module='parse')),
+                        capture_output=True, text=True, check=True, cwd=repository,
+                        env=dict(os.environ, SDF_COVERAGE_SYNTAX_QUERY='1'))
+                    self.assertEqual(query.stderr, '')
+                    proof = verify.parse_syntax_output(query.stdout, source,
+                            (repository / 'tests/coverage_syntax.rs').read_text(), ancestor, 'parse')
+                    lines = source.splitlines()
+                    header = lines.index('enum Included {') + 1
+                    declaration_lines = {header, header + 1, header + 2}
+                    same_line = next(i for i, line in enumerate(lines, 1) if 'fn hidden()' in line)
+                    adjacent = next(i for i, line in enumerate(lines, 1) if 'let value =' in line)
+                    self.assertTrue(declaration_lines <= proof['items'])
+                    self.assertNotIn(same_line - 1, proof['items'])
+                    self.assertNotIn(same_line, proof['items'])
+                    self.assertNotIn(adjacent, proof['items'])
+                    if imports:
+                        self.assertEqual(proof['fields'], set())
+                        derived = lines.index('#[derive(Debug)]') + 1
+                        self.assertNotIn(derived, proof['items'])
+                        self.assertNotIn(derived + 2, proof['items'])
+                        self.assertIn(derived, proof['opaque'])
+                    binary = root / ('program-' + name)
+                    # This adversarial fixture keeps actual uncalled bodies;
+                    # no production compiler or coverage option is changed.
+                    subprocess.run(['rustc', '--edition=2024', '-C', 'instrument-coverage',
+                                    '-C', 'link-dead-code=yes', str(root / 'src/main.rs'), '-o', str(binary)],
+                                   capture_output=True, check=True)
+                    raw = root / (name + '.profraw')
+                    subprocess.run([str(binary)], check=True, env=dict(os.environ, LLVM_PROFILE_FILE=str(raw)))
+                    sysroot = Path(subprocess.check_output(['rustc', '--print', 'sysroot'], text=True).strip())
+                    host = next(line.split(': ', 1)[1] for line in subprocess.check_output(
+                        ['rustc', '-vV'], text=True).splitlines() if line.startswith('host: '))
+                    llvm = sysroot / 'lib/rustlib' / host / 'bin'; merged = root / (name + '.profdata')
+                    subprocess.run([str(llvm / 'llvm-profdata'), 'merge', '-sparse', str(raw), '-o', str(merged)], check=True)
+                    args = [str(llvm / 'llvm-cov'), 'export', str(binary), f'-instr-profile={merged}']
+                    covered = verify.lcov_records(subprocess.check_output(args + ['-format=lcov'], text=True))
+                    self.assertTrue(all((path.resolve(), line) not in covered for line in declaration_lines))
+                    self.assertEqual(verify.check_changed_coverage(root,
+                            {'lines': {('src/parse.rs', line) for line in declaration_lines}}, covered,
+                            syntax_provider=lambda *_: proof), [])
+                    for line in (same_line, adjacent):
+                        self.assertIs(covered[path.resolve(), line], False)
+                        forged = copy.deepcopy(proof); forged['items'].add(line)
+                        with self.assertRaisesRegex(AssertionError, 'changed executable'):
+                            verify.check_changed_coverage(root, {'lines': {('src/parse.rs', line)}}, covered,
+                                                          syntax_provider=lambda *_: forged)
+                    if imports:
+                        alias = next(i for i, line in enumerate(ancestor.splitlines(), 1) if 'fn alias_hidden()' in line)
+                        self.assertIs(covered[(root / 'src/main.rs').resolve(), alias], False)
+                        with self.assertRaisesRegex(AssertionError, 'changed executable'):
+                            verify.check_changed_coverage(root, {'lines': {('src/main.rs', alias)}}, covered,
+                                                          syntax_provider=lambda *_: self.fail('DA0 must precede syntax'))
+                    absent = {key: value for key, value in covered.items() if key != (path.resolve(), adjacent)}
+                    with self.assertRaisesRegex(AssertionError, 'no instrumented executable'):
+                        verify.check_changed_coverage(root, {'lines': {('src/parse.rs', adjacent)}}, absent,
+                                                      syntax_provider=lambda *_: proof)
+                    report = json.loads(subprocess.check_output(args, text=True))
+                    regions = {'count': 0, 'covered': 0}
+                    for data in report['data']:
+                        for file in data['files']:
+                            if Path(file['filename']).is_relative_to(root / 'src'):
+                                for key in regions:
+                                    regions[key] += file['summary']['regions'][key]
+                    self.assertLessEqual(regions['covered'] * 100, regions['count'] * 95)
+                    with self.assertRaisesRegex(AssertionError, 'regions:'):
+                        verify.check_counts({'lines': {'count': 1, 'covered': 1}, 'regions': regions})

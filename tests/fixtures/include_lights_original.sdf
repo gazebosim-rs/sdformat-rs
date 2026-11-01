@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <world name="default">
+
+    <include>
+      <uri>test_light</uri>
+    </include>
+
+    <include>
+      <uri>test_light</uri>
+      <name>override_light_name</name>
+      <pose>4 5 6 0 0 0</pose>
+    </include>
+
+  </world>
+</sdf>

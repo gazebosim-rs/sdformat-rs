@@ -1,0 +1,386 @@
+{
+  "cases": [
+    {
+      "name": "1.4:None",
+      "xml": "<sdf version='1.4'><model name='m'><link name='l'><inertial></inertial></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "1.4:false",
+      "xml": "<sdf version='1.4'><model name='m'><link name='l'><inertial auto='false'></inertial></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "1.4:0",
+      "xml": "<sdf version='1.4'><model name='m'><link name='l'><inertial auto='0'></inertial></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "1.4:true",
+      "xml": "<sdf version='1.4'><model name='m'><link name='l'><inertial auto='true'></inertial></link></model></sdf>",
+      "stdout": "LOAD 8\nVALUES 1 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE 8\nVALUES 1 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "rust_error": "Unsupported"
+    },
+    {
+      "name": "1.5:None",
+      "xml": "<sdf version='1.5'><model name='m'><link name='l'><inertial></inertial></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "1.5:false",
+      "xml": "<sdf version='1.5'><model name='m'><link name='l'><inertial auto='false'></inertial></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "1.5:0",
+      "xml": "<sdf version='1.5'><model name='m'><link name='l'><inertial auto='0'></inertial></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "1.5:true",
+      "xml": "<sdf version='1.5'><model name='m'><link name='l'><inertial auto='true'></inertial></link></model></sdf>",
+      "stdout": "LOAD 8\nVALUES 1 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE 8\nVALUES 1 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "rust_error": "Unsupported"
+    },
+    {
+      "name": "1.6:None",
+      "xml": "<sdf version='1.6'><model name='m'><link name='l'><inertial></inertial></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "1.6:false",
+      "xml": "<sdf version='1.6'><model name='m'><link name='l'><inertial auto='false'></inertial></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "1.6:0",
+      "xml": "<sdf version='1.6'><model name='m'><link name='l'><inertial auto='0'></inertial></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "1.6:true",
+      "xml": "<sdf version='1.6'><model name='m'><link name='l'><inertial auto='true'></inertial></link></model></sdf>",
+      "stdout": "LOAD 8\nVALUES 1 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE 8\nVALUES 1 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "rust_error": "Unsupported"
+    },
+    {
+      "name": "1.7:None",
+      "xml": "<sdf version='1.7'><model name='m'><link name='l'><inertial></inertial></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "1.7:false",
+      "xml": "<sdf version='1.7'><model name='m'><link name='l'><inertial auto='false'></inertial></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "1.7:0",
+      "xml": "<sdf version='1.7'><model name='m'><link name='l'><inertial auto='0'></inertial></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "1.7:true",
+      "xml": "<sdf version='1.7'><model name='m'><link name='l'><inertial auto='true'></inertial></link></model></sdf>",
+      "stdout": "LOAD 8\nVALUES 1 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE 8\nVALUES 1 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "rust_error": "Unsupported"
+    },
+    {
+      "name": "1.8:None",
+      "xml": "<sdf version='1.8'><model name='m'><link name='l'><inertial></inertial></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "1.8:false",
+      "xml": "<sdf version='1.8'><model name='m'><link name='l'><inertial auto='false'></inertial></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "1.8:0",
+      "xml": "<sdf version='1.8'><model name='m'><link name='l'><inertial auto='0'></inertial></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "1.8:true",
+      "xml": "<sdf version='1.8'><model name='m'><link name='l'><inertial auto='true'></inertial></link></model></sdf>",
+      "stdout": "LOAD 8\nVALUES 1 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE 8\nVALUES 1 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "rust_error": "Unsupported"
+    },
+    {
+      "name": "1.9:None",
+      "xml": "<sdf version='1.9'><model name='m'><link name='l'><inertial></inertial></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "1.9:false",
+      "xml": "<sdf version='1.9'><model name='m'><link name='l'><inertial auto='false'></inertial></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "1.9:0",
+      "xml": "<sdf version='1.9'><model name='m'><link name='l'><inertial auto='0'></inertial></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "1.9:true",
+      "xml": "<sdf version='1.9'><model name='m'><link name='l'><inertial auto='true'></inertial></link></model></sdf>",
+      "stdout": "LOAD 8\nVALUES 1 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE 8\nVALUES 1 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "rust_error": "Unsupported"
+    },
+    {
+      "name": "1.10:None",
+      "xml": "<sdf version='1.10'><model name='m'><link name='l'><inertial></inertial></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "1.10:false",
+      "xml": "<sdf version='1.10'><model name='m'><link name='l'><inertial auto='false'></inertial></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "1.10:0",
+      "xml": "<sdf version='1.10'><model name='m'><link name='l'><inertial auto='0'></inertial></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "1.10:true",
+      "xml": "<sdf version='1.10'><model name='m'><link name='l'><inertial auto='true'></inertial></link></model></sdf>",
+      "stdout": "LOAD 8\nVALUES 1 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE 8\nVALUES 1 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "rust_error": "Unsupported"
+    },
+    {
+      "name": "1.11:None",
+      "xml": "<sdf version='1.11'><model name='m'><link name='l'><inertial></inertial></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "1.11:false",
+      "xml": "<sdf version='1.11'><model name='m'><link name='l'><inertial auto='false'></inertial></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "1.11:0",
+      "xml": "<sdf version='1.11'><model name='m'><link name='l'><inertial auto='0'></inertial></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "1.11:true",
+      "xml": "<sdf version='1.11'><model name='m'><link name='l'><inertial auto='true'></inertial></link></model></sdf>",
+      "stdout": "LOAD 8\nVALUES 1 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE 8\nVALUES 1 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "rust_error": "Unsupported"
+    },
+    {
+      "name": "1.12:None",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial></inertial></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "1.12:false",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='false'></inertial></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "1.12:0",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='0'></inertial></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "1.12:true",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'></inertial></link></model></sdf>",
+      "stdout": "LOAD 8\nVALUES 1 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE 8\nVALUES 1 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "rust_error": "Unsupported"
+    },
+    {
+      "name": "token:'FALSE'",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='FALSE'></inertial></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "token:'False'",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='False'></inertial></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "token:' false '",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto=' false '></inertial></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "token:'\\tfalse\\t'",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='\tfalse\t'></inertial></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "token:'1'",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='1'></inertial></link></model></sdf>",
+      "stdout": "LOAD 8\nVALUES 1 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE 8\nVALUES 1 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "rust_error": "Unsupported"
+    },
+    {
+      "name": "token:''",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto=''></inertial></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "token:'garbage'",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='garbage'></inertial></link></model></sdf>",
+      "stdout": "LOAD 5 9 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Invalid boolean value\n",
+      "rust_error": "InvalidValue"
+    },
+    {
+      "name": "token:'00'",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='00'></inertial></link></model></sdf>",
+      "stdout": "LOAD 5 9 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Invalid boolean value\n",
+      "rust_error": "InvalidValue"
+    },
+    {
+      "name": "token:'0.0'",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='0.0'></inertial></link></model></sdf>",
+      "stdout": "LOAD 5 9 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Invalid boolean value\n",
+      "rust_error": "InvalidValue"
+    },
+    {
+      "name": "token:' false junk'",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto=' false junk'></inertial></link></model></sdf>",
+      "stdout": "LOAD 5 9 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Invalid boolean value\n",
+      "rust_error": "InvalidValue"
+    },
+    {
+      "name": "manual:None",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial><pose>1 2 3 0.1 0.2 0.3</pose><mass>2</mass><inertia><ixx>3</ixx><iyy>4</iyy><izz>5</izz><ixy>0.1</ixy><ixz>0.2</ixz><iyz>0.3</iyz></inertia></inertial></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 0 0 4611686018427387904 4613937818241073152 4616189618054758400 4617315517961601024 4591870180066957722 4596373779694328218 4599075939470750515 4607182418800017408 4611686018427387904 4613937818241073152 4585099763614406928 4592304003608949445 4594340753042168494 4607032425903326524 0 0\nRESOLVE\nVALUES 0 0 4611686018427387904 4613937818241073152 4616189618054758400 4617315517961601024 4591870180066957722 4596373779694328218 4599075939470750515 4607182418800017408 4611686018427387904 4613937818241073152 4585099763614406928 4592304003608949445 4594340753042168494 4607032425903326524 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "manual:false",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='false'><pose>1 2 3 0.1 0.2 0.3</pose><mass>2</mass><inertia><ixx>3</ixx><iyy>4</iyy><izz>5</izz><ixy>0.1</ixy><ixz>0.2</ixz><iyz>0.3</iyz></inertia></inertial></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 0 0 4611686018427387904 4613937818241073152 4616189618054758400 4617315517961601024 4591870180066957722 4596373779694328218 4599075939470750515 4607182418800017408 4611686018427387904 4613937818241073152 4585099763614406928 4592304003608949445 4594340753042168494 4607032425903326524 0 0\nRESOLVE\nVALUES 0 0 4611686018427387904 4613937818241073152 4616189618054758400 4617315517961601024 4591870180066957722 4596373779694328218 4599075939470750515 4607182418800017408 4611686018427387904 4613937818241073152 4585099763614406928 4592304003608949445 4594340753042168494 4607032425903326524 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "manual:0",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='0'><pose>1 2 3 0.1 0.2 0.3</pose><mass>2</mass><inertia><ixx>3</ixx><iyy>4</iyy><izz>5</izz><ixy>0.1</ixy><ixz>0.2</ixz><iyz>0.3</iyz></inertia></inertial></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 0 0 4611686018427387904 4613937818241073152 4616189618054758400 4617315517961601024 4591870180066957722 4596373779694328218 4599075939470750515 4607182418800017408 4611686018427387904 4613937818241073152 4585099763614406928 4592304003608949445 4594340753042168494 4607032425903326524 0 0\nRESOLVE\nVALUES 0 0 4611686018427387904 4613937818241073152 4616189618054758400 4617315517961601024 4591870180066957722 4596373779694328218 4599075939470750515 4607182418800017408 4611686018427387904 4613937818241073152 4585099763614406928 4592304003608949445 4594340753042168494 4607032425903326524 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "manual:true",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'><pose>1 2 3 0.1 0.2 0.3</pose><mass>2</mass><inertia><ixx>3</ixx><iyy>4</iyy><izz>5</izz><ixy>0.1</ixy><ixz>0.2</ixz><iyz>0.3</iyz></inertia></inertial></link></model></sdf>",
+      "stdout": "LOAD 8\nVALUES 1 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE 8\nVALUES 1 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:115]\u001b[0m Inertial was used with auto=true for the link named l, but user-defined inertial values were found, which will be overwritten by the computed inertial values.",
+      "rust_error": "Unsupported"
+    },
+    {
+      "name": "original",
+      "xml": "<?xml version=\"1.0\"?> <sdf version=\"1.11\">   <model name='shapes'>     <link name='link'>       <inertial auto='false' />     </link>   </model> </sdf>",
+      "stdout": "LOAD\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "true_valid_box",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><geometry><box><size>1 1 1</size></box></geometry></collision></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 1 1 4652007308841189376 4640068078579045717 4640068078579045717 4640068078579045717 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4652007308841189376 4640068078579045717 4640068078579045717 4640068078579045717 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "\u001b[1;33mWarning [Utils.cc:115]\u001b[0m Collision is missing a <density> child element. Using a default density value of 1000.000000 kg/m^3. ",
+      "rust_error": "Unsupported"
+    },
+    {
+      "name": "extra:TRUE",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='TRUE'/></link></model></sdf>",
+      "stdout": "LOAD 8\nVALUES 1 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE 8\nVALUES 1 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "rust_error": "Unsupported"
+    },
+    {
+      "name": "extra: true ",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto=' true '/></link></model></sdf>",
+      "stdout": "LOAD 8\nVALUES 1 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE 8\nVALUES 1 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "rust_error": "Unsupported"
+    },
+    {
+      "name": "extra: 1 ",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto=' 1 '/></link></model></sdf>",
+      "stdout": "LOAD 8\nVALUES 1 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE 8\nVALUES 1 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": "",
+      "rust_error": "Unsupported"
+    },
+    {
+      "name": "extra:false&#13;",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='false&#13;'/></link></model></sdf>",
+      "stdout": "LOAD 5 9 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Invalid boolean value\n",
+      "rust_error": "InvalidValue"
+    },
+    {
+      "name": "extra:&#13;false",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='&#13;false'/></link></model></sdf>",
+      "stdout": "LOAD 5 9 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Invalid boolean value\n",
+      "rust_error": "InvalidValue"
+    },
+    {
+      "name": "extra:false&#10;",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='false&#10;'/></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "extra:false&#9;",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='false&#9;'/></link></model></sdf>",
+      "stdout": "LOAD\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 0 0 4607182418800017408 4607182418800017408 4607182418800017408 4607182418800017408 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "stderr": ""
+    },
+    {
+      "name": "extra:&#160;false",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='&#160;false'/></link></model></sdf>",
+      "stdout": "LOAD 5 9 9 9 9 30\n",
+      "stderr": "\u001b[1;31mError [Param.cc:1288]\u001b[0m Error Code 34: Msg: Invalid boolean value\n",
+      "rust_error": "InvalidValue"
+    }
+  ]
+}

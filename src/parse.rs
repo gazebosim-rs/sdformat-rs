@@ -2321,7 +2321,35 @@ impl Parser<'_> {
         let Some(node) = child(link, "inertial") else {
             return Ok(Inertial::default());
         };
-        self.allowed(node, &["mass", "inertia", "pose", "fluid_added_mass"], &[])?;
+        self.allowed(
+            node,
+            &["mass", "inertia", "pose", "fluid_added_mass"],
+            &["auto"],
+        )?;
+        let automatic = match node
+            .attribute("auto")
+            .unwrap_or("")
+            .trim_matches([' ', '\t', '\n'])
+            .to_ascii_lowercase()
+            .as_str()
+        {
+            "" | "false" | "0" => false,
+            "true" | "1" => true,
+            _ => {
+                return Err(self.err(
+                    node,
+                    ErrorCode::InvalidValue,
+                    "invalid inertial auto boolean",
+                ));
+            }
+        };
+        if automatic {
+            return Err(self.err(
+                node,
+                ErrorCode::Unsupported,
+                "automatic inertia is unsupported",
+            ));
+        }
         let mut result = Inertial {
             mass: self.scalar(node, "mass", 1.)?,
             pose: self.pose(node)?,

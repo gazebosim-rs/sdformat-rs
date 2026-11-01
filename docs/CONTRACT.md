@@ -34,6 +34,9 @@ nested models, frames, plugins, scoped name and source.
 `Link` has pose, inertial, collisions, visuals, sensors, plugins, scoped name and source.
 `Inertial` has mass in kg, six inertia components (ixx, iyy, izz, ixy, ixz, iyz)
 in kg·m² and inertial-frame pose. Positive physical inertia is required.
+Explicit inertial auto=false/0 and the omitted/empty false default use this
+manual path; automatic true, density and auto_inertia_params remain Unsupported.
+No automatic state or presence getter is invented. See MANUAL_INERTIA.md.
 `Collision` has pose and box/sphere/cylinder/plane geometry, with SI dimensions.
 `Visual` has name, pose, optional geometry, plugins and source. Missing
 or bare geometry groups preserve native EMPTY as None; explicit <empty/> is

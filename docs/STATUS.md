@@ -3893,3 +3893,20 @@ recorded separately. The new Converter.IMU_15_to_16 mapping is partial, with
 converted tree/text/order/console APIs still unported. Final fold review and
 ordinary strict staged/hosted qualification remain pending. No accepted counters
 or simulator consumer pin change. See LEGACY_IMU_NOISE.md.
+
+
+A private follow-up on accepted6bd admits explicit manual inertial auto=false/0
+through the existing value parser, retaining automatic true/density refusal.
+Native60 controls, the unchanged original and hostile-Git replay pass. Sixteen
+focused Rust tests and all-target Clippy pass. The first exact supplemental
+comparison exposed one ULP in an existing omitted-auto Euler quaternion; its
+failure is retained. Root source review approved the native four-ULP convention
+only for the new positive nonzero-quaternion controls; all other values and
+omitted/false/0 Rust bit identity stay exact. No math or retained bound changes.
+Root independent review of the exact12 paths from fresh accepted6bd source and
+an own target passed16 focused tests,60 native controls,the unchanged original,
+all-target Clippy and formatting; all583 preexisting test/tool bytes are intact.
+Author full673 Rust tests pass with zero failures/ignored tests. Only partial
+loader/default-value credit is reviewed; ordinary strict staged/hosted gates
+remain pending. No consumer pin,dependency or automatic-inertia algorithm changes.
+See MANUAL_INERTIA.md.

@@ -16,7 +16,8 @@ nested and included models with owned
 links with owned wind/gravity/kinematic/self-collision flags, bounded
 [velocity-decay XML metadata](docs/LINK_VELOCITY_DECAY.md), primitive and mesh
 collision/visual metadata and poses, owned visual/material
-metadata with metallic/specular PBR declarations, physical mass/inertia,
+metadata with metallic/specular PBR declarations, physical mass/inertia with
+[explicit manual auto=false/0 admission](docs/MANUAL_INERTIA.md),
 fixed/revolute/prismatic/continuous/universal/revolute2 joints with owned axis
 dynamics and stop metadata, typed IMU/contact/force-torque/magnetometer/altimeter/air-pressure/NavSat/air-speed/Lidar sensor configuration, frames, and opaque plugin content.
 Borrowed model/link/joint/frame DOM lookups follow explicit relative nested scopes.

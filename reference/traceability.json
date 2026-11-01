@@ -3206,6 +3206,21 @@
       "baseline": "Author native69 controls, exact original/old unsupported-row projections and unchanged full Converter.IMU_15_to_16 pass. Independent fresh source/target passed17 focused Rust tests, native69 and the unchanged original, hostile-Git replay, Clippy and fmt. Only the exact legacy_imu_noise XML/unsupported-conversion URI rejection transition was prior-approved; the exhaustive positive now runs in version15.rs, with the historical corpus and every other predicate unchanged. Final fold review and ordinary strict staged/hosted qualification remain pending.",
       "status": "partial_reviewed",
       "review": "Independent msgs_performance_owner prior review approved the exact bounded parser/native semantics and only the same-input/URI legacy_imu_noise transition after fresh accepted419 archive/own target:17 Rust tests,69 native controls, exact original/old-row projections, unchanged full converter original, hostile-Git replay with caller index absent, all-target Clippy and fmt passed. The unchanged old version15 test independently reproduced its expected successful-load/unwrap_err failure. Original converted XML/text/order/error-vector/console assertions remain unported; this is partial typed-load/value credit. Root authorized the narrow fold. Final fold review and ordinary strict staged/hosted qualification remain pending."
+    },
+    {
+      "target": "UNIT_Link_TEST",
+      "case": "DOMLink.ResolveAutoInertialsCalledWithAutoFalse",
+      "source": "src/Link_TEST.cc:1079-1105",
+      "rust_test": "tests/manual_inertial.rs::original_auto_false_loader_defaults_preserve_source_and_version",
+      "assertions": "Partial loader/default-value mapping only: byte-identical inline SDF1.11 with inertial auto=false loads successfully; mass remains exactly1 and all diagonal moments exactly1. Off-diagonal/pose/default/source/version/clone and strict domain controls are supplemental. Native Root.Element pointer/presence identity and the separate ResolveAutoInertials invocation/error-vector observations remain unported; no automatic inertia algorithm or complete-case credit is claimed.",
+      "fixtures": {
+        "tests/fixtures/manual_inertial_original.sdf": "05b2e0ec8c10ab406a20222f82d1c2e659b14831d699e55778d01d3f8563cdea",
+        "tests/manual_inertial.json": "89a76510155c4f89b3cef7bd1c827bac99c209f353e4a50917037384114c0f53"
+      },
+      "upstream_fixtures": {},
+      "baseline": "Author full673 Rust tests pass, zero failures/ignored. Independent Root fresh accepted6bd archive+exact12 overlay/own target passed16 focused Rust tests,60 native controls,unchanged full original,all-target Clippy and fmt. All583 preexisting test/tool bytes remain exact. Initial exact positive Quaternion one-ULP failure is retained; only new supplemental positive nonzero-Euler Quaternion uses native four-ULP convention, with every retained bound and other exact value unchanged. Ordinary strict staged/hosted qualification remains pending.",
+      "status": "partial_reviewed",
+      "review": "Independent Root final12 review approved: fresh accepted6bd source with exact 12-file overlay and separate target passed16 focused Rust tests,60 native controls,the unchanged original and all-target Clippy/fmt. All583 preexisting tests/tools are byte-identical. Root source inspection confirmed manual/default/false/0 handling, strict automatic/density refusal and the exact original subset. Native gtest four-ULP convention is approved only for new positive nonzero-Euler Quaternion projection; original/default/mass/inertia/translation and all omitted/false/0 Rust bit identities stay exact. Earlier exact failure is retained; no math or retained tolerance changes. Root.Element/mutable identity and separate ResolveAutoInertials/error-vector APIs remain unported; partial mapping only. Ordinary strict staged and exact hosted/source gates remain pending."
     }
   ]
 }

@@ -1,19 +1,18 @@
 {
   "decision": "approved",
   "author": "sdf_world_owner",
-  "reviewer": "msgs_performance_owner; root (final scope and unchanged-policy check)",
-  "source_digest": "acf327c5ec922c5cd39cfb4a066d1b55d4b68f13219fe08e2f92c76eda29b4b1",
-  "protected_digest": "505f57c30439002bfdabefc7b15c35ccd542b4cf3ff20524282cac3ce782de24",
-  "scope": "Bounded SDF1.4/1.5 direct-model legacy IMU noise projection to existing six Noise records. Only the exact legacy_imu_noise old rejection row becomes an exhaustive same-input/URI positive. No sampling, runtime, dependency or full converter API change.",
+  "reviewer": "root",
+  "source_digest": "42107c923d1daa1b628f2bdeeeba8df7a1e6fe627bc79485e0bd8e344cc1b3c7",
+  "protected_digest": "e4f3edf4da59e1e4dea2aa98cff5cd613dab6dd18b41bacc932c92f3edabcc93",
+  "scope": "Explicit manual inertial auto=false/0 and existing omitted/empty defaults reuse the current value parser. Automatic true/density remain unsupported. Partial loader/default-value mapping only.",
   "checks": [
-    "Independent fresh accepted419 source and own target passed seventeen focused Rust tests,69 native controls,exact original and old-row projections,the unchanged full Converter.IMU_15_to_16 original,hostile-Git replay,all-target Clippy and formatting.",
-    "Independent final fold review passed five affected Rust tests,all-target Clippy and formatting. Exact old ID/XML/unsupported-conversion URI/NoResources calls the unchanged exhaustive helper; only the duplicate prepared test is removed. Gravity branch,Unsupported fallback,all unrelated predicates and historical corpus remain unchanged.",
-    "Root inspected the production direct-model/version scope,shared Noise parser extraction,exhaustive Model/Link/Sensor/Imu defaults/source/raw XML/graph helper and narrow version15 transition. No broader rejection retirement,policy,coverage or numerical tolerance change is approved.",
-    "Author reports all670 retained Rust tests passing. Root independently recomputed both final digests and verified the independent final-review report. Public simulator pin0437 and private integration pin486 are distinguished in the reviewed documentation. Ordinary strict staged and exact hosted checks remain required."
+    "Independent Root accepted6bd archive with the exact twelve-file overlay and separate target passed sixteen focused Rust tests, sixty native controls, the unchanged DOMLink.ResolveAutoInertialsCalledWithAutoFalse original, all-target Clippy and formatting.",
+    "All 583 preexisting tests/tools bytes are unchanged. Production adds only auto attribute and native false/default lexical admission; existing mass, inertia, pose and finite validation are unchanged. New original/default, unknown-domain, invalid-boolean and supplemental value/source checks were reviewed.",
+    "The first new exact supplemental quaternion comparison exposed an existing one-ULP difference even with auto omitted. Only the new positive nonzero-Euler quaternion controls use native gtest four-ULP semantics; all retained bounds and new mass/inertia/translation/default values plus omitted/false/0 Rust bit identity remain exact. No math code change.",
+    "Root separately inspected the three final documentation/ledger-only changes and recomputed both final digests. Author full673 retained Rust tests pass. No complete original-case, automatic computation, Root.Element identity or ResolveAutoInertials API credit."
   ],
   "remaining": [
-    "This is partial typed-load/value projection. Converted Element/tree/text/order/error-vector/console behavior and full original-case equivalence remain unported and are not claimed complete.",
-    "Nested,mixed and newer-schema legacy inputs remain explicit refusal boundaries. No sensor runtime or simulator consumer pin change is accepted here.",
-    "Normal strict staged,per-crate/workspace line and region coverage,changed-line coverage and exact hosted/source qualification remain pending."
+    "Ordinary strict staged and exact hosted/source qualification remain pending, including unchanged per-crate/workspace line and region thresholds, changed-line and full-source checks.",
+    "No simulator consumer pin or sensor/physics runtime change follows from this producer slice."
   ]
 }

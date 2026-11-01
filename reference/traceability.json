@@ -2750,6 +2750,18 @@
       "baseline": "Author full 676 Rust and 49 tooling tests pass, with zero Rust failures/ignored; 53 native controls and the unchanged full original pass. Independent fresh accepted1b source / own target passed six focused tests, 53 native controls+original, hostile-Git replay, all-target Clippy/fmt and dependency/archive/license checks. All2067 public extractions are bit-identical under minimal1.94.1, std/enhanced1.97.1 and actual simulator math features; own actual loader replay matches1792 positive admissions plus 2 geometry normalizations. Ordinary strict staged and exact hosted/source qualification remain pending.",
       "status": "partial_reviewed",
       "review": "Independent msgs_performance_owner final16 review approved with no findings after fresh accepted1b archive+exact16 overlay and own target. Replayed six focused Rust tests,53 native DOM controls,unchanged full C++ original and hostile-Git isolation; Clippy/fmt pass. Verified 32 registry archives / 1,684 source files, retained old lock identities/license provenance and old-input integrity. Feature-unified public extraction for 2,067 rows is bit-identical across minimal Rust 1.94.1 and actual simulator Rust 1.97.1 graph; actual loader admissions match the author and native finite positives within 4 ULP. Root independently inspected public-Parry-only calculation, unchanged manual validator extraction, normalized geometry, bounded refusals and numeric Unsupported gaps. Root.Element identity and separate ResolveAutoInertials/error-vector contract remain unported; partial loader/value mapping only. Ordinary strict staged and exact hosted/source checks remain pending."
+    },
+    {
+      "target": "UNIT_World_TEST",
+      "case": "DOMWorld.AddLight",
+      "source": "src/World_TEST.cc:511-533",
+      "rust_test": "tests/world_light_mutation.rs::original_dom_world_add_light",
+      "assertions": "Prepared complete fixed observable mapping: initial zero LightCount, unique direct-name insertion true/count one, duplicate false/count unchanged, clear/count zero, reinsert true/count one and index0 presence/exact light name. Rust parses an empty World as setup; native uses default World. Constructor fields, Element and C++ pointer/method identity are not claimed. Supplemental exact-name, first-value, order/rename, owned Source/clone and unchanged graph-snapshot checks are separate.",
+      "fixtures": {},
+      "upstream_fixtures": {},
+      "baseline": "Author three focused Rust controls, all-target Clippy/fmt and pinned native supplemental controls plus unchanged DOMWorld.AddLight1/0 pass. The new-test WorldClone compile assumption and reserved synthetic world-name failure are retained; corrected test-only setup changes neither production nor old assertions. Native source/header/compiler/library provenance is in reference/world-light-mutation.json. All605 preexisting tracked tests/tools remain byte-identical. Ordinary strict staged/hosted qualification is pending.",
+      "status": "ported_reviewed",
+      "review": "Independently reviewed by msgs_performance_owner: fresh own-source/default-threaded 3 Rust controls, selected Clippy/fmt, native six-name-domain/copy/order/rename helper and unchanged full DOMWorld.AddLight original 1/0 all pass. Report d6bbc0c109cc6fcc1ebaec86652cff947aa48aae1f392c035e39edd228f56766. All original assertions remain; this is not full World or MutableByIndex acceptance. Complete ordinary strict staged and exact hosted qualification remain pending."
     }
   ],
   "other_cases": "Every runtime case remains pending in inventory.json; no scope retirement or full parity claim.",

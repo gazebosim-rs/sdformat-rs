@@ -1,21 +1,21 @@
 {
   "decision": "approved",
-  "author": "sdf_world_owner and msgs_performance_owner",
-  "reviewer": "root",
-  "source_digest": "658be843a997d7933e24fa2c2bee8f5e22fd58c78d658741f991f3ec43da64d5",
-  "protected_digest": "ffbe3238624d2b72d790969539997f7edeb99dd2bd2d3b9e243d5dc73099e3b6",
-  "scope": "World-only includes of exactly one external Light using existing resolver, Light parser and frame policy. Name/pose overrides and canonical resource Source retained; private finishing helpers preserve the existing64-depth contract. The separate syntax classifier proves only complete private tuple declaration rows without runtime expressions; old classes and executable coverage rules are unchanged.",
+  "author": "sdf_world_owner",
+  "reviewer": "msgs_performance_owner",
+  "source_digest": "b32b0919425f6e9d2c36880ca5acfe44058860a74776d79ebef6732fe5afee68",
+  "protected_digest": "39db070f5b5dff50b3d00cbe5a8748647ce573b30dc55ee19b297ed2e6062f9b",
+  "scope": "Owned World::add_light_unique and clear_lights direct-name collection mutation only, preserving loaded graph snapshots. No XML admission, generic Element, runtime lighting, dependency, pin or coverage-policy change.",
   "checks": [
-    "Root independently reviewed parser branches, recursive-frame fixes, all four new tests, native replay/provenance tool, imported original fixtures and explicit partial mapping.",
-    "Root verified all598 existing test/tool files remain byte-exact; no Cargo, dependency, API, numerical tolerance, depth or thread-stack change.",
-    "Author retained35/35 focused and existing controls plus all-target Clippy; source-bound ELF/log records and native23-observation replay/full original evidence inspected. Known native empty-name abort is separate from22 normal exits, not Rust success or full original-case credit.",
-    "Doc correction explicitly distinguishes unsupported merge=true from accepted false/0.",
-    "Root independently reviewed the separate pure-tuple helper and its import-only cloned context, complete exclusive span and expression-free type rules, and all new Rust and compiler-backed Python controls. Existing helper classes and 38 old tests reconstruct byte-exact; original Python controls are an exact prefix.",
-    "The focused author packet passes 43 helper and 50 tooling controls plus Clippy and formatting. Its actual retained-source replay adds only syntax rows 22\u201324 with no DA entries or LLVM regions; all 33 executable cold lines and aggregate coverage denominators remain intact. This replay is not a new full-policy acceptance run."
+    "Independent source review matched the 19 production lines to existing Link helpers and pinned native World::AddLight/ClearLights, including exact case-sensitive name comparison without XML validation.",
+    "Every DOMWorld.AddLight assertion maps in the new Rust test in sequence; parsed empty-world setup does not claim native constructor or pointer identity equivalence. Supplemental complete-value/Source ownership, duplicate retention, rename/order/reinsert and unchanged graph-query controls were reviewed.",
+    "All 605 preexisting test/tool files are byte-identical to accepted base13adde94; its independent Root/Bevy tuple proof and prior parser assertions are inherited unchanged, not newly approved by this author of the old helper.",
+    "Fresh independent source and target passed all three new Rust controls with default threading, selected-target Clippy -D warnings and formatting. All nine frozen file hashes and the source/protected digests were rechecked after execution.",
+    "Fresh native replay passed the six name-domain loop plus copy/order/rename/relookup control and the unchanged full DOMWorld.AddLight original. Exact source/headers/compiler/library/original provenance, helper raw output and one-test/no-failure/no-skip XML were checked.",
+    "Initial author-only World Clone compile assumption and reserved synthetic world-name runtime setup failure remain separately retained; no existing assertion or tolerance changed.",
+    "Only the new DOMWorld.AddLight ledger status/attribution was corrected after the initial unchanged check_ledger precheck rejected its pending-status/nonliteral-review combination. Every inherited ledger row and all source/test/policy/pin bytes are unchanged; the prior one-second failure remains retained."
   ],
   "remaining": [
-    "Complete unchanged normal staged hook, owned line/region coverage and exact hosted/source qualification remain required before acceptance.",
-    "Root/model Light includes, model-only options, generic Element/OriginalVersion/partial-DOM behavior and complete Includes original parity remain unported.",
-    "No simulator producer pin, B03 runtime, Fuel or performance acceptance follows."
+    "Complete unchanged ordinary staged hook and exact hosted/source/coverage qualification are required before Root Main promotion.",
+    "Loaded semantic graphs are not rebuilt, World has no newly invented Clone API, and generic Element, serialization, whole MutableByIndex, runtime/rendering and performance acceptance remain outside this bounded slice."
   ]
 }

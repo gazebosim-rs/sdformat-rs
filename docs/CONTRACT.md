@@ -747,6 +747,15 @@ Element, rendering and C++ pointer or method identity remain separate work.
 Public `Light` gained scalar fields and no longer implements `Eq`; consumers
 using exhaustive struct literals or `Eq` bounds must adapt.
 
+## World owned light collection
+
+`World::add_light_unique` and `World::clear_lights` provide the same owned
+exact-name insertion and clear policy for direct world lights as the Link
+helpers. Duplicate insertion leaves the first complete Light unchanged; order,
+optional Source and ordinary mutable borrows remain owned values. These are
+DOM edits, not parser validation, graph rebuilding, rendering or mutable Element
+identity. See [WORLD_LIGHT_MUTATION.md](WORLD_LIGHT_MUTATION.md).
+
 ## Link owned mutable name collections
 
 `ParticleEmitter` and `Projector` currently own only direct names. Their Link

@@ -346,6 +346,25 @@ impl Default for Atmosphere {
     }
 }
 impl World {
+    /// Insert an owned light unless its direct name already exists.
+    /// This edits DOM values only; loaded semantic graphs are unchanged.
+    pub fn add_light_unique(&mut self, light: Light) -> bool {
+        if self
+            .lights
+            .iter()
+            .any(|existing| existing.name == light.name)
+        {
+            return false;
+        }
+        self.lights.push(light);
+        true
+    }
+
+    /// Remove all owned world lights without rebuilding loaded graphs.
+    pub fn clear_lights(&mut self) {
+        self.lights.clear();
+    }
+
     /// First explicitly default profile, otherwise the first profile.
     pub fn physics_default(&self) -> Option<&Physics> {
         self.physics

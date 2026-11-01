@@ -3962,3 +3962,15 @@ assertion or tolerance changed. All 598 preexisting test/tool files are unchange
 partial: only its Light value observations are proposed, with generic Element,
 OriginalVersion, actor/model and partial-DOM-on-error behavior still unported.
 No public type, dependency, Fuel or simulator pin changes. See INCLUDE_LIGHTS.md.
+
+## Owned World light mutation candidate
+
+On accepted `13adde94`, pinned native `DOMWorld.AddLight` and supplemental exact
+name/copy/order controls pass. The private candidate adds World helpers matching
+the existing Link collection policy. It prepares all original AddLight count,
+duplicate, clear, reinsertion and index-name observations plus owned Source,
+rename and graph-snapshot regressions. No preexisting assertion, dependency,
+parser admission or consumer pin changes. All three focused Rust controls, all-target Clippy and formatting pass.
+Independent review and normal strict/hosted qualification remain pending; no new
+original credit yet.
+See [WORLD_LIGHT_MUTATION.md](WORLD_LIGHT_MUTATION.md).

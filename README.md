@@ -37,7 +37,9 @@ and reference altitude without sampling pressure. NavSat retains four position
 and velocity noise records for both `navsat` and legacy `gps` spellings without
 computing coordinates. AirSpeed retains differential pressure noise without
 measuring speed. Lidar retains scan, range, noise and visibility settings for
-ray/lidar and GPU spellings without simulating rays. An owned Camera value
+ray/lidar and GPU spellings without simulating rays. The standalone metadata
+reader accepts the same four [Lidar root aliases](docs/LIDAR_ALIASES.md).
+An owned Camera value
 object retains construction defaults and setters; a typed parser retains the
 pinned camera sensor fixture fragment. Camera rendering remains pending. See [ForceTorque](docs/FORCE_TORQUE.md) and
 [the contract](docs/CONTRACT.md).

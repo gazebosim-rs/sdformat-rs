@@ -1,0 +1,682 @@
+{
+  "cases": [
+    {
+      "name": "lidar_defaults",
+      "tag": "lidar",
+      "version": "1.12",
+      "xml": "\n  <lidar><scan><horizontal/></scan><range/></lidar>",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG lidar VERSION 1.12\nVALUES 640 4607182418800017408 0 0 1 4607182418800017408 0 0 0 0 0 4294967295 0 0 0 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "lidar_configured",
+      "tag": "lidar",
+      "version": "1.12",
+      "xml": "\n  <lidar><scan><horizontal><samples>17</samples><resolution>0.5</resolution><min_angle>-0.75</min_angle><max_angle>0.5</max_angle></horizontal><vertical><samples>3</samples><resolution>2</resolution><min_angle>0.2</min_angle><max_angle>-0.1</max_angle></vertical></scan><range><min>0.2</min><max>20</max><resolution>0.05</resolution></range><noise><type>gaussian</type><mean>0.1</mean><stddev>0.2</stddev></noise><visibility_mask>0x123</visibility_mask></lidar>",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG lidar VERSION 1.12\nVALUES 17 4602678819172646912 13828302655841107968 4602678819172646912 3 4611686018427387904 4596373779694328218 13815242216921733530 4596373779694328218 4626322717216342016 4587366580439587226 291 1 4591870180066957722 4596373779694328218 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "lidar_signed_zero",
+      "tag": "lidar",
+      "version": "1.12",
+      "xml": "\n  <lidar><scan><horizontal><samples>0</samples><resolution>-0</resolution><min_angle>-0</min_angle><max_angle>-0</max_angle></horizontal><vertical><samples>0</samples><resolution>-0</resolution><min_angle>-0</min_angle><max_angle>-0</max_angle></vertical></scan><range><min>-0</min><max>-0</max><resolution>-0</resolution></range><noise><type>none</type><mean>-0</mean><stddev>-0</stddev></noise><visibility_mask>0</visibility_mask></lidar>",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG lidar VERSION 1.12\nVALUES 0 9223372036854775808 9223372036854775808 9223372036854775808 0 9223372036854775808 9223372036854775808 9223372036854775808 9223372036854775808 9223372036854775808 9223372036854775808 0 0 9223372036854775808 9223372036854775808 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "lidar_noise_empty",
+      "tag": "lidar",
+      "version": "1.12",
+      "xml": "\n  <lidar><scan><horizontal/></scan><range/><noise/></lidar>",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG lidar VERSION 1.12\nVALUES 640 4607182418800017408 0 0 1 4607182418800017408 0 0 0 0 0 4294967295 1 0 0 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "lidar_noise_quantized",
+      "tag": "lidar",
+      "version": "1.12",
+      "xml": "\n  <lidar><scan><horizontal><samples>23tail</samples><resolution>-2</resolution><min_angle>12</min_angle><max_angle>-4</max_angle></horizontal></scan><range><min>9</min><max>-2</max></range><noise><type>GaUsSiAn_QuAnTiZeD</type><mean>-3</mean><stddev>0.4</stddev></noise></lidar>",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG lidar VERSION 1.12\nVALUES 23 13835058055282163712 4622945017495814144 13839561654909534208 1 4607182418800017408 0 0 4621256167635550208 13835058055282163712 0 4294967295 2 13837309855095848960 4600877379321698714 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "lidar_version_1.4",
+      "tag": "lidar",
+      "version": "1.4",
+      "xml": "\n  <lidar><scan><horizontal><samples>17</samples><resolution>0.5</resolution><min_angle>-0.75</min_angle><max_angle>0.5</max_angle></horizontal><vertical><samples>3</samples><resolution>2</resolution><min_angle>0.2</min_angle><max_angle>-0.1</max_angle></vertical></scan><range><min>0.2</min><max>20</max><resolution>0.05</resolution></range><noise><type>gaussian</type><mean>0.1</mean><stddev>0.2</stddev></noise><visibility_mask>0x123</visibility_mask></lidar>",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG lidar VERSION 1.4\nVALUES 17 4602678819172646912 13828302655841107968 4602678819172646912 3 4611686018427387904 4596373779694328218 13815242216921733530 4596373779694328218 4626322717216342016 4587366580439587226 291 1 4591870180066957722 4596373779694328218 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "lidar_version_1.5",
+      "tag": "lidar",
+      "version": "1.5",
+      "xml": "\n  <lidar><scan><horizontal><samples>17</samples><resolution>0.5</resolution><min_angle>-0.75</min_angle><max_angle>0.5</max_angle></horizontal><vertical><samples>3</samples><resolution>2</resolution><min_angle>0.2</min_angle><max_angle>-0.1</max_angle></vertical></scan><range><min>0.2</min><max>20</max><resolution>0.05</resolution></range><noise><type>gaussian</type><mean>0.1</mean><stddev>0.2</stddev></noise><visibility_mask>0x123</visibility_mask></lidar>",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG lidar VERSION 1.5\nVALUES 17 4602678819172646912 13828302655841107968 4602678819172646912 3 4611686018427387904 4596373779694328218 13815242216921733530 4596373779694328218 4626322717216342016 4587366580439587226 291 1 4591870180066957722 4596373779694328218 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "lidar_version_1.6",
+      "tag": "lidar",
+      "version": "1.6",
+      "xml": "\n  <lidar><scan><horizontal><samples>17</samples><resolution>0.5</resolution><min_angle>-0.75</min_angle><max_angle>0.5</max_angle></horizontal><vertical><samples>3</samples><resolution>2</resolution><min_angle>0.2</min_angle><max_angle>-0.1</max_angle></vertical></scan><range><min>0.2</min><max>20</max><resolution>0.05</resolution></range><noise><type>gaussian</type><mean>0.1</mean><stddev>0.2</stddev></noise><visibility_mask>0x123</visibility_mask></lidar>",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG lidar VERSION 1.6\nVALUES 17 4602678819172646912 13828302655841107968 4602678819172646912 3 4611686018427387904 4596373779694328218 13815242216921733530 4596373779694328218 4626322717216342016 4587366580439587226 291 1 4591870180066957722 4596373779694328218 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "lidar_version_1.8",
+      "tag": "lidar",
+      "version": "1.8",
+      "xml": "\n  <lidar><scan><horizontal><samples>17</samples><resolution>0.5</resolution><min_angle>-0.75</min_angle><max_angle>0.5</max_angle></horizontal><vertical><samples>3</samples><resolution>2</resolution><min_angle>0.2</min_angle><max_angle>-0.1</max_angle></vertical></scan><range><min>0.2</min><max>20</max><resolution>0.05</resolution></range><noise><type>gaussian</type><mean>0.1</mean><stddev>0.2</stddev></noise><visibility_mask>0x123</visibility_mask></lidar>",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG lidar VERSION 1.8\nVALUES 17 4602678819172646912 13828302655841107968 4602678819172646912 3 4611686018427387904 4596373779694328218 13815242216921733530 4596373779694328218 4626322717216342016 4587366580439587226 291 1 4591870180066957722 4596373779694328218 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "lidar_missing_scan",
+      "tag": "lidar",
+      "version": "1.12",
+      "xml": "\n  <lidar></lidar>",
+      "rust_error": "Missing",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG lidar VERSION 1.12\nVALUES 640 4607182418800017408 0 0 1 4607182418800017408 0 0 0 0 0 4294967295 0 0 0 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "lidar_missing_horizontal",
+      "tag": "lidar",
+      "version": "1.12",
+      "xml": "\n  <lidar><scan/><range/></lidar>",
+      "rust_error": "Missing",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG lidar VERSION 1.12\nVALUES 640 4607182418800017408 0 0 1 4607182418800017408 0 0 0 0 0 4294967295 0 0 0 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "lidar_missing_range",
+      "tag": "lidar",
+      "version": "1.12",
+      "xml": "\n  <lidar><scan><horizontal/></scan></lidar>",
+      "rust_error": "Missing",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG lidar VERSION 1.12\nVALUES 640 4607182418800017408 0 0 1 4607182418800017408 0 0 0 0 0 4294967295 0 0 0 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "lidar_unknown",
+      "tag": "lidar",
+      "version": "1.12",
+      "xml": "\n  <lidar><scan><horizontal/></scan><range/><unknown/></lidar>",
+      "rust_error": "Unsupported",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG lidar VERSION 1.12\nVALUES 640 4607182418800017408 0 0 1 4607182418800017408 0 0 0 0 0 4294967295 0 0 0 0 0 0 0 0\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/unknown:<data-string>:L2]: XML Element[unknown], child of element[lidar], not defined in SDF. Copying[unknown] as children of [lidar].\n"
+      }
+    },
+    {
+      "name": "lidar_advanced_noise",
+      "tag": "lidar",
+      "version": "1.12",
+      "xml": "\n  <lidar><scan><horizontal/></scan><range/><noise><bias_mean>0.1</bias_mean></noise></lidar>",
+      "rust_error": "Unsupported",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG lidar VERSION 1.12\nVALUES 640 4607182418800017408 0 0 1 4607182418800017408 0 0 0 0 0 4294967295 1 0 0 4591870180066957722 0 0 0 0\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/noise/bias_mean:<data-string>:L2]: XML Element[bias_mean], child of element[noise], not defined in SDF. Copying[bias_mean] as children of [noise].\n"
+      }
+    },
+    {
+      "name": "lidar_duplicate",
+      "tag": "lidar",
+      "version": "1.12",
+      "xml": "\n  <lidar><scan><horizontal><samples>1</samples><samples>2</samples></horizontal></scan><range/></lidar>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG lidar VERSION 1.12\nVALUES 1 4607182418800017408 0 0 1 4607182418800017408 0 0 0 0 0 4294967295 0 0 0 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "lidar_negative_stddev",
+      "tag": "lidar",
+      "version": "1.12",
+      "xml": "\n  <lidar><scan><horizontal/></scan><range/><noise><stddev>-0.1</stddev></noise></lidar>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG lidar VERSION 1.12\nVALUES 640 4607182418800017408 0 0 1 4607182418800017408 0 0 0 0 0 4294967295 1 0 13815242216921733530 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "ray_defaults",
+      "tag": "ray",
+      "version": "1.12",
+      "xml": "\n  <ray><scan><horizontal/></scan><range/></ray>",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG ray VERSION 1.12\nVALUES 640 4607182418800017408 0 0 1 4607182418800017408 0 0 0 0 0 4294967295 0 0 0 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "ray_configured",
+      "tag": "ray",
+      "version": "1.12",
+      "xml": "\n  <ray><scan><horizontal><samples>17</samples><resolution>0.5</resolution><min_angle>-0.75</min_angle><max_angle>0.5</max_angle></horizontal><vertical><samples>3</samples><resolution>2</resolution><min_angle>0.2</min_angle><max_angle>-0.1</max_angle></vertical></scan><range><min>0.2</min><max>20</max><resolution>0.05</resolution></range><noise><type>gaussian</type><mean>0.1</mean><stddev>0.2</stddev></noise><visibility_mask>0x123</visibility_mask></ray>",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG ray VERSION 1.12\nVALUES 17 4602678819172646912 13828302655841107968 4602678819172646912 3 4611686018427387904 4596373779694328218 13815242216921733530 4596373779694328218 4626322717216342016 4587366580439587226 291 1 4591870180066957722 4596373779694328218 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "ray_signed_zero",
+      "tag": "ray",
+      "version": "1.12",
+      "xml": "\n  <ray><scan><horizontal><samples>0</samples><resolution>-0</resolution><min_angle>-0</min_angle><max_angle>-0</max_angle></horizontal><vertical><samples>0</samples><resolution>-0</resolution><min_angle>-0</min_angle><max_angle>-0</max_angle></vertical></scan><range><min>-0</min><max>-0</max><resolution>-0</resolution></range><noise><type>none</type><mean>-0</mean><stddev>-0</stddev></noise><visibility_mask>0</visibility_mask></ray>",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG ray VERSION 1.12\nVALUES 0 9223372036854775808 9223372036854775808 9223372036854775808 0 9223372036854775808 9223372036854775808 9223372036854775808 9223372036854775808 9223372036854775808 9223372036854775808 0 0 9223372036854775808 9223372036854775808 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "ray_noise_empty",
+      "tag": "ray",
+      "version": "1.12",
+      "xml": "\n  <ray><scan><horizontal/></scan><range/><noise/></ray>",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG ray VERSION 1.12\nVALUES 640 4607182418800017408 0 0 1 4607182418800017408 0 0 0 0 0 4294967295 1 0 0 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "ray_noise_quantized",
+      "tag": "ray",
+      "version": "1.12",
+      "xml": "\n  <ray><scan><horizontal><samples>23tail</samples><resolution>-2</resolution><min_angle>12</min_angle><max_angle>-4</max_angle></horizontal></scan><range><min>9</min><max>-2</max></range><noise><type>GaUsSiAn_QuAnTiZeD</type><mean>-3</mean><stddev>0.4</stddev></noise></ray>",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG ray VERSION 1.12\nVALUES 23 13835058055282163712 4622945017495814144 13839561654909534208 1 4607182418800017408 0 0 4621256167635550208 13835058055282163712 0 4294967295 2 13837309855095848960 4600877379321698714 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "ray_version_1.4",
+      "tag": "ray",
+      "version": "1.4",
+      "xml": "\n  <ray><scan><horizontal><samples>17</samples><resolution>0.5</resolution><min_angle>-0.75</min_angle><max_angle>0.5</max_angle></horizontal><vertical><samples>3</samples><resolution>2</resolution><min_angle>0.2</min_angle><max_angle>-0.1</max_angle></vertical></scan><range><min>0.2</min><max>20</max><resolution>0.05</resolution></range><noise><type>gaussian</type><mean>0.1</mean><stddev>0.2</stddev></noise><visibility_mask>0x123</visibility_mask></ray>",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG ray VERSION 1.4\nVALUES 17 4602678819172646912 13828302655841107968 4602678819172646912 3 4611686018427387904 4596373779694328218 13815242216921733530 4596373779694328218 4626322717216342016 4587366580439587226 291 1 4591870180066957722 4596373779694328218 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "ray_version_1.5",
+      "tag": "ray",
+      "version": "1.5",
+      "xml": "\n  <ray><scan><horizontal><samples>17</samples><resolution>0.5</resolution><min_angle>-0.75</min_angle><max_angle>0.5</max_angle></horizontal><vertical><samples>3</samples><resolution>2</resolution><min_angle>0.2</min_angle><max_angle>-0.1</max_angle></vertical></scan><range><min>0.2</min><max>20</max><resolution>0.05</resolution></range><noise><type>gaussian</type><mean>0.1</mean><stddev>0.2</stddev></noise><visibility_mask>0x123</visibility_mask></ray>",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG ray VERSION 1.5\nVALUES 17 4602678819172646912 13828302655841107968 4602678819172646912 3 4611686018427387904 4596373779694328218 13815242216921733530 4596373779694328218 4626322717216342016 4587366580439587226 291 1 4591870180066957722 4596373779694328218 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "ray_version_1.6",
+      "tag": "ray",
+      "version": "1.6",
+      "xml": "\n  <ray><scan><horizontal><samples>17</samples><resolution>0.5</resolution><min_angle>-0.75</min_angle><max_angle>0.5</max_angle></horizontal><vertical><samples>3</samples><resolution>2</resolution><min_angle>0.2</min_angle><max_angle>-0.1</max_angle></vertical></scan><range><min>0.2</min><max>20</max><resolution>0.05</resolution></range><noise><type>gaussian</type><mean>0.1</mean><stddev>0.2</stddev></noise><visibility_mask>0x123</visibility_mask></ray>",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG ray VERSION 1.6\nVALUES 17 4602678819172646912 13828302655841107968 4602678819172646912 3 4611686018427387904 4596373779694328218 13815242216921733530 4596373779694328218 4626322717216342016 4587366580439587226 291 1 4591870180066957722 4596373779694328218 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "ray_version_1.8",
+      "tag": "ray",
+      "version": "1.8",
+      "xml": "\n  <ray><scan><horizontal><samples>17</samples><resolution>0.5</resolution><min_angle>-0.75</min_angle><max_angle>0.5</max_angle></horizontal><vertical><samples>3</samples><resolution>2</resolution><min_angle>0.2</min_angle><max_angle>-0.1</max_angle></vertical></scan><range><min>0.2</min><max>20</max><resolution>0.05</resolution></range><noise><type>gaussian</type><mean>0.1</mean><stddev>0.2</stddev></noise><visibility_mask>0x123</visibility_mask></ray>",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG ray VERSION 1.8\nVALUES 17 4602678819172646912 13828302655841107968 4602678819172646912 3 4611686018427387904 4596373779694328218 13815242216921733530 4596373779694328218 4626322717216342016 4587366580439587226 291 1 4591870180066957722 4596373779694328218 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "ray_missing_scan",
+      "tag": "ray",
+      "version": "1.12",
+      "xml": "\n  <ray></ray>",
+      "rust_error": "Missing",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG ray VERSION 1.12\nVALUES 640 4607182418800017408 0 0 1 4607182418800017408 0 0 0 0 0 4294967295 0 0 0 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "ray_missing_horizontal",
+      "tag": "ray",
+      "version": "1.12",
+      "xml": "\n  <ray><scan/><range/></ray>",
+      "rust_error": "Missing",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG ray VERSION 1.12\nVALUES 640 4607182418800017408 0 0 1 4607182418800017408 0 0 0 0 0 4294967295 0 0 0 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "ray_missing_range",
+      "tag": "ray",
+      "version": "1.12",
+      "xml": "\n  <ray><scan><horizontal/></scan></ray>",
+      "rust_error": "Missing",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG ray VERSION 1.12\nVALUES 640 4607182418800017408 0 0 1 4607182418800017408 0 0 0 0 0 4294967295 0 0 0 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "ray_unknown",
+      "tag": "ray",
+      "version": "1.12",
+      "xml": "\n  <ray><scan><horizontal/></scan><range/><unknown/></ray>",
+      "rust_error": "Unsupported",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG ray VERSION 1.12\nVALUES 640 4607182418800017408 0 0 1 4607182418800017408 0 0 0 0 0 4294967295 0 0 0 0 0 0 0 0\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/unknown:<data-string>:L2]: XML Element[unknown], child of element[ray], not defined in SDF. Copying[unknown] as children of [ray].\n"
+      }
+    },
+    {
+      "name": "ray_advanced_noise",
+      "tag": "ray",
+      "version": "1.12",
+      "xml": "\n  <ray><scan><horizontal/></scan><range/><noise><bias_mean>0.1</bias_mean></noise></ray>",
+      "rust_error": "Unsupported",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG ray VERSION 1.12\nVALUES 640 4607182418800017408 0 0 1 4607182418800017408 0 0 0 0 0 4294967295 1 0 0 4591870180066957722 0 0 0 0\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/noise/bias_mean:<data-string>:L2]: XML Element[bias_mean], child of element[noise], not defined in SDF. Copying[bias_mean] as children of [noise].\n"
+      }
+    },
+    {
+      "name": "ray_duplicate",
+      "tag": "ray",
+      "version": "1.12",
+      "xml": "\n  <ray><scan><horizontal><samples>1</samples><samples>2</samples></horizontal></scan><range/></ray>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG ray VERSION 1.12\nVALUES 1 4607182418800017408 0 0 1 4607182418800017408 0 0 0 0 0 4294967295 0 0 0 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "ray_negative_stddev",
+      "tag": "ray",
+      "version": "1.12",
+      "xml": "\n  <ray><scan><horizontal/></scan><range/><noise><stddev>-0.1</stddev></noise></ray>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG ray VERSION 1.12\nVALUES 640 4607182418800017408 0 0 1 4607182418800017408 0 0 0 0 0 4294967295 1 0 13815242216921733530 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "gpu_ray_defaults",
+      "tag": "gpu_ray",
+      "version": "1.12",
+      "xml": "\n  <gpu_ray><scan><horizontal/></scan><range/></gpu_ray>",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG gpu_ray VERSION 1.12\nVALUES 640 4607182418800017408 0 0 1 4607182418800017408 0 0 0 0 0 4294967295 0 0 0 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "gpu_ray_configured",
+      "tag": "gpu_ray",
+      "version": "1.12",
+      "xml": "\n  <gpu_ray><scan><horizontal><samples>17</samples><resolution>0.5</resolution><min_angle>-0.75</min_angle><max_angle>0.5</max_angle></horizontal><vertical><samples>3</samples><resolution>2</resolution><min_angle>0.2</min_angle><max_angle>-0.1</max_angle></vertical></scan><range><min>0.2</min><max>20</max><resolution>0.05</resolution></range><noise><type>gaussian</type><mean>0.1</mean><stddev>0.2</stddev></noise><visibility_mask>0x123</visibility_mask></gpu_ray>",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG gpu_ray VERSION 1.12\nVALUES 17 4602678819172646912 13828302655841107968 4602678819172646912 3 4611686018427387904 4596373779694328218 13815242216921733530 4596373779694328218 4626322717216342016 4587366580439587226 291 1 4591870180066957722 4596373779694328218 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "gpu_ray_signed_zero",
+      "tag": "gpu_ray",
+      "version": "1.12",
+      "xml": "\n  <gpu_ray><scan><horizontal><samples>0</samples><resolution>-0</resolution><min_angle>-0</min_angle><max_angle>-0</max_angle></horizontal><vertical><samples>0</samples><resolution>-0</resolution><min_angle>-0</min_angle><max_angle>-0</max_angle></vertical></scan><range><min>-0</min><max>-0</max><resolution>-0</resolution></range><noise><type>none</type><mean>-0</mean><stddev>-0</stddev></noise><visibility_mask>0</visibility_mask></gpu_ray>",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG gpu_ray VERSION 1.12\nVALUES 0 9223372036854775808 9223372036854775808 9223372036854775808 0 9223372036854775808 9223372036854775808 9223372036854775808 9223372036854775808 9223372036854775808 9223372036854775808 0 0 9223372036854775808 9223372036854775808 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "gpu_ray_noise_empty",
+      "tag": "gpu_ray",
+      "version": "1.12",
+      "xml": "\n  <gpu_ray><scan><horizontal/></scan><range/><noise/></gpu_ray>",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG gpu_ray VERSION 1.12\nVALUES 640 4607182418800017408 0 0 1 4607182418800017408 0 0 0 0 0 4294967295 1 0 0 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "gpu_ray_noise_quantized",
+      "tag": "gpu_ray",
+      "version": "1.12",
+      "xml": "\n  <gpu_ray><scan><horizontal><samples>23tail</samples><resolution>-2</resolution><min_angle>12</min_angle><max_angle>-4</max_angle></horizontal></scan><range><min>9</min><max>-2</max></range><noise><type>GaUsSiAn_QuAnTiZeD</type><mean>-3</mean><stddev>0.4</stddev></noise></gpu_ray>",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG gpu_ray VERSION 1.12\nVALUES 23 13835058055282163712 4622945017495814144 13839561654909534208 1 4607182418800017408 0 0 4621256167635550208 13835058055282163712 0 4294967295 2 13837309855095848960 4600877379321698714 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "gpu_ray_version_1.4",
+      "tag": "gpu_ray",
+      "version": "1.4",
+      "xml": "\n  <gpu_ray><scan><horizontal><samples>17</samples><resolution>0.5</resolution><min_angle>-0.75</min_angle><max_angle>0.5</max_angle></horizontal><vertical><samples>3</samples><resolution>2</resolution><min_angle>0.2</min_angle><max_angle>-0.1</max_angle></vertical></scan><range><min>0.2</min><max>20</max><resolution>0.05</resolution></range><noise><type>gaussian</type><mean>0.1</mean><stddev>0.2</stddev></noise><visibility_mask>0x123</visibility_mask></gpu_ray>",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG gpu_ray VERSION 1.4\nVALUES 17 4602678819172646912 13828302655841107968 4602678819172646912 3 4611686018427387904 4596373779694328218 13815242216921733530 4596373779694328218 4626322717216342016 4587366580439587226 291 1 4591870180066957722 4596373779694328218 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "gpu_ray_version_1.5",
+      "tag": "gpu_ray",
+      "version": "1.5",
+      "xml": "\n  <gpu_ray><scan><horizontal><samples>17</samples><resolution>0.5</resolution><min_angle>-0.75</min_angle><max_angle>0.5</max_angle></horizontal><vertical><samples>3</samples><resolution>2</resolution><min_angle>0.2</min_angle><max_angle>-0.1</max_angle></vertical></scan><range><min>0.2</min><max>20</max><resolution>0.05</resolution></range><noise><type>gaussian</type><mean>0.1</mean><stddev>0.2</stddev></noise><visibility_mask>0x123</visibility_mask></gpu_ray>",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG gpu_ray VERSION 1.5\nVALUES 17 4602678819172646912 13828302655841107968 4602678819172646912 3 4611686018427387904 4596373779694328218 13815242216921733530 4596373779694328218 4626322717216342016 4587366580439587226 291 1 4591870180066957722 4596373779694328218 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "gpu_ray_version_1.6",
+      "tag": "gpu_ray",
+      "version": "1.6",
+      "xml": "\n  <gpu_ray><scan><horizontal><samples>17</samples><resolution>0.5</resolution><min_angle>-0.75</min_angle><max_angle>0.5</max_angle></horizontal><vertical><samples>3</samples><resolution>2</resolution><min_angle>0.2</min_angle><max_angle>-0.1</max_angle></vertical></scan><range><min>0.2</min><max>20</max><resolution>0.05</resolution></range><noise><type>gaussian</type><mean>0.1</mean><stddev>0.2</stddev></noise><visibility_mask>0x123</visibility_mask></gpu_ray>",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG gpu_ray VERSION 1.6\nVALUES 17 4602678819172646912 13828302655841107968 4602678819172646912 3 4611686018427387904 4596373779694328218 13815242216921733530 4596373779694328218 4626322717216342016 4587366580439587226 291 1 4591870180066957722 4596373779694328218 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "gpu_ray_version_1.8",
+      "tag": "gpu_ray",
+      "version": "1.8",
+      "xml": "\n  <gpu_ray><scan><horizontal><samples>17</samples><resolution>0.5</resolution><min_angle>-0.75</min_angle><max_angle>0.5</max_angle></horizontal><vertical><samples>3</samples><resolution>2</resolution><min_angle>0.2</min_angle><max_angle>-0.1</max_angle></vertical></scan><range><min>0.2</min><max>20</max><resolution>0.05</resolution></range><noise><type>gaussian</type><mean>0.1</mean><stddev>0.2</stddev></noise><visibility_mask>0x123</visibility_mask></gpu_ray>",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG gpu_ray VERSION 1.8\nVALUES 17 4602678819172646912 13828302655841107968 4602678819172646912 3 4611686018427387904 4596373779694328218 13815242216921733530 4596373779694328218 4626322717216342016 4587366580439587226 291 1 4591870180066957722 4596373779694328218 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "gpu_ray_missing_scan",
+      "tag": "gpu_ray",
+      "version": "1.12",
+      "xml": "\n  <gpu_ray></gpu_ray>",
+      "rust_error": "Missing",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG gpu_ray VERSION 1.12\nVALUES 640 4607182418800017408 0 0 1 4607182418800017408 0 0 0 0 0 4294967295 0 0 0 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "gpu_ray_missing_horizontal",
+      "tag": "gpu_ray",
+      "version": "1.12",
+      "xml": "\n  <gpu_ray><scan/><range/></gpu_ray>",
+      "rust_error": "Missing",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG gpu_ray VERSION 1.12\nVALUES 640 4607182418800017408 0 0 1 4607182418800017408 0 0 0 0 0 4294967295 0 0 0 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "gpu_ray_missing_range",
+      "tag": "gpu_ray",
+      "version": "1.12",
+      "xml": "\n  <gpu_ray><scan><horizontal/></scan></gpu_ray>",
+      "rust_error": "Missing",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG gpu_ray VERSION 1.12\nVALUES 640 4607182418800017408 0 0 1 4607182418800017408 0 0 0 0 0 4294967295 0 0 0 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "gpu_ray_unknown",
+      "tag": "gpu_ray",
+      "version": "1.12",
+      "xml": "\n  <gpu_ray><scan><horizontal/></scan><range/><unknown/></gpu_ray>",
+      "rust_error": "Unsupported",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG gpu_ray VERSION 1.12\nVALUES 640 4607182418800017408 0 0 1 4607182418800017408 0 0 0 0 0 4294967295 0 0 0 0 0 0 0 0\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/unknown:<data-string>:L2]: XML Element[unknown], child of element[gpu_ray], not defined in SDF. Copying[unknown] as children of [gpu_ray].\n"
+      }
+    },
+    {
+      "name": "gpu_ray_advanced_noise",
+      "tag": "gpu_ray",
+      "version": "1.12",
+      "xml": "\n  <gpu_ray><scan><horizontal/></scan><range/><noise><bias_mean>0.1</bias_mean></noise></gpu_ray>",
+      "rust_error": "Unsupported",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG gpu_ray VERSION 1.12\nVALUES 640 4607182418800017408 0 0 1 4607182418800017408 0 0 0 0 0 4294967295 1 0 0 4591870180066957722 0 0 0 0\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/noise/bias_mean:<data-string>:L2]: XML Element[bias_mean], child of element[noise], not defined in SDF. Copying[bias_mean] as children of [noise].\n"
+      }
+    },
+    {
+      "name": "gpu_ray_duplicate",
+      "tag": "gpu_ray",
+      "version": "1.12",
+      "xml": "\n  <gpu_ray><scan><horizontal><samples>1</samples><samples>2</samples></horizontal></scan><range/></gpu_ray>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG gpu_ray VERSION 1.12\nVALUES 1 4607182418800017408 0 0 1 4607182418800017408 0 0 0 0 0 4294967295 0 0 0 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "gpu_ray_negative_stddev",
+      "tag": "gpu_ray",
+      "version": "1.12",
+      "xml": "\n  <gpu_ray><scan><horizontal/></scan><range/><noise><stddev>-0.1</stddev></noise></gpu_ray>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG gpu_ray VERSION 1.12\nVALUES 640 4607182418800017408 0 0 1 4607182418800017408 0 0 0 0 0 4294967295 1 0 13815242216921733530 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "gpu_lidar_defaults",
+      "tag": "gpu_lidar",
+      "version": "1.12",
+      "xml": "\n  <gpu_lidar><scan><horizontal/></scan><range/></gpu_lidar>",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG gpu_lidar VERSION 1.12\nVALUES 640 4607182418800017408 0 0 1 4607182418800017408 0 0 0 0 0 4294967295 0 0 0 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "gpu_lidar_configured",
+      "tag": "gpu_lidar",
+      "version": "1.12",
+      "xml": "\n  <gpu_lidar><scan><horizontal><samples>17</samples><resolution>0.5</resolution><min_angle>-0.75</min_angle><max_angle>0.5</max_angle></horizontal><vertical><samples>3</samples><resolution>2</resolution><min_angle>0.2</min_angle><max_angle>-0.1</max_angle></vertical></scan><range><min>0.2</min><max>20</max><resolution>0.05</resolution></range><noise><type>gaussian</type><mean>0.1</mean><stddev>0.2</stddev></noise><visibility_mask>0x123</visibility_mask></gpu_lidar>",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG gpu_lidar VERSION 1.12\nVALUES 17 4602678819172646912 13828302655841107968 4602678819172646912 3 4611686018427387904 4596373779694328218 13815242216921733530 4596373779694328218 4626322717216342016 4587366580439587226 291 1 4591870180066957722 4596373779694328218 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "gpu_lidar_signed_zero",
+      "tag": "gpu_lidar",
+      "version": "1.12",
+      "xml": "\n  <gpu_lidar><scan><horizontal><samples>0</samples><resolution>-0</resolution><min_angle>-0</min_angle><max_angle>-0</max_angle></horizontal><vertical><samples>0</samples><resolution>-0</resolution><min_angle>-0</min_angle><max_angle>-0</max_angle></vertical></scan><range><min>-0</min><max>-0</max><resolution>-0</resolution></range><noise><type>none</type><mean>-0</mean><stddev>-0</stddev></noise><visibility_mask>0</visibility_mask></gpu_lidar>",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG gpu_lidar VERSION 1.12\nVALUES 0 9223372036854775808 9223372036854775808 9223372036854775808 0 9223372036854775808 9223372036854775808 9223372036854775808 9223372036854775808 9223372036854775808 9223372036854775808 0 0 9223372036854775808 9223372036854775808 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "gpu_lidar_noise_empty",
+      "tag": "gpu_lidar",
+      "version": "1.12",
+      "xml": "\n  <gpu_lidar><scan><horizontal/></scan><range/><noise/></gpu_lidar>",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG gpu_lidar VERSION 1.12\nVALUES 640 4607182418800017408 0 0 1 4607182418800017408 0 0 0 0 0 4294967295 1 0 0 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "gpu_lidar_noise_quantized",
+      "tag": "gpu_lidar",
+      "version": "1.12",
+      "xml": "\n  <gpu_lidar><scan><horizontal><samples>23tail</samples><resolution>-2</resolution><min_angle>12</min_angle><max_angle>-4</max_angle></horizontal></scan><range><min>9</min><max>-2</max></range><noise><type>GaUsSiAn_QuAnTiZeD</type><mean>-3</mean><stddev>0.4</stddev></noise></gpu_lidar>",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG gpu_lidar VERSION 1.12\nVALUES 23 13835058055282163712 4622945017495814144 13839561654909534208 1 4607182418800017408 0 0 4621256167635550208 13835058055282163712 0 4294967295 2 13837309855095848960 4600877379321698714 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "gpu_lidar_version_1.4",
+      "tag": "gpu_lidar",
+      "version": "1.4",
+      "xml": "\n  <gpu_lidar><scan><horizontal><samples>17</samples><resolution>0.5</resolution><min_angle>-0.75</min_angle><max_angle>0.5</max_angle></horizontal><vertical><samples>3</samples><resolution>2</resolution><min_angle>0.2</min_angle><max_angle>-0.1</max_angle></vertical></scan><range><min>0.2</min><max>20</max><resolution>0.05</resolution></range><noise><type>gaussian</type><mean>0.1</mean><stddev>0.2</stddev></noise><visibility_mask>0x123</visibility_mask></gpu_lidar>",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG gpu_lidar VERSION 1.4\nVALUES 17 4602678819172646912 13828302655841107968 4602678819172646912 3 4611686018427387904 4596373779694328218 13815242216921733530 4596373779694328218 4626322717216342016 4587366580439587226 291 1 4591870180066957722 4596373779694328218 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "gpu_lidar_version_1.5",
+      "tag": "gpu_lidar",
+      "version": "1.5",
+      "xml": "\n  <gpu_lidar><scan><horizontal><samples>17</samples><resolution>0.5</resolution><min_angle>-0.75</min_angle><max_angle>0.5</max_angle></horizontal><vertical><samples>3</samples><resolution>2</resolution><min_angle>0.2</min_angle><max_angle>-0.1</max_angle></vertical></scan><range><min>0.2</min><max>20</max><resolution>0.05</resolution></range><noise><type>gaussian</type><mean>0.1</mean><stddev>0.2</stddev></noise><visibility_mask>0x123</visibility_mask></gpu_lidar>",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG gpu_lidar VERSION 1.5\nVALUES 17 4602678819172646912 13828302655841107968 4602678819172646912 3 4611686018427387904 4596373779694328218 13815242216921733530 4596373779694328218 4626322717216342016 4587366580439587226 291 1 4591870180066957722 4596373779694328218 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "gpu_lidar_version_1.6",
+      "tag": "gpu_lidar",
+      "version": "1.6",
+      "xml": "\n  <gpu_lidar><scan><horizontal><samples>17</samples><resolution>0.5</resolution><min_angle>-0.75</min_angle><max_angle>0.5</max_angle></horizontal><vertical><samples>3</samples><resolution>2</resolution><min_angle>0.2</min_angle><max_angle>-0.1</max_angle></vertical></scan><range><min>0.2</min><max>20</max><resolution>0.05</resolution></range><noise><type>gaussian</type><mean>0.1</mean><stddev>0.2</stddev></noise><visibility_mask>0x123</visibility_mask></gpu_lidar>",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG gpu_lidar VERSION 1.6\nVALUES 17 4602678819172646912 13828302655841107968 4602678819172646912 3 4611686018427387904 4596373779694328218 13815242216921733530 4596373779694328218 4626322717216342016 4587366580439587226 291 1 4591870180066957722 4596373779694328218 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "gpu_lidar_version_1.8",
+      "tag": "gpu_lidar",
+      "version": "1.8",
+      "xml": "\n  <gpu_lidar><scan><horizontal><samples>17</samples><resolution>0.5</resolution><min_angle>-0.75</min_angle><max_angle>0.5</max_angle></horizontal><vertical><samples>3</samples><resolution>2</resolution><min_angle>0.2</min_angle><max_angle>-0.1</max_angle></vertical></scan><range><min>0.2</min><max>20</max><resolution>0.05</resolution></range><noise><type>gaussian</type><mean>0.1</mean><stddev>0.2</stddev></noise><visibility_mask>0x123</visibility_mask></gpu_lidar>",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG gpu_lidar VERSION 1.8\nVALUES 17 4602678819172646912 13828302655841107968 4602678819172646912 3 4611686018427387904 4596373779694328218 13815242216921733530 4596373779694328218 4626322717216342016 4587366580439587226 291 1 4591870180066957722 4596373779694328218 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "gpu_lidar_missing_scan",
+      "tag": "gpu_lidar",
+      "version": "1.12",
+      "xml": "\n  <gpu_lidar></gpu_lidar>",
+      "rust_error": "Missing",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG gpu_lidar VERSION 1.12\nVALUES 640 4607182418800017408 0 0 1 4607182418800017408 0 0 0 0 0 4294967295 0 0 0 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "gpu_lidar_missing_horizontal",
+      "tag": "gpu_lidar",
+      "version": "1.12",
+      "xml": "\n  <gpu_lidar><scan/><range/></gpu_lidar>",
+      "rust_error": "Missing",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG gpu_lidar VERSION 1.12\nVALUES 640 4607182418800017408 0 0 1 4607182418800017408 0 0 0 0 0 4294967295 0 0 0 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "gpu_lidar_missing_range",
+      "tag": "gpu_lidar",
+      "version": "1.12",
+      "xml": "\n  <gpu_lidar><scan><horizontal/></scan></gpu_lidar>",
+      "rust_error": "Missing",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG gpu_lidar VERSION 1.12\nVALUES 640 4607182418800017408 0 0 1 4607182418800017408 0 0 0 0 0 4294967295 0 0 0 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "gpu_lidar_unknown",
+      "tag": "gpu_lidar",
+      "version": "1.12",
+      "xml": "\n  <gpu_lidar><scan><horizontal/></scan><range/><unknown/></gpu_lidar>",
+      "rust_error": "Unsupported",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG gpu_lidar VERSION 1.12\nVALUES 640 4607182418800017408 0 0 1 4607182418800017408 0 0 0 0 0 4294967295 0 0 0 0 0 0 0 0\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/unknown:<data-string>:L2]: XML Element[unknown], child of element[gpu_lidar], not defined in SDF. Copying[unknown] as children of [gpu_lidar].\n"
+      }
+    },
+    {
+      "name": "gpu_lidar_advanced_noise",
+      "tag": "gpu_lidar",
+      "version": "1.12",
+      "xml": "\n  <gpu_lidar><scan><horizontal/></scan><range/><noise><bias_mean>0.1</bias_mean></noise></gpu_lidar>",
+      "rust_error": "Unsupported",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG gpu_lidar VERSION 1.12\nVALUES 640 4607182418800017408 0 0 1 4607182418800017408 0 0 0 0 0 4294967295 1 0 0 4591870180066957722 0 0 0 0\n",
+        "stderr": "\u001b[1;33mWarning [Utils.cc:132]\u001b[0m [/sdf/noise/bias_mean:<data-string>:L2]: XML Element[bias_mean], child of element[noise], not defined in SDF. Copying[bias_mean] as children of [noise].\n"
+      }
+    },
+    {
+      "name": "gpu_lidar_duplicate",
+      "tag": "gpu_lidar",
+      "version": "1.12",
+      "xml": "\n  <gpu_lidar><scan><horizontal><samples>1</samples><samples>2</samples></horizontal></scan><range/></gpu_lidar>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG gpu_lidar VERSION 1.12\nVALUES 1 4607182418800017408 0 0 1 4607182418800017408 0 0 0 0 0 4294967295 0 0 0 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    },
+    {
+      "name": "gpu_lidar_negative_stddev",
+      "tag": "gpu_lidar",
+      "version": "1.12",
+      "xml": "\n  <gpu_lidar><scan><horizontal/></scan><range/><noise><stddev>-0.1</stddev></noise></gpu_lidar>",
+      "rust_error": "InvalidValue",
+      "native": {
+        "stdout": "READ 1\nSCHEMA\nLOAD\nELEMENT 1 TAG gpu_lidar VERSION 1.12\nVALUES 640 4607182418800017408 0 0 1 4607182418800017408 0 0 0 0 0 4294967295 1 0 13815242216921733530 0 0 0 0 0\n",
+        "stderr": ""
+      }
+    }
+  ],
+  "original_controls": {
+    "null": {
+      "stdout": "LOAD 8\nELEMENT 0\nVALUES 640 4607182418800017408 0 0 1 4607182418800017408 0 0 0 0 0 4294967295 0 0 0 0 0 0 0 0\n",
+      "stderr": ""
+    },
+    "bad": {
+      "stdout": "LOAD 11\nELEMENT 1\nVALUES 640 4607182418800017408 0 0 1 4607182418800017408 0 0 0 0 0 4294967295 0 0 0 0 0 0 0 0\n",
+      "stderr": ""
+    }
+  }
+}

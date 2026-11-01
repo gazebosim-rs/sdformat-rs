@@ -1064,8 +1064,9 @@ atmospheric calculation is performed. See [AIR_SPEED_XML.md](AIR_SPEED_XML.md).
 Lidar::to_xml/load_lidar_str preserve current scan/range/visibility and simple
 Noise metadata through existing reader rules. Omitted advanced Noise fields must
 have exact +0 bits. Sensor output supports lidar/gpu_lidar and raw ray/gpu_ray
-kinds with canonical lidar configuration. Legacy standalone roots and unsupported
-payloads reject without changing old parsing.
+kinds with canonical lidar configuration. The standalone reader accepts lidar,
+ray, gpu_lidar and gpu_ray roots; the returned value has no CPU/GPU identity and
+output uses canonical lidar. Unsupported payloads still reject.
 No ray allocation, ordering or runtime policy is added. See [LIDAR_XML.md](LIDAR_XML.md).
 
 

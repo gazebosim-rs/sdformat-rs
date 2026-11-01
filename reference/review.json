@@ -1,19 +1,19 @@
 {
   "decision": "approved",
   "author": "sdf_world_owner",
-  "reviewer": "msgs_performance_owner (independent replay); root (final assertion transition and bookkeeping review)",
-  "source_digest": "051580ecaf2a58125773c992763806e2d3dcdb9f89357b2295c6cfc7de9971fa",
-  "protected_digest": "1f033aa8f90ea3ad8ce982fe95f4c1e0f00902494062cb49782a7f643ba3ffae",
-  "scope": "Bounded SDF1.4/1.5 first-physics gravity and magnetic-field typed loading; exact historical gravity rejection becomes a stronger same-input positive. Full Element/XML/version conversion remains partial.",
+  "reviewer": "msgs_performance_owner; root (final scope and unchanged-policy check)",
+  "source_digest": "0329d344b30a9bbaaac41bb6a65d57fd50ee5d80e4259f821b69f167e81c9c22",
+  "protected_digest": "6919aabb3a89f342eb65573e9aca9a3772dda758324f8a279acb799ae50c8a45",
+  "scope": "Standalone lidar configuration root aliases lidar, ray, gpu_lidar and gpu_ray through the existing typed parser. No sensor runtime, type/dependency, simulator or writer change.",
   "checks": [
-    "Independent fresh accepted3e9e source archive and separate target passed four new Rust tests, both retained version15 tests,83 pinned native controls,both unchanged full C++ originals,hostile-Git replay,all-target Clippy and formatting.",
-    "Reviewer verified that removing only the authorized gravity branch/module declaration reproduces historical version15.rs byte-for-byte; the corpus and every other assertion remain unchanged. Exhaustive positive covers typed World/Physics,source URI/location,raw XML,input version and validation.",
-    "Root rechecked parser delta and exact transition, all12 unchanged independently reviewed path hashes, final two partial ledger records and truthful review-only documentation. Recomputed final digests. No gate/dependency/coverage policy changes.",
-    "Author full retained663 Rust pass is separate from independent focused replay; ordinary full strict staged and exact hosted gates are still required.",
-    "Independent Msgs recheck approved exactly two idiomatic source refactors: local allowed_children binding and direct input-version comparisons. Tests, native producer, coverage policy and verifier are unchanged. Prior actual LLVM showed no regions on the two syntactic closings; no new syntax exemption or source exclusion is added. New statements and all existing DA0/regions require full strict remeasurement."
+    "Independent fresh accepted486 source and reviewer-owned target passed eleven focused Rust tests,64 native controls,two null/bad-root controls and all four unchanged native DOMLidar originals, including hostile Git-context replay, all-target Clippy and formatting.",
+    "All existing tests, corpora, traceability mappings, Cargo files and verifier/policy bytes remain unchanged. Four root names reuse the same scan/range/noise/source validation. Empty aliases still fail required groups.",
+    "Root inspected the exact two-line root predicate and actual pinned roxmltree has_tag_name semantics; local-name matching preserves the previous namespace behavior for lidar. No broader parser or namespace policy is introduced.",
+    "Author reports full667 Rust tests; independent focused replay is separate. Ordinary strict staged and exact hosted/source checks remain required."
   ],
   "remaining": [
-    "General converted Element/XML/output-version and OriginalVersion behavior remains unported.",
-    "Normal strict staged and exact hosted/source qualification remain pending."
+    "This is bounded standalone configuration parsing. Mutable/null Element ownership and full DOMLidar.Load equivalence remain outside the value API and are not claimed complete.",
+    "No simulator consumer pin change or sensor runtime acceptance follows from this producer slice.",
+    "Normal strict staged and exact hosted/source qualification are pending."
   ]
 }

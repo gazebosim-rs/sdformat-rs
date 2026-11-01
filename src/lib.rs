@@ -161,8 +161,8 @@ pub fn load_air_speed_str(xml: &str, source: &str) -> Result<AirSpeed, Diagnosti
     parse::load_air_speed_element(xml, source)
 }
 
-/// Load canonical unattached `<lidar>` metadata using existing scan/noise rules.
-/// Legacy roots remain supported by document parsing, outside this root API.
+/// Load unattached lidar/ray metadata, including GPU aliases, using existing rules.
+/// The owned result has no CPU/GPU identity; XML output uses canonical `<lidar>`.
 pub fn load_lidar_str(xml: &str, source: &str) -> Result<Lidar, Diagnostic> {
     parse::load_lidar_element(xml, source)
 }

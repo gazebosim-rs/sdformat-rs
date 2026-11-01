@@ -3864,3 +3864,16 @@ the new matches macro with ordinary exact input-version comparisons. No proof,
 coverage rule, assertion or unsupported input changes. The refactored source
 requires the ordinary strict retry and exact hosted qualification; earlier663-test
 and native evidence remains separately bound to its original source.
+
+
+A private follow-up on accepted486 admits standalone `ray`, `gpu_ray` and
+`gpu_lidar` roots through the existing typed Lidar metadata reader. No value type,
+dependency, Sensor document grammar or runtime changes. All earlier assertions
+and corpora remain unchanged. Author checks pass all667 Rust tests, all-target
+Clippy and formatting; native64 alias controls, null/bad controls and all four
+unchanged Lidar originals pass. The original imported2019 notices were retained
+in the new tests; no old notice was changed. DOMLidar.Load's null/mutable Element
+and exact native error-enum observations remain unported; no original-case credit
+is added. Independent review and ordinary strict staged/hosted qualification are
+pending. Accepted quality and the simulator pin remain unchanged. See
+LIDAR_ALIASES.md.

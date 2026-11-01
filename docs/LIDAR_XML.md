@@ -25,7 +25,8 @@ stddev rejection remains. No additional physical bounds are introduced.
 Matching standalone Sensor output supports canonical lidar and gpu_lidar, retaining
 current envelope/pose metadata. Existing legacy ray/gpu_ray parsing and public kind
 strings remain unchanged. Output now retains those declared kinds with canonical
-lidar configuration; legacy standalone roots still reject. See LEGACY_SENSOR_OUTPUT.md. A canonical GPU Sensor with a ray payload is covered by actual
+lidar configuration. Standalone ray/GPU aliases are also supported; see
+[the alias contract](LIDAR_ALIASES.md). See LEGACY_SENSOR_OUTPUT.md. A canonical GPU Sensor with a ray payload is covered by actual
 exchange. Joint XML remains force_torque-only. Plugins, extensions, gz_frame_id
 and mismatched families still reject; this is not general Sensor or runtime parity.
 

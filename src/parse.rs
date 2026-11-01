@@ -559,8 +559,8 @@ pub(crate) fn load_lidar_element(xml: &str, uri: &str) -> Result<Lidar, Diagnost
         message: error.to_string(),
     })?;
     let root = document.root_element();
-    if !root.has_tag_name("lidar") {
-        return Err(parser.err(root, ErrorCode::Xml, "root element must be lidar"));
+    if !["lidar", "ray", "gpu_lidar", "gpu_ray"].contains(&root.tag_name().name()) {
+        return Err(parser.err(root, ErrorCode::Xml, "root element must be a lidar alias"));
     }
     parser.lidar_node(root)
 }

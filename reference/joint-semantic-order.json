@@ -1,0 +1,74 @@
+{
+  "base_revision": "c94da539b12e6d2187e03fb2c21454ef2ac68a8e",
+  "scope": "In development: existing joint_pose scoped-root evaluator; general pose_of and public API unchanged. No new native capture. First mandatory runtime passed, whole-hook syntax classification failed; amended message-binding source unrun.",
+  "upstream_sha": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+  "math_sha": "1316ed334f4d5bda7be59aae07cd6e8ff31cfe13",
+  "native_sources": {
+    "sdformat/src/Joint.cc": "4ebe9449ca64f4011a618c01292ba6673db069c7b5ec7dd6eae70018ad4d5271",
+    "sdformat/src/Model.cc": "9ce157bcd85ad233af6022192315ffa61ff5374490f8912f6750c98a0448d8d9",
+    "sdformat/src/World.cc": "4a4eeebbf58174757015b919b77833655dcc335f1fec80ac69e6225e48abecdf",
+    "sdformat/src/ScopedGraph.hh": "e895370927e4dffdc3531e29586478e9fb1018762186c27556588ee9052ad6d2",
+    "sdformat/src/SemanticPose.cc": "24ad139ecdf85294f205053d22d4741d106bc493236f22c1acac130602a6bedb",
+    "sdformat/src/FrameSemantics.cc": "9fa1184da2130efdd3d4932ca5616de7bba347b8348ad2fcd972f4ec789992bc",
+    "gz-math/include/gz/math/Pose3.hh": "6bfc53f0bd22a3e1596bbdb07c24bacdac9e17bd8178b9373d8df1b01e4fc6f6",
+    "gz-math/include/gz/math/Quaternion.hh": "9170601444da93735b4d14b369cc4266fafc7655657a6af7613e31206382b873",
+    "gz-math/include/gz/math/Vector3.hh": "b4e8d01584139efba180bf530c95e18101aee4fb070aa93b8ddfe7cc38282a38"
+  },
+  "evidence": {
+    "native_result_sha256": "5ecdb4697c8cd92b9f1e935ff22e29d4ef1ac632e601d32c6a033dd99fb56a25",
+    "native_congruence_sha256": "d5d82b4f7f6c750cf98f07f98bec4b70197667c995a166001fe4d3ad81165b63",
+    "native_full_state_sha256": "d683f66b9e9140766ce4c39bf8a3f971482725a6484fbcdb8158378a8cb5701d",
+    "independent_native_audit_sha256": "9f305d8e0cc80e843b3e253af624d70f5ffb7f8daba32d90e98ce4f20f26f0e4",
+    "image": "sha256:cb921fdafe5763b3c9148326dfd93b1cb291099f648702c4e27cc009137037ae",
+    "semantic_queries": 4,
+    "errors_per_query": 0,
+    "native_body_joint_fidelity_values": 16362,
+    "native_body_joint_maximum_recorded_numeric_delta": 0
+  },
+  "fixtures": {
+    "tests/fixtures/joint_semantic_b03.sdf": "24e85ff944b5efe2d758fdda543e392f34d59f26297a0a87fafbb41d5a3b16aa",
+    "tests/joint_semantic_order.json": "567ed84024b7d1328527265f18bf280afa3cca92fe2506144c2b08712bd695f3",
+    "tests/joint_semantic_order.state": "580ff7a0153edcdd2b7fed5825be591b9bbc81679234b793cc8bf1922730fb1a"
+  },
+  "bound": "Four actual default-child poses: exact nonzero component bits; numeric zero only. All prior native corpus bounds unchanged. Synthetic cases use existing1e-12 validation bound, not new native goldens.",
+  "status": "source_pending_independent_review",
+  "review": "pending",
+  "original_credit": "unchanged207 complete/35 partial; no old predicate transition",
+  "verification": {
+    "first_hook": {
+      "exit_code": 1,
+      "capacity_guard_stopped": false,
+      "elapsed_seconds": 394.0458465649863,
+      "source_tree": "32037374d7c5316551d8dde948203e7df021e289",
+      "rust_passed": 723,
+      "rust_summaries": 213,
+      "failed": 0,
+      "ignored": 0,
+      "filtered": 0,
+      "tooling_passed": 59,
+      "production_files": 37,
+      "lines": [
+        9017,
+        9065
+      ],
+      "regions": [
+        14308,
+        14587
+      ],
+      "changed_DA": [
+        77,
+        78
+      ],
+      "unchanged_genuinely_cold_changed_DA": "src/graph.rs:503 )?;",
+      "failure": "changed source is opaque syntax"
+    },
+    "single_pure_AST_query": {
+      "helper_elf_sha256": "c05d521f345055f2145668dc845befc71354dd79c4bf6c2735f9cf00f617d80b",
+      "helper_source_sha256": "199e9cb2b1b6dbdbd5773868c310561e0dd65418c2773f3f35afd05d4d8bdaf4",
+      "request_sha256": "1936236b124b97412b42b0591cd3df5e71df061238c3c94284eb3676e19a418c",
+      "stdout_sha256": "c33667c82562076bedef3eec48284d5f8a66347ac3a03d97c9995de5e1d975f5",
+      "sole_pending_graph_opaque": "old src/graph.rs:523 static diagnostic string argument"
+    },
+    "correction": "Identical static message bound before same lazy closure; no policy, numeric, data, test or tolerance changes. Corrected qualification UNRUN."
+  }
+}

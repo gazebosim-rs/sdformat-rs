@@ -1338,3 +1338,8 @@ source-prior-approved historical roll rows now use complete positives anchored
 by actual native data; all other assertions/corpora/tolerances remain unchanged.
 The capture is reference evidence, while Rust/coverage qualification is pending.
 See [the source boundary](AUTO_ROTATION_POSE.md).
+
+The in-development [joint semantic-order increment](JOINT_SEMANTIC_ORDER.md) keeps
+`joint_pose` local target/default/error contracts while evaluating full containing-
+scope chains in SDK order. It leaves general `pose_of` arithmetic and all existing
+bounds unchanged. Its new runtime/coverage/hosted qualification is pending.

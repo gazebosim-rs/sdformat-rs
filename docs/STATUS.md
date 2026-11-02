@@ -4139,3 +4139,19 @@ Source rather than Option<Source>. Its corrected assertion explicitly requires
 the parsed source and retains all URI/position checks. Production, native data,
 old tests and bounds remain unchanged. New runtime/coverage qualification is
 still unrun pending independent correction review and affected mandatory gate.
+
+## Joint semantic-order source increment
+
+Accepted producer Main remains c94da539 with715 Rust tests and59 tooling checks.
+A separate isolated in-development batch changes only the existing joint_pose evaluator
+to the native containing-model/world scoped-root roundtrip, including nested
+model alias edges. General pose_of shortcuts and every retained test/corpus are
+unchanged. Seven new integration controls and one private guard control passed in the first
+mandatory instrumented run; the amended source remains unrun. Four golden joint observations come from the independently audited
+actual native public-plugin capture; there is no new native execution or B03
+causality/physics acceptance claim. Independent source review passed; the first mandatory hook failed only syntax
+classification after723 Rust/59 tools and measured9017/9065 lines,14308/14587
+regions and77/78 changed DA. One cold DA line remains authoritative. A static-
+message binding corrects the single identified opaque literal without policy
+changes; its independent recheck and affected mandatory hook remain pending.
+Original207 complete/35 partial counts are unchanged.

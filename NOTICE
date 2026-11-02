@@ -25,3 +25,9 @@ Version 2.0. The demonstrated library rounding gap and this narrow exception are
 recorded in docs/AUTO_ROTATION_POSE.md. Existing Parry admission and unrotated
 paths, maintained glam matrix operations and the numeric policies remain in use;
 no general geometry, rotation or inertia API is introduced.
+
+The private joint semantic-pose arithmetic is adapted from gz-math Pose3.hh
+and Quaternion.hh, Copyright (C) 2012 Open Source Robotics Foundation,
+Apache-2.0. It preserves the pinned scoped-graph evaluation order and uses
+maintained glam quaternion products and vector cross products. General
+Transform and pose_of arithmetic remain unchanged.

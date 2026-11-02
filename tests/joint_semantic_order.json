@@ -1,0 +1,58 @@
+[
+  {
+    "joint": "default::double_pendulum_with_base0::upper_joint",
+    "child": "upper_link",
+    "error_count": 0,
+    "pose_bits": [
+      0,
+      13600870874658897920,
+      13596367275031527424,
+      0,
+      0,
+      0,
+      4607182418800017408
+    ]
+  },
+  {
+    "joint": "default::double_pendulum_with_base0::lower_joint",
+    "child": "lower_link",
+    "error_count": 0,
+    "pose_bits": [
+      0,
+      13600870874658897920,
+      13596367275031527424,
+      0,
+      0,
+      0,
+      4607182418800017408
+    ]
+  },
+  {
+    "joint": "default::double_pendulum_with_base1::upper_joint",
+    "child": "upper_link",
+    "error_count": 0,
+    "pose_bits": [
+      0,
+      13600870874658897920,
+      13596367275031527424,
+      0,
+      0,
+      0,
+      4607182418800017408
+    ]
+  },
+  {
+    "joint": "default::double_pendulum_with_base1::lower_joint",
+    "child": "lower_link",
+    "error_count": 0,
+    "pose_bits": [
+      0,
+      13600870874658897920,
+      13596367275031527424,
+      0,
+      0,
+      0,
+      4607182418800017408
+    ]
+  }
+]

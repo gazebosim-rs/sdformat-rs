@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 use crate::{Diagnostic, ErrorCode, Frame, Joint, Model, Pose, Source, Transform, World};
+use glam::{DQuat, DVec3};
 use petgraph::{
     algo::{astar, toposort},
     graph::{DiGraph, NodeIndex},
@@ -471,6 +472,13 @@ impl Graphs {
                 format!("frame {name} is not a joint"),
             ));
         }
+        let target_spelling = if target.is_empty() {
+            match node.attachment.as_ref().expect("joint child reference") {
+                Reference::Scoped(value) | Reference::Absolute(value) => value.as_str(),
+            }
+        } else {
+            target
+        };
         let target = if target.is_empty() {
             // The declared child may be an offset frame, not its attached body.
             self.resolve_reference(
@@ -481,7 +489,61 @@ impl Graphs {
         } else {
             self.schema_lookup(target, &node.scope, &node.source)?
         };
-        self.pose_of(name, &target)
+        // Native Joint::SemanticPose resolves both complete chains to its
+        // containing model/world scope, even when they share nearer ancestors.
+        let from = self.joint_scope_pose(name, &node.scope, true, &node.source)?;
+        if name == target {
+            return Ok(Transform::default());
+        }
+        let to = self.joint_scope_pose(
+            &target,
+            &node.scope,
+            target_spelling.rsplit("::").next() == Some("__model__"),
+            &node.source,
+        )?;
+        let pose = joint_compose(joint_inverse(to), from);
+        pose.validate(&node.source)?;
+        Ok(pose)
+    }
+    fn joint_scope_pose(
+        &self,
+        name: &str,
+        scope: &str,
+        first_model_alias: bool,
+        source: &Source,
+    ) -> Result<Transform, Diagnostic> {
+        let path = self.path_to_root(self.pose_indices[name]);
+        let disconnected = "joint frame is disconnected from its containing scope";
+        let end = path
+            .iter()
+            .position(|index| self.pose_tree[*index] == scope)
+            .ok_or_else(|| error(ErrorCode::InvalidValue, source, disconnected))?;
+        let mut pose = Transform::default();
+        for (index, pair) in path[..=end].windows(2).enumerate() {
+            // Graph storage coalesces a model and its implicit frame. Native
+            // keeps an identity alias edge between them, including nested paths.
+            if self.nodes[&self.pose_tree[pair[0]]].kind == Kind::Model {
+                let implicit_frame = if index == 0 {
+                    first_model_alias
+                } else {
+                    // Default absolute references mean the owning implicit
+                    // frame; explicit local names can mean the model entity.
+                    match &self.nodes[&self.pose_tree[path[index - 1]]].pose_parent {
+                        Reference::Absolute(_) => true,
+                        Reference::Scoped(value) => value.rsplit("::").next() == Some("__model__"),
+                    }
+                };
+                if implicit_frame {
+                    pose = joint_compose(Transform::default(), pose);
+                }
+            }
+            let edge = self
+                .pose_tree
+                .find_edge(pair[0], pair[1])
+                .expect("validated pose ancestry");
+            pose = joint_compose(self.pose_tree[edge], pose);
+        }
+        Ok(pose)
     }
     pub(crate) fn pose_of(&self, name: &str, target: &str) -> Result<Transform, Diagnostic> {
         let source = &self.nodes["::"].source;
@@ -573,6 +635,37 @@ impl Graphs {
         })
     }
 }
+// Adapted from gz-math Pose3.hh / Quaternion.hh, Copyright (C) 2012
+// Open Source Robotics Foundation, Apache-2.0. Only Joint::SemanticPose needs
+// these ordered, norm-aware operations; general Transform math stays unchanged.
+fn joint_quaternion_inverse(q: DQuat) -> DQuat {
+    let norm = ((q.w * q.w + q.x * q.x) + q.y * q.y) + q.z * q.z;
+    // Loaded graph rotations are validated unit quaternions, so the SDK's
+    // near-zero invalid-quaternion fallback is outside this query's inputs.
+    DQuat::from_xyzw(-q.x / norm, -q.y / norm, -q.z / norm, q.w / norm)
+}
+fn joint_compose(a: Transform, b: Transform) -> Transform {
+    let q = DQuat::from_array(a.rotation);
+    let v = DVec3::from_array(b.translation);
+    let rotated = q * (DQuat::from_xyzw(v.x, v.y, v.z, 0.) * joint_quaternion_inverse(q));
+    Transform {
+        translation: (DVec3::from_array(a.translation) + rotated.xyz()).to_array(),
+        rotation: (q * DQuat::from_array(b.rotation)).to_array(),
+    }
+}
+fn joint_inverse(pose: Transform) -> Transform {
+    let q = joint_quaternion_inverse(DQuat::from_array(pose.rotation));
+    let v = -DVec3::from_array(pose.translation);
+    let axis = q.xyz();
+    let uv = axis.cross(v);
+    let uuv = axis.cross(uv);
+    Transform {
+        // Pose3::Inverse uses Quaternion's two-cross vector operator, not
+        // RotateVector's sandwich used by Pose3 multiplication above.
+        translation: ((v + uv * (2. * q.w)) + uuv * 2.).to_array(),
+        rotation: q.to_array(),
+    }
+}
 pub(crate) fn join(scope: &str, name: &str) -> String {
     if scope == "::" || scope.is_empty() {
         name.into()
@@ -580,6 +673,10 @@ pub(crate) fn join(scope: &str, name: &str) -> String {
         format!("{scope}::{name}")
     }
 }
+
+#[cfg(test)]
+#[path = "../tests/private/joint_scope.rs"]
+mod joint_scope;
 fn reference(value: &str, default: Reference) -> Reference {
     if value.is_empty() {
         default

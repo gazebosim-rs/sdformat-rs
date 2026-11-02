@@ -196,6 +196,8 @@ impl Sdf {
     /// Resolve a loaded joint pose to a target in its containing model/world scope.
     /// An empty target selects the declared child frame, including frame offsets.
     /// Like `pose_of`, this reads the loaded graph, not later edits to DOM fields.
+    /// Its arithmetic follows native Joint SemanticPose's complete containing-
+    /// scope chains; `pose_of` keeps its common-ancestor precision shortcuts.
     pub fn joint_pose(&self, scoped_joint: &str, target: &str) -> Result<Transform, Diagnostic> {
         self.graphs.joint_pose(scoped_joint, target)
     }

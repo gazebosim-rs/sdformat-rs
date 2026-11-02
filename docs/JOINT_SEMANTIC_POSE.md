@@ -55,3 +55,11 @@ with 29 focused checks in fresh reviewer-owned source/target, all 46 native
 queries and the unchanged native original. The final token-count assertion
 tightening also passed independent replay. The normal staged hook, strict
 coverage and exact hosted CI remain required before acceptance.
+
+## Scoped evaluation fidelity in development
+
+A separate in-development increment replaces only the joint query's general-graph
+shortcut with the pinned scoped-root two-chain evaluation. Target lookup,
+same-vertex identity and loaded-snapshot semantics remain. General pose_of keeps
+its existing precision shortcuts. See [the source contract](JOINT_SEMANTIC_ORDER.md)
+for retained actual native evidence and unrun checks; this adds no original credit.

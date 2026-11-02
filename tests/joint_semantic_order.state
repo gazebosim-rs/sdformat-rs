@@ -1,0 +1,12 @@
+SEMANTIC_JOINT "default::double_pendulum_with_base0::upper_joint" 16 "upper_link" "" 0
+SEMANTIC_POSE "default::double_pendulum_with_base0::upper_joint" 16 0 -4.4408920985006262e-16 -2.2204460492503131e-16 0 0 0 1
+MATRIX 0 "default::double_pendulum_with_base0::upper_joint" 16 DOMResolvedDefaultChild 1 0 0 0 1 0 0 0 1 0 -4.4408920985006262e-16 -2.2204460492503131e-16
+SEMANTIC_JOINT "default::double_pendulum_with_base0::lower_joint" 17 "lower_link" "" 0
+SEMANTIC_POSE "default::double_pendulum_with_base0::lower_joint" 17 0 -4.4408920985006262e-16 -2.2204460492503131e-16 0 0 0 1
+MATRIX 0 "default::double_pendulum_with_base0::lower_joint" 17 DOMResolvedDefaultChild 1 0 0 0 1 0 0 0 1 0 -4.4408920985006262e-16 -2.2204460492503131e-16
+SEMANTIC_JOINT "default::double_pendulum_with_base1::upper_joint" 29 "upper_link" "" 0
+SEMANTIC_POSE "default::double_pendulum_with_base1::upper_joint" 29 0 -4.4408920985006262e-16 -2.2204460492503131e-16 0 0 0 1
+MATRIX 0 "default::double_pendulum_with_base1::upper_joint" 29 DOMResolvedDefaultChild 1 0 0 0 1 0 0 0 1 0 -4.4408920985006262e-16 -2.2204460492503131e-16
+SEMANTIC_JOINT "default::double_pendulum_with_base1::lower_joint" 30 "lower_link" "" 0
+SEMANTIC_POSE "default::double_pendulum_with_base1::lower_joint" 30 0 -4.4408920985006262e-16 -2.2204460492503131e-16 0 0 0 1
+MATRIX 0 "default::double_pendulum_with_base1::lower_joint" 30 DOMResolvedDefaultChild 1 0 0 0 1 0 0 0 1 0 -4.4408920985006262e-16 -2.2204460492503131e-16

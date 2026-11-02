@@ -2485,7 +2485,7 @@ impl Parser<'_> {
                 MassProperties::from_cylinder(density, *length / 2., *radius)
             }
             Geometry::Capsule { radius, length }
-                if collision.pose.transform == Transform::default() =>
+                if collision.pose.transform.rotation == Transform::default().rotation =>
             {
                 let end = parry3d_f64::math::Vector::new(0., *length / 2., 0.);
                 MassProperties::from_capsule(density, -end, end, *radius)

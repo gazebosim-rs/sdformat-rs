@@ -1386,3 +1386,14 @@ but failed on its detached, unmeasured arm header. The final source names the
 three principal components and keeps each full arm and value together; this
 preserves the exact permutation without a coverage-policy exception. Corrected
 qualification remains pending; both actual failures are retained separately.
+
+
+## Prepared translated capsule automatic inertia
+
+[AUTO_CAPSULE_TRANSLATION.md](AUTO_CAPSULE_TRANSLATION.md) describes a source-only
+extension to attribute-free local translation with numeric-identity rotation.
+It reuses the existing maintained kernel and ordered accumulation without new
+math or broader pose families. Two exact old translations now use the complete
+positive helper after independent actual-data/PRIOR review. The one native capture is
+complete with an observed center residual, nonfinite aggregates and retained error
+defaults; Rust/lint/coverage qualification remains unrun.

@@ -1,0 +1,72 @@
+{
+  "copyright": "Copyright (C) 2026 Open Source Robotics Foundation",
+  "license": "Apache-2.0",
+  "base": "a44bf8be09aff979449afddc8c75118c4ae1a227",
+  "scope": "Translation-only single Capsule, numeric-identity rotation. Actual24 capture and independent SDK/data/PRIOR review clear; exact two old translations folded to complete same-input helper. Rust/lint/coverage UNRUN; final fold source review pending.",
+  "upstream_sha": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+  "math_sha": "1316ed334f4d5bda7be59aae07cd6e8ff31cfe13",
+  "selected_sources": {
+    "sdformat/src/Capsule.cc": "74c60a158b08d5fdd7f101aa7e58e7207ac694d709b023ff8981de122658f3aa",
+    "sdformat/src/Collision.cc": "235fe52a4df631f5c26b55eb289ea2829982bfb2fc3e27c290aca388ba8289ee",
+    "sdformat/src/Link.cc": "ff58b54bef267f7e13a2ac5ee99e7bcece921729915d3de6906309bc237e07cc",
+    "gz-math/include/gz/math/detail/Capsule.hh": "a0ca03d41463d31d50d68eb8fd287300143bfa65974d4c75fd2bafb600062689",
+    "gz-math/include/gz/math/Inertial.hh": "22157a24c52529c2be13680169b1e14bd20ad0aa5adedd9ff55515cb7c7df033"
+  },
+  "native_cases": 24,
+  "native_observations": 24,
+  "capture": "python3 tools/auto_capsule_translation_reference.py /path/to/pinned/sdformat --capture",
+  "fixtures": {
+    "tests/auto_capsule_translation_cases.json": "ad18d5e22227391c5b878fdab317a6ce4a633d798d6b438cddaa46c55dac9901",
+    "tests/auto_capsule_translation_native.json": "3ab7c7cad5be626c47c159a7f237bd080b717c79c6e62f5a1e9e6c945a0d94eb"
+  },
+  "implementation": "Only Capsule identity guard becomes rotation-identity guard. Reuse unchanged Parry mass/principal/world center, Y-to-Z mapping, native-prefix/matrix/manual/aggregate validation and ordered translation helper; no new math/provider/dependency/API.",
+  "precision": "Unchanged four-ULP; direct origin control separate from full aggregate. No presumed exact translation/COM equivalence, no new cutoff/formula.",
+  "old_expectations": [
+    "auto_capsule_inertial corpus translated exactXML/translated.sdf \u2192 prepared complete helper at old error-dispatch after all native checks; immutableJSON retained.",
+    "auto_capsule_inertial pose-table first translated string exactXML/closed-capsule.sdf \u2192 same complete helper; all other table entries/controls unchanged."
+  ],
+  "closed_domains": "All rotated/mixed capsules, attributes/references/quaternion/degrees, overrides/multiple and other old guards remain closed; only two reviewed translation calls changed.",
+  "status": "partial_pending_review",
+  "review": "Independent Bevy source/protocol and actual SDK/data review clear; exact two transitions prior-approved, final fold source review pending.",
+  "original_credit": "unchanged207complete/35partial; no completion claim",
+  "native_summary": {
+    "children": 24,
+    "all_exit_zero": true,
+    "timeouts": 0,
+    "root_stored_finite_valid": 22,
+    "root_nonfinite_invalid": 2,
+    "direct_stored_finite_valid": 24,
+    "error_default_cases": [
+      "maximum_density",
+      "native_density_prefix_overflow"
+    ],
+    "error_vectors": {
+      "load": [
+        19
+      ],
+      "collision": [
+        19
+      ],
+      "resolve": []
+    },
+    "warning_rows": [
+      "old_translated_corpus",
+      "negative_radius",
+      "zero_length",
+      "both_nonpositive",
+      "missing_density"
+    ],
+    "idempotent_snapshots": 24,
+    "finite_com_residual_cases": [
+      "integer_translation"
+    ],
+    "old_input_stdout_stderr_closure": "passed byte-exact",
+    "unchanged_original": "1completedpass0failure",
+    "expanded_compiler_inputs": 340,
+    "mapped_observer_libraries": 11,
+    "raw_result_sha256": "c5fec41ab31aff53149960905db8e939fc04480b7e9765ea0056f30eab5d4d68",
+    "elapsed_seconds": 14.254788799968082,
+    "scope": "One correctness capture; flags/defaults/nonfinite are not positive admission. No Rust or performance result.",
+    "zero_error_finite_numeric_tensor_residual_cases": []
+  }
+}

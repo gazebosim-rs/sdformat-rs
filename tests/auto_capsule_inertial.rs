@@ -1,5 +1,7 @@
 // Copyright (C) 2026 Open Source Robotics Foundation
 // SPDX-License-Identifier: Apache-2.0
+#[path = "common/auto_capsule_translation.rs"]
+mod translation;
 use sdformat::*;
 use serde_json::Value;
 
@@ -170,6 +172,10 @@ fn actual_capsule_corpus_preserves_values_or_explicit_numeric_and_pose_refusals(
         let xml = case["xml"].as_str().unwrap();
         let uri = case["uri"].as_str().unwrap();
         let result = load_str(xml, uri, &NoResources);
+        if case["name"] == "translated" {
+            translation::assert_translated_input(xml, uri, "old_translated_corpus");
+            continue;
+        }
         if case["rust_error"] == "Unsupported" {
             let error = result.unwrap_err();
             assert_eq!(error.code, ErrorCode::Unsupported, "{}", case["name"]);
@@ -258,9 +264,17 @@ fn capsule_pose_attribute_override_and_multiplicity_domains_remain_closed() {
         "<pose rotation_format='quat_xyzw'>0 0 0 0 0 0 1</pose>",
     ] {
         let xml = original.replace("<pose>0 0 0 0 0 0</pose>", pose);
-        let error = load_str(&xml, "closed-capsule.sdf", &NoResources).unwrap_err();
-        assert_eq!(error.code, ErrorCode::Unsupported);
-        assert_eq!(error.source.uri, "closed-capsule.sdf");
+        if pose == "<pose>1 0 0 0 0 0</pose>" {
+            translation::assert_translated_input(
+                &xml,
+                "closed-capsule.sdf",
+                "old_translated_closed",
+            );
+        } else {
+            let error = load_str(&xml, "closed-capsule.sdf", &NoResources).unwrap_err();
+            assert_eq!(error.code, ErrorCode::Unsupported);
+            assert_eq!(error.source.uri, "closed-capsule.sdf");
+        }
     }
     for override_xml in [
         "<mass>1</mass>",

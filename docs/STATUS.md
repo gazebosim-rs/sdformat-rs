@@ -4225,3 +4225,22 @@ has DA coverage. No second AST or product query was needed. Naming the principal
 components ix/iy/iz keeps each complete arm/value together with the exact same
 axis mapping and no numeric/policy/test/data change. This completed correction
 is unrun pending independent final source review and an affected required hook.
+
+
+## Translation-only capsule source batch
+
+Accepted producer Main remains a44bf8be. The isolated batch changes only Capsule
+admission to numeric-identity rotation, reusing maintained Parry and the existing
+translation and validation helpers. The one native capture completed 24 children,
+the unchanged original once and the exact old-input stdout/stderr closure, with
+340 expanded inputs and 11 mapped libraries. Root has 22 stored finite-valid
+results, including two error defaults; two overflow aggregates are nonfinite.
+Five warning rows and one finite Z-center residual are retained.
+
+Complete same-input/differential/metadata/manual/include/error controls remain
+unrun in Rust, as do lint and coverage. Independent actual-data/SDK review is
+clear; both exact old translations now call the prior-approved complete positive
+helper, preserving all other old assertions. Final fold source review and the
+mandatory hook remain pending. Rotated and mixed
+capsules, attributes, overrides and multiple collisions stay closed. No new
+math/provider/API/dependency, bound, consumer pin, Fuel or original credit.

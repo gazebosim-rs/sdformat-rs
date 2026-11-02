@@ -15,6 +15,8 @@
  */
 // Copyright (C) 2026 Open Source Robotics Foundation
 // SPDX-License-Identifier: Apache-2.0
+#[path = "common/auto_mass_override.rs"]
+mod mass_override;
 use sdformat::*;
 #[path = "common/auto_default_density.rs"]
 mod default_density;
@@ -175,6 +177,15 @@ fn native_auto_box_corpus_retains_numeric_domains_and_source() {
                 "box",
                 (row["name"] == "empty_density").then_some(1000.),
                 &native,
+            );
+            continue;
+        }
+        if row["name"] == "mass_override" {
+            assert_eq!(row["rust_error"], "Unsupported");
+            mass_override::assert_mass_override(
+                row["xml"].as_str().unwrap(),
+                "auto-box.sdf",
+                "box_old_corpus",
             );
             continue;
         }

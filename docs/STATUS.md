@@ -4274,3 +4274,27 @@ fields and each Source against its own exact input; no production/native/bound
 or old disposition change. Cargo stopped the first failing target, so no full
 Rust/coverage result is claimed. Failed raw evidence remains separate; corrected
 execution is unrun pending review and ONE affected required hook.
+
+## Origin box/sphere automatic mass override: source only
+
+The isolated batch off accepted `1594ac36` admits only a positive mass child for
+one local origin-centered numeric-identity Box/Sphere. Existing Parry geometry
+and base/aggregate/manual validation precede maintained set_mass(M,true), with
+exact requested mass retained. No custom formula/provider or bound change is
+introduced. Native divides moments by base mass then multiplies by requested
+mass, while Parry adjusts reciprocal properties; numerical parity remains
+unqualified. Fixed24 source cases, full native observer/SDK protocol and complete
+owned-value/error/metadata/frame/source regressions are authored. All old tests
+and corpora remain unchanged except the six independently approved exact-input
+positive branches across four files; all tables/counts/order and other negatives
+remain unchanged.
+The one reviewed capture ran24children:23exit0 plus an exact controlled
+minimum-subnormal load/DOM refusal(exit2, no map/state). Blanketallzero packaging
+failed before the selectedoriginal invocation; the originaldriver/raw/failed
+result are preserved. The reviewed retained-output finish completed11.756s without observer
+recompilation/reruns, keeping81oldcapturefiles byte-identical and recording both
+code roles. The previously uninvoked original completedonce/1pass. All24rows are
+now retained, with23actualmaps/oneexplicitunavailableDOM/map; independentactual
+SDK/data/PRIORreview isclear(dba9dbf6); onlyold6approvedbranches arefolded,
+finalfoldSource reviewpending, Rust/lint/coverage remainunrun. No consumer/Fuel/dependency/API, original ledger or
+performance claim changes.

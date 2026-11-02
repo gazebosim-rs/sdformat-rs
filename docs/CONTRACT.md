@@ -1407,3 +1407,14 @@ all numerical paths. Frames, true degrees, quaternions and rotated Capsule stay
 closed. Independent native-data/PRIOR review approved only sixteen exact old
 branches into the complete same-input helper. The one native24 capture completed with four inherited missing-
 density cylinder warnings and empty errors; Rust/lint/coverage remain unrun.
+
+## Prepared origin automatic mass override
+
+[AUTO_MASS_OVERRIDE.md](AUTO_MASS_OVERRIDE.md) describes the source-only optional
+positive mass for one origin-centered Box/Sphere collision. It reuses Parry's
+maintained mass adjustment and unchanged validation, while retaining exact parsed
+mass and metadata. Native ordered division/multiplication differs from reciprocal
+storage, so Rust four-ULP parity is unqualified. Native data and PRIOR review
+approved only six exact-input stronger-positive branches; other predicates and
+corpora remain unchanged. Translated/rotated/other-shape overrides remain closed;
+final fold review and Rust qualification are pending.

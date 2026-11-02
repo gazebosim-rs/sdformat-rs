@@ -2,6 +2,8 @@
 // SPDX-License-Identifier: Apache-2.0
 #[path = "common/auto_default_pose_attributes.rs"]
 mod attributes;
+#[path = "common/auto_mass_override.rs"]
+mod mass_override;
 #[path = "common/auto_rotation_pose.rs"]
 mod rotation;
 use sdformat::*;
@@ -98,12 +100,24 @@ fn transformed_and_attributed_pose_families_stay_explicitly_unsupported() {
                 "<inertial auto='true'/>",
                 &format!("<inertial auto='true'>{override_element}</inertial>"),
             );
-            assert_eq!(
-                load_str(&xml, "override.sdf", &NoResources)
-                    .unwrap_err()
-                    .code,
-                ErrorCode::Unsupported
-            );
+            if override_element == "<mass>1</mass>" {
+                mass_override::assert_mass_override(
+                    &xml,
+                    "override.sdf",
+                    if is_sphere {
+                        "sphere_old_identity"
+                    } else {
+                        "box_old_identity"
+                    },
+                );
+            } else {
+                assert_eq!(
+                    load_str(&xml, "override.sdf", &NoResources)
+                        .unwrap_err()
+                        .code,
+                    ErrorCode::Unsupported
+                );
+            }
         }
         let xml = original.replace("</link>", "<collision name='second'><density>1</density><geometry><sphere><radius>1</radius></sphere></geometry></collision></link>");
         assert_eq!(

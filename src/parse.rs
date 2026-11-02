@@ -2459,8 +2459,8 @@ impl Parser<'_> {
         node: Node<'_, '_>,
         collisions: &[Collision],
     ) -> Result<Inertial, Diagnostic> {
-        self.allowed(node, &[], &["auto"])?;
-        let message = "automatic inertia requires one supported local primitive and no overrides";
+        self.allowed(node, &["mass"], &["auto"])?;
+        let message = "automatic inertia requires one supported local primitive and compatible inertial options";
         let unsupported = || self.err(node, ErrorCode::Unsupported, message);
         let [collision] = collisions else {
             return Err(unsupported());
@@ -2484,6 +2484,25 @@ impl Parser<'_> {
                 return Err(unsupported());
             }
         }
+        let requested_mass = if let Some(mass_node) = child(node, "mass") {
+            if collision.pose.transform != Transform::default() {
+                return Err(unsupported());
+            }
+            let mass = match &collision.geometry {
+                Geometry::Box { .. } | Geometry::Sphere { .. } => self.number(mass_node, 1.)?,
+                _ => return Err(unsupported()),
+            };
+            if mass <= 0. {
+                return Err(self.err(
+                    node,
+                    ErrorCode::InvalidValue,
+                    "automatic mass must be positive",
+                ));
+            }
+            Some(mass)
+        } else {
+            None
+        };
         let properties = match &collision.geometry {
             Geometry::Box { size } => MassProperties::from_cuboid(
                 density,
@@ -2607,6 +2626,25 @@ impl Parser<'_> {
             ));
         }
         self.validate_inertial(node, &result)?;
+        if let Some(mass) = requested_mass {
+            // Keep the existing kernel/aggregate domain before mass adjustment.
+            let mut adjusted = properties;
+            adjusted.set_mass(mass, true);
+            let moments = adjusted.principal_inertia().to_array();
+            if moments
+                .iter()
+                .any(|value| !value.is_finite() || *value <= 0.)
+            {
+                return Err(self.err(
+                    node,
+                    ErrorCode::Unsupported,
+                    "automatic mass adjustment exceeds the kernel numeric domain",
+                ));
+            }
+            result.mass = mass;
+            result.inertia = [moments[0], moments[1], moments[2], 0., 0., 0.];
+            self.validate_inertial(node, &result)?;
+        }
         Ok(result)
     }
     fn validate_inertial(&self, node: Node<'_, '_>, result: &Inertial) -> Result<(), Diagnostic> {

@@ -16,6 +16,8 @@
 // Copyright (C) 2026 Open Source Robotics Foundation
 // SPDX-License-Identifier: Apache-2.0
 use common as sphere;
+#[path = "common/auto_mass_override.rs"]
+mod mass_override;
 use sdformat::*;
 #[path = "common/auto_sphere.rs"]
 mod common;
@@ -83,6 +85,11 @@ fn sphere_loader_native_domains_and_oracle_roundoff() {
                 (row["name"] == "empty_density").then_some(1000.),
                 &expected,
             );
+            continue;
+        }
+        if row["name"] == "manual_override" {
+            assert_eq!(row["rust_error"], "Unsupported");
+            mass_override::assert_mass_override(xml, uri, "sphere_old_corpus");
             continue;
         }
         if let Some(error) = row.get("rust_error") {

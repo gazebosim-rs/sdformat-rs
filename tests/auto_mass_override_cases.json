@@ -1,0 +1,217 @@
+{
+  "copyright": "Copyright (C) 2026 Open Source Robotics Foundation",
+  "license": "Apache-2.0",
+  "scope": "Fixed24: old6 held exact inputs, positive/schema-default density/mass cases and explicit numeric/error/refusal controls. NativeUNRUN.",
+  "cases": [
+    {
+      "name": "box_old_corpus",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'><mass>1</mass></inertial><collision name='box_col'><density>1240</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "auto-box.sdf",
+      "base_xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><density>1240</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "mass_text": "1",
+      "source": {
+        "fixture": "auto_box_inertial.json",
+        "case": "mass_override",
+        "test": "auto_box_inertial.rs"
+      }
+    },
+    {
+      "name": "box_old_identity",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'><mass>1</mass></inertial><collision name='box_col'><pose>0 0 0 0 0 0</pose><density>1240</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "override.sdf",
+      "base_xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose>0 0 0 0 0 0</pose><density>1240</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "mass_text": "1",
+      "source": {
+        "fixture": "auto_box_inertial.json",
+        "case": "pose_identity",
+        "test": "auto_identity_pose.rs",
+        "generated": true
+      }
+    },
+    {
+      "name": "box_old_default_attributes",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'><mass>1</mass></inertial><collision name='box_col'><pose rotation_format='euler_rpy'>0 0 0 0 0 0</pose><density>1240</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "override.sdf",
+      "base_xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose rotation_format='euler_rpy'>0 0 0 0 0 0</pose><density>1240</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "mass_text": "1",
+      "source": {
+        "fixture": "auto_default_pose_attributes_cases.json",
+        "case": "box_old_identity",
+        "test": "auto_default_pose_attributes.rs",
+        "generated": true
+      }
+    },
+    {
+      "name": "sphere_old_corpus",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'><mass>1</mass></inertial><collision name='sphere_col'><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "sphere.sdf",
+      "base_xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "mass_text": "1",
+      "source": {
+        "fixture": "auto_sphere_inertial.json",
+        "case": "manual_override",
+        "test": "auto_sphere_inertial.rs"
+      }
+    },
+    {
+      "name": "sphere_old_identity",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'><mass>1</mass></inertial><collision name='sphere_col'><pose>0 0 0 0 0 0</pose><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "override.sdf",
+      "base_xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose>0 0 0 0 0 0</pose><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "mass_text": "1",
+      "source": {
+        "fixture": "auto_sphere_inertial.json",
+        "case": "explicit_pose",
+        "test": "auto_identity_pose.rs",
+        "generated": true
+      }
+    },
+    {
+      "name": "sphere_old_default_attributes",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'><mass>1</mass></inertial><collision name='sphere_col'><pose rotation_format='euler_rpy'>0 0 0 0 0 0</pose><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "override.sdf",
+      "base_xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose rotation_format='euler_rpy'>0 0 0 0 0 0</pose><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "mass_text": "1",
+      "source": {
+        "fixture": "auto_default_pose_attributes_cases.json",
+        "case": "sphere_old_identity",
+        "test": "auto_default_pose_attributes.rs",
+        "generated": true
+      }
+    },
+    {
+      "name": "unit_box_four",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'><mass>4</mass></inertial><collision name='c'><density>2</density><geometry><box><size>1 1 1</size></box></geometry></collision></link></model></sdf>",
+      "uri": "mass-override.sdf",
+      "base_xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><density>2</density><geometry><box><size>1 1 1</size></box></geometry></collision></link></model></sdf>",
+      "mass_text": "4"
+    },
+    {
+      "name": "sphere_fraction",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'><mass>2.5</mass></inertial><collision name='c'><geometry><sphere><radius>0.3</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "mass-override.sdf",
+      "base_xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><geometry><sphere><radius>0.3</radius></sphere></geometry></collision></link></model></sdf>",
+      "mass_text": "2.5"
+    },
+    {
+      "name": "anisotropic_box",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'><mass>7.25</mass></inertial><collision name='c'><density>2710</density><geometry><box><size>2 3 4</size></box></geometry></collision></link></model></sdf>",
+      "uri": "mass-override.sdf",
+      "base_xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><density>2710</density><geometry><box><size>2 3 4</size></box></geometry></collision></link></model></sdf>",
+      "mass_text": "7.25"
+    },
+    {
+      "name": "decimal_box",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'><mass>2.17</mass></inertial><collision name='c'><density>0.7</density><geometry><box><size>0.1 0.2 0.3</size></box></geometry></collision></link></model></sdf>",
+      "uri": "mass-override.sdf",
+      "base_xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><density>0.7</density><geometry><box><size>0.1 0.2 0.3</size></box></geometry></collision></link></model></sdf>",
+      "mass_text": "2.17"
+    },
+    {
+      "name": "decimal_sphere",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'><mass>0.1</mass></inertial><collision name='c'><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "mass-override.sdf",
+      "base_xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "mass_text": "0.1"
+    },
+    {
+      "name": "empty_mass",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'><mass></mass></inertial><collision name='c'><density>1000</density><geometry><box><size>1 1 1</size></box></geometry></collision></link></model></sdf>",
+      "uri": "mass-override.sdf",
+      "base_xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><density>1000</density><geometry><box><size>1 1 1</size></box></geometry></collision></link></model></sdf>",
+      "mass_text": ""
+    },
+    {
+      "name": "whitespace_mass",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'><mass> \t </mass></inertial><collision name='c'><density>1000</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "mass-override.sdf",
+      "base_xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><density>1000</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "mass_text": " \t "
+    },
+    {
+      "name": "default_density",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'><mass>1</mass></inertial><collision name='c'><geometry><box><size>1 1 1</size></box></geometry></collision></link></model></sdf>",
+      "uri": "mass-override.sdf",
+      "base_xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><geometry><box><size>1 1 1</size></box></geometry></collision></link></model></sdf>",
+      "mass_text": "1"
+    },
+    {
+      "name": "large_mass",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'><mass>1e100</mass></inertial><collision name='c'><density>1000</density><geometry><box><size>1 1 1</size></box></geometry></collision></link></model></sdf>",
+      "uri": "mass-override.sdf",
+      "base_xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><density>1000</density><geometry><box><size>1 1 1</size></box></geometry></collision></link></model></sdf>",
+      "mass_text": "1e100"
+    },
+    {
+      "name": "small_mass",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'><mass>1e-80</mass></inertial><collision name='c'><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "mass-override.sdf",
+      "base_xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "mass_text": "1e-80"
+    },
+    {
+      "name": "zero_mass",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'><mass>0</mass></inertial><collision name='c'><density>1000</density><geometry><box><size>1 1 1</size></box></geometry></collision></link></model></sdf>",
+      "uri": "mass-override.sdf",
+      "base_xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><density>1000</density><geometry><box><size>1 1 1</size></box></geometry></collision></link></model></sdf>",
+      "mass_text": "0",
+      "rust_error": "InvalidValue"
+    },
+    {
+      "name": "negative_mass",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'><mass>-1</mass></inertial><collision name='c'><density>1000</density><geometry><box><size>1 1 1</size></box></geometry></collision></link></model></sdf>",
+      "uri": "mass-override.sdf",
+      "base_xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><density>1000</density><geometry><box><size>1 1 1</size></box></geometry></collision></link></model></sdf>",
+      "mass_text": "-1",
+      "rust_error": "InvalidValue"
+    },
+    {
+      "name": "nonfinite_nan",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'><mass>nan</mass></inertial><collision name='c'><density>1000</density><geometry><box><size>1 1 1</size></box></geometry></collision></link></model></sdf>",
+      "uri": "mass-override.sdf",
+      "base_xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><density>1000</density><geometry><box><size>1 1 1</size></box></geometry></collision></link></model></sdf>",
+      "mass_text": "nan",
+      "rust_error": "InvalidValue"
+    },
+    {
+      "name": "nonfinite_inf",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'><mass>inf</mass></inertial><collision name='c'><density>1000</density><geometry><box><size>1 1 1</size></box></geometry></collision></link></model></sdf>",
+      "uri": "mass-override.sdf",
+      "base_xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><density>1000</density><geometry><box><size>1 1 1</size></box></geometry></collision></link></model></sdf>",
+      "mass_text": "inf",
+      "rust_error": "InvalidValue"
+    },
+    {
+      "name": "maximum_mass",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'><mass>1.7976931348623157e+308</mass></inertial><collision name='c'><density>1000</density><geometry><box><size>10 10 10</size></box></geometry></collision></link></model></sdf>",
+      "uri": "mass-override.sdf",
+      "base_xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><density>1000</density><geometry><box><size>10 10 10</size></box></geometry></collision></link></model></sdf>",
+      "mass_text": "1.7976931348623157e+308",
+      "rust_error": "Unsupported"
+    },
+    {
+      "name": "minimum_normal_mass",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'><mass>2.2250738585072014e-308</mass></inertial><collision name='c'><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "mass-override.sdf",
+      "base_xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "mass_text": "2.2250738585072014e-308",
+      "rust_error": "Unsupported"
+    },
+    {
+      "name": "minimum_subnormal_mass",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'><mass>5e-324</mass></inertial><collision name='c'><density>1000</density><geometry><box><size>1 1 1</size></box></geometry></collision></link></model></sdf>",
+      "uri": "mass-override.sdf",
+      "base_xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><density>1000</density><geometry><box><size>1 1 1</size></box></geometry></collision></link></model></sdf>",
+      "mass_text": "5e-324",
+      "rust_error": "InvalidValue"
+    },
+    {
+      "name": "initial_density_overflow",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'><mass>1</mass></inertial><collision name='c'><density>1.7976931348623157e+308</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "mass-override.sdf",
+      "base_xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><density>1.7976931348623157e+308</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "mass_text": "1",
+      "rust_error": "Unsupported"
+    }
+  ]
+}

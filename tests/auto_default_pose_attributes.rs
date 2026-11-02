@@ -2,6 +2,8 @@
 // SPDX-License-Identifier: Apache-2.0
 #[path = "common/auto_default_pose_attributes.rs"]
 mod attributes;
+#[path = "common/auto_mass_override.rs"]
+mod mass_override;
 use sdformat::*;
 
 #[test]
@@ -75,12 +77,26 @@ fn frames_degree_quaternion_invalid_and_capsule_rotation_families_remain_closed(
                 "<inertial auto='true'/>",
                 &format!("<inertial auto='true'>{content}</inertial>"),
             );
-            assert_eq!(
-                load_str(&input, "override.sdf", &NoResources)
-                    .unwrap_err()
-                    .code,
-                ErrorCode::Unsupported
-            );
+            if content == "<mass>1</mass>"
+                && (case["name"] == "box_old_identity" || case["name"] == "sphere_old_identity")
+            {
+                mass_override::assert_mass_override(
+                    &input,
+                    "override.sdf",
+                    if case["name"] == "sphere_old_identity" {
+                        "sphere_old_default_attributes"
+                    } else {
+                        "box_old_default_attributes"
+                    },
+                );
+            } else {
+                assert_eq!(
+                    load_str(&input, "override.sdf", &NoResources)
+                        .unwrap_err()
+                        .code,
+                    ErrorCode::Unsupported
+                );
+            }
         }
         let multiple = xml.replace("</link>", "<collision name='second'><geometry><sphere><radius>1</radius></sphere></geometry></collision></link>");
         assert_eq!(

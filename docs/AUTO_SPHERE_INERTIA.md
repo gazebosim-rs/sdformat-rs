@@ -19,7 +19,8 @@ This differs from the native mutable Sphere setter: setting radius -2 makes
 CalculateInertial return nullopt. The loader does not claim setter semantics.
 
 The subsequent default/empty-density extension is described in
-AUTO_DEFAULT_DENSITY.md. Any explicit collision pose, multiple collisions,
+AUTO_DEFAULT_DENSITY.md. AUTO_IDENTITY_POSE.md describes the prepared local
+identity-pose extension. Nonidentity or attributed collision poses, multiple collisions,
 other shapes, link density, auto parameters and manual inertial overrides remain
 Unsupported. Numeric extraction must be finite and positive and pass the
 unchanged manual physical-inertia validator. Native-valid density DBL_MIN with

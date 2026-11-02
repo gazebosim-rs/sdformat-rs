@@ -40,7 +40,10 @@ collision density through maintained Parry. Omission uses 1000 kg/m³ while
 preserving `None`; empty density retains `Some(1000)`. See AUTO_DEFAULT_DENSITY.md
 for fallback and warning-policy scope, and AUTO_BOX_INERTIA.md for numeric
 and structural bounds; AUTO_SPHERE_INERTIA.md records the sphere roundoff contract. Link density and auto_inertia_params remain Unsupported.
-No automatic state or presence getter is invented. See MANUAL_INERTIA.md.
+AUTO_IDENTITY_POSE.md describes the prepared acceptance of an un-attributed
+local numeric-identity collision pose through the existing parser and kernel.
+Nonidentity or attributed poses stay Unsupported. No automatic state or presence
+getter is invented. See MANUAL_INERTIA.md.
 `Collision` has pose and box/sphere/cylinder/plane geometry, with SI dimensions.
 `Visual` has name, pose, optional geometry, plugins and source. Missing
 or bare geometry groups preserve native EMPTY as None; explicit <empty/> is

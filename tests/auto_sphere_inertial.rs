@@ -15,11 +15,15 @@
  */
 // Copyright (C) 2026 Open Source Robotics Foundation
 // SPDX-License-Identifier: Apache-2.0
+use common as sphere;
 use sdformat::*;
 #[path = "common/auto_sphere.rs"]
 mod common;
 #[path = "common/auto_default_density.rs"]
 mod default_density;
+
+#[path = "common/auto_identity_pose.rs"]
+mod identity_pose;
 
 #[test]
 fn original_sphere_inertial_values_stay_exact() {
@@ -48,6 +52,10 @@ fn sphere_loader_native_domains_and_oracle_roundoff() {
         serde_json::from_str(include_str!("auto_sphere_inertial.json")).unwrap();
     let mut oracle_cases = 0;
     for row in corpus["cases"].as_array().unwrap() {
+        if row["name"] == "explicit_pose" {
+            identity_pose::assert_identity_pose(row, "sphere.sdf", true);
+            continue;
+        }
         let xml = row["xml"].as_str().unwrap();
         let uri = row["uri"].as_str().unwrap_or("sphere.sdf");
         let result = load_str(xml, uri, &NoResources);

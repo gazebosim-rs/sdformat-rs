@@ -30,6 +30,9 @@ fn values(inertial: &Inertial) -> Vec<u64> {
         .collect()
 }
 
+#[path = "common/auto_identity_pose.rs"]
+mod identity_pose;
+
 #[test]
 fn original_correct_box_collision_calculates_owned_inertial() {
     let xml = include_str!("fixtures/auto_box_inertial_original.sdf");
@@ -121,6 +124,10 @@ fn native_auto_box_corpus_retains_numeric_domains_and_source() {
         serde_json::from_str(include_str!("auto_box_inertial.json")).unwrap();
     let mut positives = 0;
     for row in corpus["cases"].as_array().unwrap() {
+        if row["name"] == "pose_identity" {
+            identity_pose::assert_identity_pose(row, "auto-box.sdf", false);
+            continue;
+        }
         if row["name"] == "sphere" {
             assert_eq!(row["rust_error"], "Unsupported");
             sphere::assert_complete_sphere(

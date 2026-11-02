@@ -2468,8 +2468,11 @@ impl Parser<'_> {
             return Err(unsupported());
         };
         let density = collision.density();
+        if collision.pose != Pose::default() {
+            return Err(unsupported());
+        }
         for collision in elements(link).filter(|n| n.has_tag_name("collision")) {
-            if child(collision, "pose").is_some() {
+            if child(collision, "pose").is_some_and(|pose| pose.attributes().next().is_some()) {
                 return Err(unsupported());
             }
         }

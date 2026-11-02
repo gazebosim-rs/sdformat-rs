@@ -1,0 +1,39 @@
+{
+  "scope": "Source-only identity-pose increment; inherited existing native observations, no new executions",
+  "upstream_sha": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+  "base": "e196b6875088aeeebbe2baa91a88275f5469b03e",
+  "semantic_boundary": "Parsed numeric identity collision Pose in existing default Euler encoding, with no pose attributes. Equivalent decimal/exponent spelling uses the existing parser; no raw-text grammar.",
+  "inherited_rows": [
+    {
+      "corpus": "tests/auto_box_inertial.json",
+      "corpus_sha256": "3f3d3cc6eae292a844ecc9bccbd4a18ab892e9963fb19088e467fe8a7c367e59",
+      "row": "pose_identity",
+      "uri": "auto-box.sdf",
+      "xml_sha256": "dfe3bacf785ef5c4db6303132e4487a0302110ae0a450d6efe73250ca453ae84",
+      "native_stdout": "LOAD\nVALUES 1 1 4666679192002232320 4663993451599451477 4663993451599451477 4663993451599451477 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4666679192002232320 4663993451599451477 4663993451599451477 4663993451599451477 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "native_stderr": ""
+    },
+    {
+      "corpus": "tests/auto_sphere_inertial.json",
+      "corpus_sha256": "efed68535c9b2ebf66937125dd1e695a79500cfab03ee28ae3e32befa7dd806e",
+      "row": "explicit_pose",
+      "uri": "sphere.sdf",
+      "xml_sha256": "cbc7d16635861a460cd286e2df1ad167ffd0c70d2a9d9cfa62fbbb2a6e973340",
+      "native_stdout": "LOAD\nVALUES 1 1 4621306650028725639 4585400661777136886 4585400661777136886 4585400661777136886 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\nRESOLVE\nVALUES 1 1 4621306650028725639 4585400661777136886 4585400661777136886 4585400661777136886 0 0 0 0 0 0 0 0 0 4607182418800017408 0 0\n",
+      "native_stderr": ""
+    }
+  ],
+  "inherited_native_records": {
+    "reference/auto-box-inertial.json": "ac1a600ecafba2c5039795d36be69dd46a2fd0ee05648d76f77ee56862643c4b",
+    "reference/auto-sphere-inertial.json": "3c3158a1024f0e70bbe6093b2b49d8346ddbb44be365d1fca60a4f7ea071f731"
+  },
+  "pending": "Exact two source-approved folds applied. First mandatory hook passed50tooling/fmt then stopped at Clippy duplicate_mod. Test-local alias correction and its final source review/mandatory runtime+coverage qualification are pending.",
+  "limits": [
+    "Degrees/quaternion/frame attributes, nonidentity poses, multiple collisions and inertial overrides stay Unsupported",
+    "No claim for native signed-zero bit identity or full frame-relative CalculateInertialPoseNotRelativeToLink original",
+    "No new public presence API; exact input pose element, typed Collision.pose and Source are retained",
+    "Density review source and old density-positive branches are preserved; no compiler/dependency/Fuel/consumer pin changes"
+  ],
+  "base_qualification": "Accepted producer Main e196b687 after normal gate, exact hosted41363205324 success and official source/artifact audit",
+  "density_coupling": "Existing collision.density() fallback unchanged; None vsSome1000 and otherwise-identical omitted-pose inertia comparisons cover box/sphere with absent,empty,whitespace,explicit1000 density"
+}

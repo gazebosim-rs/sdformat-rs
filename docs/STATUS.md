@@ -3998,3 +3998,20 @@ No amended Rust-runtime pass is claimed.
 No complete original credit, new math kernel, dependency, compiler, Fuel or
 consumer-pin change is claimed. Ordinary strict/hosted qualification is pending.
 See [AUTO_DEFAULT_DENSITY.md](AUTO_DEFAULT_DENSITY.md).
+
+## Prepared identity-pose coupling after default density
+
+An isolated source-only follow-up builds on accepted density Main `e196b687`,
+after its complete local gate, exact hosted success and independent audit.
+The original nine-path identity draft is preserved separately. The integration
+keeps `collision.density()` and every reviewed density-positive branch intact,
+then admits only the existing parsed local numeric-identity Pose with no pose
+attributes. The two retained corpus tests now use their independently source-approved
+same-input complete positive helpers. Four additional regression test sources
+cover equivalent Euler spellings, closed families, cloning/import provenance
+and box/sphere density-presence coupling. All old corpora/counts and unrelated
+branches remain unchanged. The first complete hook passed 50 tooling tests and
+formatting, then stopped at Clippy for a duplicate test-helper module. A source
+correction reuses the existing module with a local alias; no allow or assertion
+change is introduced. Runtime/coverage qualification is pending. There is no
+new original-case, consumer, Fuel or compiler/dependency credit.

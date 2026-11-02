@@ -10,7 +10,10 @@ same value while retaining `Some(1000)`. Explicit values retain their presence.
 The loader calls the existing public Parry mass-properties kernel and unchanged
 manual physical-inertia validator; it adds no formula, dependency or public API.
 
-This extends only the density fallback. Explicit collision pose, multiple
+The reviewed density commit extends only the density fallback. The later
+source-only identity-pose extension is described in AUTO_IDENTITY_POSE.md; it
+preserves this density behavior and keeps nonidentity/attributed poses closed.
+Multiple
 collisions, link density, auto parameters, manual inertial overrides and other
 shapes remain Unsupported. Existing normalization, scalar conversion, numeric
 Unsupported extremes and manual physical-policy limits remain unchanged.

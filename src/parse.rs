@@ -1002,15 +1002,13 @@ impl Parser<'_> {
         {
             "euler_rpy" => {
                 let v = self.values::<6>(pose)?;
-                let factor = if degrees {
-                    std::f64::consts::PI / 180.
+                let rotation = if degrees {
+                    let factor = std::f64::consts::PI / 180.;
+                    DQuat::from_euler(EulerRot::ZYX, v[5] * factor, v[4] * factor, v[3] * factor)
                 } else {
-                    1.
+                    radian_euler_quaternion([v[3], v[4], v[5]])
                 };
-                (
-                    [v[0], v[1], v[2]],
-                    DQuat::from_euler(EulerRot::ZYX, v[5] * factor, v[4] * factor, v[3] * factor),
-                )
+                ([v[0], v[1], v[2]], rotation)
             }
             "quat_xyzw" if !degrees => {
                 let v = self.values::<7>(pose)?;
@@ -4827,12 +4825,10 @@ fn accumulate_single_translation(inertial: &mut Inertial, position: [f64; 3]) {
     inertial.pose.transform.translation = center;
 }
 
-// Adapted from gz-math Quaternion::SetFromEuler / Normalize and Matrix3's
-// quaternion constructor, Copyright (C) 2012 Open Source Robotics Foundation,
-// licensed under Apache-2.0. Owned adaptation: 2026 OSRF.
-// The library constructors regroup these expressions, changing tiny products
-// of inertia. Keep only this private automatic-inertia compatibility boundary.
-fn automatic_rotation_matrix([roll, pitch, yaw]: [f64; 3]) -> DMat3 {
+// Adapted from gz-math Quaternion::SetFromEuler / Normalize, Copyright (C) 2012
+// Open Source Robotics Foundation, Apache-2.0. Owned adaptation: 2026 OSRF.
+// Preserve the selected constructor's ordered products and component divisions.
+fn radian_euler_quaternion([roll, pitch, yaw]: [f64; 3]) -> DQuat {
     let (phi, theta, psi) = (roll / 2., pitch / 2., yaw / 2.);
     let (sr, cr) = (phi.sin(), phi.cos());
     let (sp, cp) = (theta.sin(), theta.cos());
@@ -4843,11 +4839,18 @@ fn automatic_rotation_matrix([roll, pitch, yaw]: [f64; 3]) -> DMat3 {
         cr * sp * cy + sr * cp * sy,
         cr * cp * sy - sr * sp * cy,
     );
-    // Native Euler construction and its matrix constructor both normalize.
-    // This vector stores w,x,y,z so its ordered dot product also matches native.
-    for _ in 0..2 {
-        quaternion /= quaternion.length();
-    }
+    // Store w,x,y,z for the native ordered sum; DQuat stores x,y,z,w.
+    quaternion /= quaternion.length();
+    DQuat::from_xyzw(quaternion.y, quaternion.z, quaternion.w, quaternion.x)
+}
+
+// Adapted from gz-math Matrix3's quaternion constructor, Copyright (C) 2012
+// Open Source Robotics Foundation, Apache-2.0. Owned adaptation: 2026 OSRF.
+fn automatic_rotation_matrix(rpy: [f64; 3]) -> DMat3 {
+    let quaternion = radian_euler_quaternion(rpy);
+    let mut quaternion = DVec4::new(quaternion.w, quaternion.x, quaternion.y, quaternion.z);
+    // The matrix constructor performs its own second normalization.
+    quaternion /= quaternion.length();
     let [w, x, y, z] = quaternion.to_array();
     DMat3::from_cols_array(&[
         1. - 2. * y * y - 2. * z * z,

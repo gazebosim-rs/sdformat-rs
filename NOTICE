@@ -14,7 +14,7 @@ Foundation, under the Apache License, Version 2.0. The accepted unrotated
 geometry mass properties and the admission checks continue to use the separately
 attributed maintained Parry dependency.
 
-The private automatic-inertia Euler rotation compatibility boundary is adapted
+The private radian-Euler constructor and automatic-inertia matrix boundaries are adapted
 from gz-math include/gz/math/Quaternion.hh and Matrix3.hh, Copyright (C) 2012
 Open Source Robotics Foundation, under the Apache License, Version 2.0.
 

@@ -1,0 +1,30 @@
+{
+  "copyright": "Copyright (C) 2026 Open Source Robotics Foundation",
+  "license": "Apache-2.0",
+  "base": "a549b745ea7738ef34db2b21d823340ba555f9ca",
+  "scope": "SOURCE ONLY: selected-native ordinary radian Euler constructor; degree/quaternion paths unchanged",
+  "upstream_sha": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+  "math_sha": "1316ed334f4d5bda7be59aae07cd6e8ff31cfe13",
+  "selected_sources": {
+    "sdformat/src/Param.cc": "487407a4a2301617b262ccb782312fe9c1d3d099e715aa42f3bb3cb713b29dce",
+    "gz-math/include/gz/math/Pose3.hh": "6bfc53f0bd22a3e1596bbdb07c24bacdac9e17bd8178b9373d8df1b01e4fc6f6",
+    "gz-math/include/gz/math/Quaternion.hh": "9170601444da93735b4d14b369cc4266fafc7655657a6af7613e31206382b873",
+    "gz-math/include/gz/math/Angle.hh": "333472361c9b9e516149923d56a85e2898192043b87150b0a44dfbd68d5b2bd6",
+    "glam-0.30.9/src/euler.rs": "cb02b034f120c1ecb38cddff159ad8e4fed4cadf10a69bc06c986d0d7ae48648",
+    "glam-0.30.9/src/f64/dvec4.rs": "c57f57c02032907354dd0fd0ff0dc96947f5daae2742af3ae426c277907489fd"
+  },
+  "native_inputs": "Reuses all24 unchanged auto_rotation_pose cases and captured direct collision inertial quaternion components10..13; only auto=true is changed to auto=false in Rust to separate pose from inertia admission",
+  "cases_sha256": "d403b767a4863c4faf5c449268104434d925d04d7bcbd8d3ef1b3a88b0316486",
+  "native_sha256": "0f0320f7cf73a60f0fe7b0fd20516b0428fdbcd8581ada2de9a3073362720a1d",
+  "bit_contract": "Exact finite nonzero components through selected CollisionPose*identity quaternion multiplication; zero numeric equality only, signed-zero bits unqualified",
+  "compatibility": "Private first SDK Euler normalization extracted from existing reviewed matrix adapter; maintained DVec4 ordered wxyz length/component division and DQuat reorder; matrix second normalization/entries/products unchanged",
+  "public_api": "No Link/Pose/Transform or other fields/types/defaults/dependencies changed",
+  "qualification": "First mandatory hook249s:59tools andfmtPASS, ClippyE0308 in new Light.source assertion; no runtime/rustdoc/coverage. Source correction requires loaded Some before same URI/position checks; independent review and affected mandatory qualification pending, no preliminary loop.",
+  "old_assertions": "No old tests/corpora/assertions/tolerances changed; no old negative disposition or original-case credit",
+  "limits": [
+    "Only ordinary radian euler_rpy construction; equivalent existing numeric spellings/explicit radian attributes share the existing parser",
+    "Degree conversion and explicit quaternion parsing retain existing paths and no new native-bit claim",
+    "Public transform validation and graph composition/inversion unchanged",
+    "No signed-zero bit, arbitrary-platform/f64, B03 trajectory/cause, consumer pin, Fuel or performance claim"
+  ]
+}

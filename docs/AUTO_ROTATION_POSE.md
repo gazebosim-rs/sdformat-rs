@@ -241,3 +241,15 @@ public/inline/extra attributes and adjacent custom production attributes still
 invalidate those scopes. All numerical/provider/helper/native/fold bytes are
 unchanged. This complete amended source batch is unrun pending independent
 review and the one affected mandatory hook.
+
+
+## Radian parser helper extraction follow-up
+
+The accepted a549 rotation path is retained by a separate source-only follow-up:
+its first SDK normalization is extracted into a private quaternion helper used
+by ordinary radian pose parsing; the matrix adapter still performs the second
+normalization and unchanged ordered entries/products. Degree/quaternion paths,
+primitive providers, numerical guards, all24 native rows and existing four-ULP
+comparisons stay unchanged. This follow-up is unexecuted and does not inherit
+a qualified new parser result from the accepted rotation gate. See
+[RADIAN_EULER_POSE.md](RADIAN_EULER_POSE.md).

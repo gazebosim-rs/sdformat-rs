@@ -162,6 +162,12 @@ by this parser.
 All transforms use f64 metres and unit quaternions [x,y,z,w]. Raw poses retain
 relative_to. Euler poses are fixed-axis roll/pitch/yaw (Rz*Ry*Rx); degree and
 xyzw quaternion input are supported. Parsing normalizes nonzero quaternions.
+Ordinary radian Euler poses use the selected native constructor's ordered
+products and one wxyz/component-division normalization. Degree conversion and
+explicit quaternion parsing retain their existing paths; their bit-level native
+equivalence is not extended by this change. Raw pose constructor fidelity does
+not qualify all subsequent graph or consumer arithmetic. See
+[the radian constructor boundary](RADIAN_EULER_POSE.md).
 Publicly constructed transforms passed to resolve_pose are checked for finite
 values and unit norm (squared-norm tolerance 1e-12). Arithmetic overflow is an
 error. Resolved transforms do not silently reinterpret body or rendering axes.

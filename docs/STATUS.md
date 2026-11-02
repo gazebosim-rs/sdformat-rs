@@ -4119,3 +4119,23 @@ known private test attributes still set audit opacity. The source-only correctio
 ignores visitation only for those two independently proven attribute spans,
 without clearing opacity or changing numeric code/data, thresholds or DA0
 priority. Independent review and amended verification remain pending.
+
+
+A separate source-only radian Euler constructor continuation starts from accepted
+a549b745. It extracts the existing private SDK first quaternion normalization
+for ordinary radian Parser::pose, retaining the automatic matrix second
+normalization. Degree/quaternion branches, public fields/defaults, source/frame
+contracts, native24 fixtures, bounds and old tests remain unchanged. New controls
+reuse actual nonzero constructor component bits with an explicit signed-zero
+caveat; metadata/frame/default/import/negative controls are authored. No new
+Rust/lint/native/arithmetic execution has occurred. Independent source review
+and consolidated qualification remain pending; no simulator pin, B03 cause,
+original count or performance credit is claimed.
+
+
+The radian continuation first mandatory hook failed Clippy compilation after59
+tooling tests and fmt passed: one new test treated loaded Light.source as
+Source rather than Option<Source>. Its corrected assertion explicitly requires
+the parsed source and retains all URI/position checks. Production, native data,
+old tests and bounds remain unchanged. New runtime/coverage qualification is
+still unrun pending independent correction review and affected mandatory gate.

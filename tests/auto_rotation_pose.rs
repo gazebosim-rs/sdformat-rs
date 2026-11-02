@@ -1,5 +1,7 @@
 // Copyright (C) 2026 Open Source Robotics Foundation
 // SPDX-License-Identifier: Apache-2.0
+#[path = "common/auto_rigid_pose.rs"]
+mod rigid;
 #[path = "common/auto_rotation_pose.rs"]
 mod rotation;
 use sdformat::*;
@@ -84,9 +86,13 @@ fn mixed_transforms_attributes_and_overrides_remain_closed() {
             "<pose rotation_format='quat_xyzw'>0 0 0 0 0 0 1</pose>",
         ] {
             let xml = original.replace("<pose>0 0 0 0.1 0 0</pose>", pose);
-            let error = load_str(&xml, "closed-rotation.sdf", &NoResources).unwrap_err();
-            assert_eq!(error.code, ErrorCode::Unsupported);
-            assert_eq!(error.source.uri, "closed-rotation.sdf");
+            if pose == "<pose>1 0 0 0.1 0 0</pose>" {
+                rigid::assert_translated_rotation(&xml, "closed-rotation.sdf", sphere);
+            } else {
+                let error = load_str(&xml, "closed-rotation.sdf", &NoResources).unwrap_err();
+                assert_eq!(error.code, ErrorCode::Unsupported);
+                assert_eq!(error.source.uri, "closed-rotation.sdf");
+            }
         }
         let overridden = original.replace(
             "<inertial auto='true'/>",

@@ -2460,16 +2460,14 @@ impl Parser<'_> {
         collisions: &[Collision],
     ) -> Result<Inertial, Diagnostic> {
         self.allowed(node, &[], &["auto"])?;
-        let message = "automatic inertia requires one local box or sphere, separate translation or rotation, and no overrides";
+        let message = "automatic inertia requires one local box or sphere and no overrides";
         let unsupported = || self.err(node, ErrorCode::Unsupported, message);
         let [collision] = collisions else {
             return Err(unsupported());
         };
         let density = collision.density();
         let rotated = collision.pose.transform.rotation != Transform::default().rotation;
-        if !collision.pose.relative_to.is_empty()
-            || (rotated && collision.pose.transform.translation != [0.; 3])
-        {
+        if !collision.pose.relative_to.is_empty() {
             return Err(unsupported());
         }
         for collision in elements(link).filter(|n| n.has_tag_name("collision")) {

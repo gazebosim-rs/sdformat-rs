@@ -4155,3 +4155,18 @@ regions and77/78 changed DA. One cold DA line remains authoritative. A static-
 message binding corrects the single identified opaque literal without policy
 changes; its independent recheck and affected mandatory hook remain pending.
 Original207 complete/35 partial counts are unchanged.
+
+## Combined automatic primitive pose source batch
+
+Accepted Main remains f0d05146 (723Rust/59tools). A separate source batch removes
+only the combined nonzero translation/rotation refusal for existing one local
+box/sphere automatic inertia, reusing unchanged Parry admission and existing SDK
+rotation/translation compatibility helpers. It prepares24 native inputs, a reused
+bounded observer/provenance recipe, full-value exact-old-input helpers and
+metadata/manual/import/negative/differential controls. The reviewed single actual native capture completed24 children:18 finite-valid
+Root,2 finite-invalid and4 nonfinite-invalid; direct24 finite-valid, all error
+vectors empty,2 warning stderr outputs retained. No Rust/lint/coverage execution
+has occurred. Independent actual-data/prior review approved only the two exact old mixed-pose
+expectations; the completed source now routes those inputs to the complete
+native-backed helper. Final source review and the one mandatory hook are pending. No tolerance, dependency, compiler,
+consumer, Fuel or original-count change; full automatic inertia remains partial.

@@ -1343,3 +1343,9 @@ The in-development [joint semantic-order increment](JOINT_SEMANTIC_ORDER.md) kee
 `joint_pose` local target/default/error contracts while evaluating full containing-
 scope chains in SDK order. It leaves general `pose_of` arithmetic and all existing
 bounds unchanged. Its new runtime/coverage/hosted qualification is pending.
+
+A source-only [combined automatic-pose increment](AUTO_RIGID_POSE.md) composes
+the already qualified single-box/sphere rotation and translation paths. Pose
+attributes/references, overrides, multiple collisions and existing numeric guards
+remain closed. Native data, old-expectation prior review and all mandatory
+qualification remain pending; no consumer pin is changed.

@@ -1,0 +1,64 @@
+{
+  "copyright": "Copyright (C) 2026 Open Source Robotics Foundation",
+  "license": "Apache-2.0",
+  "base": "f0d05146300e31237d0cf0a6024fdfd9b0ef4226",
+  "scope": "In development: combined local translation/rotation for one automatic box/sphere; actual native capture and independent SDK/data review complete. Exact two old mixed-pose expectations folded to complete same-input helpers; Rust/tooling/coverage UNRUN.",
+  "upstream_sha": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+  "math_sha": "1316ed334f4d5bda7be59aae07cd6e8ff31cfe13",
+  "selected_sources": {
+    "sdformat/src/Collision.cc": "235fe52a4df631f5c26b55eb289ea2829982bfb2fc3e27c290aca388ba8289ee",
+    "sdformat/src/Link.cc": "ff58b54bef267f7e13a2ac5ee99e7bcece921729915d3de6906309bc237e07cc",
+    "sdformat/src/Box.cc": "19737e54d8db2cce28f44b2c27377d667157018749ebe8426ec6ec163a9799ed",
+    "sdformat/src/Sphere.cc": "9c6e5fe3236e6e9fb313e1baa1051e03373af6486efa920ecc1b1e79c0e2e4be",
+    "gz-math/include/gz/math/Inertial.hh": "22157a24c52529c2be13680169b1e14bd20ad0aa5adedd9ff55515cb7c7df033",
+    "gz-math/include/gz/math/Matrix3.hh": "f1a0489e32106b1fba8d5d0240d1de1fa02eba0cd466a3157764a6638de0824e",
+    "gz-math/include/gz/math/MassMatrix3.hh": "115c54a0ab11714e891f0ab060fbb2350652ed0aa6dfcf19958781b162543b5b",
+    "gz-math/include/gz/math/Quaternion.hh": "9170601444da93735b4d14b369cc4266fafc7655657a6af7613e31206382b873",
+    "gz-math/include/gz/math/Pose3.hh": "6bfc53f0bd22a3e1596bbdb07c24bacdac9e17bd8178b9373d8df1b01e4fc6f6"
+  },
+  "native_cases": 24,
+  "native_observations": 24,
+  "generator": "tests/auto_rigid_pose_reference.cc",
+  "capture": "python3 tools/auto_rigid_pose_reference.py /path/to/pinned/sdformat --capture",
+  "fixtures": {
+    "tests/auto_rigid_pose_cases.json": "f1efa7add14bed864909b15fbee45a0df14e1f11c8b8549ab71f8c0ba6ebd7d4",
+    "tests/auto_rigid_pose_native.json": "9bcc0683d4f190cf027e9d90c04e94fe441c34e33b27c2f93d1571136dde2646"
+  },
+  "implementation": "Remove only mixed-pose guard; existing Parry admission, SDK rotated scalar/matrix and single-translation accumulation/manual validation helpers unchanged. No new math/dependency/type.",
+  "old_expectations": "Only the first combined-pose string for each shape in auto_rotation_pose.rs now calls the complete native-backed helper with unchanged XML, closed-rotation.sdf URI and four-ULP bound, following independent PRIOR approval. All six table inputs/order and every other negative remain. Only the duplicate prepared wrapper was removed.",
+  "precision": "Existing four-ULP helper unchanged; all old corpora and tolerances preserved. Actual native domain characterized; mixed Rust fidelity remains UNRUN.",
+  "status": "partial_reviewed",
+  "review": "Independent Msgs source and actual-data/SDK review; c523ab38c027a10c2f439aa72922bd3709434c1be4dabbe0184ffd714c31513c. Final narrow fold/source review pending; no Rust qualification.",
+  "original_credit": "unchanged207complete/35partial; no original completion claim",
+  "native_compiler": {
+    "path": "/usr/bin/x86_64-linux-gnu-g++-11",
+    "sha256": "02ba98cc5feefe173cfb8c28c98089817737800537dc7189138ed66b07cf56ec",
+    "scope": "Unchanged historical producer rotation-capture compiler. Physics diagnostic GCC13 is a separate SDK context."
+  },
+  "preflight_history": {
+    "exit_code": 1,
+    "elapsed_seconds": 0.5005245319916867,
+    "compiler_started": false,
+    "native_children_started": 0,
+    "output_directory_created": false,
+    "cause": "Driver indexed missing rust_error on inherited sphere_maximum; prior actual invalidRoot flags are its existing qualifier. Source fix preserves explicit Unsupported OR actual prior invalidRoot evidence and protects prior native data.",
+    "native_capture_status": "Subsequent first actual capture completed24 children; no native rerun"
+  },
+  "native_summary": {
+    "children": 24,
+    "all_exit_zero": true,
+    "timeouts": 0,
+    "direct_finite_valid": 24,
+    "root_finite_valid": 18,
+    "root_finite_invalid": 2,
+    "root_nonfinite_invalid": 4,
+    "nonempty_error_vectors": 0,
+    "stderr_warning_rows": 2,
+    "finite_valid_observed_center_or_tensor_residual_cases": 0,
+    "expanded_compiler_inputs": 340,
+    "mapped_libraries": 11,
+    "raw_result_sha256": "aa6992d6e6771689aacd3b6feb312def060b81ad50c15322ee878d1976ee8cbc",
+    "capture_elapsed_seconds": 14.00344913895242,
+    "capture_scope": "One actual correctness capture; not performance. Prior0.5005s driver preflight failed before compiler/native/outdir and stays separate."
+  }
+}

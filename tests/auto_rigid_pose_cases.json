@@ -1,0 +1,169 @@
+{
+  "copyright": "Copyright (C) 2026 Open Source Robotics Foundation",
+  "license": "Apache-2.0",
+  "scope": "Declared SOURCE-only24 inputs; no native capture yet. Preserve each child outcome before qualification.",
+  "cases": [
+    {
+      "name": "box_old_rigid",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose>1 0 0 0.1 0 0</pose><density>1240</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "closed-rotation.sdf",
+      "source_corpus": "tests/auto_box_inertial.json",
+      "source_case": "pose_identity",
+      "held_pose": "<pose>1 0 0 0.1 0 0</pose>",
+      "pose_text": "1 0 0 0.1 0 0"
+    },
+    {
+      "name": "box_mixed",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose>1 2 3 0.1 0.2 0.3</pose><density>1240</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "rigid-pose.sdf",
+      "pose_text": "1 2 3 0.1 0.2 0.3"
+    },
+    {
+      "name": "box_fractional",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose>0.1 -0.2 0.3 0.1 0.2 0.3</pose><density>1240</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "rigid-pose.sdf",
+      "pose_text": "0.1 -0.2 0.3 0.1 0.2 0.3"
+    },
+    {
+      "name": "box_shape_variant",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose>0.1 -0.2 0.3 0.1 0.2 0.3</pose><density>1240</density><geometry><box><size>2 3 4</size></box></geometry></collision></link></model></sdf>",
+      "uri": "rigid-pose.sdf",
+      "pose_text": "0.1 -0.2 0.3 0.1 0.2 0.3"
+    },
+    {
+      "name": "box_missing",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose>0.125 0.25 -0.5 0.3 -0.2 0.1</pose><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "rigid-pose.sdf",
+      "pose_text": "0.125 0.25 -0.5 0.3 -0.2 0.1"
+    },
+    {
+      "name": "box_empty",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose>0.125 0.25 -0.5 0.3 -0.2 0.1</pose><density/><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "rigid-pose.sdf",
+      "pose_text": "0.125 0.25 -0.5 0.3 -0.2 0.1"
+    },
+    {
+      "name": "box_whitespace",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose>0.125 0.25 -0.5 0.3 -0.2 0.1</pose><density> </density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "rigid-pose.sdf",
+      "pose_text": "0.125 0.25 -0.5 0.3 -0.2 0.1"
+    },
+    {
+      "name": "box_explicit_default",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose>0.125 0.25 -0.5 0.3 -0.2 0.1</pose><density>1000</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "rigid-pose.sdf",
+      "pose_text": "0.125 0.25 -0.5 0.3 -0.2 0.1"
+    },
+    {
+      "name": "box_translation_overflow",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose>1e200 0 0 0.1 0.2 0.3</pose><density>1240</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "rigid-pose.sdf",
+      "rust_error": "Unsupported",
+      "pose_text": "1e200 0 0 0.1 0.2 0.3"
+    },
+    {
+      "name": "box_maximum_translation",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose>1.7976931348623157e308 0 0 0.1 0.2 0.3</pose><density>1240</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "rigid-pose.sdf",
+      "rust_error": "Unsupported",
+      "pose_text": "1.7976931348623157e308 0 0 0.1 0.2 0.3"
+    },
+    {
+      "name": "box_minimum_density",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose>1 0 0 0.1 0.2 0.3</pose><density>2.2250738585072014e-308</density><geometry><box><size>1 1 1</size></box></geometry></collision></link></model></sdf>",
+      "uri": "rigid-pose.sdf",
+      "rust_error": "Unsupported",
+      "pose_text": "1 0 0 0.1 0.2 0.3",
+      "inherited_numeric_case": "tests/auto_rotation_pose_cases.json:box_minimum"
+    },
+    {
+      "name": "box_maximum_density",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose>1 0 0 0.1 0.2 0.3</pose><density>1.7976931348623157e308</density><geometry><box><size>1 1 1</size></box></geometry></collision></link></model></sdf>",
+      "uri": "rigid-pose.sdf",
+      "rust_error": "Unsupported",
+      "pose_text": "1 0 0 0.1 0.2 0.3",
+      "inherited_numeric_case": "tests/auto_rotation_pose_cases.json:box_maximum"
+    },
+    {
+      "name": "sphere_old_rigid",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose>1 0 0 0.1 0 0</pose><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "closed-rotation.sdf",
+      "source_corpus": "tests/auto_sphere_inertial.json",
+      "source_case": "explicit_pose",
+      "held_pose": "<pose>1 0 0 0.1 0 0</pose>",
+      "pose_text": "1 0 0 0.1 0 0"
+    },
+    {
+      "name": "sphere_mixed",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose>1 2 3 0.1 0.2 0.3</pose><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "rigid-pose.sdf",
+      "pose_text": "1 2 3 0.1 0.2 0.3"
+    },
+    {
+      "name": "sphere_fractional",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose>0.1 -0.2 0.3 0.1 0.2 0.3</pose><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "rigid-pose.sdf",
+      "pose_text": "0.1 -0.2 0.3 0.1 0.2 0.3"
+    },
+    {
+      "name": "sphere_shape_variant",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose>0.1 -0.2 0.3 0.1 0.2 0.3</pose><density>2170</density><geometry><sphere><radius>0.2</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "rigid-pose.sdf",
+      "pose_text": "0.1 -0.2 0.3 0.1 0.2 0.3"
+    },
+    {
+      "name": "sphere_missing",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose>0.125 0.25 -0.5 0.3 -0.2 0.1</pose><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "rigid-pose.sdf",
+      "pose_text": "0.125 0.25 -0.5 0.3 -0.2 0.1"
+    },
+    {
+      "name": "sphere_empty",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose>0.125 0.25 -0.5 0.3 -0.2 0.1</pose><density/><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "rigid-pose.sdf",
+      "pose_text": "0.125 0.25 -0.5 0.3 -0.2 0.1"
+    },
+    {
+      "name": "sphere_whitespace",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose>0.125 0.25 -0.5 0.3 -0.2 0.1</pose><density> </density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "rigid-pose.sdf",
+      "pose_text": "0.125 0.25 -0.5 0.3 -0.2 0.1"
+    },
+    {
+      "name": "sphere_explicit_default",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose>0.125 0.25 -0.5 0.3 -0.2 0.1</pose><density>1000</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "rigid-pose.sdf",
+      "pose_text": "0.125 0.25 -0.5 0.3 -0.2 0.1"
+    },
+    {
+      "name": "sphere_translation_overflow",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose>1e200 0 0 0.1 0.2 0.3</pose><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "rigid-pose.sdf",
+      "rust_error": "Unsupported",
+      "pose_text": "1e200 0 0 0.1 0.2 0.3"
+    },
+    {
+      "name": "sphere_maximum_translation",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose>1.7976931348623157e308 0 0 0.1 0.2 0.3</pose><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "rigid-pose.sdf",
+      "rust_error": "Unsupported",
+      "pose_text": "1.7976931348623157e308 0 0 0.1 0.2 0.3"
+    },
+    {
+      "name": "sphere_minimum_density",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose>1 0 0 0.1 0.2 0.3</pose><density>2.2250738585072014e-308</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "rigid-pose.sdf",
+      "rust_error": "Unsupported",
+      "pose_text": "1 0 0 0.1 0.2 0.3",
+      "inherited_numeric_case": "tests/auto_rotation_pose_cases.json:sphere_minimum"
+    },
+    {
+      "name": "sphere_maximum_density",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose>1 0 0 0.1 0.2 0.3</pose><density>1.7976931348623157e308</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "rigid-pose.sdf",
+      "rust_error": "Unsupported",
+      "pose_text": "1 0 0 0.1 0.2 0.3",
+      "inherited_numeric_case": "tests/auto_rotation_pose_cases.json:sphere_maximum"
+    }
+  ]
+}

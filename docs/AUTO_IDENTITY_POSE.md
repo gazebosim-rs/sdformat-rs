@@ -61,3 +61,8 @@ sphere helper file a second time in one test crate. The correction reuses the
 already-loaded module through a test-local alias, without an allow attribute,
 assertion change, numeric change or production change. Rust-runtime and coverage
 qualification remain pending; the failed attempt is retained separately.
+
+The later Rust-unverified translation batch is AUTO_TRANSLATION_POSE.md.
+It retains identity rotation and the attribute/frame closures. Only the independently prior-approved unit-translation refusals now use
+stronger same-input positive helpers;
+this does not rewrite the accepted identity qualification.

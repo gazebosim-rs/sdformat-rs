@@ -4015,3 +4015,25 @@ formatting, then stopped at Clippy for a duplicate test-helper module. A source
 correction reuses the existing module with a local alias; no allow or assertion
 change is introduced. Runtime/coverage qualification is pending. There is no
 new original-case, consumer, Fuel or compiler/dependency credit.
+
+## Source-only translation and selected-native accumulation
+
+A bounded draft from accepted `8df897c` keeps the public Parry box/sphere kernel
+and COM transform. Independent source review of the pinned library gap approved
+a small private single-collision residual compatibility step matching the
+selected native zero accumulator and two shift passes. Rotation, attributes,
+frames, multiple collisions and overrides remain closed; nonfinite aggregate
+output is refused and the existing manual validator remains unchanged. The reviewed
+native-only capture completed all 24 ordinary/nonexact/default-density/extreme
+inputs once: 18 finite/valid Root aggregates and six nonfinite/invalid Root
+aggregates, all with empty native error vectors; direct collision output is
+finite/valid for all 24. Missing-density warnings remain in raw stderr. No
+finite COM/tensor residual shift was observed, so that possibility is not
+advertised as witnessed. Only the prior-approved same-input translation
+negative branches are folded to stronger positives; all other assertions and
+corpora are preserved. Independent final source/data review passed. The first
+mandatory hook passed 54 tooling tests and formatting, then failed Clippy
+compilation on a new `Inertial` equality assertion. Its source correction compares
+all four fields against the same default; Rust runtime, coverage and corrected
+mandatory qualification remain pending. No additional native round was run.
+No Fuel, dependency/compiler, consumer pin or original-count change is claimed.

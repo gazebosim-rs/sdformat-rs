@@ -6,7 +6,7 @@ use crate::types::normalized_axis_direction;
 use crate::xml::{Document, Node, legacy_whitespace};
 use crate::*;
 use glam::{DQuat, DVec3, EulerRot};
-use parry3d_f64::mass_properties::MassProperties;
+use parry3d_f64::{mass_properties::MassProperties, math::Pose as MassPose};
 use std::{
     borrow::Cow,
     collections::BTreeSet,
@@ -2462,13 +2462,16 @@ impl Parser<'_> {
         collisions: &[Collision],
     ) -> Result<Inertial, Diagnostic> {
         self.allowed(node, &[], &["auto"])?;
-        let message = "automatic inertia requires one origin box or sphere and no overrides";
+        let message =
+            "automatic inertia requires one unrotated local box or sphere and no overrides";
         let unsupported = || self.err(node, ErrorCode::Unsupported, message);
         let [collision] = collisions else {
             return Err(unsupported());
         };
         let density = collision.density();
-        if collision.pose != Pose::default() {
+        if collision.pose.transform.rotation != Transform::default().rotation
+            || !collision.pose.relative_to.is_empty()
+        {
             return Err(unsupported());
         }
         for collision in elements(link).filter(|n| n.has_tag_name("collision")) {
@@ -2491,8 +2494,11 @@ impl Parser<'_> {
                 "collision density must be positive",
             ));
         }
+        let center = properties.world_com(&MassPose::from_translation(
+            parry3d_f64::math::Vector::from_array(collision.pose.transform.translation),
+        ));
         let diagonal = properties.principal_inertia().to_array();
-        let result = Inertial {
+        let mut result = Inertial {
             mass: properties.mass(),
             inertia: [diagonal[0], diagonal[1], diagonal[2], 0., 0., 0.],
             ..Inertial::default()
@@ -2506,6 +2512,19 @@ impl Parser<'_> {
                 node,
                 ErrorCode::Unsupported,
                 "automatic primitive inertia exceeds the mass-properties kernel's numeric domain",
+            ));
+        }
+        accumulate_single_translation(&mut result, center.to_array());
+        if result
+            .inertia
+            .iter()
+            .chain(result.pose.transform.translation.iter())
+            .any(|value| !value.is_finite())
+        {
+            return Err(self.err(
+                node,
+                ErrorCode::Unsupported,
+                "single-collision inertial accumulation exceeds the finite numeric domain",
             ));
         }
         self.validate_inertial(node, &result)?;
@@ -4744,4 +4763,23 @@ fn rescope_model(model: &mut Model, scope: &str) {
     for nested in &mut model.models {
         rescope_model(nested, &model.scoped_name);
     }
+}
+
+// Adapted from gz-math Inertial::operator+=, Copyright (C) 2016 Open Source
+// Robotics Foundation, licensed under Apache-2.0. Owned adaptation: 2026 OSRF.
+// Preserve the native zero accumulator and both shift passes, including 0*inf.
+fn accumulate_single_translation(inertial: &mut Inertial, position: [f64; 3]) {
+    let mass = inertial.mass;
+    inertial.mass = 0. + mass;
+    let center = position.map(|value| (0. * 0. + mass * value) / inertial.mass);
+    for (weight, old_center) in [(0., [0.; 3]), (mass, position)] {
+        let delta: [f64; 3] = std::array::from_fn(|i| old_center[i] - center[i]);
+        inertial.inertia[0] += weight * (delta[1].powf(2.) + delta[2].powf(2.));
+        inertial.inertia[1] += weight * (delta[2].powf(2.) + delta[0].powf(2.));
+        inertial.inertia[2] += weight * (delta[0].powf(2.) + delta[1].powf(2.));
+        inertial.inertia[3] -= weight * delta[0] * delta[1];
+        inertial.inertia[4] -= weight * delta[0] * delta[2];
+        inertial.inertia[5] -= weight * delta[1] * delta[2];
+    }
+    inertial.pose.transform.translation = center;
 }

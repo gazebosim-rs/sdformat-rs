@@ -1,0 +1,42 @@
+{
+  "copyright": "Copyright (C) 2026 Open Source Robotics Foundation",
+  "license": "Apache-2.0",
+  "scope": "One reviewed native24case characterization completed; mandatory Clippy compile failure preserved, corrected qualification pending",
+  "base": "8df897c0b691429f1ec6bb8c0fa7c889fafedb50",
+  "upstream_sha": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+  "math_sha": "1316ed334f4d5bda7be59aae07cd6e8ff31cfe13",
+  "selected_sources": {
+    "src/Collision.cc": "235fe52a4df631f5c26b55eb289ea2829982bfb2fc3e27c290aca388ba8289ee",
+    "src/Link.cc": "ff58b54bef267f7e13a2ac5ee99e7bcece921729915d3de6906309bc237e07cc"
+  },
+  "selected_math_sources": {
+    "include/gz/math/Inertial.hh": "22157a24c52529c2be13680169b1e14bd20ad0aa5adedd9ff55515cb7c7df033",
+    "include/gz/math/Vector3.hh": "b4e8d01584139efba180bf530c95e18101aee4fb070aa93b8ddfe7cc38282a38"
+  },
+  "parry_mass_properties_source_sha256": "6f985ee56e7066b4fe9d6d06cba1ad482b3caa55669fd06f9f05398335fd782e",
+  "compatibility": "Private single-collision step only: selected zero accumulator, componentwise weighted COM division, ordered two residual shifts; no shape mass formula or general inertia API",
+  "prior_source_review": "Root independently read exact pinned native and Parry source and approved this narrow compatibility step before production arithmetic was added",
+  "native_inputs": 24,
+  "native_observations": 24,
+  "qualification": "Independent final native-data/fold/source review passed. First mandatory hook: 54 tooling tests and fmt passed, then new default-Inertial comparison failed Clippy compilation. Fieldwise same-default correction reviewed separately; Rust runtime, coverage and corrected mandatory qualification remain pending. No extra native round.",
+  "old_negative_dispositions": "Only prior-approved exact old box pose_translated/auto-box.sdf and identity-loop unit translation/closed-pose.sdf now use complete positive helpers; other old assertions/corpora/counts unchanged",
+  "limits": [
+    "Identity rotation and no raw pose attributes only; frames/degrees/quaternions remain closed",
+    "No arbitrary translation cutoff or tolerance/policy/dependency change",
+    "Existing manual policy can be stricter for finite moments; native-invalid/nonfinite aggregate cannot become a valid returned DOM",
+    "No generic Element/full native original, consumer/Fuel or performance claim"
+  ],
+  "native_summary": {
+    "successful_children": 24,
+    "timeouts": 0,
+    "crashes": 0,
+    "direct_finite_valid": 24,
+    "root_finite_valid": 18,
+    "root_nonfinite_invalid": 6,
+    "native_error_vectors": "All empty, including nonfinite DOMs",
+    "stderr_warning_inputs": 2,
+    "finite_com_tensor_difference_witnesses": 0
+  },
+  "captured_fixture_sha256": "4863b6d583afc5d6aaf92f641d4454c263fac6f7af2bd205bc5c85955cc44c1d",
+  "native_provenance_sha256": "8b8996e91e99aa37b85ea639883a9eb25f9e1c50e07df452144c5a5cc2c9bc39"
+}

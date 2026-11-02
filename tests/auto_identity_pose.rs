@@ -18,6 +18,9 @@ fn original_row(is_sphere: bool) -> serde_json::Value {
         .clone()
 }
 
+#[path = "common/auto_translation_pose.rs"]
+mod translation;
+
 #[test]
 fn existing_euler_identity_values_do_not_depend_on_decimal_spelling() {
     for is_sphere in [false, true] {
@@ -61,6 +64,10 @@ fn transformed_and_attributed_pose_families_stay_explicitly_unsupported() {
             "<pose relative_to='__model__'>0 0 0 0 0 0</pose>",
         ] {
             let xml = original.replace("<pose>0 0 0 0 0 0</pose>", pose);
+            if pose == "<pose>1 0 0 0 0 0</pose>" {
+                translation::assert_unit_translation(&xml, "closed-pose.sdf", is_sphere);
+                continue;
+            }
             let error = load_str(&xml, "closed-pose.sdf", &NoResources).unwrap_err();
             assert_eq!(error.code, ErrorCode::Unsupported, "{pose}");
             assert_eq!(error.source.uri, "closed-pose.sdf");

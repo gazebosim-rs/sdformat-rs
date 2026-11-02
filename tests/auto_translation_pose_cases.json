@@ -1,0 +1,177 @@
+{
+  "copyright": "Copyright (C) 2026 Open Source Robotics Foundation",
+  "license": "Apache-2.0",
+  "scope": "Source-only reference inputs, not native observations. Original box anchor is immutable; all new captures pending.",
+  "cases": [
+    {
+      "name": "box_unit",
+      "shape": "box",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose>1 0 0 0 0 0</pose><density>1240</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "auto-box.sdf",
+      "classification": "old captured box",
+      "old_corpus": "tests/auto_box_inertial.json",
+      "old_name": "pose_translated"
+    },
+    {
+      "name": "box_decimal",
+      "shape": "box",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose>0.1 0.2 -0.3 0 0 0</pose><density>1240</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "translation.sdf",
+      "classification": "native characterization pending; no success assumption"
+    },
+    {
+      "name": "box_mixed",
+      "shape": "box",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose>123.456 -789.012 0.0001 0 0 0</pose><density>1240</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "translation.sdf",
+      "classification": "native characterization pending; no success assumption"
+    },
+    {
+      "name": "box_large_finite",
+      "shape": "box",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose>1e16 0.25 -3.5 0 0 0</pose><density>1240</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "translation.sdf",
+      "classification": "native characterization pending; no success assumption"
+    },
+    {
+      "name": "box_large_square",
+      "shape": "box",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose>1e100 0 0 0 0 0</pose><density>1240</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "translation.sdf",
+      "classification": "native characterization pending; no success assumption"
+    },
+    {
+      "name": "box_pair_overflow",
+      "shape": "box",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose>1e154 1e154 0 0 0 0</pose><density>1240</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "translation.sdf",
+      "classification": "native characterization pending; no success assumption"
+    },
+    {
+      "name": "box_square_overflow",
+      "shape": "box",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose>1e200 0 0 0 0 0</pose><density>1240</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "translation.sdf",
+      "classification": "native characterization pending; no success assumption"
+    },
+    {
+      "name": "box_weighted_overflow",
+      "shape": "box",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose>1.7976931348623157e308 0 0 0 0 0</pose><density>1240</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "translation.sdf",
+      "classification": "native characterization pending; no success assumption"
+    },
+    {
+      "name": "box_density_absent",
+      "shape": "box",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose>1 0 0 0 0 0</pose><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "translation-density.sdf",
+      "classification": "native characterization pending; typed presence retained"
+    },
+    {
+      "name": "box_density_empty",
+      "shape": "box",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose>1 0 0 0 0 0</pose><density/><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "translation-density.sdf",
+      "classification": "native characterization pending; typed presence retained"
+    },
+    {
+      "name": "box_density_whitespace",
+      "shape": "box",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose>1 0 0 0 0 0</pose><density> </density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "translation-density.sdf",
+      "classification": "native characterization pending; typed presence retained"
+    },
+    {
+      "name": "box_density_explicit_default",
+      "shape": "box",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose>1 0 0 0 0 0</pose><density>1000</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "translation-density.sdf",
+      "classification": "native characterization pending; typed presence retained"
+    },
+    {
+      "name": "sphere_unit",
+      "shape": "sphere",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose>1 0 0 0 0 0</pose><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "closed-pose.sdf",
+      "classification": "source-derived unit translation, native capture pending"
+    },
+    {
+      "name": "sphere_decimal",
+      "shape": "sphere",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose>0.1 0.2 -0.3 0 0 0</pose><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "translation.sdf",
+      "classification": "native characterization pending; no success assumption"
+    },
+    {
+      "name": "sphere_mixed",
+      "shape": "sphere",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose>123.456 -789.012 0.0001 0 0 0</pose><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "translation.sdf",
+      "classification": "native characterization pending; no success assumption"
+    },
+    {
+      "name": "sphere_large_finite",
+      "shape": "sphere",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose>1e16 0.25 -3.5 0 0 0</pose><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "translation.sdf",
+      "classification": "native characterization pending; no success assumption"
+    },
+    {
+      "name": "sphere_large_square",
+      "shape": "sphere",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose>1e100 0 0 0 0 0</pose><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "translation.sdf",
+      "classification": "native characterization pending; no success assumption"
+    },
+    {
+      "name": "sphere_pair_overflow",
+      "shape": "sphere",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose>1e154 1e154 0 0 0 0</pose><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "translation.sdf",
+      "classification": "native characterization pending; no success assumption"
+    },
+    {
+      "name": "sphere_square_overflow",
+      "shape": "sphere",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose>1e200 0 0 0 0 0</pose><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "translation.sdf",
+      "classification": "native characterization pending; no success assumption"
+    },
+    {
+      "name": "sphere_weighted_overflow",
+      "shape": "sphere",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose>1.7976931348623157e308 0 0 0 0 0</pose><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "translation.sdf",
+      "classification": "native characterization pending; no success assumption"
+    },
+    {
+      "name": "sphere_density_absent",
+      "shape": "sphere",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose>1 0 0 0 0 0</pose><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "translation-density.sdf",
+      "classification": "native characterization pending; typed presence retained"
+    },
+    {
+      "name": "sphere_density_empty",
+      "shape": "sphere",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose>1 0 0 0 0 0</pose><density/><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "translation-density.sdf",
+      "classification": "native characterization pending; typed presence retained"
+    },
+    {
+      "name": "sphere_density_whitespace",
+      "shape": "sphere",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose>1 0 0 0 0 0</pose><density> </density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "translation-density.sdf",
+      "classification": "native characterization pending; typed presence retained"
+    },
+    {
+      "name": "sphere_density_explicit_default",
+      "shape": "sphere",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose>1 0 0 0 0 0</pose><density>1000</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "translation-density.sdf",
+      "classification": "native characterization pending; typed presence retained"
+    }
+  ]
+}

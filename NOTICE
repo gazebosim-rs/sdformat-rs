@@ -7,3 +7,8 @@ Apache License, Version 2.0. See LICENSE.
 Imported SDFormat assertion ports and fixtures retain their original
 Open Source Robotics Foundation copyright notices and years. Unmodified
 third-party dependencies retain their own licenses and notices.
+
+The private single-collision inertial accumulation compatibility step is adapted
+from gz-math include/gz/math/Inertial.hh, Copyright (C) 2016 Open Source Robotics
+Foundation, under the Apache License, Version 2.0. Its geometry mass properties
+continue to come from the separately attributed maintained Parry dependency.

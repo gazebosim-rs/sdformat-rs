@@ -1306,3 +1306,9 @@ Gazebo material and mu1/mu2 declarations are metadata only. Unknown content is
 rejected before the permissive dependency parser. SDF loading and resource/include
 format behavior remain unchanged. See [URDF_SINGLE_LINK.md](URDF_SINGLE_LINK.md)
 and [URDF_CONTINUOUS_JOINT.md](URDF_CONTINUOUS_JOINT.md).
+
+The source-only single-collision local-translation extension is documented in
+AUTO_TRANSLATION_POSE.md. It uses the existing kernel and validator plus a
+narrow pinned-native accumulator compatibility step. Native characterization
+and qualification are pending; no generic inertia, frame or aggregation API
+is introduced.

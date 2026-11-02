@@ -114,3 +114,7 @@ replay verified all842 qualified cases and56 stored oracle intervals. All592
 old test/tool inputs and dependency/license inputs were unchanged before the
 single prior-approved fold. Final fold review and ordinary strict/hosted gates
 remain pending.
+
+AUTO_TRANSLATION_POSE.md describes the subsequent Rust-unverified local-translation
+batch. The existing sphere kernel and all prior roundoff/original
+assertions remain unchanged; new aggregate observations are not yet qualified.

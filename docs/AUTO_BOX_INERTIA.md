@@ -84,3 +84,8 @@ that guard or a dependency pin changes. This slice changes neither.
 
 The subsequent bounded sphere extension is documented in AUTO_SPHERE_INERTIA.md;
 its new numerical comparisons do not change any retained box tolerance.
+
+The subsequent Rust-unverified translation-only batch is described in
+AUTO_TRANSLATION_POSE.md. It retains the kernel and manual policy, with a private
+selected-native accumulation compatibility step; its numeric qualification is
+pending. This does not change the recorded origin/identity qualification above.

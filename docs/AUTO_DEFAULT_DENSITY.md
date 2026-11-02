@@ -90,3 +90,7 @@ batch; the three folded positive paths still await mandatory runtime verificatio
 
 The complete retained suite, ordinary strict gates and exact hosted/source
 qualification remain pending. No new original-case credit is claimed.
+
+The later Rust-unverified translation draft in AUTO_TRANSLATION_POSE.md preserves
+this density accessor and metadata presence exactly. It is not yet qualified
+and changes no prior density observation or warning-policy limitation.

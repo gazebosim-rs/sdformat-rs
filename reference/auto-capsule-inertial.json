@@ -1,0 +1,165 @@
+{
+  "copyright": "Copyright (C) 2026 Open Source Robotics Foundation",
+  "license": "Apache-2.0",
+  "base": "907c96ccfd62c5f64bd232d136f0c68364bda090",
+  "scope": "Origin Capsule maintained-Parry batch; native data reviewed. Two mandatory attempts retained733Rust/59tools but failed strict source checks. Named-principal-component exact permutation correction UNRUN.",
+  "upstream_sha": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+  "math_sha": "1316ed334f4d5bda7be59aae07cd6e8ff31cfe13",
+  "selected_sources": {
+    "sdformat/src/Capsule.cc": "74c60a158b08d5fdd7f101aa7e58e7207ac694d709b023ff8981de122658f3aa",
+    "sdformat/src/Capsule_TEST.cc": "51b75c1d3729e3cd158b4c8e18eada7905ead33378243e9ce449346a9e62190a",
+    "sdformat/src/Collision.cc": "235fe52a4df631f5c26b55eb289ea2829982bfb2fc3e27c290aca388ba8289ee",
+    "sdformat/src/Link.cc": "ff58b54bef267f7e13a2ac5ee99e7bcece921729915d3de6906309bc237e07cc",
+    "gz-math/include/gz/math/Capsule.hh": "ad9748303f36f1babbb05a13e68b65e99e58c573f605c6da6a332a70057f7bdf",
+    "gz-math/include/gz/math/detail/Capsule.hh": "a0ca03d41463d31d50d68eb8fd287300143bfa65974d4c75fd2bafb600062689",
+    "gz-math/include/gz/math/MassMatrix3.hh": "115c54a0ab11714e891f0ab060fbb2350652ed0aa6dfcf19958781b162543b5b",
+    "gz-math/include/gz/math/Inertial.hh": "22157a24c52529c2be13680169b1e14bd20ad0aa5adedd9ff55515cb7c7df033"
+  },
+  "native_cases": 24,
+  "native_observations": 24,
+  "capture": "python3 tools/auto_capsule_inertial_reference.py /path/to/pinned/sdformat --capture",
+  "fixtures": {
+    "tests/auto_capsule_inertial_cases.json": "2072a7352cc7e5631d1b923c7c5aee53c952ede226d5604a7935873ee3ce8f9f",
+    "tests/auto_capsule_inertial_native.json": "a3c0bf3d21c662299cce9f96a2f7e6039899f1f147989df6e000fab4c7389917"
+  },
+  "kernel": "Locked Parry0.31.1 from_capsule(density,Y endpoints +/-length/2,radius); principal X/Z/Y permutation to SDF Z. Existing finite-positive/manual policy and unchanged four-ULP comparisons.",
+  "numeric_admission": "After maintained kernel admission, finite native ordered density*2/3*PI prefix and finite public glam diagonal determinant required for this new domain. Unsupported is an explicit representability refusal. No density cutoff, capsule moment/aggregation formula or new scalar provider.",
+  "native_gap": "Native fixed density-prefix-overflow case reports load/direct error19 with stored defaults, confirming the intermediate gap. First instrumented Rust run passed unchanged four-ULP comparisons but overall strict classification failed; exact permutation-only correction remains unrun. No capsule formula/provider added.",
+  "closed_domains": "Translated/rotated/mixed Capsules, all pose attributes/references, overrides, multiple collisions remain Unsupported. All preexisting tests/corpora unchanged; no old assertion transition proposed in this origin-only scope.",
+  "native_original": "Actual unchanged DOMCapsule.CalculateInertial1 pass/0fail in same capture; no whole Rust API/original-case credit.",
+  "status": "partial_reviewed",
+  "review": "Bevy whole Source/data and first exact permutation correction CLEAR. Current executable-line failure uniquely maps to detached arm header from retained LCOV/staged diff/checker, no new AST query. Bevy scope approves named ix/iy/iz complete short arm; actual final Source review pending.",
+  "original_credit": "unchanged207complete/35partial; no completion claim",
+  "native_summary": {
+    "children": 24,
+    "all_exit_zero": true,
+    "timeouts": 0,
+    "root_stored_finite_valid": 24,
+    "direct_stored_finite_valid": 24,
+    "idempotent_root_snapshots": 24,
+    "zero_error_cases": 21,
+    "calculation_error_cases": [
+      "maximum_density",
+      "native_density_prefix_overflow",
+      "maximum_length"
+    ],
+    "calculation_error_vectors": {
+      "load": [
+        19
+      ],
+      "collision": [
+        19
+      ],
+      "resolve": []
+    },
+    "zero_mass_tensor_case": "minimum_radius",
+    "warning_rows": [
+      "negative_radius",
+      "zero_length",
+      "both_nonpositive",
+      "missing_density",
+      "translated",
+      "rotated",
+      "retained_mixed_refusal"
+    ],
+    "expanded_compiler_inputs": 340,
+    "mapped_observer_libraries": 11,
+    "raw_result_sha256": "58e5d14df8f2c5b38e77e145bdb58ce1cc1dfe625046506f355449c80101ef34",
+    "elapsed_seconds": 14.50704019004479,
+    "scope": "One correctness capture, no rerun/performance claim. Valid stored flags do not turn errors/defaults/zero mass into admitted positive shapes."
+  },
+  "qualification_history": {
+    "first_mandatory": {
+      "exit_code": 1,
+      "capacity_stop": false,
+      "elapsed_seconds": 410.0544634400285,
+      "source_tree": "2bbbb7de1bf845452b9fab15fe8c964bec44fab1",
+      "rust_tests": 733,
+      "clean_summaries": 216,
+      "tooling_tests": 59,
+      "coverage": {
+        "lines": [
+          9045,
+          9092
+        ],
+        "regions": [
+          14360,
+          14639
+        ]
+      },
+      "changed_da": [
+        22,
+        22
+      ],
+      "full_source_da": [
+        8640,
+        8674
+      ],
+      "cold_da": 34,
+      "failure": "Strict changed-source classification: multiline matches! enum-pattern row opaque; no commit/qualification pass."
+    },
+    "diagnosis": {
+      "scope": "ONE existing retained Source-identical pure AST query only; no product/compiler/LLVM/native replay",
+      "helper_sha256": "c05d521f345055f2145668dc845befc71354dd79c4bf6c2735f9cf00f617d80b",
+      "helper_source_sha256": "199e9cb2b1b6dbdbd5773868c310561e0dd65418c2773f3f35afd05d4d8bdaf4",
+      "request_sha256": "7a17386275c8d380bd57749ce544fb393516924b222fc5cb7682667912ce0549",
+      "stdout_sha256": "4aa72d7eadba7333783a2a3b6207ee4822b2d5fdd828de8c513399a6ccf52103",
+      "only_pending_opaque_line": 2508,
+      "all_pending_lines": [
+        2489,
+        2492,
+        2508,
+        2530,
+        2531,
+        2532,
+        2538
+      ]
+    },
+    "correction": "Destructure extracted principals as ix/iy/iz, same borrowed match returns [ix,iz,iy] for Cylinder/Capsule and [ix,iy,iz] otherwise, each short complete arm/value together. No FP/allocation/normalization/conditions/API/policy/tests/native/bounds change; execution UNRUN.",
+    "affected_mandatory": {
+      "exit_code": 1,
+      "capacity_stop": false,
+      "elapsed_seconds": 398.0461177499965,
+      "source_tree": "f9d9236afadf504858abd38cd2f5979c453b70f8",
+      "rust_tests": 733,
+      "clean_summaries": 216,
+      "tooling_tests": 59,
+      "coverage": {
+        "lines": [
+          9042,
+          9089
+        ],
+        "regions": [
+          14361,
+          14640
+        ]
+      },
+      "changed_da": [
+        22,
+        22
+      ],
+      "full_source_da": [
+        8637,
+        8671
+      ],
+      "cold_da": 34,
+      "failure": "Strict changed source has no instrumented executable lines: detached plain-match arm header2508; value-array2509 is measured. No commit or pass."
+    },
+    "affected_diagnosis": {
+      "all_pending_lines": [
+        2489,
+        2492,
+        2506,
+        2508,
+        2510,
+        2512,
+        2530,
+        2531,
+        2532,
+        2538
+      ],
+      "only_nontrivial_pending": 2508,
+      "scope": "Retained LCOV+staged diff+unchangedchecker uniquely identify header; earlier different-source AST output not reused, no new query/runtime/compiler/native."
+    }
+  }
+}

@@ -2460,8 +2460,7 @@ impl Parser<'_> {
         collisions: &[Collision],
     ) -> Result<Inertial, Diagnostic> {
         self.allowed(node, &[], &["auto"])?;
-        let message =
-            "automatic inertia requires one local box, sphere or cylinder and no overrides";
+        let message = "automatic inertia requires one supported local primitive and no overrides";
         let unsupported = || self.err(node, ErrorCode::Unsupported, message);
         let [collision] = collisions else {
             return Err(unsupported());
@@ -2485,6 +2484,12 @@ impl Parser<'_> {
             Geometry::Cylinder { radius, length } => {
                 MassProperties::from_cylinder(density, *length / 2., *radius)
             }
+            Geometry::Capsule { radius, length }
+                if collision.pose.transform == Transform::default() =>
+            {
+                let end = parry3d_f64::math::Vector::new(0., *length / 2., 0.);
+                MassProperties::from_capsule(density, -end, end, *radius)
+            }
             _ => return Err(unsupported()),
         };
         if density <= 0. {
@@ -2497,11 +2502,12 @@ impl Parser<'_> {
         let center = properties.world_com(&MassPose::from_translation(
             parry3d_f64::math::Vector::from_array(collision.pose.transform.translation),
         ));
-        let mut diagonal = properties.principal_inertia().to_array();
-        if matches!(collision.geometry, Geometry::Cylinder { .. }) {
-            // Parry's cylinder axis is Y; the SDF cylinder axis is Z.
-            diagonal.swap(1, 2);
-        }
+        let [ix, iy, iz] = properties.principal_inertia().to_array();
+        // Parry's cylinder/capsule axis is Y; SDF uses Z.
+        let diagonal = match &collision.geometry {
+            Geometry::Cylinder { .. } | Geometry::Capsule { .. } => [ix, iz, iy],
+            _ => [ix, iy, iz],
+        };
         let mut result = Inertial {
             mass: properties.mass(),
             inertia: [diagonal[0], diagonal[1], diagonal[2], 0., 0., 0.],
@@ -2517,6 +2523,23 @@ impl Parser<'_> {
                 ErrorCode::Unsupported,
                 "automatic primitive inertia exceeds the mass-properties kernel's numeric domain",
             ));
+        }
+        if matches!(collision.geometry, Geometry::Capsule { .. }) {
+            // Adapted from gz-math detail/Capsule.hh, Copyright (C) 2020 OSRF,
+            // Apache-2.0. Native evaluates this prefix before the radii; a finite
+            // analytic result cannot repair its overflow.
+            let native_prefix = density * 2. / 3. * std::f64::consts::PI;
+            if !native_prefix.is_finite()
+                || !DMat3::from_diagonal(DVec3::from_array(diagonal))
+                    .determinant()
+                    .is_finite()
+            {
+                return Err(self.err(
+                    node,
+                    ErrorCode::Unsupported,
+                    "capsule inertia exceeds the finite validation domain",
+                ));
+            }
         }
         if rotated {
             // Native aggregation expresses collision inertia in the link frame.

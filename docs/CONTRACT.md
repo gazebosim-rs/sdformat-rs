@@ -1362,3 +1362,27 @@ and SDK review approved replacing only the retained cylinder
 rejection with its complete same-input native-backed helper. Final fold/source
 review and the mandatory Rust hook remain pending. No public API, dependency,
 numeric bound, simulator or Fuel change.
+
+
+## Prepared origin-capsule automatic inertia
+
+[AUTO_CAPSULE_INERTIA.md](AUTO_CAPSULE_INERTIA.md) describes a source-only
+extension for one origin-centered numeric-identity Capsule, using locked Parry
+and the existing physical validator. Translation/rotation/attributes/overrides
+and multiple collisions remain closed. Native intermediate representability is
+checked without a new capsule formula. All source review and verification for
+this batch are pending except the completed single native capture. Its calculation
+errors, retained defaults and native-valid zero mass remain explicit refusals;
+no old assertion, tolerance, dependency or consumer change.
+
+The first completed-feature hook retained passing Rust/tooling and unchanged
+four-ULP comparisons, but failed strict source classification of a multiline
+macro pattern. The exact axis permutation is now a plain borrowed match and
+array, with no arithmetic/guard/coverage-policy change. That corrected source
+still requires the affected mandatory hook; no acceptance is claimed.
+
+The subsequent plain-match hook retained the same passing numeric regressions
+but failed on its detached, unmeasured arm header. The final source names the
+three principal components and keeps each full arm and value together; this
+preserves the exact permutation without a coverage-policy exception. Corrected
+qualification remains pending; both actual failures are retained separately.

@@ -32,3 +32,8 @@ and Quaternion.hh, Copyright (C) 2012 Open Source Robotics Foundation,
 Apache-2.0. It preserves the pinned scoped-graph evaluation order and uses
 maintained glam quaternion products and vector cross products. General
 Transform and pose_of arithmetic remain unchanged.
+
+The automatic origin-capsule admission prefix is adapted from gz-math
+include/gz/math/detail/Capsule.hh, Copyright (C) 2020 Open Source Robotics
+Foundation, Apache-2.0. It checks native intermediate representability only;
+Capsule mass and inertia outputs still come from maintained Parry.

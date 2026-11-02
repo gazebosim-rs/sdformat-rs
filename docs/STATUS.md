@@ -4189,3 +4189,39 @@ cylinder.sdf rejection to its complete same-input helper, now folded with every
 other old assertion unchanged. Final narrow source review and mandatory
 verification remain pending. No consumer pin, Fuel, dependency, tolerance or
 original 207/35 count change.
+
+
+## Origin-capsule automatic inertia source batch
+
+Accepted producer Main remains 907c96c. A complete batch adds one numeric-identity
+origin Capsule through maintained Parry, a Y-to-Z principal permutation and
+existing validation. It checks the exact native density prefix and public matrix
+determinant for finite representability, without a custom capsule provider.
+
+The one reviewed capture completed 24 children and the unchanged original once,
+with 340 expanded inputs and 11 mapped libraries. All stored states have finite/
+native-valid flags, but three error-19 cases retain defaults and minimum radius
+has zero mass/tensor; those flags do not establish Rust admission. Seven warning
+rows remain. Independent actual-data/SDK review is clear.
+
+The first mandatory hook failed final opaque-syntax classification after 410s,
+without a capacity stop. It retained 733 passing Rust tests in 216 summaries,
+59 tooling checks, formatting, Clippy and rustdoc; unchanged four-ULP comparisons
+are precursor evidence only. Production coverage was 9045/9092 lines and
+14360/14639 regions, measured changed lines 22/22, full-source 8640/8674 and
+34 cold lines. One retained source-identical AST query isolated a multiline
+matches! enum-pattern row. The exact axis permutation is now a plain borrowed
+match and explicit array. No math, guard, policy, bound, test or data changed.
+Corrected source remains unrun pending final review and one affected mandatory
+hook. All old tests/corpora and mixed Capsule refusal remain unchanged. No
+consumer pin, Fuel, dependency or original 207/35 count change.
+
+The affected plain-match hook also failed strict source checking after 398s,
+without a capacity stop. Rust again passed 733/216 summaries with 59 tooling
+checks/fmt/Clippy/doc. Coverage was 9042/9089 lines and 14361/14640 regions,
+changed 22/22, full-source 8637/8671 and 34 cold lines; these remain precursors. The sole
+non-brace/comment absent-DA row is now the match-arm header; its next-line array
+has DA coverage. No second AST or product query was needed. Naming the principal
+components ix/iy/iz keeps each complete arm/value together with the exact same
+axis mapping and no numeric/policy/test/data change. This completed correction
+is unrun pending independent final source review and an affected required hook.

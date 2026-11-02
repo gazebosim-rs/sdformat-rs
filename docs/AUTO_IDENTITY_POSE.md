@@ -66,3 +66,6 @@ The later Rust-unverified translation batch is AUTO_TRANSLATION_POSE.md.
 It retains identity rotation and the attribute/frame closures. Only the independently prior-approved unit-translation refusals now use
 stronger same-input positive helpers;
 this does not rewrite the accepted identity qualification.
+
+A separate [origin-centered rotation draft](AUTO_ROTATION_POSE.md) is source-only.
+It does not change this accepted evidence or qualify broader pose families.

@@ -118,3 +118,6 @@ remain pending.
 AUTO_TRANSLATION_POSE.md describes the subsequent Rust-unverified local-translation
 batch. The existing sphere kernel and all prior roundoff/original
 assertions remain unchanged; new aggregate observations are not yet qualified.
+
+A separate [origin-centered rotation draft](AUTO_ROTATION_POSE.md) is source-only.
+It does not change this accepted evidence or qualify broader pose families.

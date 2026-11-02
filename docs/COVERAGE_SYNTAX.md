@@ -289,3 +289,45 @@ moves Drop-bearing tuples through the loop, and verifies an executed Drop branch
 alongside actual uncovered Drop, tuple-element and loop-body branches. Forged
 syntax hints cannot waive DA0, region coverage or a missing actual source file.
 The prior URDF LLVM control and all earlier controls remain unchanged.
+
+
+## Private external test-module declarations
+
+Only an exclusive top-level private out-of-line module with exactly two outer
+attributes, in order, receives three syntax-only declaration rows:
+
+```rust
+#[cfg(test)]
+#[path = "../tests/private/auto_rotation.rs"]
+mod automatic_rotation_tests;
+```
+
+Each attribute and the module declaration occupies its own line in the exact
+spelling above (apart from indentation). Both this module and its matching
+ancestor declaration are private, safe and external. The path is
+limited to `../tests/private/<plain_ascii_identifier>.rs`. The surrounding
+source and its matching external ancestor module must retain the existing
+untransformed context. Public/inline/nested modules, alternate or extra
+attributes, feature/cfg_attr forms, nonliteral or escaping paths, multiline rows
+and shared executable tokens receive no evidence. This independent proof
+unmasks only the exact three declaration spans; it does not clear other opaque
+attributes or classify the external module body. Measured DA0, regions, source
+ownership, full-source and changed-line thresholds remain authoritative.
+
+The rotation hook that exposed these declarations reached the classifier, but
+its temporary reports were discarded. A retained source-identical AST query
+proves the declaration opacity, not the missing DA records or exact failing
+iteration. New source-level controls cover the admitted syntax, malformed and
+production forms, and unchanged DA0-first behavior. Their execution remains
+pending; no coverage denominator or production exclusion is added.
+
+
+The declaration proof is computed before the attribute audits. Only its two
+exact standalone cfg/path attribute spans are ignored during their attribute
+visitation, so known test declarations do not disable existing production
+import/call-closing evidence. Neither audit's opaque flag is cleared, no module
+body is skipped, and unknown adjacent attributes still poison the original
+scopes. The tuple audit uses that same proven set; nested format argument
+audits keep an empty set. A retained failed rotation report accounts for every
+absent-DA changed row and preserves all 92 measured changed DA hits. The new
+scope-preservation regressions are source-complete but unrun.

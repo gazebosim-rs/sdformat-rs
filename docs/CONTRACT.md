@@ -1312,3 +1312,23 @@ AUTO_TRANSLATION_POSE.md. It uses the existing kernel and validator plus a
 narrow pinned-native accumulator compatibility step. Native characterization
 and qualification are pending; no generic inertia, frame or aggregation API
 is introduced.
+
+## Source-only automatic-inertia rotation continuation
+
+The origin-centered, attribute-free Euler rotation continuation is isolated from
+accepted `c6c4bb8`. It retains Parry geometry/numeric admission and accepted unrotated paths, uses
+public glam matrix multiplication/transpose, and has private selected-SDK-ordered
+Euler/matrix and newly-rotated primitive-value compatibility boundaries. The
+primitive exception was explicitly reviewed in scope after observed scalar
+rounding within the old budget amplified to a failed rotated product; it does
+not add a general geometry/inertia API or change the accuracy contract. The existing single-collision accumulator/manual validator and
+density/source metadata are unchanged.
+Combined nonzero translation and rotation, pose attributes/frames, overrides and
+multiple collisions remain closed. Native rounding and cancellation parity are
+unqualified. Only newly rotated reconstructed tensors require a finite public
+glam determinant before unchanged manual validation; numeric representability
+refusal can conservatively exclude native-valid extremes. The exact two
+source-prior-approved historical roll rows now use complete positives anchored
+by actual native data; all other assertions/corpora/tolerances remain unchanged.
+The capture is reference evidence, while Rust/coverage qualification is pending.
+See [the source boundary](AUTO_ROTATION_POSE.md).

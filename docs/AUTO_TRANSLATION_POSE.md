@@ -93,3 +93,6 @@ attempt is retained separately; no preliminary test or native round follows it.
 No arbitrary-f64 parity or full native original is claimed. Fuel,
 simulator/consumer pins, compiler/dependencies, original-case counts and
 coverage policy are unchanged.
+
+A separate [origin-centered rotation draft](AUTO_ROTATION_POSE.md) is source-only.
+It does not change this accepted evidence or qualify broader pose families.

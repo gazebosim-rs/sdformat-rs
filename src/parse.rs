@@ -5,7 +5,7 @@ use crate::graph::{Graphs, error, join};
 use crate::types::normalized_axis_direction;
 use crate::xml::{Document, Node, legacy_whitespace};
 use crate::*;
-use glam::{DQuat, DVec3, EulerRot};
+use glam::{DMat3, DQuat, DVec3, DVec4, EulerRot};
 use parry3d_f64::{mass_properties::MassProperties, math::Pose as MassPose};
 use std::{
     borrow::Cow,
@@ -2462,15 +2462,15 @@ impl Parser<'_> {
         collisions: &[Collision],
     ) -> Result<Inertial, Diagnostic> {
         self.allowed(node, &[], &["auto"])?;
-        let message =
-            "automatic inertia requires one unrotated local box or sphere and no overrides";
+        let message = "automatic inertia requires one local box or sphere, separate translation or rotation, and no overrides";
         let unsupported = || self.err(node, ErrorCode::Unsupported, message);
         let [collision] = collisions else {
             return Err(unsupported());
         };
         let density = collision.density();
-        if collision.pose.transform.rotation != Transform::default().rotation
-            || !collision.pose.relative_to.is_empty()
+        let rotated = collision.pose.transform.rotation != Transform::default().rotation;
+        if !collision.pose.relative_to.is_empty()
+            || (rotated && collision.pose.transform.translation != [0.; 3])
         {
             return Err(unsupported());
         }
@@ -2513,6 +2513,49 @@ impl Parser<'_> {
                 ErrorCode::Unsupported,
                 "automatic primitive inertia exceeds the mass-properties kernel's numeric domain",
             ));
+        }
+        if rotated {
+            // Native aggregation expresses collision inertia in the link frame.
+            // Keep the accepted unrotated extraction unchanged.
+            let pose = elements(link)
+                .find(|node| node.has_tag_name("collision"))
+                .and_then(|node| child(node, "pose"))
+                .ok_or_else(unsupported)?;
+            let [_, _, _, roll, pitch, yaw] = self.values::<6>(pose)?;
+            let (mass, principal) = automatic_rotated_properties(&collision.geometry, density)
+                .ok_or_else(unsupported)?;
+            if !mass.is_finite()
+                || mass <= 0.
+                || principal
+                    .iter()
+                    .any(|value| !value.is_finite() || *value <= 0.)
+            {
+                return Err(self.err(
+                    node,
+                    ErrorCode::Unsupported,
+                    "rotated primitive properties exceed the finite numeric domain",
+                ));
+            }
+            result.mass = mass;
+            let rotation = automatic_rotation_matrix([roll, pitch, yaw]);
+            let matrix = rotation
+                * DMat3::from_diagonal(DVec3::from_array(principal))
+                * rotation.transpose();
+            if !matrix.determinant().is_finite() {
+                return Err(self.err(
+                    node,
+                    ErrorCode::Unsupported,
+                    "rotated inertia exceeds the finite validation domain",
+                ));
+            }
+            result.inertia = [
+                matrix.x_axis.x,
+                matrix.y_axis.y,
+                matrix.z_axis.z,
+                matrix.y_axis.x,
+                matrix.z_axis.x,
+                matrix.z_axis.y,
+            ];
         }
         accumulate_single_translation(&mut result, center.to_array());
         if result
@@ -4783,3 +4826,72 @@ fn accumulate_single_translation(inertial: &mut Inertial, position: [f64; 3]) {
     }
     inertial.pose.transform.translation = center;
 }
+
+// Adapted from gz-math Quaternion::SetFromEuler / Normalize and Matrix3's
+// quaternion constructor, Copyright (C) 2012 Open Source Robotics Foundation,
+// licensed under Apache-2.0. Owned adaptation: 2026 OSRF.
+// The library constructors regroup these expressions, changing tiny products
+// of inertia. Keep only this private automatic-inertia compatibility boundary.
+fn automatic_rotation_matrix([roll, pitch, yaw]: [f64; 3]) -> DMat3 {
+    let (phi, theta, psi) = (roll / 2., pitch / 2., yaw / 2.);
+    let (sr, cr) = (phi.sin(), phi.cos());
+    let (sp, cp) = (theta.sin(), theta.cos());
+    let (sy, cy) = (psi.sin(), psi.cos());
+    let mut quaternion = DVec4::new(
+        cr * cp * cy + sr * sp * sy,
+        sr * cp * cy - cr * sp * sy,
+        cr * sp * cy + sr * cp * sy,
+        cr * cp * sy - sr * sp * cy,
+    );
+    // Native Euler construction and its matrix constructor both normalize.
+    // This vector stores w,x,y,z so its ordered dot product also matches native.
+    for _ in 0..2 {
+        quaternion /= quaternion.length();
+    }
+    let [w, x, y, z] = quaternion.to_array();
+    DMat3::from_cols_array(&[
+        1. - 2. * y * y - 2. * z * z,
+        2. * x * y + 2. * z * w,
+        2. * x * z - 2. * y * w,
+        2. * x * y - 2. * z * w,
+        1. - 2. * x * x - 2. * z * z,
+        2. * y * z + 2. * x * w,
+        2. * x * z + 2. * y * w,
+        2. * y * z - 2. * x * w,
+        1. - 2. * x * x - 2. * y * y,
+    ])
+}
+
+// Adapted from gz-math MassMatrix3::SetFromBox / SetFromSphere, Copyright (C)
+// 2015 Open Source Robotics Foundation, Apache-2.0. Owned adaptation: 2026 OSRF.
+// Parry remains the admission kernel. Its rounded reciprocal principal values
+// cannot preserve SDK products of inertia after cancellation in this path.
+fn automatic_rotated_properties(geometry: &Geometry, density: f64) -> Option<(f64, [f64; 3])> {
+    match geometry {
+        Geometry::Box { size } => {
+            let volume = size[0] * size[1] * size[2];
+            let mass = density * volume;
+            let [x2, y2, z2] = size.map(|value| value * value);
+            Some((
+                mass,
+                [
+                    mass / 12. * (y2 + z2),
+                    mass / 12. * (z2 + x2),
+                    mass / 12. * (x2 + y2),
+                ],
+            ))
+        }
+        Geometry::Sphere { radius } => {
+            let volume = (4. / 3.) * std::f64::consts::PI * radius.powf(3.);
+            let mass = density * volume;
+            let square = radius * radius;
+            let moment = 0.4 * mass * square;
+            Some((mass, [moment; 3]))
+        }
+        _ => None,
+    }
+}
+
+#[cfg(test)]
+#[path = "../tests/private/auto_rotation.rs"]
+mod automatic_rotation_tests;

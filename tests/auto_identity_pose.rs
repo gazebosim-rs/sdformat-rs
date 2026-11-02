@@ -1,5 +1,7 @@
 // Copyright (C) 2026 Open Source Robotics Foundation
 // SPDX-License-Identifier: Apache-2.0
+#[path = "common/auto_rotation_pose.rs"]
+mod rotation;
 use sdformat::*;
 
 fn original_row(is_sphere: bool) -> serde_json::Value {
@@ -66,6 +68,10 @@ fn transformed_and_attributed_pose_families_stay_explicitly_unsupported() {
             let xml = original.replace("<pose>0 0 0 0 0 0</pose>", pose);
             if pose == "<pose>1 0 0 0 0 0</pose>" {
                 translation::assert_unit_translation(&xml, "closed-pose.sdf", is_sphere);
+                continue;
+            }
+            if pose == "<pose>0 0 0 0.1 0 0</pose>" {
+                rotation::assert_origin_rotation(&xml, "closed-pose.sdf", is_sphere);
                 continue;
             }
             let error = load_str(&xml, "closed-pose.sdf", &NoResources).unwrap_err();

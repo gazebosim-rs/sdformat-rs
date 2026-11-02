@@ -10,5 +10,18 @@ third-party dependencies retain their own licenses and notices.
 
 The private single-collision inertial accumulation compatibility step is adapted
 from gz-math include/gz/math/Inertial.hh, Copyright (C) 2016 Open Source Robotics
-Foundation, under the Apache License, Version 2.0. Its geometry mass properties
-continue to come from the separately attributed maintained Parry dependency.
+Foundation, under the Apache License, Version 2.0. The accepted unrotated
+geometry mass properties and the admission checks continue to use the separately
+attributed maintained Parry dependency.
+
+The private automatic-inertia Euler rotation compatibility boundary is adapted
+from gz-math include/gz/math/Quaternion.hh and Matrix3.hh, Copyright (C) 2012
+Open Source Robotics Foundation, under the Apache License, Version 2.0.
+
+Only newly rotated automatic box/sphere values also use private SDK-ordered
+primitive evaluation adapted from gz-math include/gz/math/MassMatrix3.hh,
+Copyright (C) 2015 Open Source Robotics Foundation, under the Apache License,
+Version 2.0. The demonstrated library rounding gap and this narrow exception are
+recorded in docs/AUTO_ROTATION_POSE.md. Existing Parry admission and unrotated
+paths, maintained glam matrix operations and the numeric policies remain in use;
+no general geometry, rotation or inertia API is introduced.

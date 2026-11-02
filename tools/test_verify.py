@@ -2,6 +2,8 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import copy
+from contextlib import redirect_stdout, redirect_stderr
+import io
 import json
 from pathlib import Path
 import tempfile
@@ -27,9 +29,13 @@ class CoverageGateTests(unittest.TestCase):
             root = Path(temp)
             output = root / 'artifacts/core'
             failure = subprocess.CalledProcessError(101, ['cargo', 'test'], output='assertion failed\n', stderr='compiler diagnostic\n')
+            stdout, stderr = io.StringIO(), io.StringIO()
             with patch('verify.run', side_effect=failure) as command:
-                with self.assertRaises(subprocess.CalledProcessError) as raised:
-                    verify.coverage(root, output, {})
+                with redirect_stdout(stdout), redirect_stderr(stderr):
+                    with self.assertRaises(subprocess.CalledProcessError) as raised:
+                        verify.coverage(root, output, {})
+            self.assertEqual(stdout.getvalue(), 'assertion failed\n')
+            self.assertEqual(stderr.getvalue(), 'compiler diagnostic\n')
             self.assertIs(raised.exception, failure)
             self.assertEqual(raised.exception.returncode, 101)
             self.assertEqual((output / 'tests.log').read_text(), 'assertion failed\ncompiler diagnostic\n')
@@ -236,6 +242,85 @@ class FrozenExportTests(unittest.TestCase):
     def git(root, *args):
         import subprocess
         return subprocess.run(['git', *args], cwd=root, check=True, text=True, capture_output=True).stdout.strip()
+
+    def test_failed_classification_retains_only_evidence_without_replacing_failure(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp) / 'repo'; root.mkdir(); (root / 'target').mkdir()
+            self.git(root, 'init', '-q')
+            (root / 'file').write_text('base\n'); self.git(root, 'add', 'file')
+            self.git(root, '-c', 'user.name=Fixture', '-c', 'user.email=fixture@example.test',
+                     'commit', '-qm', 'baseline')
+            (root / 'file').write_text('staged\n'); self.git(root, 'add', 'file')
+            tree, head = self.git(root, 'write-tree'), self.git(root, 'rev-parse', 'HEAD')
+            failure = AssertionError('changed source is opaque syntax')
+            payload = {'tests.log': b'actual test output\n', 'coverage.json': b'{"data": []}',
+                       'coverage.lcov': b'SF:src/lib.rs\nDA:1,0\nend_of_record\n',
+                       'merged.profdata': b'merged profile', 'raw/one.profraw': b'raw profile'}
+            snapshots = []
+            def failed_verify(snapshot, changed):
+                snapshots.append(snapshot)
+                self.assertEqual((snapshot / 'file').read_text(), 'staged\n')
+                self.assertEqual(changed['base'], head)
+                self.assertEqual(changed['target'], tree)
+                core = snapshot / 'artifacts/core'; core.mkdir(parents=True)
+                for name, data in payload.items():
+                    path = core / name; path.parent.mkdir(parents=True, exist_ok=True); path.write_bytes(data)
+                (core / 'target').mkdir(); (core / 'target/build').write_bytes(b'not evidence')
+                (core / 'unrelated').write_text('not evidence')
+                (core / 'raw/unrelated').write_text('not a profile')
+                raise failure
+            old = root / 'artifacts/failed-staged' / (tree + '-prior')
+            old.mkdir(parents=True); (old / 'tests.log').write_text('prior evidence')
+            stderr = io.StringIO()
+            with patch.object(verify, 'ROOT', root), patch.object(verify, 'verify', side_effect=failed_verify) as command, \
+                 patch.object(verify, 'run', wraps=verify.run) as commands:
+                with redirect_stderr(stderr), self.assertRaises(AssertionError) as raised:
+                    verify.staged()
+            self.assertIs(raised.exception, failure)
+            command.assert_called_once()
+            self.assertTrue(commands.call_args_list)
+            self.assertTrue(all(call.args[0][0] == 'git' for call in commands.call_args_list))
+            self.assertEqual(self.git(root, 'write-tree'), tree)
+            self.assertEqual(self.git(root, 'rev-parse', 'HEAD'), head)
+            self.assertFalse(snapshots[0].exists())
+            self.assertFalse((root / 'artifacts/staged').exists())
+            self.assertEqual((old / 'tests.log').read_text(), 'prior evidence')
+            destinations = [path for path in old.parent.iterdir() if path != old]
+            self.assertEqual(len(destinations), 1)
+            saved = destinations[0]
+            self.assertEqual({str(path.relative_to(saved)) for path in saved.rglob('*') if path.is_file()}, set(payload))
+            for name, data in payload.items():
+                self.assertEqual((saved / name).read_bytes(), data)
+            self.assertIn('Retained failed coverage evidence', stderr.getvalue())
+            # Retention trouble cannot replace the original verification error.
+            with patch.object(verify, 'ROOT', root), patch.object(verify, 'verify', side_effect=failed_verify), \
+                 patch.object(verify.shutil, 'copy2', side_effect=OSError('copy unavailable')):
+                with redirect_stderr(stderr), self.assertRaises(AssertionError) as raised:
+                    verify.staged()
+            self.assertIs(raised.exception, failure)
+            self.assertIn('Warning: could not retain failed coverage evidence: copy unavailable', stderr.getvalue())
+            self.assertEqual(self.git(root, 'write-tree'), tree)
+            self.assertEqual(self.git(root, 'rev-parse', 'HEAD'), head)
+            self.assertFalse((root / 'artifacts/staged').exists())
+
+            class BrokenStderr:
+                def write(self, _text):
+                    raise ValueError('diagnostic stream closed')
+
+            with patch.object(verify, 'ROOT', root), patch.object(verify, 'verify', side_effect=failed_verify), \
+                 patch.object(verify.shutil, 'copy2', side_effect=OSError('copy unavailable')):
+                with redirect_stderr(BrokenStderr()), self.assertRaises(AssertionError) as raised:
+                    verify.staged()
+            self.assertIs(raised.exception, failure)
+            self.assertEqual(self.git(root, 'write-tree'), tree)
+            self.assertEqual(self.git(root, 'rev-parse', 'HEAD'), head)
+            self.assertFalse((root / 'artifacts/staged').exists())
+
+    def test_failed_coverage_retention_without_evidence_creates_no_destination(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            verify.retain_failed_coverage(root, root / 'snapshot', 'tree')
+            self.assertFalse((root / 'artifacts').exists())
 
     def test_checkout_transform_is_rejected_before_verification(self):
         with tempfile.TemporaryDirectory() as temp:

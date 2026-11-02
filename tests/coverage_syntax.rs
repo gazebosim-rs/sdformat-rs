@@ -209,6 +209,7 @@ struct Audit {
     item_macro: bool,
     standard_scope: bool,
     default_variant: bool,
+    test_attributes: BTreeSet<usize>,
 }
 impl Audit {
     fn mark(&mut self, span: proc_macro2::Span) {
@@ -218,6 +219,13 @@ impl Audit {
 }
 impl<'ast> Visit<'ast> for Audit {
     fn visit_attribute(&mut self, attribute: &'ast syn::Attribute) {
+        if self
+            .test_attributes
+            .contains(&attribute.span().start().line)
+            && attribute.span().start().line == attribute.span().end().line
+        {
+            return;
+        }
         if !docs_only(std::slice::from_ref(attribute)) {
             let valid = self.standard_scope && self.default_variant && attribute.path().is_ident("default")
                 || self.standard_scope && attribute.path().is_ident("derive")
@@ -342,9 +350,15 @@ struct CallAudit {
     wildcard_prefixes: BTreeSet<usize>,
     record_updates: BTreeSet<usize>,
     delimiters: BTreeSet<usize>,
+    test_attributes: BTreeSet<usize>,
 }
 impl<'ast> Visit<'ast> for CallAudit {
     fn visit_attribute(&mut self, attr: &'ast syn::Attribute) {
+        if self.test_attributes.contains(&attr.span().start().line)
+            && attr.span().start().line == attr.span().end().line
+        {
+            return;
+        }
         if docs_only(std::slice::from_ref(attr)) {
             return;
         }
@@ -725,6 +739,7 @@ fn pure_tuple_declarations(
     file: &syn::File,
     ancestor: &syn::File,
     module: &str,
+    test_attributes: &BTreeSet<usize>,
 ) -> BTreeSet<usize> {
     let mut out = BTreeSet::new();
     if file
@@ -748,6 +763,7 @@ fn pure_tuple_declarations(
         item_macro: false,
         standard_scope,
         default_variant: false,
+        test_attributes: test_attributes.clone(),
     };
     audit.visit_file(&context);
     if audit.opaque || audit.item_macro {
@@ -1723,6 +1739,7 @@ fn format_syntax(
                 wildcard_prefixes: BTreeSet::new(),
                 record_updates: BTreeSet::new(),
                 delimiters: BTreeSet::new(),
+                test_attributes: BTreeSet::new(),
             };
             for arg in args.iter().skip(1) {
                 calls.visit_expr(arg);
@@ -1758,6 +1775,108 @@ fn format_syntax(
     (templates.items, templates.closings)
 }
 
+// These three exclusive rows declare an external test module, not a runtime
+// body. Keep this proof separate from the audits of production attributes.
+fn private_test_module_declarations(
+    source: &str,
+    file: &syn::File,
+    ancestor: &syn::File,
+    module: &str,
+) -> BTreeSet<usize> {
+    let mut out = BTreeSet::new();
+    let mut audit = CallAncestorAudit { opaque: false };
+    audit.visit_file(ancestor);
+    let parents: Vec<_> = ancestor
+        .items
+        .iter()
+        .filter_map(|item| match item {
+            Item::Mod(item) if item.ident == module => Some(item),
+            _ => None,
+        })
+        .collect();
+    if audit.opaque
+        || !docs_only(&file.attrs)
+        || !docs_only(&ancestor.attrs)
+        || file.items.iter().any(|item| {
+            matches!(
+                item,
+                Item::Macro(_) | Item::ExternCrate(_) | Item::Verbatim(_)
+            )
+        })
+        || module.is_empty()
+        || parents.len() != 1
+        || !matches!(parents[0].vis, Visibility::Inherited)
+        || parents[0].unsafety.is_some()
+        || parents[0].content.is_some()
+        || !docs_only(&parents[0].attrs)
+    {
+        return out;
+    }
+    let plain_ident = |text: &str| {
+        text.bytes()
+            .next()
+            .is_some_and(|c| c.is_ascii_alphabetic() || c == b'_')
+            && text.bytes().all(|c| c.is_ascii_alphanumeric() || c == b'_')
+            && syn::parse_str::<syn::Ident>(text).is_ok()
+    };
+    for item in &file.items {
+        let Item::Mod(item) = item else { continue };
+        let [cfg, path] = item.attrs.as_slice() else {
+            continue;
+        };
+        if !matches!(item.vis, Visibility::Inherited)
+            || item.unsafety.is_some()
+            || item.content.is_some()
+            || !plain_ident(&item.ident.to_string())
+            || !matches!(cfg.style, syn::AttrStyle::Outer)
+            || !matches!(path.style, syn::AttrStyle::Outer)
+            || !cfg.path().is_ident("cfg")
+            || !cfg
+                .parse_args::<syn::Path>()
+                .is_ok_and(|value| value.is_ident("test"))
+            || !path.path().is_ident("path")
+        {
+            continue;
+        }
+        let syn::Meta::NameValue(value) = &path.meta else {
+            continue;
+        };
+        let syn::Expr::Lit(value) = &value.value else {
+            continue;
+        };
+        let syn::Lit::Str(value_path) = &value.lit else {
+            continue;
+        };
+        let value_path = value_path.value();
+        if !value.attrs.is_empty()
+            || !value_path
+                .strip_prefix("../tests/private/")
+                .and_then(|name| name.strip_suffix(".rs"))
+                .is_some_and(plain_ident)
+        {
+            continue;
+        }
+        let Some(semi) = &item.semi else { continue };
+        let Some(declaration) = item.mod_token.span.join(semi.span) else {
+            continue;
+        };
+        let spans = [cfg.span(), path.span(), declaration];
+        let lines: Vec<_> = source.split('\n').collect();
+        if spans
+            .iter()
+            .all(|span| span.start().line == span.end().line && exclusive_span(source, *span, ""))
+            && spans[0].start().line < spans[1].start().line
+            && spans[1].start().line < spans[2].start().line
+            && lines[spans[0].start().line - 1].trim() == "#[cfg(test)]"
+            && lines[spans[1].start().line - 1].trim() == format!("#[path = \"{value_path}\"]")
+            && lines[spans[2].start().line - 1].trim() == format!("mod {};", item.ident)
+        {
+            out.extend(spans.map(|span| span.start().line));
+        }
+    }
+    out
+}
+
 struct Evidence {
     fields: BTreeSet<usize>,
     closings: BTreeSet<usize>,
@@ -1769,6 +1888,18 @@ struct Evidence {
 fn classify(source: &str, ancestor: &str, module: &str) -> Result<Evidence, syn::Error> {
     let syntax = syn::parse_file(source)?;
     let ancestor_syntax = syn::parse_file(ancestor)?;
+    let test_modules = private_test_module_declarations(source, &syntax, &ancestor_syntax, module);
+    let test_attributes: BTreeSet<_> = syntax
+        .items
+        .iter()
+        .filter_map(|item| match item {
+            Item::Mod(item) => Some(&item.attrs),
+            _ => None,
+        })
+        .flatten()
+        .map(|attr| attr.span().start().line)
+        .filter(|line| test_modules.contains(line))
+        .collect();
     let mut fields = BTreeSet::new();
     let standard_scope = standard_debug_scope(&syntax, &ancestor_syntax, module);
     if standard_scope {
@@ -1796,6 +1927,7 @@ fn classify(source: &str, ancestor: &str, module: &str) -> Result<Evidence, syn:
         item_macro: false,
         standard_scope,
         default_variant: false,
+        test_attributes: test_attributes.clone(),
     };
     audit.visit_file(&syntax);
     let mut calls = CallAudit {
@@ -1807,6 +1939,7 @@ fn classify(source: &str, ancestor: &str, module: &str) -> Result<Evidence, syn:
         wildcard_prefixes: BTreeSet::new(),
         record_updates: BTreeSet::new(),
         delimiters: BTreeSet::new(),
+        test_attributes: test_attributes.clone(),
     };
     calls.visit_file(&syntax);
     let lines: Vec<_> = source.split('\n').collect();
@@ -1857,7 +1990,8 @@ fn classify(source: &str, ancestor: &str, module: &str) -> Result<Evidence, syn:
     } else {
         plain_declarations(source, &syntax, &ancestor_syntax, module)
     };
-    let tuples = pure_tuple_declarations(source, &syntax, &ancestor_syntax, module);
+    let tuples =
+        pure_tuple_declarations(source, &syntax, &ancestor_syntax, module, &test_attributes);
     let mut items = context_lines(source, ancestor, module);
     items.extend(tuples.iter().copied());
     items.extend(local_result_tuple(
@@ -1889,7 +2023,9 @@ fn classify(source: &str, ancestor: &str, module: &str) -> Result<Evidence, syn:
     unmasked.extend(tuples);
     unmasked.extend(format_items.iter().copied());
     unmasked.extend(format_closings.iter().copied());
+    unmasked.extend(test_modules.iter().copied());
     items.extend(format_items);
+    items.extend(test_modules);
     calls.closings.extend(format_closings);
     // Only the exact exclusive, syntax-proved declaration lines may remove
     // literal/derive opacity. No expression or enclosing item is unmasked.
@@ -3532,5 +3668,139 @@ fn pure_tuple_import_scope_keeps_transforming_contexts_opaque() {
             proof.items.is_disjoint(&BTreeSet::from([2, 3, 4])),
             "{ancestor}"
         );
+    }
+}
+
+#[test]
+fn private_test_module_evidence_is_only_three_exclusive_declaration_rows() {
+    let source = "#[cfg(test)]\n#[path = \"../tests/private/auto_rotation.rs\"]\nmod automatic_rotation_tests;\n#[custom::attribute]\nfn production() { work(1); }\n";
+    let evidence = classify(source, "mod parse;", "parse").unwrap();
+    assert!(BTreeSet::from([1, 2, 3]).is_subset(&evidence.items));
+    assert!(evidence.opaque.is_disjoint(&BTreeSet::from([1, 2, 3])));
+    assert!(evidence.opaque.contains(&4));
+    assert!(evidence.opaque.contains(&5));
+    assert!(!evidence.items.contains(&4));
+    assert!(!evidence.items.contains(&5));
+    assert!(evidence.fields.is_empty());
+    assert!(evidence.declarations.is_empty());
+}
+
+#[test]
+fn private_test_module_evidence_rejects_other_attributes_paths_and_overlaps() {
+    let source = "#[cfg(test)]\n#[path = \"../tests/private/auto_rotation.rs\"]\nmod automatic_rotation_tests;\n";
+    for changed in [
+        format!("macro_rules! alter {{ () => {{}} }}\n{source}"),
+        source.replace("cfg(test)", "cfg(feature = \"test\")"),
+        source.replace("cfg(test)", "cfg(any(test))"),
+        source.replace("cfg(test)", "cfg( test )"),
+        source.replace("cfg(test)", "r#cfg(test)"),
+        source.replace(
+            "cfg(test)",
+            "cfg_attr(test, path = \"../tests/private/other.rs\")",
+        ),
+        source.replace("#[cfg(test)]\n", ""),
+        source.replace("mod automatic", "pub mod automatic"),
+        source.replace("mod automatic", "pub(crate) mod automatic"),
+        source.replace("mod automatic", "unsafe mod automatic"),
+        source.replace("_tests;", "_tests {}"),
+        source.replace(".rs\"]", ".rs\"]\n#[allow(dead_code)]"),
+        source.replace(
+            "../tests/private/auto_rotation.rs",
+            "../tests/private/../production.rs",
+        ),
+        source.replace(
+            "../tests/private/auto_rotation.rs",
+            "../tests/private/nested/auto_rotation.rs",
+        ),
+        source.replace(
+            "../tests/private/auto_rotation.rs",
+            "/tests/private/auto_rotation.rs",
+        ),
+        source.replace(
+            "../tests/private/auto_rotation.rs",
+            "../tests/private/not-an-ident.rs",
+        ),
+        source.replace(
+            "../tests/private/auto_rotation.rs",
+            "../tests/private/type.rs",
+        ),
+        source.replace("\"../tests/private/auto_rotation.rs\"", "123"),
+        source.replace(
+            "\"../tests/private/auto_rotation.rs\"",
+            "r#\"../tests/private/auto_rotation.rs\"#",
+        ),
+        source.replace("#[cfg(test)]\n", "#[cfg(\n test\n)]\n"),
+        source.replace("]\n#[path", "] #[path"),
+        source.replace("]\nmod automatic", "] mod automatic"),
+        source.replace("_tests;", "_tests; fn hidden() { work(1); }"),
+        format!("mod nested {{\n{source}}}\n"),
+        format!("#![custom::attribute]\n{source}"),
+    ] {
+        let file = syn::parse_file(&changed).unwrap();
+        let ancestor = syn::parse_file("mod parse;").unwrap();
+        assert!(
+            private_test_module_declarations(&changed, &file, &ancestor, "parse").is_empty(),
+            "{changed}"
+        );
+    }
+    for ancestor in [
+        "#[custom::attribute] mod parse;",
+        "#![custom::attribute] mod parse;",
+        "mod parse {}",
+        "pub mod parse;",
+        "unsafe mod parse;",
+        "mod other;",
+        "mod parse; macro_rules! alter { () => {} }",
+    ] {
+        assert!(
+            classify(source, ancestor, "parse")
+                .unwrap()
+                .items
+                .is_disjoint(&BTreeSet::from([1, 2, 3])),
+            "{ancestor}"
+        );
+    }
+}
+
+#[test]
+fn private_test_module_attributes_preserve_only_existing_safe_scope_evidence() {
+    let source = "use math::Thing;\nfn production() {\n consume(\n  1\n );\n}\n#[cfg(test)]\n#[path = \"../tests/private/checks.rs\"]\nmod checks;\n";
+    let proof = classify(source, "mod parse;", "parse").unwrap();
+    assert!(proof.declarations.contains(&1));
+    assert!(proof.closings.contains(&5));
+    assert!(BTreeSet::from([7, 8, 9]).is_subset(&proof.items));
+    assert!(proof.opaque.contains(&4));
+    assert!(!proof.items.contains(&4));
+    for changed in [
+        source.replace("cfg(test)", "cfg(feature = \"test\")"),
+        source.replace("cfg(test)", "cfg_attr(test, allow(dead_code))"),
+        source.replace(
+            "../tests/private/checks.rs",
+            "../tests/private/../production.rs",
+        ),
+        source.replace("mod checks;", "pub mod checks;"),
+        source.replace("mod checks;", "mod checks {}"),
+        source.replace("mod checks;", "#[allow(dead_code)]\nmod checks;"),
+        source.replace("fn production", "#[custom::attribute]\nfn production"),
+    ] {
+        let proof = classify(&changed, "mod parse;", "parse").unwrap();
+        let closing = changed
+            .lines()
+            .position(|line| line.trim() == ");")
+            .unwrap()
+            + 1;
+        assert!(proof.declarations.is_empty(), "{changed}");
+        assert!(!proof.closings.contains(&closing), "{changed}");
+        let attribute_lines: BTreeSet<_> = changed
+            .lines()
+            .enumerate()
+            .filter(|(_, line)| {
+                line.contains("custom::attribute")
+                    || line.contains("cfg(feature")
+                    || line.contains("cfg_attr")
+            })
+            .map(|(line, _)| line + 1)
+            .collect();
+        assert!(attribute_lines.is_subset(&proof.opaque));
     }
 }

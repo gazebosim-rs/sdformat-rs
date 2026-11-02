@@ -13,6 +13,7 @@ import platform
 import re
 import shutil
 import subprocess
+import sys
 import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -208,6 +209,9 @@ def coverage(root, out, manifest, changed=None):
         result = run(['cargo', 'test', '--locked', '--all-targets', '--message-format=json'], env=env, capture=True, cwd=root)
     except subprocess.CalledProcessError as error:
         (out / 'tests.log').write_text((error.stdout or '') + (error.stderr or ''))
+        # The staged export is temporary; retain failures in the caller's log.
+        print(error.stdout or '', end='', flush=True)
+        print(error.stderr or '', end='', file=sys.stderr, flush=True)
         raise
     (out / 'tests.log').write_text(result.stdout + result.stderr)
     binaries, syntax_binary = test_binaries(result.stdout, root, out / 'target')
@@ -452,6 +456,25 @@ def isolated_git_context(root):
         os.environ.update(previous)
 
 
+def retain_failed_coverage(root, snapshot, tree):
+    core = snapshot / 'artifacts/core'
+    files = [core / name for name in ('tests.log', 'coverage.json', 'coverage.lcov', 'merged.profdata')]
+    raw = core / 'raw'
+    if raw.is_dir() and not raw.is_symlink():
+        files += sorted(raw.glob('*.profraw'))
+    files = [path for path in files if path.is_file() and not path.is_symlink()]
+    if not files:
+        return
+    parent = root / 'artifacts/failed-staged'
+    parent.mkdir(parents=True, exist_ok=True)
+    destination = Path(tempfile.mkdtemp(prefix=tree + '-', dir=parent))
+    for path in files:
+        target = destination / path.relative_to(core)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(path, target)
+    print('Retained failed coverage evidence', destination, file=sys.stderr, flush=True)
+
+
 def staged():
     tree = run(['git', 'write-tree'], capture=True, cwd=ROOT).stdout.strip()
     head = head_revision(ROOT)
@@ -462,8 +485,18 @@ def staged():
         snapshot = Path(temp)
         if changed['lines'] is None:
             changed['lines'] = all_source_lines(snapshot)
-        with isolated_git_context(ROOT):
-            verify(snapshot, changed)
+        try:
+            with isolated_git_context(ROOT):
+                verify(snapshot, changed)
+        except BaseException:
+            try:
+                retain_failed_coverage(ROOT, snapshot, tree)
+            except Exception as error:
+                try:
+                    print('Warning: could not retain failed coverage evidence:', error, file=sys.stderr, flush=True)
+                except Exception:
+                    pass  # A closed diagnostic stream must not replace the gate failure.
+            raise
         assert run(['git', 'write-tree'], capture=True, cwd=ROOT).stdout.strip() == tree, 'index changed during verification'
         assert head_revision(ROOT) == head, 'HEAD changed during verification'
         destination = ROOT / 'artifacts' / 'staged' / tree

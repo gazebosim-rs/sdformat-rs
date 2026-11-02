@@ -4037,3 +4037,85 @@ compilation on a new `Inertial` equality assertion. Its source correction compar
 all four fields against the same default; Rust runtime, coverage and corrected
 mandatory qualification remain pending. No additional native round was run.
 No Fuel, dependency/compiler, consumer pin or original-count change is claimed.
+
+
+## Source-only origin-centered automatic-inertia rotation
+
+A batch from accepted `c6c4bb8` prepares ordinary attribute-free Euler rotation
+for a single origin-centered box/sphere collision. It retains public Parry
+primitive moments, maintained glam matrix multiplication/transpose and the
+existing native-compatible single-collision accumulation and
+manual physical validation. Density presence/defaults, source metadata and the
+accepted identity/translation paths remain retained. Combined translation and
+rotation, attributes/frames, overrides and multiple collisions remain closed.
+The one authorized source-reviewed native capture completed all 24 children:
+all direct outputs are finite/valid; Root outputs are all finite, with 22 valid
+and two maximum-density native-invalid aggregates despite empty error vectors.
+Warnings and tiny isotropic cross terms remain preserved. Root approved a
+finite public glam determinant guard only for newly rotated tensors, before
+unchanged manual validation; it returns Unsupported for nonfinite validation
+arithmetic and can conservatively exclude native-valid extremes. Independent
+PRIOR review approved the exact two historical roll branches; actual captured
+values now anchor their complete positive helpers. Every other old assertion,
+corpus and count remains unchanged. Four new regressions plus folded historical
+controls and two protocol controls are unrun. Final independent data/fold review,
+Rust/lint/coverage and hosted qualification remain pending. Four-ULP numerical
+rotation parity is unqualified; no tolerance, dependency, consumer pin, Fuel,
+original count or performance claim changes. See
+[AUTO_ROTATION_POSE.md](AUTO_ROTATION_POSE.md).
+
+
+The first rotation mandatory hook passed 56 tooling tests, formatting, Clippy
+and rustdoc before instrumented Rust failure. One persistent affected diagnostic
+preserved identity 4/4 and rotation 3/4 with the unchanged four-ULP differential
+failing on the captured mixed-box tiny product. One explanatory arithmetic
+analysis of only that input found a one-ULP quaternion difference, with no Parry
+principal-moment difference, and reproduced all nine native matrix entries with
+SDK-ordered construction. A reviewed-in-scope private Euler/matrix compatibility
+adapter now retains that operation order, using existing matrix APIs and no
+new inertia formula or bound change. A separate minimal verifier amendment
+emits failing captured stdout/stderr before re-raising the same exception, with
+its original regression strengthened. Complete corrected source/data review and
+the affected mandatory hook remain pending; no corrected runtime, general
+24-case parity or coverage pass is claimed. Native captures and all numeric
+helpers/corpora/tolerances remain unchanged.
+
+
+The first rotation compatibility correction also failed its required hook:
+56 tooling/fmt/Clippy/rustdoc passed, but the final anisotropic mixed-box product
+failed the unchanged four-ULP native comparison. One authorized all-nine-entry
+arithmetic analysis found the SDK quaternion/matrix exact; Parry principal
+rounding of 2/0/1 ULP, already within the old scalar budget, amplified to 64 ULP
+in the tested upper product and 208 in the lower product. Bypassing reciprocal
+storage still leaves the tested 64-ULP gap. Root therefore approved a narrowly
+expanded source exception: selected-SDK-ordered mass/principal evaluation only
+for newly rotated existing boxes/spheres, after unchanged Parry admission and
+before unchanged numeric/manual guards. All accepted unrotated/translation/manual
+paths, four-ULP helpers, 24 captured cases and old fold assertions stay unchanged.
+Private all-24 direct-scalar and source-derived overflow regressions plus
+accurate 2012/2015 source notices are added; no extra native observation is claimed. The completed expanded batch awaits independent source/data review
+and one affected mandatory hook; no additional execution or acceptance is claimed.
+
+
+The expanded rotation mandatory hook reached strict changed-source classification
+after 56 tooling tests, fmt, all-target Clippy, rustdoc and successful instrumented
+all-target Cargo/LLVM exports. It failed on opaque syntax after 393 seconds,
+without a capacity stop. Temporary cleanup discarded its exact test counts and
+coverage records; no corresponding acceptance metrics are claimed. One retained
+source-identical AST query confirms the private test-module attribute opacity.
+A narrowly approved three-row declaration proof and failed-report retention
+are now source-complete; their new controls and final mandatory qualification
+remain unrun. Numeric source, private scalar tests, four-ULP helpers, native
+cases, old assertions, compiler, dependencies and accepted Main are unchanged.
+
+
+The subsequent rotation gate passed 709 Rust tests, 59 tooling tests, formatting,
+Clippy and rustdoc, with retained production coverage 8937/8983 lines and
+14150/14425 regions and 92/92 changed DA hits. It failed the remaining mandatory
+absent-DA syntax classification, so accepted Main and original counters remain
+unchanged. Retention now preserves its actual reports/profiles. Every pending
+row was inventoried: import/call-closing evidence was disabled because the
+known private test attributes still set audit opacity. The source-only correction
+ignores visitation only for those two independently proven attribute spans,
+without clearing opacity or changing numeric code/data, thresholds or DA0
+priority. Independent review and amended verification remain pending.

@@ -1,0 +1,136 @@
+{
+  "copyright": "Copyright (C) 2026 Open Source Robotics Foundation",
+  "license": "Apache-2.0",
+  "base": "c6c4bb8561f7dbaa56f26d7578702ecc94eab07d",
+  "scope": "Complete Source-only exact private test-attribute audit correction over reviewed rotated-only compatibility; amended qualification UNRUN",
+  "upstream_sha": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+  "math_sha": "1316ed334f4d5bda7be59aae07cd6e8ff31cfe13",
+  "selected_sources": {
+    "Collision.cc": "235fe52a4df631f5c26b55eb289ea2829982bfb2fc3e27c290aca388ba8289ee",
+    "Link.cc": "ff58b54bef267f7e13a2ac5ee99e7bcece921729915d3de6906309bc237e07cc",
+    "Inertial.hh": "22157a24c52529c2be13680169b1e14bd20ad0aa5adedd9ff55515cb7c7df033",
+    "Matrix3.hh": "f1a0489e32106b1fba8d5d0240d1de1fa02eba0cd466a3157764a6638de0824e",
+    "Quaternion.hh": "9170601444da93735b4d14b369cc4266fafc7655657a6af7613e31206382b873",
+    "parry_mass_properties.rs": "6f985ee56e7066b4fe9d6d06cba1ad482b3caa55669fd06f9f05398335fd782e",
+    "MassMatrix3.hh": "115c54a0ab11714e891f0ab060fbb2350652ed0aa6dfcf19958781b162543b5b",
+    "Box.cc": "19737e54d8db2cce28f44b2c27377d667157018749ebe8426ec6ec163a9799ed",
+    "Sphere.cc": "9c6e5fe3236e6e9fb313e1baa1051e03373af6486efa920ecc1b1e79c0e2e4be"
+  },
+  "library_reuse": "Existing Parry geometry/numeric admission and every accepted unrotated/translation path unchanged; maintained glam matrix mul/transpose; private SDK-ordered values only newly rotated primitives",
+  "native_cases": 24,
+  "native_observations": 24,
+  "qualification": "Two numerical failures, one diagnostic and393s discarded-report classification failure remain separate. Subsequent394s hook retained709 Rust/59tools passes,37production8937/8983lines14150/14425regions and92/92changedDA, but failed absent-DA syntax classification. No feature acceptance. Amended scope-preservation controls unrun pending review/mandatory gate.",
+  "old_dispositions": "Source-PRIOR-approved exact box/sphere .1-roll generated XML/closed-pose.sdf now use exhaustive common helper; only two branches/import, immutable table/corpora/counts retained",
+  "precision": "All old helpers/4ULP/native24 cases/upper-triangle comparisons unchanged. New rotated-only provider mirrors selected native volume/mass/principal order to avoid lost scalar bits; finite-positive and existing Parry/numeric/manual guards unchanged.",
+  "limits": [
+    "No combined nonzero translation and rotation",
+    "No relative/degrees/rotation_format/raw pose attributes",
+    "No overrides, multiple collisions, new geometry formulas, dependencies or compiler changes",
+    "Existing kernel numeric refusals and manual physical validation remain in force",
+    "No original completion, simulator pin, Fuel or performance claim"
+  ],
+  "native_summary": {
+    "successful_children": 24,
+    "timeouts_or_crashes": 0,
+    "direct_finite_valid": 24,
+    "root_finite": 24,
+    "root_valid": 22,
+    "root_finite_invalid_cases": [
+      "box_maximum",
+      "sphere_maximum"
+    ],
+    "native_error_vectors": "All empty, including finite invalid Root aggregates",
+    "warning_inputs": [
+      "box_missing",
+      "sphere_missing"
+    ],
+    "isotropic_cancellation_terms": "Preserved exactly; sphere historical roll iyz=-4.336808689942018e-19, not erased or called zero"
+  },
+  "captured_fixture_sha256": "0f0320f7cf73a60f0fe7b0fd20516b0428fdbcd8581ada2de9a3073362720a1d",
+  "native_provenance_sha256": "f617a39dcf1b4235b0926120f06e3c8f6bb74e547c5187dec4fef131afc481a6",
+  "numeric_domain": "Root SOURCE-approved finite public glam matrix determinant requirement ONLY for newly rotated tensors, before unchanged manual validation. Nonfinite validation arithmetic is Unsupported, without density cutoff/custom determinant or tolerance change; conservative refusal can exclude native-valid extremes.",
+  "arithmetic_analysis": {
+    "case": "box_mixed",
+    "scope": "ONE explanatory standard-library analysis, no Rust/native/test execution or new bound",
+    "program_sha256": "526f000f1c561be1baf692eb62f1c135ae45b15b0b46c7222e801d0facb7c4ad",
+    "record_sha256": "748e761a90c358573c841b81df13821e924987c94fc7db34f8948921f3f05800",
+    "native_principal_bits": 4663993451599451477,
+    "modeled_parry_principal_bits": 4663993451599451477,
+    "qz_difference_ulps": 1,
+    "sdk_matrix_matches_captured_entries": 9,
+    "native_xy": 5.684341886080802e-14,
+    "failed_rust_xy": 6.394884621840902e-14,
+    "storage": "Pinned Parry inverse inertia, not inverse square root",
+    "limits": "Explanation limited to the captured failure, not arbitrary input or remaining24case qualification"
+  },
+  "compatibility_gap": "SDK Euler products, wxyz sum/component division at both normalization stages, exact Matrix3 quaternion constructor expression order; mature inspected constructors regroup operations",
+  "failure_retention": "Original CalledProcessError stream output remains. Staged verification failures additionally retain only existing tests.log/coverage.json/coverage.lcov/merged.profdata/raw profiles in unique ignored failed-staged directories; no compiler target or snapshot; copy failures warn and original exception rethrows.",
+  "expanded_scope_approval": "Root explicitly revised earlier no-primitive-evaluation scope after actual principal2/0/1ULP amplification to64/208ULP; no general framework/new geometry/bound/cutoff",
+  "anisotropic_analysis": {
+    "case": "anisotropic_mixed",
+    "scope": "ONE authorized standard-library analysis of all9 fields, not product/native/test execution",
+    "program_sha256": "6dde07b97f431d79feef1087c0f1be2027346ceaf05ef5aac680892944980844",
+    "record_sha256": "81c27562c8db8b0c0b5e86de6bf4e98bbba8fd6768fb4b64828f2d558d342d6b",
+    "principal_ulps": [
+      2,
+      0,
+      1
+    ],
+    "rotated_all9_ulps": [
+      2,
+      4,
+      1,
+      4,
+      0,
+      64,
+      3,
+      208,
+      1
+    ],
+    "before_reciprocal_upper_iyz_ulps": 64,
+    "native_principal_adapter_matches_all9": true,
+    "remaining_rotation_bug_demonstrated": false
+  },
+  "raw_scalar_regression": "Private unit control reads all24 actual direct collision mass/principal bits; no public provider API or altered golden",
+  "sphere_order": "Existing selected native disassembly: folded4pi/3, libm pow(radius,3), density product, then0.4*mass*radius\u00b2 with square multiplication; implemented using standard f64 operations, no custom pow",
+  "source_attribution": {
+    "Quaternion.hh/Matrix3.hh": "Copyright (C) 2012 Open Source Robotics Foundation; Apache-2.0",
+    "MassMatrix3.hh": "Copyright (C) 2015 Open Source Robotics Foundation; Apache-2.0",
+    "Inertial.hh": "Copyright (C) 2016 Open Source Robotics Foundation; Apache-2.0"
+  },
+  "test_module_syntax": "Existing three-row proof is computed before audits; ONLY its two exact standalone cfg/path attribute spans bypass attribute visitation. No opaque flag is cleared, module body skipped or unknown production attribute exempted; existing DA0/threshold/source checks unchanged.",
+  "classification_failure": {
+    "result_sha256": "52403a4949a01c780500436843fc40db3c11c4654bde282074363b1622985c0f",
+    "source_query": "Retained source-identical AST helper proves attributes4895/4896 opaque, module4897 unclassified; DA records unavailable, first pending iteration not claimed."
+  },
+  "retained_classification_failure": {
+    "tree": "7458d3c9946a81d94a74b6daa6854d82a1502e65",
+    "rust_tests": 709,
+    "tooling_tests": 59,
+    "production_files": 37,
+    "lines": [
+      8937,
+      8983
+    ],
+    "regions": [
+      14150,
+      14425
+    ],
+    "changed_da": [
+      92,
+      92
+    ],
+    "classification": "strict missing nonexecutable evidence; not accepted",
+    "nontrivial_absent_da": {
+      "src/parse.rs": [
+        8,
+        4845,
+        4895,
+        4896,
+        4897
+      ]
+    },
+    "other_absent_da": "All comments/blanks/braces; complete retained inventory preserved",
+    "scope_correction": "Recognized test attrs no longer poison existing import/call-closing evidence; unknown attrs remain opaque"
+  }
+}

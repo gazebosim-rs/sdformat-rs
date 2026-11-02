@@ -89,3 +89,6 @@ The subsequent Rust-unverified translation-only batch is described in
 AUTO_TRANSLATION_POSE.md. It retains the kernel and manual policy, with a private
 selected-native accumulation compatibility step; its numeric qualification is
 pending. This does not change the recorded origin/identity qualification above.
+
+A separate [origin-centered rotation draft](AUTO_ROTATION_POSE.md) is source-only.
+It does not change this accepted evidence or qualify broader pose families.

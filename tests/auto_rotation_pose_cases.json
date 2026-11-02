@@ -1,0 +1,136 @@
+{
+  "copyright": "Copyright (C) 2026 Open Source Robotics Foundation",
+  "license": "Apache-2.0",
+  "scope": "SOURCE ONLY: bounded origin rotations, default density and inherited numeric extremes; no capture yet",
+  "cases": [
+    {
+      "name": "box_old_rotation",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose>0 0 0 0.1 0 0</pose><density>1240</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "closed-pose.sdf",
+      "source_corpus": "tests/auto_box_inertial.json",
+      "source_case": "pose_identity",
+      "held_pose": "<pose>0 0 0 0.1 0 0</pose>"
+    },
+    {
+      "name": "box_pitch",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose>0 0 0 0 0.2 0</pose><density>1240</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "rotation.sdf"
+    },
+    {
+      "name": "box_yaw",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose>0 0 0 0 0 0.3</pose><density>1240</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "rotation.sdf"
+    },
+    {
+      "name": "box_mixed",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose>0 0 0 0.1 0.2 0.3</pose><density>1240</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "rotation.sdf"
+    },
+    {
+      "name": "box_half_turn",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose>0 0 0 3.141592653589793 0 0</pose><density>1240</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "rotation.sdf"
+    },
+    {
+      "name": "box_tiny",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose>0 0 0 1e-12 0 0</pose><density>1240</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "rotation.sdf"
+    },
+    {
+      "name": "box_large_angle",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose>0 0 0 1e300 0 0</pose><density>1240</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "rotation.sdf"
+    },
+    {
+      "name": "box_missing",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose>0 0 0 0.1 0.2 0.3</pose><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "rotation.sdf"
+    },
+    {
+      "name": "box_empty",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose>0 0 0 0.1 0.2 0.3</pose><density/><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "rotation.sdf"
+    },
+    {
+      "name": "box_minimum",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose>0 0 0 0.1 0.2 0.3</pose><density>2.2250738585072014e-308</density><geometry><box><size>1 1 1</size></box></geometry></collision></link></model></sdf>",
+      "uri": "rotation.sdf",
+      "rust_error": "Unsupported"
+    },
+    {
+      "name": "box_maximum",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose>0 0 0 0.1 0.2 0.3</pose><density>1.7976931348623157e308</density><geometry><box><size>1 1 1</size></box></geometry></collision></link></model></sdf>",
+      "uri": "rotation.sdf",
+      "rust_error": "Unsupported"
+    },
+    {
+      "name": "sphere_old_rotation",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose>0 0 0 0.1 0 0</pose><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "closed-pose.sdf",
+      "source_corpus": "tests/auto_sphere_inertial.json",
+      "source_case": "explicit_pose",
+      "held_pose": "<pose>0 0 0 0.1 0 0</pose>"
+    },
+    {
+      "name": "sphere_pitch",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose>0 0 0 0 0.2 0</pose><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "rotation.sdf"
+    },
+    {
+      "name": "sphere_yaw",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose>0 0 0 0 0 0.3</pose><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "rotation.sdf"
+    },
+    {
+      "name": "sphere_mixed",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose>0 0 0 0.1 0.2 0.3</pose><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "rotation.sdf"
+    },
+    {
+      "name": "sphere_half_turn",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose>0 0 0 3.141592653589793 0 0</pose><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "rotation.sdf"
+    },
+    {
+      "name": "sphere_tiny",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose>0 0 0 1e-12 0 0</pose><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "rotation.sdf"
+    },
+    {
+      "name": "sphere_large_angle",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose>0 0 0 1e300 0 0</pose><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "rotation.sdf"
+    },
+    {
+      "name": "sphere_missing",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose>0 0 0 0.1 0.2 0.3</pose><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "rotation.sdf"
+    },
+    {
+      "name": "sphere_empty",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose>0 0 0 0.1 0.2 0.3</pose><density/><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "rotation.sdf"
+    },
+    {
+      "name": "sphere_minimum",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose>0 0 0 0.1 0.2 0.3</pose><density>2.2250738585072014e-308</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "rotation.sdf",
+      "rust_error": "Unsupported"
+    },
+    {
+      "name": "sphere_maximum",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose>0 0 0 0.1 0.2 0.3</pose><density>1.7976931348623157e308</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "rotation.sdf"
+    },
+    {
+      "name": "anisotropic_roll",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose>0 0 0 0.1 0 0</pose><density>1240</density><geometry><box><size>1 2 3</size></box></geometry></collision></link></model></sdf>",
+      "uri": "rotation.sdf"
+    },
+    {
+      "name": "anisotropic_mixed",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose>0 0 0 0.1 0.2 0.3</pose><density>1240</density><geometry><box><size>1 2 3</size></box></geometry></collision></link></model></sdf>",
+      "uri": "rotation.sdf"
+    }
+  ]
+}

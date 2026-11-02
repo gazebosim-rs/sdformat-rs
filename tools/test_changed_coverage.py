@@ -14,6 +14,28 @@ def syntax(*, fields=(), closings=(), opaque=(), declarations=(), items=(), else
 
 
 class ChangedCoverageTests(unittest.TestCase):
+    def test_test_module_declarations_never_hide_mapped_uncovered_code(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp); (root / 'src').mkdir()
+            file = root / 'src/parse.rs'
+            file.write_text('#[cfg(test)]\n#[path = "../tests/private/auto_rotation.rs"]\nmod automatic_rotation_tests;\nfn production() { work(); }\n')
+            declarations = {('src/parse.rs', line) for line in (1, 2, 3)}
+            proof = syntax(items=[1, 2, 3])
+            covered = {(file.resolve(), 4): True}
+            self.assertEqual(verify.check_changed_coverage(root, {'lines': declarations}, covered,
+                                                         syntax_provider=proof), [])
+            for line in (1, 2, 3, 4):
+                with self.subTest(mapped_uncovered=line), self.assertRaisesRegex(AssertionError, 'changed executable'):
+                    verify.check_changed_coverage(root, {'lines': {('src/parse.rs', line)}},
+                                                  covered | {(file.resolve(), line): False},
+                                                  syntax_provider=lambda *_: self.fail('DA0 must precede syntax proof'))
+            with self.assertRaisesRegex(AssertionError, 'opaque syntax'):
+                verify.check_changed_coverage(root, {'lines': {('src/parse.rs', 1)}}, covered,
+                                              syntax_provider=syntax(items=[1, 2, 3], opaque=[1]))
+            with self.assertRaisesRegex(AssertionError, 'no instrumented executable'):
+                verify.check_changed_coverage(root, {'lines': {('src/parse.rs', 4)}},
+                                              {(file.resolve(), 1): True}, syntax_provider=proof)
+
     def test_changed_subset_fails_even_when_aggregate_passes(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)

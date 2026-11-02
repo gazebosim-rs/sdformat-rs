@@ -1,0 +1,56 @@
+{
+  "copyright": "Copyright (C) 2026 Open Source Robotics Foundation",
+  "license": "Apache-2.0",
+  "base": "4e4a919b059f4de2b04d295936caada5a7dd9654",
+  "upstream_sha": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+  "math_sha": "1316ed334f4d5bda7be59aae07cd6e8ff31cfe13",
+  "scope": "Only explicit degrees=false/0 and rotation_format=euler_rpy, individually/together, in existing automatic single primitive domains. One reviewed native capture complete; actualdata/amendment/PRIOR clear, finalfoldSourceCLEAR, provenanceSourcecorrectionreviewpending, Firstordinaryhook316sfailednewhelperSourcecolumncomparison;59tools/fmtClippyDocpassed, correctedRust/coverageUNRUN. Only exact16 prior-approved branches folded.",
+  "native_cases": 24,
+  "native_observations": 24,
+  "selected_sources": {
+    "sdformat/src/Param.cc": "487407a4a2301617b262ccb782312fe9c1d3d099e715aa42f3bb3cb713b29dce",
+    "sdformat/src/Collision.cc": "235fe52a4df631f5c26b55eb289ea2829982bfb2fc3e27c290aca388ba8289ee",
+    "sdformat/src/Link.cc": "ff58b54bef267f7e13a2ac5ee99e7bcece921729915d3de6906309bc237e07cc",
+    "sdformat/sdf/1.12/pose.sdf": "e1547ea92de92a50f66f743c1a4e2312edf85115cfb5cb8c99b47b118832974e"
+  },
+  "implementation": "Allow only exact existing default-radian attribute name/value combinations; existing Parser::pose/Euler normalization, matureParry, orderedrotation/translation/scalarcompatibility and allvalidation unchanged. No new math/provider/dependency/API.",
+  "closed_domains": "Every explicit frame/relative_to attribute includingempty, true-degree/quaternion/unknown families, rotated/mixedCapsule, overrides,multiple and all current numeric/domain guards remain closed.",
+  "precision": "Unchanged fourULP and original numericzero/signedzero scope; no new bounds or scalar formula.",
+  "prior_disposition": "Independent actualdata/amendment/PRIOR review1b483f15 approves only16 exact XML/URI stronger-helper calls/imports across6oldfiles; implemented withall tables/counts/order/corpora/otherpredicates unchanged. FinalsixfilefoldSourceCLEAR. Subsequentfirstmandatoryhookfailednewhelperprovenance;59tools/fmtClippyDocpassed, correctedexecution/fullRustcoverageUNRUN.",
+  "status": "partial_pending_review",
+  "review": "CompleteSource/data/PRIOR/foldCLEAR; actualfirstmandatoryhookfailednewhelpermanualSourceassumption; correctedSourceUNRUN pendingnarrowreview andaffectedmandatoryhook.",
+  "original_credit": "unchanged207complete35partial; no Param.Pose3d or wholeAutoInertia completion claim",
+  "native_summary": {
+    "children": 24,
+    "all_exit_zero": true,
+    "root_finite_valid": 24,
+    "direct_finite_valid": 24,
+    "all_errors_empty": true,
+    "idempotent": 24,
+    "warning_rows": [
+      "cylinder_old_degrees",
+      "cylinder_old_format",
+      "cylinder_zero",
+      "cylinder_both_false"
+    ],
+    "warning_scope": "Exactly inherited absent-density cylinder warning bytes; other20stderr empty",
+    "protected_inputs": 76,
+    "expanded_compiler_inputs": 340,
+    "observer_libraries": 11,
+    "unchanged_original": "Param.Pose3d onecompletedpass",
+    "raw_sha256": "0636937b25c16f34dfba471724da6ab6075c9412e9247d0118a718a8a8c09ba7",
+    "fixture_sha256": "efe608f56212950ed939cdc7c55e29327145bc33a8d16309f8f26c17427f22e9"
+  },
+  "first_hook_failure": {
+    "tree": "e194f7d36d510159de958bb861982c91ee33339e",
+    "elapsed_seconds": 316.0368479460012,
+    "capacity_guard_stopped": false,
+    "minimum_free_bytes": 10598957056,
+    "commit_created": false,
+    "tooling_passed": 59,
+    "fmt_clippy_doc_passed": true,
+    "failure": "newcompletehelper manualCollision.source.column76 vsautomatic75 because auto=false XML isonecharlonger",
+    "correction": "All5valuefields compareindividually; manualandautomaticSource URI/line/column eachcheckedagainstownexactXML; noSourcefielddrop, production/native/bounds/oldfolds unchanged",
+    "scope": "Cargo firstfailingtargetstop; no completeRustsuite/coverage result; no retry orpreliminaryexecution"
+  }
+}

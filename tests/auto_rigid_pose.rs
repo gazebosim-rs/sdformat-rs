@@ -1,5 +1,7 @@
 // Copyright (C) 2026 Open Source Robotics Foundation
 // SPDX-License-Identifier: Apache-2.0
+#[path = "common/auto_default_pose_attributes.rs"]
+mod attributes;
 #[path = "common/auto_cylinder_inertial.rs"]
 mod cylinder;
 #[path = "common/auto_rigid_pose.rs"]
@@ -178,9 +180,23 @@ fn unsupported_encodings_overrides_geometry_and_multiplicity_stay_closed() {
             "rotation_format='euler_rpy'",
         ] {
             let xml = original.replace("<pose>", &format!("<pose {attribute}>"));
-            let error = load_str(&xml, "closed-combined.sdf", &NoResources).unwrap_err();
-            assert_eq!(error.code, ErrorCode::Unsupported);
-            assert_eq!(error.source.uri, "closed-combined.sdf");
+            if attribute == "degrees='false'" || attribute == "rotation_format='euler_rpy'" {
+                let shape = if sphere { "sphere" } else { "box" };
+                let key = if attribute == "degrees='false'" {
+                    "degrees"
+                } else {
+                    "format"
+                };
+                attributes::assert_default_attributes(
+                    &xml,
+                    "closed-combined.sdf",
+                    &format!("{shape}_old_rigid_{key}"),
+                );
+            } else {
+                let error = load_str(&xml, "closed-combined.sdf", &NoResources).unwrap_err();
+                assert_eq!(error.code, ErrorCode::Unsupported);
+                assert_eq!(error.source.uri, "closed-combined.sdf");
+            }
         }
         let quaternion = original.replace(
             "<pose>1 0 0 0.1 0 0</pose>",

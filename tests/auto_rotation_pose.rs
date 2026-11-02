@@ -1,5 +1,7 @@
 // Copyright (C) 2026 Open Source Robotics Foundation
 // SPDX-License-Identifier: Apache-2.0
+#[path = "common/auto_default_pose_attributes.rs"]
+mod attributes;
 #[path = "common/auto_rigid_pose.rs"]
 mod rigid;
 #[path = "common/auto_rotation_pose.rs"]
@@ -88,6 +90,20 @@ fn mixed_transforms_attributes_and_overrides_remain_closed() {
             let xml = original.replace("<pose>0 0 0 0.1 0 0</pose>", pose);
             if pose == "<pose>1 0 0 0.1 0 0</pose>" {
                 rigid::assert_translated_rotation(&xml, "closed-rotation.sdf", sphere);
+            } else if pose == "<pose degrees='false'>0 0 0 0.1 0 0</pose>"
+                || pose == "<pose rotation_format='euler_rpy'>0 0 0 0.1 0 0</pose>"
+            {
+                let shape = if sphere { "sphere" } else { "box" };
+                let key = if pose.contains("degrees=") {
+                    "degrees"
+                } else {
+                    "format"
+                };
+                attributes::assert_default_attributes(
+                    &xml,
+                    "closed-rotation.sdf",
+                    &format!("{shape}_old_rotation_{key}"),
+                );
             } else {
                 let error = load_str(&xml, "closed-rotation.sdf", &NoResources).unwrap_err();
                 assert_eq!(error.code, ErrorCode::Unsupported);

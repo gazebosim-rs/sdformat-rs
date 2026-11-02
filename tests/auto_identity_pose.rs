@@ -1,5 +1,7 @@
 // Copyright (C) 2026 Open Source Robotics Foundation
 // SPDX-License-Identifier: Apache-2.0
+#[path = "common/auto_default_pose_attributes.rs"]
+mod attributes;
 #[path = "common/auto_rotation_pose.rs"]
 mod rotation;
 use sdformat::*;
@@ -72,6 +74,18 @@ fn transformed_and_attributed_pose_families_stay_explicitly_unsupported() {
             }
             if pose == "<pose>0 0 0 0.1 0 0</pose>" {
                 rotation::assert_origin_rotation(&xml, "closed-pose.sdf", is_sphere);
+                continue;
+            }
+            if pose == "<pose rotation_format='euler_rpy'>0 0 0 0 0 0</pose>" {
+                attributes::assert_default_attributes(
+                    &xml,
+                    "closed-pose.sdf",
+                    if is_sphere {
+                        "sphere_old_identity"
+                    } else {
+                        "box_old_identity"
+                    },
+                );
                 continue;
             }
             let error = load_str(&xml, "closed-pose.sdf", &NoResources).unwrap_err();

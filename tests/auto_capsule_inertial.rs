@@ -1,5 +1,7 @@
 // Copyright (C) 2026 Open Source Robotics Foundation
 // SPDX-License-Identifier: Apache-2.0
+#[path = "common/auto_default_pose_attributes.rs"]
+mod attributes;
 #[path = "common/auto_capsule_translation.rs"]
 mod translation;
 use sdformat::*;
@@ -269,6 +271,19 @@ fn capsule_pose_attribute_override_and_multiplicity_domains_remain_closed() {
                 &xml,
                 "closed-capsule.sdf",
                 "old_translated_closed",
+            );
+        } else if pose == "<pose degrees='false'>0 0 0 0 0 0</pose>"
+            || pose == "<pose rotation_format='euler_rpy'>0 0 0 0 0 0</pose>"
+        {
+            let key = if pose.contains("degrees=") {
+                "degrees"
+            } else {
+                "format"
+            };
+            attributes::assert_default_attributes(
+                &xml,
+                "closed-capsule.sdf",
+                &format!("capsule_old_origin_{key}"),
             );
         } else {
             let error = load_str(&xml, "closed-capsule.sdf", &NoResources).unwrap_err();

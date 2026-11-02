@@ -1397,3 +1397,13 @@ math or broader pose families. Two exact old translations now use the complete
 positive helper after independent actual-data/PRIOR review. The one native capture is
 complete with an observed center residual, nonfinite aggregates and retained error
 defaults; Rust/lint/coverage qualification remains unrun.
+
+## Prepared explicit default automatic-inertia pose attributes
+
+[AUTO_DEFAULT_POSE_ATTRIBUTES.md](AUTO_DEFAULT_POSE_ATTRIBUTES.md) describes the
+source-only admission of explicit false/zero degrees and default Euler format
+within already supported primitive pose domains. It reuses existing parsing and
+all numerical paths. Frames, true degrees, quaternions and rotated Capsule stay
+closed. Independent native-data/PRIOR review approved only sixteen exact old
+branches into the complete same-input helper. The one native24 capture completed with four inherited missing-
+density cylinder warnings and empty errors; Rust/lint/coverage remain unrun.

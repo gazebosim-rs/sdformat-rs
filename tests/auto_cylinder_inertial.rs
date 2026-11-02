@@ -1,5 +1,7 @@
 // Copyright (C) 2026 Open Source Robotics Foundation
 // SPDX-License-Identifier: Apache-2.0
+#[path = "common/auto_default_pose_attributes.rs"]
+mod attributes;
 #[path = "common/auto_cylinder_inertial.rs"]
 mod cylinder;
 use sdformat::*;
@@ -179,9 +181,22 @@ fn cylinder_encodings_overrides_and_other_geometries_remain_closed() {
         "rotation_format='euler_rpy'",
     ] {
         let xml = original.replace("<pose>", &format!("<pose {attribute}>"));
-        let error = load_str(&xml, "closed-cylinder.sdf", &NoResources).unwrap_err();
-        assert_eq!(error.code, ErrorCode::Unsupported);
-        assert_eq!(error.source.uri, "closed-cylinder.sdf");
+        if attribute == "degrees='false'" || attribute == "rotation_format='euler_rpy'" {
+            let key = if attribute == "degrees='false'" {
+                "degrees"
+            } else {
+                "format"
+            };
+            attributes::assert_default_attributes(
+                &xml,
+                "closed-cylinder.sdf",
+                &format!("cylinder_old_{key}"),
+            );
+        } else {
+            let error = load_str(&xml, "closed-cylinder.sdf", &NoResources).unwrap_err();
+            assert_eq!(error.code, ErrorCode::Unsupported);
+            assert_eq!(error.source.uri, "closed-cylinder.sdf");
+        }
     }
     let quaternion = original.replace(
         "<pose>1 2 3 0.1 0.2 0.3</pose>",

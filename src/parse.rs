@@ -2471,7 +2471,16 @@ impl Parser<'_> {
             return Err(unsupported());
         }
         for collision in elements(link).filter(|n| n.has_tag_name("collision")) {
-            if child(collision, "pose").is_some_and(|pose| pose.attributes().next().is_some()) {
+            if child(collision, "pose").is_some_and(|pose| {
+                pose.attributes().any(|attribute| {
+                    let value = pose.attribute(attribute.name());
+                    let degrees = attribute.name() == "degrees"
+                        && (value == Some("false") || value == Some("0"));
+                    let format =
+                        attribute.name() == "rotation_format" && value == Some("euler_rpy");
+                    !(degrees || format)
+                })
+            }) {
                 return Err(unsupported());
             }
         }

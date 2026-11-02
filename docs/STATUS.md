@@ -4244,3 +4244,33 @@ helper, preserving all other old assertions. Final fold source review and the
 mandatory hook remain pending. Rotated and mixed
 capsules, attributes, overrides and multiple collisions stay closed. No new
 math/provider/API/dependency, bound, consumer pin, Fuel or original credit.
+
+## Explicit default Euler automatic-inertia attributes: source only
+
+The isolated batch off accepted `4e4a919b` changes only the blanket collision-pose
+attribute guard to admit degrees=false/0 and rotation_format=euler_rpy. Existing
+parser, maintained kernel, native compatibility and validation paths are reused
+without numeric changes. Fixed24 reference inputs include16 exact retained
+negatives plus8 paired/default-value controls. Independent actual-data/PRIOR
+review approved exactly those16 stronger-positive calls. Sixoldfiles now import
+and use the complete helper only for those branches; original tables, ordering,
+counts, corpora and all other predicates remain unchanged. Complete owned
+values/manual/source/frame/clone/include/density and closed-family regressions
+are authored. The one reviewed capture completed24 children plusParam.Pose3d
+once, allfinite-valid/error-empty/idempotent, with four inherited absent-density
+cylinder warnings retained exactly. Actual-data/amendedSource/PRIOR review is
+clear, including the final six-file fold. The first required hook subsequently
+passed59tools/fmt/Clippy/doc then failed the new helper provenance assumption as
+described below. Corrected execution is unrun, with no full Rust/coverage result.
+Rotated Capsule stays closed because scalar
+kernel agreement cannot establish near-zero rotated tensor cancellation parity.
+No new formula/provider/dependency/bound, consumer pin, Fuel or original credit.
+
+The first default-attribute mandatory hook on `e194f7d3` failed316.037s without
+a reserve stop or commit, after59tools/fmt/Clippy/doc. The new complete helper
+compared automatic/manual Collision source columns despite the one-character
+longer auto=false XML. Its completed source correction checks all five value
+fields and each Source against its own exact input; no production/native/bound
+or old disposition change. Cargo stopped the first failing target, so no full
+Rust/coverage result is claimed. Failed raw evidence remains separate; corrected
+execution is unrun pending review and ONE affected required hook.

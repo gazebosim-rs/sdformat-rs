@@ -1,5 +1,7 @@
 // Copyright (C) 2026 Open Source Robotics Foundation
 // SPDX-License-Identifier: Apache-2.0
+#[path = "common/auto_default_pose_attributes.rs"]
+mod attributes;
 #[path = "common/auto_capsule_translation.rs"]
 mod translation;
 use sdformat::*;
@@ -212,9 +214,24 @@ fn capsule_translation_retains_rotation_attribute_override_and_multiplicity_refu
         "<pose rotation_format='quat_xyzw'>1 0 0 0 0 0 1</pose>",
     ] {
         let xml = original.replace("<pose>1 0 0 0 0 0</pose>", pose);
-        let error = load_str(&xml, "closed-translation.sdf", &NoResources).unwrap_err();
-        assert_eq!(error.code, ErrorCode::Unsupported);
-        assert_eq!(error.source.uri, "closed-translation.sdf");
+        if pose == "<pose degrees='false'>1 0 0 0 0 0</pose>"
+            || pose == "<pose rotation_format='euler_rpy'>1 0 0 0 0 0</pose>"
+        {
+            let key = if pose.contains("degrees=") {
+                "degrees"
+            } else {
+                "format"
+            };
+            attributes::assert_default_attributes(
+                &xml,
+                "closed-translation.sdf",
+                &format!("capsule_old_translation_{key}"),
+            );
+        } else {
+            let error = load_str(&xml, "closed-translation.sdf", &NoResources).unwrap_err();
+            assert_eq!(error.code, ErrorCode::Unsupported);
+            assert_eq!(error.source.uri, "closed-translation.sdf");
+        }
     }
     for override_xml in [
         "<mass>1</mass>",

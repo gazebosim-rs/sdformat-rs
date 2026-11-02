@@ -1,0 +1,271 @@
+{
+  "copyright": "Copyright (C) 2026 Open Source Robotics Foundation",
+  "license": "Apache-2.0",
+  "scope": "Fixed24: exact16 retained default-attribute negatives plus8 equivalent existing radian-Euler controls; no native capture yet.",
+  "cases": [
+    {
+      "name": "box_old_identity",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose rotation_format='euler_rpy'>0 0 0 0 0 0</pose><density>1240</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "closed-pose.sdf",
+      "base_xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose>0 0 0 0 0 0</pose><density>1240</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "attributes": "rotation_format='euler_rpy'",
+      "source_fixture": "auto_box_inertial.json",
+      "source_case": "pose_identity",
+      "pose_override": null,
+      "old_test": "auto_identity_pose.rs"
+    },
+    {
+      "name": "box_old_rotation_degrees",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose degrees='false'>0 0 0 0.1 0 0</pose><density>1240</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "closed-rotation.sdf",
+      "base_xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose>0 0 0 0.1 0 0</pose><density>1240</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "attributes": "degrees='false'",
+      "source_fixture": "auto_box_inertial.json",
+      "source_case": "pose_identity",
+      "pose_override": "0 0 0 0.1 0 0",
+      "old_test": "auto_rotation_pose.rs"
+    },
+    {
+      "name": "box_old_rigid_degrees",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose degrees='false'>1 0 0 0.1 0 0</pose><density>1240</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "closed-combined.sdf",
+      "base_xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose>1 0 0 0.1 0 0</pose><density>1240</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "attributes": "degrees='false'",
+      "source_fixture": "auto_rigid_pose_cases.json",
+      "source_case": "box_old_rigid",
+      "pose_override": null,
+      "old_test": "auto_rigid_pose.rs"
+    },
+    {
+      "name": "box_old_rotation_format",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose rotation_format='euler_rpy'>0 0 0 0.1 0 0</pose><density>1240</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "closed-rotation.sdf",
+      "base_xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose>0 0 0 0.1 0 0</pose><density>1240</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "attributes": "rotation_format='euler_rpy'",
+      "source_fixture": "auto_box_inertial.json",
+      "source_case": "pose_identity",
+      "pose_override": "0 0 0 0.1 0 0",
+      "old_test": "auto_rotation_pose.rs"
+    },
+    {
+      "name": "box_old_rigid_format",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose rotation_format='euler_rpy'>1 0 0 0.1 0 0</pose><density>1240</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "closed-combined.sdf",
+      "base_xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose>1 0 0 0.1 0 0</pose><density>1240</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "attributes": "rotation_format='euler_rpy'",
+      "source_fixture": "auto_rigid_pose_cases.json",
+      "source_case": "box_old_rigid",
+      "pose_override": null,
+      "old_test": "auto_rigid_pose.rs"
+    },
+    {
+      "name": "sphere_old_identity",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose rotation_format='euler_rpy'>0 0 0 0 0 0</pose><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "closed-pose.sdf",
+      "base_xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose>0 0 0 0 0 0</pose><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "attributes": "rotation_format='euler_rpy'",
+      "source_fixture": "auto_sphere_inertial.json",
+      "source_case": "explicit_pose",
+      "pose_override": null,
+      "old_test": "auto_identity_pose.rs"
+    },
+    {
+      "name": "sphere_old_rotation_degrees",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose degrees='false'>0 0 0 0.1 0 0</pose><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "closed-rotation.sdf",
+      "base_xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose>0 0 0 0.1 0 0</pose><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "attributes": "degrees='false'",
+      "source_fixture": "auto_sphere_inertial.json",
+      "source_case": "explicit_pose",
+      "pose_override": "0 0 0 0.1 0 0",
+      "old_test": "auto_rotation_pose.rs"
+    },
+    {
+      "name": "sphere_old_rigid_degrees",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose degrees='false'>1 0 0 0.1 0 0</pose><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "closed-combined.sdf",
+      "base_xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose>1 0 0 0.1 0 0</pose><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "attributes": "degrees='false'",
+      "source_fixture": "auto_rigid_pose_cases.json",
+      "source_case": "sphere_old_rigid",
+      "pose_override": null,
+      "old_test": "auto_rigid_pose.rs"
+    },
+    {
+      "name": "sphere_old_rotation_format",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose rotation_format='euler_rpy'>0 0 0 0.1 0 0</pose><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "closed-rotation.sdf",
+      "base_xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose>0 0 0 0.1 0 0</pose><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "attributes": "rotation_format='euler_rpy'",
+      "source_fixture": "auto_sphere_inertial.json",
+      "source_case": "explicit_pose",
+      "pose_override": "0 0 0 0.1 0 0",
+      "old_test": "auto_rotation_pose.rs"
+    },
+    {
+      "name": "sphere_old_rigid_format",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose rotation_format='euler_rpy'>1 0 0 0.1 0 0</pose><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "closed-combined.sdf",
+      "base_xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose>1 0 0 0.1 0 0</pose><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "attributes": "rotation_format='euler_rpy'",
+      "source_fixture": "auto_rigid_pose_cases.json",
+      "source_case": "sphere_old_rigid",
+      "pose_override": null,
+      "old_test": "auto_rigid_pose.rs"
+    },
+    {
+      "name": "cylinder_old_degrees",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><pose degrees='false'>1 2 3 0.1 0.2 0.3</pose><geometry><cylinder><radius>1</radius><length>2</length></cylinder></geometry></collision></link></model></sdf>",
+      "uri": "closed-cylinder.sdf",
+      "base_xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><pose>1 2 3 0.1 0.2 0.3</pose><geometry><cylinder><radius>1</radius><length>2</length></cylinder></geometry></collision></link></model></sdf>",
+      "attributes": "degrees='false'",
+      "source_fixture": "auto_cylinder_inertial_cases.json",
+      "source_case": "retained_negative",
+      "pose_override": null,
+      "old_test": "auto_cylinder_inertial.rs"
+    },
+    {
+      "name": "capsule_old_origin_degrees",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><pose degrees='false'>0 0 0 0 0 0</pose><density>2710</density><geometry><capsule><radius>0.1</radius><length>2</length></capsule></geometry></collision></link></model></sdf>",
+      "uri": "closed-capsule.sdf",
+      "base_xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><pose>0 0 0 0 0 0</pose><density>2710</density><geometry><capsule><radius>0.1</radius><length>2</length></capsule></geometry></collision></link></model></sdf>",
+      "attributes": "degrees='false'",
+      "source_fixture": "auto_capsule_inertial_cases.json",
+      "source_case": "original_dimensions",
+      "pose_override": null,
+      "old_test": "auto_capsule_inertial.rs"
+    },
+    {
+      "name": "capsule_old_translation_degrees",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><pose degrees='false'>1 0 0 0 0 0</pose><density>2710</density><geometry><capsule><radius>0.1</radius><length>2</length></capsule></geometry></collision></link></model></sdf>",
+      "uri": "closed-translation.sdf",
+      "base_xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><pose>1 0 0 0 0 0</pose><density>2710</density><geometry><capsule><radius>0.1</radius><length>2</length></capsule></geometry></collision></link></model></sdf>",
+      "attributes": "degrees='false'",
+      "source_fixture": "auto_capsule_translation_cases.json",
+      "source_case": "old_translated_closed",
+      "pose_override": null,
+      "old_test": "auto_capsule_translation.rs"
+    },
+    {
+      "name": "cylinder_old_format",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><pose rotation_format='euler_rpy'>1 2 3 0.1 0.2 0.3</pose><geometry><cylinder><radius>1</radius><length>2</length></cylinder></geometry></collision></link></model></sdf>",
+      "uri": "closed-cylinder.sdf",
+      "base_xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><pose>1 2 3 0.1 0.2 0.3</pose><geometry><cylinder><radius>1</radius><length>2</length></cylinder></geometry></collision></link></model></sdf>",
+      "attributes": "rotation_format='euler_rpy'",
+      "source_fixture": "auto_cylinder_inertial_cases.json",
+      "source_case": "retained_negative",
+      "pose_override": null,
+      "old_test": "auto_cylinder_inertial.rs"
+    },
+    {
+      "name": "capsule_old_origin_format",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><pose rotation_format='euler_rpy'>0 0 0 0 0 0</pose><density>2710</density><geometry><capsule><radius>0.1</radius><length>2</length></capsule></geometry></collision></link></model></sdf>",
+      "uri": "closed-capsule.sdf",
+      "base_xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><pose>0 0 0 0 0 0</pose><density>2710</density><geometry><capsule><radius>0.1</radius><length>2</length></capsule></geometry></collision></link></model></sdf>",
+      "attributes": "rotation_format='euler_rpy'",
+      "source_fixture": "auto_capsule_inertial_cases.json",
+      "source_case": "original_dimensions",
+      "pose_override": null,
+      "old_test": "auto_capsule_inertial.rs"
+    },
+    {
+      "name": "capsule_old_translation_format",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><pose rotation_format='euler_rpy'>1 0 0 0 0 0</pose><density>2710</density><geometry><capsule><radius>0.1</radius><length>2</length></capsule></geometry></collision></link></model></sdf>",
+      "uri": "closed-translation.sdf",
+      "base_xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><pose>1 0 0 0 0 0</pose><density>2710</density><geometry><capsule><radius>0.1</radius><length>2</length></capsule></geometry></collision></link></model></sdf>",
+      "attributes": "rotation_format='euler_rpy'",
+      "source_fixture": "auto_capsule_translation_cases.json",
+      "source_case": "old_translated_closed",
+      "pose_override": null,
+      "old_test": "auto_capsule_translation.rs"
+    },
+    {
+      "name": "box_both_false",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose degrees='false' rotation_format='euler_rpy'>1 0 0 0.1 0 0</pose><density>1240</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "default-attributes.sdf",
+      "base_xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose>1 0 0 0.1 0 0</pose><density>1240</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "attributes": "degrees='false' rotation_format='euler_rpy'",
+      "source_fixture": "auto_rigid_pose_cases.json",
+      "source_case": "box_old_rigid",
+      "pose_override": null,
+      "old_test": null
+    },
+    {
+      "name": "sphere_both_zero",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose rotation_format='euler_rpy' degrees='0'>1 0 0 0.1 0 0</pose><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "default-attributes.sdf",
+      "base_xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose>1 0 0 0.1 0 0</pose><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "attributes": "rotation_format='euler_rpy' degrees='0'",
+      "source_fixture": "auto_rigid_pose_cases.json",
+      "source_case": "sphere_old_rigid",
+      "pose_override": null,
+      "old_test": null
+    },
+    {
+      "name": "cylinder_zero",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><pose degrees='0'>1 2 3 0.1 0.2 0.3</pose><geometry><cylinder><radius>1</radius><length>2</length></cylinder></geometry></collision></link></model></sdf>",
+      "uri": "default-attributes.sdf",
+      "base_xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><pose>1 2 3 0.1 0.2 0.3</pose><geometry><cylinder><radius>1</radius><length>2</length></cylinder></geometry></collision></link></model></sdf>",
+      "attributes": "degrees='0'",
+      "source_fixture": "auto_cylinder_inertial_cases.json",
+      "source_case": "retained_negative",
+      "pose_override": null,
+      "old_test": null
+    },
+    {
+      "name": "capsule_zero",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><pose degrees='0'>1 0 0 0 0 0</pose><density>2710</density><geometry><capsule><radius>0.1</radius><length>2</length></capsule></geometry></collision></link></model></sdf>",
+      "uri": "default-attributes.sdf",
+      "base_xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><pose>1 0 0 0 0 0</pose><density>2710</density><geometry><capsule><radius>0.1</radius><length>2</length></capsule></geometry></collision></link></model></sdf>",
+      "attributes": "degrees='0'",
+      "source_fixture": "auto_capsule_translation_cases.json",
+      "source_case": "old_translated_closed",
+      "pose_override": null,
+      "old_test": null
+    },
+    {
+      "name": "box_both_zero",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose degrees='0' rotation_format='euler_rpy'>0 0 0 0 0 0</pose><density>1240</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "uri": "default-attributes.sdf",
+      "base_xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='box_col'><pose>0 0 0 0 0 0</pose><density>1240</density><geometry><box><size>2 2 2</size></box></geometry></collision></link></model></sdf>",
+      "attributes": "degrees='0' rotation_format='euler_rpy'",
+      "source_fixture": "auto_box_inertial.json",
+      "source_case": "pose_identity",
+      "pose_override": null,
+      "old_test": null
+    },
+    {
+      "name": "sphere_both_false",
+      "xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose degrees='false' rotation_format='euler_rpy'>0 0 0 0 0 0</pose><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "uri": "default-attributes.sdf",
+      "base_xml": "<sdf version='1.12'><model name='shapes'><link name='link'><inertial auto='true'/><collision name='sphere_col'><pose>0 0 0 0 0 0</pose><density>2170</density><geometry><sphere><radius>0.1</radius></sphere></geometry></collision></link></model></sdf>",
+      "attributes": "degrees='false' rotation_format='euler_rpy'",
+      "source_fixture": "auto_sphere_inertial.json",
+      "source_case": "explicit_pose",
+      "pose_override": null,
+      "old_test": null
+    },
+    {
+      "name": "cylinder_both_false",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><pose rotation_format='euler_rpy' degrees='false'>1 2 3 0.1 0.2 0.3</pose><geometry><cylinder><radius>1</radius><length>2</length></cylinder></geometry></collision></link></model></sdf>",
+      "uri": "default-attributes.sdf",
+      "base_xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><pose>1 2 3 0.1 0.2 0.3</pose><geometry><cylinder><radius>1</radius><length>2</length></cylinder></geometry></collision></link></model></sdf>",
+      "attributes": "rotation_format='euler_rpy' degrees='false'",
+      "source_fixture": "auto_cylinder_inertial_cases.json",
+      "source_case": "retained_negative",
+      "pose_override": null,
+      "old_test": null
+    },
+    {
+      "name": "capsule_both_false",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><pose rotation_format='euler_rpy' degrees='false'>1 0 0 0 0 0</pose><density>2710</density><geometry><capsule><radius>0.1</radius><length>2</length></capsule></geometry></collision></link></model></sdf>",
+      "uri": "default-attributes.sdf",
+      "base_xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><pose>1 0 0 0 0 0</pose><density>2710</density><geometry><capsule><radius>0.1</radius><length>2</length></capsule></geometry></collision></link></model></sdf>",
+      "attributes": "rotation_format='euler_rpy' degrees='false'",
+      "source_fixture": "auto_capsule_translation_cases.json",
+      "source_case": "old_translated_closed",
+      "pose_override": null,
+      "old_test": null
+    }
+  ]
+}

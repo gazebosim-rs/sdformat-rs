@@ -1,0 +1,156 @@
+{
+  "copyright": "Copyright (C) 2026 Open Source Robotics Foundation",
+  "license": "Apache-2.0",
+  "cases": [
+    {
+      "name": "original_dimensions",
+      "uri": "original_dimensions.sdf",
+      "pose_text": "0 0 0 0 0 0",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><pose>0 0 0 0 0 0</pose><density>2170</density><geometry><cylinder><radius>0.1</radius><length>2</length></cylinder></geometry></collision></link></model></sdf>"
+    },
+    {
+      "name": "retained_negative",
+      "uri": "cylinder.sdf",
+      "pose_text": "1 2 3 0.1 0.2 0.3",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><pose>1 2 3 0.1 0.2 0.3</pose><geometry><cylinder><radius>1</radius><length>2</length></cylinder></geometry></collision></link></model></sdf>"
+    },
+    {
+      "name": "translated",
+      "uri": "translated.sdf",
+      "pose_text": "1 2 3 0 0 0",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><pose>1 2 3 0 0 0</pose><density>2170</density><geometry><cylinder><radius>0.1</radius><length>2</length></cylinder></geometry></collision></link></model></sdf>"
+    },
+    {
+      "name": "roll",
+      "uri": "roll.sdf",
+      "pose_text": "0 0 0 0.1 0 0",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><pose>0 0 0 0.1 0 0</pose><density>2170</density><geometry><cylinder><radius>0.1</radius><length>2</length></cylinder></geometry></collision></link></model></sdf>"
+    },
+    {
+      "name": "mixed",
+      "uri": "mixed.sdf",
+      "pose_text": "0.125 0.25 -0.5 0.3 -0.2 0.1",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><pose>0.125 0.25 -0.5 0.3 -0.2 0.1</pose><density>1240</density><geometry><cylinder><radius>0.2</radius><length>3</length></cylinder></geometry></collision></link></model></sdf>"
+    },
+    {
+      "name": "z_axis",
+      "uri": "z_axis.sdf",
+      "pose_text": "0 0 0 0 0 0",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><pose>0 0 0 0 0 0</pose><density>1240</density><geometry><cylinder><radius>0.2</radius><length>3</length></cylinder></geometry></collision></link></model></sdf>"
+    },
+    {
+      "name": "missing_density",
+      "uri": "missing_density.sdf",
+      "pose_text": "0.125 0.25 -0.5 0.3 -0.2 0.1",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><pose>0.125 0.25 -0.5 0.3 -0.2 0.1</pose><geometry><cylinder><radius>0.2</radius><length>3</length></cylinder></geometry></collision></link></model></sdf>"
+    },
+    {
+      "name": "empty_density",
+      "uri": "empty_density.sdf",
+      "pose_text": "0.125 0.25 -0.5 0.3 -0.2 0.1",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><pose>0.125 0.25 -0.5 0.3 -0.2 0.1</pose><density/><geometry><cylinder><radius>0.2</radius><length>3</length></cylinder></geometry></collision></link></model></sdf>"
+    },
+    {
+      "name": "whitespace_density",
+      "uri": "whitespace_density.sdf",
+      "pose_text": "0.125 0.25 -0.5 0.3 -0.2 0.1",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><pose>0.125 0.25 -0.5 0.3 -0.2 0.1</pose><density> </density><geometry><cylinder><radius>0.2</radius><length>3</length></cylinder></geometry></collision></link></model></sdf>"
+    },
+    {
+      "name": "explicit_default_density",
+      "uri": "explicit_default_density.sdf",
+      "pose_text": "0.125 0.25 -0.5 0.3 -0.2 0.1",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><pose>0.125 0.25 -0.5 0.3 -0.2 0.1</pose><density>1000</density><geometry><cylinder><radius>0.2</radius><length>3</length></cylinder></geometry></collision></link></model></sdf>"
+    },
+    {
+      "name": "default_geometry",
+      "uri": "default_geometry.sdf",
+      "pose_text": "0 0 0 0 0 0",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><pose>0 0 0 0 0 0</pose><density>2170</density><geometry><cylinder/></geometry></collision></link></model></sdf>"
+    },
+    {
+      "name": "negative_radius",
+      "uri": "negative_radius.sdf",
+      "pose_text": "0 0 0 0 0 0",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><pose>0 0 0 0 0 0</pose><density>2170</density><geometry><cylinder><radius>-1</radius><length>3</length></cylinder></geometry></collision></link></model></sdf>"
+    },
+    {
+      "name": "zero_length",
+      "uri": "zero_length.sdf",
+      "pose_text": "0 0 0 0 0 0",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><pose>0 0 0 0 0 0</pose><density>2170</density><geometry><cylinder><radius>0.2</radius><length>0</length></cylinder></geometry></collision></link></model></sdf>"
+    },
+    {
+      "name": "both_nonpositive",
+      "uri": "both_nonpositive.sdf",
+      "pose_text": "0 0 0 0 0 0",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><pose>0 0 0 0 0 0</pose><density>2170</density><geometry><cylinder><radius>0</radius><length>-1</length></cylinder></geometry></collision></link></model></sdf>"
+    },
+    {
+      "name": "power_of_two",
+      "uri": "power_of_two.sdf",
+      "pose_text": "0 0 0 0 0 0",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><pose>0 0 0 0 0 0</pose><density>2170</density><geometry><cylinder><radius>0.125</radius><length>4</length></cylinder></geometry></collision></link></model></sdf>"
+    },
+    {
+      "name": "long_thin",
+      "uri": "long_thin.sdf",
+      "pose_text": "0 0 0 0 0 0",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><pose>0 0 0 0 0 0</pose><density>2170</density><geometry><cylinder><radius>0.01</radius><length>10</length></cylinder></geometry></collision></link></model></sdf>"
+    },
+    {
+      "name": "short_wide",
+      "uri": "short_wide.sdf",
+      "pose_text": "0 0 0 0 0 0",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><pose>0 0 0 0 0 0</pose><density>2170</density><geometry><cylinder><radius>10</radius><length>0.01</length></cylinder></geometry></collision></link></model></sdf>"
+    },
+    {
+      "name": "equivalent_spelling",
+      "uri": "equivalent_spelling.sdf",
+      "pose_text": "0 0 0 0 0 0",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><pose>0 0 0 0 0 0</pose><density>2170</density><geometry><cylinder><radius>1.0e-1</radius><length>2e0</length></cylinder></geometry></collision></link></model></sdf>"
+    },
+    {
+      "name": "overflow_translation",
+      "uri": "overflow_translation.sdf",
+      "pose_text": "1e200 0 0 0.1 0.2 0.3",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><pose>1e200 0 0 0.1 0.2 0.3</pose><density>2170</density><geometry><cylinder><radius>0.1</radius><length>2</length></cylinder></geometry></collision></link></model></sdf>",
+      "rust_error": "Unsupported"
+    },
+    {
+      "name": "maximum_translation",
+      "uri": "maximum_translation.sdf",
+      "pose_text": "1.7976931348623157e308 0 0 0.1 0.2 0.3",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><pose>1.7976931348623157e308 0 0 0.1 0.2 0.3</pose><density>2170</density><geometry><cylinder><radius>0.1</radius><length>2</length></cylinder></geometry></collision></link></model></sdf>",
+      "rust_error": "Unsupported"
+    },
+    {
+      "name": "minimum_density",
+      "uri": "minimum_density.sdf",
+      "pose_text": "0 0 0 0.1 0.2 0.3",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><pose>0 0 0 0.1 0.2 0.3</pose><density>2.2250738585072014e-308</density><geometry><cylinder><radius>0.1</radius><length>2</length></cylinder></geometry></collision></link></model></sdf>",
+      "rust_error": "Unsupported"
+    },
+    {
+      "name": "maximum_density",
+      "uri": "maximum_density.sdf",
+      "pose_text": "0 0 0 0.1 0.2 0.3",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><pose>0 0 0 0.1 0.2 0.3</pose><density>1.7976931348623157e308</density><geometry><cylinder><radius>0.1</radius><length>2</length></cylinder></geometry></collision></link></model></sdf>",
+      "rust_error": "Unsupported"
+    },
+    {
+      "name": "minimum_radius",
+      "uri": "minimum_radius.sdf",
+      "pose_text": "0 0 0 0 0 0",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><pose>0 0 0 0 0 0</pose><density>2170</density><geometry><cylinder><radius>2.2250738585072014e-308</radius><length>2</length></cylinder></geometry></collision></link></model></sdf>",
+      "rust_error": "Unsupported"
+    },
+    {
+      "name": "maximum_radius",
+      "uri": "maximum_radius.sdf",
+      "pose_text": "0 0 0 0 0 0",
+      "xml": "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><pose>0 0 0 0 0 0</pose><density>2170</density><geometry><cylinder><radius>1e155</radius><length>2</length></cylinder></geometry></collision></link></model></sdf>",
+      "rust_error": "Unsupported"
+    }
+  ]
+}

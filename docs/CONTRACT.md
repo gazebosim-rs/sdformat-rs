@@ -1349,3 +1349,16 @@ the already qualified single-box/sphere rotation and translation paths. Pose
 attributes/references, overrides, multiple collisions and existing numeric guards
 remain closed. Native data, old-expectation prior review and all mandatory
 qualification remain pending; no consumer pin is changed.
+
+
+## Prepared single-cylinder automatic inertia
+
+The source batch in [AUTO_CYLINDER_INERTIA.md](AUTO_CYLINDER_INERTIA.md) adds
+Cylinder through locked Parry, an exact Y-to-Z principal-axis permutation and the
+existing local pose, scalar-compatibility and physical-validation path. The one
+actual native capture is complete, including calculation failures that retain
+default inertials; Rust/tooling/coverage checks are unrun. Independent actual-data
+and SDK review approved replacing only the retained cylinder
+rejection with its complete same-input native-backed helper. Final fold/source
+review and the mandatory Rust hook remain pending. No public API, dependency,
+numeric bound, simulator or Fuel change.

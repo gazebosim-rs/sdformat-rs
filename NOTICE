@@ -18,12 +18,13 @@ The private radian-Euler constructor and automatic-inertia matrix boundaries are
 from gz-math include/gz/math/Quaternion.hh and Matrix3.hh, Copyright (C) 2012
 Open Source Robotics Foundation, under the Apache License, Version 2.0.
 
-Only newly rotated automatic box/sphere values also use private SDK-ordered
+Newly rotated automatic box/sphere/cylinder values also use private SDK-ordered
 primitive evaluation adapted from gz-math include/gz/math/MassMatrix3.hh,
 Copyright (C) 2015 Open Source Robotics Foundation, under the Apache License,
 Version 2.0. The demonstrated library rounding gap and this narrow exception are
-recorded in docs/AUTO_ROTATION_POSE.md. Existing Parry admission and unrotated
-paths, maintained glam matrix operations and the numeric policies remain in use;
+recorded in docs/AUTO_ROTATION_POSE.md and docs/AUTO_CYLINDER_INERTIA.md.
+Existing Parry admission and unrotated paths, maintained glam matrix operations
+and the numeric policies remain in use;
 no general geometry, rotation or inertia API is introduced.
 
 The private joint semantic-pose arithmetic is adapted from gz-math Pose3.hh

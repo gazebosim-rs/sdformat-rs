@@ -1,0 +1,76 @@
+{
+  "copyright": "Copyright (C) 2026 Open Source Robotics Foundation",
+  "license": "Apache-2.0",
+  "base": "f4d2e19c810a8db7d176d4b134303db1a415928f",
+  "scope": "Single Cylinder automatic inertia within existing one-local-collision pose/density/numeric domain. Actual capture and independent SDK/data/PRIOR review complete. Exact old negative folded to complete same-input helper; final source review and Rust/lint/coverage UNRUN.",
+  "upstream_sha": "1249805d9fceeff94ca1fe63e26ab9c051cea24e",
+  "math_sha": "1316ed334f4d5bda7be59aae07cd6e8ff31cfe13",
+  "selected_sources": {
+    "sdformat/src/Cylinder.cc": "f489db315887739affdb1976589b39deecaf1d1caa84e20e74c315b5c0e4e984",
+    "sdformat/src/Cylinder_TEST.cc": "5b4077d966d51bff32732a05846e84c4b99a8961542ea41f9f2cc203293c8c40",
+    "sdformat/src/Collision.cc": "235fe52a4df631f5c26b55eb289ea2829982bfb2fc3e27c290aca388ba8289ee",
+    "sdformat/src/Link.cc": "ff58b54bef267f7e13a2ac5ee99e7bcece921729915d3de6906309bc237e07cc",
+    "gz-math/include/gz/math/Cylinder.hh": "6c2a1a640c5e06d2ff8e2276fe524f4a270ca56c565114f5d3c545ec16a71661",
+    "gz-math/include/gz/math/detail/Cylinder.hh": "fbca4c7855c4258dccbe34a28cf3eec73522448275226cfdcd435890c1c79851",
+    "gz-math/include/gz/math/MassMatrix3.hh": "115c54a0ab11714e891f0ab060fbb2350652ed0aa6dfcf19958781b162543b5b",
+    "gz-math/include/gz/math/Inertial.hh": "22157a24c52529c2be13680169b1e14bd20ad0aa5adedd9ff55515cb7c7df033"
+  },
+  "native_cases": 24,
+  "native_observations": 24,
+  "capture": "python3 tools/auto_cylinder_inertial_reference.py /path/to/pinned/sdformat --capture",
+  "fixtures": {
+    "tests/auto_cylinder_inertial_cases.json": "0e4f04b396bf3db33f7e51e221c2405dc4fe06e75ee9568dd4296c7a6db1216a",
+    "tests/auto_cylinder_inertial_native.json": "e25fd1ff6f27c636bf45e903d5c8a75c99898ce3a8adfc99e0259ca6060fedfe"
+  },
+  "kernel": "Locked Parry0.31.1 from_cylinder(density,length/2,radius), Y-to-Z principal X/Z/Y permutation; existing admission/manual validator. No dependency change.",
+  "residual": "Only newly rotated Cylinder adds existing private native-scalar provider arm: native volume/principal evaluation order differs from public Parry unitmoment/reciprocal order. Existing glam matrix/translation helpers and all old scalar arms unchanged. Cylinder precision remains UNRUN.",
+  "precision": "Unchanged four-ULP public loaded-value bound; private native scalar bit comparison for valid direct values. No new threshold or tolerance.",
+  "old_expectation": "Only auto_rigid_pose.rs final cylinder.sdf negative now calls the complete helper with unchanged exact XML/URI, after independent Source and actual-data/SDK PRIOR approval. Only duplicate prepared wrapper removed; full corpus retains differential assertions and same helper. All other old assertions unchanged.",
+  "native_original": "Actual unchanged DOMCylinder.CalculateInertial1 pass/0 failures in same capture; no complete Rust original-case credit.",
+  "status": "partial_reviewed",
+  "review": "Independent Bevy whole Source/protocol and actual compiler/SDK/raw-data audit CLEAR; exact one-row PRIOR approval. Final narrow fold/source review pending; no reviewer product/native/compiler replay and no Rust qualification.",
+  "original_credit": "unchanged207complete/35partial; no original completion claim",
+  "native_summary": {
+    "children": 24,
+    "all_exit_zero": true,
+    "timeouts": 0,
+    "root_stored_finite_valid": 20,
+    "root_nonfinite_invalid": 2,
+    "root_finite_invalid": 2,
+    "valid_defaults_after_error": 2,
+    "genuine_zero_error_finite_valid": 18,
+    "direct_stored_finite_valid": 24,
+    "error_cases": {
+      "minimum_radius": {
+        "load": [
+          19
+        ],
+        "collision": [
+          19
+        ],
+        "resolve": []
+      },
+      "maximum_radius": {
+        "load": [
+          19
+        ],
+        "collision": [
+          19
+        ],
+        "resolve": []
+      }
+    },
+    "warning_rows": [
+      "retained_negative",
+      "missing_density",
+      "negative_radius",
+      "zero_length",
+      "both_nonpositive"
+    ],
+    "expanded_compiler_inputs": 340,
+    "mapped_observer_libraries": 11,
+    "raw_result_sha256": "8e29ac410733fad327520dd1d072f7f5f26daba1eb66235b70d41292647cb13b",
+    "elapsed_seconds": 14.256766743026674,
+    "scope": "One correctness capture, no performance claim or native rerun. All stored-valid defaults following error remain errors."
+  }
+}

@@ -4170,3 +4170,22 @@ has occurred. Independent actual-data/prior review approved only the two exact o
 expectations; the completed source now routes those inputs to the complete
 native-backed helper. Final source review and the one mandatory hook are pending. No tolerance, dependency, compiler,
 consumer, Fuel or original-count change; full automatic inertia remains partial.
+
+
+## Single-cylinder automatic inertia source batch
+
+Accepted producer Main remains f4d2e19. A separate complete source batch admits
+one local automatic Cylinder using locked Parry and the existing pose/validation
+helpers. Parry Y-axis moments map to SDF Z; only newly rotated Cylinder extends the
+existing SDK-ordered scalar provider, whose precise expression gap is documented.
+The fixed 24-case native protocol, unchanged original reference invocation,
+complete same-input helper and numeric/manual/metadata/import/negative controls
+are authored; the one reviewed native capture completed all 24 children and the
+unchanged original. Root stored 20 finite-valid/two finite-invalid/two nonfinite;
+two of 20 are valid defaults after explicit load/direct error 19, not successful
+shape calculations. Five warning rows are retained. Rust/lint/coverage remain
+UNRUN. Independent actual-data/SDK/PRIOR review approved only the exact
+cylinder.sdf rejection to its complete same-input helper, now folded with every
+other old assertion unchanged. Final narrow source review and mandatory
+verification remain pending. No consumer pin, Fuel, dependency, tolerance or
+original 207/35 count change.

@@ -2460,7 +2460,8 @@ impl Parser<'_> {
         collisions: &[Collision],
     ) -> Result<Inertial, Diagnostic> {
         self.allowed(node, &[], &["auto"])?;
-        let message = "automatic inertia requires one local box or sphere and no overrides";
+        let message =
+            "automatic inertia requires one local box, sphere or cylinder and no overrides";
         let unsupported = || self.err(node, ErrorCode::Unsupported, message);
         let [collision] = collisions else {
             return Err(unsupported());
@@ -2481,6 +2482,9 @@ impl Parser<'_> {
                 parry3d_f64::math::Vector::new(size[0] / 2., size[1] / 2., size[2] / 2.),
             ),
             Geometry::Sphere { radius } => MassProperties::from_ball(density, *radius),
+            Geometry::Cylinder { radius, length } => {
+                MassProperties::from_cylinder(density, *length / 2., *radius)
+            }
             _ => return Err(unsupported()),
         };
         if density <= 0. {
@@ -2493,7 +2497,11 @@ impl Parser<'_> {
         let center = properties.world_com(&MassPose::from_translation(
             parry3d_f64::math::Vector::from_array(collision.pose.transform.translation),
         ));
-        let diagonal = properties.principal_inertia().to_array();
+        let mut diagonal = properties.principal_inertia().to_array();
+        if matches!(collision.geometry, Geometry::Cylinder { .. }) {
+            // Parry's cylinder axis is Y; the SDF cylinder axis is Z.
+            diagonal.swap(1, 2);
+        }
         let mut result = Inertial {
             mass: properties.mass(),
             inertia: [diagonal[0], diagonal[1], diagonal[2], 0., 0., 0.],
@@ -4863,7 +4871,8 @@ fn automatic_rotation_matrix(rpy: [f64; 3]) -> DMat3 {
     ])
 }
 
-// Adapted from gz-math MassMatrix3::SetFromBox / SetFromSphere, Copyright (C)
+// Adapted from gz-math MassMatrix3::SetFromBox / SetFromSphere /
+// SetFromCylinderZ, Copyright (C)
 // 2015 Open Source Robotics Foundation, Apache-2.0. Owned adaptation: 2026 OSRF.
 // Parry remains the admission kernel. Its rounded reciprocal principal values
 // cannot preserve SDK products of inertia after cancellation in this path.
@@ -4889,6 +4898,15 @@ fn automatic_rotated_properties(geometry: &Geometry, density: f64) -> Option<(f6
             let moment = 0.4 * mass * square;
             Some((mass, [moment; 3]))
         }
+        Geometry::Cylinder { radius, length } => {
+            // Preserve the SDK scalar order before rotated cancellation.
+            let volume = std::f64::consts::PI * radius * radius * length;
+            let mass = density * volume;
+            let radius2 = radius * radius;
+            let transverse = mass / 12. * (3. * radius2 + length * length);
+            let axial = mass / 2. * radius2;
+            Some((mass, [transverse, transverse, axial]))
+        }
         _ => None,
     }
 }
@@ -4896,3 +4914,7 @@ fn automatic_rotated_properties(geometry: &Geometry, density: f64) -> Option<(f6
 #[cfg(test)]
 #[path = "../tests/private/auto_rotation.rs"]
 mod automatic_rotation_tests;
+
+#[cfg(test)]
+#[path = "../tests/private/auto_cylinder.rs"]
+mod automatic_cylinder_tests;

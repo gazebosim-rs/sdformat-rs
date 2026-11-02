@@ -1,5 +1,7 @@
 // Copyright (C) 2026 Open Source Robotics Foundation
 // SPDX-License-Identifier: Apache-2.0
+#[path = "common/auto_cylinder_inertial.rs"]
+mod cylinder;
 #[path = "common/auto_rigid_pose.rs"]
 mod rigid;
 use sdformat::*;
@@ -237,12 +239,7 @@ fn unsupported_encodings_overrides_geometry_and_multiplicity_stay_closed() {
         );
     }
     let cylinder = "<sdf version='1.12'><model name='m'><link name='l'><inertial auto='true'/><collision name='c'><pose>1 2 3 0.1 0.2 0.3</pose><geometry><cylinder><radius>1</radius><length>2</length></cylinder></geometry></collision></link></model></sdf>";
-    assert_eq!(
-        load_str(cylinder, "cylinder.sdf", &NoResources)
-            .unwrap_err()
-            .code,
-        ErrorCode::Unsupported
-    );
+    cylinder::assert_retained_input(cylinder, "cylinder.sdf");
 }
 
 #[test]
